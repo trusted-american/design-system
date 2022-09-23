@@ -13,7 +13,7 @@
 ## Installation
 
 ```
-ember install design-system
+ember install @trusted-american/design-system
 ```
 
 
