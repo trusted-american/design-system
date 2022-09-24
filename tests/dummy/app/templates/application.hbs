@@ -1,13 +1,41 @@
-{{page-title "Dummy"}}
+{{page-title 'Design System'}}
 
-<h2 id="title">Welcome to Ember</h2>
+<Aside
+  @title='Design System'
+  @logo='https://a3.taia.us/assets/images/logo.svg'
+  @route='index'
+>
+  <:default>
+    <LinkTo @route='index' class='nav-link'>
+      Link 1
+    </LinkTo>
+    <LinkTo @route='index' class='nav-link'>
+      Link 2
+    </LinkTo>
+    <LinkTo @route='index' class='nav-link'>
+      Link 3
+    </LinkTo>
+  </:default>
 
-<Aside>
-  Aside
+  <:bottom>
+    Bottom
+  </:bottom>
 </Aside>
 
-<Main>
+<Main class='p-4'>
+  <Heading @title='Heading'>
+    Right
+  </Heading>
+
+  <Heading @title='Heading' @type='Type' @code='code'>
+    Right
+  </Heading>
+
+  <Subheading @title='Subheading'>
+    Right
+  </Subheading>
+
+  <StatCard @key='Key' @value='Value' />
+
   Main
 </Main>
-
-{{outlet}}

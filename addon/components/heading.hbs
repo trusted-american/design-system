@@ -1,0 +1,21 @@
+<div class='mb-4' ...attributes>
+  {{#if @type}}
+    <div class='d-flex justify-content-between align-items-end text-muted mb-2'>
+      <h6 class='fw-normal text-uppercase small mb-0'>
+        {{@type}}
+      </h6>
+      {{#if @code}}
+        <h6 class='fw-normal font-monospace small mb-0'>
+          {{@code}}
+        </h6>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <div class='d-flex justify-content-between align-items-start'>
+    <h1 class='mb-0'>
+      {{@title}}
+    </h1>
+    {{yield}}
+  </div>
+</div>

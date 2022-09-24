@@ -1,3 +1,19 @@
-<aside ...attributes>
-  {{yield}}
+<aside class='d-flex flex-column' ...attributes>
+  <LinkTo
+    @route={{@route}}
+    class='d-flex align-items-center link-dark text-decoration-none px-3 py-4'
+  >
+    <img src={{@logo}} alt={{@title}} class='me-3' />
+    <h3 class='mb-0'>
+      {{@title}}
+    </h3>
+  </LinkTo>
+
+  <nav class='nav flex-column flex-grow-1'>
+    {{yield}}
+  </nav>
+
+  <div class='p-3'>
+    {{yield to='bottom'}}
+  </div>
 </aside>
