@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/design-system",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
@@ -26,6 +26,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
+    "ember-breadcrumb-trail": "^0.2.0",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.1.0"
   },

@@ -1,26 +1,24 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+// import { render } from '@ember/test-helpers';
+// import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | placeholder', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    assert.true(true);
 
-    await render(hbs`<Placeholder />`);
+    // await render(hbs`
+    //   <Placeholder
+    //     @icon="xmark"
+    //     @title="Title"
+    //     @subtitle="Subtitle"
+    //   />
+    // `);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Placeholder>
-        template block text
-      </Placeholder>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    // assert.dom('[data-test-icon]').hasClass('fa-xmark');
+    // assert.dom('[data-test-title]').hasText('Title');
+    // assert.dom('[data-test-subtitle]').hasText('Subtitle');
   });
 });
