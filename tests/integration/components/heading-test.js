@@ -7,20 +7,44 @@ module('Integration | Component | heading', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.title = 'Title';
+    this.subtitle = undefined;
+    this.type = undefined;
+    this.code = undefined;
 
-    await render(hbs`<Heading />`);
-
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <Heading>
+      <Heading
+        @title={{this.title}}
+        @subtitle={{this.subtitle}}
+        @type={{this.type}}
+        @code={{this.code}}
+      />
+    `);
+
+    assert.dom(this.element).hasText('Title');
+
+    this.set('subtitle', 'Subtitle');
+
+    assert.dom(this.element).hasText('Title Subtitle');
+
+    this.set('type', 'Agent');
+    this.set('code', '1');
+
+    assert.dom(this.element).hasText('Agent 1 Title Subtitle');
+
+    await render(hbs`
+      <Heading
+        @title={{this.title}}
+        @subtitle={{this.subtitle}}
+        @type={{this.type}}
+        @code={{this.code}}
+      >
         template block text
       </Heading>
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert
+      .dom(this.element)
+      .hasText('Agent 1 Title Subtitle template block text');
   });
 });

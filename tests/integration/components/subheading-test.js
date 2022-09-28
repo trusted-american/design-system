@@ -7,20 +7,18 @@ module('Integration | Component | subheading', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.title = 'Title';
 
-    await render(hbs`<Subheading />`);
+    await render(hbs`<Subheading @title={{this.title}} />`);
 
-    assert.dom(this.element).hasText('');
+    assert.dom(this.element).hasText('Title');
 
-    // Template block usage:
     await render(hbs`
-      <Subheading>
+      <Subheading @title={{this.title}}>
         template block text
       </Subheading>
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('Title template block text');
   });
 });

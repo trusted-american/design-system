@@ -1,0 +1,18 @@
+{{#if @label}}
+  <label for={{@identifier}} class='form-label'>
+    {{@label}}
+    {{#if @required}}
+      <span class='text-danger'>
+        *
+      </span>
+    {{/if}}
+  </label>
+{{/if}}
+
+<Textarea
+  @value={{@value}}
+  id={{@identifier}}
+  required={{@required}}
+  class='form-control {{if @size (concat "form-control-" @size)}}'
+  ...attributes
+/>
