@@ -1,12 +1,12 @@
-<div class='component-ui-property-list' ...attributes>
+<div class="component-ui-property-list" ...attributes>
   {{#if @title}}
-    <p class='text-uppercase'>
+    <p class="text-uppercase">
       {{@title}}
     </p>
   {{/if}}
-  <dl class='row {{if @horizontal "gx-5"}} mb-0'>
+  <dl class="row {{if @horizontal 'gx-5'}} mb-0">
     {{yield
-      (hash item=(component 'property-list/item' horizontal=@horizontal))
+      (hash item=(component "property-list/item" horizontal=@horizontal))
     }}
   </dl>
 </div>

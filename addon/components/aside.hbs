@@ -1,19 +1,23 @@
-<aside class='d-flex flex-column overflow-y-auto' ...attributes>
+<aside class="d-flex flex-column overflow-y-auto" ...attributes>
   <LinkTo
     @route={{@route}}
-    class='d-flex align-items-center link-dark text-decoration-none px-3 py-4'
+    class="d-flex align-items-center link-dark text-decoration-none px-3 py-4"
   >
-    <img src={{@logo}} alt={{@title}} class='me-3' />
-    <h3 class='mb-0'>
+    <img src={{@logo}} alt={{@title}} class="me-3" />
+    <h3 class="mb-0">
       {{@title}}
     </h3>
   </LinkTo>
 
-  <nav class='nav flex-column flex-grow-1'>
+  <nav class="nav flex-column flex-grow-1" aria-label="Upper Nav">
     {{yield}}
   </nav>
 
-  <div class='p-3'>
-    {{yield to='bottom'}}
+  <nav class="nav flex-column mb-2" aria-label="Lower Nav">
+    {{yield to="lower"}}
+  </nav>
+
+  <div class="p-3">
+    {{yield to="bottom"}}
   </div>
 </aside>

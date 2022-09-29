@@ -1,16 +1,16 @@
 {{#if @horizontal}}
-  <div class='col-auto border-end'>
-    <dt class='text-secondary'>
+  <div class="col-auto border-end">
+    <dt class="text-secondary">
       {{@key}}
       {{#if @tooltip}}
-        <a href='#' class='text-secondary ms-2'>
-          <i class='fas fa-info-circle' {{tooltip @tooltip}}></i>
+        <a href="#" class="text-secondary ms-2">
+          <i class="fas fa-info-circle" {{tooltip @tooltip}}></i>
         </a>
       {{/if}}
     </dt>
-    <dd class='' ...attributes>
+    <dd class="" ...attributes>
       {{#if @alt}}
-        <span class='text-disabled'>
+        <span class="text-disabled">
           No
           {{@key}}
         </span>
@@ -20,18 +20,18 @@
     </dd>
   </div>
 {{else}}
-  <dt class='col-5 text-secondary'>
+  <dt class="col-5 text-secondary">
     {{@key}}
   </dt>
-  <dd class='col-7' ...attributes>
+  <dd class="col-7" ...attributes>
     {{#if @alt}}
-      <span class='text-disabled'>
+      <span class="text-disabled">
         No
         {{@key}}
       </span>
     {{else}}
       {{#if @value}}
-        <CopyButton @clipboardText={{@value}} {{tooltip (concat 'Copy ' @key)}}>
+        <CopyButton @clipboardText={{@value}} {{tooltip (concat "Copy " @key)}}>
           {{yield}}
         </CopyButton>
       {{else}}
