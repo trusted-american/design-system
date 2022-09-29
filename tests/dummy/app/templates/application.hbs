@@ -26,13 +26,44 @@
 </Aside>
 
 <Main class='p-4'>
+  <Subheading @title='<Avatar />' />
+
+  <Avatar @id='62f76a6f5a1162f76a6f5a11' @alt='Avatar' />
+  <Avatar
+    @id='62f76a6f5a1162f76a6f5a12'
+    @url='https://pixabay.com/get/g8f9b46d8725586b951d8dead754676e7613f700ba0b8d0f53712ec21ebbcb90d1b0f653be92e13ea28676ea53a4c071b8d3d19b289ac8fc8fc0ebe5e0aeefd831de12bf520e591bf56f05a3cfab402c5_1280.png'
+    @alt='Avatar'
+  />
+
+  <Subheading @title='<BreadcrumbTrail />' />
+
   <BreadcrumbTrail />
+
+  <Subheading @title='<Form::Check />' />
 
   <Form::Check @value={{true}} />
 
-  <Form::Input @value='' />
+  <Subheading @title='<Form::Input />' />
 
-  <Form::Textarea @value='' />
+  <Form::Input
+    @value={{this.value}}
+    @label='Label'
+    @help='Help'
+    @invalidFeedback={{this.invalidFeedback}}
+    @identifier='identifier'
+    @required={{true}}
+  />
+
+  <Subheading @title='<Form::Textarea />' />
+
+  <Form::Textarea
+    @value={{this.value}}
+    @label='Label'
+    @identifier='identifier'
+    @required={{true}}
+  />
+
+  <Subheading @title='<Heading />' />
 
   <Heading @title='Heading'>
     Right
@@ -42,7 +73,11 @@
     Right
   </Heading>
 
+  <Subheading @title='<Placeholder />' />
+
   {{! <Placeholder @icon='xmark' @title='Title' @subtitle='Subtitle' /> }}
+
+  <Subheading @title='<PropertyList />' />
 
   <PropertyList as |list|>
     <list.item @key='Key' @value='Value' @alt={{false}}>
@@ -50,9 +85,13 @@
     </list.item>
   </PropertyList>
 
+  <Subheading @title='<Subheading />' />
+
   <Subheading @title='Subheading'>
     Right
   </Subheading>
+
+  <Subheading @title='<StatCard />' />
 
   <StatCard @key='Key' @value='Value' />
 

@@ -4,3 +4,7 @@
   border: none;
   text-align: inherit;
 }
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
