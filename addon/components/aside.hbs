@@ -17,7 +17,9 @@
     {{yield to="lower"}}
   </nav>
 
-  <div class="p-3">
-    {{yield to="bottom"}}
-  </div>
+  {{#if (has-block "bottom")}}
+    <div class="p-3">
+      {{yield to="bottom"}}
+    </div>
+  {{/if}}
 </aside>

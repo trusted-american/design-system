@@ -32,24 +32,24 @@
 </Aside>
 
 <Main class="p-4">
-  <Subheading @title="<Avatar />" />
+  <Subheading @title="Avatar" />
 
   <Avatar @id="62f76a6f5a1162f76a6f5a11" @alt="Avatar" />
   <Avatar
     @id="62f76a6f5a1162f76a6f5a12"
-    @url="https://pixabay.com/get/g8f9b46d8725586b951d8dead754676e7613f700ba0b8d0f53712ec21ebbcb90d1b0f653be92e13ea28676ea53a4c071b8d3d19b289ac8fc8fc0ebe5e0aeefd831de12bf520e591bf56f05a3cfab402c5_1280.png"
+    @url="https://riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg"
     @alt="Avatar"
   />
 
-  <Subheading @title="<BreadcrumbTrail />" />
+  <Subheading @title="BreadcrumbTrail" />
 
   <BreadcrumbTrail />
 
-  <Subheading @title="<Form::Check />" />
+  <Subheading @title="Form::Check" />
 
   <Form::Check @value={{true}} />
 
-  <Subheading @title="<Form::Input />" />
+  <Subheading @title="Form::Input" />
 
   <Form::Input
     @value={{this.value}}
@@ -58,18 +58,21 @@
     @invalidFeedback={{this.invalidFeedback}}
     @identifier="identifier"
     @required={{true}}
+    placeholder="Placeholder"
   />
 
-  <Subheading @title="<Form::Textarea />" />
+  <Subheading @title="Form::Textarea" />
 
   <Form::Textarea
     @value={{this.value}}
     @label="Label"
+    @help="Help"
     @identifier="identifier"
     @required={{true}}
+    placeholder="Placeholder"
   />
 
-  <Subheading @title="<Heading />" />
+  <Subheading @title="Heading" />
 
   <Heading @title="Heading">
     Right
@@ -79,11 +82,11 @@
     Right
   </Heading>
 
-  <Subheading @title="<Placeholder />" />
+  <Subheading @title="Placeholder" />
 
   {{! <Placeholder @icon='xmark' @title='Title' @subtitle='Subtitle' /> }}
 
-  <Subheading @title="<PropertyList />" />
+  <Subheading @title="PropertyList" />
 
   <PropertyList as |list|>
     <list.item @key="Key" @value="Value" @alt={{false}}>
@@ -91,15 +94,64 @@
     </list.item>
   </PropertyList>
 
-  <Subheading @title="<Subheading />" />
+  <Subheading @title="Subheading" />
 
   <Subheading @title="Subheading">
     Right
   </Subheading>
 
-  <Subheading @title="<StatCard />" />
+  <Subheading @title="StatCard" />
 
   <StatCard @key="Key" @value="Value" />
+
+  <Subheading @title="Toast" />
+
+  <Toast>
+    <:body>Body</:body>
+  </Toast>
+
+  <Toast>
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
+
+  <Toast @onClose={{this.do}}>
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
+
+  <Toast @color="primary" @onClose={{this.do}}>
+    {{! <:title>Title</:title> }}
+    <:body>Body</:body>
+  </Toast>
+
+  <Toast @color="success" @onClose={{this.do}}>
+    {{! <:title>Title</:title> }}
+    <:body>Body</:body>
+  </Toast>
+
+  <Toast @color="warning" @onClose={{this.do}}>
+    {{! <:title>Title</:title> }}
+    <:body>Body</:body>
+  </Toast>
+
+  <Toast @color="danger" @onClose={{this.do}}>
+    {{! <:title>Title</:title> }}
+    <:body>Body</:body>
+  </Toast>
+
+  <Toast>
+    <:title>Title</:title>
+    <:body>Body</:body>
+    <:buttons>
+      <Bs::Button @size="sm" @color="light" @onClick={{this.xyz}}>
+        Button
+      </Bs::Button>
+      <Bs::Button @size="sm" @color="link" @onClick={{this.xyz}}>
+        Link text
+      </Bs::Button>
+    </:buttons>
+  </Toast>
 
   Main
 </Main>

@@ -16,3 +16,9 @@
   class="form-control {{if @size (concat 'form-control-' @size)}}"
   ...attributes
 />
+
+{{#if @help}}
+  <div class="form-text">
+    {{@help}}
+  </div>
+{{/if}}
