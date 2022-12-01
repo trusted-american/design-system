@@ -71,6 +71,19 @@
     placeholder="Phone"
   />
 
+  <Subheading @title="Form::Radio" />
+
+  <Form::Radio
+    @options={{array
+      (hash value=true label="Yes")
+      (hash value=false label="No")
+    }}
+    @selected={{this.radio}}
+    @label="Radio"
+    @identifier="radio"
+    @onChange={{fn (mut this.radio)}}
+  />
+
   <Subheading @title="Form::Select" />
 
   <Form::Select

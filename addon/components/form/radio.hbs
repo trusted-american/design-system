@@ -1,0 +1,38 @@
+<div class="mb-3">
+  {{#if @label}}
+    <label for={{@identifier}} class="form-label">
+      {{@label}}
+      {{#if @required}}
+        <span class="text-danger">
+          *
+        </span>
+      {{/if}}
+    </label>
+    <br />
+  {{/if}}
+
+  {{#each @options as |opt index|}}
+    <div class="form-check {{if @inline 'form-check-inline'}}">
+      <input
+        class="form-check-input"
+        type="radio"
+        name={{@identifier}}
+        id="{{@identifier}}{{index}}"
+        checked={{eq @selected opt.value}}
+        required={{@required}}
+        {{on "change" (fn @onChange opt.value)}}
+        ...attributes
+      />
+
+      <label class="form-check-label" for="{{@identifier}}{{index}}">
+        {{opt.label}}
+      </label>
+
+      {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
+        <div class="invalid-feedback">
+          {{@invalidFeedback}}
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+</div>
