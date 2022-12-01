@@ -101,6 +101,18 @@
     @onChange={{fn (mut this.radio)}}
   />
 
+  <Subheading @title="Form::RadioBtn" />
+
+  <Form::RadioBtn
+    @options={{array
+      (hash value=true label="Yes")
+      (hash value=false label="No")
+    }}
+    @selected={{this.radioBtn}}
+    @identifier="radioBtn"
+    @onChange={{fn (mut this.radioBtn)}}
+  />
+
   <Subheading @title="Form::Select" />
 
   <Form::Select
