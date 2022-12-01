@@ -2,18 +2,19 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 import { htmlSafe } from '@ember/template';
+// @ts-ignore
 import Identicon from 'identicon.js';
 
 const DEFAULT_SIZE = 4; // rem
 
-// export interface AvatarComponentArgs {
-//   id: string;
-//   url?: string | null;
-//   alt: string;
-//   size?: number;
-// }
+export interface AvatarComponentArgs {
+  id: string;
+  url?: string | null;
+  alt: string;
+  size?: number;
+}
 
-export default class AvatarComponent extends Component {
+export default class AvatarComponent extends Component<AvatarComponentArgs> {
   get size() {
     const { size } = this.args;
 
