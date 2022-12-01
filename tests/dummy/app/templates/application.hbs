@@ -61,6 +61,16 @@
     placeholder="Placeholder"
   />
 
+  <Subheading @title="Form::PhoneInput" />
+
+  <Form::PhoneInput
+    @value={{this.phone}}
+    @label="Phone"
+    @identifier="phone"
+    @onChange={{fn (mut this.phone)}}
+    placeholder="Phone"
+  />
+
   <Subheading @title="Form::Select" />
 
   <Form::Select
