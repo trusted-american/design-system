@@ -1,0 +1,59 @@
+{{#if @label}}
+  <label for={{@identifier}} class="form-label">
+    {{@label}}
+    {{#if @required}}
+      <span class="text-danger">
+        *
+      </span>
+    {{/if}}
+  </label>
+{{/if}}
+
+{{#if @simple}}
+  <select
+    id={{@identifier}}
+    class="form-select {{if @size (concat 'form-select-' @size)}}"
+    required={{@required}}
+    disabled={{@disabled}}
+    {{on "change" (pick "target.value" @onChange)}}
+    ...attributes
+  >
+    <option value="" selected={{not @selected}}>
+      Choose…
+    </option>
+    {{#each @options as |opt|}}
+      <option selected={{eq @selected opt}}>
+        {{opt}}
+      </option>
+    {{/each}}
+  </select>
+{{else}}
+  <select
+    id={{@identifier}}
+    class="form-select {{if @size (concat 'form-select-' @size)}}"
+    required={{@required}}
+    {{on "change" this.change}}
+    ...attributes
+  >
+    {{#each @options as |opt index|}}
+      <option
+        value={{if (or opt.value (eq false opt.value)) index ""}}
+        selected={{eq @selected opt.value}}
+      >
+        {{opt.label}}
+      </option>
+    {{/each}}
+  </select>
+{{/if}}
+
+{{#if @invalidFeedback}}
+  <div class="invalid-feedback">
+    {{@invalidFeedback}}
+  </div>
+{{/if}}
+
+{{#if @help}}
+  <div class="form-text">
+    {{@help}}
+  </div>
+{{/if}}

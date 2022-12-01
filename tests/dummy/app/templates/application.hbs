@@ -61,6 +61,19 @@
     placeholder="Placeholder"
   />
 
+  <Subheading @title="Form::Select" />
+
+  <Form::Select
+    @options={{array
+      (hash value="active" label="Active")
+      (hash value="inactive" label="Inactive")
+    }}
+    @selected={{this.status}}
+    @label="Status"
+    @identifier="status"
+    @onChange={{fn (mut this.status)}}
+  />
+
   <Subheading @title="Form::Textarea" />
 
   <Form::Textarea
