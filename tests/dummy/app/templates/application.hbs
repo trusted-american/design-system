@@ -95,6 +95,23 @@
     Right
   </Heading>
 
+  <Subheading @title="ListFilter" />
+
+  <ListFilter
+    @predicates={{array
+      (hash
+        name="Status"
+        key="status"
+        value=this.status
+        options=(array
+          (hash value="active" label="Active")
+          (hash value="inactive" label="Inactive")
+        )
+      )
+    }}
+    @onChange={{this.do}}
+  />
+
   <Subheading @title="Placeholder" />
 
   {{! <Placeholder @icon='xmark' @title='Title' @subtitle='Subtitle' /> }}
