@@ -49,6 +49,15 @@
 
   <Form::Check @value={{true}} />
 
+  <Subheading @title="Form::DateInput" />
+
+  <Form::DateInput
+    @value={{this.date}}
+    @label="Date"
+    @identifier="date"
+    @onChange={{fn (mut this.date)}}
+  />
+
   <Subheading @title="Form::FileInput" />
 
   <Form::FileInput
