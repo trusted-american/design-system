@@ -49,6 +49,14 @@
 
   <Form::Check @value={{true}} />
 
+  <Subheading @title="Form::FileInput" />
+
+  <Form::FileInput
+    @label="File"
+    @identifier="file"
+    @onChange={{fn (mut this.file)}}
+  />
+
   <Subheading @title="Form::Input" />
 
   <Form::Input
