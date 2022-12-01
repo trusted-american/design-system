@@ -4,7 +4,7 @@ import { typeOf } from '@ember/utils';
 import { action, set } from '@ember/object';
 // import * as dayjs from 'dayjs';
 
-// import type { Option } from 'brokers/components/form/select';
+import type { Option } from '@trusted-american/design-system/components/form/select';
 
 type DateRangeQueryParam =
   | {
@@ -14,11 +14,6 @@ type DateRangeQueryParam =
       lte: Date | null;
     }
   | [];
-
-export interface Option<T = unknown> {
-  value: T;
-  label: string;
-}
 
 interface P {
   name: string;
