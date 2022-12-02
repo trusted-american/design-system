@@ -28,6 +28,7 @@
     "postpack": "ember ts:clean"
   },
   "dependencies": {
+    "dayjs": "^1.11.6",
     "ember-auto-import": "^2.4.3",
     "ember-breadcrumb-trail": "^0.2.0",
     "ember-cli-babel": "^7.26.11",

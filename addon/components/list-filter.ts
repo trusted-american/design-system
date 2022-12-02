@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 import { action, set } from '@ember/object';
-// import * as dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
@@ -197,18 +197,16 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         };
 
         if (predicate.mode === 'inTheLast') {
-          // value.gte = dayjs()
-          //   .subtract(
-          //     predicate.valueA,
-          //     predicate.valueB === 'months' ? 'months' : 'days'
-          //   )
-          //   .toDate();
-          value.gte = null;
+          value.gte = dayjs()
+            .subtract(
+              predicate.valueA,
+              predicate.valueB === 'months' ? 'months' : 'days'
+            )
+            .toDate();
           value.lte = new Date();
         } else if (predicate.mode === 'equals') {
           value.gte = predicate.valueA as Date;
-          // value.lte = dayjs(predicate.valueA).endOf('day').toDate();
-          value.lte = null;
+          value.lte = dayjs(predicate.valueA).endOf('day').toDate();
         } else if (predicate.mode === 'between') {
           value.gte = predicate.valueA;
           value.lte = predicate.valueB;
