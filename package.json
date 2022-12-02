@@ -34,7 +34,6 @@
     "ember-cli-clipboard": "^0.16.0",
     "ember-cli-htmlbars": "^6.1.1",
     "ember-cli-typescript": "^5.2.1",
-    "ember-named-blocks-polyfill": "^0.2.5",
     "identicon.js": "^2.3.3"
   },
   "devDependencies": {
