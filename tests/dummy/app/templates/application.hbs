@@ -26,9 +26,16 @@
   </:bottom>
 </Aside>
 
-{{! template-lint-disable }}
-<Main class="p-4" style="display: block !important;">
-  <BreadcrumbTrail />
+<Main>
+  <TopHeader class="border-bottom">
+    Search
+  </TopHeader>
 
-  {{outlet}}
+  <TopHeader class="shadow-sm">
+    <BreadcrumbTrail />
+  </TopHeader>
+
+  <div class="p-4">
+    {{outlet}}
+  </div>
 </Main>
