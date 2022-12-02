@@ -2,3 +2,18 @@
 {{breadcrumb "Helpers"}}
 
 <Heading @title="Helpers" />
+
+<Subheading @title="from-now" />
+
+<p>{{from-now this.date}}</p>
+
+<Subheading @title="timestamp" />
+
+<ul>
+  <li>{{timestamp this.date}}</li>
+  <li>{{timestamp this.date "date"}}</li>
+  <li>{{timestamp this.date "time"}}</li>
+  <li>{{timestamp this.date number=true}}</li>
+  <li>{{timestamp this.date year=true}}</li>
+  <li>{{timestamp this.date utc=true}}</li>
+</ul>
