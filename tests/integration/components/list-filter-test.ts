@@ -3,10 +3,7 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type {
-  ListFilterSignature,
-  Predicate,
-} from '@trusted-american/design-system/components/list-filter';
+import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
 
 type Context = ListFilterSignature<string>['Args'] & TestContext;
 
@@ -33,7 +30,7 @@ module('Integration | Component | list-filter', function (hooks) {
           { value: 'three', label: 'Three' },
         ],
       },
-    ] as Predicate<string>[];
+    ];
     this.onChange = () => {
       assert.true(true);
     };
