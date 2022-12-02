@@ -1,7 +1,5 @@
 {{page-title "Design System"}}
-{{breadcrumb "First"}}
-{{breadcrumb "Second"}}
-{{breadcrumb "Third"}}
+{{breadcrumb "Design System"}}
 
 <Aside
   @title="Design System"
@@ -9,14 +7,11 @@
   @route="index"
 >
   <:default>
-    <LinkTo @route="index" class="nav-link">
-      Link 1
+    <LinkTo @route="components" class="nav-link">
+      Components
     </LinkTo>
-    <LinkTo @route="index" class="nav-link">
-      Link 2
-    </LinkTo>
-    <LinkTo @route="index" class="nav-link">
-      Link 3
+    <LinkTo @route="helpers" class="nav-link">
+      Helpers
     </LinkTo>
   </:default>
 
@@ -33,208 +28,7 @@
 
 {{! template-lint-disable }}
 <Main class="p-4" style="display: block !important;">
-  <Subheading @title="Avatar" />
-
-  <Avatar @id="62f76a6f5a1162f76a6f5a11" @alt="Avatar" />
-  <Avatar
-    @id="62f76a6f5a1162f76a6f5a12"
-    @url="https://riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg"
-    @alt="Avatar"
-  />
-
-  <Subheading @title="BreadcrumbTrail" />
-
   <BreadcrumbTrail />
 
-  <Subheading @title="Form::Check" />
-
-  <Form::Check @value={{true}} />
-
-  <Subheading @title="Form::DateInput" />
-
-  <Form::DateInput
-    @value={{this.date}}
-    @label="Date"
-    @identifier="date"
-    @onChange={{fn (mut this.date)}}
-  />
-
-  <Subheading @title="Form::FileInput" />
-
-  <Form::FileInput
-    @label="File"
-    @identifier="file"
-    @onChange={{fn (mut this.file)}}
-  />
-
-  <Subheading @title="Form::Input" />
-
-  <Form::Input
-    @value={{this.value}}
-    @label="Label"
-    @help="Help"
-    @invalidFeedback={{this.invalidFeedback}}
-    @identifier="identifier"
-    @required={{true}}
-    placeholder="Placeholder"
-  />
-
-  <Subheading @title="Form::PhoneInput" />
-
-  <Form::PhoneInput
-    @value={{this.phone}}
-    @label="Phone"
-    @identifier="phone"
-    @onChange={{fn (mut this.phone)}}
-    placeholder="Phone"
-  />
-
-  <Subheading @title="Form::Radio" />
-
-  <Form::Radio
-    @options={{array
-      (hash value=true label="Yes")
-      (hash value=false label="No")
-    }}
-    @selected={{this.radio}}
-    @label="Radio"
-    @identifier="radio"
-    @onChange={{fn (mut this.radio)}}
-  />
-
-  <Subheading @title="Form::RadioBtn" />
-
-  <Form::RadioBtn
-    @options={{array
-      (hash value=true label="Yes")
-      (hash value=false label="No")
-    }}
-    @selected={{this.radioBtn}}
-    @identifier="radioBtn"
-    @onChange={{fn (mut this.radioBtn)}}
-  />
-
-  <Subheading @title="Form::Select" />
-
-  <Form::Select
-    @options={{array
-      (hash value="active" label="Active")
-      (hash value="inactive" label="Inactive")
-    }}
-    @selected={{this.status}}
-    @label="Status"
-    @identifier="status"
-    @onChange={{fn (mut this.status)}}
-  />
-
-  <Subheading @title="Form::Textarea" />
-
-  <Form::Textarea
-    @value={{this.value}}
-    @label="Label"
-    @help="Help"
-    @identifier="identifier"
-    @required={{true}}
-    placeholder="Placeholder"
-  />
-
-  <Subheading @title="Heading" />
-
-  <Heading @title="Heading">
-    Right
-  </Heading>
-
-  <Heading @title="Heading" @type="Type" @code="code">
-    Right
-  </Heading>
-
-  <Subheading @title="ListFilter" />
-
-  <ListFilter
-    @predicates={{array
-      (hash
-        name="Status"
-        key="status"
-        value=this.status
-        options=(array
-          (hash value="active" label="Active")
-          (hash value="inactive" label="Inactive")
-        )
-      )
-    }}
-    @onChange={{this.do}}
-  />
-
-  <Subheading @title="Placeholder" />
-
-  {{! <Placeholder @icon='xmark' @title='Title' @subtitle='Subtitle' /> }}
-
-  <Subheading @title="PropertyList" />
-
-  <PropertyList as |list|>
-    <list.item @key="Key" @value="Value" @alt={{false}}>
-      Value
-    </list.item>
-  </PropertyList>
-
-  <Subheading @title="Subheading" />
-
-  <Subheading @title="Subheading">
-    Right
-  </Subheading>
-
-  <Subheading @title="StatCard" />
-
-  <StatCard @key="Key" @value="Value" />
-
-  <Subheading @title="Toast" />
-
-  <Toast>
-    <:body>Body</:body>
-  </Toast>
-
-  <Toast>
-    <:title>Title</:title>
-    <:body>Body</:body>
-  </Toast>
-
-  <Toast @onClose={{this.do}}>
-    <:title>Title</:title>
-    <:body>Body</:body>
-  </Toast>
-
-  <Toast @color="primary" @onClose={{this.do}}>
-    {{! <:title>Title</:title> }}
-    <:body>Body</:body>
-  </Toast>
-
-  <Toast @color="success" @onClose={{this.do}}>
-    {{! <:title>Title</:title> }}
-    <:body>Body</:body>
-  </Toast>
-
-  <Toast @color="warning" @onClose={{this.do}}>
-    {{! <:title>Title</:title> }}
-    <:body>Body</:body>
-  </Toast>
-
-  <Toast @color="danger" @onClose={{this.do}}>
-    {{! <:title>Title</:title> }}
-    <:body>Body</:body>
-  </Toast>
-
-  <Toast>
-    <:title>Title</:title>
-    <:body>Body</:body>
-    <:buttons>
-      <Bs::Button @size="sm" @color="light" @onClick={{this.xyz}}>
-        Button
-      </Bs::Button>
-      <Bs::Button @size="sm" @color="link" @onClick={{this.xyz}}>
-        Link text
-      </Bs::Button>
-    </:buttons>
-  </Toast>
-
-  Main
+  {{outlet}}
 </Main>
