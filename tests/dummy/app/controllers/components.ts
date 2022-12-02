@@ -5,5 +5,7 @@ export default class ComponentsController extends Controller {
   date = new Date();
 
   @action
-  do() {}
+  do() {
+    console.log('Something');
+  }
 }
