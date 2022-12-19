@@ -38,7 +38,13 @@
     <BreadcrumbTrail />
   </TopHeader>
 
-  <div class="p-4">
+  <Main::Body class="p-4">
     {{outlet}}
-  </div>
+  </Main::Body>
+
+  <Main::Footer>
+    <ExternalLink @url="https://github.com/trusted-american/design-system">
+      GitHub
+    </ExternalLink>
+  </Main::Footer>
 </Main>
