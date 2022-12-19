@@ -1,0 +1,32 @@
+{{page-title "Example"}}
+{{breadcrumb "Example"}}
+
+<Heading @title="Example">
+  <Bs::Toolbar as |toolbar|>
+    <toolbar.group>
+      <Input
+        @value={{this.search}}
+        @type="search"
+        class="form-control"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </toolbar.group>
+    <toolbar.group as |group|>
+      <group.button @onClick={{@onSearch}}>
+        Search
+      </group.button>
+    </toolbar.group>
+    <toolbar.group as |group|>
+      <group.button @color="primary" @onClick={{fn (mut this.xyz)}}>
+        Create
+      </group.button>
+      <group.button @color="primary" {{dropdown}} />
+      <Bs::Dropdown @align="right" as |dropdown|>
+        <dropdown.item @onClick={{fn (mut this.xyz)}}>
+          Import
+        </dropdown.item>
+      </Bs::Dropdown>
+    </toolbar.group>
+  </Bs::Toolbar>
+</Heading>

@@ -26,3 +26,7 @@ aside img {
     font-weight: $btn-font-weight;
   } */
 }
+
+.breadcrumb {
+  --bs-breadcrumb-margin-bottom: 0;
+}
