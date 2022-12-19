@@ -150,7 +150,14 @@
 <Subheading @title="Main::Header" />
 
 <Main::Header>
-  Header
+  <Heading @title="Title" @type="Type" @code="code">
+    <Bs::Button @color="primary" {{dropdown}}>Actions</Bs::Button>
+    <Bs::Dropdown @align="right" as |dropdown|>
+      <dropdown.item>Action 1</dropdown.item>
+      <dropdown.item>Action 2</dropdown.item>
+      <dropdown.item>Action 3</dropdown.item>
+    </Bs::Dropdown>
+  </Heading>
 </Main::Header>
 
 <Subheading @title="Main::TopHeader" />
