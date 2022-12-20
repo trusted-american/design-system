@@ -72,9 +72,3 @@ export default class FormSelectComponent extends Component<FormSelectComponentSi
     }
   }
 }
-
-// declare module '@glint/environment-ember-loose/registry' {
-//   export default interface Registry {
-//     'Form::Select': typeof FormSelectComponent;
-//   }
-// }

@@ -3,16 +3,17 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | main', function (hooks) {
+module('Integration | Component | toast', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Main>
-        template block text
-      </Main>
+      <Toast>
+        <:title>Title</:title>
+        <:body>Body</:body>
+      </Toast>
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element as Element).hasText('Title Body');
   });
 });

@@ -28,9 +28,3 @@ export default class FormFileInputComponent extends Component<FormFileInputCompo
     }
   }
 }
-
-// declare module '@glint/environment-ember-loose/registry' {
-//   export default interface Registry {
-//     'Form::FileInput': typeof FormFileInputComponent;
-//   }
-// }

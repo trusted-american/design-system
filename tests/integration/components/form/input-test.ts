@@ -1,22 +1,16 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-// interface Context extends TestContext {
-//   value: string;
-//   type: string;
-//   label: string;
-//   help: string;
-//   invalidFeedback: string;
-//   identifier: string;
-//   required: boolean;
-// }
+import type { FormInputComponentSignature } from '@trusted-american/design-system/components/form/input';
+
+type Context = FormInputComponentSignature['Args'] & TestContext;
 
 module('Integration | Component | form/input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     this.value = 'Value';
     this.type = 'text';
     this.label = 'Label';
@@ -38,7 +32,7 @@ module('Integration | Component | form/input', function (hooks) {
     `);
 
     assert
-      .dom(this.element)
+      .dom(this.element as Element)
       .hasText(
         'Label * Please provide a value. Provide any value you would like.'
       );

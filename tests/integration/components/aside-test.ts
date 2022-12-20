@@ -3,17 +3,21 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | toast', function (hooks) {
+module('Integration | Component | aside', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Toast>
-        <:title>Title</:title>
-        <:body>Body</:body>
-      </Toast>
+      <Aside>
+        <:default>
+          Default
+        </:default>
+        <:bottom>
+          Bottom
+        </:bottom>
+      </Aside>
     `);
 
-    assert.dom(this.element).hasText('Title Body');
+    assert.dom(this.element as Element).hasText('Default Bottom');
   });
 });
