@@ -4,7 +4,7 @@ import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 interface Context extends TestContext {
-  element: Element
+  element: Element;
 
   date?: Date;
   format?: 'date' | 'time';
