@@ -11,7 +11,7 @@ module('Integration | Component | form/file-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     this.label = 'Label';
     this.identifier = 'identifier';
@@ -31,8 +31,7 @@ module('Integration | Component | form/file-input', function (hooks) {
       />
     `);
 
-    assert
-      .dom(this.element as Element)
-      .hasText('Label * Please provide a file.');
+    assert.dom('label').hasText('Label *');
+    assert.dom('.invalid-feedback').hasText('Please provide a file.');
   });
 });

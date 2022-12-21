@@ -31,6 +31,7 @@ module('Integration | Component | form/check', function (hooks) {
       />
     `);
 
-    assert.dom(this.element as Element).hasText('Label Help');
+    assert.dom('label').hasText('Label');
+    assert.dom('.form-text').hasText('Help');
   });
 });

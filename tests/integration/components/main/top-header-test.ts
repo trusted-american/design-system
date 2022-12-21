@@ -13,6 +13,6 @@ module('Integration | Component | main/top-header', function (hooks) {
       </Main::TopHeader>
     `);
 
-    assert.dom(this.element as Element).hasText('template block text');
+    assert.dom('header').hasText('template block text');
   });
 });

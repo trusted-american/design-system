@@ -15,7 +15,7 @@ module('Integration | Component | main/footer', function (hooks) {
       </Main::Footer>
     `);
 
-    assert.dom(this.element as Element).hasText('template block text');
+    assert.dom('footer').hasText('template block text');
     assert.dom('footer').hasClass('container-fluid');
   });
 });

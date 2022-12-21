@@ -32,10 +32,10 @@ module('Integration | Component | form/radio-btn', function (hooks) {
         @identifier={{this.identifier}}
         @size={{this.size}}
         @color={{this.color}}
-        @onChange={{this.change}}
+        @onChange={{this.onChange}}
       />
     `);
 
-    assert.dom(this.element as Element).hasText('One Two');
+    assert.dom('div').hasText('One Two');
   });
 });

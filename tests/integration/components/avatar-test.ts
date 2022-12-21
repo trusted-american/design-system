@@ -25,7 +25,7 @@ module('Integration | Component | avatar', function (hooks) {
       />
     `);
 
-    const img = find<HTMLImageElement>('[data-test-avatar]');
+    const img = find('[data-test-avatar]') as HTMLImageElement | null;
     assert.true(img?.src.includes('data:image/png'));
     assert.dom('[data-test-avatar]').hasAttribute('alt', this.alt);
     assert.dom('[data-test-avatar]').hasStyle({

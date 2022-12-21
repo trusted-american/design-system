@@ -25,10 +25,10 @@ module('Integration | Component | form/textarea', function (hooks) {
       />
     `);
 
-    assert.dom(this.element as Element).hasText('Label *');
+    assert.dom('label').hasText('Label *');
 
     this.set('required', false);
 
-    assert.dom(this.element as Element).hasText('Label');
+    assert.dom('label').hasText('Label');
   });
 });

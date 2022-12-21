@@ -31,10 +31,9 @@ module('Integration | Component | form/input', function (hooks) {
       />
     `);
 
-    assert
-      .dom(this.element as Element)
-      .hasText(
-        'Label * Please provide a value. Provide any value you would like.'
-      );
+    assert.dom('label').hasText('Label *');
+    assert.dom('input').exists();
+    assert.dom('.invalid-feedback').hasText('Please provide a value.');
+    assert.dom('.form-text').hasText('Provide any value you would like.');
   });
 });

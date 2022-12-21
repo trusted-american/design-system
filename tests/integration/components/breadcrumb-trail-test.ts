@@ -12,6 +12,6 @@ module('Integration | Component | breadcrumb-trail', function (hooks) {
 
     await render(hbs`<BreadcrumbTrail />`);
 
-    assert.dom(this.element as Element).hasText('');
+    assert.dom('nav').hasText('');
   });
 });

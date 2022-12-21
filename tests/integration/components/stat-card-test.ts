@@ -9,6 +9,6 @@ module('Integration | Component | stat-card', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<StatCard @key="Key" @value="Value" />`);
 
-    assert.dom(this.element as Element).hasText('Key Value');
+    assert.dom('div').hasText('Key Value');
   });
 });

@@ -12,7 +12,7 @@ module('Integration | Component | property-list/item', function (hooks) {
 
     await render(hbs`<PropertyList::Item />`);
 
-    assert.dom(this.element as Element).hasText('');
+    assert.dom('dd').hasText('');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | property-list/item', function (hooks) {
       </PropertyList::Item>
     `);
 
-    assert.dom(this.element as Element).hasText('template block text');
+    assert.dom('dd').hasText('template block text');
   });
 });
