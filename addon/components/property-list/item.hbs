@@ -15,7 +15,16 @@
           {{@key}}
         </span>
       {{else}}
-        {{yield}}
+        {{#if @value}}
+          <CopyButton
+            @clipboardText={{@value}}
+            {{tooltip (concat "Copy " @key)}}
+          >
+            {{yield}}
+          </CopyButton>
+        {{else}}
+          {{yield}}
+        {{/if}}
       {{/if}}
     </dd>
   </div>

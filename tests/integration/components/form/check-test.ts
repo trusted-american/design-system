@@ -1,22 +1,16 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-// interface Context extends TestContext {
-//   value: boolean;
-//   label: string;
-//   identifier: string;
-//   inline?: boolean;
-//   switch?: boolean;
-//   help?: string;
-//   helpTooltip?: string;
-// }
+import type { FormCheckComponentSignature } from '@trusted-american/design-system/components/form/check';
+
+type Context = FormCheckComponentSignature['Args'] & TestContext;
 
 module('Integration | Component | form/check', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     this.value = false;
     this.label = 'Label';
     this.identifier = 'identifier';
@@ -37,6 +31,7 @@ module('Integration | Component | form/check', function (hooks) {
       />
     `);
 
-    assert.dom(this.element).hasText('Label Help');
+    assert.dom('label').hasText('Label');
+    assert.dom('.form-text').hasText('Help');
   });
 });

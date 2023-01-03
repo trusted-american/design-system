@@ -13,6 +13,6 @@ module('Integration | Component | main', function (hooks) {
       </Main>
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom('main').hasText('template block text');
   });
 });

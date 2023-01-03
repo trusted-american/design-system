@@ -4,6 +4,8 @@ import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 interface Context extends TestContext {
+  element: Element;
+
   inputValue: Date;
 }
 
@@ -18,7 +20,7 @@ module('Integration | Helper | from-now', function (hooks) {
 
     await render(hbs`{{from-now this.inputValue}}`);
 
-    assert.dom(this.element as Element).hasText('a year ago');
+    assert.dom(this.element).hasText('a year ago');
   });
 
   test('short works', async function (this: Context, assert) {
@@ -29,7 +31,7 @@ module('Integration | Helper | from-now', function (hooks) {
 
     await render(hbs`{{from-now this.inputValue short=true}}`);
 
-    assert.dom(this.element as Element).hasText('1Y ago');
+    assert.dom(this.element).hasText('1Y ago');
   });
 
   test('object reference quirks are compensated for', async function (this: Context, assert) {
@@ -44,6 +46,6 @@ module('Integration | Helper | from-now', function (hooks) {
       {{from-now this.inputValue short=true}}
     `);
 
-    assert.dom(this.element as Element).hasText('1Y ago a year ago 1Y ago');
+    assert.dom(this.element).hasText('1Y ago a year ago 1Y ago');
   });
 });

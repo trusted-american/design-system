@@ -3,16 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { Option } from '@trusted-american/design-system/components/form/select';
+import type { FormRadioBtnComponentSignature } from '@trusted-american/design-system/components/form/radio-btn';
 
-interface Context extends TestContext {
-  options: Option[];
-  selected: unknown;
-  identifier: string;
-  size: 'sm' | 'lg';
-  color: string;
-  change: (selected: unknown) => void;
-}
+type Context = FormRadioBtnComponentSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | form/radio-btn', function (hooks) {
   setupRenderingTest(hooks);
@@ -28,7 +21,7 @@ module('Integration | Component | form/radio-btn', function (hooks) {
     this.identifier = 'identifier';
     this.size = 'sm';
     this.color = 'success';
-    this.change = (selected) => {
+    this.onChange = (selected) => {
       assert.ok(selected);
     };
 
@@ -39,10 +32,10 @@ module('Integration | Component | form/radio-btn', function (hooks) {
         @identifier={{this.identifier}}
         @size={{this.size}}
         @color={{this.color}}
-        @onChange={{this.change}}
+        @onChange={{this.onChange}}
       />
     `);
 
-    assert.dom(this.element as Element).hasText('One Two');
+    assert.dom('div').hasText('One Two');
   });
 });

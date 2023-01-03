@@ -20,16 +20,16 @@ interface P {
   key: string;
 }
 
-interface Select<T> extends P {
+interface SelectP<T> extends P {
   options: [Option<T>, ...Option<T>[]];
 }
 
-interface SingleP<T> extends Select<T> {
+interface SingleSelectP<T> extends SelectP<T> {
   type?: 'single';
   value: T | undefined;
 }
 
-interface MultiP<T> extends Select<T> {
+interface MultiSelectP<T> extends SelectP<T> {
   type: 'multi';
   value: T[];
 }
@@ -63,8 +63,8 @@ interface CDateP extends DateP {
 }
 
 export type Predicate<T = unknown> =
-  | SingleP<T>
-  | MultiP<T>
+  | SingleSelectP<T>
+  | MultiSelectP<T>
   | StringP
   | ADateP
   | BDateP
@@ -158,7 +158,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  toggleMulti(predicate: MultiP<T>, value: T, checked: boolean): void {
+  toggleMulti(predicate: MultiSelectP<T>, value: T, checked: boolean): void {
     if (checked) {
       predicate.value = [...predicate.value, value];
     } else {
@@ -229,9 +229,3 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     }
   }
 }
-
-// declare module '@glint/environment-ember-loose/registry' {
-//   export default interface Registry {
-//     ListFilter: typeof ListFilter;
-//   }
-// }

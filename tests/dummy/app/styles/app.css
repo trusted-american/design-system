@@ -15,16 +15,10 @@ aside img {
 
 .nav-link {
   color: var(--bs-dark);
-  /* padding: 0.35rem $spacer; */
+}
 
-  /* &:hover,
-  &.active {
-    color: $primary;
-  }
-
-  &.active {
-    font-weight: $btn-font-weight;
-  } */
+.nav-link.active {
+  font-weight: 700;
 }
 
 .breadcrumb {

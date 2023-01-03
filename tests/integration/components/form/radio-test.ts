@@ -11,7 +11,7 @@ module('Integration | Component | form/radio', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(1);
+    assert.expect(3);
 
     this.options = [
       { value: 'one', label: 'One' },
@@ -22,8 +22,9 @@ module('Integration | Component | form/radio', function (hooks) {
     this.identifier = 'identifier';
     this.required = undefined;
     this.inline = undefined;
-    this.onChange = (value) => {
-      assert.ok(value);
+    this.onChange = (selected) => {
+      this.selected = selected;
+      assert.ok(selected);
     };
 
     await render(hbs`
@@ -34,10 +35,12 @@ module('Integration | Component | form/radio', function (hooks) {
         @identifier={{this.identifier}}
         @required={{this.required}}
         @inline={{this.inline}}
-        @onChange={{fn (mut this.selected)}}
+        @onChange={{this.onChange}}
       />
     `);
 
-    assert.dom(this.element as Element).hasText('Label One Two');
+    assert.dom('label').hasText('Label');
+    assert.dom('.form-check').hasText('One');
+    assert.dom('.form-check:last-child').hasText('Two');
   });
 });

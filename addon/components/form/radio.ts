@@ -19,9 +19,3 @@ export interface FormRadioComponentSignature<T> {
 export default class FormRadioComponent<T> extends Component<
   FormRadioComponentSignature<T>
 > {}
-
-// declare module '@glint/environment-ember-loose/registry' {
-//   export default interface Registry {
-//     'Form::Radio': typeof FormRadioComponent;
-//   }
-// }

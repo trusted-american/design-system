@@ -11,7 +11,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(2);
+    assert.expect(3);
 
     this.value = '+12223334444';
     this.label = 'Label';
@@ -31,13 +31,10 @@ module('Integration | Component | form/phone-input', function (hooks) {
       />
     `);
 
+    assert.dom('label').hasText('Label *');
+    assert.dom('input').hasValue('(222) 333-4444');
     assert
-      .dom(this.element as Element)
-      .hasText('Label * +1 Please provide a valid phone number.');
-
-    assert.strictEqual(
-      this.element.querySelector<HTMLInputElement>('[data-test-input]')?.value,
-      '(222) 333-4444'
-    );
+      .dom('.invalid-feedback')
+      .hasText('Please provide a valid phone number.');
   });
 });

@@ -15,7 +15,7 @@ module('Integration | Component | main/header', function (hooks) {
       </Main::Header>
     `);
 
-    assert.dom(this.element as Element).hasText('template block text');
+    assert.dom('header').hasText('template block text');
     assert.dom('header').hasClass('container-fluid');
   });
 });

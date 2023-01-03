@@ -4,6 +4,8 @@ import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 interface Context extends TestContext {
+  element: Element;
+
   inputValue: number;
 }
 
@@ -16,6 +18,6 @@ module('Integration | Helper | file-size', function (hooks) {
 
     await render(hbs`{{file-size this.inputValue}}`);
 
-    assert.dom(this.element as Element).hasText('1.21 KB');
+    assert.dom(this.element).hasText('1.21 KB');
   });
 });

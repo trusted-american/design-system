@@ -5,22 +5,17 @@ import { hbs } from 'ember-cli-htmlbars';
 
 import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
 
-type Context = ListFilterSignature<string>['Args'] & TestContext;
+type Context = ListFilterSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(3);
+    assert.expect(3 + 5);
 
     this.predicates = [
       {
-        name: 'Created Date',
-        key: 'createdAt',
-        type: 'date',
-        value: [],
-      },
-      {
+        type: 'single',
         name: 'Status',
         key: 'status',
         value: undefined,
@@ -29,6 +24,38 @@ module('Integration | Component | list-filter', function (hooks) {
           { value: 'two', label: 'Two' },
           { value: 'three', label: 'Three' },
         ],
+      },
+      {
+        type: 'single',
+        name: 'Archived',
+        key: 'isArchived',
+        value: undefined,
+        options: [
+          { value: true, label: 'True' },
+          { value: false, label: 'False' },
+        ],
+      },
+      {
+        type: 'multi',
+        name: 'State',
+        key: 'state',
+        value: [],
+        options: [
+          { value: 'az', label: 'AZ' },
+          { value: 'ca', label: 'CA' },
+        ],
+      },
+      {
+        type: 'string',
+        name: 'City',
+        key: 'city',
+        value: undefined,
+      },
+      {
+        type: 'date',
+        name: 'Created Date',
+        key: 'createdAt',
+        value: [],
       },
     ];
     this.onChange = () => {
@@ -43,10 +70,12 @@ module('Integration | Component | list-filter', function (hooks) {
     `);
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
-    assert.dom('[data-test-predicate-toggle]').exists({ count: 2 });
+    assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
 
     await click('[data-test-predicate-toggle] input');
 
     assert.dom('[data-test-predicate-value]').exists({ count: 1 });
+
+    await click('[data-test-done]');
   });
 });

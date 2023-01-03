@@ -6,14 +6,17 @@ import Identicon from 'identicon.js';
 
 const DEFAULT_SIZE = 4; // rem
 
-export interface AvatarComponentArgs {
-  id: string;
-  url?: string | null;
-  alt: string;
-  size?: number;
+export interface AvatarComponentSignature {
+  Element: HTMLImageElement;
+  Args: {
+    id: string;
+    url?: string | null;
+    alt: string;
+    size?: number;
+  };
 }
 
-export default class AvatarComponent extends Component<AvatarComponentArgs> {
+export default class AvatarComponent extends Component<AvatarComponentSignature> {
   get size() {
     const { size } = this.args;
 

@@ -1,19 +1,16 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-// interface Context extends TestContext {
-//   value: unknown;
-//   label?: string;
-//   identifier: string;
-//   required?: boolean;
-// }
+import type { FormTextareaComponentSignature } from '@trusted-american/design-system/components/form/textarea';
+
+type Context = FormTextareaComponentSignature['Args'] & TestContext;
 
 module('Integration | Component | form/textarea', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     this.value = 'Value';
     this.label = 'Label';
     this.identifier = 'identifier';
@@ -28,10 +25,10 @@ module('Integration | Component | form/textarea', function (hooks) {
       />
     `);
 
-    assert.dom(this.element).hasText('Label *');
+    assert.dom('label').hasText('Label *');
 
     this.set('required', false);
 
-    assert.dom(this.element).hasText('Label');
+    assert.dom('label').hasText('Label');
   });
 });

@@ -1,16 +1,16 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-// interface Context extends TestContext {
-//   url: string;
-// }
+import type { ExternalLinkComponentSignature } from '@trusted-american/design-system/components/external-link';
+
+type Context = ExternalLinkComponentSignature['Args'] & TestContext;
 
 module('Integration | Component | external-link', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     this.url = 'https://www.google.com/';
 
     await render(hbs`

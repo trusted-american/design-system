@@ -36,7 +36,7 @@ module('Integration | Component | form/date-input', function (hooks) {
       />
     `);
 
-    assert.dom(this.element as Element).hasText('Label *');
+    assert.dom('label').hasText('Label *');
     assert.dom('input').hasAttribute('type', 'date');
     assert.dom('input').hasAttribute('id', this.identifier);
 

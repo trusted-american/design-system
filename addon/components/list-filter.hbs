@@ -33,7 +33,7 @@
 
         <label class="list-group-item px-2" data-test-predicate-toggle>
           <input
-            checked={{not (not predicate.value)}}
+            checked={{or predicate.value (eq false predicate.value)}}
             type="checkbox"
             class="form-check-input me-1"
             {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
@@ -41,7 +41,7 @@
           {{predicate.name}}
         </label>
 
-        {{#if predicate.value}}
+        {{#if (or predicate.value (eq false predicate.value))}}
           <listGroup.item class="bg-light px-2" data-test-predicate-value>
 
             {{#if (eq "date" predicate.type)}}

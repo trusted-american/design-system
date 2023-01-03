@@ -14,6 +14,6 @@ module('Integration | Component | toast', function (hooks) {
       </Toast>
     `);
 
-    assert.dom(this.element).hasText('Title Body');
+    assert.dom('div').hasText('Title Body');
   });
 });

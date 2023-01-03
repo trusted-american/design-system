@@ -18,6 +18,6 @@ module('Integration | Component | aside', function (hooks) {
       </Aside>
     `);
 
-    assert.dom(this.element).hasText('Default Bottom');
+    assert.dom('aside').hasText('Default Bottom');
   });
 });
