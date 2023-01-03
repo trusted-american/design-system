@@ -124,7 +124,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
   get selections(): Predicate<T>[] {
     return this.args.predicates.filter(
-      ({ value }) => Boolean(value) && (!Array.isArray(value) || value.length)
+      ({ value }) =>
+        (Boolean(value) || value === false) &&
+        (!Array.isArray(value) || value.length)
     );
   }
 
