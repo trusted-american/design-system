@@ -16,7 +16,7 @@ type DateRangeQueryParam =
   | [];
 
 interface P {
-  name: string;
+  label: string;
   key: string;
 }
 
