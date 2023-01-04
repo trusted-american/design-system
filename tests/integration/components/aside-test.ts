@@ -22,6 +22,6 @@ module('Integration | Component | aside', function (hooks) {
       </Aside>
     `);
 
-    assert.dom('aside').hasText('Default Bottom');
+    assert.dom('aside').hasText('Title Default Bottom');
   });
 });
