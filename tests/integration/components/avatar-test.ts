@@ -16,7 +16,7 @@ module('Integration | Component | avatar', function (hooks) {
     this.alt = 'Name';
     this.size = undefined;
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Avatar
         @id={{this.id}}
         @url={{this.url}}

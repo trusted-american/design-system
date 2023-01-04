@@ -21,7 +21,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
       assert.true(true);
     };
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::PhoneInput
         @value={{this.value}}
         @label={{this.label}}

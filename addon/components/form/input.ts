@@ -16,3 +16,9 @@ export interface FormInputComponentSignature {
 }
 
 export default class FormInputComponent extends Component<FormInputComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Form::Input': typeof FormInputComponent;
+  }
+}

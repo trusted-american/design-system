@@ -15,3 +15,9 @@ export interface AsideComponentSignature {
 }
 
 export default class AsideComponent extends Component<AsideComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Aside: typeof AsideComponent;
+  }
+}

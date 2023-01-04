@@ -13,7 +13,7 @@ module('Integration | Component | external-link', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.url = 'https://www.google.com/';
 
-    await render(hbs`
+    await render<Context>(hbs`
       <ExternalLink @url={{this.url}}>
         template block text
       </ExternalLink>

@@ -13,3 +13,9 @@ export interface FormTextareaComponentSignature {
 }
 
 export default class FormTextareaComponent extends Component<FormTextareaComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Form::Textarea': typeof FormTextareaComponent;
+  }
+}

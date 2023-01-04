@@ -14,3 +14,9 @@ export interface HeadingComponentSignature {
 }
 
 export default class HeadingComponent extends Component<HeadingComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Heading: typeof HeadingComponent;
+  }
+}

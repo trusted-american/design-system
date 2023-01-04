@@ -9,3 +9,9 @@ export interface StatCardComponentSignature {
 }
 
 export default class StatCardComponent extends Component<StatCardComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    StatCard: typeof StatCardComponent;
+  }
+}

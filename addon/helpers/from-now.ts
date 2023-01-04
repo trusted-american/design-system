@@ -59,3 +59,9 @@ const fromNow = helper(
 );
 
 export default fromNow;
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'from-now': typeof fromNow;
+  }
+}

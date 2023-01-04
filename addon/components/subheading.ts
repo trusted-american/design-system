@@ -11,3 +11,9 @@ export interface SubheadingComponentSignature {
 }
 
 export default class SubheadingComponent extends Component<SubheadingComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Subheading: typeof SubheadingComponent;
+  }
+}

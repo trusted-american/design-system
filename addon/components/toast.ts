@@ -13,3 +13,9 @@ export interface ToastComponentSignature {
 }
 
 export default class ToastComponent extends Component<ToastComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Toast: typeof ToastComponent;
+  }
+}

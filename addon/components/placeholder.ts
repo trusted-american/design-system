@@ -11,3 +11,9 @@ export interface PlaceholderComponentSignature {
 }
 
 export default class PlaceholderComponent extends Component<PlaceholderComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Placeholder: typeof PlaceholderComponent;
+  }
+}

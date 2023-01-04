@@ -14,3 +14,9 @@ export interface FormCheckComponentSignature {
 }
 
 export default class FormCheckComponent extends Component<FormCheckComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Form::Check': typeof FormCheckComponent;
+  }
+}

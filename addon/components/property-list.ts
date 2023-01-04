@@ -14,3 +14,9 @@ export interface PropertyListComponentSignature {
 }
 
 export default class PropertyListComponent extends Component<PropertyListComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PropertyList: typeof PropertyListComponent;
+  }
+}

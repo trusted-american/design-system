@@ -64,3 +64,9 @@ export default class AvatarComponent extends Component<AvatarComponentSignature>
     );
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Avatar: typeof AvatarComponent;
+  }
+}

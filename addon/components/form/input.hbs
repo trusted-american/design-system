@@ -10,6 +10,7 @@
 {{/if}}
 
 <Input
+  {{! @glint-ignore }}
   @value={{@value}}
   @type={{if @type @type "text"}}
   id={{@identifier}}
@@ -18,6 +19,7 @@
     {{if (eq 'color' @type) 'form-control-color'}}
     {{if (eq 'range' @type) 'form-range'}}
     {{if @errors 'is-invalid'}}"
+  {{! @glint-ignore }}
   required={{@required}}
   ...attributes
 />

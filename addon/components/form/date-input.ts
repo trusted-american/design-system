@@ -69,3 +69,9 @@ export default class FormDateInputComponent extends Component<FormDateInputCompo
     }
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Form::DateInput': typeof FormDateInputComponent;
+  }
+}

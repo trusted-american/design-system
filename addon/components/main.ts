@@ -8,3 +8,9 @@ export interface MainComponentSignature {
 }
 
 export default class MainComponent extends Component<MainComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Main: typeof MainComponent;
+  }
+}

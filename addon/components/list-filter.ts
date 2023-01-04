@@ -231,3 +231,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     }
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ListFilter: typeof ListFilter;
+  }
+}

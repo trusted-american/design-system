@@ -19,7 +19,7 @@ module('Integration | Component | form/input', function (hooks) {
     this.identifier = 'identifier';
     this.required = true;
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::Input
         @value={{this.value}}
         @type={{this.type}}

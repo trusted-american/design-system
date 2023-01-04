@@ -19,7 +19,7 @@ module('Integration | Component | form/check', function (hooks) {
     this.help = 'Help';
     // this.helpTooltip = 'Help Tooltip';
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::Check
         @value={{this.value}}
         @label={{this.label}}

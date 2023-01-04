@@ -11,3 +11,9 @@ export interface ExternalLinkComponentSignature {
 }
 
 export default class ExternalLinkComponent extends Component<ExternalLinkComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ExternalLink: typeof ExternalLinkComponent;
+  }
+}
