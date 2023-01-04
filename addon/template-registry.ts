@@ -28,6 +28,10 @@ import type MainTopHeaderComponent from '@trusted-american/design-system/compone
 
 import type PropertyListItemComponent from '@trusted-american/design-system/components/property-list/item';
 
+import type fileSize from '@trusted-american/design-system/helpers/file-size';
+import type fromNow from '@trusted-american/design-system/helpers/from-now';
+import type timestamp from '@trusted-american/design-system/helpers/timestamp';
+
 export default interface Registry {
   Aside: typeof AsideComponent;
   Avatar: typeof AvatarComponent;
@@ -58,4 +62,8 @@ export default interface Registry {
   'Main::TopHeader': typeof MainTopHeaderComponent;
 
   'PropertyList::Item': typeof PropertyListItemComponent;
+
+  'file-size': typeof fileSize;
+  'from-now': typeof fromNow;
+  timestamp: typeof timestamp;
 }
