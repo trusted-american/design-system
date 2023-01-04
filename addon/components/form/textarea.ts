@@ -3,10 +3,12 @@ import Component from '@glimmer/component';
 export interface FormTextareaComponentSignature {
   Element: HTMLTextAreaElement;
   Args: {
-    value: unknown;
+    value: string | null | undefined;
+    size?: 'sm' | 'lg';
     label?: string;
     identifier: string;
     required?: boolean;
+    help?: string;
   };
 }
 

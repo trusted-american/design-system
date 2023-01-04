@@ -18,7 +18,7 @@
 
 <Subheading @title="Form::Check" />
 
-<Form::Check @value={{true}} />
+<Form::Check @value={{true}} @label="" @identifier="" />
 
 <Subheading @title="Form::DateInput" />
 
@@ -244,10 +244,10 @@
   <:title>Title</:title>
   <:body>Body</:body>
   <:buttons>
-    <Bs::Button @size="sm" @color="light" @onClick={{this.xyz}}>
+    <Bs::Button @size="sm" @color="light" @onClick={{this.do}}>
       Button
     </Bs::Button>
-    <Bs::Button @size="sm" @color="link" @onClick={{this.xyz}}>
+    <Bs::Button @size="sm" @color="link" @onClick={{this.do}}>
       Link text
     </Bs::Button>
   </:buttons>
