@@ -16,7 +16,7 @@ module('Integration | Component | list-filter', function (hooks) {
     this.predicates = [
       {
         type: 'single',
-        label: 'Status',
+        name: 'Status',
         key: 'status',
         value: undefined,
         options: [
@@ -27,7 +27,7 @@ module('Integration | Component | list-filter', function (hooks) {
       },
       {
         type: 'single',
-        label: 'Archived',
+        name: 'Archived',
         key: 'isArchived',
         value: undefined,
         options: [
@@ -37,7 +37,7 @@ module('Integration | Component | list-filter', function (hooks) {
       },
       {
         type: 'multi',
-        label: 'State',
+        name: 'State',
         key: 'state',
         value: [],
         options: [
@@ -47,13 +47,13 @@ module('Integration | Component | list-filter', function (hooks) {
       },
       {
         type: 'string',
-        label: 'City',
+        name: 'City',
         key: 'city',
         value: undefined,
       },
       {
         type: 'date',
-        label: 'Created Date',
+        name: 'Created Date',
         key: 'createdAt',
         value: [],
       },

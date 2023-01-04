@@ -38,7 +38,7 @@
             class="form-check-input me-1"
             {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
           />
-          {{predicate.label}}
+          {{predicate.name}}
         </label>
 
         {{#if (or predicate.value (eq false predicate.value))}}
