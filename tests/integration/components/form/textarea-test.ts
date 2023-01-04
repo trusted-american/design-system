@@ -16,7 +16,7 @@ module('Integration | Component | form/textarea', function (hooks) {
     this.identifier = 'identifier';
     this.required = true;
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::Textarea
         @value={{this.value}}
         @label={{this.label}}

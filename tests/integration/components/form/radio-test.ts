@@ -27,7 +27,7 @@ module('Integration | Component | form/radio', function (hooks) {
       assert.ok(selected);
     };
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::Radio
         @options={{this.options}}
         @selected={{this.selected}}

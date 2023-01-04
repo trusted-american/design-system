@@ -29,7 +29,7 @@ module('Integration | Component | form/select', function (hooks) {
     this.label = 'Label';
     this.identifier = 'identifier';
 
-    await render(hbs`
+    await render<Context>(hbs`
       {{! @glint-ignore }}
       <Form::Select
         @options={{this.options}}
@@ -56,7 +56,7 @@ module('Integration | Component | form/select', function (hooks) {
     this.required = true;
     this.simple = true;
 
-    await render(hbs`
+    await render<Context>(hbs`
       {{! @glint-ignore }}
       <Form::Select
         @options={{this.options}}

@@ -8,3 +8,9 @@ export interface MainTopHeaderComponentSignature {
 }
 
 export default class MainTopHeaderComponent extends Component<MainTopHeaderComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Main::TopHeader': typeof MainTopHeaderComponent;
+  }
+}

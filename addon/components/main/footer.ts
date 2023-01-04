@@ -8,3 +8,9 @@ export interface MainFooterComponentSignature {
 }
 
 export default class MainFooterComponent extends Component<MainFooterComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Main::Footer': typeof MainFooterComponent;
+  }
+}

@@ -21,7 +21,7 @@ module('Integration | Component | form/file-input', function (hooks) {
       assert.true(true);
     };
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::FileInput
         @label={{this.label}}
         @identifier={{this.identifier}}

@@ -17,3 +17,9 @@ export interface FormRadioBtnComponentSignature<T> {
 export default class FormRadioBtnComponent<T> extends Component<
   FormRadioBtnComponentSignature<T>
 > {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Form::RadioBtn': typeof FormRadioBtnComponent;
+  }
+}

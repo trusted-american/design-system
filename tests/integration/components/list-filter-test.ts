@@ -62,7 +62,7 @@ module('Integration | Component | list-filter', function (hooks) {
       assert.true(true);
     };
 
-    await render(hbs`
+    await render<Context>(hbs`
       <ListFilter
         @predicates={{this.predicates}}
         @onChange={{this.onChange}}

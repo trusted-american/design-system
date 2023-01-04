@@ -8,3 +8,9 @@ export interface MainBodyComponentSignature {
 }
 
 export default class MainBodyComponent extends Component<MainBodyComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Main::Body': typeof MainBodyComponent;
+  }
+}

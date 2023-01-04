@@ -124,7 +124,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
   get selections(): Predicate<T>[] {
     return this.args.predicates.filter(
-      ({ value }) => Boolean(value) && (!Array.isArray(value) || value.length)
+      ({ value }) =>
+        (Boolean(value) || value === false) &&
+        (!Array.isArray(value) || value.length)
     );
   }
 
@@ -227,5 +229,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     for (const { key, value } of predicates) {
       this.args.onChange(key, value);
     }
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ListFilter: typeof ListFilter;
   }
 }

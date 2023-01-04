@@ -42,3 +42,9 @@ export default class FormPhoneInputComponent extends Component<FormPhoneInputCom
     }
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Form::PhoneInput': typeof FormPhoneInputComponent;
+  }
+}

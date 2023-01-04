@@ -24,7 +24,7 @@ module('Integration | Component | form/date-input', function (hooks) {
       assert.strictEqual(value?.getTime(), date.getTime());
     };
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::DateInput
         @value={{this.value}}
         @min={{this.min}}

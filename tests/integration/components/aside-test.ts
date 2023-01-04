@@ -1,14 +1,18 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+
+import type { AsideComponentSignature } from '@trusted-american/design-system/components/aside';
+
+type Context = AsideComponentSignature['Args'] & TestContext;
 
 module('Integration | Component | aside', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
-      <Aside>
+    await render<Context>(hbs`
+      <Aside @title="Title" @logo="" @route="">
         <:default>
           Default
         </:default>
@@ -18,6 +22,6 @@ module('Integration | Component | aside', function (hooks) {
       </Aside>
     `);
 
-    assert.dom('aside').hasText('Default Bottom');
+    assert.dom('aside').hasText('Title Default Bottom');
   });
 });

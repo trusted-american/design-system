@@ -5,6 +5,7 @@
     </p>
   {{/if}}
   <dl class="row {{if @horizontal 'gx-5'}} mb-0">
+    {{! @glint-nocheck }}
     {{yield
       (hash item=(component "property-list/item" horizontal=@horizontal))
     }}

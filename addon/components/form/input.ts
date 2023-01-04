@@ -3,14 +3,22 @@ import Component from '@glimmer/component';
 export interface FormInputComponentSignature {
   Element: HTMLInputElement;
   Args: {
-    value: string;
-    type: string;
-    label: string;
-    help: string;
-    invalidFeedback: string;
+    value: string | number | null | undefined | unknown;
+    size?: 'sm' | 'lg';
+    type?: string;
+    label?: string;
     identifier: string;
-    required: boolean;
+    required?: unknown;
+    help?: string;
+    invalidFeedback?: string;
+    errors?: { message: string }[];
   };
 }
 
 export default class FormInputComponent extends Component<FormInputComponentSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Form::Input': typeof FormInputComponent;
+  }
+}

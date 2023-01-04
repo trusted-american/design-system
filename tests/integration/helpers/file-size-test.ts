@@ -16,7 +16,7 @@ module('Integration | Helper | file-size', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.inputValue = 1234;
 
-    await render(hbs`{{file-size this.inputValue}}`);
+    await render<Context>(hbs`{{file-size this.inputValue}}`);
 
     assert.dom(this.element).hasText('1.21 KB');
   });

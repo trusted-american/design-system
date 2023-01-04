@@ -5,9 +5,9 @@ const DECIMALS = 2;
 /**
  * Returns scaled file size from bytes.
  */
-export default helper(function fileSize([bytes]) {
+const fileSize = helper(function fileSize([bytes]): string {
   if (!bytes || typeof bytes !== 'number') {
-    return bytes;
+    return bytes as string;
   }
 
   const k = 1024;
@@ -17,3 +17,11 @@ export default helper(function fileSize([bytes]) {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 });
+
+export default fileSize;
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'file-size': typeof fileSize;
+  }
+}

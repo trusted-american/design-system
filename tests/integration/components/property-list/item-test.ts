@@ -10,13 +10,13 @@ module('Integration | Component | property-list/item', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<PropertyList::Item />`);
+    await render(hbs`<PropertyList::Item @key="Key" />`);
 
     assert.dom('dd').hasText('');
 
     // Template block usage:
     await render(hbs`
-      <PropertyList::Item>
+      <PropertyList::Item @key="Key">
         template block text
       </PropertyList::Item>
     `);
