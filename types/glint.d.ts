@@ -107,7 +107,7 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: void;
     }>;
     breadcrumbs: HelperLike<{
-      Return: { title: string; data: any }[];
+      Return: { title: string; data: { route: string; model: string } }[];
     }>;
 
     // ember-cli-clipboard
@@ -339,7 +339,7 @@ declare module '@glint/environment-ember-loose/registry' {
       Element: HTMLElement;
       Args: {
         placement?: string;
-        onClose: any;
+        onClose: (...args: never[]) => unknown;
       };
       Blocks: {
         default: [
