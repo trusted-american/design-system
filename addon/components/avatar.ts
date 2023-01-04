@@ -9,9 +9,9 @@ const DEFAULT_SIZE = 4; // rem
 export interface AvatarComponentSignature {
   Element: HTMLImageElement;
   Args: {
-    id: string;
-    url?: string | null;
-    alt: string;
+    id: string | undefined;
+    url?: string | unknown;
+    alt: string | undefined;
     size?: number;
   };
 }
@@ -38,6 +38,10 @@ export default class AvatarComponent extends Component<AvatarComponentSignature>
 
     if (url) {
       return url;
+    }
+
+    if (!id) {
+      return '';
     }
 
     // encode utf8 as hex

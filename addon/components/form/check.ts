@@ -4,7 +4,7 @@ export interface FormCheckComponentSignature {
   Element: HTMLInputElement;
   Args: {
     value: boolean | null | undefined | unknown;
-    label: string;
+    label?: string;
     identifier: string;
     inline?: boolean;
     switch?: boolean;
