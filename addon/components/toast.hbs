@@ -26,7 +26,7 @@
     </toast.body>
     {{#if @onClose}}
       <Bs::CloseButton
-        @white={{@color}}
+        @white={{if @color true false}}
         data-bs-dismiss="toast"
         class="me-2"
         {{on "click" @onClose}}
