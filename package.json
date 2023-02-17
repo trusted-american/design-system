@@ -29,6 +29,8 @@
     "postpack": "ember ts:clean"
   },
   "dependencies": {
+    "@fortawesome/ember-fontawesome": "^0.4.1",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "dayjs": "^1.11.7",
     "ember-auto-import": "^2.6.0",
     "ember-breadcrumb-trail": "^0.2.0",

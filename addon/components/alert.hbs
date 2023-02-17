@@ -1,0 +1,13 @@
+<Bs::Alert @color={{if @color @color "secondary"}} class="d-flex gap-3">
+  {{#if @icon}}
+    <div>
+      <FaIcon @icon={{@icon}} />
+    </div>
+  {{/if}}
+  <div>
+    {{#if (has-block "title")}}
+      <h6 class="alert-heading">{{yield to="title"}}</h6>
+    {{/if}}
+    {{yield to="body"}}
+  </div>
+</Bs::Alert>
