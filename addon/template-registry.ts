@@ -1,6 +1,9 @@
+import type AlertComponent from './components/alert';
 import type AsideComponent from './components/aside';
 import type AvatarComponent from './components/avatar';
+import type BadgeComponent from './components/badge';
 import type BreadcrumbTrailComponent from './components/breadcrumb-trail';
+import type ButtonComponent from './components/button';
 import type ExternalLinkComponent from './components/external-link';
 import type HeadingComponent from './components/heading';
 import type ListFilter from './components/list-filter';
@@ -16,6 +19,7 @@ import type FormCheckComponent from './components/form/check';
 import type FormDateInputComponent from './components/form/date-input';
 import type FormFileInputComponent from './components/form/file-input';
 import type FormInputComponent from './components/form/input';
+import type FormLabelComponent from './components/form/label';
 import type FormPhoneInputComponent from './components/form/phone-input';
 import type FormRadioBtnComponent from './components/form/radio-btn';
 import type FormRadioComponent from './components/form/radio';
@@ -34,9 +38,12 @@ import type fromNow from './helpers/from-now';
 import type timestamp from './helpers/timestamp';
 
 export default interface Registry {
+  Alert: typeof AlertComponent;
   Aside: typeof AsideComponent;
   Avatar: typeof AvatarComponent;
+  Badge: typeof BadgeComponent;
   BreadcrumbTrail: typeof BreadcrumbTrailComponent;
+  Button: typeof ButtonComponent;
   ExternalLink: typeof ExternalLinkComponent;
   Heading: typeof HeadingComponent;
   ListFilter: typeof ListFilter;
@@ -52,6 +59,7 @@ export default interface Registry {
   'Form::DateInput': typeof FormDateInputComponent;
   'Form::FileInput': typeof FormFileInputComponent;
   'Form::Input': typeof FormInputComponent;
+  'Form::Label': typeof FormLabelComponent;
   'Form::PhoneInput': typeof FormPhoneInputComponent;
   'Form::RadioBtn': typeof FormRadioBtnComponent;
   'Form::Radio': typeof FormRadioComponent;
