@@ -11,6 +11,11 @@ export interface TableComponentSignature<T> {
   Args: {
     data: T[];
     sortable?: boolean;
+    pagination?: 'local' | 'remote';
+    canNext?: boolean;
+    canPrevious?: boolean;
+    onNext?: () => void;
+    onPrevious?: () => void;
   };
   Blocks: {
     default: [
