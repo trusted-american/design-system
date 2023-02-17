@@ -2,7 +2,7 @@
 {{breadcrumb "Example"}}
 
 <Heading @title="Example">
-  <Bs::Toolbar as |toolbar|>
+  <Bs::Toolbar class="gap-2" as |toolbar|>
     <toolbar.group>
       <Input
         @value={{this.search}}
@@ -30,3 +30,18 @@
     </toolbar.group>
   </Bs::Toolbar>
 </Heading>
+
+<Table @data={{this.users}} as |table|>
+  <table.header as |header|>
+    <header.column @prop="email">
+      Email
+    </header.column>
+    <header.column @prop="firstName">
+      First Name
+    </header.column>
+    <header.column @prop="lastName">
+      Last Name
+    </header.column>
+  </table.header>
+  <table.body />
+</Table>
