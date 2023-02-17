@@ -1,0 +1,6 @@
+<Bs::Button @color={{if @color @color "secondary"}} ...attributes>
+  {{#if @icon}}
+    <FaIcon @icon={{@icon}} class="me-1" />
+  {{/if}}
+  {{@text}}
+</Bs::Button>

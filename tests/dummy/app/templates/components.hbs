@@ -39,6 +39,17 @@
 
 <BreadcrumbTrail />
 
+<Subheading @title="Button" />
+
+<Button @text="Default button" {{on "click" this.do}} />
+<Button @text="Success button" @color="success" {{on "click" this.do}} />
+<Button
+  @text="Success badge with icon"
+  @color="success"
+  @icon="plus"
+  {{on "click" this.do}}
+/>
+
 <Subheading @title="ExternalLink" />
 
 <ExternalLink @url="https://www.google.com/">
