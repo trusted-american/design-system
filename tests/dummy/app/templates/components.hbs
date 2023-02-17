@@ -49,6 +49,8 @@
   @icon="plus"
   {{on "click" this.do}}
 />
+<Button @text="Loading button" @loading={{true}} {{on "click" this.do}} />
+<Button @text="Disabled button" disabled {{on "click" this.do}} />
 
 <Subheading @title="ExternalLink" />
 

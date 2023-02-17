@@ -3,9 +3,11 @@ import Component from '@glimmer/component';
 export interface ButtonComponentSignature {
   Element: HTMLElement;
   Args: {
+    isSubmit?: true;
     text: string;
     color?: string;
     icon?: string;
+    loading?: unknown;
   };
 }
 

@@ -1,4 +1,12 @@
-<Bs::Button @color={{if @color @color "secondary"}} ...attributes>
+<Bs::Button
+  @isSubmit={{@isSubmit}}
+  @color={{if @color @color "secondary"}}
+  disabled={{if @loading true}}
+  ...attributes
+>
+  {{#if @loading}}
+    <span class="spinner-border spinner-border-sm" role="status"></span>
+  {{/if}}
   {{#if @icon}}
     <FaIcon @icon={{@icon}} class="me-1" />
   {{/if}}
