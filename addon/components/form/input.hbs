@@ -31,8 +31,4 @@
   </div>
 {{/each}}
 
-{{#if @help}}
-  <div class="form-text">
-    {{@help}}
-  </div>
-{{/if}}
+<Form::Help @text={{@help}} />

@@ -23,9 +23,5 @@
     </a>
   {{/if}}
 
-  {{#if @help}}
-    <div class="form-text mt-0 mb-2">
-      {{@help}}
-    </div>
-  {{/if}}
+  <Form::Help @text={{@help}} class="mt-0 mb-2" />
 </div>
