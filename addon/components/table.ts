@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
-import type {
-  YetiTableHeader,
-  YetiTableBody,
-  YetiTableFooter,
-} from '@glint/environment-ember-loose/registry';
+// import type {
+//   YetiTableHeader,
+//   YetiTableBody,
+//   YetiTableFooter,
+// } from '@glint/environment-ember-loose/registry';
 
 export interface TableComponentSignature<T> {
   Element: HTMLTableElement;
@@ -20,9 +20,9 @@ export interface TableComponentSignature<T> {
   Blocks: {
     default: [
       {
-        header: YetiTableHeader;
-        body: YetiTableBody<T>;
-        footer: YetiTableFooter;
+        header: any;
+        body: any;
+        footer: any;
       }
     ];
   };
