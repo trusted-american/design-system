@@ -233,6 +233,38 @@
   </div>
 </div>
 
+<Subheading @title="Table" />
+
+<Table @data={{this.users}} as |table|>
+  <table.header as |header|>
+    <header.column @prop="email">
+      Email
+    </header.column>
+    <header.column @prop="firstName">
+      First Name
+    </header.column>
+    <header.column @prop="lastName">
+      Last Name
+    </header.column>
+  </table.header>
+  <table.body />
+</Table>
+
+<Table @data={{this.users}} @sortable={{true}} as |table|>
+  <table.header as |header|>
+    <header.column @prop="email" @sort="asc">
+      Email
+    </header.column>
+    <header.column @prop="firstName">
+      First Name
+    </header.column>
+    <header.column @prop="lastName">
+      Last Name
+    </header.column>
+  </table.header>
+  <table.body />
+</Table>
+
 <Subheading @title="Toast" />
 
 <Toast>

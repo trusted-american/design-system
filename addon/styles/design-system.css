@@ -8,3 +8,11 @@
 .overflow-y-auto {
   overflow-y: auto;
 }
+
+.yeti-table thead tr th.yeti-table-sorted-asc::after {
+  content: "↑";
+}
+
+.yeti-table thead tr th.yeti-table-sorted-desc::after {
+  content: "↓";
+}

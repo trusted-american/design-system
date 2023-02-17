@@ -1,0 +1,11 @@
+<div class="table-responsive">
+  <YetiTable
+    @data={{@data}}
+    @sortable={{@sortable}}
+    class="table table-hover"
+    ...attributes
+    as |table|
+  >
+    {{yield table}}
+  </YetiTable>
+</div>
