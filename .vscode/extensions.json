@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "james1x0.vscode-ember-navigator",
+    "esbenp.prettier-vscode",
+    "lifeart.vscode-ember-unstable",
+    "typed-ember.glint-vscode"
+  ]
+}
