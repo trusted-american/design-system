@@ -8,12 +8,12 @@ module('Integration | Component | alert', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      {{! @glint-ignore }}
-      <Alert>
-        template block text
-      </Alert>
+    <Alert>
+      <:title>Title here</:title>
+      <:body>Body here</:body>
+    </Alert>
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('Title here Body here');
   });
 });

@@ -10,8 +10,8 @@ module('Integration | Component | badge', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Badge />`);
+    await render(hbs`<Badge @text="Test" />`);
 
-    assert.dom().hasText('');
+    assert.dom().hasText('Test');
   });
 });

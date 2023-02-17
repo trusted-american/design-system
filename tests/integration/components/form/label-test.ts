@@ -7,8 +7,14 @@ module('Integration | Component | form/label', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Form::Label />`);
+    await render(hbs`
+      <Form::Label
+        @text="Test"
+        @identifier="test"
+        @required={{true}}
+      />
+    `);
 
-    assert.dom().hasText('');
+    assert.dom().hasText('Test *');
   });
 });
