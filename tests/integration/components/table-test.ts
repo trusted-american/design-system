@@ -8,6 +8,7 @@ module('Integration | Component | table', function (hooks) {
 
   test('it renders', async function (assert) {
     await render<TestContext>(hbs`
+      {{! @glint-ignore }}
       <Table>
         template block text
       </Table>
