@@ -35,7 +35,7 @@ declare module '@glint/environment-ember-loose/registry' {
     CopyButton: ComponentLike<{
       Element: HTMLElement;
       Args: {
-        clipboardText: unknown;
+        text: unknown;
         delegateClickEvent?: boolean;
       };
       Blocks: {
