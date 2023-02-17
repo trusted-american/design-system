@@ -13,17 +13,17 @@
       />
     </toolbar.group>
     <toolbar.group as |group|>
-      <group.button @onClick={{this.do}}>
+      <group.button {{on "click" this.do}}>
         Search
       </group.button>
     </toolbar.group>
     <toolbar.group as |group|>
-      <group.button @color="primary" @onClick={{this.do}}>
+      <group.button @color="primary" {{on "click" this.do}}>
         Create
       </group.button>
       <group.button @color="primary" {{dropdown}} />
       <Bs::Dropdown @align="right" as |dropdown|>
-        <dropdown.item @onClick={{this.do}}>
+        <dropdown.item {{on "click" this.do}}>
           Import
         </dropdown.item>
       </Bs::Dropdown>

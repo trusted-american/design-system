@@ -15,12 +15,12 @@ export default class ComponentsController extends Controller {
     { email: 'a@example.com', firstName: 'A', lastName: 'A' },
     { email: 'b@example.com', firstName: 'B', lastName: 'B' },
     { email: 'c@example.com', firstName: 'C', lastName: 'C' },
-    { email: 'd@example.com', firstName: 'D', lastName: 'D' },
-    { email: 'e@example.com', firstName: 'E', lastName: 'E' },
-    { email: 'f@example.com', firstName: 'F', lastName: 'F' },
-    { email: 'g@example.com', firstName: 'G', lastName: 'G' },
-    { email: 'h@example.com', firstName: 'H', lastName: 'H' },
-    { email: 'i@example.com', firstName: 'I', lastName: 'I' },
+    // { email: 'd@example.com', firstName: 'D', lastName: 'D' },
+    // { email: 'e@example.com', firstName: 'E', lastName: 'E' },
+    // { email: 'f@example.com', firstName: 'F', lastName: 'F' },
+    // { email: 'g@example.com', firstName: 'G', lastName: 'G' },
+    // { email: 'h@example.com', firstName: 'H', lastName: 'H' },
+    // { email: 'i@example.com', firstName: 'I', lastName: 'I' },
   ];
 
   @action

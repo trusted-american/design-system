@@ -17,10 +17,12 @@
       </p>
     {{/if}}
     {{#if @onClick}}
-      <Bs::Button class="mt-3" @onClick={{@onClick}}>
-        <FaIcon @icon="plus" class="me-1" />
-        Create
-      </Bs::Button>
+      <Button
+        @text="Create"
+        @icon="plus"
+        class="mt-3"
+        {{on "click" @onClick}}
+      />
     {{/if}}
   </div>
 </div>

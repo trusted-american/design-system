@@ -193,7 +193,7 @@
 
 <Main::Header>
   <Heading @title="Title" @type="Type" @code="code">
-    <Bs::Button @color="primary" {{dropdown}}>Actions</Bs::Button>
+    <Button @text="Actions" @color="primary" {{dropdown}} />
     <Bs::Dropdown @align="right" as |dropdown|>
       <dropdown.item>Action 1</dropdown.item>
       <dropdown.item>Action 2</dropdown.item>
@@ -210,7 +210,12 @@
 
 <Subheading @title="Placeholder" />
 
-{{! <Placeholder @icon='xmark' @title='Title' @subtitle='Subtitle' /> }}
+<Placeholder
+  @icon="xmark"
+  @title="Title"
+  @subtitle="Subtitle"
+  @onClick={{this.do}}
+/>
 
 <Subheading @title="PropertyList" />
 
@@ -357,11 +362,7 @@
   <:title>Title</:title>
   <:body>Body</:body>
   <:buttons>
-    <Bs::Button @size="sm" @color="light" @onClick={{this.do}}>
-      Button
-    </Bs::Button>
-    <Bs::Button @size="sm" @color="link" @onClick={{this.do}}>
-      Link text
-    </Bs::Button>
+    <Button @text="Button" @size="sm" @color="light" {{on "click" this.do}} />
+    <Button @text="Link text" @size="sm" @color="link" {{on "click" this.do}} />
   </:buttons>
 </Toast>

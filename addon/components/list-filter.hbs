@@ -17,7 +17,7 @@
       <listGroup.item class="bg-light px-2">
         <Bs::Toolbar class="justify-content-between" as |toolbar|>
           <toolbar.group as |group|>
-            <group.button @onClick={{this.clear}} data-test-clear>
+            <group.button {{on "click" this.clear}} data-test-clear>
               Clear
             </group.button>
           </toolbar.group>
@@ -47,28 +47,13 @@
             {{#if (eq "date" predicate.type)}}
               <Form::Select
                 @options={{array
-                  (hash
-                    value="inTheLast"
-                    label="is in the last"
-                  )
+                  (hash value="inTheLast" label="is in the last")
                   (hash value="equals" label="is equal to")
-                  (hash
-                    value="between" label="is between"
-                  )
-                  (hash
-                    value="isAfter" label="is after"
-                  )
-                  (hash
-                    value="isAfterOrOn"
-                    label="is on or after"
-                  )
-                  (hash
-                    value="isBefore" label="is before"
-                  )
-                  (hash
-                    value="isBeforeOrOn"
-                    label="is before or on"
-                  )
+                  (hash value="between" label="is between")
+                  (hash value="isAfter" label="is after")
+                  (hash value="isAfterOrOn" label="is on or after")
+                  (hash value="isBefore" label="is before")
+                  (hash value="isBeforeOrOn" label="is before or on")
                 }}
                 @selected={{predicate.mode}}
                 @identifier="mode{{index}}"

@@ -5,6 +5,8 @@ export interface ButtonComponentSignature {
   Args: {
     isSubmit?: true;
     text: string;
+    size?: 'sm' | 'lg';
+    outline?: boolean;
     color?: string;
     icon?: string;
     loading?: unknown;

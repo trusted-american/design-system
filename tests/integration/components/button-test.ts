@@ -7,8 +7,8 @@ module('Integration | Component | button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Button />`);
+    await render(hbs`<Button @text="Test" />`);
 
-    assert.dom().hasText('');
+    assert.dom().hasText('Test');
   });
 });
