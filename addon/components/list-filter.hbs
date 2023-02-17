@@ -1,7 +1,7 @@
 {{! @glint-nocheck }}
 
 <Bs::Button data-test-list-filter {{dropdown autoClose="outside"}}>
-  {{!-- <FaIcon @icon="filter" @fixedWidth={{true}} /> --}}
+  <FaIcon @icon="filter" @fixedWidth={{true}} />
   Filter
   {{#if this.selections}}
     <span class="text-danger ms-1">
