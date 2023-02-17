@@ -19,11 +19,7 @@
   ...attributes
 />
 
-{{#if @invalidFeedback}}
-  <div class="invalid-feedback">
-    {{@invalidFeedback}}
-  </div>
-{{/if}}
+<Form::Error @text={{@invalidFeedback}} />
 
 {{#each @errors as |error|}}
   <div class="invalid-feedback">

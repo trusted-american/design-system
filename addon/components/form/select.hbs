@@ -41,10 +41,5 @@
   </select>
 {{/if}}
 
-{{#if @invalidFeedback}}
-  <div class="invalid-feedback">
-    {{@invalidFeedback}}
-  </div>
-{{/if}}
-
+<Form::Error @text={{@invalidFeedback}} />
 <Form::Help @text={{@help}} />
