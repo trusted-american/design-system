@@ -1,15 +1,9 @@
 <div class="mb-3">
-  {{#if @label}}
-    <label for={{@identifier}} class="form-label">
-      {{@label}}
-      {{#if @required}}
-        <span class="text-danger">
-          *
-        </span>
-      {{/if}}
-    </label>
-    <br />
-  {{/if}}
+  <Form::Label
+    @text={{@label}}
+    @identifier={{@identifier}}
+    @required={{@required}}
+  />
 
   {{#each @options as |opt index|}}
     <div class="form-check {{if @inline 'form-check-inline'}}">

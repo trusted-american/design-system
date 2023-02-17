@@ -1,13 +1,8 @@
-{{#if @label}}
-  <label for={{@identifier}} class="form-label">
-    {{@label}}
-    {{#if @required}}
-      <span class="text-danger">
-        *
-      </span>
-    {{/if}}
-  </label>
-{{/if}}
+<Form::Label
+  @text={{@label}}
+  @identifier={{@identifier}}
+  @required={{@required}}
+/>
 
 <div class="input-group has-validation">
   <span class="input-group-text">
