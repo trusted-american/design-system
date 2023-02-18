@@ -9,6 +9,6 @@ module('Integration | Component | form/error', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Form::Error @text="Test" />`);
 
-    assert.dom().hasText('');
+    assert.dom().hasText('Test');
   });
 });
