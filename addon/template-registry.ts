@@ -6,6 +6,7 @@ import type BreadcrumbTrailComponent from './components/breadcrumb-trail';
 import type ButtonComponent from './components/button';
 import type CardComponent from './components/card';
 import type ExternalLinkComponent from './components/external-link';
+import type FileTypeComponent from './components/file-type';
 import type HeadingComponent from './components/heading';
 import type ListFilter from './components/list-filter';
 import type MainComponent from './components/main';
@@ -47,6 +48,7 @@ export default interface Registry {
   Button: typeof ButtonComponent;
   Card: typeof CardComponent;
   ExternalLink: typeof ExternalLinkComponent;
+  FileType: typeof FileTypeComponent;
   Heading: typeof HeadingComponent;
   ListFilter: typeof ListFilter;
   Main: typeof MainComponent;
