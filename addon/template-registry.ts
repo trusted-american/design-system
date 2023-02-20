@@ -14,7 +14,7 @@ import type PlaceholderComponent from './components/placeholder';
 import type PropertyListComponent from './components/property-list';
 import type StatCardComponent from './components/stat-card';
 import type SubheadingComponent from './components/subheading';
-import type TableComponent from './components/table';
+// import type TableComponent from './components/table';
 import type ToastComponent from './components/toast';
 
 import type FormCheckComponent from './components/form/check';
@@ -56,7 +56,7 @@ export default interface Registry {
   PropertyList: typeof PropertyListComponent;
   StatCard: typeof StatCardComponent;
   Subheading: typeof SubheadingComponent;
-  Table: typeof TableComponent;
+  // Table: typeof TableComponent;
   Toast: typeof ToastComponent;
 
   'Form::Check': typeof FormCheckComponent;
