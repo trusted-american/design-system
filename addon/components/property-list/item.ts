@@ -4,7 +4,7 @@ export interface PropertyListItemComponentSignature {
   Element: HTMLElement;
   Args: {
     key: string | number;
-    value?: unknown;
+    value?: string;
     alt?: unknown;
     tooltip?: string;
     horizontal?: boolean;
