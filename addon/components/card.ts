@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 export interface CardComponentSignature {
   Element: HTMLDivElement;
   Args: {
-    title: string;
+    title?: string;
   };
   Blocks: {
     default: [];
