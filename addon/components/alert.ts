@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
 export interface AlertComponentSignature {
-  Element: HTMLElement;
+  Element: HTMLDivElement;
   Args: {
     color?: string;
     icon?: string;
