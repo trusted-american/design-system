@@ -8,6 +8,7 @@ module('Integration | Component | tds-table', function (hooks) {
 
   test('it renders', async function (assert) {
     await render<TestContext>(hbs`
+      {{! @glint-ignore }}
       <TdsTable>
         template block text
       </TdsTable>
