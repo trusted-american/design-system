@@ -50,6 +50,13 @@
   {{on "click" this.do}}
 />
 <Button
+  @text="Success button with trailing icon"
+  @color="success"
+  @icon="plus"
+  @iconTrailing={{true}}
+  {{on "click" this.do}}
+/>
+<Button
   @text="Success button with only icon"
   @icon="plus"
   @iconOnly={{true}}

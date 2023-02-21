@@ -10,8 +10,12 @@
   {{#if @loading}}
     <span class="spinner-border spinner-border-sm" role="status"></span>
   {{/if}}
+  {{if (and (not @iconOnly) @iconTrailing) @text}}
   {{#if @icon}}
-    <FaIcon @icon={{@icon}} class={{unless @iconOnly "me-1"}} />
+    <FaIcon
+      @icon={{@icon}}
+      class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
+    />
   {{/if}}
-  {{unless @iconOnly @text}}
+  {{if (and (not @iconOnly) (not @iconTrailing)) @text}}
 </Bs::Button>
