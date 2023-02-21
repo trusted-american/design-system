@@ -5,10 +5,11 @@ export interface ButtonComponentSignature {
   Args: {
     isSubmit?: true;
     text: string;
+    icon?: string;
+    iconOnly?: boolean;
     size?: 'sm' | 'lg';
     outline?: boolean;
     color?: string;
-    icon?: string;
     loading?: unknown;
   };
 }
