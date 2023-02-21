@@ -31,7 +31,7 @@
   </Bs::Toolbar>
 </Heading>
 
-<Table @data={{this.users}} as |table|>
+<TdsTable @data={{this.users}} as |table|>
   <table.header as |header|>
     <header.column @prop="email">
       Email
@@ -44,4 +44,4 @@
     </header.column>
   </table.header>
   <table.body />
-</Table>
+</TdsTable>
