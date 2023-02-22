@@ -12,15 +12,11 @@
         aria-label="Search"
       />
     </toolbar.group>
-    <toolbar.group as |group|>
-      <group.button {{on "click" this.do}}>
-        Search
-      </group.button>
+    <toolbar.group>
+      <Button @text="Search" {{on "click" this.do}} />
     </toolbar.group>
     <toolbar.group as |group|>
-      <group.button @color="primary" {{on "click" this.do}}>
-        Create
-      </group.button>
+      <Button @text="Create" @color="primary" {{on "click" this.do}} />
       <group.button @color="primary" {{dropdown}} />
       <Bs::Dropdown @align="right" as |dropdown|>
         <dropdown.item {{on "click" this.do}}>
