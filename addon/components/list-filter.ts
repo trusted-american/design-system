@@ -70,17 +70,19 @@ export type Predicate<T = unknown> =
   | BDateP
   | CDateP;
 
-export interface ListFilterSignature<T> {
+export interface ListFilterComponentSignature<T> {
   Args: {
     predicates: Predicate<T>[];
     onChange: (key: string, value: unknown) => void;
   };
 }
 
-export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
+export default class ListFilterComponent<T> extends Component<
+  ListFilterComponentSignature<T>
+> {
   predicates: Predicate<T>[];
 
-  constructor(owner: unknown, args: ListFilterSignature<T>['Args']) {
+  constructor(owner: unknown, args: ListFilterComponentSignature<T>['Args']) {
     super(owner, args);
 
     assert(
@@ -234,6 +236,6 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    ListFilter: typeof ListFilter;
+    ListFilter: typeof ListFilterComponent;
   }
 }

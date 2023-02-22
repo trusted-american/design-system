@@ -8,7 +8,7 @@ import type CardComponent from './components/card';
 import type ExternalLinkComponent from './components/external-link';
 import type FileTypeComponent from './components/file-type';
 import type HeadingComponent from './components/heading';
-import type ListFilter from './components/list-filter';
+import type ListFilterComponent from './components/list-filter';
 import type MainComponent from './components/main';
 import type PlaceholderComponent from './components/placeholder';
 import type PropertyListComponent from './components/property-list';
@@ -50,7 +50,7 @@ export default interface Registry {
   ExternalLink: typeof ExternalLinkComponent;
   FileType: typeof FileTypeComponent;
   Heading: typeof HeadingComponent;
-  ListFilter: typeof ListFilter;
+  ListFilter: typeof ListFilterComponent;
   Main: typeof MainComponent;
   Placeholder: typeof PlaceholderComponent;
   PropertyList: typeof PropertyListComponent;
