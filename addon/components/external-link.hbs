@@ -6,5 +6,12 @@
   data-test-external-link
   ...attributes
 >
-  {{yield}}
+  {{#if @icon}}
+    <FaIcon @icon={{@icon}} class="me-1" />
+  {{/if}}
+  {{#if @text}}
+    {{@text}}
+  {{else}}
+    {{yield}}
+  {{/if}}
 </a>

@@ -3,7 +3,9 @@ import Component from '@glimmer/component';
 export interface ExternalLinkComponentSignature {
   Element: HTMLAnchorElement;
   Args: {
+    text?: string;
     url: string | File | null | undefined;
+    icon?: string;
   };
   Blocks: {
     default: [];
