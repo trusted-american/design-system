@@ -1,0 +1,11 @@
+<Bs::Offcanvas
+  @placement="end"
+  @onClose={{@onClose}}
+  ...attributes
+  as |offcanvas|
+>
+  <offcanvas.header @title={{@title}} />
+  <offcanvas.body>
+    {{yield}}
+  </offcanvas.body>
+</Bs::Offcanvas>

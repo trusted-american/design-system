@@ -11,6 +11,8 @@ export default class ComponentsController extends Controller {
   status?: unknown;
   value?: string | null | undefined;
 
+  showFlyout = false;
+
   users = [
     { email: 'a@example.com', firstName: 'A', lastName: 'A' },
     { email: 'b@example.com', firstName: 'B', lastName: 'B' },
