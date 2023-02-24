@@ -4,6 +4,7 @@ import type AvatarComponent from './components/avatar';
 import type BadgeComponent from './components/badge';
 import type BreadcrumbTrailComponent from './components/breadcrumb-trail';
 import type ButtonComponent from './components/button';
+import type ButtonSetComponent from './components/button-set';
 import type CardComponent from './components/card';
 import type ExternalLinkComponent from './components/external-link';
 import type FileTypeComponent from './components/file-type';
@@ -48,6 +49,7 @@ export default interface Registry {
   Badge: typeof BadgeComponent;
   BreadcrumbTrail: typeof BreadcrumbTrailComponent;
   Button: typeof ButtonComponent;
+  ButtonSet: typeof ButtonSetComponent;
   Card: typeof CardComponent;
   ExternalLink: typeof ExternalLinkComponent;
   FileType: typeof FileTypeComponent;

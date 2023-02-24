@@ -66,6 +66,13 @@
 <Button @text="Loading button" @loading={{true}} {{on "click" this.do}} />
 <Button @text="Disabled button" disabled {{on "click" this.do}} />
 
+<Subheading @title="ButtonSet" />
+
+<ButtonSet>
+  <Button @text="Button 1" {{on "click" this.do}} />
+  <Button @text="Button 2" {{on "click" this.do}} />
+</ButtonSet>
+
 <Subheading @title="Card" />
 
 <Card @title="Title">
