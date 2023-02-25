@@ -6,6 +6,10 @@
 <Subheading @title="Alert" />
 
 <Alert>
+  <:body>Body here</:body>
+</Alert>
+
+<Alert>
   <:title>Title here</:title>
   <:body>Body here</:body>
 </Alert>
@@ -19,6 +23,22 @@
   <:title>Title here</:title>
   <:body>Body here</:body>
 </Alert>
+
+<Subheading @title="Aside" />
+
+<Aside
+  @title="Title"
+  @logo="https://a3.taia.us/assets/images/logo.svg"
+  @route="index"
+>
+  <:default>Default</:default>
+  <:lower>Lower</:lower>
+  <:bottom>Bottom</:bottom>
+</Aside>
+
+<Subheading @title="Aside::Item" />
+
+<Aside::Item @text="Text" @icon="box" @route="index" />
 
 <Subheading @title="Avatar" />
 
@@ -78,6 +98,14 @@
 <Card @title="Title">
   Content
 </Card>
+
+<Subheading @title="Dropdown" />
+
+<Button @text="Open dropdown" {{dropdown}} />
+<Dropdown>
+  <Dropdown::Item @text="Edit" @icon="pen" />
+  <Dropdown::Item @text="Delete" @icon="trash" @color="danger" />
+</Dropdown>
 
 <Subheading @title="ExternalLink" />
 

@@ -6,7 +6,7 @@ export interface FormFileInputComponentSignature {
   Args: {
     label?: string;
     identifier: string;
-    required?: unknown;
+    required?: boolean;
     help?: string;
     invalidFeedback?: string;
     onChange: (file: File) => void;

@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
 export interface ButtonComponentSignature {
-  Element: HTMLElement;
+  Element: HTMLButtonElement;
   Args: {
     isSubmit?: true;
     text: string;

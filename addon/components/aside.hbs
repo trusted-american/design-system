@@ -1,24 +1,22 @@
-<aside class="d-flex flex-column overflow-y-auto" ...attributes>
+<aside class="d-flex flex-column overflow-y-auto p-3" ...attributes>
   <LinkTo
     @route={{@route}}
-    class="d-flex align-items-center link-dark text-decoration-none px-3 py-4"
+    class="d-flex align-items-center link-light text-decoration-none pt-2 pb-4"
   >
-    <img src={{@logo}} alt={{@title}} class="me-3" />
-    <h3 class="mb-0">
-      {{@title}}
-    </h3>
+    <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-3" />
+    <h3 class="mb-0">{{@title}}</h3>
   </LinkTo>
 
-  <nav class="nav flex-column flex-grow-1" aria-label="Upper Nav">
+  <nav class="nav nav-pills flex-column flex-grow-1" aria-label="Upper Nav">
     {{yield}}
   </nav>
 
-  <nav class="nav flex-column mb-2" aria-label="Lower Nav">
+  <nav class="nav nav-pills flex-column mb-2" aria-label="Lower Nav">
     {{yield to="lower"}}
   </nav>
 
   {{#if (has-block "bottom")}}
-    <div class="p-3">
+    <div class="pt-3">
       {{yield to="bottom"}}
     </div>
   {{/if}}

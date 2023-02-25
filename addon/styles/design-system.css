@@ -1,3 +1,27 @@
+.nav-link {
+  color: var(--bs-dark);
+}
+
+.nav-link.active {
+  color: var(--bs-nav-link-hover-color);
+  font-weight: 600;
+}
+
+.tds-aside-logo {
+  height: 2.5rem;
+}
+
+main header:not(:last-of-type) {
+  border-bottom: var(--bs-border-width) var(--bs-border-style)
+    var(--bs-border-color);
+}
+
+main header:last-of-type {
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+
+/* vendor components */
+
 .copy-btn {
   padding: 0;
   background: none;

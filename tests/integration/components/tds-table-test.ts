@@ -8,9 +8,19 @@ module('Integration | Component | tds-table', function (hooks) {
 
   test('it renders', async function (assert) {
     await render<TestContext>(hbs`
-      {{! @glint-ignore }}
-      <TdsTable>
-        template block text
+      <TdsTable @data={{(array)}} as |table|>
+        <table.header as |header|>
+          <header.column @prop="email">
+            Email
+          </header.column>
+          <header.column @prop="firstName">
+            First Name
+          </header.column>
+          <header.column @prop="lastName">
+            Last Name
+          </header.column>
+        </table.header>
+        <table.body />
       </TdsTable>
     `);
 

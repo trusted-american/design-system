@@ -28,7 +28,7 @@ export default class AvatarComponent extends Component<AvatarComponentSignature>
     return size ?? DEFAULT_SIZE;
   }
 
-  get src() {
+  get src(): string {
     const { id, url } = this.args;
 
     assert(
@@ -37,7 +37,7 @@ export default class AvatarComponent extends Component<AvatarComponentSignature>
     );
 
     if (url) {
-      return url;
+      return url as string;
     }
 
     if (!id) {
@@ -54,12 +54,12 @@ export default class AvatarComponent extends Component<AvatarComponentSignature>
     return `data:image/png;base64,${data}`;
   }
 
-  get alt() {
+  get alt(): string {
     const { alt } = this.args;
 
     assert('<Avatar />: Must pass an alt string', typeOf(alt) === 'string');
 
-    return alt;
+    return alt as string;
   }
 
   get style() {

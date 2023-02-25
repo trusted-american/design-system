@@ -49,22 +49,21 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('simple works', async function (this: Context, assert) {
-    this.options = ['A', 'B', 'C'];
+    // this.options = ['A', 'B', 'C'];
     this.selected = undefined;
     this.label = 'Label';
     this.identifier = 'identifier';
     this.required = true;
-    this.simple = true;
+    // this.simple = true;
 
     await render<Context>(hbs`
-      {{! @glint-ignore }}
       <Form::Select
-        @options={{this.options}}
+        @options={{array 'A' 'B' 'C'}}
         @selected={{this.selected}}
         @label={{this.label}}
         @identifier={{this.identifier}}
         @required={{this.required}}
-        @simple={{this.simple}}
+        @simple={{true}}
         @onChange={{fn (mut this.selected)}}
       />
     `);

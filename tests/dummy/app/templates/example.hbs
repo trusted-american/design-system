@@ -2,29 +2,19 @@
 {{breadcrumb "Example"}}
 
 <Heading @title="Example">
-  <Bs::Toolbar class="gap-2" as |toolbar|>
-    <toolbar.group>
-      <Input
-        @value={{this.search}}
-        @type="search"
-        class="form-control"
-        placeholder="Search"
-        aria-label="Search"
-      />
-    </toolbar.group>
-    <toolbar.group>
-      <Button @text="Search" {{on "click" this.do}} />
-    </toolbar.group>
-    <toolbar.group as |group|>
-      <Button @text="Create" @color="primary" {{on "click" this.do}} />
-      <group.button @color="primary" {{dropdown}} />
-      <Bs::Dropdown @align="right" as |dropdown|>
-        <dropdown.item {{on "click" this.do}}>
-          Import
-        </dropdown.item>
-      </Bs::Dropdown>
-    </toolbar.group>
-  </Bs::Toolbar>
+  <ButtonSet>
+    <Input
+      @value={{this.search}}
+      @type="search"
+      class="form-control"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <Button @text="Filter" {{on "click" this.do}} />
+    <Button @text="Sort" {{on "click" this.do}} />
+    <Button @text="Export" {{on "click" this.do}} />
+    <Button @text="Create" @color="primary" {{on "click" this.do}} />
+  </ButtonSet>
 </Heading>
 
 <TdsTable @data={{this.users}} as |table|>
