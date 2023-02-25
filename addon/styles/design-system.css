@@ -1,14 +1,10 @@
-.nav-link {
-  color: var(--bs-dark);
+aside .tds-aside-logo {
+  height: 2.5rem;
 }
 
-.nav-link.active {
+aside .nav-link.active {
   color: var(--bs-nav-link-hover-color);
   font-weight: 600;
-}
-
-.tds-aside-logo {
-  height: 2.5rem;
 }
 
 main header:not(:last-of-type) {
@@ -29,14 +25,16 @@ main header:last-of-type {
   text-align: inherit;
 }
 
-.overflow-y-auto {
-  overflow-y: auto;
-}
-
 .yeti-table thead tr th.yeti-table-sorted-asc::after {
   content: "↑";
 }
 
 .yeti-table thead tr th.yeti-table-sorted-desc::after {
   content: "↓";
+}
+
+/* utilities */
+
+.overflow-y-auto {
+  overflow-y: auto;
 }

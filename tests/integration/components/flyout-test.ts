@@ -10,6 +10,7 @@ module('Integration | Component | flyout', function (hooks) {
     await render(hbs`
       <Flyout
         @title="Title"
+        {{! @glint-ignore }}
         @onClose={{(noop)}}
       >
         Body

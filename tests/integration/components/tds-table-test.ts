@@ -24,6 +24,6 @@ module('Integration | Component | tds-table', function (hooks) {
       </TdsTable>
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('Email First Name Last Name');
   });
 });
