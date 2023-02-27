@@ -1,11 +1,10 @@
-body {
-  height: 100vh;
-  display: flex;
-  background-color: var(--bs-dark);
+:root {
+  font-size: 0.875rem;
+  --bs-dark: #131313;
 }
 
-aside {
-  min-width: 18rem;
+body {
+  background-color: var(--bs-dark);
 }
 
 aside .nav-link,
@@ -31,6 +30,6 @@ aside .nav-link.active {
   --bs-gutter-x: 3rem;
 }
 
-h5 {
+.tds-subheading {
   margin-top: 1rem;
 }

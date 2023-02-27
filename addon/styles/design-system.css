@@ -1,10 +1,27 @@
-aside .tds-aside-logo {
-  height: 2.5rem;
+body {
+  display: grid;
+  grid-template-areas:
+    "section section"
+    "aside main";
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 16rem 1fr;
+  height: 100vh;
 }
 
-aside .nav-link.active {
-  color: var(--bs-nav-link-hover-color);
-  font-weight: 600;
+body > section {
+  grid-area: section;
+}
+
+body > aside {
+  grid-area: aside;
+}
+
+body > main {
+  grid-area: main;
+}
+
+aside .tds-aside-logo {
+  height: 2.25rem;
 }
 
 main header:not(:last-of-type) {
@@ -14,6 +31,22 @@ main header:not(:last-of-type) {
 
 main header:last-of-type {
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+
+/* collapsed */
+
+aside.collapsed {
+  min-width: inherit !important;
+}
+
+aside.collapsed .link-light > h4,
+aside.collapsed .nav-link > span {
+  display: none;
+}
+
+aside.collapsed .tds-aside-logo,
+aside.collapsed nav .fa-fw {
+  margin-right: 0 !important;
 }
 
 /* vendor components */
@@ -31,6 +64,16 @@ main header:last-of-type {
 
 .yeti-table thead tr th.yeti-table-sorted-desc::after {
   content: "↓";
+}
+
+.yeti-table-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.yeti-table-pagination-controls-page-info {
+  margin-right: auto;
 }
 
 /* utilities */

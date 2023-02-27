@@ -17,20 +17,22 @@
           {{#if (eq "local" @pagination)}}
             <table.pagination />
           {{else}}
-            {{#if @onPrevious}}
-              <Button
-                @text="Previous"
-                disabled={{not @canPrevious}}
-                {{on "click" @onPrevious}}
-              />
-            {{/if}}
-            {{#if @onNext}}
-              <Button
-                @text="Next"
-                disabled={{not @canNext}}
-                {{on "click" @onNext}}
-              />
-            {{/if}}
+            <ButtonSet class="justify-content-end">
+              {{#if @onPrevious}}
+                <Button
+                  @text="Previous"
+                  disabled={{not @canPrevious}}
+                  {{on "click" @onPrevious}}
+                />
+              {{/if}}
+              {{#if @onNext}}
+                <Button
+                  @text="Next"
+                  disabled={{not @canNext}}
+                  {{on "click" @onNext}}
+                />
+              {{/if}}
+            </ButtonSet>
           {{/if}}
         </row.cell>
       </foot.row>

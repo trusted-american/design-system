@@ -24,6 +24,7 @@ import type ToastComponent from './components/toast';
 import type AsideItemComponent from './components/aside/item';
 
 import type DropdownItemComponent from './components/dropdown/item';
+import type DropdownDividerComponent from './components/dropdown/divider';
 
 import type FormCheckComponent from './components/form/check';
 import type FormDateInputComponent from './components/form/date-input';
@@ -74,6 +75,7 @@ export default interface Registry {
   'Aside::Item': typeof AsideItemComponent;
 
   'Dropdown::Item': typeof DropdownItemComponent;
+  'Dropdown::Divider': typeof DropdownDividerComponent;
 
   'Form::Check': typeof FormCheckComponent;
   'Form::DateInput': typeof FormDateInputComponent;
