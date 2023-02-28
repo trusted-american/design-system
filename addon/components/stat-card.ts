@@ -4,7 +4,7 @@ export interface StatCardComponentSignature {
   Element: HTMLDivElement;
   Args: {
     key: string;
-    value: unknown;
+    value: string | number | null | undefined;
   };
 }
 

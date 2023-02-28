@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export interface AsideComponentSignature {
-  Element: HTMLElement;
   Args: {
     title: string;
     logo: string;
@@ -14,7 +14,9 @@ export interface AsideComponentSignature {
   };
 }
 
-export default class AsideComponent extends Component<AsideComponentSignature> {}
+export default class AsideComponent extends Component<AsideComponentSignature> {
+  @tracked collapsed = false;
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

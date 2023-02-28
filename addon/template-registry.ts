@@ -4,7 +4,9 @@ import type AvatarComponent from './components/avatar';
 import type BadgeComponent from './components/badge';
 import type BreadcrumbTrailComponent from './components/breadcrumb-trail';
 import type ButtonComponent from './components/button';
+import type ButtonSetComponent from './components/button-set';
 import type CardComponent from './components/card';
+import type DropdownComponent from './components/dropdown';
 import type ExternalLinkComponent from './components/external-link';
 import type FileTypeComponent from './components/file-type';
 import type FlyoutComponent from './components/flyout';
@@ -18,6 +20,11 @@ import type StatCardComponent from './components/stat-card';
 import type SubheadingComponent from './components/subheading';
 import type TdsTableComponent from './components/tds-table';
 import type ToastComponent from './components/toast';
+
+import type AsideItemComponent from './components/aside/item';
+
+import type DropdownItemComponent from './components/dropdown/item';
+import type DropdownDividerComponent from './components/dropdown/divider';
 
 import type FormCheckComponent from './components/form/check';
 import type FormDateInputComponent from './components/form/date-input';
@@ -48,7 +55,9 @@ export default interface Registry {
   Badge: typeof BadgeComponent;
   BreadcrumbTrail: typeof BreadcrumbTrailComponent;
   Button: typeof ButtonComponent;
+  ButtonSet: typeof ButtonSetComponent;
   Card: typeof CardComponent;
+  Dropdown: typeof DropdownComponent;
   ExternalLink: typeof ExternalLinkComponent;
   FileType: typeof FileTypeComponent;
   Flyout: typeof FlyoutComponent;
@@ -62,6 +71,11 @@ export default interface Registry {
   Subheading: typeof SubheadingComponent;
   TdsTable: typeof TdsTableComponent;
   Toast: typeof ToastComponent;
+
+  'Aside::Item': typeof AsideItemComponent;
+
+  'Dropdown::Item': typeof DropdownItemComponent;
+  'Dropdown::Divider': typeof DropdownDividerComponent;
 
   'Form::Check': typeof FormCheckComponent;
   'Form::DateInput': typeof FormDateInputComponent;

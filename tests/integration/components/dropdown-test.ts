@@ -3,20 +3,16 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | flyout', function (hooks) {
+module('Integration | Component | dropdown', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Flyout
-        @title="Title"
-        {{! @glint-ignore }}
-        @onClose={{(noop)}}
-      >
-        Body
-      </Flyout>
+      <Dropdown>
+        template block text
+      </Dropdown>
     `);
 
-    assert.dom().hasText('Title Body');
+    assert.dom().hasText('template block text');
   });
 });

@@ -8,7 +8,7 @@ export interface FormInputComponentSignature {
     type?: string;
     label?: string;
     identifier: string;
-    required?: unknown;
+    required?: boolean;
     help?: string;
     invalidFeedback?: string;
     errors?: { message: string }[];

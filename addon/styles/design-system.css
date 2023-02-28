@@ -1,12 +1,62 @@
+body {
+  display: grid;
+  grid-template-areas:
+    "section section"
+    "aside main";
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  height: 100vh;
+}
+
+body > section {
+  grid-area: section;
+}
+
+body > aside {
+  grid-area: aside;
+  min-width: 17rem;
+}
+
+body aside .tds-aside-logo {
+  height: 2.25rem;
+}
+
+body > main {
+  grid-area: main;
+}
+
+body main header:not(:last-of-type) {
+  border-bottom: var(--bs-border-width) var(--bs-border-style)
+    var(--bs-border-color);
+}
+
+body main header:last-of-type {
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+
+/* collapsed */
+
+aside.collapsed {
+  min-width: inherit !important;
+}
+
+aside.collapsed .link-light > h4,
+aside.collapsed .nav-link > span {
+  display: none;
+}
+
+aside.collapsed .tds-aside-logo,
+aside.collapsed nav .fa-fw {
+  margin-right: 0 !important;
+}
+
+/* vendor components */
+
 .copy-btn {
   padding: 0;
   background: none;
   border: none;
   text-align: inherit;
-}
-
-.overflow-y-auto {
-  overflow-y: auto;
 }
 
 .yeti-table thead tr th.yeti-table-sorted-asc::after {
@@ -15,4 +65,20 @@
 
 .yeti-table thead tr th.yeti-table-sorted-desc::after {
   content: "↓";
+}
+
+.yeti-table-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.yeti-table-pagination-controls-page-info {
+  margin-right: auto;
+}
+
+/* utilities */
+
+.overflow-y-auto {
+  overflow-y: auto;
 }

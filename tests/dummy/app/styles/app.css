@@ -1,24 +1,25 @@
+:root {
+  font-size: 0.875rem;
+  --bs-dark: #131313;
+}
+
 body {
-  height: 100vh;
-  display: flex;
-  background-color: var(--bs-light);
+  background-color: var(--bs-dark);
 }
 
-aside {
-  min-width: 17rem;
+aside .nav-link,
+.link-light {
+  color: var(--bs-gray-400) !important;
 }
 
-aside img {
-  height: 2.063rem;
-  filter: invert(1);
+aside .nav-link:hover {
+  color: var(--bs-white) !important;
+  background-color: var(--bs-gray-800);
 }
 
-.nav-link {
-  color: var(--bs-dark);
-}
-
-.nav-link.active {
-  font-weight: 700;
+aside .nav-link.active {
+  color: var(--bs-white) !important;
+  background-color: var(--bs-gray-600) !important;
 }
 
 .breadcrumb {
@@ -29,6 +30,6 @@ aside img {
   --bs-gutter-x: 3rem;
 }
 
-h5 {
+.tds-subheading {
   margin-top: 1rem;
 }

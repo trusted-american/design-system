@@ -6,6 +6,10 @@
 <Subheading @title="Alert" />
 
 <Alert>
+  <:body>Body here</:body>
+</Alert>
+
+<Alert>
   <:title>Title here</:title>
   <:body>Body here</:body>
 </Alert>
@@ -19,6 +23,22 @@
   <:title>Title here</:title>
   <:body>Body here</:body>
 </Alert>
+
+<Subheading @title="Aside" />
+
+<Aside
+  @title="Title"
+  @logo="https://a3.taia.us/assets/images/logo.svg"
+  @route="index"
+>
+  <:default>Default</:default>
+  <:lower>Lower</:lower>
+  <:bottom>Bottom</:bottom>
+</Aside>
+
+<Subheading @title="Aside::Item" />
+
+<Aside::Item @text="Text" @icon="box" @route="index" />
 
 <Subheading @title="Avatar" />
 
@@ -66,11 +86,35 @@
 <Button @text="Loading button" @loading={{true}} {{on "click" this.do}} />
 <Button @text="Disabled button" disabled {{on "click" this.do}} />
 
+<Subheading @title="ButtonSet" />
+
+<ButtonSet>
+  <Button @text="Button 1" {{on "click" this.do}} />
+  <Button @text="Button 2" {{on "click" this.do}} />
+</ButtonSet>
+
 <Subheading @title="Card" />
 
 <Card @title="Title">
   Content
 </Card>
+
+<Subheading @title="Dropdown" />
+
+<Button @text="Open dropdown" {{dropdown}} />
+<Dropdown>
+  <Dropdown::Item @text="Edit" @icon="pen" {{on "click" this.do}} />
+  <Dropdown::Divider />
+  <Dropdown::Item
+    @text="Delete"
+    @icon="trash"
+    @color="danger"
+    {{on "click" this.do}}
+  />
+  <Dropdown::Divider />
+  <Dropdown::Item @text="Route" @icon="plus" @route="index" />
+  <Dropdown::Item @text="Href" @icon="plus" @href="https://www.google.com/" />
+</Dropdown>
 
 <Subheading @title="ExternalLink" />
 
