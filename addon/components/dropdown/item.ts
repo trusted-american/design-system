@@ -1,11 +1,13 @@
 import Component from '@glimmer/component';
 
 export interface DropdownItemComponentSignature {
-  Element: HTMLButtonElement;
+  Element: HTMLElement;
   Args: {
     text: string;
     icon?: string;
     color?: string;
+    route?: string;
+    href?: string;
   };
 }
 

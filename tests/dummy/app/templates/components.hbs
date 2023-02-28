@@ -103,8 +103,17 @@
 
 <Button @text="Open dropdown" {{dropdown}} />
 <Dropdown>
-  <Dropdown::Item @text="Edit" @icon="pen" />
-  <Dropdown::Item @text="Delete" @icon="trash" @color="danger" />
+  <Dropdown::Item @text="Edit" @icon="pen" {{on "click" this.do}} />
+  <Dropdown::Divider />
+  <Dropdown::Item
+    @text="Delete"
+    @icon="trash"
+    @color="danger"
+    {{on "click" this.do}}
+  />
+  <Dropdown::Divider />
+  <Dropdown::Item @text="Route" @icon="plus" @route="index" />
+  <Dropdown::Item @text="Href" @icon="plus" @href="https://www.google.com/" />
 </Dropdown>
 
 <Subheading @title="ExternalLink" />

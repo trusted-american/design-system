@@ -4,7 +4,7 @@ body {
     "section section"
     "aside main";
   grid-template-rows: min-content 1fr;
-  grid-template-columns: 16rem 1fr;
+  grid-template-columns: min-content 1fr;
   height: 100vh;
 }
 
@@ -14,22 +14,23 @@ body > section {
 
 body > aside {
   grid-area: aside;
+  min-width: 17rem;
+}
+
+body aside .tds-aside-logo {
+  height: 2.25rem;
 }
 
 body > main {
   grid-area: main;
 }
 
-aside .tds-aside-logo {
-  height: 2.25rem;
-}
-
-main header:not(:last-of-type) {
+body main header:not(:last-of-type) {
   border-bottom: var(--bs-border-width) var(--bs-border-style)
     var(--bs-border-color);
 }
 
-main header:last-of-type {
+body main header:last-of-type {
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
 }
 

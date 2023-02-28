@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 
 export interface AsideItemComponentSignature {
+  Element: HTMLAnchorElement;
   Args: {
     text: string;
     icon: string;
