@@ -3,11 +3,11 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FormRadioBtnComponentSignature } from '@trusted-american/design-system/components/form/radio-btn';
+import type { FormRadioButtonComponentSignature } from '@trusted-american/design-system/components/form/radio-button';
 
-type Context = FormRadioBtnComponentSignature<unknown>['Args'] & TestContext;
+type Context = FormRadioButtonComponentSignature<unknown>['Args'] & TestContext;
 
-module('Integration | Component | form/radio-btn', function (hooks) {
+module('Integration | Component | form/radio-button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
@@ -26,7 +26,7 @@ module('Integration | Component | form/radio-btn', function (hooks) {
     };
 
     await render<Context>(hbs`
-      <Form::RadioBtn
+      <Form::RadioButton
         @options={{this.options}}
         @selected={{this.selected}}
         @identifier={{this.identifier}}

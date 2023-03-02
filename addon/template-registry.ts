@@ -18,7 +18,7 @@ import type PlaceholderComponent from './components/placeholder';
 import type PropertyListComponent from './components/property-list';
 import type StatCardComponent from './components/stat-card';
 import type SubheadingComponent from './components/subheading';
-import type TdsTableComponent from './components/tds-table';
+import type TableComponent from './components/table';
 import type ToastComponent from './components/toast';
 
 import type AsideItemComponent from './components/aside/item';
@@ -28,11 +28,14 @@ import type DropdownDividerComponent from './components/dropdown/divider';
 
 import type FormCheckComponent from './components/form/check';
 import type FormDateInputComponent from './components/form/date-input';
+import type FormErrorComponent from './components/form/error';
 import type FormFileInputComponent from './components/form/file-input';
+import type FormHelpComponent from './components/form/help';
 import type FormInputComponent from './components/form/input';
 import type FormLabelComponent from './components/form/label';
 import type FormPhoneInputComponent from './components/form/phone-input';
-import type FormRadioBtnComponent from './components/form/radio-btn';
+import type FormRadioButtonComponent from './components/form/radio-button';
+import type FormRadioCardComponent from './components/form/radio-card';
 import type FormRadioComponent from './components/form/radio';
 import type FormSelectComponent from './components/form/select';
 import type FormTextareaComponent from './components/form/textarea';
@@ -69,7 +72,7 @@ export default interface Registry {
   PropertyList: typeof PropertyListComponent;
   StatCard: typeof StatCardComponent;
   Subheading: typeof SubheadingComponent;
-  TdsTable: typeof TdsTableComponent;
+  Table: typeof TableComponent;
   Toast: typeof ToastComponent;
 
   'Aside::Item': typeof AsideItemComponent;
@@ -79,11 +82,14 @@ export default interface Registry {
 
   'Form::Check': typeof FormCheckComponent;
   'Form::DateInput': typeof FormDateInputComponent;
+  'Form::Error': typeof FormErrorComponent;
   'Form::FileInput': typeof FormFileInputComponent;
+  'Form::Help': typeof FormHelpComponent;
   'Form::Input': typeof FormInputComponent;
   'Form::Label': typeof FormLabelComponent;
   'Form::PhoneInput': typeof FormPhoneInputComponent;
-  'Form::RadioBtn': typeof FormRadioBtnComponent;
+  'Form::RadioButton': typeof FormRadioButtonComponent;
+  'Form::RadioCard': typeof FormRadioCardComponent;
   'Form::Radio': typeof FormRadioComponent;
   'Form::Select': typeof FormSelectComponent;
   'Form::Textarea': typeof FormTextareaComponent;

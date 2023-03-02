@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
-export interface FormRadioBtnComponentSignature<T> {
+export interface FormRadioButtonComponentSignature<T> {
   Element: HTMLDivElement;
   Args: {
     options: Option<T>[];
@@ -14,12 +14,12 @@ export interface FormRadioBtnComponentSignature<T> {
   };
 }
 
-export default class FormRadioBtnComponent<T> extends Component<
-  FormRadioBtnComponentSignature<T>
+export default class FormRadioButtonComponent<T> extends Component<
+  FormRadioButtonComponentSignature<T>
 > {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::RadioBtn': typeof FormRadioBtnComponent;
+    'Form::RadioButton': typeof FormRadioButtonComponent;
   }
 }

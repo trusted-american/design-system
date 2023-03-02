@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 //   YetiTableFooter,
 // } from '@glint/environment-ember-loose/registry';
 
-export interface TdsTableComponentSignature<T> {
+export interface TableComponentSignature<T> {
   Element: HTMLTableElement;
   Args: {
     data: T[];
@@ -28,12 +28,12 @@ export interface TdsTableComponentSignature<T> {
   };
 }
 
-export default class TdsTableComponent<T> extends Component<
-  TdsTableComponentSignature<T>
+export default class TableComponent<T> extends Component<
+  TableComponentSignature<T>
 > {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    TdsTable: typeof TdsTableComponent;
+    Table: typeof TableComponent;
   }
 }
