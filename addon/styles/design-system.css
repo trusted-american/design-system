@@ -17,7 +17,7 @@ body > aside {
   min-width: 17rem;
 }
 
-body aside .tds-aside-logo {
+body > aside .tds-aside-logo {
   height: 2.25rem;
 }
 
@@ -25,12 +25,12 @@ body > main {
   grid-area: main;
 }
 
-body main header:not(:last-of-type) {
+body > main header:not(:last-of-type) {
   border-bottom: var(--bs-border-width) var(--bs-border-style)
     var(--bs-border-color);
 }
 
-body main header:last-of-type {
+body > main header:last-of-type {
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
 }
 

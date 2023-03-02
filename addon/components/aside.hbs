@@ -26,12 +26,12 @@
 
   <div class="pt-3">
     <Button
-      @text="Toggle sidebar"
+      @text="Toggle menu"
       @icon="toggle-{{if this.collapsed 'off' 'on'}}"
       @iconOnly={{true}}
       @color="dark"
       class="px-2"
-      {{tooltip "Toggle sidebar" placement="right"}}
+      {{tooltip "Toggle menu" trigger="hover" placement="right"}}
       {{on "click" (fn (mut this.collapsed) (not this.collapsed))}}
     />
   </div>

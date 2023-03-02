@@ -3,12 +3,12 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | tds-table', function (hooks) {
+module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     await render<TestContext>(hbs`
-      <TdsTable @data={{(array)}} as |table|>
+      <Table @data={{(array)}} as |table|>
         <table.header as |header|>
           <header.column @prop="email">
             Email
@@ -21,7 +21,7 @@ module('Integration | Component | tds-table', function (hooks) {
           </header.column>
         </table.header>
         <table.body />
-      </TdsTable>
+      </Table>
     `);
 
     assert.dom().hasText('Email First Name Last Name');

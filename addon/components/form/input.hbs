@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{@label}}
+  @text={{unless @inputOnly @label}}
   @identifier={{@identifier}}
   @required={{@required}}
 />
@@ -15,6 +15,7 @@
     {{if (eq 'range' @type) 'form-range'}}
     {{if @errors 'is-invalid'}}"
   required={{@required}}
+  aria-label={{if @inputOnly @label}}
   ...attributes
 />
 

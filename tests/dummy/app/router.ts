@@ -11,4 +11,5 @@ Router.map(function () {
   this.route('helpers');
   this.route('utils');
   this.route('example');
+  this.route('not-found', { path: '/*path' });
 });

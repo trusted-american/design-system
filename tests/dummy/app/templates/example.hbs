@@ -17,7 +17,7 @@
   </ButtonSet>
 </Heading>
 
-<TdsTable @data={{this.users}} as |table|>
+<Table @data={{this.users}} as |table|>
   <table.header as |header|>
     <header.column @prop="email">
       Email
@@ -30,4 +30,4 @@
     </header.column>
   </table.header>
   <table.body />
-</TdsTable>
+</Table>
