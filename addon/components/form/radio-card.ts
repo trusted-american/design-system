@@ -9,7 +9,7 @@ interface RadioCardOption<T> extends Option<T> {
 }
 
 export interface FormRadioCardComponentSignature<T> {
-  Element: HTMLElement;
+  Element: HTMLDivElement;
   Args: {
     options: RadioCardOption<T>[];
     selected?: T | null;

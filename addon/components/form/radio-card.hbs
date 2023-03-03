@@ -4,7 +4,7 @@
   @required={{@required}}
 />
 
-<div class="row g-3">
+<div class="row g-3" ...attributes>
 
   {{#each @options as |option index|}}
     <div class="col">
@@ -35,6 +35,7 @@
               type="radio"
               name={{@identifier}}
               id="{{@identifier}}{{index}}"
+              checked={{eq @selected option.value}}
               required={{@required}}
               {{on "change" (fn @onChange option.value)}}
             />
