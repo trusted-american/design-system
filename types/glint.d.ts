@@ -1,66 +1,13 @@
 import '@glint/environment-ember-loose';
 import { ComponentLike, HelperLike } from '@glint/template';
 import EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
+import {
+  YetiTableHeader,
+  YetiTableBody,
+  YetiTableFooter,
+} from '@trusted-american/design-system/components/table';
 
 declare module '@glint/environment-ember-loose/registry' {
-  type YetiTableHeader = ComponentLike<{
-    Element: HTMLElement;
-    Blocks: {
-      default: [
-        {
-          column: ComponentLike<{
-            Element: HTMLElement;
-            Args: {
-              prop?: string;
-              sortable?: boolean;
-              sort?: 'asc' | 'desc' | null;
-              visible?: unknown;
-            };
-            Blocks: {
-              default: [];
-            };
-          }>;
-        }
-      ];
-    };
-  }>;
-
-  type YetiTableBody<T> = ComponentLike<{
-    Element: HTMLElement;
-    Blocks: {
-      default: [
-        {
-          row: ComponentLike<{
-            Element: HTMLElement;
-            Args: {
-              prop?: string;
-            };
-            Blocks: {
-              default: [
-                {
-                  cell: ComponentLike<{
-                    Element: HTMLElement;
-                    Blocks: {
-                      default: [];
-                    };
-                  }>;
-                }
-              ];
-            };
-          }>;
-        },
-        T
-      ];
-    };
-  }>;
-
-  type YetiTableFooter = ComponentLike<{
-    Element: HTMLElement;
-    Blocks: {
-      default: [];
-    };
-  }>;
-
   export default interface Registry extends EmberSimpleBootstrapRegistry {
     // @fortawesome/ember-fontawesome
 

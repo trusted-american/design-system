@@ -1,0 +1,16 @@
+<Bs::Modal
+  @title={{@title}}
+  @size={{@size}}
+  @onClose={{@onClose}}
+  ...attributes
+  as |modal|
+>
+  <modal.body>
+    {{yield}}
+  </modal.body>
+  {{#if (has-block "footer")}}
+    <modal.footer>
+      {{yield to="footer"}}
+    </modal.footer>
+  {{/if}}
+</Bs::Modal>
