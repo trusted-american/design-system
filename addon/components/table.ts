@@ -1,10 +1,63 @@
 import Component from '@glimmer/component';
+import { ComponentLike } from '@glint/template';
 
-// import type {
-//   YetiTableHeader,
-//   YetiTableBody,
-//   YetiTableFooter,
-// } from '@glint/environment-ember-loose/registry';
+export type YetiTableHeader = ComponentLike<{
+  Element: HTMLElement;
+  Blocks: {
+    default: [
+      {
+        column: ComponentLike<{
+          Element: HTMLElement;
+          Args: {
+            prop?: string;
+            sortable?: boolean;
+            sort?: 'asc' | 'desc' | null;
+            visible?: unknown;
+          };
+          Blocks: {
+            default: [];
+          };
+        }>;
+      }
+    ];
+  };
+}>;
+
+export type YetiTableBody<T> = ComponentLike<{
+  Element: HTMLElement;
+  Blocks: {
+    default: [
+      {
+        row: ComponentLike<{
+          Element: HTMLElement;
+          Args: {
+            prop?: string;
+          };
+          Blocks: {
+            default: [
+              {
+                cell: ComponentLike<{
+                  Element: HTMLElement;
+                  Blocks: {
+                    default: [];
+                  };
+                }>;
+              }
+            ];
+          };
+        }>;
+      },
+      T
+    ];
+  };
+}>;
+
+export type YetiTableFooter = ComponentLike<{
+  Element: HTMLElement;
+  Blocks: {
+    default: [];
+  };
+}>;
 
 export interface TableComponentSignature<T> {
   Element: HTMLTableElement;
@@ -20,9 +73,9 @@ export interface TableComponentSignature<T> {
   Blocks: {
     default: [
       {
-        header: any;
-        body: any;
-        footer: any;
+        header: YetiTableHeader;
+        body: YetiTableBody<T>;
+        footer: YetiTableFooter;
       }
     ];
   };
