@@ -12,6 +12,7 @@ export default class ComponentsController extends Controller {
   value?: string | null | undefined;
 
   showFlyout = false;
+  showModal = false;
 
   users = [
     { email: 'a@example.com', firstName: 'A', lastName: 'A' },

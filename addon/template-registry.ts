@@ -14,6 +14,7 @@ import type HeadingComponent from './components/heading';
 import type ListFilterComponent from './components/list-filter';
 import type LoaderComponent from './components/loader';
 import type MainComponent from './components/main';
+import type ModalComponent from './components/modal';
 import type PlaceholderComponent from './components/placeholder';
 import type PropertyListComponent from './components/property-list';
 import type StatCardComponent from './components/stat-card';
@@ -68,6 +69,7 @@ export default interface Registry {
   ListFilter: typeof ListFilterComponent;
   Loader: typeof LoaderComponent;
   Main: typeof MainComponent;
+  Modal: typeof ModalComponent;
   Placeholder: typeof PlaceholderComponent;
   PropertyList: typeof PropertyListComponent;
   StatCard: typeof StatCardComponent;
