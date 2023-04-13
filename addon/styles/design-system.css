@@ -25,16 +25,6 @@ body > main {
   grid-area: main;
 }
 
-body > main header:not(:last-of-type) {
-  border-bottom: var(--bs-border-width) var(--bs-border-style)
-    var(--bs-border-color);
-}
-
-body > main header:last-of-type {
-  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
-  z-index: 1;
-}
-
 /* collapsed */
 
 aside.collapsed {
