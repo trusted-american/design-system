@@ -18,6 +18,7 @@ import type ModalComponent from './components/modal';
 import type NavComponent from './components/nav';
 import type PlaceholderComponent from './components/placeholder';
 import type PropertyListComponent from './components/property-list';
+import type SkeletonComponent from './components/skeleton';
 import type StatCardComponent from './components/stat-card';
 import type SubheadingComponent from './components/subheading';
 import type TableComponent from './components/table';
@@ -74,6 +75,7 @@ export default interface Registry {
   Nav: typeof NavComponent;
   Placeholder: typeof PlaceholderComponent;
   PropertyList: typeof PropertyListComponent;
+  Skeleton: typeof SkeletonComponent;
   StatCard: typeof StatCardComponent;
   Subheading: typeof SubheadingComponent;
   Table: typeof TableComponent;
