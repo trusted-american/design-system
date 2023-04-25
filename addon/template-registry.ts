@@ -6,6 +6,7 @@ import type BreadcrumbTrailComponent from './components/breadcrumb-trail';
 import type ButtonComponent from './components/button';
 import type ButtonSetComponent from './components/button-set';
 import type CardComponent from './components/card';
+import type CloseButtonComponent from './components/close-button';
 import type DropdownComponent from './components/dropdown';
 import type ExternalLinkComponent from './components/external-link';
 import type FileTypeComponent from './components/file-type';
@@ -64,6 +65,7 @@ export default interface Registry {
   Button: typeof ButtonComponent;
   ButtonSet: typeof ButtonSetComponent;
   Card: typeof CardComponent;
+  CloseButton: typeof CloseButtonComponent;
   Dropdown: typeof DropdownComponent;
   ExternalLink: typeof ExternalLinkComponent;
   FileType: typeof FileTypeComponent;
