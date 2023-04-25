@@ -286,6 +286,22 @@
   @onChange={{this.do}}
 />
 
+<Subheading @title="ListGroup" />
+
+<ListGroup as |listGroup|>
+  <listGroup.item class="active">An active item</listGroup.item>
+  <listGroup.item>A second item</listGroup.item>
+</ListGroup>
+
+<ListGroup as |listGroup|>
+  <listGroup.item class="disabled">A disabled item</listGroup.item>
+  <listGroup.item>A second item</listGroup.item>
+</ListGroup>
+
+<ListGroup @flush={{true}} as |listGroup|>
+  <listGroup.item>An item</listGroup.item>
+</ListGroup>
+
 <Subheading @title="Loader" />
 
 <Loader />

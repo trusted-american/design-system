@@ -12,6 +12,7 @@ import type FileTypeComponent from './components/file-type';
 import type FlyoutComponent from './components/flyout';
 import type HeadingComponent from './components/heading';
 import type ListFilterComponent from './components/list-filter';
+import type ListGroupComponent from './components/list-group';
 import type LoaderComponent from './components/loader';
 import type MainComponent from './components/main';
 import type ModalComponent from './components/modal';
@@ -69,6 +70,7 @@ export default interface Registry {
   Flyout: typeof FlyoutComponent;
   Heading: typeof HeadingComponent;
   ListFilter: typeof ListFilterComponent;
+  ListGroup: typeof ListGroupComponent;
   Loader: typeof LoaderComponent;
   Main: typeof MainComponent;
   Modal: typeof ModalComponent;

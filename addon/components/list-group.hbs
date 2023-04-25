@@ -1,0 +1,10 @@
+<ul
+  class="list-group
+    {{if @flush 'list-group-flush'}}
+    {{if @numbered 'list-group-numbered'}}
+    {{if @horizontal 'list-group-horizontal'}}
+    {{if @color (concat 'list-group-item-' @color)}}"
+  ...attributes
+>
+  {{yield (hash item=(component "bs/list-group/item"))}}
+</ul>
