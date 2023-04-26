@@ -5,6 +5,12 @@ export interface ModalComponentSignature {
   Args: {
     title: string;
     size?: 'sm' | 'lg' | 'xl';
+    static?: boolean;
+    keyboard?: boolean;
+    focus?: boolean;
+    scroll?: boolean;
+    fullscreen?: boolean;
+    hideClose?: boolean;
     onClose: () => void;
   };
   Blocks: {
