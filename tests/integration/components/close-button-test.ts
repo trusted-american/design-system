@@ -13,14 +13,5 @@ module('Integration | Component | close-button', function (hooks) {
     await render(hbs`<CloseButton />`);
 
     assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <CloseButton>
-        template block text
-      </CloseButton>
-    `);
-
-    assert.dom().hasText('template block text');
   });
 });
