@@ -39,6 +39,20 @@ module('Integration | Helper | timestamp', function (hooks) {
     this.set('year', true);
     assert.dom(this.element).hasText('2022');
 
+    this.set('date', new Date());
+    this.set('year', undefined);
+    assert.dom(this.element).includesText('Today');
+
+    const date = new Date();
+    date.setDate(date.getDate() - 1);
+    this.set('date', date);
+    assert.dom(this.element).includesText('Yesterday');
+
+    const date1 = new Date();
+    date1.setDate(date1.getDate() + 1);
+    this.set('date', date1);
+    assert.dom(this.element).includesText('Tomorrow');
+
     // TODO: doesn't work in ci
     // this.set('year', undefined);
     // this.set('utc', true);
