@@ -20,12 +20,14 @@ const TIME_FORMAT = 'h:mm A';
  * @returns
  */
 export const timestamp = (
-  [date, format]: [date: unknown, format?: 'date' | 'time'],
+  [date]: [date: unknown],
   {
+    format,
     number,
     year,
     utc,
   }: {
+    format?: 'date' | 'time';
     number?: boolean;
     year?: boolean;
     utc?: boolean;
