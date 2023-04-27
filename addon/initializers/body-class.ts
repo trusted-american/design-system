@@ -23,7 +23,9 @@ export function initialize(application: Application) {
         application.rootElement as string
       );
       if (rootElement) {
-        rootElement.classList.add(toClassName(this.routeName));
+        rootElement.classList.add(
+          toClassName((this as unknown as Route).routeName)
+        );
       }
     },
     deactivate() {
@@ -31,7 +33,9 @@ export function initialize(application: Application) {
         application.rootElement as string
       );
       if (rootElement) {
-        rootElement.classList.remove(toClassName(this.routeName));
+        rootElement.classList.remove(
+          toClassName((this as unknown as Route).routeName)
+        );
       }
     },
   });
