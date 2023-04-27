@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { dasherize } from '@ember/string';
+import { paramCase } from 'change-case';
 
 import type Application from '@ember/application';
 
@@ -9,7 +9,7 @@ import type Application from '@ember/application';
  * @returns
  */
 function toClassName(routeName: string) {
-  return `route.${dasherize(routeName)}`.replaceAll('.', '-');
+  return `route.${paramCase(routeName)}`.replaceAll('.', '-');
 }
 
 /**
@@ -23,7 +23,9 @@ export function initialize(application: Application) {
         application.rootElement as string
       );
       if (rootElement) {
-        rootElement.classList.add(toClassName(this.routeName));
+        rootElement.classList.add(
+          toClassName((this as unknown as Route).routeName)
+        );
       }
     },
     deactivate() {
@@ -31,7 +33,9 @@ export function initialize(application: Application) {
         application.rootElement as string
       );
       if (rootElement) {
-        rootElement.classList.remove(toClassName(this.routeName));
+        rootElement.classList.remove(
+          toClassName((this as unknown as Route).routeName)
+        );
       }
     },
   });
