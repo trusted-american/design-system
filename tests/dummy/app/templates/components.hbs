@@ -99,6 +99,15 @@
   Content
 </Card>
 
+<Card @title="Title">
+  <:header>
+    <Button @text="Button 1" {{on "click" this.do}} />
+  </:header>
+  <:default>
+    Content
+  </:default>
+</Card>
+
 <Subheading @title="CloseButton" />
 
 <CloseButton />

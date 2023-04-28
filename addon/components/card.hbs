@@ -1,6 +1,13 @@
 <Bs::Card class="mb-4" ...attributes as |card|>
   {{#if @title}}
-    <card.header @title={{@title}} />
+    <card.header
+      @title={{@title}}
+      class="bg-white pe-2"
+      {{! template-lint-disable no-inline-styles }}
+      style="min-height: 3.465rem;"
+    >
+      {{yield to="header"}}
+    </card.header>
   {{/if}}
   <card.body>
     {{yield}}
