@@ -4,6 +4,9 @@ import type { LinkToKeyword } from '@glint/environment-ember-loose/-private/intr
 
 export interface NavComponentSignature {
   Element: HTMLElement;
+  Args: {
+    pills?: boolean;
+  };
   Blocks: {
     default: [
       {
