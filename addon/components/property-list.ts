@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 
-import type PropertyListItemComponent from './property-list/item';
+import type PropertyListItem from './property-list/item';
+import type { WithBoundArgs } from '@glint/template';
 
 export interface PropertyListSignature {
   Element: HTMLDivElement;
@@ -9,7 +10,7 @@ export interface PropertyListSignature {
     horizontal?: boolean;
   };
   Blocks: {
-    default: [{ item: typeof PropertyListItemComponent }];
+    default: [{ item: WithBoundArgs<typeof PropertyListItem, 'horizontal'> }];
   };
 }
 

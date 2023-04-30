@@ -98,9 +98,7 @@ export interface ListFilterSignature<T> {
   };
 }
 
-export default class ListFilterComponent<T> extends Component<
-  ListFilterSignature<T>
-> {
+export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   predicates: Predicate<T>[];
 
   constructor(owner: unknown, args: ListFilterSignature<T>['Args']) {
