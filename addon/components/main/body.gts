@@ -7,7 +7,13 @@ export interface MainBodyComponentSignature {
   };
 }
 
-export default class MainBodyComponent extends Component<MainBodyComponentSignature> {}
+export default class MainBodyComponent extends Component<MainBodyComponentSignature> {
+  <template>
+    <article class="container-fluid flex-grow-1 py-4" ...attributes>
+      {{yield}}
+    </article>
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

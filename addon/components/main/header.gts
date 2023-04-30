@@ -7,7 +7,13 @@ export interface MainHeaderComponentSignature {
   };
 }
 
-export default class MainHeaderComponent extends Component<MainHeaderComponentSignature> {}
+export default class MainHeaderComponent extends Component<MainHeaderComponentSignature> {
+  <template>
+    <header class="container-fluid bg-light border-bottom pt-4" ...attributes>
+      {{yield}}
+    </header>
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

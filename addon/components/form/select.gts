@@ -49,42 +49,6 @@ export interface FormSelectComponentSignature {
 }
 
 export default class FormSelectComponent extends Component<FormSelectComponentSignature> {
-  constructor(owner: unknown, args: FormSelectComponentSignature['Args']) {
-    super(owner, args);
-    assert(
-      '<Form::Select />: Must pass an options array',
-      typeOf(this.args.options) === 'array'
-    );
-    // assert(
-    //   '<Form::Select />: Must pass a selected string or undefined',
-    //   typeOf(this.args.selected) === 'string' ||
-    //     this.args.selected === undefined ||
-    //     this.args.selected === null
-    // );
-    assert(
-      '<Form::Select />: Must pass a label string or undefined',
-      typeOf(this.args.label) === 'string' || this.args.label === undefined
-    );
-    assert(
-      '<Form::Select />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function'
-    );
-  }
-
-  @action
-  change({ target }: Event): void {
-    const index = parseInt((target as HTMLFormElement)['value']);
-
-    const options = this.args.options as Option[];
-    const selected = options[index];
-
-    if (selected) {
-      this.args.onChange(selected.value as never);
-    } else {
-      this.args.onChange(options[0]?.value as never);
-    }
-  }
-
   <template>
     <FormLabel
       @text={{@label}}
@@ -132,6 +96,42 @@ export default class FormSelectComponent extends Component<FormSelectComponentSi
     <FormError @text={{@invalidFeedback}} />
     <FormHelp @text={{@help}} />
   </template>
+
+  constructor(owner: unknown, args: FormSelectComponentSignature['Args']) {
+    super(owner, args);
+    assert(
+      '<Form::Select />: Must pass an options array',
+      typeOf(this.args.options) === 'array'
+    );
+    // assert(
+    //   '<Form::Select />: Must pass a selected string or undefined',
+    //   typeOf(this.args.selected) === 'string' ||
+    //     this.args.selected === undefined ||
+    //     this.args.selected === null
+    // );
+    assert(
+      '<Form::Select />: Must pass a label string or undefined',
+      typeOf(this.args.label) === 'string' || this.args.label === undefined
+    );
+    assert(
+      '<Form::Select />: Must pass an onChange function',
+      typeOf(this.args.onChange) === 'function'
+    );
+  }
+
+  @action
+  change({ target }: Event): void {
+    const index = parseInt((target as HTMLFormElement)['value']);
+
+    const options = this.args.options as Option[];
+    const selected = options[index];
+
+    if (selected) {
+      this.args.onChange(selected.value as never);
+    } else {
+      this.args.onChange(options[0]?.value as never);
+    }
+  }
 }
 
 declare module '@glint/environment-ember-loose/registry' {
