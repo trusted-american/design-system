@@ -1,11 +1,6 @@
 import '@glint/environment-ember-loose';
 import { ComponentLike, HelperLike } from '@glint/template';
 import EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
-import {
-  YetiTableHeader,
-  YetiTableBody,
-  YetiTableFooter,
-} from '@trusted-american/design-system/components/table';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends EmberSimpleBootstrapRegistry {
@@ -104,57 +99,6 @@ declare module '@glint/environment-ember-loose/registry' {
     'not-eq': HelperLike<{
       Args: { Positional: [...values: unknown[]] };
       Return: boolean;
-    }>;
-
-    // ember-yeti-table
-
-    YetiTable: ComponentLike<{
-      Element: HTMLTableElement;
-      Args: {
-        data: unknown[];
-        pagination?: boolean;
-        sortable?: boolean;
-      };
-      Blocks: {
-        default: [
-          {
-            columns: [];
-            header: YetiTableHeader;
-            body: YetiTableBody<unknown>;
-            footer: YetiTableFooter;
-            tfoot: ComponentLike<{
-              Element: HTMLElement;
-              Blocks: {
-                default: [
-                  {
-                    row: ComponentLike<{
-                      Element: HTMLElement;
-                      Blocks: {
-                        default: [
-                          {
-                            cell: ComponentLike<{
-                              Element: HTMLElement;
-                              Args: {
-                                visible?: boolean;
-                              };
-                              Blocks: {
-                                default: [];
-                              };
-                            }>;
-                          }
-                        ];
-                      };
-                    }>;
-                  }
-                ];
-              };
-            }>;
-            pagination: ComponentLike<{
-              Element: HTMLElement;
-            }>;
-          }
-        ];
-      };
     }>;
   }
 }
