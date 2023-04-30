@@ -4,7 +4,11 @@ export interface DropdownDividerSignature {
   Element: HTMLHRElement;
 }
 
-export default class DropdownDivider extends Component<DropdownDividerSignature> {}
+export default class DropdownDivider extends Component<DropdownDividerSignature> {
+  <template>
+    <hr class="dropdown-divider" ...attributes />
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
