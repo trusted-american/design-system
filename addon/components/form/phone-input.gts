@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
+import { Input } from '@ember/component';
+import FormLabel from './label';
 
 export interface FormPhoneInputComponentSignature {
   Element: HTMLInputElement;
@@ -41,6 +43,34 @@ export default class FormPhoneInputComponent extends Component<FormPhoneInputCom
       this.args.onChange(null);
     }
   }
+
+  <template>
+    <FormLabel
+      @text={{@label}}
+      @identifier={{@identifier}}
+      @required={{@required}}
+    />
+
+    <div class="input-group has-validation">
+      <span class="input-group-text">
+        +1
+      </span>
+      <Input
+        @value={{this.value}}
+        @type="tel"
+        id={{@identifier}}
+        maxlength="14"
+        pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}"
+        class="form-control"
+        required={{@required}}
+        data-test-input
+        ...attributes
+      />
+      <div class="invalid-feedback">
+        Please provide a valid phone number.
+      </div>
+    </div>
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

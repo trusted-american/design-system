@@ -7,7 +7,15 @@ export interface FormHelpComponentSignature {
   };
 }
 
-export default class FormHelpComponent extends Component<FormHelpComponentSignature> {}
+export default class FormHelpComponent extends Component<FormHelpComponentSignature> {
+  <template>
+    {{#if @text}}
+      <div class="form-text" ...attributes>
+        {{@text}}
+      </div>
+    {{/if}}
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

@@ -2,6 +2,19 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
+import FormLabel from './label';
+import FormError from './error';
+import FormHelp from './help';
+import { on } from '@ember/modifier';
+import { concat } from '@ember/helper';
+// @ts-ignore
+import eq from 'ember-truth-helpers/helpers/eq';
+// @ts-ignore
+import not from 'ember-truth-helpers/helpers/not';
+// @ts-ignore
+import or from 'ember-truth-helpers/helpers/or';
+// @ts-ignore
+import pick from 'ember-composable-helpers/helpers/pick';
 
 export interface Option<T = unknown> {
   value: T;
@@ -71,6 +84,54 @@ export default class FormSelectComponent extends Component<FormSelectComponentSi
       this.args.onChange(options[0]?.value as never);
     }
   }
+
+  <template>
+    <FormLabel
+      @text={{@label}}
+      @identifier={{@identifier}}
+      @required={{@required}}
+    />
+
+    {{#if @simple}}
+      <select
+        id={{@identifier}}
+        class="form-select {{if @size (concat 'form-select-' @size)}}"
+        required={{@required}}
+        disabled={{@disabled}}
+        {{on "change" (pick "target.value" @onChange)}}
+        ...attributes
+      >
+        <option value="" selected={{not @selected}}>
+          Choose…
+        </option>
+        {{#each @options as |opt|}}
+          <option selected={{eq @selected opt}}>
+            {{opt}}
+          </option>
+        {{/each}}
+      </select>
+    {{else}}
+      <select
+        id={{@identifier}}
+        class="form-select {{if @size (concat 'form-select-' @size)}}"
+        required={{@required}}
+        {{on "change" this.change}}
+        ...attributes
+      >
+        {{#each @options as |opt index|}}
+          <option
+            value={{if (or opt.value (eq false opt.value)) index ""}}
+            selected={{eq @selected opt.value}}
+          >
+            {{opt.label}}
+          </option>
+        {{/each}}
+      </select>
+    {{/if}}
+
+    <FormError @text={{@invalidFeedback}} />
+    <FormHelp @text={{@help}} />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

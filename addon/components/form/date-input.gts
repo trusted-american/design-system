@@ -2,6 +2,11 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
+import FormLabel from './label';
+import FormError from './error';
+import FormHelp from './help';
+import { on } from '@ember/modifier';
+import { concat } from '@ember/helper';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 
 export interface FormDateInputComponentSignature {
@@ -68,6 +73,29 @@ export default class FormDateInputComponent extends Component<FormDateInputCompo
       this.args.onChange(date);
     }
   }
+
+  <template>
+    <FormLabel
+      @text={{@label}}
+      @identifier={{@identifier}}
+      @required={{@required}}
+    />
+
+    <input
+      type="date"
+      id={{@identifier}}
+      value={{this.value}}
+      min={{this.min}}
+      max={{this.max}}
+      class="form-control {{if @size (concat 'form-control-' @size)}}"
+      required={{@required}}
+      {{on "change" this.change}}
+      ...attributes
+    />
+
+    <FormError @text={{@invalidFeedback}} />
+    <FormHelp @text={{@help}} />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

@@ -1,19 +1,15 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
-
-import type { ListFilterComponentSignature } from '@trusted-american/design-system/components/list-filter';
-
-type Context = ListFilterComponentSignature<unknown>['Args'] & TestContext;
+import { render, click } from '@ember/test-helpers';
+import ListFilter, { type Predicate } from '@trusted-american/design-system/components/list-filter';
 
 module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (assert) {
     assert.expect(3 + 5);
 
-    this.predicates = [
+    const predicates: Predicate[] = [
       {
         type: 'single',
         name: 'Status',
@@ -58,16 +54,16 @@ module('Integration | Component | list-filter', function (hooks) {
         value: [],
       },
     ];
-    this.onChange = () => {
+    const onChange = () => {
       assert.true(true);
     };
 
-    await render<Context>(hbs`
+    await render(<template>
       <ListFilter
-        @predicates={{this.predicates}}
-        @onChange={{this.onChange}}
+        @predicates={{predicates}}
+        @onChange={{onChange}}
       />
-    `);
+    </template>);
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
