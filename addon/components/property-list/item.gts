@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { concat } from '@ember/helper';
 import tooltip from 'ember-simple-bootstrap/modifiers/tooltip';
-// @ts-ignore
 import CopyButton from 'ember-cli-clipboard/components/copy-button';
 
 export interface PropertyListItemSignature {

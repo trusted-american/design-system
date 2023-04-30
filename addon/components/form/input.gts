@@ -4,7 +4,6 @@ import FormError from './error';
 import FormHelp from './help';
 import { Input } from '@ember/component';
 import { concat } from '@ember/helper';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 
 export interface FormInputSignature {

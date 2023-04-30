@@ -3,9 +3,7 @@ import Button from './button';
 import ButtonSet from './button-set';
 import { on } from '@ember/modifier';
 import YetiTable from 'ember-yeti-table/components/yeti-table/component';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
-// @ts-ignore
 import not from 'ember-truth-helpers/helpers/not';
 import YetiTableHeader from 'ember-yeti-table/components/yeti-table/header';
 import YetiTableBody from 'ember-yeti-table/components/yeti-table/body';

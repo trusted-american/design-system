@@ -1,9 +1,7 @@
 import Component from '@glimmer/component';
 import BsButton from 'ember-simple-bootstrap/components/bs/button';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
-// @ts-ignore
 import and from 'ember-truth-helpers/helpers/and';
-// @ts-ignore
 import not from 'ember-truth-helpers/helpers/not';
 
 export interface ButtonSignature {

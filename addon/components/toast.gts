@@ -3,7 +3,6 @@ import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import BsCloseButton from 'ember-simple-bootstrap/components/bs/close-button';
 import BsToast from 'ember-simple-bootstrap/components/bs/toast';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 
 export interface ToastSignature {

@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import FormLabel from './label';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 

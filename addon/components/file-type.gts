@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import fileType, { type Type } from '../utils/file-type';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 
 export interface FileTypeSignature {

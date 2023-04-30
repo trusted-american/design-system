@@ -5,7 +5,6 @@ import Button from './button';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import tooltip from 'ember-simple-bootstrap/modifiers/tooltip';
-// @ts-ignore
 import not from 'ember-truth-helpers/helpers/not';
 
 export interface AsideSignature {

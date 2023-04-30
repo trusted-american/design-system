@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { fn, concat } from '@ember/helper';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';

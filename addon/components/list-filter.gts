@@ -12,9 +12,7 @@ import BsToolbar from 'ember-simple-bootstrap/components/bs/toolbar';
 import dropdown from 'ember-simple-bootstrap/modifiers/dropdown';
 import { array, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
-// @ts-ignore
 import or from 'ember-truth-helpers/helpers/or';
 import { Input } from '@ember/component';
 import FormCheck from './form/check';

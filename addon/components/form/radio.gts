@@ -2,9 +2,7 @@ import Component from '@glimmer/component';
 import FormLabel from './label';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
-// @ts-ignore
 import and from 'ember-truth-helpers/helpers/and';
 // @ts-ignore
 import dec from 'ember-composable-helpers/helpers/dec';

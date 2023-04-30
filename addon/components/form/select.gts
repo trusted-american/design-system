@@ -7,11 +7,8 @@ import FormError from './error';
 import FormHelp from './help';
 import { on } from '@ember/modifier';
 import { concat } from '@ember/helper';
-// @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
-// @ts-ignore
 import not from 'ember-truth-helpers/helpers/not';
-// @ts-ignore
 import or from 'ember-truth-helpers/helpers/or';
 // @ts-ignore
 import pick from 'ember-composable-helpers/helpers/pick';
