@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface SubheadingComponentSignature {
+export interface SubheadingSignature {
   Element: HTMLElement;
   Args: {
     title: string;
@@ -10,7 +10,7 @@ export interface SubheadingComponentSignature {
   };
 }
 
-export default class SubheadingComponent extends Component<SubheadingComponentSignature> {
+export default class Subheading extends Component<SubheadingSignature> {
   <template>
     <div
       class='tds-subheading d-flex justify-content-between align-items-start mb-4'
@@ -26,6 +26,6 @@ export default class SubheadingComponent extends Component<SubheadingComponentSi
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Subheading: typeof SubheadingComponent;
+    Subheading: typeof Subheading;
   }
 }

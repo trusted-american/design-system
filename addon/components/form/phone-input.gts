@@ -4,7 +4,7 @@ import { typeOf } from '@ember/utils';
 import { Input } from '@ember/component';
 import FormLabel from './label';
 
-export interface FormPhoneInputComponentSignature {
+export interface FormPhoneInputSignature {
   Element: HTMLInputElement;
   Args: {
     value: string | null | undefined;
@@ -15,7 +15,7 @@ export interface FormPhoneInputComponentSignature {
   };
 }
 
-export default class FormPhoneInputComponent extends Component<FormPhoneInputComponentSignature> {
+export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
   get value(): string {
     const value = this.args.value ? this.args.value : '';
     const arr = value
@@ -75,6 +75,6 @@ export default class FormPhoneInputComponent extends Component<FormPhoneInputCom
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::PhoneInput': typeof FormPhoneInputComponent;
+    'Form::PhoneInput': typeof FormPhoneInput;
   }
 }

@@ -14,7 +14,7 @@ interface RadioCardOption<T> extends Option<T> {
   help?: string;
 }
 
-export interface FormRadioCardComponentSignature<T> {
+export interface FormRadioCardSignature<T> {
   Element: HTMLDivElement;
   Args: {
     options: RadioCardOption<T>[];
@@ -26,8 +26,8 @@ export interface FormRadioCardComponentSignature<T> {
   };
 }
 
-export default class FormRadioCardComponent<T> extends Component<
-  FormRadioCardComponentSignature<T>
+export default class FormRadioCard<T> extends Component<
+  FormRadioCardSignature<T>
 > {
   <template>
     <FormLabel
@@ -83,6 +83,6 @@ export default class FormRadioCardComponent<T> extends Component<
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::RadioCard': typeof FormRadioCardComponent;
+    'Form::RadioCard': typeof FormRadioCard;
   }
 }

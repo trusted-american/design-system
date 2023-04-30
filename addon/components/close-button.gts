@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import BsCloseButton from 'ember-simple-bootstrap/components/bs/close-button';
 
-export interface CloseButtonComponentSignature {
+export interface CloseButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class CloseButtonComponent extends Component<CloseButtonComponentSignature> {
+export default class CloseButton extends Component<CloseButtonSignature> {
   <template>
     <BsCloseButton ...attributes />
   </template>
@@ -13,6 +13,6 @@ export default class CloseButtonComponent extends Component<CloseButtonComponent
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    CloseButton: typeof CloseButtonComponent;
+    CloseButton: typeof CloseButton;
   }
 }

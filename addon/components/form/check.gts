@@ -4,7 +4,7 @@ import FormHelp from './help';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import tooltip from 'ember-simple-bootstrap/modifiers/tooltip';
 
-export interface FormCheckComponentSignature {
+export interface FormCheckSignature {
   Element: HTMLInputElement;
   Args: {
     value: boolean | null | undefined | unknown;
@@ -17,7 +17,7 @@ export interface FormCheckComponentSignature {
   };
 }
 
-export default class FormCheckComponent extends Component<FormCheckComponentSignature> {
+export default class FormCheck extends Component<FormCheckSignature> {
   <template>
     <div
       class='form-check
@@ -55,6 +55,6 @@ export default class FormCheckComponent extends Component<FormCheckComponentSign
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Check': typeof FormCheckComponent;
+    'Form::Check': typeof FormCheck;
   }
 }

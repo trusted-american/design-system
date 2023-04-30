@@ -1,15 +1,15 @@
 import Component from '@glimmer/component';
 
-export interface MainHeaderComponentSignature {
+export interface MainHeaderSignature {
   Element: HTMLElement;
   Blocks: {
     default: [];
   };
 }
 
-export default class MainHeaderComponent extends Component<MainHeaderComponentSignature> {
+export default class MainHeader extends Component<MainHeaderSignature> {
   <template>
-    <header class="container-fluid bg-light border-bottom pt-4" ...attributes>
+    <header class='container-fluid bg-light border-bottom pt-4' ...attributes>
       {{yield}}
     </header>
   </template>
@@ -17,6 +17,6 @@ export default class MainHeaderComponent extends Component<MainHeaderComponentSi
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Main::Header': typeof MainHeaderComponent;
+    'Main::Header': typeof MainHeader;
   }
 }

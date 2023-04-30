@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import BsCard from 'ember-simple-bootstrap/components/bs/card';
 
-export interface CardComponentSignature {
+export interface CardSignature {
   Element: HTMLDivElement;
   Args: {
     title?: string;
@@ -13,7 +13,7 @@ export interface CardComponentSignature {
   };
 }
 
-export default class CardComponent extends Component<CardComponentSignature> {
+export default class Card extends Component<CardSignature> {
   <template>
     <BsCard class='mb-4' ...attributes as |card|>
       {{#if @title}}
@@ -38,6 +38,6 @@ export default class CardComponent extends Component<CardComponentSignature> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Card: typeof CardComponent;
+    Card: typeof Card;
   }
 }

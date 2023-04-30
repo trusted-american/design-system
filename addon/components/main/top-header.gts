@@ -1,16 +1,16 @@
 import Component from '@glimmer/component';
 
-export interface MainTopHeaderComponentSignature {
+export interface MainTopHeaderSignature {
   Element: HTMLElement;
   Blocks: {
     default: [];
   };
 }
 
-export default class MainTopHeaderComponent extends Component<MainTopHeaderComponentSignature> {
+export default class MainTopHeader extends Component<MainTopHeaderSignature> {
   <template>
     <header
-      class="container-fluid position-relative text-secondary border-bottom py-2"
+      class='container-fluid position-relative text-secondary border-bottom py-2'
       ...attributes
     >
       {{yield}}
@@ -20,6 +20,6 @@ export default class MainTopHeaderComponent extends Component<MainTopHeaderCompo
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Main::TopHeader': typeof MainTopHeaderComponent;
+    'Main::TopHeader': typeof MainTopHeader;
   }
 }

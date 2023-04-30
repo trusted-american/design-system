@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 
-export interface MainComponentSignature {
+export interface MainSignature {
   Element: HTMLElement;
   Blocks: {
     default: [];
   };
 }
 
-export default class MainComponent extends Component<MainComponentSignature> {
+export default class Main extends Component<MainSignature> {
   <template>
     <main
       id='main'
@@ -21,6 +21,6 @@ export default class MainComponent extends Component<MainComponentSignature> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Main: typeof MainComponent;
+    Main: typeof Main;
   }
 }

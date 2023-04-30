@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface FormLabelComponentSignature {
+export interface FormLabelSignature {
   Element: HTMLInputElement;
   Args: {
     text?: string;
@@ -9,7 +9,7 @@ export interface FormLabelComponentSignature {
   };
 }
 
-export default class FormLabelComponent extends Component<FormLabelComponentSignature> {
+export default class FormLabel extends Component<FormLabelSignature> {
   <template>
     {{#if @text}}
       <label for={{@identifier}} class='form-label'>
@@ -26,6 +26,6 @@ export default class FormLabelComponent extends Component<FormLabelComponentSign
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Label': typeof FormLabelComponent;
+    'Form::Label': typeof FormLabel;
   }
 }

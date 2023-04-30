@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import BsPlaceholder from 'ember-simple-bootstrap/components/bs/placeholder';
 
-export interface SkeletonComponentSignature {
+export interface SkeletonSignature {
   Element: HTMLElement;
 }
 
-export default class SkeletonComponent extends Component<SkeletonComponentSignature> {
+export default class Skeleton extends Component<SkeletonSignature> {
   <template>
     <BsPlaceholder ...attributes />
   </template>
@@ -13,6 +13,6 @@ export default class SkeletonComponent extends Component<SkeletonComponentSignat
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Skeleton: typeof SkeletonComponent;
+    Skeleton: typeof Skeleton;
   }
 }

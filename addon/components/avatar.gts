@@ -6,7 +6,7 @@ import Identicon from 'identicon.js';
 
 const DEFAULT_SIZE = 4; // rem
 
-export interface AvatarComponentSignature {
+export interface AvatarSignature {
   Element: HTMLImageElement;
   Args: {
     id: string | undefined;
@@ -16,7 +16,7 @@ export interface AvatarComponentSignature {
   };
 }
 
-export default class AvatarComponent extends Component<AvatarComponentSignature> {
+export default class Avatar extends Component<AvatarSignature> {
   get size() {
     const { size } = this.args;
 
@@ -82,6 +82,6 @@ export default class AvatarComponent extends Component<AvatarComponentSignature>
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Avatar: typeof AvatarComponent;
+    Avatar: typeof Avatar;
   }
 }

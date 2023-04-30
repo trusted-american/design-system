@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 
-export interface ExternalLinkComponentSignature {
+export interface ExternalLinkSignature {
   Element: HTMLAnchorElement;
   Args: {
     url: string;
@@ -13,7 +13,7 @@ export interface ExternalLinkComponentSignature {
   };
 }
 
-export default class ExternalLinkComponent extends Component<ExternalLinkComponentSignature> {
+export default class ExternalLink extends Component<ExternalLinkSignature> {
   <template>
     <a
       href={{@url}}
@@ -36,6 +36,6 @@ export default class ExternalLinkComponent extends Component<ExternalLinkCompone
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    ExternalLink: typeof ExternalLinkComponent;
+    ExternalLink: typeof ExternalLink;
   }
 }

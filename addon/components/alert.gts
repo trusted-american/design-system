@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import BsAlert from 'ember-simple-bootstrap/components/bs/alert';
 
-export interface AlertComponentSignature {
+export interface AlertSignature {
   Element: HTMLDivElement;
   Args: {
     color?: string;
@@ -14,7 +14,7 @@ export interface AlertComponentSignature {
   };
 }
 
-export default class AlertComponent extends Component<AlertComponentSignature> {
+export default class Alert extends Component<AlertSignature> {
   <template>
     <BsAlert
       @color={{if @color @color 'secondary'}}
@@ -38,6 +38,6 @@ export default class AlertComponent extends Component<AlertComponentSignature> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Alert: typeof AlertComponent;
+    Alert: typeof Alert;
   }
 }

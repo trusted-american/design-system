@@ -6,7 +6,7 @@ import BsToast from 'ember-simple-bootstrap/components/bs/toast';
 // @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 
-export interface ToastComponentSignature {
+export interface ToastSignature {
   Args: {
     color?: string;
     onClose?: () => void;
@@ -18,7 +18,7 @@ export interface ToastComponentSignature {
   };
 }
 
-export default class ToastComponent extends Component<ToastComponentSignature> {
+export default class Toast extends Component<ToastSignature> {
   <template>
     <BsToast class='mt-3 {{if @color (concat "text-bg-" @color)}}' as |toast|>
       {{#if (has-block 'title')}}
@@ -61,6 +61,6 @@ export default class ToastComponent extends Component<ToastComponentSignature> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Toast: typeof ToastComponent;
+    Toast: typeof Toast;
   }
 }

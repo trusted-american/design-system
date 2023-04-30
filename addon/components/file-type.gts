@@ -4,7 +4,7 @@ import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 // @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 
-export interface FileTypeComponentSignature {
+export interface FileTypeSignature {
   Element: HTMLDivElement;
   Args: {
     name?: string;
@@ -12,7 +12,7 @@ export interface FileTypeComponentSignature {
   };
 }
 
-export default class FileTypeComponent extends Component<FileTypeComponentSignature> {
+export default class FileType extends Component<FileTypeSignature> {
   get fileType(): Type | null {
     const { name } = this.args;
     if (!name || !name.split) {
@@ -46,6 +46,6 @@ export default class FileTypeComponent extends Component<FileTypeComponentSignat
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    FileType: typeof FileTypeComponent;
+    FileType: typeof FileType;
   }
 }

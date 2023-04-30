@@ -4,7 +4,7 @@ import { concat } from '@ember/helper';
 import FormLabel from './label';
 import FormHelp from './help';
 
-export interface FormTextareaComponentSignature {
+export interface FormTextareaSignature {
   Element: HTMLTextAreaElement;
   Args: {
     value: string | null | undefined;
@@ -16,7 +16,7 @@ export interface FormTextareaComponentSignature {
   };
 }
 
-export default class FormTextareaComponent extends Component<FormTextareaComponentSignature> {
+export default class FormTextarea extends Component<FormTextareaSignature> {
   <template>
     <FormLabel
       @text={{@label}}
@@ -38,6 +38,6 @@ export default class FormTextareaComponent extends Component<FormTextareaCompone
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Textarea': typeof FormTextareaComponent;
+    'Form::Textarea': typeof FormTextarea;
   }
 }

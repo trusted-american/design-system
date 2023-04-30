@@ -6,7 +6,7 @@ import and from 'ember-truth-helpers/helpers/and';
 // @ts-ignore
 import not from 'ember-truth-helpers/helpers/not';
 
-export interface ButtonComponentSignature {
+export interface ButtonSignature {
   Element: HTMLButtonElement;
   Args: {
     isSubmit?: true;
@@ -21,7 +21,7 @@ export interface ButtonComponentSignature {
   };
 }
 
-export default class ButtonComponent extends Component<ButtonComponentSignature> {
+export default class Button extends Component<ButtonSignature> {
   <template>
     <BsButton
       @isSubmit={{@isSubmit}}
@@ -49,6 +49,6 @@ export default class ButtonComponent extends Component<ButtonComponentSignature>
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Button: typeof ButtonComponent;
+    Button: typeof Button;
   }
 }

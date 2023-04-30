@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { LinkTo } from '@ember/routing';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 
-export interface AsideItemComponentSignature {
+export interface AsideItemSignature {
   Element: HTMLAnchorElement;
   Args: {
     text: string;
@@ -11,10 +11,10 @@ export interface AsideItemComponentSignature {
   };
 }
 
-export default class AsideItemComponent extends Component<AsideItemComponentSignature> {
+export default class AsideItem extends Component<AsideItemSignature> {
   <template>
-    <LinkTo @route={{@route}} class="nav-link fw-semibold px-2" ...attributes>
-      <FaIcon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
+    <LinkTo @route={{@route}} class='nav-link fw-semibold px-2' ...attributes>
+      <FaIcon @icon={{@icon}} @fixedWidth={{true}} class='me-1' />
       <span>{{@text}}</span>
     </LinkTo>
   </template>
@@ -22,6 +22,6 @@ export default class AsideItemComponent extends Component<AsideItemComponentSign
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Aside::Item': typeof AsideItemComponent;
+    'Aside::Item': typeof AsideItem;
   }
 }

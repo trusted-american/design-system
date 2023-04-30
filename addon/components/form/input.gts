@@ -7,7 +7,7 @@ import { concat } from '@ember/helper';
 // @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
 
-export interface FormInputComponentSignature {
+export interface FormInputSignature {
   Element: HTMLInputElement;
   Args: {
     value: string | number | null | undefined | unknown;
@@ -23,7 +23,7 @@ export interface FormInputComponentSignature {
   };
 }
 
-export default class FormInputComponent extends Component<FormInputComponentSignature> {
+export default class FormInput extends Component<FormInputSignature> {
   <template>
     <FormLabel
       @text={{unless @inputOnly @label}}
@@ -60,6 +60,6 @@ export default class FormInputComponent extends Component<FormInputComponentSign
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Input': typeof FormInputComponent;
+    'Form::Input': typeof FormInput;
   }
 }

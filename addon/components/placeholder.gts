@@ -3,7 +3,7 @@ import { on } from '@ember/modifier';
 import Button from './button';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 
-export interface PlaceholderComponentSignature {
+export interface PlaceholderSignature {
   Element: HTMLElement;
   Args: {
     icon: string;
@@ -13,7 +13,7 @@ export interface PlaceholderComponentSignature {
   };
 }
 
-export default class PlaceholderComponent extends Component<PlaceholderComponentSignature> {
+export default class Placeholder extends Component<PlaceholderSignature> {
   <template>
     <div
       class='d-flex justify-content-center text-secondary'
@@ -48,6 +48,6 @@ export default class PlaceholderComponent extends Component<PlaceholderComponent
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Placeholder: typeof PlaceholderComponent;
+    Placeholder: typeof Placeholder;
   }
 }

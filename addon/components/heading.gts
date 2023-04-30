@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface HeadingComponentSignature {
+export interface HeadingSignature {
   Element: HTMLDivElement;
   Args: {
     title: string;
@@ -13,7 +13,7 @@ export interface HeadingComponentSignature {
   };
 }
 
-export default class HeadingComponent extends Component<HeadingComponentSignature> {
+export default class Heading extends Component<HeadingSignature> {
   <template>
     <div class='mb-4' ...attributes>
       {{#if @type}}
@@ -50,6 +50,6 @@ export default class HeadingComponent extends Component<HeadingComponentSignatur
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Heading: typeof HeadingComponent;
+    Heading: typeof Heading;
   }
 }

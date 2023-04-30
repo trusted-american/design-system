@@ -6,7 +6,7 @@ import breadcrumbs from 'ember-breadcrumb-trail/helpers/breadcrumbs';
 // @ts-ignore
 import hasNext from 'ember-composable-helpers/helpers/has-next';
 
-export default class BreadcrumbTrailComponent extends Component {
+export default class BreadcrumbTrail extends Component {
   <template>
     <BsBreadcrumb as |bc|>
       {{#each (breadcrumbs) as |breadcrumb|}}
@@ -37,6 +37,6 @@ export default class BreadcrumbTrailComponent extends Component {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    BreadcrumbTrail: typeof BreadcrumbTrailComponent;
+    BreadcrumbTrail: typeof BreadcrumbTrail;
   }
 }

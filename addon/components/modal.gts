@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import BsModal from 'ember-simple-bootstrap/components/bs/modal';
 
-export interface ModalComponentSignature {
+export interface ModalSignature {
   Element: HTMLDivElement;
   Args: {
     title: string;
@@ -20,7 +20,7 @@ export interface ModalComponentSignature {
   };
 }
 
-export default class ModalComponent extends Component<ModalComponentSignature> {
+export default class Modal extends Component<ModalSignature> {
   <template>
     <BsModal
       @title={{@title}}
@@ -49,6 +49,6 @@ export default class ModalComponent extends Component<ModalComponentSignature> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Modal: typeof ModalComponent;
+    Modal: typeof Modal;
   }
 }

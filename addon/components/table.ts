@@ -59,7 +59,7 @@ export type YetiTableFooter = ComponentLike<{
   };
 }>;
 
-export interface TableComponentSignature<T> {
+export interface TableSignature<T> {
   Element: HTMLTableElement;
   Args: {
     data: T[];
@@ -81,12 +81,10 @@ export interface TableComponentSignature<T> {
   };
 }
 
-export default class TableComponent<T> extends Component<
-  TableComponentSignature<T>
-> {}
+export default class Table<T> extends Component<TableSignature<T>> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Table: typeof TableComponent;
+    Table: typeof Table;
   }
 }
