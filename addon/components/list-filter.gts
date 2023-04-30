@@ -4,7 +4,6 @@ import { typeOf } from '@ember/utils';
 import { action, set } from '@ember/object';
 import { hash } from '@ember/helper';
 import * as dayjs from 'dayjs';
-// @ts-ignore
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import BsButton from 'ember-simple-bootstrap/components/bs/button';
 import BsDropdown from 'ember-simple-bootstrap/components/bs/dropdown';

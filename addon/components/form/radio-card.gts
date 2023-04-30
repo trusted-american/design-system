@@ -4,7 +4,6 @@ import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
 // @ts-ignore
 import eq from 'ember-truth-helpers/helpers/eq';
-// @ts-ignore
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 
 import { Option } from '@trusted-american/design-system/components/form/select';

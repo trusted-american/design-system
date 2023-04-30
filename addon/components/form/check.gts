@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { Input } from '@ember/component';
 import FormHelp from './help';
-// @ts-ignore
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import tooltip from 'ember-simple-bootstrap/modifiers/tooltip';
 
