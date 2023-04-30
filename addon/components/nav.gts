@@ -1,4 +1,8 @@
 import Component from '@glimmer/component';
+import BsNav from 'ember-simple-bootstrap/components/bs/nav';
+import not from 'ember-truth-helpers/helpers/not';
+import { hash } from '@ember/helper';
+import { LinkTo } from '@ember/routing';
 
 import type { LinkToKeyword } from '@glint/environment-ember-loose/-private/intrinsics/link-to';
 
@@ -19,10 +23,10 @@ export interface NavSignature {
 
 export default class Nav extends Component<NavSignature> {
   <template>
-    <Bs::Nav @tabs={{not @pills}} @pills={{@pills}} ...attributes>
+    <BsNav @tabs={{not @pills}} @pills={{@pills}} ...attributes>
       {{! @glint-ignore }}
-      {{yield (hash link-to=(component 'link-to' class='nav-link'))}}
-    </Bs::Nav>
+      {{yield (hash link-to=(component LinkTo class='nav-link'))}}
+    </BsNav>
   </template>
 }
 
