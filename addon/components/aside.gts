@@ -22,6 +22,8 @@ export interface AsideComponentSignature {
 }
 
 export default class AsideComponent extends Component<AsideComponentSignature> {
+  @tracked collapsed = false;
+
   <template>
     <aside
       class='d-flex flex-column flex-shrink-0 overflow-y-auto p-3
@@ -62,8 +64,6 @@ export default class AsideComponent extends Component<AsideComponentSignature> {
       </div>
     </aside>
   </template>
-
-  @tracked collapsed = false;
 }
 
 declare module '@glint/environment-ember-loose/registry' {

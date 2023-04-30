@@ -26,29 +26,6 @@ export interface FormDateInputComponentSignature {
 }
 
 export default class FormDateInputComponent extends Component<FormDateInputComponentSignature> {
-  <template>
-    <FormLabel
-      @text={{@label}}
-      @identifier={{@identifier}}
-      @required={{@required}}
-    />
-
-    <input
-      type='date'
-      id={{@identifier}}
-      value={{this.value}}
-      min={{this.min}}
-      max={{this.max}}
-      class='form-control {{if @size (concat "form-control-" @size)}}'
-      required={{@required}}
-      {{on 'change' this.change}}
-      ...attributes
-    />
-
-    <FormError @text={{@invalidFeedback}} />
-    <FormHelp @text={{@help}} />
-  </template>
-
   constructor(owner: unknown, args: FormDateInputComponentSignature['Args']) {
     super(owner, args);
 
@@ -96,6 +73,29 @@ export default class FormDateInputComponent extends Component<FormDateInputCompo
       this.args.onChange(date);
     }
   }
+
+  <template>
+    <FormLabel
+      @text={{@label}}
+      @identifier={{@identifier}}
+      @required={{@required}}
+    />
+
+    <input
+      type='date'
+      id={{@identifier}}
+      value={{this.value}}
+      min={{this.min}}
+      max={{this.max}}
+      class='form-control {{if @size (concat "form-control-" @size)}}'
+      required={{@required}}
+      {{on 'change' this.change}}
+      ...attributes
+    />
+
+    <FormError @text={{@invalidFeedback}} />
+    <FormHelp @text={{@help}} />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

@@ -18,6 +18,20 @@ export interface FormFileInputComponentSignature {
 }
 
 export default class FormFileInputComponent extends Component<FormFileInputComponentSignature> {
+  @action
+  change(event: Event): void {
+    const { target } = event as Event & { target: HTMLInputElement };
+    if (!target.files) {
+      return;
+    }
+    const [file] = Array.from(target.files);
+    if (file) {
+      this.args.onChange(file);
+    } else {
+      target.value = '';
+    }
+  }
+
   <template>
     <FormLabel
       @text={{@label}}
@@ -37,20 +51,6 @@ export default class FormFileInputComponent extends Component<FormFileInputCompo
     <FormError @text={{@invalidFeedback}} />
     <FormHelp @text={{@help}} />
   </template>
-
-  @action
-  change(event: Event): void {
-    const { target } = event as Event & { target: HTMLInputElement };
-    if (!target.files) {
-      return;
-    }
-    const [file] = Array.from(target.files);
-    if (file) {
-      this.args.onChange(file);
-    } else {
-      target.value = '';
-    }
-  }
 }
 
 declare module '@glint/environment-ember-loose/registry' {
