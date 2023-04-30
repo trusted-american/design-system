@@ -59,13 +59,13 @@ export default class FormSelectComponent extends Component<FormSelectComponentSi
     {{#if @simple}}
       <select
         id={{@identifier}}
-        class="form-select {{if @size (concat 'form-select-' @size)}}"
+        class='form-select {{if @size (concat "form-select-" @size)}}'
         required={{@required}}
         disabled={{@disabled}}
-        {{on "change" (pick "target.value" @onChange)}}
+        {{on 'change' (pick 'target.value' @onChange)}}
         ...attributes
       >
-        <option value="" selected={{not @selected}}>
+        <option value='' selected={{not @selected}}>
           Choose…
         </option>
         {{#each @options as |opt|}}
@@ -77,14 +77,14 @@ export default class FormSelectComponent extends Component<FormSelectComponentSi
     {{else}}
       <select
         id={{@identifier}}
-        class="form-select {{if @size (concat 'form-select-' @size)}}"
+        class='form-select {{if @size (concat "form-select-" @size)}}'
         required={{@required}}
-        {{on "change" this.change}}
+        {{on 'change' this.change}}
         ...attributes
       >
         {{#each @options as |opt index|}}
           <option
-            value={{if (or opt.value (eq false opt.value)) index ""}}
+            value={{if (or opt.value (eq false opt.value)) index ''}}
             selected={{eq @selected opt.value}}
           >
             {{opt.label}}

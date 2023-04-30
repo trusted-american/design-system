@@ -28,7 +28,7 @@ export default class FormTextareaComponent extends Component<FormTextareaCompone
       @value={{@value}}
       id={{@identifier}}
       required={{@required}}
-      class="form-control {{if @size (concat 'form-control-' @size)}}"
+      class='form-control {{if @size (concat "form-control-" @size)}}'
       ...attributes
     />
 

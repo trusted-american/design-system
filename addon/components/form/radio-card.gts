@@ -36,40 +36,40 @@ export default class FormRadioCardComponent<T> extends Component<
       @required={{@required}}
     />
 
-    <div class="row g-3" ...attributes>
+    <div class='row g-3' ...attributes>
 
       {{#each @options as |option index|}}
-        <div class="col">
+        <div class='col'>
 
-          <label class="w-100">
-            <div class="card text-center">
+          <label class='w-100'>
+            <div class='card text-center'>
               {{#if option.imgUrl}}
                 <img
                   src={{option.imgUrl}}
                   alt={{option.label}}
-                  class="card-img-top"
+                  class='card-img-top'
                 />
               {{/if}}
-              <div class="card-body">
+              <div class='card-body'>
                 {{#if option.icon}}
-                  <h5 class="card-title">
+                  <h5 class='card-title'>
                     <FaIcon @icon={{option.icon}} />
                   </h5>
                 {{/if}}
-                <h5 class="card-title">{{option.label}}</h5>
+                <h5 class='card-title'>{{option.label}}</h5>
                 {{#if option.help}}
-                  <p class="card-text">{{option.help}}</p>
+                  <p class='card-text'>{{option.help}}</p>
                 {{/if}}
               </div>
-              <div class="card-footer">
+              <div class='card-footer'>
                 <input
-                  class="form-check-input"
-                  type="radio"
+                  class='form-check-input'
+                  type='radio'
                   name={{@identifier}}
-                  id="{{@identifier}}{{index}}"
+                  id='{{@identifier}}{{index}}'
                   checked={{eq @selected option.value}}
                   required={{@required}}
-                  {{on "change" (fn @onChange option.value)}}
+                  {{on 'change' (fn @onChange option.value)}}
                 />
               </div>
             </div>

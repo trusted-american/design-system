@@ -34,14 +34,14 @@ export default class FormDateInputComponent extends Component<FormDateInputCompo
     />
 
     <input
-      type="date"
+      type='date'
       id={{@identifier}}
       value={{this.value}}
       min={{this.min}}
       max={{this.max}}
-      class="form-control {{if @size (concat 'form-control-' @size)}}"
+      class='form-control {{if @size (concat "form-control-" @size)}}'
       required={{@required}}
-      {{on "change" this.change}}
+      {{on 'change' this.change}}
       ...attributes
     />
 

@@ -29,7 +29,7 @@ export default class FormRadioComponent<T> extends Component<
   FormRadioComponentSignature<T>
 > {
   <template>
-    <div class="mb-3">
+    <div class='mb-3'>
       <FormLabel
         @text={{@label}}
         @identifier={{@identifier}}
@@ -37,24 +37,24 @@ export default class FormRadioComponent<T> extends Component<
       />
 
       {{#each @options as |option index|}}
-        <div class="form-check {{if @inline 'form-check-inline'}}">
+        <div class='form-check {{if @inline "form-check-inline"}}'>
           <input
-            class="form-check-input"
-            type="radio"
+            class='form-check-input'
+            type='radio'
             name={{@identifier}}
-            id="{{@identifier}}{{index}}"
+            id='{{@identifier}}{{index}}'
             checked={{eq @selected option.value}}
             required={{@required}}
-            {{on "change" (fn @onChange option.value)}}
+            {{on 'change' (fn @onChange option.value)}}
             ...attributes
           />
 
-          <label class="form-check-label" for="{{@identifier}}{{index}}">
+          <label class='form-check-label' for='{{@identifier}}{{index}}'>
             {{option.label}}
           </label>
 
           {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
-            <div class="invalid-feedback">
+            <div class='invalid-feedback'>
               {{@invalidFeedback}}
             </div>
           {{/if}}

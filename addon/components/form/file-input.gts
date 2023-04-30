@@ -26,11 +26,11 @@ export default class FormFileInputComponent extends Component<FormFileInputCompo
     />
 
     <input
-      type="file"
+      type='file'
       id={{@identifier}}
-      class="form-control"
+      class='form-control'
       required={{@required}}
-      {{on "change" this.change}}
+      {{on 'change' this.change}}
       ...attributes
     />
 

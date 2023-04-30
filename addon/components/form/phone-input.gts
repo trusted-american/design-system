@@ -23,22 +23,22 @@ export default class FormPhoneInputComponent extends Component<FormPhoneInputCom
       @required={{@required}}
     />
 
-    <div class="input-group has-validation">
-      <span class="input-group-text">
+    <div class='input-group has-validation'>
+      <span class='input-group-text'>
         +1
       </span>
       <Input
         @value={{this.value}}
-        @type="tel"
+        @type='tel'
         id={{@identifier}}
-        maxlength="14"
-        pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}"
-        class="form-control"
+        maxlength='14'
+        pattern='[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}'
+        class='form-control'
         required={{@required}}
         data-test-input
         ...attributes
       />
-      <div class="invalid-feedback">
+      <div class='invalid-feedback'>
         Please provide a valid phone number.
       </div>
     </div>

@@ -20,30 +20,35 @@ export interface FormCheckComponentSignature {
 export default class FormCheckComponent extends Component<FormCheckComponentSignature> {
   <template>
     <div
-      class="form-check
-        {{if @inline 'form-check-inline'}}
-        {{if @switch 'form-switch'}}"
+      class='form-check
+        {{if @inline "form-check-inline"}}
+        {{if @switch "form-switch"}}'
     >
       <Input
         {{! @glint-ignore }}
         @checked={{@value}}
-        @type="checkbox"
+        @type='checkbox'
         id={{@identifier}}
-        class="form-check-input"
+        class='form-check-input'
         ...attributes
       />
 
-      <label class="form-check-label" for={{@identifier}}>
+      <label class='form-check-label' for={{@identifier}}>
         {{@label}}
       </label>
 
       {{#if @helpTooltip}}
-        <a href="#" tabindex="-1" class="link-secondary" {{tooltip @helpTooltip}}>
-          <FaIcon @icon="circle-info" />
+        <a
+          href='#'
+          tabindex='-1'
+          class='link-secondary'
+          {{tooltip @helpTooltip}}
+        >
+          <FaIcon @icon='circle-info' />
         </a>
       {{/if}}
 
-      <FormHelp @text={{@help}} class="mt-0 mb-2" />
+      <FormHelp @text={{@help}} class='mt-0 mb-2' />
     </div>
   </template>
 }

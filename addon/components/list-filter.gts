@@ -257,29 +257,33 @@ export default class ListFilterComponent<T> extends Component<
   <template>
     {{! @glint-nocheck }}
 
-    <BsButton data-test-list-filter {{dropdown autoClose="outside"}}>
-      <FaIcon @icon="filter" @fixedWidth={{true}} />
+    <BsButton data-test-list-filter {{dropdown autoClose='outside'}}>
+      <FaIcon @icon='filter' @fixedWidth={{true}} />
       Filter
       {{#if this.selections}}
-        <span class="text-danger ms-1">
+        <span class='text-danger ms-1'>
           {{this.selections.length}}
         </span>
       {{/if}}
     </BsButton>
 
-    <BsDropdown @align="right" class="p-0" data-test-list-filter-dropdown>
-      <form novalidate {{on "submit" this.done}}>
+    <BsDropdown @align='right' class='p-0' data-test-list-filter-dropdown>
+      <form novalidate {{on 'submit' this.done}}>
         <BsListGroup @flush={{true}} as |listGroup|>
 
-          <listGroup.item class="bg-light px-2">
-            <BsToolbar class="justify-content-between" as |toolbar|>
+          <listGroup.item class='bg-light px-2'>
+            <BsToolbar class='justify-content-between' as |toolbar|>
               <toolbar.group as |group|>
-                <group.button {{on "click" this.clear}} data-test-clear>
+                <group.button {{on 'click' this.clear}} data-test-clear>
                   Clear
                 </group.button>
               </toolbar.group>
               <toolbar.group as |group|>
-                <group.button @isSubmit={{true}} @color="primary" data-test-done>
+                <group.button
+                  @isSubmit={{true}}
+                  @color='primary'
+                  data-test-done
+                >
                   Done
                 </group.button>
               </toolbar.group>
@@ -288,71 +292,74 @@ export default class ListFilterComponent<T> extends Component<
 
           {{#each this.predicates as |predicate index|}}
 
-            <label class="list-group-item px-2" data-test-predicate-toggle>
+            <label class='list-group-item px-2' data-test-predicate-toggle>
               <input
                 checked={{or predicate.value (eq false predicate.value)}}
-                type="checkbox"
-                class="form-check-input me-1"
-                {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
+                type='checkbox'
+                class='form-check-input me-1'
+                {{on
+                  'change'
+                  (pick 'target.checked' (fn this.toggle predicate))
+                }}
               />
               {{predicate.name}}
             </label>
 
             {{#if (or predicate.value (eq false predicate.value))}}
-              <listGroup.item class="bg-light px-2" data-test-predicate-value>
+              <listGroup.item class='bg-light px-2' data-test-predicate-value>
 
-                {{#if (eq "date" predicate.type)}}
+                {{#if (eq 'date' predicate.type)}}
                   <FormSelect
                     @options={{array
-                      (hash value="inTheLast" label="is in the last")
-                      (hash value="equals" label="is equal to")
-                      (hash value="between" label="is between")
-                      (hash value="isAfter" label="is after")
-                      (hash value="isAfterOrOn" label="is on or after")
-                      (hash value="isBefore" label="is before")
-                      (hash value="isBeforeOrOn" label="is before or on")
+                      (hash value='inTheLast' label='is in the last')
+                      (hash value='equals' label='is equal to')
+                      (hash value='between' label='is between')
+                      (hash value='isAfter' label='is after')
+                      (hash value='isAfterOrOn' label='is on or after')
+                      (hash value='isBefore' label='is before')
+                      (hash value='isBeforeOrOn' label='is before or on')
                     }}
                     @selected={{predicate.mode}}
-                    @identifier="mode{{index}}"
+                    @identifier='mode{{index}}'
                     @onChange={{fn (mut predicate.mode)}}
-                    aria-label="Mode"
-                    class="mb-2"
+                    aria-label='Mode'
+                    class='mb-2'
                   />
 
-                  <div class="d-flex align-items-center gap-2">
-                    {{#if (eq "inTheLast" predicate.mode)}}
+                  <div class='d-flex align-items-center gap-2'>
+                    {{#if (eq 'inTheLast' predicate.mode)}}
                       <Input
                         @value={{predicate.valueA}}
-                        @type="number"
-                        min="1"
-                        class="form-control"
-                        aria-label="Value A"
+                        @type='number'
+                        min='1'
+                        class='form-control'
+                        aria-label='Value A'
                         required
                       />
                       <FormSelect
                         @options={{array
-                          (hash value="days" label="Days")
-                          (hash value="months" label="Months")
+                          (hash value='days' label='Days')
+                          (hash value='months' label='Months')
                         }}
                         @selected={{predicate.valueB}}
-                        @identifier="valueB{{index}}"
+                        @identifier='valueB{{index}}'
                         @onChange={{fn (mut predicate.valueB)}}
-                        aria-label="Value B"
+                        aria-label='Value B'
                       />
                     {{else}}
                       <FormDateInput
                         @value={{predicate.valueA}}
-                        @identifier=""
+                        @identifier=''
                         @required={{true}}
                         @onChange={{fn (mut predicate.valueA)}}
                       />
-                      {{#if (eq "between" predicate.mode)}}
+                      {{#if (eq 'between' predicate.mode)}}
                         <div>
                           and
                         </div>
                         <FormDateInput
                           @value={{predicate.valueB}}
-                          @identifier=""
+                          @identifier=''
                           @required={{true}}
                           @onChange={{fn (mut predicate.valueB)}}
                         />
@@ -360,7 +367,7 @@ export default class ListFilterComponent<T> extends Component<
                     {{/if}}
                   </div>
 
-                {{else if (eq "multi" predicate.type)}}
+                {{else if (eq 'multi' predicate.type)}}
 
                   {{#each predicate.options as |opt|}}
                     <FormCheck
@@ -368,21 +375,22 @@ export default class ListFilterComponent<T> extends Component<
                       @label={{opt.label}}
                       @identifier={{opt.value}}
                       {{on
-                        "change"
+                        'change'
                         (pick
-                          "target.checked" (fn this.toggleMulti predicate opt.value)
+                          'target.checked'
+                          (fn this.toggleMulti predicate opt.value)
                         )
                       }}
                     />
                   {{/each}}
 
-                {{else if (eq "string" predicate.type)}}
+                {{else if (eq 'string' predicate.type)}}
 
                   <Input
                     @value={{predicate.value}}
-                    @type="text"
-                    class="form-control"
-                    aria-label="Value"
+                    @type='text'
+                    class='form-control'
+                    aria-label='Value'
                   />
 
                 {{else}}
@@ -390,9 +398,9 @@ export default class ListFilterComponent<T> extends Component<
                   <FormSelect
                     @options={{predicate.options}}
                     @selected={{predicate.value}}
-                    @identifier="value{{index}}"
+                    @identifier='value{{index}}'
                     @onChange={{fn (mut predicate.value)}}
-                    aria-label="Value"
+                    aria-label='Value'
                   />
 
                 {{/if}}

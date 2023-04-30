@@ -23,23 +23,23 @@ export default class FormRadioButtonComponent<T> extends Component<
 > {
   <template>
     <div
-      class="btn-group {{if @size (concat 'btn-group-' @size)}}"
-      role="group"
+      class='btn-group {{if @size (concat "btn-group-" @size)}}'
+      role='group'
       ...attributes
     >
       {{#each @options as |option index|}}
         <input
-          type="radio"
-          class="btn-check"
+          type='radio'
+          class='btn-check'
           name={{@identifier}}
-          id="{{@identifier}}-{{index}}"
-          autocomplete="off"
+          id='{{@identifier}}-{{index}}'
+          autocomplete='off'
           checked={{eq @selected option.value}}
-          {{on "change" (fn @onChange option.value)}}
+          {{on 'change' (fn @onChange option.value)}}
         />
         <label
-          class="btn btn-{{if @color @color 'secondary'}}"
-          for="{{@identifier}}-{{index}}"
+          class='btn btn-{{if @color @color "secondary"}}'
+          for='{{@identifier}}-{{index}}'
         >
           {{option.label}}
         </label>

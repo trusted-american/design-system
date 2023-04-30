@@ -10,7 +10,7 @@ export interface FormErrorComponentSignature {
 export default class FormErrorComponent extends Component<FormErrorComponentSignature> {
   <template>
     {{#if @text}}
-      <div class="invalid-feedback" ...attributes>
+      <div class='invalid-feedback' ...attributes>
         {{@text}}
       </div>
     {{/if}}

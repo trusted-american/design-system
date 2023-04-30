@@ -12,10 +12,10 @@ export interface FormLabelComponentSignature {
 export default class FormLabelComponent extends Component<FormLabelComponentSignature> {
   <template>
     {{#if @text}}
-      <label for={{@identifier}} class="form-label">
+      <label for={{@identifier}} class='form-label'>
         {{@text}}
         {{#if @required}}
-          <span class="text-danger">
+          <span class='text-danger'>
             *
           </span>
         {{/if}}

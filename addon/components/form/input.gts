@@ -5,7 +5,7 @@ import FormHelp from './help';
 import { Input } from '@ember/component';
 import { concat } from '@ember/helper';
 // @ts-ignore
-import eq from 'ember-truth-helpers/helpers/eq'
+import eq from 'ember-truth-helpers/helpers/eq';
 
 export interface FormInputComponentSignature {
   Element: HTMLInputElement;
@@ -34,13 +34,13 @@ export default class FormInputComponent extends Component<FormInputComponentSign
     {{! @glint-ignore }}
     <Input
       @value={{@value}}
-      @type={{if @type @type "text"}}
+      @type={{if @type @type 'text'}}
       id={{@identifier}}
-      class="form-control
-        {{if @size (concat 'form-control-' @size)}}
-        {{if (eq 'color' @type) 'form-control-color'}}
-        {{if (eq 'range' @type) 'form-range'}}
-        {{if @errors 'is-invalid'}}"
+      class='form-control
+        {{if @size (concat "form-control-" @size)}}
+        {{if (eq "color" @type) "form-control-color"}}
+        {{if (eq "range" @type) "form-range"}}
+        {{if @errors "is-invalid"}}'
       required={{@required}}
       aria-label={{if @inputOnly @label}}
       ...attributes
@@ -49,7 +49,7 @@ export default class FormInputComponent extends Component<FormInputComponentSign
     <FormError @text={{@invalidFeedback}} />
 
     {{#each @errors as |error|}}
-      <div class="invalid-feedback">
+      <div class='invalid-feedback'>
         {{error.message}}
       </div>
     {{/each}}
