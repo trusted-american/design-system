@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import FormCheck from '@trusted-american/design-system/components/form/check';
 
 module('Integration | Component | form/check', function (hooks) {

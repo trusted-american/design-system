@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import Heading from '@trusted-american/design-system/components/heading';
 
 module('Integration | Component | heading', function (hooks) {

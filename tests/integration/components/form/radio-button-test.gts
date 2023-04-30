@@ -6,7 +6,7 @@ import FormRadioButton from '@trusted-american/design-system/components/form/rad
 module('Integration | Component | form/radio-button', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function ( assert) {
+  test('it renders', async function (assert) {
     assert.expect(1);
 
     const options = [

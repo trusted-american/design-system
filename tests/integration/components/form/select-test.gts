@@ -26,7 +26,7 @@ module('Integration | Component | form/select', function (hooks) {
     const label = 'Label';
     const identifier = 'identifier';
     const onChange = (value: unknown) => {
-      selected = value
+      selected = value;
     };
 
     await render(<template>
@@ -55,7 +55,7 @@ module('Integration | Component | form/select', function (hooks) {
     const required = true;
     // const simple = true;
     const onChange = (value: unknown) => {
-      selected = value
+      selected = value;
     };
 
     await render(<template>

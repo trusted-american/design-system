@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import FileType from '@trusted-american/design-system/components/file-type';
 
 module('Integration | Component | file-type', function (hooks) {

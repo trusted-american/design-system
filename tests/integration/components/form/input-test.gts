@@ -6,7 +6,7 @@ import FormInput from '@trusted-american/design-system/components/form/input';
 module('Integration | Component | form/input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function ( assert) {
+  test('it renders', async function (assert) {
     const value = 'Value';
     const type = 'text';
     const label = 'Label';

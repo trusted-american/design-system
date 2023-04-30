@@ -8,7 +8,7 @@ module('Integration | Component | aside', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(<template>
-      <Aside @title="Title" @logo="" @route="">
+      <Aside @title='Title' @logo='' @route=''>
         <:default>
           Default
         </:default>

@@ -3,7 +3,6 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import FormPhoneInput from '@trusted-american/design-system/components/form/phone-input';
 
-
 module('Integration | Component | form/phone-input', function (hooks) {
   setupRenderingTest(hooks);
 

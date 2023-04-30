@@ -1,7 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click } from '@ember/test-helpers';
-import ListFilter, { type Predicate } from '@trusted-american/design-system/components/list-filter';
+import ListFilter, {
+  type Predicate,
+} from '@trusted-american/design-system/components/list-filter';
 
 module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
@@ -59,10 +61,7 @@ module('Integration | Component | list-filter', function (hooks) {
     };
 
     await render(<template>
-      <ListFilter
-        @predicates={{predicates}}
-        @onChange={{onChange}}
-      />
+      <ListFilter @predicates={{predicates}} @onChange={{onChange}} />
     </template>);
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
