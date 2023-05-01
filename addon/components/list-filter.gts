@@ -18,9 +18,7 @@ import { Input } from '@ember/component';
 import FormCheck from './form/check';
 import FormDateInput from './form/date-input';
 import FormSelect from './form/select';
-// @ts-ignore
 import includes from 'ember-composable-helpers/helpers/includes';
-// @ts-ignore
 import pick from 'ember-composable-helpers/helpers/pick';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';

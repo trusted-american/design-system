@@ -10,7 +10,6 @@ import { concat } from '@ember/helper';
 import eq from 'ember-truth-helpers/helpers/eq';
 import not from 'ember-truth-helpers/helpers/not';
 import or from 'ember-truth-helpers/helpers/or';
-// @ts-ignore
 import pick from 'ember-composable-helpers/helpers/pick';
 
 export interface Option<T = unknown> {

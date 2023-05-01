@@ -4,7 +4,6 @@ import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
 import eq from 'ember-truth-helpers/helpers/eq';
 import and from 'ember-truth-helpers/helpers/and';
-// @ts-ignore
 import dec from 'ember-composable-helpers/helpers/dec';
 
 import { Option } from '@trusted-american/design-system/components/form/select';
