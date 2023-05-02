@@ -11,15 +11,15 @@ module('Integration | Component | external-link', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    this.url = 'https://www.google.com/';
+    this.href = 'https://www.google.com/';
 
     await render<Context>(hbs`
-      <ExternalLink @url={{this.url}}>
+      <ExternalLink @href={{this.href}}>
         template block text
       </ExternalLink>
     `);
 
-    assert.dom('a').hasAttribute('href', this.url);
+    assert.dom('a').hasAttribute('href', this.href);
     assert.dom('a').hasAttribute('target', '_blank');
     assert.dom('a').hasAttribute('rel', 'noopener noreferrer');
     assert.dom('a').hasText('template block text');
