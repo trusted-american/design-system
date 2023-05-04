@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/design-system",
-  "version": "0.0.66",
+  "version": "0.0.67",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
@@ -39,7 +39,7 @@
     "ember-cli-clipboard": "^1.0.0",
     "ember-cli-htmlbars": "^6.2.0",
     "ember-cli-typescript": "^5.2.1",
-    "ember-simple-bootstrap": "^0.0.37",
+    "ember-simple-bootstrap": "^0.0.38",
     "ember-yeti-table": "^1.7.4",
     "identicon.js": "^2.3.3"
   },
