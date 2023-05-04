@@ -108,6 +108,12 @@
   </:default>
 </Card>
 
+<Card @title="Title">
+  <:padded>
+    Padded content
+  </:padded>
+</Card>
+
 <Subheading @title="CloseButton" />
 
 <CloseButton />
@@ -131,7 +137,7 @@
 
 <Subheading @title="ExternalLink" />
 
-<ExternalLink @url="https://www.google.com/">
+<ExternalLink @href="https://www.google.com/">
   https://www.google.com/
 </ExternalLink>
 
@@ -375,7 +381,7 @@
 <Nav as |nav|>
   <nav.link-to @route="index" class="nav-link">First</nav.link-to>
   <nav.link-to @route="components" class="nav-link">Second</nav.link-to>
-  <nav.link-to @route="index"> class="nav-link"Third</nav.link-to>
+  <nav.link-to @route="index" class="nav-link">Third</nav.link-to>
 </Nav>
 
 <Subheading @title="Placeholder" />

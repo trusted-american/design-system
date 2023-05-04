@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/design-system",
-  "version": "0.0.62",
+  "version": "0.0.65",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
@@ -39,6 +39,7 @@
     "ember-cli-clipboard": "^1.0.0",
     "ember-cli-htmlbars": "^6.2.0",
     "ember-cli-typescript": "^5.2.1",
+    "ember-simple-bootstrap": "^0.0.37",
     "ember-yeti-table": "^1.7.4",
     "identicon.js": "^2.3.3"
   },
@@ -90,7 +91,6 @@
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^6.2.0",
     "ember-resolver": "^10.0.0",
-    "ember-simple-bootstrap": "^0.0.34",
     "ember-source": "~4.11.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^5.3.1",
@@ -108,6 +108,9 @@
     "qunit-dom": "^2.0.0",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0"
+  },
+  "overrides": {
+    "ember-modifier": "4.1.0"
   },
   "peerDependencies": {
     "ember-source": "^3.28.0 || ^4.0.0"

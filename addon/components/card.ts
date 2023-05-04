@@ -8,6 +8,7 @@ export interface CardComponentSignature {
   Blocks: {
     default: [];
     header: [];
+    padded: [];
   };
 }
 

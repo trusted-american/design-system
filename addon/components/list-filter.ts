@@ -21,7 +21,7 @@ interface P {
 }
 
 interface SelectP<T> extends P {
-  options: [Option<T>, ...Option<T>[]];
+  options: Option<T>[];
 }
 
 interface SingleSelectP<T> extends SelectP<T> {
@@ -136,7 +136,7 @@ export default class ListFilterComponent<T> extends Component<
   toggle(predicate: Predicate<T>, checked: boolean): void {
     if (checked) {
       if (predicate.type === 'multi') {
-        set(predicate, 'value', [predicate.options[0].value]);
+        set(predicate, 'value', [predicate.options[0]?.value as T]);
       } else if (predicate.type === 'string') {
         set(predicate, 'value', 'Text');
       } else if (predicate.type === 'date') {
@@ -150,7 +150,7 @@ export default class ListFilterComponent<T> extends Component<
         set(predicate, 'valueA', new Date());
         set(predicate, 'valueB', new Date());
       } else {
-        set(predicate, 'value', predicate.options[0].value);
+        set(predicate, 'value', predicate.options[0]?.value);
       }
     } else {
       if (predicate.type === 'date' || predicate.type === 'multi') {

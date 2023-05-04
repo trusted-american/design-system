@@ -9,7 +9,10 @@
       {{yield to="header"}}
     </card.header>
   {{/if}}
-  <card.body>
-    {{yield}}
-  </card.body>
+  {{#if (has-block "padded")}}
+    <card.body>
+      {{yield to="padded"}}
+    </card.body>
+  {{/if}}
+  {{yield}}
 </Bs::Card>
