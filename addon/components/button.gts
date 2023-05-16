@@ -4,9 +4,11 @@ import BsButton from 'ember-simple-bootstrap/components/bs/button';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import and from 'ember-truth-helpers/helpers/and';
 import not from 'ember-truth-helpers/helpers/not';
+import { LinkTo } from '@ember/routing';
+import { concat } from '@ember/helper';
 
 export interface ButtonSignature {
-  Element: HTMLButtonElement;
+  Element: HTMLButtonElement | HTMLAnchorElement;
   Args: {
     isSubmit?: true;
     text: string;

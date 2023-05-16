@@ -10,7 +10,7 @@ module('Integration | Component | external-link', function (hooks) {
     const href = 'https://www.google.com/';
 
     await render(<template>
-      <ExternalLink @href={{this.href}}>
+      <ExternalLink @href={{href}}>
         template block text
       </ExternalLink>
     </template>);
