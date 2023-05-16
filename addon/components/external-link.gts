@@ -4,7 +4,7 @@ import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 export interface ExternalLinkSignature {
   Element: HTMLAnchorElement;
   Args: {
-    url: string;
+    href: string;
     text?: string;
     icon?: string;
   };
@@ -16,7 +16,7 @@ export interface ExternalLinkSignature {
 export default class ExternalLink extends Component<ExternalLinkSignature> {
   <template>
     <a
-      href={{@url}}
+      href={{@href}}
       target='_blank'
       rel='noopener noreferrer'
       data-test-external-link

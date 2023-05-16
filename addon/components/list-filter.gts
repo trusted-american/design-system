@@ -151,7 +151,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   toggle(predicate: Predicate<T>, checked: boolean): void {
     if (checked) {
       if (predicate.type === 'multi') {
-        set(predicate, 'value', [predicate.options[0].value]);
+        set(predicate, 'value', [predicate.options[0]?.value as T]);
       } else if (predicate.type === 'string') {
         set(predicate, 'value', 'Text');
       } else if (predicate.type === 'date') {
@@ -165,7 +165,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         set(predicate, 'valueA', new Date());
         set(predicate, 'valueB', new Date());
       } else {
-        set(predicate, 'value', predicate.options[0].value);
+        set(predicate, 'value', predicate.options[0]?.value);
       }
     } else {
       if (predicate.type === 'date' || predicate.type === 'multi') {

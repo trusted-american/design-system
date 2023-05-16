@@ -60,7 +60,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
         @type='tel'
         id={{@identifier}}
         maxlength='14'
-        pattern='[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}'
+        pattern='\([0-9]{3}\) [0-9]{3}-[0-9]{4}'
         class='form-control'
         required={{@required}}
         data-test-input

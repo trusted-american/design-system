@@ -67,7 +67,11 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   change({ target }: Event): void {
     const d = new Date((target as HTMLInputElement).value);
     const date = new Date(d.getTime() + d.getTimezoneOffset() * 60 * 1000);
-    if (!date.toISOString || isNaN(date.getTime())) {
+    if (
+      !date.toISOString ||
+      isNaN(date.getTime()) ||
+      date.getFullYear() > 9999
+    ) {
       this.args.onChange(null);
     } else {
       this.args.onChange(date);
