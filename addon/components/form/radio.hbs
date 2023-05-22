@@ -1,10 +1,10 @@
-<div class="mb-3">
-  <Form::Label
-    @text={{@label}}
-    @identifier={{@identifier}}
-    @required={{@required}}
-  />
+<Form::Label
+  @text={{@label}}
+  @identifier={{@identifier}}
+  @required={{@required}}
+/>
 
+<div class="mb-3">
   {{#each @options as |option index|}}
     <div class="form-check {{if @inline 'form-check-inline'}}">
       <input

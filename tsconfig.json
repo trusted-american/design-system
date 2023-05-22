@@ -40,6 +40,17 @@
     "addon-test-support/**/*"
   ],
   "glint": {
-    "environment": "ember-loose"
+    "environment": {
+      "ember-loose": {
+        "additionalSpecialForms": {
+          "globals": {
+            "eq": "===",
+            "not-eq": "!==",
+            "and": "&&",
+            "or": "||"
+          }
+        }
+      }
+    }
   }
 }
