@@ -21,7 +21,36 @@ ember install @trusted-american/design-system
 
 ## Usage
 
-[Longer description of how to use the addon in apps.]
+```hbs
+{{! app/templates/application.hbs }}
+
+{{page-title "Title"}}
+{{breadcrumb "Title" route="index"}}
+
+<Aside
+  @title="Title"
+  @logo="/logo.svg"
+  @route="index"
+>
+  <Aside::Item @text="Link 1" @route="index" @icon="house" />
+  <Aside::Item @text="Link 2" @route="index" @icon="house" />
+  <Aside::Item @text="Link 3" @route="index" @icon="house" />
+</Aside>
+
+<Main>
+  <Main::TopHeader>
+    <BreadcrumbTrail />
+  </Main::TopHeader>
+
+  <Main::Body>
+    Body
+  </Main::Body>
+
+  <Main::Footer>
+    Footer
+  </Main::Footer>
+</Main>
+```
 
 
 ## Contributing
