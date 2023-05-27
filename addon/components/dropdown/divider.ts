@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 
-export interface DropdownDividerComponentSignature {
+export interface DropdownDividerSignature {
   Element: HTMLHRElement;
 }
 
-export default class DropdownDividerComponent extends Component<DropdownDividerComponentSignature> {}
+export default class DropdownDivider extends Component<DropdownDividerSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Dropdown::Divider': typeof DropdownDividerComponent;
+    'Dropdown::Divider': typeof DropdownDivider;
   }
 }

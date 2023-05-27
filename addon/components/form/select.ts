@@ -30,13 +30,13 @@ interface SimpleArgs extends Args {
   simple: true;
 }
 
-export interface FormSelectComponentSignature {
+export interface FormSelectSignature {
   Element: HTMLSelectElement;
   Args: ComplexArgs | SimpleArgs;
 }
 
-export default class FormSelectComponent extends Component<FormSelectComponentSignature> {
-  constructor(owner: unknown, args: FormSelectComponentSignature['Args']) {
+export default class FormSelect extends Component<FormSelectSignature> {
+  constructor(owner: unknown, args: FormSelectSignature['Args']) {
     super(owner, args);
     assert(
       '<Form::Select />: Must pass an options array',
@@ -75,6 +75,6 @@ export default class FormSelectComponent extends Component<FormSelectComponentSi
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Select': typeof FormSelectComponent;
+    'Form::Select': typeof FormSelect;
   }
 }

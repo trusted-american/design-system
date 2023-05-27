@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface FormInputComponentSignature {
+export interface FormInputSignature {
   Element: HTMLInputElement;
   Args: {
     value: string | number | null | undefined | unknown;
@@ -16,10 +16,10 @@ export interface FormInputComponentSignature {
   };
 }
 
-export default class FormInputComponent extends Component<FormInputComponentSignature> {}
+export default class FormInput extends Component<FormInputSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Input': typeof FormInputComponent;
+    'Form::Input': typeof FormInput;
   }
 }

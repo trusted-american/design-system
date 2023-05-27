@@ -1,16 +1,16 @@
 import Component from '@glimmer/component';
 
-export interface ButtonSetComponentSignature {
+export interface ButtonSetSignature {
   Element: HTMLDivElement;
   Blocks: {
     default: [];
   };
 }
 
-export default class ButtonSetComponent extends Component<ButtonSetComponentSignature> {}
+export default class ButtonSet extends Component<ButtonSetSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    ButtonSet: typeof ButtonSetComponent;
+    ButtonSet: typeof ButtonSet;
   }
 }

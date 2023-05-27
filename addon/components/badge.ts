@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface BadgeComponentSignature {
+export interface BadgeSignature {
   Element: HTMLElement;
   Args: {
     text: string;
@@ -9,10 +9,10 @@ export interface BadgeComponentSignature {
   };
 }
 
-export default class BadgeComponent extends Component<BadgeComponentSignature> {}
+export default class Badge extends Component<BadgeSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Badge: typeof BadgeComponent;
+    Badge: typeof Badge;
   }
 }

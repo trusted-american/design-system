@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, fillIn, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FormDateInputComponentSignature } from '@trusted-american/design-system/components/form/date-input';
+import type { FormDateInputSignature } from '@trusted-american/design-system/components/form/date-input';
 
-type Context = FormDateInputComponentSignature['Args'] & TestContext;
+type Context = FormDateInputSignature['Args'] & TestContext;
 
 module('Integration | Component | form/date-input', function (hooks) {
   setupRenderingTest(hooks);

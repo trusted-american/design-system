@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 import type PropertyListItemComponent from './property-list/item';
 
-export interface PropertyListComponentSignature {
+export interface PropertyListSignature {
   Element: HTMLDivElement;
   Args: {
     title?: string;
@@ -13,10 +13,10 @@ export interface PropertyListComponentSignature {
   };
 }
 
-export default class PropertyListComponent extends Component<PropertyListComponentSignature> {}
+export default class PropertyList extends Component<PropertyListSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    PropertyList: typeof PropertyListComponent;
+    PropertyList: typeof PropertyList;
   }
 }

@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 
-export interface SkeletonComponentSignature {
+export interface SkeletonSignature {
   Element: HTMLElement;
 }
 
-export default class SkeletonComponent extends Component<SkeletonComponentSignature> {}
+export default class Skeleton extends Component<SkeletonSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Skeleton: typeof SkeletonComponent;
+    Skeleton: typeof Skeleton;
   }
 }

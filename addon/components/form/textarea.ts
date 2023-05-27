@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface FormTextareaComponentSignature {
+export interface FormTextareaSignature {
   Element: HTMLTextAreaElement;
   Args: {
     value: string | null | undefined;
@@ -12,10 +12,10 @@ export interface FormTextareaComponentSignature {
   };
 }
 
-export default class FormTextareaComponent extends Component<FormTextareaComponentSignature> {}
+export default class FormTextarea extends Component<FormTextareaSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Textarea': typeof FormTextareaComponent;
+    'Form::Textarea': typeof FormTextarea;
   }
 }

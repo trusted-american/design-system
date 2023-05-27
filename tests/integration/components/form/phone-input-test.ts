@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FormPhoneInputComponentSignature } from '@trusted-american/design-system/components/form/phone-input';
+import type { FormPhoneInputSignature } from '@trusted-american/design-system/components/form/phone-input';
 
-type Context = FormPhoneInputComponentSignature['Args'] & TestContext;
+type Context = FormPhoneInputSignature['Args'] & TestContext;
 
 module('Integration | Component | form/phone-input', function (hooks) {
   setupRenderingTest(hooks);

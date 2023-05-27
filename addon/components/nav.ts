@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 import type { LinkToKeyword } from '@glint/environment-ember-loose/-private/intrinsics/link-to';
 
-export interface NavComponentSignature {
+export interface NavSignature {
   Element: HTMLElement;
   Args: {
     pills?: boolean;
@@ -17,10 +17,10 @@ export interface NavComponentSignature {
   };
 }
 
-export default class NavComponent extends Component<NavComponentSignature> {}
+export default class Nav extends Component<NavSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Nav: typeof NavComponent;
+    Nav: typeof Nav;
   }
 }

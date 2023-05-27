@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { ExternalLinkComponentSignature } from '@trusted-american/design-system/components/external-link';
+import type { ExternalLinkSignature } from '@trusted-american/design-system/components/external-link';
 
-type Context = ExternalLinkComponentSignature['Args'] & TestContext;
+type Context = ExternalLinkSignature['Args'] & TestContext;
 
 module('Integration | Component | external-link', function (hooks) {
   setupRenderingTest(hooks);

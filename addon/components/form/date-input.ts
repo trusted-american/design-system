@@ -4,7 +4,7 @@ import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 
-export interface FormDateInputComponentSignature {
+export interface FormDateInputSignature {
   Element: HTMLInputElement;
   Args: {
     value: Date | null | unknown;
@@ -20,8 +20,8 @@ export interface FormDateInputComponentSignature {
   };
 }
 
-export default class FormDateInputComponent extends Component<FormDateInputComponentSignature> {
-  constructor(owner: unknown, args: FormDateInputComponentSignature['Args']) {
+export default class FormDateInput extends Component<FormDateInputSignature> {
+  constructor(owner: unknown, args: FormDateInputSignature['Args']) {
     super(owner, args);
 
     assert(
@@ -76,6 +76,6 @@ export default class FormDateInputComponent extends Component<FormDateInputCompo
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::DateInput': typeof FormDateInputComponent;
+    'Form::DateInput': typeof FormDateInput;
   }
 }

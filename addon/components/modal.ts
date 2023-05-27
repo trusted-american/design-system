@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface ModalComponentSignature {
+export interface ModalSignature {
   Element: HTMLDivElement;
   Args: {
     title: string;
@@ -19,10 +19,10 @@ export interface ModalComponentSignature {
   };
 }
 
-export default class ModalComponent extends Component<ModalComponentSignature> {}
+export default class Modal extends Component<ModalSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Modal: typeof ModalComponent;
+    Modal: typeof Modal;
   }
 }

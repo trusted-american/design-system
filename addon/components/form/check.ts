@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface FormCheckComponentSignature {
+export interface FormCheckSignature {
   Element: HTMLInputElement;
   Args: {
     value: boolean | null | undefined | unknown;
@@ -13,10 +13,10 @@ export interface FormCheckComponentSignature {
   };
 }
 
-export default class FormCheckComponent extends Component<FormCheckComponentSignature> {}
+export default class FormCheck extends Component<FormCheckSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Check': typeof FormCheckComponent;
+    'Form::Check': typeof FormCheck;
   }
 }

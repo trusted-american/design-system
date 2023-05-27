@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FormRadioComponentSignature } from '@trusted-american/design-system/components/form/radio';
+import type { FormRadioSignature } from '@trusted-american/design-system/components/form/radio';
 
-type Context = FormRadioComponentSignature<unknown>['Args'] & TestContext;
+type Context = FormRadioSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | form/radio', function (hooks) {
   setupRenderingTest(hooks);

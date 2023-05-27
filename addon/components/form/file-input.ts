@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export interface FormFileInputComponentSignature {
+export interface FormFileInputSignature {
   Element: HTMLInputElement;
   Args: {
     label?: string;
@@ -13,7 +13,7 @@ export interface FormFileInputComponentSignature {
   };
 }
 
-export default class FormFileInputComponent extends Component<FormFileInputComponentSignature> {
+export default class FormFileInput extends Component<FormFileInputSignature> {
   @action
   change(event: Event): void {
     const { target } = event as Event & { target: HTMLInputElement };
@@ -31,6 +31,6 @@ export default class FormFileInputComponent extends Component<FormFileInputCompo
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::FileInput': typeof FormFileInputComponent;
+    'Form::FileInput': typeof FormFileInput;
   }
 }

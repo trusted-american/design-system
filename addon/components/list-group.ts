@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 import type { ComponentLike } from '@glint/template';
 
-export interface ListGroupComponentSignature {
+export interface ListGroupSignature {
   Element: HTMLUListElement;
   Args: {
     flush?: boolean;
@@ -24,10 +24,10 @@ export interface ListGroupComponentSignature {
   };
 }
 
-export default class ListGroupComponent extends Component<ListGroupComponentSignature> {}
+export default class ListGroup extends Component<ListGroupSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    ListGroup: typeof ListGroupComponent;
+    ListGroup: typeof ListGroup;
   }
 }

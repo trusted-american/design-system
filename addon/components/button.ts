@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface ButtonComponentSignature {
+export interface ButtonSignature {
   Element: HTMLButtonElement | HTMLAnchorElement;
   Args: {
     isSubmit?: true;
@@ -17,10 +17,10 @@ export interface ButtonComponentSignature {
   };
 }
 
-export default class ButtonComponent extends Component<ButtonComponentSignature> {}
+export default class Button extends Component<ButtonSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Button: typeof ButtonComponent;
+    Button: typeof Button;
   }
 }

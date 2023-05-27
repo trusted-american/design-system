@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface ExternalLinkComponentSignature {
+export interface ExternalLinkSignature {
   Element: HTMLAnchorElement;
   Args: {
     href: string;
@@ -12,10 +12,10 @@ export interface ExternalLinkComponentSignature {
   };
 }
 
-export default class ExternalLinkComponent extends Component<ExternalLinkComponentSignature> {}
+export default class ExternalLink extends Component<ExternalLinkSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    ExternalLink: typeof ExternalLinkComponent;
+    ExternalLink: typeof ExternalLink;
   }
 }

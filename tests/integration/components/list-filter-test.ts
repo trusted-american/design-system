@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { ListFilterComponentSignature } from '@trusted-american/design-system/components/list-filter';
+import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
 
-type Context = ListFilterComponentSignature<unknown>['Args'] & TestContext;
+type Context = ListFilterSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);

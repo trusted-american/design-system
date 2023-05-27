@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface FlyoutComponentSignature {
+export interface FlyoutSignature {
   Element: HTMLDivElement;
   Args: {
     title: string;
@@ -11,10 +11,10 @@ export interface FlyoutComponentSignature {
   };
 }
 
-export default class FlyoutComponent extends Component<FlyoutComponentSignature> {}
+export default class Flyout extends Component<FlyoutSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Flyout: typeof FlyoutComponent;
+    Flyout: typeof Flyout;
   }
 }

@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, find, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { AvatarComponentSignature } from '@trusted-american/design-system/components/avatar';
+import type { AvatarSignature } from '@trusted-american/design-system/components/avatar';
 
-type Context = AvatarComponentSignature['Args'] & TestContext;
+type Context = AvatarSignature['Args'] & TestContext;
 
 module('Integration | Component | avatar', function (hooks) {
   setupRenderingTest(hooks);

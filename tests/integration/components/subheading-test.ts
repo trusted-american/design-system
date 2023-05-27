@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { SubheadingComponentSignature } from '@trusted-american/design-system/components/subheading';
+import type { SubheadingSignature } from '@trusted-american/design-system/components/subheading';
 
-type Context = SubheadingComponentSignature['Args'] & TestContext;
+type Context = SubheadingSignature['Args'] & TestContext;
 
 module('Integration | Component | subheading', function (hooks) {
   setupRenderingTest(hooks);

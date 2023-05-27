@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface DropdownItemComponentSignature {
+export interface DropdownItemSignature {
   Element: HTMLElement;
   Args: {
     text: string;
@@ -11,10 +11,10 @@ export interface DropdownItemComponentSignature {
   };
 }
 
-export default class DropdownItemComponent extends Component<DropdownItemComponentSignature> {}
+export default class DropdownItem extends Component<DropdownItemSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Dropdown::Item': typeof DropdownItemComponent;
+    'Dropdown::Item': typeof DropdownItem;
   }
 }

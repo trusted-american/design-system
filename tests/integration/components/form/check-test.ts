@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FormCheckComponentSignature } from '@trusted-american/design-system/components/form/check';
+import type { FormCheckSignature } from '@trusted-american/design-system/components/form/check';
 
-type Context = FormCheckComponentSignature['Args'] & TestContext;
+type Context = FormCheckSignature['Args'] & TestContext;
 
 module('Integration | Component | form/check', function (hooks) {
   setupRenderingTest(hooks);

@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, select, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FormSelectComponentSignature } from '@trusted-american/design-system/components/form/select';
+import type { FormSelectSignature } from '@trusted-american/design-system/components/form/select';
 
-type Context = FormSelectComponentSignature['Args'] & TestContext;
+type Context = FormSelectSignature['Args'] & TestContext;
 
 module('Integration | Component | form/select', function (hooks) {
   setupRenderingTest(hooks);

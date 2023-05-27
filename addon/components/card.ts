@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface CardComponentSignature {
+export interface CardSignature {
   Element: HTMLDivElement;
   Args: {
     title?: string;
@@ -12,10 +12,10 @@ export interface CardComponentSignature {
   };
 }
 
-export default class CardComponent extends Component<CardComponentSignature> {}
+export default class Card extends Component<CardSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Card: typeof CardComponent;
+    Card: typeof Card;
   }
 }

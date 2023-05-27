@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface PlaceholderComponentSignature {
+export interface PlaceholderSignature {
   Element: HTMLElement;
   Args: {
     icon: string;
@@ -10,10 +10,10 @@ export interface PlaceholderComponentSignature {
   };
 }
 
-export default class PlaceholderComponent extends Component<PlaceholderComponentSignature> {}
+export default class Placeholder extends Component<PlaceholderSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Placeholder: typeof PlaceholderComponent;
+    Placeholder: typeof Placeholder;
   }
 }

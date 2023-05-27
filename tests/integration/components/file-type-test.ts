@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FileTypeComponentSignature } from '@trusted-american/design-system/components/file-type';
+import type { FileTypeSignature } from '@trusted-american/design-system/components/file-type';
 
-type Context = FileTypeComponentSignature['Args'] & TestContext;
+type Context = FileTypeSignature['Args'] & TestContext;
 
 module('Integration | Component | file-type', function (hooks) {
   setupRenderingTest(hooks);

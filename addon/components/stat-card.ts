@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface StatCardComponentSignature {
+export interface StatCardSignature {
   Element: HTMLDivElement;
   Args: {
     key: string;
@@ -8,10 +8,10 @@ export interface StatCardComponentSignature {
   };
 }
 
-export default class StatCardComponent extends Component<StatCardComponentSignature> {}
+export default class StatCard extends Component<StatCardSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    StatCard: typeof StatCardComponent;
+    StatCard: typeof StatCard;
   }
 }

@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { AsideComponentSignature } from '@trusted-american/design-system/components/aside';
+import type { AsideSignature } from '@trusted-american/design-system/components/aside';
 
-type Context = AsideComponentSignature['Args'] & TestContext;
+type Context = AsideSignature['Args'] & TestContext;
 
 module('Integration | Component | aside', function (hooks) {
   setupRenderingTest(hooks);

@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface ToastComponentSignature {
+export interface ToastSignature {
   Args: {
     color?: string;
     onClose?: () => void;
@@ -12,10 +12,10 @@ export interface ToastComponentSignature {
   };
 }
 
-export default class ToastComponent extends Component<ToastComponentSignature> {}
+export default class Toast extends Component<ToastSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Toast: typeof ToastComponent;
+    Toast: typeof Toast;
   }
 }

@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface AsideItemComponentSignature {
+export interface AsideItemSignature {
   Element: HTMLAnchorElement;
   Args: {
     text: string;
@@ -9,10 +9,10 @@ export interface AsideItemComponentSignature {
   };
 }
 
-export default class AsideItemComponent extends Component<AsideItemComponentSignature> {}
+export default class AsideItem extends Component<AsideItemSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Aside::Item': typeof AsideItemComponent;
+    'Aside::Item': typeof AsideItem;
   }
 }

@@ -3,9 +3,9 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { FormTextareaComponentSignature } from '@trusted-american/design-system/components/form/textarea';
+import type { FormTextareaSignature } from '@trusted-american/design-system/components/form/textarea';
 
-type Context = FormTextareaComponentSignature['Args'] & TestContext;
+type Context = FormTextareaSignature['Args'] & TestContext;
 
 module('Integration | Component | form/textarea', function (hooks) {
   setupRenderingTest(hooks);

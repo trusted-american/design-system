@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface AlertComponentSignature {
+export interface AlertSignature {
   Element: HTMLDivElement;
   Args: {
     color?: string;
@@ -12,10 +12,10 @@ export interface AlertComponentSignature {
   };
 }
 
-export default class AlertComponent extends Component<AlertComponentSignature> {}
+export default class Alert extends Component<AlertSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Alert: typeof AlertComponent;
+    Alert: typeof Alert;
   }
 }

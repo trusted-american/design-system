@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface SubheadingComponentSignature {
+export interface SubheadingSignature {
   Element: HTMLElement;
   Args: {
     title: string;
@@ -10,10 +10,10 @@ export interface SubheadingComponentSignature {
   };
 }
 
-export default class SubheadingComponent extends Component<SubheadingComponentSignature> {}
+export default class Subheading extends Component<SubheadingSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Subheading: typeof SubheadingComponent;
+    Subheading: typeof Subheading;
   }
 }
