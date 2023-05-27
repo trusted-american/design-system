@@ -1,43 +1,50 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, rerender } from '@ember/test-helpers';
 import Heading from '@trusted-american/design-system/components/heading';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | heading', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const title = 'Title';
-    const subtitle = undefined;
-    const type = undefined;
-    const code = undefined;
+    const state = tracked<{
+      title: string;
+      subtitle?: string;
+      type?: string;
+      code?: string;
+    }>({
+      title: 'Title',
+    });
 
     await render(<template>
       <Heading
-        @title={{title}}
-        @subtitle={{subtitle}}
-        @type={{type}}
-        @code={{code}}
+        @title={{state.title}}
+        @subtitle={{state.subtitle}}
+        @type={{state.type}}
+        @code={{state.code}}
       />
     </template>);
 
     assert.dom().hasText('Title');
 
-    this.set('subtitle', 'Subtitle');
+    state.subtitle = 'Subtitle';
+    await rerender();
 
     assert.dom().hasText('Title Subtitle');
 
-    this.set('type', 'Agent');
-    this.set('code', '1');
+    state.type = 'Agent';
+    state.code = '1';
+    await rerender();
 
     assert.dom().hasText('Agent 1 Title Subtitle');
 
     await render(<template>
       <Heading
-        @title={{title}}
-        @subtitle={{subtitle}}
-        @type={{type}}
-        @code={{code}}
+        @title={{state.title}}
+        @subtitle={{state.subtitle}}
+        @type={{state.type}}
+        @code={{state.code}}
       >
         template block text
       </Heading>

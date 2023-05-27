@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import fromNow from '@trusted-american/design-system/helpers/from-now';
 
 interface Context extends TestContext {
   element: Element;
@@ -18,9 +18,9 @@ module('Integration | Helper | from-now', function (hooks) {
 
     this.inputValue = date;
 
-    await render<Context>(hbs`{{from-now this.inputValue}}`);
+    await render<Context>(<template>{{fromNow this.inputValue}}</template>);
 
-    assert.dom(this.element).hasText('a year ago');
+    assert.dom().hasText('a year ago');
   });
 
   test('short works', async function (this: Context, assert) {
@@ -29,9 +29,11 @@ module('Integration | Helper | from-now', function (hooks) {
 
     this.inputValue = date;
 
-    await render<Context>(hbs`{{from-now this.inputValue short=true}}`);
+    await render<Context>(<template>
+      {{fromNow this.inputValue short=true}}
+    </template>);
 
-    assert.dom(this.element).hasText('1Y ago');
+    assert.dom().hasText('1Y ago');
   });
 
   test('object reference quirks are compensated for', async function (this: Context, assert) {
@@ -40,12 +42,12 @@ module('Integration | Helper | from-now', function (hooks) {
 
     this.inputValue = date;
 
-    await render<Context>(hbs`
-      {{from-now this.inputValue short=true}}
-      {{from-now this.inputValue}}
-      {{from-now this.inputValue short=true}}
-    `);
+    await render<Context>(<template>
+      {{fromNow this.inputValue short=true}}
+      {{fromNow this.inputValue}}
+      {{fromNow this.inputValue short=true}}
+    </template>);
 
-    assert.dom(this.element).hasText('1Y ago a year ago 1Y ago');
+    assert.dom().hasText('1Y ago a year ago 1Y ago');
   });
 });

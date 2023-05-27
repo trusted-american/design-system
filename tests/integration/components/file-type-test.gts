@@ -1,24 +1,31 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, rerender } from '@ember/test-helpers';
 import FileType from '@trusted-american/design-system/components/file-type';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | file-type', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const name = 'file.pdf';
-    const size = undefined;
+    const state = tracked<{
+      name: string;
+      size?: string;
+    }>({
+      name: 'file.pdf',
+      size: undefined,
+    });
 
     await render(<template>
-      <FileType @name={{name}} @size={{size}} />
+      <FileType @name={{state.name}} @size={{state.size}} />
     </template>);
 
     assert.dom('svg').hasClass('fa-file-pdf');
     assert.dom('svg').hasClass('text-danger');
     assert.dom('svg').doesNotHaveClass('fa-lg');
 
-    this.set('size', 'lg');
+    state.size = 'lg';
+    await rerender();
 
     assert.dom('svg').hasClass('fa-lg');
   });
