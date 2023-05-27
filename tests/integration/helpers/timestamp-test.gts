@@ -75,8 +75,10 @@ module('Integration | Helper | timestamp', function (hooks) {
     assert.dom().includesText('Tomorrow');
 
     // TODO: doesn't work in ci
-    // this.set('year', undefined);
-    // this.set('utc', true);
+    // state.year = undefined;
+    // state.utc = true;
+    // await rerender();
+
     // assert.dom().hasText('Jan 1, 2022 at 8:00 AM');
   });
 });
