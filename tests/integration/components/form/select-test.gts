@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, select } from '@ember/test-helpers';
 import FormSelect from '@trusted-american/design-system/components/form/select';
-import { fn, array } from '@ember/helper';
+import { array } from '@ember/helper';
 
 module('Integration | Component | form/select', function (hooks) {
   setupRenderingTest(hooks);

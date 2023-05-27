@@ -1,8 +1,10 @@
 import Component from '@glimmer/component';
 import { LinkTo } from '@ember/routing';
 import BsBreadcrumb from 'ember-simple-bootstrap/components/bs/breadcrumb';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import breadcrumbs from 'ember-breadcrumb-trail/helpers/breadcrumbs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import hasNext from 'ember-composable-helpers/helpers/has-next';
 
