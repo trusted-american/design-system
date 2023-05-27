@@ -24,13 +24,13 @@ export interface FormRadioSignature<T> {
 
 export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
   <template>
-    <div class='mb-3'>
-      <FormLabel
-        @text={{@label}}
-        @identifier={{@identifier}}
-        @required={{@required}}
-      />
+    <FormLabel
+      @text={{@label}}
+      @identifier={{@identifier}}
+      @required={{@required}}
+    />
 
+    <div class='mb-3'>
       {{#each @options as |option index|}}
         <div class='form-check {{if @inline "form-check-inline"}}'>
           <input
