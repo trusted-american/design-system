@@ -60,11 +60,5 @@ module.exports = {
       plugins: ['@typescript-eslint'],
       extends: ['plugin:@typescript-eslint/recommended'],
     },
-    {
-      // glimmer files
-      files: ['**/*.gts'],
-      plugins: ['@typescript-eslint'],
-      extends: ['plugin:@typescript-eslint/recommended'],
-    },
   ],
 };
