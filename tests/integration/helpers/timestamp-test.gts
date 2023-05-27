@@ -70,6 +70,7 @@ module('Integration | Helper | timestamp', function (hooks) {
     const date1 = new Date();
     date1.setDate(date1.getDate() + 1);
     state.date = date1;
+    await rerender();
 
     assert.dom().includesText('Tomorrow');
 
