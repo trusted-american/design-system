@@ -72,6 +72,13 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: number;
     }>;
 
+    inc: HelperLike<{
+      Args: {
+        Positional: [value: number | unknown];
+      };
+      Return: number;
+    }>;
+
     // ember-page-title
 
     'page-title': HelperLike<{

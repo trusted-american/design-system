@@ -1,0 +1,8 @@
+<Bs::Pagination
+  @curPage={{@curPage}}
+  @perPage={{@perPage}}
+  @totalItems={{@totalItems}}
+  @onNext={{fn @onChange (inc @curPage)}}
+  @onPrevious={{fn @onChange (dec @curPage)}}
+  @onSelect={{@onChange}}
+/>

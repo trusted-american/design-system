@@ -18,6 +18,7 @@ import type Loader from './components/loader';
 import type Main from './components/main';
 import type Modal from './components/modal';
 import type Nav from './components/nav';
+import type Pagination from './components/pagination';
 import type Placeholder from './components/placeholder';
 import type PropertyList from './components/property-list';
 import type Skeleton from './components/skeleton';
@@ -78,6 +79,7 @@ export default interface Registry {
   Main: typeof Main;
   Modal: typeof Modal;
   Nav: typeof Nav;
+  Pagination: typeof Pagination;
   Placeholder: typeof Placeholder;
   PropertyList: typeof PropertyList;
   Skeleton: typeof Skeleton;

@@ -14,6 +14,8 @@ export default class ComponentsController extends Controller {
   showFlyout = false;
   showModal = false;
 
+  page = 0;
+
   users = [
     { email: 'a@example.com', firstName: 'A', lastName: 'A' },
     { email: 'b@example.com', firstName: 'B', lastName: 'B' },

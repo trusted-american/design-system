@@ -397,6 +397,17 @@
   <nav.link-to @route="index" class="nav-link">Third</nav.link-to>
 </Nav>
 
+<Subheading @title="Pagination" />
+
+<p>Page: {{this.page}}</p>
+
+<Pagination
+  @curPage={{this.page}}
+  @perPage={{3}}
+  @totalItems={{10}}
+  @onChange={{fn (mut this.page)}}
+/>
+
 <Subheading @title="Placeholder" />
 
 <Placeholder
