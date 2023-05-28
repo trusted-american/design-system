@@ -6,7 +6,7 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 module('Integration | Component | placeholder', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', function (assert) {
     assert.true(true);
 
     // await render(hbs`

@@ -35,9 +35,7 @@ module('Integration | Component | avatar', function (hooks) {
 
     this.set('url', 'https://via.placeholder.com/350x150');
 
-    assert
-      .dom('[data-test-avatar]')
-      .hasAttribute('src', this.url as unknown as string);
+    assert.dom('[data-test-avatar]').hasAttribute('src', this.url as string);
 
     this.set('size', 2);
 

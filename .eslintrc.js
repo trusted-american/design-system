@@ -57,8 +57,15 @@ module.exports = {
     {
       // typescript files
       files: ['**/*.ts'],
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: __dirname,
+      },
       plugins: ['@typescript-eslint'],
-      extends: ['plugin:@typescript-eslint/recommended'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
     },
   ],
 };

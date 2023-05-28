@@ -60,7 +60,7 @@ export default class FormSelect extends Component<FormSelectSignature> {
 
   @action
   change({ target }: Event): void {
-    const index = parseInt((target as HTMLFormElement)['value']);
+    const index = parseInt((target as HTMLFormElement)['value'] as string);
 
     const options = this.args.options as Option[];
     const selected = options[index];
