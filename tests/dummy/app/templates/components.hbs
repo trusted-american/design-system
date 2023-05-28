@@ -166,6 +166,8 @@
 
 <Subheading @title="Form::DateInput" />
 
+<p>{{timestamp this.date format="date"}}</p>
+
 <Form::DateInput
   @value={{this.date}}
   @label="Date"
@@ -276,6 +278,17 @@
   @identifier="textarea"
   @required={{true}}
   placeholder="Placeholder"
+/>
+
+<Subheading @title="Form::TimeInput" />
+
+<p>{{timestamp this.date format="time"}}</p>
+
+<Form::TimeInput
+  @value={{this.date}}
+  @label="Label"
+  @identifier=""
+  @onChange={{fn (mut this.date)}}
 />
 
 <Subheading @title="Heading" />

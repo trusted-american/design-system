@@ -1,8 +1,9 @@
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class ComponentsController extends Controller {
-  date: Date | null = new Date();
+  @tracked date: Date | null = new Date();
   file?: unknown;
   invalidFeedback?: string;
   phone?: string | null | undefined;
