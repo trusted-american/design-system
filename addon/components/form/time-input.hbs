@@ -1,0 +1,18 @@
+<Form::Label
+  @text={{@label}}
+  @identifier={{@identifier}}
+  @required={{@required}}
+/>
+
+<input
+  type="time"
+  id={{@identifier}}
+  value={{this.value}}
+  class="form-control {{if @size (concat 'form-control-' @size)}}"
+  required={{@required}}
+  {{on "change" this.change}}
+  ...attributes
+/>
+
+<Form::Error @text={{@invalidFeedback}} />
+<Form::Help @text={{@help}} />
