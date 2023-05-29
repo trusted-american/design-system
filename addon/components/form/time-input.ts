@@ -40,7 +40,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
     const value = this.args.value ? new Date(this.args.value) : new Date();
     const [hours, minutes] = v.split(':').map(Number);
     if (hours) value.setHours(hours);
-    if (minutes) value.setMinutes(minutes);
+    if (minutes || minutes === 0) value.setMinutes(minutes);
 
     this.args.onChange(value);
   }
