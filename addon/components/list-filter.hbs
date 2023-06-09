@@ -14,7 +14,7 @@
   <form novalidate {{on "submit" this.done}}>
     <Bs::ListGroup @flush={{true}} as |listGroup|>
 
-      <listGroup.item class="bg-light px-2">
+      <listGroup.item class="bg-body-tertiary px-2">
         <Bs::Toolbar class="justify-content-between" as |toolbar|>
           <toolbar.group as |group|>
             <group.button {{on "click" this.clear}} data-test-clear>
@@ -42,7 +42,10 @@
         </label>
 
         {{#if (or predicate.value (eq false predicate.value))}}
-          <listGroup.item class="bg-light px-2" data-test-predicate-value>
+          <listGroup.item
+            class="bg-body-tertiary px-2"
+            data-test-predicate-value
+          >
 
             {{#if (eq "date" predicate.type)}}
               <Form::Select
