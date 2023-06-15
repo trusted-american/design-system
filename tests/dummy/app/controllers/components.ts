@@ -22,6 +22,8 @@ export default class ComponentsController extends Controller {
     { email: 'c@example.com', firstName: 'C', lastName: 'C' },
   ];
 
+  events = [{ title: 'An Event', start: new Date() }];
+
   @action
   do() {
     console.log('Something');

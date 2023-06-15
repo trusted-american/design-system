@@ -1,5 +1,5 @@
 import '@glint/environment-ember-loose';
-import { ComponentLike, HelperLike } from '@glint/template';
+import { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
 import EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
 import {
   YetiTableHeader,
@@ -9,6 +9,13 @@ import {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends EmberSimpleBootstrapRegistry {
+    // @ember/render-modifiers
+
+    'did-insert': ModifierLike<{
+      Element: HTMLElement;
+      Args: { Positional: [(element: HTMLElement) => void] };
+    }>;
+
     // @fortawesome/ember-fontawesome
 
     FaIcon: ComponentLike<{
