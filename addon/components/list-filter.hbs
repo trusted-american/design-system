@@ -36,6 +36,7 @@
             checked={{or predicate.value (eq false predicate.value)}}
             type="checkbox"
             class="form-check-input me-1"
+            id={{unique-id}}
             {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
           />
           {{predicate.name}}
