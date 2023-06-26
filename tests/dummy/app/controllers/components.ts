@@ -23,6 +23,7 @@ export default class ComponentsController extends Controller {
   ];
 
   events = [{ title: 'An Event', start: new Date() }];
+  event?: { title: string; start: Date };
 
   @action
   do() {

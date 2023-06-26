@@ -1,6 +1,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { Calendar as FullCalendar } from '@fullcalendar/core';
+import {
+  Calendar as FullCalendar,
+  type EventClickArg,
+} from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
 interface Event {
@@ -11,6 +14,7 @@ interface Event {
 interface CalendarSignature {
   Args: {
     events: Event[];
+    onSelect?: (event: Event, index: EventClickArg) => void;
   };
 }
 
@@ -30,6 +34,11 @@ export default class Calendar extends Component<CalendarSignature> {
         right: 'dayGridMonth',
       },
       events,
+      eventClick: (arg) => {
+        if (this.args.onSelect) {
+          this.args.onSelect(arg.event as Event, arg);
+        }
+      },
     });
     this.calendar.render();
   }
