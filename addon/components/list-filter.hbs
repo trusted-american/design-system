@@ -1,5 +1,3 @@
-{{! @glint-nocheck }}
-
 <Bs::Button data-test-list-filter {{dropdown autoClose="outside"}}>
   <FaIcon @icon="filter" @fixedWidth={{true}} />
   Filter
@@ -33,6 +31,7 @@
 
         <label class="list-group-item px-2" data-test-predicate-toggle>
           <input
+            {{! @glint-ignore }}
             checked={{or predicate.value (eq false predicate.value)}}
             type="checkbox"
             class="form-check-input me-1"
@@ -68,6 +67,7 @@
 
               <div class="d-flex align-items-center gap-2">
                 {{#if (eq "inTheLast" predicate.mode)}}
+                  {{! @glint-ignore }}
                   <Input
                     @value={{predicate.valueA}}
                     @type="number"
@@ -91,6 +91,7 @@
                     @value={{predicate.valueA}}
                     @identifier=""
                     @required={{true}}
+                    {{! @glint-ignore }}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
@@ -101,6 +102,7 @@
                       @value={{predicate.valueB}}
                       @identifier=""
                       @required={{true}}
+                      {{! @glint-ignore }}
                       @onChange={{fn (mut predicate.valueB)}}
                     />
                   {{/if}}
@@ -113,6 +115,7 @@
                 <Form::Check
                   @value={{includes opt.value predicate.value}}
                   @label={{opt.label}}
+                  {{! @glint-ignore }}
                   @identifier={{opt.value}}
                   {{on
                     "change"
