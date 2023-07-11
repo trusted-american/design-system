@@ -68,9 +68,3 @@ aside.collapsed nav .fa-fw {
 .yeti-table-pagination-controls-page-info {
   margin-right: auto;
 }
-
-/* utilities */
-
-.overflow-y-auto {
-  overflow-y: auto;
-}
