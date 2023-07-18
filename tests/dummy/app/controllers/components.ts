@@ -22,7 +22,10 @@ export default class ComponentsController extends Controller {
     { email: 'c@example.com', firstName: 'C', lastName: 'C' },
   ];
 
-  events = [{ title: 'An Event', start: new Date() }];
+  events = [
+    { title: 'Event 1', start: new Date() },
+    { title: 'Event 2', start: new Date(), backgroundColor: '#5af542' },
+  ];
   event?: { title: string; start: Date };
 
   @action

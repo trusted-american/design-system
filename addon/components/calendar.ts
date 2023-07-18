@@ -9,6 +9,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 interface Event {
   title: string;
   start: Date;
+  backgroundColor?: string;
 }
 
 interface CalendarSignature {
