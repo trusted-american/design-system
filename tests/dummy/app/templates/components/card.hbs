@@ -1,0 +1,22 @@
+{{page-title "Card"}}
+
+<Subheading @title="Card" />
+
+<Card @title="Title">
+  Content
+</Card>
+
+<Card @title="Title">
+  <:header>
+    <Button @text="Button 1" {{on "click" this.do}} />
+  </:header>
+  <:default>
+    Content
+  </:default>
+</Card>
+
+<Card @title="Title">
+  <:padded>
+    Padded content
+  </:padded>
+</Card>

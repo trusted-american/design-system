@@ -1,0 +1,132 @@
+{{page-title "Form"}}
+
+<Subheading @title="Form::Check" />
+
+<Form::Check @value={{true}} @label="Label" @identifier="checkbox" />
+
+<Subheading @title="Form::DateInput" />
+
+<p>{{timestamp this.date format="date"}}</p>
+
+<Form::DateInput
+  @value={{this.date}}
+  @label="Date"
+  @identifier="date"
+  @onChange={{fn (mut this.date)}}
+/>
+
+<Subheading @title="Form::FileInput" />
+
+<Form::FileInput
+  @label="File"
+  @identifier="file"
+  @onChange={{fn (mut this.file)}}
+/>
+
+<Subheading @title="Form::Input" />
+
+<Form::Input
+  @value={{this.value}}
+  @label="Label"
+  @help="Help"
+  @invalidFeedback={{this.invalidFeedback}}
+  @identifier="input"
+  @required={{true}}
+  placeholder="Placeholder"
+/>
+
+<Form::Input
+  @value={{this.value}}
+  @label="Label"
+  @identifier="input1"
+  @inputOnly={{true}}
+  placeholder="Input only"
+/>
+
+<Subheading @title="Form::PhoneInput" />
+
+<Form::PhoneInput
+  @value={{this.phone}}
+  @label="Phone"
+  @identifier="phone"
+  @onChange={{fn (mut this.phone)}}
+  placeholder="Phone"
+/>
+
+<Subheading @title="Form::Radio" />
+
+<Form::Radio
+  @options={{array (hash value=true label="Yes") (hash value=false label="No")}}
+  @selected={{this.radio}}
+  @label="Radio"
+  @identifier="radio"
+  @onChange={{fn (mut this.radio)}}
+/>
+
+<Subheading @title="Form::RadioButton" />
+
+<Form::RadioButton
+  @options={{array (hash value=true label="Yes") (hash value=false label="No")}}
+  @selected={{this.radioBtn}}
+  @identifier="radioBtn"
+  @onChange={{fn (mut this.radioBtn)}}
+/>
+
+<Subheading @title="Form::RadioCard" />
+
+<Form::RadioCard
+  @options={{array
+    (hash
+      value=true
+      label="Yes"
+      icon="check"
+      help="With supporting text below as a natural lead-in to additional content."
+    )
+    (hash
+      value=false
+      label="No"
+      icon="xmark"
+      help="With supporting text below as a natural lead-in to additional content."
+    )
+  }}
+  @selected={{this.radioBtn}}
+  @label="Label"
+  @identifier="radioCard"
+  @onChange={{fn (mut this.radioBtn)}}
+/>
+
+<Subheading @title="Form::Select" />
+
+<Form::Select
+  @options={{array
+    (hash value=undefined label="Choose…")
+    (hash value="active" label="Active")
+    (hash value="inactive" label="Inactive")
+  }}
+  @selected={{this.status}}
+  @label="Status"
+  @identifier="status"
+  @onChange={{fn (mut this.status)}}
+/>
+
+<Subheading @title="Form::Textarea" />
+
+<Form::Textarea
+  @value={{this.value}}
+  @label="Label"
+  @help="Help"
+  @identifier="textarea"
+  @required={{true}}
+  placeholder="Placeholder"
+/>
+
+<Subheading @title="Form::TimeInput" />
+
+<p>{{timestamp this.date format="time"}}</p>
+
+<Form::TimeInput
+  @value={{this.date}}
+  @label="Label"
+  @identifier="timeInput"
+  @onChange={{fn (mut this.date)}}
+/>

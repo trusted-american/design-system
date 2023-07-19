@@ -1,0 +1,18 @@
+{{page-title "ListFilter"}}
+
+<Subheading @title="ListFilter" />
+
+<ListFilter
+  @predicates={{array
+    (hash
+      label="Status"
+      key="status"
+      value=this.status
+      options=(array
+        (hash value="active" label="Active")
+        (hash value="inactive" label="Inactive")
+      )
+    )
+  }}
+  @onChange={{this.do}}
+/>

@@ -1,0 +1,15 @@
+{{page-title "Flyout"}}
+
+<Subheading @title="Flyout" />
+
+<Button @text="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
+
+{{#if this.showFlyout}}
+  <Flyout
+    @title="Title"
+    {{! @glint-ignore }}
+    @onClose={{fn (mut this.showFlyout) false}}
+  >
+    Body
+  </Flyout>
+{{/if}}

@@ -1,0 +1,15 @@
+{{page-title "Modal"}}
+
+<Subheading @title="Modal" />
+
+<Button @text="Open modal" {{on "click" (fn (mut this.showModal) true)}} />
+
+{{#if this.showModal}}
+  <Modal
+    @title="Title"
+    {{! @glint-ignore }}
+    @onClose={{fn (mut this.showModal) false}}
+  >
+    Body
+  </Modal>
+{{/if}}

@@ -1,0 +1,15 @@
+{{page-title "Calendar"}}
+
+<Subheading @title="Calendar" />
+
+<Calendar @events={{this.events}} @onSelect={{fn (mut this.event)}} />
+
+{{#if this.event}}
+  <Modal
+    @title="Event"
+    {{! @glint-ignore }}
+    @onClose={{fn (mut this.event) undefined}}
+  >
+    {{this.event.title}}
+  </Modal>
+{{/if}}
