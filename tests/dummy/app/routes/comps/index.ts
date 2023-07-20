@@ -7,6 +7,6 @@ export default class ComponentsIndexRoute extends Route {
   @service declare router: RouterService;
 
   beforeModel() {
-    void this.router.transitionTo('components.alert');
+    void this.router.transitionTo('comps.alert');
   }
 }

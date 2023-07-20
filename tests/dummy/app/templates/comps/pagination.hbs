@@ -2,14 +2,11 @@
 
 <Subheading @title="Pagination" />
 
-{{! @glint-ignore }}
 <p>Page: {{this.page}}</p>
 
 <Pagination
-  {{! @glint-ignore }}
   @curPage={{this.page}}
   @perPage={{3}}
   @totalItems={{10}}
-  {{! @glint-ignore }}
   @onChange={{fn (mut this.page)}}
 />

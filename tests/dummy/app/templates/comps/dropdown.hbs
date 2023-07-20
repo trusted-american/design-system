@@ -4,14 +4,12 @@
 
 <Button @text="Open dropdown" {{dropdown}} />
 <Dropdown>
-  {{! @glint-ignore }}
   <Dropdown::Item @text="Edit" @icon="pen" {{on "click" this.do}} />
   <Dropdown::Divider />
   <Dropdown::Item
     @text="Delete"
     @icon="trash"
     @color="danger"
-    {{! @glint-ignore }}
     {{on "click" this.do}}
   />
   <Dropdown::Divider />

@@ -1,0 +1,104 @@
+{{page-title "Components"}}
+{{breadcrumb "Components"}}
+
+<Heading @title="Components" />
+
+<div class="row">
+  <div class="col-2">
+    <Bs::Nav @pills={{true}} class="flex-column" as |nav|>
+      <nav.link-to @route="comps.alert" class="nav-link">
+        Alerts
+      </nav.link-to>
+      <nav.link-to @route="comps.aside" class="nav-link">
+        Aside
+      </nav.link-to>
+      <nav.link-to @route="comps.avatar" class="nav-link">
+        Avatar
+      </nav.link-to>
+      <nav.link-to @route="comps.badge" class="nav-link">
+        Badge
+      </nav.link-to>
+      <nav.link-to @route="comps.breadcrumb-trail" class="nav-link">
+        BreadcrumbTrail
+      </nav.link-to>
+      <nav.link-to @route="comps.button" class="nav-link">
+        Button
+      </nav.link-to>
+      <nav.link-to @route="comps.button-set" class="nav-link">
+        ButtonSet
+      </nav.link-to>
+      <nav.link-to @route="comps.calendar" class="nav-link">
+        Calendar
+      </nav.link-to>
+      <nav.link-to @route="comps.card" class="nav-link">
+        Card
+      </nav.link-to>
+      <nav.link-to @route="comps.close-button" class="nav-link">
+        CloseButton
+      </nav.link-to>
+      <nav.link-to @route="comps.dropdown" class="nav-link">
+        Dropdown
+      </nav.link-to>
+      <nav.link-to @route="comps.external-link" class="nav-link">
+        ExternalLink
+      </nav.link-to>
+      <nav.link-to @route="comps.file-type" class="nav-link">
+        FileType
+      </nav.link-to>
+      <nav.link-to @route="comps.flyout" class="nav-link">
+        Flyout
+      </nav.link-to>
+      <nav.link-to @route="comps.form" class="nav-link">
+        Form
+      </nav.link-to>
+      <nav.link-to @route="comps.heading" class="nav-link">
+        Heading
+      </nav.link-to>
+      <nav.link-to @route="comps.list-filter" class="nav-link">
+        ListFilter
+      </nav.link-to>
+      <nav.link-to @route="comps.list-group" class="nav-link">
+        ListGroup
+      </nav.link-to>
+      <nav.link-to @route="comps.loader" class="nav-link">
+        Loader
+      </nav.link-to>
+      <nav.link-to @route="comps.main" class="nav-link">
+        Main
+      </nav.link-to>
+      <nav.link-to @route="comps.modal" class="nav-link">
+        Modal
+      </nav.link-to>
+      <nav.link-to @route="comps.nav" class="nav-link">
+        Nav
+      </nav.link-to>
+      <nav.link-to @route="comps.pagination" class="nav-link">
+        Pagination
+      </nav.link-to>
+      <nav.link-to @route="comps.placeholder" class="nav-link">
+        Placeholder
+      </nav.link-to>
+      <nav.link-to @route="comps.property-list" class="nav-link">
+        PropertyList
+      </nav.link-to>
+      <nav.link-to @route="comps.skeleton" class="nav-link">
+        Skeleton
+      </nav.link-to>
+      <nav.link-to @route="comps.stat-card" class="nav-link">
+        StatCard
+      </nav.link-to>
+      <nav.link-to @route="comps.subheading" class="nav-link">
+        Subheading
+      </nav.link-to>
+      <nav.link-to @route="comps.table" class="nav-link">
+        Table
+      </nav.link-to>
+      <nav.link-to @route="comps.toast" class="nav-link">
+        Toast
+      </nav.link-to>
+    </Bs::Nav>
+  </div>
+  <div class="col-10">
+    {{outlet}}
+  </div>
+</div>

@@ -2,34 +2,33 @@
 
 <Subheading @title="Button" />
 
-{{! @glint-ignore }}
 <Button @text="Default button" {{on "click" this.do}} />
-{{! @glint-ignore }}
+
 <Button @text="Success button" @color="success" {{on "click" this.do}} />
+
 <Button
   @text="Success button with icon"
   @color="success"
   @icon="plus"
-  {{! @glint-ignore }}
   {{on "click" this.do}}
 />
+
 <Button
   @text="Success button with trailing icon"
   @color="success"
   @icon="plus"
   @iconTrailing={{true}}
-  {{! @glint-ignore }}
   {{on "click" this.do}}
 />
+
 <Button
   @text="Success button with only icon"
   @icon="plus"
   @iconOnly={{true}}
   @color="success"
-  {{! @glint-ignore }}
   {{on "click" this.do}}
 />
-{{! @glint-ignore }}
+
 <Button @text="Loading button" @loading={{true}} {{on "click" this.do}} />
-{{! @glint-ignore }}
+
 <Button @text="Disabled button" disabled {{on "click" this.do}} />
