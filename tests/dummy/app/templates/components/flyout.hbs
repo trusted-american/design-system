@@ -2,8 +2,10 @@
 
 <Subheading @title="Flyout" />
 
+{{! @glint-ignore }}
 <Button @text="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
 
+{{! @glint-ignore }}
 {{#if this.showFlyout}}
   <Flyout
     @title="Title"

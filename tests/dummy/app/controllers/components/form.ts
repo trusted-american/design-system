@@ -6,7 +6,6 @@ export default class ComponentsFormController extends Controller {
   invalidFeedback?: string;
   phone?: string | null | undefined;
   radio?: unknown;
-  radioBtn?: unknown;
   value?: string | null | undefined;
   status?: 'active' | 'inactive';
 }
