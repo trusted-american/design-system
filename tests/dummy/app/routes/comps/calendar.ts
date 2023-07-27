@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-export default class ComponentsCalendarRoute extends Route {
+export default class CompsCalendarRoute extends Route {
   model() {
     return [
       { title: 'Event 1', start: new Date() },

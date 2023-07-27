@@ -1,3 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class ComponentsBreadcrumbTrailRoute extends Route {}
+export default class CompsBreadcrumbTrailRoute extends Route {}

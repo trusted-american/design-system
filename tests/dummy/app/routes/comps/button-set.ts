@@ -1,3 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class ComponentsButtonSetRoute extends Route {}
+export default class CompsButtonSetRoute extends Route {}

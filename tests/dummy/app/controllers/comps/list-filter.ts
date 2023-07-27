@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class ComponentsListFilterController extends Controller {
+export default class CompsListFilterController extends Controller {
   status?: 'active' | 'inactive';
 
   @action

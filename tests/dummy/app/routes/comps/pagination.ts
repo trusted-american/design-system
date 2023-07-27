@@ -1,3 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class ComponentsPaginationRoute extends Route {}
+export default class CompsPaginationRoute extends Route {}

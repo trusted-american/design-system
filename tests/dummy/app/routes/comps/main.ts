@@ -1,3 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class ComponentsMainRoute extends Route {}
+export default class CompsMainRoute extends Route {}

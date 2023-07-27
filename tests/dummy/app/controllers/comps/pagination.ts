@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
 
-export default class ComponentsPaginationController extends Controller {
+export default class CompsPaginationController extends Controller {
   page = 0;
 }

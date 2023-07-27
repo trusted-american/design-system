@@ -1,3 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class ComponentsBadgeRoute extends Route {}
+export default class CompsBadgeRoute extends Route {}

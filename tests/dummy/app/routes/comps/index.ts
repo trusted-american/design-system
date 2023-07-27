@@ -3,7 +3,7 @@ import { service } from '@ember/service';
 
 import type RouterService from '@ember/routing/router-service';
 
-export default class ComponentsIndexRoute extends Route {
+export default class CompsIndexRoute extends Route {
   @service declare router: RouterService;
 
   beforeModel() {

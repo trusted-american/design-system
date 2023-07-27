@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 
-export default class ComponentsFormController extends Controller {
+export default class CompsFormController extends Controller {
   date: Date | null = new Date();
   file?: unknown;
   invalidFeedback?: string;

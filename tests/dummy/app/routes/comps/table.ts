@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-export default class ComponentsTableRoute extends Route {
+export default class CompsTableRoute extends Route {
   model() {
     return [
       { email: 'a@example.com', firstName: 'A', lastName: 'A' },
