@@ -1,0 +1,18 @@
+{{page-title "Aside"}}
+{{breadcrumb "Aside"}}
+
+<Subheading @title="Aside" />
+
+<Aside
+  @title="Title"
+  @logo="https://a3.taia.us/assets/images/logo.svg"
+  @route="index"
+>
+  <:default>Default</:default>
+  <:lower>Lower</:lower>
+  <:bottom>Bottom</:bottom>
+</Aside>
+
+<Subheading @title="Aside::Item" />
+
+<Aside::Item @text="Text" @icon="box" @route="index" />

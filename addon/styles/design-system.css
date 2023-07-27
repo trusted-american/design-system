@@ -4,6 +4,7 @@ body {
     "section section"
     "aside main";
   grid-template-rows: min-content 1fr;
+  /* stylelint-disable declaration-block-no-redundant-longhand-properties */
   grid-template-columns: min-content 1fr;
   height: 100vh;
 }
@@ -66,10 +67,4 @@ aside.collapsed nav .fa-fw {
 
 .yeti-table-pagination-controls-page-info {
   margin-right: auto;
-}
-
-/* utilities */
-
-.overflow-y-auto {
-  overflow-y: auto;
 }

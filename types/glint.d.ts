@@ -1,9 +1,16 @@
 import '@glint/environment-ember-loose';
-import { ComponentLike, HelperLike } from '@glint/template';
+import { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
 import EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends EmberSimpleBootstrapRegistry {
+    // @ember/render-modifiers
+
+    'did-insert': ModifierLike<{
+      Element: HTMLElement;
+      Args: { Positional: [(element: HTMLElement) => void] };
+    }>;
+
     // @fortawesome/ember-fontawesome
 
     FaIcon: ComponentLike<{
@@ -49,6 +56,13 @@ declare module '@glint/environment-ember-loose/registry' {
       Args: { Positional: [unknown, unknown[]] };
       Return: boolean;
     }>;
+    includes: HelperLike<{
+      Args: { Positional: [...value: unknown[]] };
+      Return: boolean;
+    }>;
+    noop: HelperLike<{
+      Return: () => void;
+    }>;
     or: HelperLike<{
       Args: { Positional: [...value: unknown[]] };
       Return: unknown;
@@ -61,6 +75,13 @@ declare module '@glint/environment-ember-loose/registry' {
     // ember-math-helpers
 
     dec: HelperLike<{
+      Args: {
+        Positional: [value: number | unknown];
+      };
+      Return: number;
+    }>;
+
+    inc: HelperLike<{
       Args: {
         Positional: [value: number | unknown];
       };

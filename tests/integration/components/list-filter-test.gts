@@ -1,20 +1,22 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click } from '@ember/test-helpers';
-import ListFilter, {
-  type Predicate,
-} from '@trusted-american/design-system/components/list-filter';
+import { render, click, type TestContext } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
+
+import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
+
+type Context = ListFilterSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     assert.expect(3 + 5);
 
-    const predicates: Predicate[] = [
+    this.predicates = [
       {
         type: 'single',
-        name: 'Status',
+        label: 'Status',
         key: 'status',
         value: undefined,
         options: [
@@ -25,7 +27,7 @@ module('Integration | Component | list-filter', function (hooks) {
       },
       {
         type: 'single',
-        name: 'Archived',
+        label: 'Archived',
         key: 'isArchived',
         value: undefined,
         options: [
@@ -35,7 +37,7 @@ module('Integration | Component | list-filter', function (hooks) {
       },
       {
         type: 'multi',
-        name: 'State',
+        label: 'State',
         key: 'state',
         value: [],
         options: [
@@ -45,24 +47,27 @@ module('Integration | Component | list-filter', function (hooks) {
       },
       {
         type: 'string',
-        name: 'City',
+        label: 'City',
         key: 'city',
         value: undefined,
       },
       {
         type: 'date',
-        name: 'Created Date',
+        label: 'Created Date',
         key: 'createdAt',
         value: [],
       },
     ];
-    const onChange = () => {
+    this.onChange = () => {
       assert.true(true);
     };
 
-    await render(<template>
-      <ListFilter @predicates={{predicates}} @onChange={{onChange}} />
-    </template>);
+    await render<Context>(hbs`
+      <ListFilter
+        @predicates={{this.predicates}}
+        @onChange={{this.onChange}}
+      />
+    `);
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });

@@ -1,0 +1,26 @@
+<Form::Label
+  @text={{@label}}
+  @identifier={{@identifier}}
+  @required={{@required}}
+/>
+
+<div class="input-group has-validation">
+  <span class="input-group-text">
+    +1
+  </span>
+  <Input
+    @value={{this.value}}
+    @type="tel"
+    id={{@identifier}}
+    maxlength="14"
+    pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+    autocomplete="tel-national"
+    class="form-control"
+    required={{@required}}
+    data-test-input
+    ...attributes
+  />
+  <div class="invalid-feedback">
+    Please provide a valid phone number.
+  </div>
+</div>

@@ -1,0 +1,39 @@
+{{page-title "Main"}}
+{{breadcrumb "Main"}}
+
+<Subheading @title="Main" />
+
+<Main>
+  Main
+</Main>
+
+<Subheading @title="Main::Body" />
+
+<Main::Body>
+  Body
+</Main::Body>
+
+<Subheading @title="Main::Footer" />
+
+<Main::Footer>
+  Footer
+</Main::Footer>
+
+<Subheading @title="Main::Header" />
+
+<Main::Header>
+  <Heading @title="Title" @type="Type" @code="code">
+    <Button @text="Actions" @color="primary" {{dropdown}} />
+    <Bs::Dropdown @align="right" as |dropdown|>
+      <dropdown.item>Action 1</dropdown.item>
+      <dropdown.item>Action 2</dropdown.item>
+      <dropdown.item>Action 3</dropdown.item>
+    </Bs::Dropdown>
+  </Heading>
+</Main::Header>
+
+<Subheading @title="Main::TopHeader" />
+
+<Main::TopHeader>
+  TopHeader
+</Main::TopHeader>

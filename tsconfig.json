@@ -50,16 +50,6 @@
             "or": "||"
           }
         }
-      },
-      "ember-template-imports": {
-        "additionalSpecialForms": {
-          "globals": {
-            "eq": "===",
-            "not-eq": "!==",
-            "and": "&&",
-            "or": "||"
-          }
-        }
       }
     }
   }

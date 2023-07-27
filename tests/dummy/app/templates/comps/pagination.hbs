@@ -1,0 +1,13 @@
+{{page-title "Pagination"}}
+{{breadcrumb "Pagination"}}
+
+<Subheading @title="Pagination" />
+
+<p>Page: {{this.page}}</p>
+
+<Pagination
+  @curPage={{this.page}}
+  @perPage={{3}}
+  @totalItems={{10}}
+  @onChange={{fn (mut this.page)}}
+/>

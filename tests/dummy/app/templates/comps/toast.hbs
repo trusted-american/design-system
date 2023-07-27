@@ -1,0 +1,47 @@
+{{page-title "Toast"}}
+{{breadcrumb "Toast"}}
+
+<Subheading @title="Toast" />
+
+<Toast>
+  <:body>Body</:body>
+</Toast>
+
+<Toast>
+  <:title>Title</:title>
+  <:body>Body</:body>
+</Toast>
+
+<Toast @onClose={{this.do}}>
+  <:title>Title</:title>
+  <:body>Body</:body>
+</Toast>
+
+<Toast @color="primary" @onClose={{this.do}}>
+  <:title>Title</:title>
+  <:body>Body</:body>
+</Toast>
+
+<Toast @color="success" @onClose={{this.do}}>
+  <:title>Title</:title>
+  <:body>Body</:body>
+</Toast>
+
+<Toast @color="warning" @onClose={{this.do}}>
+  <:title>Title</:title>
+  <:body>Body</:body>
+</Toast>
+
+<Toast @color="danger" @onClose={{this.do}}>
+  <:title>Title</:title>
+  <:body>Body</:body>
+</Toast>
+
+<Toast @onClose={{this.do}}>
+  <:title>Title</:title>
+  <:body>Body</:body>
+  <:buttons>
+    <Button @text="Button" @size="sm" @color="light" {{on "click" this.do}} />
+    <Button @text="Link text" @size="sm" @color="link" {{on "click" this.do}} />
+  </:buttons>
+</Toast>

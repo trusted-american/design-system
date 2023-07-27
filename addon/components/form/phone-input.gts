@@ -25,7 +25,11 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
     return (
       (!arr[2]
         ? arr[1]
-        : '(' + arr[1] + ') ' + arr[2] + (arr[3] ? '-' + arr[3] : '')) ?? ''
+        : '(' +
+          (arr[1] as string) +
+          ') ' +
+          arr[2] +
+          (arr[3] ? '-' + arr[3] : '')) ?? ''
     );
   }
 

@@ -1,0 +1,18 @@
+{{page-title "Modal"}}
+{{breadcrumb "Modal"}}
+
+<Subheading @title="Modal" />
+
+{{! @glint-ignore }}
+<Button @text="Open modal" {{on "click" (fn (mut this.showModal) true)}} />
+
+{{! @glint-ignore }}
+{{#if this.showModal}}
+  <Modal
+    @title="Title"
+    {{! @glint-ignore }}
+    @onClose={{fn (mut this.showModal) false}}
+  >
+    Body
+  </Modal>
+{{/if}}
