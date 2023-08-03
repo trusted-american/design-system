@@ -47,6 +47,7 @@ aside.collapsed nav .fa-fw {
 .copy-btn {
   padding: 0;
   background: none;
+  color: var(--bs-body-color);
   border: none;
   text-align: inherit;
 }
