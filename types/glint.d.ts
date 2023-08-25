@@ -1,6 +1,8 @@
 import '@glint/environment-ember-loose';
-import { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
+
 import EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
+
+import { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
 import {
   YetiTableHeader,
   YetiTableBody,
@@ -10,14 +12,12 @@ import {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends EmberSimpleBootstrapRegistry {
     // @ember/render-modifiers
-
     'did-insert': ModifierLike<{
       Element: HTMLElement;
       Args: { Positional: [(element: HTMLElement) => void] };
     }>;
 
     // @fortawesome/ember-fontawesome
-
     FaIcon: ComponentLike<{
       Element: HTMLElement;
       Args: {
@@ -30,7 +30,6 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-breadcrumb-trail
-
     breadcrumb: HelperLike<{
       Args: {
         Positional: [title: string];
@@ -43,7 +42,6 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-cli-clipboard
-
     CopyButton: ComponentLike<{
       Element: HTMLElement;
       Args: {
@@ -56,7 +54,6 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-composable-helpers
-
     'has-next': HelperLike<{
       Args: { Positional: [unknown, unknown[]] };
       Return: boolean;
@@ -78,14 +75,12 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-math-helpers
-
     dec: HelperLike<{
       Args: {
         Positional: [value: number | unknown];
       };
       Return: number;
     }>;
-
     inc: HelperLike<{
       Args: {
         Positional: [value: number | unknown];
@@ -94,14 +89,12 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-page-title
-
     'page-title': HelperLike<{
       Args: { Positional: [title: string] };
       Return: void;
     }>;
 
     // ember-truth-helpers
-
     and: HelperLike<{
       Args: { Positional: [...value: unknown[]] };
       Return: boolean;
@@ -128,7 +121,6 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-yeti-table
-
     YetiTable: ComponentLike<{
       Element: HTMLTableElement;
       Args: {
