@@ -1,11 +1,11 @@
 export type Type = 'image' | 'pdf' | 'csv' | 'word' | 'excel' | 'outlook';
 
 /**
- * Determines file type from extension.
- * @param extension
+ * Determines file type from name.
+ * @param name
  * @returns
  */
-export default function fileType(extension: string): Type | null {
+export default function fileType(name: string): Type | null {
   const types: Record<Type, string[]> = {
     image: ['png', 'jpg', 'jpeg'],
     pdf: ['pdf'],
@@ -15,11 +15,16 @@ export default function fileType(extension: string): Type | null {
     outlook: ['msg'],
   };
 
-  let type: Type;
-  for (type in types) {
-    const extensions = types[type];
-    if (extensions.includes(extension)) {
-      return type;
+  const parts = name.split('.');
+  const extension = parts[parts.length - 1];
+
+  if (extension) {
+    let type: Type;
+    for (type in types) {
+      const extensions = types[type];
+      if (extensions.includes(extension)) {
+        return type;
+      }
     }
   }
 
