@@ -64,15 +64,16 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
     const date = new Date(d.getTime() + d.getTimezoneOffset() * 60 * 1000);
 
     let value;
-    if (
-      !date.toISOString ||
-      isNaN(date.getTime()) ||
-      date.getFullYear() > 9999
-    ) {
+
+    if (!date.toISOString || isNaN(date.getTime())) {
       value = null;
+    } else if (date.getFullYear() > 9999) {
+      date.setFullYear(Math.floor(date.getFullYear() / 10));
+      value = date;
     } else {
       value = date;
     }
+
     this.args.onChange(value);
   }
 }
