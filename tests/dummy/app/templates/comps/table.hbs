@@ -3,6 +3,8 @@
 
 <Subheading @title="Table" />
 
+<Subheading @title="Default" />
+
 <Table @data={{this.model}} as |table|>
   <table.header as |header|>
     <header.column @prop="email">
@@ -17,6 +19,8 @@
   </table.header>
   <table.body />
 </Table>
+
+<Subheading @title="Sortable" />
 
 <Table @data={{this.model}} @sortable={{true}} as |table|>
   <table.header as |header|>
@@ -33,6 +37,8 @@
   <table.body />
 </Table>
 
+<Subheading @title="Pagination, Local" />
+
 <Table @data={{this.model}} @sortable={{true}} @pagination="local" as |table|>
   <table.header as |header|>
     <header.column @prop="email" @sort="asc">
@@ -47,6 +53,8 @@
   </table.header>
   <table.body />
 </Table>
+
+<Subheading @title="Pagination, Remote" />
 
 <Table
   @data={{this.model}}

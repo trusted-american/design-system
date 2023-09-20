@@ -127,6 +127,7 @@ declare module '@glint/environment-ember-loose/registry' {
         data: unknown[];
         pagination?: boolean;
         sortable?: boolean;
+        pageSize?: number;
       };
       Blocks: {
         default: [
