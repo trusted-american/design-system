@@ -1,6 +1,6 @@
-<Bs::Alert
-  @color={{if @color @color "secondary"}}
-  class="d-flex gap-3"
+<div
+  class="alert alert-{{if @color @color 'secondary'}} d-flex gap-3"
+  role="alert"
   ...attributes
 >
   {{#if @icon}}
@@ -14,4 +14,4 @@
     {{/if}}
     {{yield to="body"}}
   </div>
-</Bs::Alert>
+</div>
