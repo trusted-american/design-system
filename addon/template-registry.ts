@@ -21,6 +21,7 @@ import type Modal from './components/modal';
 import type Nav from './components/nav';
 import type Pagination from './components/pagination';
 import type Placeholder from './components/placeholder';
+import type Progress from './components/progress';
 import type PropertyList from './components/property-list';
 import type Skeleton from './components/skeleton';
 import type StatCard from './components/stat-card';
@@ -53,6 +54,8 @@ import type MainFooter from './components/main/footer';
 import type MainHeader from './components/main/header';
 import type MainTopHeader from './components/main/top-header';
 
+import type ProgressBar from './components/progress/bar';
+
 import type PropertyListItem from './components/property-list/item';
 
 import type fileSize from './helpers/file-size';
@@ -83,6 +86,7 @@ export default interface Registry {
   Nav: typeof Nav;
   Pagination: typeof Pagination;
   Placeholder: typeof Placeholder;
+  Progress: typeof Progress;
   PropertyList: typeof PropertyList;
   Skeleton: typeof Skeleton;
   StatCard: typeof StatCard;
@@ -114,6 +118,8 @@ export default interface Registry {
   'Main::Footer': typeof MainFooter;
   'Main::Header': typeof MainHeader;
   'Main::TopHeader': typeof MainTopHeader;
+
+  'Progress::Bar': typeof ProgressBar;
 
   'PropertyList::Item': typeof PropertyListItem;
 

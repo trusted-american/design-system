@@ -32,6 +32,7 @@ Router.map(function () {
     this.route('nav');
     this.route('pagination');
     this.route('placeholder');
+    this.route('progress');
     this.route('property-list');
     this.route('skeleton');
     this.route('stat-card');

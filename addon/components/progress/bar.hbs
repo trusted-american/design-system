@@ -1,0 +1,13 @@
+<div
+  class="progress-bar
+    {{if @color (concat 'bg-' @color)}}
+    {{if @striped 'progress-bar-striped'}}
+    {{if @animated 'progress-bar-animated'}}"
+  role="progressbar"
+  style={{this.style}}
+  ...attributes
+>
+  {{#if @labeled}}
+    {{@value}}%
+  {{/if}}
+</div>
