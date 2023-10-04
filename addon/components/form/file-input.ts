@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 export interface FormFileInputSignature {
-  Element: HTMLInputElement;
   Args: {
     label?: string;
     identifier: string;
@@ -11,6 +10,7 @@ export interface FormFileInputSignature {
     invalidFeedback?: string;
     onChange: (file: File) => void;
   };
+  Element: HTMLInputElement;
 }
 
 export default class FormFileInput extends Component<FormFileInputSignature> {

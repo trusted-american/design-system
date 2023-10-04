@@ -1,12 +1,12 @@
 import Component from '@glimmer/component';
 
 export interface AsideItemSignature {
-  Element: HTMLAnchorElement;
   Args: {
     text: string;
     icon: string;
     route: string;
   };
+  Element: HTMLAnchorElement;
 }
 
 export default class AsideItem extends Component<AsideItemSignature> {}

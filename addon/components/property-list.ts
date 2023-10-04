@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import type PropertyListItemComponent from './property-list/item';
 
 export interface PropertyListSignature {
-  Element: HTMLDivElement;
   Args: {
     title?: string;
     horizontal?: boolean;
@@ -11,6 +10,7 @@ export interface PropertyListSignature {
   Blocks: {
     default: [{ item: typeof PropertyListItemComponent }];
   };
+  Element: HTMLDivElement;
 }
 
 export default class PropertyList extends Component<PropertyListSignature> {}

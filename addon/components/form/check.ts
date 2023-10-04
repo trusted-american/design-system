@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface FormCheckSignature {
-  Element: HTMLInputElement;
   Args: {
     value: boolean | null | undefined | unknown;
     label?: string;
@@ -11,6 +10,7 @@ export interface FormCheckSignature {
     help?: string;
     helpTooltip?: string;
   };
+  Element: HTMLInputElement;
 }
 
 export default class FormCheck extends Component<FormCheckSignature> {}

@@ -13,13 +13,12 @@ declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends EmberSimpleBootstrapRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{
-      Element: HTMLElement;
       Args: { Positional: [(element: HTMLElement) => void] };
+      Element: HTMLElement;
     }>;
 
     // @fortawesome/ember-fontawesome
     FaIcon: ComponentLike<{
-      Element: HTMLElement;
       Args: {
         icon: string;
         fixedWidth?: boolean;
@@ -27,6 +26,7 @@ declare module '@glint/environment-ember-loose/registry' {
         prefix?: string;
         transform?: string;
       };
+      Element: HTMLElement;
     }>;
 
     // ember-breadcrumb-trail
@@ -43,7 +43,6 @@ declare module '@glint/environment-ember-loose/registry' {
 
     // ember-cli-clipboard
     CopyButton: ComponentLike<{
-      Element: HTMLElement;
       Args: {
         text: unknown;
         delegateClickEvent?: boolean;
@@ -51,6 +50,7 @@ declare module '@glint/environment-ember-loose/registry' {
       Blocks: {
         default: [];
       };
+      Element: HTMLElement;
     }>;
 
     // ember-composable-helpers
@@ -122,7 +122,6 @@ declare module '@glint/environment-ember-loose/registry' {
 
     // ember-yeti-table
     YetiTable: ComponentLike<{
-      Element: HTMLTableElement;
       Args: {
         data: unknown[];
         pagination?: boolean;
@@ -137,31 +136,31 @@ declare module '@glint/environment-ember-loose/registry' {
             body: YetiTableBody<unknown>;
             footer: YetiTableFooter;
             tfoot: ComponentLike<{
-              Element: HTMLElement;
               Blocks: {
                 default: [
                   {
                     row: ComponentLike<{
-                      Element: HTMLElement;
                       Blocks: {
                         default: [
                           {
                             cell: ComponentLike<{
-                              Element: HTMLElement;
                               Args: {
                                 visible?: boolean;
                               };
                               Blocks: {
                                 default: [];
                               };
+                              Element: HTMLElement;
                             }>;
                           }
                         ];
                       };
+                      Element: HTMLElement;
                     }>;
                   }
                 ];
               };
+              Element: HTMLElement;
             }>;
             pagination: ComponentLike<{
               Element: HTMLElement;
@@ -169,6 +168,7 @@ declare module '@glint/environment-ember-loose/registry' {
           }
         ];
       };
+      Element: HTMLTableElement;
     }>;
   }
 }

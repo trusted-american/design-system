@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface ModalSignature {
-  Element: HTMLDivElement;
   Args: {
     title: string;
     size?: 'sm' | 'lg' | 'xl';
@@ -17,6 +16,7 @@ export interface ModalSignature {
     default: [];
     footer: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class Modal extends Component<ModalSignature> {}

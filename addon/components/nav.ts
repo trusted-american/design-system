@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import type { LinkToKeyword } from '@glint/environment-ember-loose/-private/intrinsics/link-to';
 
 export interface NavSignature {
-  Element: HTMLElement;
   Args: {
     pills?: boolean;
   };
@@ -15,6 +14,7 @@ export interface NavSignature {
     ];
     footer: [];
   };
+  Element: HTMLElement;
 }
 
 export default class Nav extends Component<NavSignature> {}

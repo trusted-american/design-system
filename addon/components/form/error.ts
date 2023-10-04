@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
 export interface FormErrorSignature {
-  Element: HTMLDivElement;
   Args: {
     text?: string;
   };
+  Element: HTMLDivElement;
 }
 
 export default class FormError extends Component<FormErrorSignature> {}

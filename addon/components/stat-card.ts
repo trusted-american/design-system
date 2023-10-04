@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 
 export interface StatCardSignature {
-  Element: HTMLDivElement;
   Args: {
     key: string;
     value: string | number | null | undefined;
   };
+  Element: HTMLDivElement;
 }
 
 export default class StatCard extends Component<StatCardSignature> {}

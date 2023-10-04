@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface ExternalLinkSignature {
-  Element: HTMLAnchorElement;
   Args: {
     href: string;
     text?: string;
@@ -10,6 +9,7 @@ export interface ExternalLinkSignature {
   Blocks: {
     default: [];
   };
+  Element: HTMLAnchorElement;
 }
 
 export default class ExternalLink extends Component<ExternalLinkSignature> {}

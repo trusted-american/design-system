@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
 export interface FormRadioButtonSignature<T> {
-  Element: HTMLDivElement;
   Args: {
     options: Option<T>[];
     selected: T;
@@ -12,6 +11,7 @@ export interface FormRadioButtonSignature<T> {
     color?: string;
     onChange: (selected: T) => void;
   };
+  Element: HTMLDivElement;
 }
 
 export default class FormRadioButton<T> extends Component<

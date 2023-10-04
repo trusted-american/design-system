@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface FlyoutSignature {
-  Element: HTMLDivElement;
   Args: {
     title: string;
     onClose: () => void;
@@ -9,6 +8,7 @@ export interface FlyoutSignature {
   Blocks: {
     default: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class Flyout extends Component<FlyoutSignature> {}

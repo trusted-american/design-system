@@ -1,12 +1,12 @@
 import Component from '@glimmer/component';
 
 export interface FormLabelSignature {
-  Element: HTMLInputElement;
   Args: {
     text?: string;
     identifier: string;
     required?: unknown;
   };
+  Element: HTMLInputElement;
 }
 
 export default class FormLabel extends Component<FormLabelSignature> {}

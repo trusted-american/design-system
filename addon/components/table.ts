@@ -2,12 +2,10 @@ import Component from '@glimmer/component';
 import { ComponentLike } from '@glint/template';
 
 export type YetiTableHeader = ComponentLike<{
-  Element: HTMLElement;
   Blocks: {
     default: [
       {
         column: ComponentLike<{
-          Element: HTMLElement;
           Args: {
             prop?: string;
             sortable?: boolean;
@@ -17,19 +15,19 @@ export type YetiTableHeader = ComponentLike<{
           Blocks: {
             default: [];
           };
+          Element: HTMLElement;
         }>;
       }
     ];
   };
+  Element: HTMLElement;
 }>;
 
 export type YetiTableBody<T> = ComponentLike<{
-  Element: HTMLElement;
   Blocks: {
     default: [
       {
         row: ComponentLike<{
-          Element: HTMLElement;
           Args: {
             prop?: string;
           };
@@ -37,30 +35,31 @@ export type YetiTableBody<T> = ComponentLike<{
             default: [
               {
                 cell: ComponentLike<{
-                  Element: HTMLElement;
                   Blocks: {
                     default: [];
                   };
+                  Element: HTMLElement;
                 }>;
               }
             ];
           };
+          Element: HTMLElement;
         }>;
       },
       T
     ];
   };
+  Element: HTMLElement;
 }>;
 
 export type YetiTableFooter = ComponentLike<{
-  Element: HTMLElement;
   Blocks: {
     default: [];
   };
+  Element: HTMLElement;
 }>;
 
 export interface TableSignature<T> {
-  Element: HTMLTableElement;
   Args: {
     data: T[];
     sortable?: boolean;
@@ -79,6 +78,7 @@ export interface TableSignature<T> {
       }
     ];
   };
+  Element: HTMLTableElement;
 }
 
 export default class Table<T> extends Component<TableSignature<T>> {}

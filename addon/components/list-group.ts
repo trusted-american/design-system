@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 
 export interface ListGroupSignature {
-  Element: HTMLUListElement;
   Args: {
     flush?: boolean;
     numbered?: boolean;
@@ -14,14 +13,15 @@ export interface ListGroupSignature {
     default: [
       {
         item: ComponentLike<{
-          Element: HTMLLIElement;
           Blocks: {
             default: [];
           };
+          Element: HTMLLIElement;
         }>;
       }
     ];
   };
+  Element: HTMLUListElement;
 }
 
 export default class ListGroup extends Component<ListGroupSignature> {}

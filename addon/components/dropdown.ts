@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
 export interface DropdownSignature {
-  Element: HTMLDivElement;
   Blocks: {
     default: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class Dropdown extends Component<DropdownSignature> {}

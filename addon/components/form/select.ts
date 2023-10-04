@@ -31,8 +31,8 @@ interface SimpleArgs extends Args {
 }
 
 export interface FormSelectSignature {
-  Element: HTMLSelectElement;
   Args: ComplexArgs | SimpleArgs;
+  Element: HTMLSelectElement;
 }
 
 export default class FormSelect extends Component<FormSelectSignature> {

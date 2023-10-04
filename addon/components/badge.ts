@@ -1,12 +1,12 @@
 import Component from '@glimmer/component';
 
 export interface BadgeSignature {
-  Element: HTMLElement;
   Args: {
     text: string;
     color?: string;
     icon?: string;
   };
+  Element: HTMLElement;
 }
 
 export default class Badge extends Component<BadgeSignature> {}

@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface FormInputSignature {
-  Element: HTMLInputElement;
   Args: {
     value: string | number | null | undefined | unknown;
     size?: 'sm' | 'lg';
@@ -14,6 +13,7 @@ export interface FormInputSignature {
     errors?: { message: string }[];
     inputOnly?: boolean;
   };
+  Element: HTMLInputElement;
 }
 
 export default class FormInput extends Component<FormInputSignature> {}

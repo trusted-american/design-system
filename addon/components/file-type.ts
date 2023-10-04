@@ -2,11 +2,11 @@ import Component from '@glimmer/component';
 import fileType, { type Type } from '../utils/file-type';
 
 export interface FileTypeSignature {
-  Element: HTMLDivElement;
   Args: {
     name?: string;
     size?: string;
   };
+  Element: HTMLDivElement;
 }
 
 export default class FileType extends Component<FileTypeSignature> {

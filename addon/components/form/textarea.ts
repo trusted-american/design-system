@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface FormTextareaSignature {
-  Element: HTMLTextAreaElement;
   Args: {
     value: string | null | undefined;
     size?: 'sm' | 'lg';
@@ -10,6 +9,7 @@ export interface FormTextareaSignature {
     required?: boolean;
     help?: string;
   };
+  Element: HTMLTextAreaElement;
 }
 
 export default class FormTextarea extends Component<FormTextareaSignature> {}

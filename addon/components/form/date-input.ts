@@ -5,7 +5,6 @@ import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 
 export interface FormDateInputSignature {
-  Element: HTMLInputElement;
   Args: {
     value: Date | null | unknown;
     min?: Date | null;
@@ -18,6 +17,7 @@ export interface FormDateInputSignature {
     invalidFeedback?: string;
     onChange: (value: Date | null) => void;
   };
+  Element: HTMLInputElement;
 }
 
 export default class FormDateInput extends Component<FormDateInputSignature> {

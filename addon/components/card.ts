@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface CardSignature {
-  Element: HTMLDivElement;
   Args: {
     title?: string;
   };
@@ -10,6 +9,7 @@ export interface CardSignature {
     header: [];
     padded: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class Card extends Component<CardSignature> {}

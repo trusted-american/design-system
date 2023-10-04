@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface HeadingSignature {
-  Element: HTMLDivElement;
   Args: {
     title: string;
     subtitle?: string;
@@ -11,6 +10,7 @@ export interface HeadingSignature {
   Blocks: {
     default: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class Heading extends Component<HeadingSignature> {}

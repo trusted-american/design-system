@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
 export interface ButtonSetSignature {
-  Element: HTMLDivElement;
   Blocks: {
     default: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class ButtonSet extends Component<ButtonSetSignature> {}

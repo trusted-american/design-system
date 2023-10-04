@@ -7,13 +7,13 @@ import Identicon from 'identicon.js';
 const DEFAULT_SIZE = 4; // rem
 
 export interface AvatarSignature {
-  Element: HTMLImageElement;
   Args: {
     id: string | undefined;
     url?: string | unknown;
     alt: string | undefined;
     size?: number;
   };
+  Element: HTMLImageElement;
 }
 
 export default class Avatar extends Component<AvatarSignature> {

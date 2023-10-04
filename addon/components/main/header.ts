@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
 export interface MainHeaderSignature {
-  Element: HTMLElement;
   Blocks: {
     default: [];
   };
+  Element: HTMLElement;
 }
 
 export default class MainHeader extends Component<MainHeaderSignature> {}

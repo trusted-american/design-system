@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 
 export interface DropdownItemSignature {
-  Element: HTMLElement;
   Args: {
     text: string;
     icon?: string;
@@ -9,6 +8,7 @@ export interface DropdownItemSignature {
     route?: string;
     href?: string;
   };
+  Element: HTMLElement;
 }
 
 export default class DropdownItem extends Component<DropdownItemSignature> {}

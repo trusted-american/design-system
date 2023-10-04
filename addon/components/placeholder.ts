@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 
 export interface PlaceholderSignature {
-  Element: HTMLElement;
   Args: {
     icon: string;
     title: string;
     subtitle?: string;
     onClick?: () => void;
   };
+  Element: HTMLElement;
 }
 
 export default class Placeholder extends Component<PlaceholderSignature> {}
