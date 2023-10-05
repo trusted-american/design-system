@@ -67,5 +67,11 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
     },
+    {
+      // glimmer files
+      files: ['**/*.gts'],
+      plugins: ['@typescript-eslint'],
+      extends: ['plugin:@typescript-eslint/recommended'],
+    },
   ],
 };
