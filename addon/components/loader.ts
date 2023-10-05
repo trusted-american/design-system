@@ -1,6 +1,9 @@
 import Component from '@glimmer/component';
 
 export interface LoaderSignature {
+  Args: {
+    noContainer?: boolean;
+  };
   Element: HTMLDivElement;
 }
 
