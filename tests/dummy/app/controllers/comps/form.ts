@@ -8,4 +8,8 @@ export default class CompsFormController extends Controller {
   radio?: unknown;
   value?: string | null | undefined;
   status?: 'active' | 'inactive';
+
+  options = ['A', 'B', 'C'];
+  selected?: string;
+  multipleSelected: string[] = [];
 }
