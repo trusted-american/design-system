@@ -8,6 +8,10 @@ import {
   YetiTableBody,
   YetiTableFooter,
 } from '@trusted-american/design-system/components/table';
+import type PowerSelect from 'ember-power-select/components/power-select';
+import type PowerSelectMultiple from 'ember-power-select/components/power-select-multiple';
+import type PowerSelectWithCreate from 'ember-power-select-with-create/components/power-select-with-create';
+import type PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends EmberSimpleBootstrapRegistry {
@@ -93,6 +97,16 @@ declare module '@glint/environment-ember-loose/registry' {
       Args: { Positional: [title: string] };
       Return: void;
     }>;
+
+    // ember-power-select
+
+    PowerSelect: typeof PowerSelect;
+    PowerSelectMultiple: typeof PowerSelectMultiple;
+
+    // ember-power-select-with-create
+
+    PowerSelectWithCreate: typeof PowerSelectWithCreate;
+    PowerSelectMultipleWithCreate: typeof PowerSelectMultipleWithCreate;
 
     // ember-truth-helpers
     and: HelperLike<{
