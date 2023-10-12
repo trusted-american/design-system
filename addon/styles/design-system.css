@@ -89,42 +89,42 @@ aside.collapsed nav .fa-fw {
   /* @include border-radius($form-select-border-radius, 0);
   @include box-shadow($form-select-box-shadow);
   @include transition($form-select-transition); */
+}
 
-  &:focus {
-    /* border-color: $form-select-focus-border-color; */
-    outline: 0;
+.ember-power-select-trigger:focus {
+  /* border-color: $form-select-focus-border-color; */
+  outline: 0;
 
-    /* @if $enable-shadows {
-      @include box-shadow(
-        $form-select-box-shadow,
-        $form-select-focus-box-shadow
-      );
-    } @else {
-      box-shadow: $form-select-focus-box-shadow;
-    } */
-  }
+  /* @if $enable-shadows {
+    @include box-shadow(
+      $form-select-box-shadow,
+      $form-select-focus-box-shadow
+    );
+  } @else {
+    box-shadow: $form-select-focus-box-shadow;
+  } */
+}
 
-  &[aria-disabled="true"] {
-    cursor: default;
-  }
+.ember-power-select-trigger[aria-disabled="true"] {
+  cursor: default;
+}
 
-  .ember-power-select-placeholder,
-  .ember-power-select-selected-item {
-    width: 100%;
-    margin-left: 0;
-  }
+.ember-power-select-placeholder,
+.ember-power-select-selected-item {
+  width: 100%;
+  margin-left: 0;
+}
 
-  .ember-power-select-clear-btn {
-    position: static;
-    float: right;
-    font-size: 150%;
-    line-height: 1;
-    margin-left: 0.5rem;
-  }
+.ember-power-select-clear-btn {
+  position: static;
+  float: right;
+  font-size: 150%;
+  line-height: 1;
+  margin-left: 0.5rem;
+}
 
-  .ember-power-select-status-icon {
-    display: none;
-  }
+.ember-power-select-status-icon {
+  display: none;
 }
 
 .ember-power-select-dropdown {
