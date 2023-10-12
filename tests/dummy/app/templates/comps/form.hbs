@@ -54,32 +54,6 @@
   placeholder="Phone"
 />
 
-<Subheading @title="Form::PowerSelect" />
-
-<Form::PowerSelect
-  @options={{this.options}}
-  @selected={{this.selected}}
-  @label="Label"
-  @identifier=""
-  @onChange={{fn (mut this.selected)}}
-  as |item|
->
-  {{item}}
-</Form::PowerSelect>
-
-<Subheading @title="Form::PowerSelectMultiple" />
-
-<Form::PowerSelectMultiple
-  @options={{this.options}}
-  @selected={{this.multipleSelected}}
-  @label="Label"
-  @identifier=""
-  @onChange={{fn (mut this.multipleSelected)}}
-  as |item|
->
-  {{item}}
-</Form::PowerSelectMultiple>
-
 <Subheading @title="Form::Radio" />
 
 <Form::Radio
