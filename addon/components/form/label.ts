@@ -6,7 +6,7 @@ export interface FormLabelSignature {
     identifier: string;
     required?: unknown;
   };
-  Element: HTMLInputElement;
+  Element: HTMLLabelElement;
 }
 
 export default class FormLabel extends Component<FormLabelSignature> {}
