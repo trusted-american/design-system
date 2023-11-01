@@ -53,7 +53,8 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
   private dateToString(date: Date): string | null {
     if (isValidDate(date) && date.toISOString) {
-      return date.toISOString().split('T')[0] ?? null;
+      const [first] = date.toISOString().split('T');
+      return first ?? null;
     }
     return null;
   }
@@ -61,7 +62,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   @action
   change({ target }: Event): void {
     const d = new Date((target as HTMLInputElement).value);
-    const date = new Date(d.getTime() + d.getTimezoneOffset() * 60 * 1000);
+    const date = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 
     let value;
 
