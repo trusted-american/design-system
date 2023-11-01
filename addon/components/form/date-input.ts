@@ -6,7 +6,7 @@ import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 
 export interface FormDateInputSignature {
   Args: {
-    value: Date | null | unknown;
+    value: Date | null | undefined;
     min?: Date | null;
     max?: Date | null;
     label?: string;
@@ -32,7 +32,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
   get value(): string | null {
     if (this.args.value) {
-      return this.dateToString(this.args.value as Date);
+      return this.dateToString(this.args.value);
     }
     return '';
   }
