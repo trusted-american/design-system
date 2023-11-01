@@ -6,7 +6,7 @@ import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 
 export interface FormDateInputSignature {
   Args: {
-    value: Date | null | unknown;
+    value: Date | null | undefined;
     min?: Date | null;
     max?: Date | null;
     label?: string;
@@ -32,7 +32,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
   get value(): string | null {
     if (this.args.value) {
-      return this.dateToString(this.args.value as Date);
+      return this.dateToString(this.args.value);
     }
     return '';
   }
@@ -52,8 +52,14 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   }
 
   private dateToString(date: Date): string | null {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (isValidDate(date) && date.toISOString) {
-      return date.toISOString().split('T')[0] ?? null;
+      const offsetDate = new Date(
+        date.getTime() - date.getTimezoneOffset() * 60000
+      );
+      const [first] = offsetDate.toISOString().split('T');
+      return first ?? null;
     }
     return null;
   }
@@ -61,7 +67,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   @action
   change({ target }: Event): void {
     const d = new Date((target as HTMLInputElement).value);
-    const date = new Date(d.getTime() + d.getTimezoneOffset() * 60 * 1000);
+    const date = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 
     let value;
 
