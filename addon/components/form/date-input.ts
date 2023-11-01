@@ -52,8 +52,13 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   }
 
   private dateToString(date: Date): string | null {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (isValidDate(date) && date.toISOString) {
-      const [first] = date.toISOString().split('T');
+      const offsetDate = new Date(
+        date.getTime() - date.getTimezoneOffset() * 60000
+      );
+      const [first] = offsetDate.toISOString().split('T');
       return first ?? null;
     }
     return null;
