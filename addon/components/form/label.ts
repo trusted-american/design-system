@@ -4,7 +4,7 @@ export interface FormLabelSignature {
   Args: {
     text?: string;
     identifier: string;
-    required?: unknown;
+    required?: boolean;
   };
   Element: HTMLLabelElement;
 }
