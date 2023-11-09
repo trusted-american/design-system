@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @inputOnly @label}}
+  @text={{@label}}
   @identifier="{{@identifier}}0"
   @required={{@required}}
 />
@@ -23,7 +23,9 @@
       </label>
 
       {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
-        <Form::Error @text={{@invalidFeedback}} />
+        <div class="invalid-feedback">
+          {{@invalidFeedback}}
+        </div>
       {{/if}}
     </div>
   {{/each}}
