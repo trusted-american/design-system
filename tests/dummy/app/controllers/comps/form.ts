@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 
 export default class CompsFormController extends Controller {
+  check = false;
   date: Date | null = new Date();
   file?: unknown;
   invalidFeedback?: string;
