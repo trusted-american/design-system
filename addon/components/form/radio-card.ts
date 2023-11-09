@@ -13,9 +13,10 @@ export interface FormRadioCardSignature<T> {
   Args: {
     options: RadioCardOption<T>[];
     selected?: T | null;
-    label?: string;
+    label: string;
     identifier: string;
     required?: boolean;
+    inputOnly?: boolean;
     onChange: (selected: T) => void;
   };
 }

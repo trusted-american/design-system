@@ -6,9 +6,10 @@ export interface FormPhoneInputSignature {
   Element: HTMLInputElement;
   Args: {
     value: string | null | undefined;
-    label?: string;
+    label: string;
     identifier: string;
     required?: boolean;
+    inputOnly?: boolean;
     onChange: (value: string | null) => void;
   };
 }
