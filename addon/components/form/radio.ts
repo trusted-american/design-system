@@ -7,10 +7,11 @@ export interface FormRadioSignature<T> {
     options: Option<T>[];
     selected?: T | null;
     inline?: boolean;
-    label?: string;
+    label: string;
     identifier: string;
     required?: boolean;
     invalidFeedback?: string;
+    inputOnly?: boolean;
     onChange: (selected: T) => void;
   };
   Element: HTMLElement;
