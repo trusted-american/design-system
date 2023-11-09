@@ -9,11 +9,17 @@
     @type="checkbox"
     id={{@identifier}}
     class="form-check-input"
+    required={{@required}}
     ...attributes
   />
 
-  <label class="form-check-label" for={{@identifier}}>
+  <label for={{@identifier}} class="form-check-label">
     {{@label}}
+    {{#if @required}}
+      <span class="text-danger">
+        *
+      </span>
+    {{/if}}
   </label>
 
   {{#if @helpTooltip}}
