@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{@label}}
+  @text={{unless @inputOnly @label}}
   @identifier={{@identifier}}
   @required={{@required}}
 />
@@ -12,6 +12,7 @@
   max={{this.max}}
   class="form-control {{if @size (concat 'form-control-' @size)}}"
   required={{@required}}
+  aria-label={{if @inputOnly @label}}
   {{on "change" this.change}}
   ...attributes
 />

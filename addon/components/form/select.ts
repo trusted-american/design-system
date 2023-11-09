@@ -10,13 +10,13 @@ export interface Option<T = unknown> {
 
 interface Args {
   selected?: unknown;
-  label?: string;
+  label: string;
   identifier: string;
   required?: boolean;
-  disabled?: boolean;
-  size?: 'sm' | 'lg';
   help?: string;
   invalidFeedback?: string;
+  inputOnly?: boolean;
+  size?: 'sm' | 'lg';
   onChange: (value: never) => void;
 }
 

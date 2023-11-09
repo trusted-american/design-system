@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{@label}}
+  @text={{unless @inputOnly @label}}
   @identifier={{@identifier}}
   @required={{@required}}
 />
@@ -9,7 +9,7 @@
     id={{@identifier}}
     class="form-select {{if @size (concat 'form-select-' @size)}}"
     required={{@required}}
-    disabled={{@disabled}}
+    aria-label={{if @inputOnly @label}}
     {{on "change" (pick "target.value" @onChange)}}
     ...attributes
   >
