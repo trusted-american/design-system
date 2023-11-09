@@ -16,6 +16,7 @@
   @value={{this.date}}
   @label="Date"
   @identifier="date"
+  @required={{true}}
   @help="Help"
   @onChange={{fn (mut this.date)}}
 />
@@ -25,6 +26,7 @@
 <Form::FileInput
   @label="File"
   @identifier="file"
+  @required={{true}}
   @help="Help"
   @onChange={{fn (mut this.file)}}
 />
@@ -47,6 +49,8 @@
   @value={{this.phone}}
   @label="Phone"
   @identifier="phone"
+  @required={{true}}
+  @help="Help"
   @onChange={{fn (mut this.phone)}}
   placeholder="Phone"
 />
@@ -58,6 +62,7 @@
   @selected={{this.radio}}
   @label="Radio"
   @identifier="radio"
+  @required={{true}}
   @onChange={{fn (mut this.radio)}}
 />
 
@@ -104,6 +109,7 @@
   @selected={{this.status}}
   @label="Status"
   @identifier="status"
+  @required={{true}}
   @help="Help"
   @onChange={{fn (mut this.status)}}
 />
@@ -125,6 +131,7 @@
   @value={{this.date}}
   @label="Label"
   @identifier="timeInput"
+  @required={{true}}
   @help="Help"
   @onChange={{fn (mut this.date)}}
 />

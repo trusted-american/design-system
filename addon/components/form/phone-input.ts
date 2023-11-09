@@ -9,6 +9,7 @@ export interface FormPhoneInputSignature {
     label: string;
     identifier: string;
     required?: boolean;
+    help?: string;
     inputOnly?: boolean;
     onChange: (value: string | null) => void;
   };
