@@ -3,16 +3,20 @@
 
 <Subheading @title="Form::Check" />
 
-<Form::Check @value={{true}} @label="Label" @identifier="checkbox" />
+<Form::Check
+  @value={{true}}
+  @label="Label"
+  @identifier="checkbox"
+  @help="Help"
+/>
 
 <Subheading @title="Form::DateInput" />
-
-<p>{{timestamp this.date format="date"}}</p>
 
 <Form::DateInput
   @value={{this.date}}
   @label="Date"
   @identifier="date"
+  @help="Help"
   @onChange={{fn (mut this.date)}}
 />
 
@@ -21,6 +25,7 @@
 <Form::FileInput
   @label="File"
   @identifier="file"
+  @help="Help"
   @onChange={{fn (mut this.file)}}
 />
 
@@ -29,19 +34,11 @@
 <Form::Input
   @value={{this.value}}
   @label="Label"
-  @help="Help"
-  @invalidFeedback={{this.invalidFeedback}}
   @identifier="input"
   @required={{true}}
+  @help="Help"
+  @invalidFeedback={{this.invalidFeedback}}
   placeholder="Placeholder"
-/>
-
-<Form::Input
-  @value={{this.value}}
-  @label="Label"
-  @identifier="input1"
-  @inputOnly={{true}}
-  placeholder="Input only"
 />
 
 <Subheading @title="Form::PhoneInput" />
@@ -107,6 +104,7 @@
   @selected={{this.status}}
   @label="Status"
   @identifier="status"
+  @help="Help"
   @onChange={{fn (mut this.status)}}
 />
 
@@ -115,19 +113,18 @@
 <Form::Textarea
   @value={{this.value}}
   @label="Label"
-  @help="Help"
   @identifier="textarea"
   @required={{true}}
+  @help="Help"
   placeholder="Placeholder"
 />
 
 <Subheading @title="Form::TimeInput" />
 
-<p>{{timestamp this.date format="time"}}</p>
-
 <Form::TimeInput
   @value={{this.date}}
   @label="Label"
   @identifier="timeInput"
+  @help="Help"
   @onChange={{fn (mut this.date)}}
 />
