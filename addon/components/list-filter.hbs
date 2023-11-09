@@ -59,9 +59,10 @@
                   (hash value="isBeforeOrOn" label="is before or on")
                 }}
                 @selected={{predicate.mode}}
+                @label="Mode"
                 @identifier="mode{{index}}"
+                @inputOnly={{true}}
                 @onChange={{fn (mut predicate.mode)}}
-                aria-label="Mode"
                 class="mb-2"
               />
 
@@ -82,9 +83,10 @@
                       (hash value="months" label="Months")
                     }}
                     @selected={{predicate.valueB}}
+                    @label="Value B"
                     @identifier="valueB{{index}}"
+                    @inputOnly={{true}}
                     @onChange={{fn (mut predicate.valueB)}}
-                    aria-label="Value B"
                   />
                 {{else}}
                   <Form::DateInput
@@ -140,9 +142,10 @@
               <Form::Select
                 @options={{predicate.options}}
                 @selected={{predicate.value}}
+                @label="Value"
                 @identifier="value{{index}}"
+                @inputOnly={{true}}
                 @onChange={{fn (mut predicate.value)}}
-                aria-label="Value"
               />
 
             {{/if}}
