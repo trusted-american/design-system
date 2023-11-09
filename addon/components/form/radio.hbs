@@ -23,9 +23,7 @@
       </label>
 
       {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
-        <div class="invalid-feedback">
-          {{@invalidFeedback}}
-        </div>
+        <Form::Error @text={{@invalidFeedback}} />
       {{/if}}
     </div>
   {{/each}}
