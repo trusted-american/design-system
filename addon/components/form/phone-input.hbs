@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{@label}}
+  @text={{unless @inputOnly @label}}
   @identifier={{@identifier}}
   @required={{@required}}
 />
@@ -17,10 +17,11 @@
     autocomplete="tel-national"
     class="form-control"
     required={{@required}}
+    aria-label={{if @inputOnly @label}}
     data-test-input
     ...attributes
   />
-  <div class="invalid-feedback">
-    Please provide a valid phone number.
-  </div>
+  <Form::Error @text="Please provide a valid phone number." />
 </div>
+
+<Form::Help @text={{@help}} />

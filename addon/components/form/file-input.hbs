@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{@label}}
+  @text={{unless @inputOnly @label}}
   @identifier={{@identifier}}
   @required={{@required}}
 />
@@ -9,6 +9,7 @@
   id={{@identifier}}
   class="form-control"
   required={{@required}}
+  aria-label={{if @inputOnly @label}}
   {{on "change" this.change}}
   ...attributes
 />

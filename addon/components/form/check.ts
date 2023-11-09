@@ -5,6 +5,7 @@ export interface FormCheckSignature {
     value: boolean | null | undefined | unknown;
     label?: string;
     identifier: string;
+    required?: boolean;
     inline?: boolean;
     switch?: boolean;
     help?: string;

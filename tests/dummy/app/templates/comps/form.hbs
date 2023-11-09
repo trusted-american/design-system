@@ -3,24 +3,32 @@
 
 <Subheading @title="Form::Check" />
 
-<Form::Check @value={{true}} @label="Label" @identifier="checkbox" />
+<Form::Check
+  @value={{this.check}}
+  @label="Label"
+  @identifier="check"
+  @required={{true}}
+  @help="Help"
+/>
 
 <Subheading @title="Form::DateInput" />
 
-<p>{{timestamp this.date format="date"}}</p>
-
 <Form::DateInput
   @value={{this.date}}
-  @label="Date"
-  @identifier="date"
+  @label="Label"
+  @identifier="dateInput"
+  @required={{true}}
+  @help="Help"
   @onChange={{fn (mut this.date)}}
 />
 
 <Subheading @title="Form::FileInput" />
 
 <Form::FileInput
-  @label="File"
+  @label="Label"
   @identifier="file"
+  @required={{true}}
+  @help="Help"
   @onChange={{fn (mut this.file)}}
 />
 
@@ -29,27 +37,21 @@
 <Form::Input
   @value={{this.value}}
   @label="Label"
-  @help="Help"
-  @invalidFeedback={{this.invalidFeedback}}
   @identifier="input"
   @required={{true}}
+  @help="Help"
+  @invalidFeedback={{this.invalidFeedback}}
   placeholder="Placeholder"
-/>
-
-<Form::Input
-  @value={{this.value}}
-  @label="Label"
-  @identifier="input1"
-  @inputOnly={{true}}
-  placeholder="Input only"
 />
 
 <Subheading @title="Form::PhoneInput" />
 
 <Form::PhoneInput
   @value={{this.phone}}
-  @label="Phone"
-  @identifier="phone"
+  @label="Label"
+  @identifier="phoneInput"
+  @required={{true}}
+  @help="Help"
   @onChange={{fn (mut this.phone)}}
   placeholder="Phone"
 />
@@ -59,8 +61,9 @@
 <Form::Radio
   @options={{array (hash value=true label="Yes") (hash value=false label="No")}}
   @selected={{this.radio}}
-  @label="Radio"
+  @label="Label"
   @identifier="radio"
+  @required={{true}}
   @onChange={{fn (mut this.radio)}}
 />
 
@@ -69,7 +72,7 @@
 <Form::RadioButton
   @options={{array (hash value=true label="Yes") (hash value=false label="No")}}
   @selected={{this.radio}}
-  @identifier="radioBtn"
+  @identifier="radioButton"
   @onChange={{fn (mut this.radio)}}
 />
 
@@ -93,6 +96,7 @@
   @selected={{this.radio}}
   @label="Label"
   @identifier="radioCard"
+  @required={{true}}
   @onChange={{fn (mut this.radio)}}
 />
 
@@ -105,8 +109,10 @@
     (hash value="inactive" label="Inactive")
   }}
   @selected={{this.status}}
-  @label="Status"
-  @identifier="status"
+  @label="Label"
+  @identifier="select"
+  @required={{true}}
+  @help="Help"
   @onChange={{fn (mut this.status)}}
 />
 
@@ -115,19 +121,19 @@
 <Form::Textarea
   @value={{this.value}}
   @label="Label"
-  @help="Help"
   @identifier="textarea"
   @required={{true}}
+  @help="Help"
   placeholder="Placeholder"
 />
 
 <Subheading @title="Form::TimeInput" />
 
-<p>{{timestamp this.date format="time"}}</p>
-
 <Form::TimeInput
   @value={{this.date}}
   @label="Label"
   @identifier="timeInput"
+  @required={{true}}
+  @help="Help"
   @onChange={{fn (mut this.date)}}
 />

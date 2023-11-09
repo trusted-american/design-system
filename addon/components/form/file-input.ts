@@ -3,11 +3,12 @@ import { action } from '@ember/object';
 
 export interface FormFileInputSignature {
   Args: {
-    label?: string;
+    label: string;
     identifier: string;
     required?: boolean;
     help?: string;
     invalidFeedback?: string;
+    inputOnly?: boolean;
     onChange: (file: File) => void;
   };
   Element: HTMLInputElement;
