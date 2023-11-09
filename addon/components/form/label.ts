@@ -5,6 +5,7 @@ export interface FormLabelSignature {
     text?: string;
     identifier: string;
     required?: boolean;
+    isCheck?: boolean;
   };
   Element: HTMLLabelElement;
 }

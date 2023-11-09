@@ -13,14 +13,12 @@
     ...attributes
   />
 
-  <label for={{@identifier}} class="form-check-label">
-    {{@label}}
-    {{#if @required}}
-      <span class="text-danger">
-        *
-      </span>
-    {{/if}}
-  </label>
+  <Form::Label
+    @text={{@label}}
+    @identifier={{@identifier}}
+    @required={{@required}}
+    @isCheck={{true}}
+  />
 
   {{#if @helpTooltip}}
     <a href="#" tabindex="-1" class="link-secondary" {{tooltip @helpTooltip}}>
