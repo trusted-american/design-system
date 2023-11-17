@@ -3,6 +3,10 @@ import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
+import * as dayjs from 'dayjs';
+import * as utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
 
 export interface FormDateInputSignature {
   Args: {
@@ -56,19 +60,15 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (isValidDate(date) && date.toISOString) {
-      const offsetDate = new Date(
-        date.getTime() - date.getTimezoneOffset() * 60000
-      );
-      const [first] = offsetDate.toISOString().split('T');
-      return first ?? null;
+      const value = dayjs(date).utc(false).format('YYYY-MM-DD');
+      return value;
     }
     return null;
   }
 
   @action
   change({ target }: Event): void {
-    const d = new Date((target as HTMLInputElement).value);
-    const date = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+    const date = new Date((target as HTMLInputElement).value);
 
     let value;
 
