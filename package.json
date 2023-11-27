@@ -44,7 +44,7 @@
     "ember-cli-clipboard": "^1.0.0",
     "ember-cli-htmlbars": "^6.2.0",
     "ember-cli-typescript": "^5.2.1",
-    "ember-simple-bootstrap": "^0.0.38",
+    "ember-simple-bootstrap": "^0.0.39",
     "ember-yeti-table": "^1.7.4",
     "identicon.js": "^2.3.3"
   },
