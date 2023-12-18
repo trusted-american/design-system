@@ -10,7 +10,7 @@ export interface ButtonSignature {
     size?: 'sm' | 'lg';
     outline?: boolean;
     color?: string;
-    loading?: unknown;
+    loading?: boolean;
     route?: string;
     href?: string;
   };
