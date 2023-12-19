@@ -9,7 +9,7 @@ const DEFAULT_SIZE = 4; // rem
 export interface AvatarSignature {
   Args: {
     id: string | undefined;
-    url?: string;
+    url?: string | null;
     alt: string | undefined;
     size?: number;
   };
