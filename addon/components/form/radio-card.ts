@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-import { Option } from '@trusted-american/design-system/components/form/select';
+import type { Option } from '@trusted-american/design-system/components/form/select';
 
 interface RadioCardOption<T> extends Option<T> {
   imgUrl?: string;
