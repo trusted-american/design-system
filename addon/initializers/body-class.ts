@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { paramCase } from 'change-case';
+import { kebabCase } from 'change-case';
 
 import type Application from '@ember/application';
 
@@ -9,7 +9,7 @@ import type Application from '@ember/application';
  * @returns
  */
 function toClassName(routeName: string) {
-  return `route.${paramCase(routeName)}`.replaceAll('.', '-');
+  return `route.${kebabCase(routeName)}`.replaceAll('.', '-');
 }
 
 /**
