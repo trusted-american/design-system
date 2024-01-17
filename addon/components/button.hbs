@@ -29,11 +29,11 @@
     ...attributes
   />
 {{else}}
-  <Bs::Button
-    @isSubmit={{@isSubmit}}
-    @size={{@size}}
-    @outline={{@outline}}
-    @color={{if @color @color "secondary"}}
+  <button
+    type={{if @isSubmit "submit" "button"}}
+    class="btn
+      {{if @size (concat 'btn-' @size)}}
+      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}"
     disabled={{if @loading true}}
     aria-label={{if @iconOnly @text}}
     ...attributes
@@ -49,5 +49,5 @@
       />
     {{/if}}
     {{if (and (not @iconOnly) (not @iconTrailing)) @text}}
-  </Bs::Button>
+  </button>
 {{/if}}
