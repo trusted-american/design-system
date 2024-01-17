@@ -8,7 +8,7 @@
   {{/if}}
 </Bs::Button>
 
-<Bs::Dropdown @align="right" class="p-0" data-test-list-filter-dropdown>
+<Dropdown class="p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
     <ListGroup @flush={{true}} as |listGroup|>
 
@@ -153,4 +153,4 @@
 
     </ListGroup>
   </form>
-</Bs::Dropdown>
+</Dropdown>
