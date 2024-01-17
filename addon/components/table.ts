@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
-import { ComponentLike } from '@glint/template';
+
+import type { ComponentLike } from '@glint/template';
 
 export type YetiTableHeader = ComponentLike<{
   Blocks: {
