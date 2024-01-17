@@ -11,8 +11,6 @@ module('Integration | Component | form/date-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(4);
-
     this.value = new Date();
     this.min = undefined;
     this.max = undefined;

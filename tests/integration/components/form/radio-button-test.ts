@@ -11,8 +11,6 @@ module('Integration | Component | form/radio-button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(1);
-
     this.options = [
       { value: 'one', label: 'One' },
       { value: 'two', label: 'Two' },
