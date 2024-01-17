@@ -36,7 +36,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fullcalendar/core": "^6.1.8",
     "@fullcalendar/daygrid": "^6.1.8",
-    "change-case": "^4.1.2",
+    "change-case": "^5.4.2",
     "dayjs": "^1.11.7",
     "ember-auto-import": "^2.6.3",
     "ember-breadcrumb-trail": "^0.2.0",
