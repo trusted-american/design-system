@@ -3,6 +3,8 @@
 
 <Subheading @title="ListFilter" />
 
+<p>Status: {{this.status}}</p>
+
 <ListFilter
   @predicates={{array
     (hash
@@ -15,5 +17,6 @@
       )
     )
   }}
-  @onChange={{this.do}}
+  {{! @glint-expect-error }}
+  @onChange={{this.change}}
 />
