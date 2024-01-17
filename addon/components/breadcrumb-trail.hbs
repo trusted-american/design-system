@@ -1,24 +1,26 @@
-<Bs::Breadcrumb as |bc|>
-  {{#each (breadcrumbs) as |breadcrumb|}}
-    {{#if (has-next breadcrumb (breadcrumbs))}}
-      <bc.item>
-        {{#if breadcrumb.data.model}}
-          <LinkTo
-            @route={{breadcrumb.data.route}}
-            @model={{breadcrumb.data.model}}
-          >
-            {{breadcrumb.title}}
-          </LinkTo>
-        {{else}}
-          <LinkTo @route={{breadcrumb.data.route}}>
-            {{breadcrumb.title}}
-          </LinkTo>
-        {{/if}}
-      </bc.item>
-    {{else}}
-      <bc.item @current={{true}}>
-        {{breadcrumb.title}}
-      </bc.item>
-    {{/if}}
-  {{/each}}
-</Bs::Breadcrumb>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {{#each (breadcrumbs) as |breadcrumb|}}
+      {{#if (has-next breadcrumb (breadcrumbs))}}
+        <li class="breadcrumb-item">
+          {{#if breadcrumb.data.model}}
+            <LinkTo
+              @route={{breadcrumb.data.route}}
+              @model={{breadcrumb.data.model}}
+            >
+              {{breadcrumb.title}}
+            </LinkTo>
+          {{else}}
+            <LinkTo @route={{breadcrumb.data.route}}>
+              {{breadcrumb.title}}
+            </LinkTo>
+          {{/if}}
+        </li>
+      {{else}}
+        <li class="breadcrumb-item active" aria-current="page">
+          {{breadcrumb.title}}
+        </li>
+      {{/if}}
+    {{/each}}
+  </ol>
+</nav>
