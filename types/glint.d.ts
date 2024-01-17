@@ -9,6 +9,7 @@ import type {
   YetiTableBody,
   YetiTableFooter,
 } from '@trusted-american/design-system/components/table';
+import type Ember from 'ember';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -59,7 +60,7 @@ declare module '@glint/environment-ember-loose/registry' {
     // ember-composable-helpers
     dec: HelperLike<{
       Args: {
-        Positional: [value: number | unknown];
+        Positional: [value: number | Ember.ComputedProperty<number, number>];
       };
       Return: number;
     }>;
@@ -68,9 +69,7 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: boolean;
     }>;
     inc: HelperLike<{
-      Args: {
-        Positional: [value: number | unknown];
-      };
+      Args: { Positional: [value: number] };
       Return: number;
     }>;
     includes: HelperLike<{
