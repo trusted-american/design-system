@@ -80,10 +80,6 @@ declare module '@glint/environment-ember-loose/registry' {
     noop: HelperLike<{
       Return: () => void;
     }>;
-    or: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: unknown;
-    }>;
     pick: HelperLike<{
       Args: { Positional: [string, (...args: never[]) => unknown] };
       Return: () => void;
