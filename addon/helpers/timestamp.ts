@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-import dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 import * as utc from 'dayjs/plugin/utc';
 import * as isYesterday from 'dayjs/plugin/isYesterday';
 import * as isToday from 'dayjs/plugin/isToday';
