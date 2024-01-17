@@ -92,6 +92,32 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: void;
     }>;
 
+    // ember-truth-helpers
+    and: HelperLike<{
+      Args: { Positional: [...value: unknown[]] };
+      Return: boolean;
+    }>;
+    eq: HelperLike<{
+      Args: { Positional: [...value: unknown[]] };
+      Return: boolean;
+    }>;
+    gt: HelperLike<{
+      Args: { Positional: [...value: unknown[]] };
+      Return: boolean;
+    }>;
+    gte: HelperLike<{
+      Args: { Positional: [...value: unknown[]] };
+      Return: boolean;
+    }>;
+    not: HelperLike<{
+      Args: { Positional: [...value: unknown[]] };
+      Return: boolean;
+    }>;
+    'not-eq': HelperLike<{
+      Args: { Positional: [...values: unknown[]] };
+      Return: boolean;
+    }>;
+
     // ember-yeti-table
     YetiTable: ComponentLike<{
       Args: {
