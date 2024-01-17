@@ -10,21 +10,18 @@
 
 <Bs::Dropdown @align="right" class="p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
-    <Bs::ListGroup @flush={{true}} as |listGroup|>
+    <ListGroup @flush={{true}} as |listGroup|>
 
       <listGroup.item class="bg-body-tertiary px-2">
-        <Bs::Toolbar class="justify-content-between" as |toolbar|>
-          <toolbar.group as |group|>
-            <group.button {{on "click" this.clear}} data-test-clear>
-              Clear
-            </group.button>
-          </toolbar.group>
-          <toolbar.group as |group|>
-            <group.button @isSubmit={{true}} @color="primary" data-test-done>
-              Done
-            </group.button>
-          </toolbar.group>
-        </Bs::Toolbar>
+        <ButtonSet class="justify-content-between">
+          <Button @text="Clear" data-test-clear {{on "click" this.clear}} />
+          <Button
+            @isSubmit={{true}}
+            @text="Done"
+            @color="primary"
+            data-test-done
+          />
+        </ButtonSet>
       </listGroup.item>
 
       {{#each this.predicates as |predicate index|}}
@@ -154,6 +151,6 @@
 
       {{/each}}
 
-    </Bs::ListGroup>
+    </ListGroup>
   </form>
 </Bs::Dropdown>
