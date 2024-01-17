@@ -1,16 +1,19 @@
 import '@glint/environment-ember-loose';
 
-import EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
+import type EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
+import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
-import { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
-import {
+import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
+import type {
   YetiTableHeader,
   YetiTableBody,
   YetiTableFooter,
 } from '@trusted-american/design-system/components/table';
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry extends EmberSimpleBootstrapRegistry {
+  export default interface Registry
+    extends EmberSimpleBootstrapRegistry,
+      EmberTruthHelpersRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{
       Args: { Positional: [(element: HTMLElement) => void] };
@@ -54,9 +57,21 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-composable-helpers
+    dec: HelperLike<{
+      Args: {
+        Positional: [value: number | unknown];
+      };
+      Return: number;
+    }>;
     'has-next': HelperLike<{
       Args: { Positional: [unknown, unknown[]] };
       Return: boolean;
+    }>;
+    inc: HelperLike<{
+      Args: {
+        Positional: [value: number | unknown];
+      };
+      Return: number;
     }>;
     includes: HelperLike<{
       Args: { Positional: [...value: unknown[]] };
@@ -65,59 +80,15 @@ declare module '@glint/environment-ember-loose/registry' {
     noop: HelperLike<{
       Return: () => void;
     }>;
-    or: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: unknown;
-    }>;
     pick: HelperLike<{
       Args: { Positional: [string, (...args: never[]) => unknown] };
       Return: () => void;
-    }>;
-
-    // ember-math-helpers
-    dec: HelperLike<{
-      Args: {
-        Positional: [value: number | unknown];
-      };
-      Return: number;
-    }>;
-    inc: HelperLike<{
-      Args: {
-        Positional: [value: number | unknown];
-      };
-      Return: number;
     }>;
 
     // ember-page-title
     'page-title': HelperLike<{
       Args: { Positional: [title: string] };
       Return: void;
-    }>;
-
-    // ember-truth-helpers
-    and: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: boolean;
-    }>;
-    eq: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: boolean;
-    }>;
-    gt: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: boolean;
-    }>;
-    gte: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: boolean;
-    }>;
-    not: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: boolean;
-    }>;
-    'not-eq': HelperLike<{
-      Args: { Positional: [...values: unknown[]] };
-      Return: boolean;
     }>;
 
     // ember-yeti-table
