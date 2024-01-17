@@ -1,7 +1,7 @@
 import { helper } from '@ember/component/helper';
-import * as dayjs from 'dayjs';
-import * as updateLocale from 'dayjs/plugin/updateLocale';
-import * as relativeTime from 'dayjs/plugin/relativeTime';
+import dayjs from 'dayjs';
+import updateLocale from 'dayjs/plugin/updateLocale';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(updateLocale);
 dayjs.extend(relativeTime);
