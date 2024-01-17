@@ -25,12 +25,13 @@
       {{/if}}
     </toast.body>
     {{#if @onClose}}
-      <Bs::CloseButton
-        @white={{if @color true false}}
+      <button
+        type="button"
+        class="btn-close me-2 {{if @color 'btn-close-white'}}"
         data-bs-dismiss="toast"
-        class="me-2"
+        aria-label="Close"
         {{on "click" @onClose}}
-      />
+      ></button>
     {{/if}}
   </div>
 </Bs::Toast>
