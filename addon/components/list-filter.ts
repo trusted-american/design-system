@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 import { action, set } from '@ember/object';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
