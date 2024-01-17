@@ -61,7 +61,7 @@
     "@glint/environment-ember-loose": "^1.0.1",
     "@glint/template": "^1.0.1",
     "@popperjs/core": "^2.11.8",
-    "@tsconfig/ember": "^3.0.3",
+    "@tsconfig/ember": "^2.0.0",
     "@types/bootstrap": "^5.2.10",
     "@types/ember": "^4.0.10",
     "@types/ember__application": "^4.0.10",
