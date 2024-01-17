@@ -1,18 +1,21 @@
-<Bs::Card class="mb-4" ...attributes as |card|>
+<div class="card mb-4" ...attributes>
   {{#if @title}}
-    <card.header
-      @title={{@title}}
-      class="bg-body pe-2"
+    <div
+      class="card-header bg-body pe-2
+        {{if @title 'd-flex justify-content-between align-items-center'}}"
       {{! template-lint-disable no-inline-styles }}
       style="min-height: 3.465rem;"
     >
+      {{#if @title}}
+        <h6 class="mb-0">{{@title}}</h6>
+      {{/if}}
       {{yield to="header"}}
-    </card.header>
+    </div>
   {{/if}}
   {{#if (has-block "padded")}}
-    <card.body>
+    <div class="card-body">
       {{yield to="padded"}}
-    </card.body>
+    </div>
   {{/if}}
   {{yield}}
-</Bs::Card>
+</div>
