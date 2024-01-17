@@ -1,7 +1,6 @@
 import '@glint/environment-ember-loose';
 
 import type EmberSimpleBootstrapRegistry from 'ember-simple-bootstrap/template-registry';
-import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
 import type {
@@ -11,9 +10,7 @@ import type {
 } from '@trusted-american/design-system/components/table';
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry
-    extends EmberSimpleBootstrapRegistry,
-      EmberTruthHelpersRegistry {
+  export default interface Registry extends EmberSimpleBootstrapRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{
       Args: { Positional: [(element: HTMLElement) => void] };
