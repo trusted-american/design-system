@@ -41,7 +41,7 @@
     "ember-auto-import": "^2.6.3",
     "ember-breadcrumb-trail": "^0.2.0",
     "ember-cli-babel": "^7.26.11",
-    "ember-cli-clipboard": "^1.0.0",
+    "ember-cli-clipboard": "^1.1.0",
     "ember-cli-htmlbars": "^6.2.0",
     "ember-cli-typescript": "^5.2.1",
     "ember-simple-bootstrap": "^0.0.39",
@@ -117,9 +117,6 @@
     "stylelint-prettier": "^3.0.0",
     "typescript": "^5.0.4",
     "webpack": "^5.84.1"
-  },
-  "overrides": {
-    "ember-modifier": "4.1.0"
   },
   "peerDependencies": {
     "ember-source": "^4.0.0"
