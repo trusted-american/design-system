@@ -31,7 +31,7 @@
       @iconOnly={{true}}
       @color="dark"
       class="px-2"
-      {{tooltip "Toggle menu" trigger="hover" placement="right"}}
+      {{tds-tooltip "Toggle menu" trigger="hover" placement="right"}}
       {{on "click" (fn (mut this.collapsed) (not this.collapsed))}}
     />
   </div>
