@@ -62,6 +62,9 @@ import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type timestamp from './helpers/timestamp';
 
+import type tdsDropdown from './modifiers/tds-dropdown';
+import type tdsTooltip from './modifiers/tds-tooltip';
+
 export default interface Registry {
   Alert: typeof Alert;
   Aside: typeof Aside;
@@ -126,4 +129,7 @@ export default interface Registry {
   'file-size': typeof fileSize;
   'from-now': typeof fromNow;
   timestamp: typeof timestamp;
+
+  'tds-dropdown': typeof tdsDropdown;
+  'tds-tooltip': typeof tdsTooltip;
 }
