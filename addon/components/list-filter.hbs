@@ -15,9 +15,9 @@
 
 <Dropdown class="p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
-    <ListGroup @flush={{true}} as |listGroup|>
+    <ListGroup @flush={{true}}>
 
-      <listGroup.item class="bg-body-tertiary px-2">
+      <ListGroup::Item class="bg-body-tertiary px-2">
         <ButtonSet class="justify-content-between">
           <Button @text="Clear" data-test-clear {{on "click" this.clear}} />
           <Button
@@ -27,7 +27,7 @@
             data-test-done
           />
         </ButtonSet>
-      </listGroup.item>
+      </ListGroup::Item>
 
       {{#each this.predicates as |predicate index|}}
 
@@ -44,7 +44,7 @@
         </label>
 
         {{#if (or predicate.value (eq false predicate.value))}}
-          <listGroup.item
+          <ListGroup::Item
             class="bg-body-tertiary px-2"
             data-test-predicate-value
           >
@@ -151,7 +151,7 @@
               />
 
             {{/if}}
-          </listGroup.item>
+          </ListGroup::Item>
         {{/if}}
 
       {{/each}}

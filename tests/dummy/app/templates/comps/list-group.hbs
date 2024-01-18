@@ -3,16 +3,16 @@
 
 <Subheading @title="ListGroup" />
 
-<ListGroup as |listGroup|>
-  <listGroup.item class="active">An active item</listGroup.item>
-  <listGroup.item>A second item</listGroup.item>
+<ListGroup>
+  <ListGroup::Item class="active">An active item</ListGroup::Item>
+  <ListGroup::Item>A second item</ListGroup::Item>
 </ListGroup>
 
-<ListGroup as |listGroup|>
-  <listGroup.item class="disabled">A disabled item</listGroup.item>
-  <listGroup.item>A second item</listGroup.item>
+<ListGroup>
+  <ListGroup::Item class="disabled">A disabled item</ListGroup::Item>
+  <ListGroup::Item>A second item</ListGroup::Item>
 </ListGroup>
 
-<ListGroup @flush={{true}} as |listGroup|>
-  <listGroup.item>An item</listGroup.item>
+<ListGroup @flush={{true}}>
+  <ListGroup::Item>An item</ListGroup::Item>
 </ListGroup>
