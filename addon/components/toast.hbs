@@ -1,6 +1,10 @@
-<Bs::Toast class="mt-3 {{if @color (concat 'text-bg-' @color)}}" as |toast|>
+<div
+  class="toast mt-3 {{if @color (concat 'text-bg-' @color)}}"
+  role="alert"
+  {{did-insert this.didInsert}}
+>
   {{#if (has-block "title")}}
-    <toast.header>
+    <div class="toast-header">
       {{#if (eq "success" @color)}}
         {{!-- <FaIcon @icon="check" @fixedWidth={{true}} class="me-1" /> --}}
       {{else if (eq "warning" @color)}}
@@ -13,17 +17,17 @@
       <span class="fw-semibold">
         {{yield to="title"}}
       </span>
-    </toast.header>
+    </div>
   {{/if}}
   <div class="d-flex align-items-center">
-    <toast.body class="flex-grow-1">
+    <div class="toast-body flex-grow-1">
       {{yield to="body"}}
       {{#if (has-block "buttons")}}
         <div class="mt-2 pt-2 border-top">
           {{yield to="buttons"}}
         </div>
       {{/if}}
-    </toast.body>
+    </div>
     {{#if @onClose}}
       <button
         type="button"
@@ -34,4 +38,4 @@
       ></button>
     {{/if}}
   </div>
-</Bs::Toast>
+</div>
