@@ -4,9 +4,10 @@ export interface FormLabelSignature {
   Args: {
     text?: string;
     identifier: string;
-    required?: unknown;
+    required?: boolean;
+    isCheck?: boolean;
   };
-  Element: HTMLInputElement;
+  Element: HTMLLabelElement;
 }
 
 export default class FormLabel extends Component<FormLabelSignature> {}

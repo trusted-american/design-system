@@ -9,15 +9,24 @@
     @type="checkbox"
     id={{@identifier}}
     class="form-check-input"
+    required={{@required}}
     ...attributes
   />
 
-  <label class="form-check-label" for={{@identifier}}>
-    {{@label}}
-  </label>
+  <Form::Label
+    @text={{@label}}
+    @identifier={{@identifier}}
+    @required={{@required}}
+    @isCheck={{true}}
+  />
 
   {{#if @helpTooltip}}
-    <a href="#" tabindex="-1" class="link-secondary" {{tooltip @helpTooltip}}>
+    <a
+      href="#"
+      tabindex="-1"
+      class="link-secondary"
+      {{tds-tooltip @helpTooltip}}
+    >
       <FaIcon @icon="circle-info" />
     </a>
   {{/if}}

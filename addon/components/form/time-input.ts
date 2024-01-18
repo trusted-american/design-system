@@ -5,12 +5,13 @@ import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 export interface FormTimeInputSignature {
   Args: {
     value: Date | null;
-    label?: string;
-    required?: boolean;
+    label: string;
     identifier: string;
-    size?: 'sm' | 'lg';
+    required?: boolean;
     help?: string;
     invalidFeedback?: string;
+    inputOnly?: boolean;
+    size?: 'sm' | 'lg';
     onChange: (value: Date | null) => void;
   };
   Element: HTMLInputElement;

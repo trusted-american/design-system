@@ -10,7 +10,7 @@ export interface NavSignature {
     default: [
       {
         'link-to': LinkToKeyword;
-      }
+      },
     ];
     footer: [];
   };

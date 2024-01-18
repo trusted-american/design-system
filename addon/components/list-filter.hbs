@@ -1,4 +1,9 @@
-<Bs::Button data-test-list-filter {{dropdown autoClose="outside"}}>
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-test-list-filter
+  {{tds-dropdown autoClose="outside"}}
+>
   <FaIcon @icon="filter" @fixedWidth={{true}} />
   Filter
   {{#if this.selections}}
@@ -6,26 +11,23 @@
       {{this.selections.length}}
     </span>
   {{/if}}
-</Bs::Button>
+</button>
 
-<Bs::Dropdown @align="right" class="p-0" data-test-list-filter-dropdown>
+<Dropdown class="p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
-    <Bs::ListGroup @flush={{true}} as |listGroup|>
+    <ListGroup @flush={{true}}>
 
-      <listGroup.item class="bg-body-tertiary px-2">
-        <Bs::Toolbar class="justify-content-between" as |toolbar|>
-          <toolbar.group as |group|>
-            <group.button {{on "click" this.clear}} data-test-clear>
-              Clear
-            </group.button>
-          </toolbar.group>
-          <toolbar.group as |group|>
-            <group.button @isSubmit={{true}} @color="primary" data-test-done>
-              Done
-            </group.button>
-          </toolbar.group>
-        </Bs::Toolbar>
-      </listGroup.item>
+      <ListGroup::Item class="bg-body-tertiary px-2">
+        <ButtonSet class="justify-content-between">
+          <Button @text="Clear" data-test-clear {{on "click" this.clear}} />
+          <Button
+            @isSubmit={{true}}
+            @text="Done"
+            @color="primary"
+            data-test-done
+          />
+        </ButtonSet>
+      </ListGroup::Item>
 
       {{#each this.predicates as |predicate index|}}
 
@@ -42,7 +44,7 @@
         </label>
 
         {{#if (or predicate.value (eq false predicate.value))}}
-          <listGroup.item
+          <ListGroup::Item
             class="bg-body-tertiary px-2"
             data-test-predicate-value
           >
@@ -59,9 +61,10 @@
                   (hash value="isBeforeOrOn" label="is before or on")
                 }}
                 @selected={{predicate.mode}}
+                @label="Mode"
                 @identifier="mode{{index}}"
+                @inputOnly={{true}}
                 @onChange={{fn (mut predicate.mode)}}
-                aria-label="Mode"
                 class="mb-2"
               />
 
@@ -82,9 +85,10 @@
                       (hash value="months" label="Months")
                     }}
                     @selected={{predicate.valueB}}
+                    @label="Value B"
                     @identifier="valueB{{index}}"
+                    @inputOnly={{true}}
                     @onChange={{fn (mut predicate.valueB)}}
-                    aria-label="Value B"
                   />
                 {{else}}
                   <Form::DateInput
@@ -140,17 +144,18 @@
               <Form::Select
                 @options={{predicate.options}}
                 @selected={{predicate.value}}
+                @label="Value"
                 @identifier="value{{index}}"
+                @inputOnly={{true}}
                 @onChange={{fn (mut predicate.value)}}
-                aria-label="Value"
               />
 
             {{/if}}
-          </listGroup.item>
+          </ListGroup::Item>
         {{/if}}
 
       {{/each}}
 
-    </Bs::ListGroup>
+    </ListGroup>
   </form>
-</Bs::Dropdown>
+</Dropdown>

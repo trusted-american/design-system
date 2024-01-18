@@ -1,5 +1,9 @@
 {{#if @text}}
-  <label for={{@identifier}} class="form-label">
+  <label
+    for={{@identifier}}
+    class={{if @isCheck "form-check-label" "form-label"}}
+    ...attributes
+  >
     {{@text}}
     {{#if @required}}
       <span class="text-danger">

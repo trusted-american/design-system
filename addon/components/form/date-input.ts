@@ -3,18 +3,23 @@ import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
 
 export interface FormDateInputSignature {
   Args: {
-    value: Date | null | unknown;
+    value: Date | null | undefined;
     min?: Date | null;
     max?: Date | null;
-    label?: string;
-    required?: boolean;
+    label: string;
     identifier: string;
-    size?: 'sm' | 'lg';
+    required?: boolean;
     help?: string;
     invalidFeedback?: string;
+    inputOnly?: boolean;
+    size?: 'sm' | 'lg';
     onChange: (value: Date | null) => void;
   };
   Element: HTMLInputElement;
@@ -26,13 +31,13 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
     assert(
       '<Form::DateInput />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function'
+      typeOf(this.args.onChange) === 'function',
     );
   }
 
   get value(): string | null {
     if (this.args.value) {
-      return this.dateToString(this.args.value as Date);
+      return this.dateToString(this.args.value);
     }
     return '';
   }
@@ -52,16 +57,18 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   }
 
   private dateToString(date: Date): string | null {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (isValidDate(date) && date.toISOString) {
-      return date.toISOString().split('T')[0] ?? null;
+      const value = dayjs(date).utc(false).format('YYYY-MM-DD');
+      return value;
     }
     return null;
   }
 
   @action
   change({ target }: Event): void {
-    const d = new Date((target as HTMLInputElement).value);
-    const date = new Date(d.getTime() + d.getTimezoneOffset() * 60 * 1000);
+    const date = new Date((target as HTMLInputElement).value);
 
     let value;
 

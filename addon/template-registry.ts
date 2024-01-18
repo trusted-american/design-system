@@ -49,6 +49,8 @@ import type FormSelect from './components/form/select';
 import type FormTextarea from './components/form/textarea';
 import type FormTimeInput from './components/form/time-input';
 
+import type ListGroupItem from './components/list-group/item';
+
 import type MainBody from './components/main/body';
 import type MainFooter from './components/main/footer';
 import type MainHeader from './components/main/header';
@@ -61,6 +63,9 @@ import type PropertyListItem from './components/property-list/item';
 import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type timestamp from './helpers/timestamp';
+
+import type tdsDropdown from './modifiers/tds-dropdown';
+import type tdsTooltip from './modifiers/tds-tooltip';
 
 export default interface Registry {
   Alert: typeof Alert;
@@ -114,6 +119,8 @@ export default interface Registry {
   'Form::Textarea': typeof FormTextarea;
   'Form::TimeInput': typeof FormTimeInput;
 
+  'ListGroup::Item': typeof ListGroupItem;
+
   'Main::Body': typeof MainBody;
   'Main::Footer': typeof MainFooter;
   'Main::Header': typeof MainHeader;
@@ -126,4 +133,7 @@ export default interface Registry {
   'file-size': typeof fileSize;
   'from-now': typeof fromNow;
   timestamp: typeof timestamp;
+
+  'tds-dropdown': typeof tdsDropdown;
+  'tds-tooltip': typeof tdsTooltip;
 }

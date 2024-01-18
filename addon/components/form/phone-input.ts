@@ -6,9 +6,11 @@ export interface FormPhoneInputSignature {
   Element: HTMLInputElement;
   Args: {
     value: string | null | undefined;
-    label?: string;
+    label: string;
     identifier: string;
     required?: boolean;
+    help?: string;
+    inputOnly?: boolean;
     onChange: (value: string | null) => void;
   };
 }
@@ -34,7 +36,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
   set value(value: string) {
     assert(
       '<Form::PhoneInput />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function'
+      typeOf(this.args.onChange) === 'function',
     );
 
     value = value.replace(/\D/g, '');

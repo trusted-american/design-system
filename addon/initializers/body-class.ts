@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { paramCase } from 'change-case';
+import { kebabCase } from 'change-case';
 
 import type Application from '@ember/application';
 
@@ -9,7 +9,7 @@ import type Application from '@ember/application';
  * @returns
  */
 function toClassName(routeName: string) {
-  return `route.${paramCase(routeName)}`.replaceAll('.', '-');
+  return `route.${kebabCase(routeName)}`.replaceAll('.', '-');
 }
 
 /**
@@ -20,21 +20,21 @@ export function initialize(application: Application) {
   Route.reopen({
     activate() {
       const rootElement = document.querySelector(
-        application.rootElement as string
+        application.rootElement as string,
       );
       if (rootElement) {
         rootElement.classList.add(
-          toClassName((this as unknown as Route).routeName)
+          toClassName((this as unknown as Route).routeName),
         );
       }
     },
     deactivate() {
       const rootElement = document.querySelector(
-        application.rootElement as string
+        application.rootElement as string,
       );
       if (rootElement) {
         rootElement.classList.remove(
-          toClassName((this as unknown as Route).routeName)
+          toClassName((this as unknown as Route).routeName),
         );
       }
     },

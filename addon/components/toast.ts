@@ -1,4 +1,6 @@
 import Component from '@glimmer/component';
+import { Toast as _Toast } from 'bootstrap';
+import { action } from '@ember/object';
 
 export interface ToastSignature {
   Args: {
@@ -12,7 +14,34 @@ export interface ToastSignature {
   };
 }
 
-export default class Toast extends Component<ToastSignature> {}
+export default class Toast extends Component<ToastSignature> {
+  toast?: _Toast;
+
+  @action
+  didInsert(element: Element): void {
+    const toast = new _Toast(element, {
+      autohide: false,
+    });
+    this.toast = toast;
+
+    toast.show();
+
+    const { onClose } = this.args;
+    if (onClose) {
+      element.addEventListener('hidden.bs.toast', () => {
+        onClose();
+      });
+    }
+  }
+
+  willDestroy(): void {
+    super.willDestroy();
+
+    if (this.toast) {
+      this.toast.hide();
+    }
+  }
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

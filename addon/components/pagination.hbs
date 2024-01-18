@@ -1,9 +1,32 @@
-<Bs::Pagination
-  @curPage={{@curPage}}
-  @perPage={{@perPage}}
-  @totalItems={{@totalItems}}
-  @onNext={{fn @onChange (inc @curPage)}}
-  @onPrevious={{fn @onChange (dec @curPage)}}
-  @onSelect={{@onChange}}
-  ...attributes
-/>
+<nav ...attributes>
+  <ul class="pagination mb-0">
+    <li class="page-item {{unless this.canPrev 'disabled'}}">
+      <a
+        class="page-link"
+        href="#"
+        data-test-previous
+        {{! TODO: prevent-default }}
+        {{on "click" (fn @onChange (dec @curPage))}}
+      >Previous</a>
+    </li>
+    {{#each this.pages as |page index|}}
+      <li class="page-item {{if (eq @curPage index) 'active'}}">
+        <a
+          class="page-link"
+          href="#"
+          {{! TODO: prevent-default }}
+          {{on "click" (fn @onChange index)}}
+        >{{inc index}}</a>
+      </li>
+    {{/each}}
+    <li class="page-item {{unless this.canNext 'disabled'}}">
+      <a
+        class="page-link"
+        href="#"
+        data-test-next
+        {{! TODO: prevent-default }}
+        {{on "click" (fn @onChange (inc @curPage))}}
+      >Next</a>
+    </li>
+  </ul>
+</nav>

@@ -1,7 +1,5 @@
 import Component from '@glimmer/component';
 
-import type { ComponentLike } from '@glint/template';
-
 export interface ListGroupSignature {
   Args: {
     flush?: boolean;
@@ -10,16 +8,7 @@ export interface ListGroupSignature {
     color?: string;
   };
   Blocks: {
-    default: [
-      {
-        item: ComponentLike<{
-          Blocks: {
-            default: [];
-          };
-          Element: HTMLLIElement;
-        }>;
-      }
-    ];
+    default: [];
   };
   Element: HTMLUListElement;
 }

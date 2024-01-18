@@ -15,7 +15,7 @@ module('Integration | Component | file-type', function (hooks) {
     this.size = undefined;
 
     await render<Context>(
-      hbs`<FileType @name={{this.name}} @size={{this.size}} />`
+      hbs`<FileType @name={{this.name}} @size={{this.size}} />`,
     );
 
     assert.dom('svg').hasClass('fa-file-pdf');

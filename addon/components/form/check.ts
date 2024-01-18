@@ -2,9 +2,10 @@ import Component from '@glimmer/component';
 
 export interface FormCheckSignature {
   Args: {
-    value: boolean | null | undefined | unknown;
+    value: unknown; // boolean | null | undefined | unknown;
     label?: string;
     identifier: string;
+    required?: boolean;
     inline?: boolean;
     switch?: boolean;
     help?: string;

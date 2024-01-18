@@ -11,7 +11,7 @@ module('Integration | Component | aside/item', function (hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(
-      hbs`<Aside::Item @text="Text" @icon="boxes-stacked" @route="index" />`
+      hbs`<Aside::Item @text="Text" @icon="boxes-stacked" @route="index" />`,
     );
 
     assert.dom().hasText('Text');
