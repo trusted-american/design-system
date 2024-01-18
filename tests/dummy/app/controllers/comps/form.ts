@@ -4,7 +4,6 @@ export default class CompsFormController extends Controller {
   check = false;
   date: Date | null = new Date();
   file?: unknown;
-  invalidFeedback?: string;
   phone?: string | null | undefined;
   radio?: unknown;
   value?: string | null | undefined;
