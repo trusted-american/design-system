@@ -36,7 +36,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
   set value(value: string) {
     assert(
       '<Form::PhoneInput />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function'
+      typeOf(this.args.onChange) === 'function',
     );
 
     value = value.replace(/\D/g, '');

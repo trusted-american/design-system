@@ -18,7 +18,7 @@ module('Integration | Helper | timestamp', function (hooks) {
 
   test('it renders', async function (this: Context, assert) {
     await render<Context>(
-      hbs`{{timestamp this.date format=this.format number=this.number year=this.year utc=this.utc}}`
+      hbs`{{timestamp this.date format=this.format number=this.number year=this.year utc=this.utc}}`,
     );
     assert.dom(this.element).hasText('');
 

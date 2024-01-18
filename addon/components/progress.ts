@@ -8,7 +8,7 @@ interface ProgressSignature {
     default: [
       {
         bar: WithBoundArgs<typeof ProgressBar, never>;
-      }
+      },
     ];
   };
   Element: HTMLElement;

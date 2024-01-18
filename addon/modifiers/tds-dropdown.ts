@@ -11,7 +11,7 @@ interface Options extends Partial<Dropdown.Options> {
 const dropdown = modifier(function dropdown(
   element,
   _positional,
-  named: Options
+  named: Options,
 ) {
   const { onShow, onShown, onHide, onHidden, ...options } = named;
 

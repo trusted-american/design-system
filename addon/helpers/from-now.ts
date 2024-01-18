@@ -55,7 +55,7 @@ const fromNow = helper(
     const djs =
       typeof date === 'number' ? dayjs.unix(date) : dayjs(date as Date);
     return djs.fromNow();
-  }
+  },
 );
 
 export default fromNow;

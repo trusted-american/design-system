@@ -22,7 +22,7 @@ export default class Avatar extends Component<AvatarSignature> {
 
     assert(
       '<Avatar />: Must pass a size number or undefined',
-      typeOf(size) === 'number' || size === undefined
+      typeOf(size) === 'number' || size === undefined,
     );
 
     return size ?? DEFAULT_SIZE;
@@ -33,7 +33,7 @@ export default class Avatar extends Component<AvatarSignature> {
 
     assert(
       '<Avatar />: Must pass an id string or a url string',
-      typeOf(id) === 'string' || typeOf(url) === 'string'
+      typeOf(id) === 'string' || typeOf(url) === 'string',
     );
 
     if (url) {
@@ -64,7 +64,7 @@ export default class Avatar extends Component<AvatarSignature> {
 
   get style() {
     return htmlSafe(
-      `object-fit: cover; width: ${this.size}rem; height: ${this.size}rem;`
+      `object-fit: cover; width: ${this.size}rem; height: ${this.size}rem;`,
     );
   }
 }

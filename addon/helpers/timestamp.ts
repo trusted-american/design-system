@@ -31,7 +31,7 @@ export const timestamp = (
     number?: boolean;
     year?: boolean;
     utc?: boolean;
-  }
+  },
 ): string => {
   if (!date) {
     return date as string;

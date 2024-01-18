@@ -18,7 +18,7 @@ export type YetiTableHeader = ComponentLike<{
           };
           Element: HTMLElement;
         }>;
-      }
+      },
     ];
   };
   Element: HTMLElement;
@@ -41,13 +41,13 @@ export type YetiTableBody<T> = ComponentLike<{
                   };
                   Element: HTMLElement;
                 }>;
-              }
+              },
             ];
           };
           Element: HTMLElement;
         }>;
       },
-      T
+      T,
     ];
   };
   Element: HTMLElement;
@@ -76,7 +76,7 @@ export interface TableSignature<T> {
         header: YetiTableHeader;
         body: YetiTableBody<T>;
         footer: YetiTableFooter;
-      }
+      },
     ];
   };
   Element: HTMLTableElement;
