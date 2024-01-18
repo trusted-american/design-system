@@ -24,6 +24,6 @@ module('Integration | Component | form/number-input', function (hooks) {
       />
     `);
 
-    assert.dom().hasText('');
+    assert.dom().hasText('Label * Invalid feedback Help');
   });
 });
