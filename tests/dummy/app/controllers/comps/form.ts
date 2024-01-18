@@ -8,4 +8,5 @@ export default class CompsFormController extends Controller {
   radio?: unknown;
   value?: string | null | undefined;
   status?: 'active' | 'inactive';
+  number: number | null = null;
 }
