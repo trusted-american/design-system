@@ -4,7 +4,7 @@
     {{if @switch 'form-switch'}}"
 >
   <Input
-    {{! @glint-ignore }}
+    {{! @glint-expect-error }}
     @checked={{@value}}
     @type="checkbox"
     id={{@identifier}}
