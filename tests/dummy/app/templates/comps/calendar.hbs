@@ -8,7 +8,7 @@
 {{#if this.event}}
   <Modal
     @title="Event"
-    {{! @glint-ignore }}
+    {{! @glint-expect-error }}
     @onClose={{fn (mut this.event) undefined}}
   >
     {{this.event.title}}
