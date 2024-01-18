@@ -13,6 +13,7 @@ export interface AlertSignature {
   Element: HTMLDivElement;
 }
 
+// eslint-disable-next-line ember/no-empty-glimmer-component-classes
 export default class Alert extends Component<AlertSignature> {
   <template>
     <div
