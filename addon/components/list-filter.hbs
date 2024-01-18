@@ -33,7 +33,7 @@
 
         <label class="list-group-item px-2" data-test-predicate-toggle>
           <input
-            {{! @glint-ignore }}
+            {{! @glint-expect-error }}
             checked={{or predicate.value (eq false predicate.value)}}
             type="checkbox"
             class="form-check-input me-1"
@@ -70,7 +70,7 @@
 
               <div class="d-flex align-items-center gap-2">
                 {{#if (eq "inTheLast" predicate.mode)}}
-                  {{! @glint-ignore }}
+                  {{! @glint-expect-error }}
                   <Input
                     @value={{predicate.valueA}}
                     @type="number"
@@ -95,7 +95,7 @@
                     @value={{predicate.valueA}}
                     @identifier=""
                     @required={{true}}
-                    {{! @glint-ignore }}
+                    {{! @glint-expect-error }}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
@@ -106,7 +106,7 @@
                       @value={{predicate.valueB}}
                       @identifier=""
                       @required={{true}}
-                      {{! @glint-ignore }}
+                      {{! @glint-expect-error }}
                       @onChange={{fn (mut predicate.valueB)}}
                     />
                   {{/if}}
@@ -119,7 +119,7 @@
                 <Form::Check
                   @value={{includes opt.value predicate.value}}
                   @label={{opt.label}}
-                  {{! @glint-ignore }}
+                  {{! @glint-expect-error }}
                   @identifier={{opt.value}}
                   {{on
                     "change"

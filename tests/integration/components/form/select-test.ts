@@ -30,7 +30,7 @@ module('Integration | Component | form/select', function (hooks) {
     this.identifier = 'identifier';
 
     await render<Context>(hbs`
-      {{! @glint-ignore }}
+      {{! @glint-expect-error }}
       <Form::Select
         @options={{this.options}}
         @selected={{this.selected}}
