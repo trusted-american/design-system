@@ -1,7 +1,7 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
-interface FormNumberInputSignature {
+export interface FormNumberInputSignature {
   Args: {
     value: number | null | undefined;
     type?: string;
