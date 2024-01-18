@@ -1,11 +1,17 @@
 import Component from '@glimmer/component';
 
+import type { LinkToKeyword } from '@glint/environment-ember-loose/-private/intrinsics/link-to';
+
 export interface NavSignature {
   Args: {
     pills?: boolean;
   };
   Blocks: {
-    default: [];
+    default: [
+      {
+        'link-to': LinkToKeyword;
+      },
+    ];
     footer: [];
   };
   Element: HTMLElement;
