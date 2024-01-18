@@ -1,16 +1,17 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+
+import type { FormRadioCardSignature } from '@trusted-american/design-system/components/form/radio-card';
+
+type Context = FormRadioCardSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | form/radio-card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`
+    await render<Context>(hbs`
       <Form::RadioCard
         @options={{array
           (hash
@@ -26,12 +27,10 @@ module('Integration | Component | form/radio-card', function (hooks) {
             help="Help"
           )
         }}
-        {{! @glint-expect-error }}
-        @selected={{this.xyz}}
+        @selected={{this.selected}}
         @label="Label"
         @identifier="radioCard"
-        {{! @glint-expect-error }}
-        @onChange={{fn (mut this.xyz)}}
+        @onChange={{fn (mut this.selected)}}
       />
     `);
 
