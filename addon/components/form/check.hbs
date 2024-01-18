@@ -21,7 +21,12 @@
   />
 
   {{#if @helpTooltip}}
-    <a href="#" tabindex="-1" class="link-secondary" {{tooltip @helpTooltip}}>
+    <a
+      href="#"
+      tabindex="-1"
+      class="link-secondary"
+      {{tds-tooltip @helpTooltip}}
+    >
       <FaIcon @icon="circle-info" />
     </a>
   {{/if}}
