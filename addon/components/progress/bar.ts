@@ -23,5 +23,6 @@ export default class ProgressBar extends Component<ProgressBarSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     'Progress::Bar': typeof ProgressBar;
+    'progress/bar': typeof ProgressBar;
   }
 }
