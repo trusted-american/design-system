@@ -3,17 +3,14 @@
 
 <Subheading @title="Calendar" />
 
-{{! @glint-ignore }}
 <Calendar @events={{this.model}} @onSelect={{fn (mut this.event)}} />
 
-{{! @glint-ignore }}
 {{#if this.event}}
   <Modal
     @title="Event"
     {{! @glint-ignore }}
     @onClose={{fn (mut this.event) undefined}}
   >
-    {{! @glint-ignore }}
     {{this.event.title}}
   </Modal>
 {{/if}}
