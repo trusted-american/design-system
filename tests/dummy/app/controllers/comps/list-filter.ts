@@ -7,7 +7,6 @@ export default class CompsListFilterController extends Controller {
 
   @action
   change(key: keyof this, value: this[keyof this]): void {
-    console.log(key, value);
     this[key] = value;
   }
 }
