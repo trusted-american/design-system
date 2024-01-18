@@ -16,8 +16,8 @@ export interface AlertSignature {
 export default class Alert extends Component<AlertSignature> {
   <template>
     <div
-      class="alert alert-{{if @color @color 'secondary'}} d-flex gap-3"
-      role="alert"
+      class='alert alert-{{if @color @color "secondary"}} d-flex gap-3'
+      role='alert'
       ...attributes
     >
       {{#if @icon}}
@@ -26,10 +26,10 @@ export default class Alert extends Component<AlertSignature> {
         </div>
       {{/if}}
       <div>
-        {{#if (has-block "title")}}
-          <h6 class="alert-heading">{{yield to="title"}}</h6>
+        {{#if (has-block 'title')}}
+          <h6 class='alert-heading'>{{yield to='title'}}</h6>
         {{/if}}
-        {{yield to="body"}}
+        {{yield to='body'}}
       </div>
     </div>
   </template>

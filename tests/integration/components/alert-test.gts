@@ -7,12 +7,14 @@ module('Integration | Component | alert', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template>
-      <Alert>
-        <:title>Title here</:title>
-        <:body>Body here</:body>
-      </Alert>
-    </template>);
+    await render(
+      <template>
+        <Alert>
+          <:title>Title here</:title>
+          <:body>Body here</:body>
+        </Alert>
+      </template>,
+    );
 
     assert.dom().hasText('Title here Body here');
   });
