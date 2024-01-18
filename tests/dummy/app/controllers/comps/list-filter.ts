@@ -1,11 +1,12 @@
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class CompsListFilterController extends Controller {
-  status?: 'active' | 'inactive';
+  @tracked status?: 'active' | 'inactive';
 
   @action
-  do() {
-    console.log('Something');
+  change(key: keyof this, value: this[keyof this]): void {
+    this[key] = value;
   }
 }

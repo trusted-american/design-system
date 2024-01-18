@@ -1,11 +1,16 @@
-<Bs::Offcanvas
-  @placement="end"
-  @onClose={{@onClose}}
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id={{this.id}}
   ...attributes
-  as |offcanvas|
+  {{did-insert this.didInsert}}
 >
-  <offcanvas.header @title={{@title}} class="border-bottom" />
-  <offcanvas.body>
+
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title">{{@title}}</h5>
+    <Bs::CloseButton class="text-reset" data-bs-dismiss="offcanvas" />
+  </div>
+  <div class="offcanvas-body">
     {{yield}}
-  </offcanvas.body>
-</Bs::Offcanvas>
+  </div>
+</div>
