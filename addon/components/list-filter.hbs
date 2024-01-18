@@ -1,4 +1,9 @@
-<Bs::Button data-test-list-filter {{dropdown autoClose="outside"}}>
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-test-list-filter
+  {{dropdown autoClose="outside"}}
+>
   <FaIcon @icon="filter" @fixedWidth={{true}} />
   Filter
   {{#if this.selections}}
@@ -6,7 +11,7 @@
       {{this.selections.length}}
     </span>
   {{/if}}
-</Bs::Button>
+</button>
 
 <Dropdown class="p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
