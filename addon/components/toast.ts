@@ -35,6 +35,8 @@ export default class Toast extends Component<ToastSignature> {
   }
 
   willDestroy(): void {
+    super.willDestroy();
+
     if (this.toast) {
       this.toast.hide();
     }

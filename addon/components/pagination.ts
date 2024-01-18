@@ -13,7 +13,7 @@ export interface PaginationSignature {
 export default class Pagination extends Component<PaginationSignature> {
   get pages(): number[] {
     const num = Math.ceil(this.args.totalItems / this.args.perPage);
-    return new Array(num);
+    return new Array(num) as number[];
   }
 
   get canPrev(): boolean {
