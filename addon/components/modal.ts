@@ -51,6 +51,8 @@ export default class Modal extends Component<ModalSignature> {
   }
 
   willDestroy(): void {
+    super.willDestroy();
+
     if (this.modal) {
       this.modal.hide();
       // this.modal.dispose();
