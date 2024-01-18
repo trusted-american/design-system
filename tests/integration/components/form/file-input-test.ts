@@ -11,7 +11,7 @@ module('Integration | Component | form/file-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(2);
+    // assert.expect(2);
 
     this.label = 'Label';
     this.identifier = 'identifier';

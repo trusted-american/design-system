@@ -119,12 +119,12 @@ declare module '@glint/environment-ember-loose/registry' {
                               };
                               Element: HTMLElement;
                             }>;
-                          }
+                          },
                         ];
                       };
                       Element: HTMLElement;
                     }>;
-                  }
+                  },
                 ];
               };
               Element: HTMLElement;
@@ -132,7 +132,7 @@ declare module '@glint/environment-ember-loose/registry' {
             pagination: ComponentLike<{
               Element: HTMLElement;
             }>;
-          }
+          },
         ];
       };
       Element: HTMLTableElement;

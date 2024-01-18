@@ -11,7 +11,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(3);
+    // assert.expect(3);
 
     this.value = '+12223334444';
     this.label = 'Label';

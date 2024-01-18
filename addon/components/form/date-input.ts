@@ -31,7 +31,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
     assert(
       '<Form::DateInput />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function'
+      typeOf(this.args.onChange) === 'function',
     );
   }
 

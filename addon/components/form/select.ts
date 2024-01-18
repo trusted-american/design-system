@@ -40,7 +40,7 @@ export default class FormSelect extends Component<FormSelectSignature> {
     super(owner, args);
     assert(
       '<Form::Select />: Must pass an options array',
-      typeOf(this.args.options) === 'array'
+      typeOf(this.args.options) === 'array',
     );
     // assert(
     //   '<Form::Select />: Must pass a selected string or undefined',
@@ -50,11 +50,11 @@ export default class FormSelect extends Component<FormSelectSignature> {
     // );
     assert(
       '<Form::Select />: Must pass a label string or undefined',
-      typeOf(this.args.label) === 'string' || this.args.label === undefined
+      typeOf(this.args.label) === 'string' || this.args.label === undefined,
     );
     assert(
       '<Form::Select />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function'
+      typeOf(this.args.onChange) === 'function',
     );
   }
 

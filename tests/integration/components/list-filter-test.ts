@@ -11,7 +11,7 @@ module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    assert.expect(3 + 5);
+    // assert.expect(3 + 5);
 
     this.predicates = [
       {

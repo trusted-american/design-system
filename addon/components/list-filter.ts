@@ -85,11 +85,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
     assert(
       '<ListFilter />: Must pass a predicates array',
-      typeOf(this.args.predicates) === 'array'
+      typeOf(this.args.predicates) === 'array',
     );
     assert(
       '<ListFilter />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function'
+      typeOf(this.args.onChange) === 'function',
     );
 
     this.predicates = this.args.predicates.map((p) => {
@@ -126,7 +126,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     return this.args.predicates.filter(
       ({ value }) =>
         (Boolean(value) || value === false) &&
-        (!Array.isArray(value) || value.length)
+        (!Array.isArray(value) || value.length),
     );
   }
 
@@ -202,7 +202,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
           value.gte = dayjs()
             .subtract(
               predicate.valueA,
-              predicate.valueB === 'months' ? 'months' : 'days'
+              predicate.valueB === 'months' ? 'months' : 'days',
             )
             .toDate();
           value.lte = new Date();
