@@ -7,9 +7,10 @@ module('Integration | Component | form/time-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(
-      hbs`{{! @glint-nocheck }}<Form::TimeInput @value={{null}} @label="Label" @identifier='' @onChange={{fn (mut this.value)}} />`,
-    );
+    await render(hbs`
+      {{! @glint-expect-error }}
+      <Form::TimeInput @value={{null}} @label="Label" @identifier='' @onChange={{fn (mut this.value)}} />
+    `);
 
     assert.dom().hasText('Label');
   });

@@ -8,7 +8,7 @@
     ...attributes
     as |table|
   >
-    {{! @glint-ignore }}
+    {{! @glint-expect-error }}
     {{yield table}}
     <table.tfoot as |foot|>
       <foot.row as |row|>

@@ -3,14 +3,12 @@
 
 <Subheading @title="Flyout" />
 
-{{! @glint-ignore }}
 <Button @text="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
 
-{{! @glint-ignore }}
 {{#if this.showFlyout}}
   <Flyout
     @title="Title"
-    {{! @glint-ignore }}
+    {{! @glint-expect-error }}
     @onClose={{fn (mut this.showFlyout) false}}
   >
     Body

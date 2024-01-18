@@ -6,7 +6,7 @@ import {
 } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
-interface Event {
+export interface Event {
   title: string;
   start: Date;
   backgroundColor?: string;
