@@ -9,7 +9,6 @@ interface RadioCardOption<T> extends Option<T> {
 }
 
 export interface FormRadioCardSignature<T> {
-  Element: HTMLDivElement;
   Args: {
     options: RadioCardOption<T>[];
     selected?: T | null;
@@ -18,6 +17,7 @@ export interface FormRadioCardSignature<T> {
     required?: boolean;
     onChange: (selected: T) => void;
   };
+  Element: HTMLDivElement;
 }
 
 export default class FormRadioCard<T> extends Component<
