@@ -40,8 +40,20 @@
   @identifier="input"
   @required={{true}}
   @help="Help"
-  @invalidFeedback={{this.invalidFeedback}}
+  @invalidFeedback="Invalid feedback"
   placeholder="Placeholder"
+/>
+
+<Subheading @title="Form::NumberInput" />
+<Form::NumberInput
+  @value={{this.number}}
+  @label="Label"
+  @identifier="numberInput"
+  @required={{true}}
+  @help="Help"
+  @invalidFeedback="Invalid feedback"
+  placeholder="Placeholder"
+  @onChange={{fn (mut this.number)}}
 />
 
 <Subheading @title="Form::PhoneInput" />

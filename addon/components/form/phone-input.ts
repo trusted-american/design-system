@@ -3,7 +3,6 @@ import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
 
 export interface FormPhoneInputSignature {
-  Element: HTMLInputElement;
   Args: {
     value: string | null | undefined;
     label: string;
@@ -13,6 +12,7 @@ export interface FormPhoneInputSignature {
     inputOnly?: boolean;
     onChange: (value: string | null) => void;
   };
+  Element: HTMLInputElement;
 }
 
 export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
