@@ -6,11 +6,7 @@
 <Button @text="Open modal" {{on "click" (fn (mut this.showModal) true)}} />
 
 {{#if this.showModal}}
-  <Modal
-    @title="Title"
-    {{! @glint-expect-error }}
-    @onClose={{fn (mut this.showModal) false}}
-  >
+  <Modal @title="Title" @onClose={{this.close}}>
     Body
   </Modal>
 {{/if}}

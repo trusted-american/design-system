@@ -6,11 +6,7 @@
 <Calendar @events={{this.model}} @onSelect={{fn (mut this.event)}} />
 
 {{#if this.event}}
-  <Modal
-    @title="Event"
-    {{! @glint-expect-error }}
-    @onClose={{fn (mut this.event) undefined}}
-  >
+  <Modal @title="Event" @onClose={{this.close}}>
     {{this.event.title}}
   </Modal>
 {{/if}}
