@@ -8,8 +8,8 @@ export interface Option<T = unknown> {
   label: string;
 }
 
-interface Args {
-  selected?: unknown;
+interface Args<T> {
+  selected: T | null | undefined;
   label: string;
   identifier: string;
   required?: boolean;
@@ -20,23 +20,23 @@ interface Args {
   onChange: (value: never) => void;
 }
 
-interface ComplexArgs extends Args {
-  options: Option[];
+interface ComplexArgs<T> extends Args<T> {
+  options: Option<T>[];
   simple?: undefined;
 }
 
-interface SimpleArgs extends Args {
+interface SimpleArgs extends Args<string> {
   options: string[];
   simple: true;
 }
 
-export interface FormSelectSignature {
-  Args: ComplexArgs | SimpleArgs;
+export interface FormSelectSignature<T> {
+  Args: ComplexArgs<T> | SimpleArgs;
   Element: HTMLSelectElement;
 }
 
-export default class FormSelect extends Component<FormSelectSignature> {
-  constructor(owner: unknown, args: FormSelectSignature['Args']) {
+export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
+  constructor(owner: unknown, args: FormSelectSignature<T>['Args']) {
     super(owner, args);
     assert(
       '<Form::Select />: Must pass an options array',
