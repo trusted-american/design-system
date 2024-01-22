@@ -8,6 +8,21 @@
   "repository": "",
   "license": "MIT",
   "author": "",
+  "typesVersions": {
+    "*": {
+      "test-support": [
+        "declarations/addon-test-support/index.d.ts"
+      ],
+      "test-support/*": [
+        "declarations/addon-test-support/*",
+        "declarations/addon-test-support/*/index.d.ts"
+      ],
+      "*": [
+        "declarations/addon/*",
+        "declarations/addon/*/index.d.ts"
+      ]
+    }
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
