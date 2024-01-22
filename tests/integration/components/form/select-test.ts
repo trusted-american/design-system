@@ -5,7 +5,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 import type { FormSelectSignature } from '@trusted-american/design-system/components/form/select';
 
-type Context = FormSelectSignature['Args'] & TestContext;
+type Context = FormSelectSignature<string>['Args'] & TestContext;
 
 module('Integration | Component | form/select', function (hooks) {
   setupRenderingTest(hooks);
