@@ -1,7 +1,5 @@
 import Component from '@glimmer/component';
 
-import '@glint/environment-ember-loose';
-
 export interface AlertSignature {
   Args: {
     color?: string;
