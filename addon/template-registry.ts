@@ -13,6 +13,7 @@ import type ExternalLink from './components/external-link';
 import type FileType from './components/file-type';
 import type Flyout from './components/flyout';
 import type Heading from './components/heading';
+import type Icon from './components/icon';
 import type ListFilter from './components/list-filter';
 import type ListGroup from './components/list-group';
 import type Loader from './components/loader';
@@ -31,8 +32,9 @@ import type Toast from './components/toast';
 
 import type AsideItem from './components/aside/item';
 
-import type DropdownItem from './components/dropdown/item';
 import type DropdownDivider from './components/dropdown/divider';
+import type DropdownHeader from './components/dropdown/header';
+import type DropdownItem from './components/dropdown/item';
 
 import type FormCheck from './components/form/check';
 import type FormDateInput from './components/form/date-input';
@@ -84,6 +86,7 @@ export default interface Registry {
   FileType: typeof FileType;
   Flyout: typeof Flyout;
   Heading: typeof Heading;
+  Icon: typeof Icon;
   ListFilter: typeof ListFilter;
   ListGroup: typeof ListGroup;
   Loader: typeof Loader;
@@ -102,8 +105,9 @@ export default interface Registry {
 
   'Aside::Item': typeof AsideItem;
 
-  'Dropdown::Item': typeof DropdownItem;
   'Dropdown::Divider': typeof DropdownDivider;
+  'Dropdown::Header': typeof DropdownHeader;
+  'Dropdown::Item': typeof DropdownItem;
 
   'Form::Check': typeof FormCheck;
   'Form::DateInput': typeof FormDateInput;

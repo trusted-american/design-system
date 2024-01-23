@@ -10,7 +10,7 @@
   >
     {{if (and (not @iconOnly) @iconTrailing) @text}}
     {{#if @icon}}
-      <FaIcon
+      <Icon
         @icon={{@icon}}
         class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
       />
@@ -43,7 +43,7 @@
     {{/if}}
     {{if (and (not @iconOnly) @iconTrailing) @text}}
     {{#if @icon}}
-      <FaIcon
+      <Icon
         @icon={{@icon}}
         class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
       />

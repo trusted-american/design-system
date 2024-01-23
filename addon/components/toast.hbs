@@ -6,13 +6,13 @@
   {{#if (has-block "title")}}
     <div class="toast-header">
       {{#if (eq "success" @color)}}
-        {{!-- <FaIcon @icon="check" @fixedWidth={{true}} class="me-1" /> --}}
+        {{!-- <Icon @icon="check" @fixedWidth={{true}} class="me-1" /> --}}
       {{else if (eq "warning" @color)}}
-        {{!-- <FaIcon @icon="triangle-exclamation" @fixedWidth={{true}} class="me-1" /> --}}
+        {{!-- <Icon @icon="triangle-exclamation" @fixedWidth={{true}} class="me-1" /> --}}
       {{else if (eq "danger" @color)}}
-        {{!-- <FaIcon @icon="xmark" @fixedWidth={{true}} class="me-1" /> --}}
+        {{!-- <Icon @icon="xmark" @fixedWidth={{true}} class="me-1" /> --}}
       {{else}}
-        {{!-- <FaIcon @icon="info" @fixedWidth={{true}} class="me-1" /> --}}
+        {{!-- <Icon @icon="info" @fixedWidth={{true}} class="me-1" /> --}}
       {{/if}}
       <span class="fw-semibold">
         {{yield to="title"}}
