@@ -13,6 +13,7 @@ import type ExternalLink from './components/external-link';
 import type FileType from './components/file-type';
 import type Flyout from './components/flyout';
 import type Heading from './components/heading';
+import type Icon from './components/icon';
 import type ListFilter from './components/list-filter';
 import type ListGroup from './components/list-group';
 import type Loader from './components/loader';
@@ -85,6 +86,7 @@ export default interface Registry {
   FileType: typeof FileType;
   Flyout: typeof Flyout;
   Heading: typeof Heading;
+  Icon: typeof Icon;
   ListFilter: typeof ListFilter;
   ListGroup: typeof ListGroup;
   Loader: typeof Loader;

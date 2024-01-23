@@ -24,6 +24,7 @@ Router.map(function () {
     this.route('flyout');
     this.route('form');
     this.route('heading');
+    this.route('icon');
     this.route('list-filter');
     this.route('list-group');
     this.route('loader');
