@@ -1,5 +1,6 @@
 import '@glint/environment-ember-loose';
 
+import type EmberPageTitle from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
@@ -11,7 +12,9 @@ import type {
 import type Ember from 'ember';
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry extends EmberTruthHelpersRegistry {
+  export default interface Registry
+    extends EmberPageTitle,
+      EmberTruthHelpersRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{
       Args: { Positional: [(element: HTMLElement) => void] };
@@ -79,12 +82,6 @@ declare module '@glint/environment-ember-loose/registry' {
     pick: HelperLike<{
       Args: { Positional: [string, (...args: never[]) => unknown] };
       Return: () => void;
-    }>;
-
-    // ember-page-title
-    'page-title': HelperLike<{
-      Args: { Positional: [title: string] };
-      Return: void;
     }>;
 
     // ember-yeti-table
