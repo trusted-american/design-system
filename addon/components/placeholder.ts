@@ -6,7 +6,9 @@ export interface PlaceholderSignature {
     title: string;
     subtitle?: string;
     buttonText?: string;
+    secondaryButtonText?: string;
     onClick?: () => void;
+    onSecondaryClick?: () => void;
   };
   Element: HTMLElement;
 }
