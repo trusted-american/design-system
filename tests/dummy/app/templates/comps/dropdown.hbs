@@ -5,11 +5,29 @@
 
 <Button @text="Open dropdown" {{tds-dropdown}} />
 <Dropdown>
-  <Dropdown::Item @text="Edit" @icon="pen" {{on "click" this.do}} />
+  <Dropdown::Item
+    @text="Copy link"
+    @icon="copy"
+    @shortcut="⌘C"
+    {{on "click" this.do}}
+  />
+  <Dropdown::Item
+    @text="Quote reply"
+    @icon="quote-left"
+    @shortcut="⌘Q"
+    {{on "click" this.do}}
+  />
+  <Dropdown::Item
+    @text="Edit comment"
+    @icon="pen"
+    @shortcut="⌘E"
+    {{on "click" this.do}}
+  />
   <Dropdown::Divider />
   <Dropdown::Item
-    @text="Delete"
+    @text="Delete file"
     @icon="trash"
+    @shortcut="⌘D"
     @color="danger"
     {{on "click" this.do}}
   />

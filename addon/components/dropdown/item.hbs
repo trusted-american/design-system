@@ -8,6 +8,9 @@
       <FaIcon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
     {{/if}}
     {{@text}}
+    {{#if @shortcut}}
+      <span class="text-secondary float-end ms-1">{{@shortcut}}</span>
+    {{/if}}
   </LinkTo>
 {{else if @href}}
   <a
@@ -21,6 +24,9 @@
       <FaIcon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
     {{/if}}
     {{@text}}
+    {{#if @shortcut}}
+      <span class="text-secondary float-end ms-1">{{@shortcut}}</span>
+    {{/if}}
   </a>
 {{else}}
   <button
@@ -32,5 +38,8 @@
       <FaIcon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
     {{/if}}
     {{@text}}
+    {{#if @shortcut}}
+      <span class="text-secondary float-end ms-1">{{@shortcut}}</span>
+    {{/if}}
   </button>
 {{/if}}

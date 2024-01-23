@@ -4,6 +4,7 @@ export interface DropdownItemSignature {
   Args: {
     text: string;
     icon?: string;
+    shortcut?: string;
     color?: string;
     route?: string;
     href?: string;
