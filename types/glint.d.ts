@@ -1,6 +1,6 @@
 import '@glint/environment-ember-loose';
 
-import type EmberPageTitle from 'ember-page-title/template-registry';
+import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
@@ -13,7 +13,7 @@ import type Ember from 'ember';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
-    extends EmberPageTitle,
+    extends EmberPageTitleRegistry,
       EmberTruthHelpersRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{
