@@ -7,7 +7,7 @@ export interface AlertSignature {
   };
   Blocks: {
     title: [];
-    body: [];
+    default: [];
   };
   Element: HTMLDivElement;
 }
