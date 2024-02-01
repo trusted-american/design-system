@@ -10,7 +10,7 @@ module('Integration | Component | alert', function (hooks) {
     await render(hbs`
     <Alert>
       <:title>Title here</:title>
-      <:body>Body here</:body>
+      <:default>Body here</:default>
     </Alert>
     `);
 
