@@ -1,4 +1,10 @@
-<LinkTo @route={{@route}} class="nav-link fw-semibold px-2" ...attributes>
-  <Icon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
-  <span>{{@text}}</span>
+<LinkTo
+  @route={{@route}}
+  class="nav-link px-2 {{if @icon 'fw-semibold'}}"
+  ...attributes
+>
+  {{#if @icon}}
+    <Icon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
+  {{/if}}
+  <span class={{unless @icon "ms-2"}}>{{@text}}</span>
 </LinkTo>
