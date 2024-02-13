@@ -73,5 +73,5 @@ export { default as fileSize } from './helpers/file-size';
 export { default as fromNow } from './helpers/from-now';
 export { default as timestamp } from './helpers/timestamp';
 
-export { default as tdsDropdown } from './modifiers/tds-dropdown';
-export { default as tdsTooltip } from './modifiers/tds-tooltip';
+export { default as dropdown } from './modifiers/dropdown';
+export { default as tooltip } from './modifiers/tooltip';

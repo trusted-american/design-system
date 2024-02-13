@@ -54,6 +54,6 @@ export default tooltip;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'tds-tooltip': typeof tooltip;
+    tooltip: typeof tooltip;
   }
 }

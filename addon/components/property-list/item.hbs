@@ -4,7 +4,7 @@
       {{@key}}
       {{#if @tooltip}}
         <a href="#" class="text-secondary ms-2">
-          <i class="fas fa-info-circle" {{tds-tooltip @tooltip}}></i>
+          <i class="fas fa-info-circle" {{tooltip @tooltip}}></i>
         </a>
       {{/if}}
     </dt>
@@ -16,7 +16,7 @@
         </span>
       {{else}}
         {{#if @value}}
-          <CopyButton @text={{@value}} {{tds-tooltip (concat "Copy " @key)}}>
+          <CopyButton @text={{@value}} {{tooltip (concat "Copy " @key)}}>
             {{yield}}
           </CopyButton>
         {{else}}
@@ -37,7 +37,7 @@
       </span>
     {{else}}
       {{#if @value}}
-        <CopyButton @text={{@value}} {{tds-tooltip (concat "Copy " @key)}}>
+        <CopyButton @text={{@value}} {{tooltip (concat "Copy " @key)}}>
           {{yield}}
         </CopyButton>
       {{else}}

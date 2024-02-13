@@ -73,8 +73,8 @@ import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type timestamp from './helpers/timestamp';
 
-import type tdsDropdown from './modifiers/tds-dropdown';
-import type tdsTooltip from './modifiers/tds-tooltip';
+import type dropdown from './modifiers/dropdown';
+import type tooltip from './modifiers/tooltip';
 
 export default interface Registry {
   Accordion: typeof Accordion;
@@ -152,6 +152,6 @@ export default interface Registry {
   'from-now': typeof fromNow;
   timestamp: typeof timestamp;
 
-  'tds-dropdown': typeof tdsDropdown;
-  'tds-tooltip': typeof tdsTooltip;
+  dropdown: typeof dropdown;
+  tooltip: typeof tooltip;
 }
