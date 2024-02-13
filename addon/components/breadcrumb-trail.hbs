@@ -1,4 +1,4 @@
-<nav aria-label="breadcrumb">
+<nav class="my-1" aria-label="breadcrumb">
   <ol class="breadcrumb">
     {{#each (breadcrumbs) as |breadcrumb|}}
       {{#if (has-next breadcrumb (breadcrumbs))}}
@@ -7,11 +7,15 @@
             <LinkTo
               @route={{breadcrumb.data.route}}
               @model={{breadcrumb.data.model}}
+              class="link-body-emphasis fw-semibold text-decoration-none"
             >
               {{breadcrumb.title}}
             </LinkTo>
           {{else}}
-            <LinkTo @route={{breadcrumb.data.route}}>
+            <LinkTo
+              @route={{breadcrumb.data.route}}
+              class="link-body-emphasis fw-semibold text-decoration-none"
+            >
               {{breadcrumb.title}}
             </LinkTo>
           {{/if}}
