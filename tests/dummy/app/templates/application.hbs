@@ -22,7 +22,12 @@
       data-bs-target="#components-collapse"
     />
     <div class="collapse ps-3" id="components-collapse">
-      <nav class="nav nav-pills flex-column gap-1" aria-label="Lower Nav">
+      <nav class="nav nav-pills flex-column gap-1">
+        <Aside::Item
+          @text="Accordion"
+          @route="comps.accordion"
+          class="nav-link"
+        />
         <Aside::Item @text="Alerts" @route="comps.alert" class="nav-link" />
         <Aside::Item @text="Aside" @route="comps.aside" class="nav-link" />
         <Aside::Item @text="Avatar" @route="comps.avatar" class="nav-link" />

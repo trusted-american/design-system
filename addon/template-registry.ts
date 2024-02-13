@@ -1,3 +1,4 @@
+import type Accordion from './components/accordion';
 import type Alert from './components/alert';
 import type Aside from './components/aside';
 import type Avatar from './components/avatar';
@@ -29,6 +30,10 @@ import type StatCard from './components/stat-card';
 import type Subheading from './components/subheading';
 import type Table from './components/table';
 import type Toast from './components/toast';
+
+import type AccordionBody from './components/accordion/body';
+import type AccordionButton from './components/accordion/button';
+import type AccordionItem from './components/accordion/item';
 
 import type AsideItem from './components/aside/item';
 
@@ -71,6 +76,7 @@ import type tdsDropdown from './modifiers/tds-dropdown';
 import type tdsTooltip from './modifiers/tds-tooltip';
 
 export default interface Registry {
+  Accordion: typeof Accordion;
   Alert: typeof Alert;
   Aside: typeof Aside;
   Avatar: typeof Avatar;
@@ -102,6 +108,10 @@ export default interface Registry {
   Subheading: typeof Subheading;
   Table: typeof Table;
   Toast: typeof Toast;
+
+  'Accordion::Body': typeof AccordionBody;
+  'Accordion::Button': typeof AccordionButton;
+  'Accordion::Item': typeof AccordionItem;
 
   'Aside::Item': typeof AsideItem;
 
