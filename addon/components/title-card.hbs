@@ -1,0 +1,21 @@
+<div class="card mb-4" ...attributes>
+  {{#if @title}}
+    <div
+      class="card-header bg-body pe-2
+        {{if @title 'd-flex justify-content-between align-items-center'}}"
+      {{! template-lint-disable no-inline-styles }}
+      style="min-height: 3.465rem;"
+    >
+      {{#if @title}}
+        <h6 class="mb-0">{{@title}}</h6>
+      {{/if}}
+      {{yield to="header"}}
+    </div>
+  {{/if}}
+  {{#if (has-block "padded")}}
+    <div class="card-body">
+      {{yield to="padded"}}
+    </div>
+  {{/if}}
+  {{yield}}
+</div>

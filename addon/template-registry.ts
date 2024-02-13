@@ -29,6 +29,7 @@ import type Skeleton from './components/skeleton';
 import type StatCard from './components/stat-card';
 import type Subheading from './components/subheading';
 import type Table from './components/table';
+import type TitleCard from './components/title-card';
 import type Toast from './components/toast';
 
 import type AccordionBody from './components/accordion/body';
@@ -112,6 +113,7 @@ export default interface Registry {
   StatCard: typeof StatCard;
   Subheading: typeof Subheading;
   Table: typeof Table;
+  TitleCard: typeof TitleCard;
   Toast: typeof Toast;
 
   'Accordion::Body': typeof AccordionBody;
