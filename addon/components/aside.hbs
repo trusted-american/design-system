@@ -10,14 +10,11 @@
     <h4 class="mb-0">{{@title}}</h4>
   </LinkTo>
 
-  <nav
-    class="nav nav-pills flex-column flex-grow-1 gap-1"
-    aria-label="Upper Nav"
-  >
+  <nav class="nav nav-pills flex-column flex-grow-1" aria-label="Upper Nav">
     {{yield}}
   </nav>
 
-  <nav class="nav nav-pills flex-column gap-1" aria-label="Lower Nav">
+  <nav class="nav nav-pills flex-column" aria-label="Lower Nav">
     {{yield to="lower"}}
   </nav>
 
