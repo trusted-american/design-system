@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
 export interface AccordionBodySignature {
-  Element: HTMLElement;
   Blocks: {
     default: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class AccordionBody extends Component<AccordionBodySignature> {}

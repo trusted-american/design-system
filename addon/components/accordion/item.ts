@@ -7,7 +7,6 @@ import type AccordionBody from './body';
 import type { WithBoundArgs } from '@glint/template';
 
 export interface AccordionItemSignature {
-  Element: HTMLElement;
   Args: {
     accordion: Accordion;
     show?: boolean;
@@ -20,6 +19,7 @@ export interface AccordionItemSignature {
       },
     ];
   };
+  Element: HTMLDivElement;
 }
 
 export default class AccordionItem extends Component<AccordionItemSignature> {

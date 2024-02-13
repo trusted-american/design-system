@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import type AccordionItem from './item';
 
 export interface AccordionButtonSignature {
-  Element: HTMLElement;
   Args: {
     item: AccordionItem;
     show?: boolean;
@@ -11,6 +10,7 @@ export interface AccordionButtonSignature {
   Blocks: {
     default: [];
   };
+  Element: HTMLButtonElement;
 }
 
 export default class AccordionButton extends Component<AccordionButtonSignature> {}
