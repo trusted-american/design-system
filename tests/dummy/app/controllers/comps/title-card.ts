@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class CompsCardController extends Controller {
+export default class CompsTitleCardController extends Controller {
   @action
   do() {
     console.log('Something');

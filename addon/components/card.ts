@@ -1,13 +1,19 @@
 import Component from '@glimmer/component';
 
+import type CardHeader from './card/header';
+import type CardBody from './card/body';
+import type CardFooter from './card/footer';
+import type { WithBoundArgs } from '@glint/template';
+
 export interface CardSignature {
-  Args: {
-    title?: string;
-  };
   Blocks: {
-    default: [];
-    header: [];
-    padded: [];
+    default: [
+      {
+        header: WithBoundArgs<typeof CardHeader, never>;
+        body: WithBoundArgs<typeof CardBody, never>;
+        footer: WithBoundArgs<typeof CardFooter, never>;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }

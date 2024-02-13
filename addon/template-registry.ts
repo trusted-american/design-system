@@ -29,6 +29,7 @@ import type Skeleton from './components/skeleton';
 import type StatCard from './components/stat-card';
 import type Subheading from './components/subheading';
 import type Table from './components/table';
+import type TitleCard from './components/title-card';
 import type Toast from './components/toast';
 
 import type AccordionBody from './components/accordion/body';
@@ -37,6 +38,10 @@ import type AccordionItem from './components/accordion/item';
 
 import type AsideItem from './components/aside/item';
 import type AsideTitle from './components/aside/title';
+
+import type CardBody from './components/card/body';
+import type CardFooter from './components/card/footer';
+import type CardHeader from './components/card/header';
 
 import type DropdownDivider from './components/dropdown/divider';
 import type DropdownHeader from './components/dropdown/header';
@@ -108,6 +113,7 @@ export default interface Registry {
   StatCard: typeof StatCard;
   Subheading: typeof Subheading;
   Table: typeof Table;
+  TitleCard: typeof TitleCard;
   Toast: typeof Toast;
 
   'Accordion::Body': typeof AccordionBody;
@@ -116,6 +122,10 @@ export default interface Registry {
 
   'Aside::Item': typeof AsideItem;
   'Aside::Title': typeof AsideTitle;
+
+  'Card::Body': typeof CardBody;
+  'Card::Footer': typeof CardFooter;
+  'Card::Header': typeof CardHeader;
 
   'Dropdown::Divider': typeof DropdownDivider;
   'Dropdown::Header': typeof DropdownHeader;

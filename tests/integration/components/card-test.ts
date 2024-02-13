@@ -8,11 +8,19 @@ module('Integration | Component | card', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Card @title="Title">
-        Content
+      <Card as |card|>
+        <card.header>
+          Header
+        </card.header>
+        <card.body>
+          Body
+        </card.body>
+        <card.footer>
+          Footer
+        </card.footer>
       </Card>
     `);
 
-    assert.dom().hasText('Title Content');
+    assert.dom().hasText('Header Body Footer');
   });
 });

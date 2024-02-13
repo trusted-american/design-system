@@ -29,6 +29,7 @@ export { default as Skeleton } from './components/skeleton';
 export { default as StatCard } from './components/stat-card';
 export { default as Subheading } from './components/subheading';
 export { default as Table } from './components/table';
+export { default as TitleCard } from './components/title-card';
 export { default as Toast } from './components/toast';
 
 export { default as AccordionBody } from './components/accordion/body';
@@ -37,6 +38,10 @@ export { default as AccordionItem } from './components/accordion/item';
 
 export { default as AsideItem } from './components/aside/item';
 export { default as AsideTitle } from './components/aside/title';
+
+export { default as CardBody } from './components/card/body';
+export { default as CardFooter } from './components/card/footer';
+export { default as CardHeader } from './components/card/header';
 
 export { default as DropdownDivider } from './components/dropdown/divider';
 export { default as DropdownHeader } from './components/dropdown/header';
