@@ -123,9 +123,9 @@ export default interface Registry {
   'Aside::Item': typeof AsideItem;
   'Aside::Title': typeof AsideTitle;
 
-  'Card::Body ': typeof CardBody;
-  'Card::Footer ': typeof CardFooter;
-  'Card::Header ': typeof CardHeader;
+  'Card::Body': typeof CardBody;
+  'Card::Footer': typeof CardFooter;
+  'Card::Header': typeof CardHeader;
 
   'Dropdown::Divider': typeof DropdownDivider;
   'Dropdown::Header': typeof DropdownHeader;
