@@ -36,6 +36,7 @@ import type AccordionButton from './components/accordion/button';
 import type AccordionItem from './components/accordion/item';
 
 import type AsideItem from './components/aside/item';
+import type AsideTitle from './components/aside/title';
 
 import type DropdownDivider from './components/dropdown/divider';
 import type DropdownHeader from './components/dropdown/header';
@@ -114,6 +115,7 @@ export default interface Registry {
   'Accordion::Item': typeof AccordionItem;
 
   'Aside::Item': typeof AsideItem;
+  'Aside::Title': typeof AsideTitle;
 
   'Dropdown::Divider': typeof DropdownDivider;
   'Dropdown::Header': typeof DropdownHeader;

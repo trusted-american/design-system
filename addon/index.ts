@@ -1,3 +1,4 @@
+export { default as Accordion } from './components/accordion';
 export { default as Alert } from './components/alert';
 export { default as Aside } from './components/aside';
 export { default as Avatar } from './components/avatar';
@@ -30,7 +31,12 @@ export { default as Subheading } from './components/subheading';
 export { default as Table } from './components/table';
 export { default as Toast } from './components/toast';
 
+export { default as AccordionBody } from './components/accordion/body';
+export { default as AccordionButton } from './components/accordion/button';
+export { default as AccordionItem } from './components/accordion/item';
+
 export { default as AsideItem } from './components/aside/item';
+export { default as AsideTitle } from './components/aside/title';
 
 export { default as DropdownDivider } from './components/dropdown/divider';
 export { default as DropdownHeader } from './components/dropdown/header';
