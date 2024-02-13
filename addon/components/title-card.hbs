@@ -1,4 +1,4 @@
-<div class="card mb-4" ...attributes>
+<Card class="mb-4" ...attributes as |card|>
   {{#if @title}}
     <div
       class="card-header bg-body pe-2
@@ -13,9 +13,9 @@
     </div>
   {{/if}}
   {{#if (has-block "padded")}}
-    <div class="card-body">
+    <card.body>
       {{yield to="padded"}}
-    </div>
+    </card.body>
   {{/if}}
   {{yield}}
-</div>
+</Card>
