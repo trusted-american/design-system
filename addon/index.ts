@@ -38,6 +38,10 @@ export { default as AccordionItem } from './components/accordion/item';
 export { default as AsideItem } from './components/aside/item';
 export { default as AsideTitle } from './components/aside/title';
 
+export { default as CardBody } from './components/card/body';
+export { default as CardFooter } from './components/card/footer';
+export { default as CardHeader } from './components/card/header';
+
 export { default as DropdownDivider } from './components/dropdown/divider';
 export { default as DropdownHeader } from './components/dropdown/header';
 export { default as DropdownItem } from './components/dropdown/item';

@@ -38,6 +38,10 @@ import type AccordionItem from './components/accordion/item';
 import type AsideItem from './components/aside/item';
 import type AsideTitle from './components/aside/title';
 
+import type CardBody from './components/card/body';
+import type CardFooter from './components/card/footer';
+import type CardHeader from './components/card/header';
+
 import type DropdownDivider from './components/dropdown/divider';
 import type DropdownHeader from './components/dropdown/header';
 import type DropdownItem from './components/dropdown/item';
@@ -116,6 +120,10 @@ export default interface Registry {
 
   'Aside::Item': typeof AsideItem;
   'Aside::Title': typeof AsideTitle;
+
+  'Card::Body ': typeof CardBody;
+  'Card::Footer ': typeof CardFooter;
+  'Card::Header ': typeof CardHeader;
 
   'Dropdown::Divider': typeof DropdownDivider;
   'Dropdown::Header': typeof DropdownHeader;
