@@ -71,6 +71,9 @@ export type Predicate<T = unknown> =
 export interface ListFilterSignature<T> {
   Args: {
     predicates: Predicate<T>[];
+    text: string;
+    clearText: string;
+    doneText: string;
     onChange: (key: string, value: unknown) => void;
   };
 }

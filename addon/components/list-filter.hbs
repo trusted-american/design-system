@@ -5,7 +5,7 @@
   {{tds-dropdown autoClose="outside"}}
 >
   <Icon @icon="filter" @fixedWidth={{true}} />
-  Filter
+  {{@text}}
   {{#if this.selections}}
     <span class="text-danger ms-1">
       {{this.selections.length}}
@@ -19,10 +19,14 @@
 
       <ListGroup::Item class="bg-body-tertiary px-2">
         <ButtonSet class="justify-content-between">
-          <Button @text="Clear" data-test-clear {{on "click" this.clear}} />
+          <Button
+            @text={{@clearText}}
+            data-test-clear
+            {{on "click" this.clear}}
+          />
           <Button
             @isSubmit={{true}}
-            @text="Done"
+            @text={{@doneText}}
             @color="primary"
             data-test-done
           />
