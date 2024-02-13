@@ -8,6 +8,7 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('comps', function () {
+    this.route('accordion');
     this.route('alert');
     this.route('aside');
     this.route('avatar');

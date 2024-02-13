@@ -1,0 +1,7 @@
+<div
+  class="accordion {{if @flush 'accordion-flush'}}"
+  id={{this.id}}
+  ...attributes
+>
+  {{yield (hash item=(component "accordion/item" accordion=this))}}
+</div>

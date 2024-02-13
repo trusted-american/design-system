@@ -7,20 +7,8 @@ module('Integration | Component | aside/title', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    await render(hbs`<Aside::Title @text='Title' />`);
 
-    await render(hbs`<Aside::Title />`);
-
-    assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Aside::Title>
-        template block text
-      </Aside::Title>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('Title');
   });
 });

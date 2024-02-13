@@ -1,6 +1,4 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
-import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 import dayjs from 'dayjs';
@@ -26,15 +24,6 @@ export interface FormDateInputSignature {
 }
 
 export default class FormDateInput extends Component<FormDateInputSignature> {
-  constructor(owner: unknown, args: FormDateInputSignature['Args']) {
-    super(owner, args);
-
-    assert(
-      '<Form::DateInput />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function',
-    );
-  }
-
   get value(): string | null {
     if (this.args.value) {
       return this.dateToString(this.args.value);
