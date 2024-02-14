@@ -13,6 +13,6 @@ module('Integration | Component | aside/group', function (hooks) {
       </Aside::Group>
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('Text template block text');
   });
 });
