@@ -5,7 +5,6 @@ import type { WithBoundArgs } from '@glint/template';
 import type AccordionItem from './accordion/item';
 
 export interface AccordionComponentSignature {
-  Element: HTMLDivElement;
   Args: {
     flush?: boolean;
     alwaysOpen?: boolean;
@@ -13,6 +12,7 @@ export interface AccordionComponentSignature {
   Blocks: {
     default: [{ item: WithBoundArgs<typeof AccordionItem, 'accordion'> }];
   };
+  Element: HTMLDivElement;
 }
 
 export default class Accordion extends Component<AccordionComponentSignature> {
