@@ -1,8 +1,7 @@
 <button
   class="accordion-button {{unless @show 'collapsed'}}"
   type="button"
-  data-bs-toggle="collapse"
-  data-bs-target="#{{@item.id}}"
+  {{collapse @item.id}}
   ...attributes
 >
   {{yield}}

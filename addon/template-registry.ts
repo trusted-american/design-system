@@ -78,6 +78,7 @@ import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type timestamp from './helpers/timestamp';
 
+import type collapse from './modifiers/collapse';
 import type dropdown from './modifiers/dropdown';
 import type tooltip from './modifiers/tooltip';
 
@@ -162,6 +163,7 @@ export default interface Registry {
   'from-now': typeof fromNow;
   timestamp: typeof timestamp;
 
+  collapse: typeof collapse;
   dropdown: typeof dropdown;
   tooltip: typeof tooltip;
 }
