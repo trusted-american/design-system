@@ -4,13 +4,6 @@
   rel="noopener noreferrer"
   data-test-external-link
   ...attributes
->
-  {{#if @icon}}
-    <Icon @icon={{@icon}} class="me-1" />
-  {{/if}}
-  {{#if @text}}
-    {{@text}}
-  {{else}}
-    {{yield}}
-  {{/if}}
-</a>
+>{{#if @icon}}<Icon @icon={{@icon}} class="me-1" />{{/if}}{{#if
+    @text
+  }}{{@text}}{{else}}{{yield}}{{/if}}</a>
