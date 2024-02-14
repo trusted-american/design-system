@@ -36,6 +36,7 @@ export { default as AccordionBody } from './components/accordion/body';
 export { default as AccordionButton } from './components/accordion/button';
 export { default as AccordionItem } from './components/accordion/item';
 
+export { default as AsideGroup } from './components/aside/group';
 export { default as AsideItem } from './components/aside/item';
 export { default as AsideTitle } from './components/aside/title';
 
