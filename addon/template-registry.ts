@@ -36,6 +36,7 @@ import type AccordionBody from './components/accordion/body';
 import type AccordionButton from './components/accordion/button';
 import type AccordionItem from './components/accordion/item';
 
+import type AsideGroup from './components/aside/group';
 import type AsideItem from './components/aside/item';
 import type AsideTitle from './components/aside/title';
 
@@ -78,6 +79,7 @@ import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type timestamp from './helpers/timestamp';
 
+import type collapse from './modifiers/collapse';
 import type dropdown from './modifiers/dropdown';
 import type tooltip from './modifiers/tooltip';
 
@@ -120,6 +122,7 @@ export default interface Registry {
   'Accordion::Button': typeof AccordionButton;
   'Accordion::Item': typeof AccordionItem;
 
+  'Aside::Group': typeof AsideGroup;
   'Aside::Item': typeof AsideItem;
   'Aside::Title': typeof AsideTitle;
 
@@ -162,6 +165,7 @@ export default interface Registry {
   'from-now': typeof fromNow;
   timestamp: typeof timestamp;
 
+  collapse: typeof collapse;
   dropdown: typeof dropdown;
   tooltip: typeof tooltip;
 }
