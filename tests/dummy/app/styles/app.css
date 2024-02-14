@@ -1,6 +1,8 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
 :root {
+  font-size: 0.875rem;
+
   --bs-dark: #131313;
 }
 
