@@ -1,17 +1,10 @@
-<button
-  type="button"
-  class="btn btn-secondary"
+<Button
+  @text={{@text}}
+  @icon="filter"
+  @count={{this.selections.length}}
   data-test-list-filter
   {{dropdown autoClose="outside"}}
->
-  <Icon @icon="filter" @fixedWidth={{true}} />
-  {{@text}}
-  {{#if this.selections}}
-    <span class="text-warning ms-1">
-      {{this.selections.length}}
-    </span>
-  {{/if}}
-</button>
+/>
 
 <Dropdown class="overflow-hidden p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
