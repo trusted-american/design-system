@@ -8,6 +8,21 @@
   "repository": "",
   "license": "MIT",
   "author": "",
+  "typesVersions": {
+    "*": {
+      "test-support": [
+        "declarations/addon-test-support/index.d.ts"
+      ],
+      "test-support/*": [
+        "declarations/addon-test-support/*",
+        "declarations/addon-test-support/*/index.d.ts"
+      ],
+      "*": [
+        "declarations/addon/*",
+        "declarations/addon/*/index.d.ts"
+      ]
+    }
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -23,8 +38,8 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "prepack": "ember ts:precompile",
-    "postpack": "ember ts:clean",
+    "prepack": "glint --project tsconfig.declarations.json",
+    "postpack": "rimraf declarations",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test",
@@ -45,7 +60,6 @@
     "ember-cli-babel": "^8.2.0",
     "ember-cli-clipboard": "^1.1.0",
     "ember-cli-htmlbars": "^6.3.0",
-    "ember-cli-typescript": "^5.2.1",
     "ember-composable-helpers": "^5.0.0",
     "ember-modifier": "^4.1.0",
     "ember-truth-helpers": "^4.0.3",
