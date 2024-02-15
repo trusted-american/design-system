@@ -5,13 +5,13 @@
 >
   {{#if @icon}}
     <div>
-      <FaIcon @icon={{@icon}} />
+      <Icon @icon={{@icon}} />
     </div>
   {{/if}}
   <div>
     {{#if (has-block "title")}}
       <h6 class="alert-heading">{{yield to="title"}}</h6>
     {{/if}}
-    {{yield to="body"}}
+    {{yield}}
   </div>
 </div>

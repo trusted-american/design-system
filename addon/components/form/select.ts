@@ -1,6 +1,4 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
-import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
 
 export interface Option<T = unknown> {
@@ -36,28 +34,6 @@ export interface FormSelectSignature<T> {
 }
 
 export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
-  constructor(owner: unknown, args: FormSelectSignature<T>['Args']) {
-    super(owner, args);
-    assert(
-      '<Form::Select />: Must pass an options array',
-      typeOf(this.args.options) === 'array',
-    );
-    // assert(
-    //   '<Form::Select />: Must pass a selected string or undefined',
-    //   typeOf(this.args.selected) === 'string' ||
-    //     this.args.selected === undefined ||
-    //     this.args.selected === null
-    // );
-    assert(
-      '<Form::Select />: Must pass a label string or undefined',
-      typeOf(this.args.label) === 'string' || this.args.label === undefined,
-    );
-    assert(
-      '<Form::Select />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function',
-    );
-  }
-
   @action
   change({ target }: Event): void {
     const index = parseInt((target as HTMLFormElement)['value'] as string);

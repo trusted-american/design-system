@@ -65,6 +65,9 @@ module('Integration | Component | list-filter', function (hooks) {
     await render<Context>(hbs`
       <ListFilter
         @predicates={{this.predicates}}
+        @text='Filter'
+        @clearText='Clear'
+        @doneText='Done'
         @onChange={{this.onChange}}
       />
     `);

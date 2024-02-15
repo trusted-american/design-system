@@ -1,3 +1,4 @@
+import type Accordion from './components/accordion';
 import type Alert from './components/alert';
 import type Aside from './components/aside';
 import type Avatar from './components/avatar';
@@ -13,6 +14,7 @@ import type ExternalLink from './components/external-link';
 import type FileType from './components/file-type';
 import type Flyout from './components/flyout';
 import type Heading from './components/heading';
+import type Icon from './components/icon';
 import type ListFilter from './components/list-filter';
 import type ListGroup from './components/list-group';
 import type Loader from './components/loader';
@@ -27,12 +29,24 @@ import type Skeleton from './components/skeleton';
 import type StatCard from './components/stat-card';
 import type Subheading from './components/subheading';
 import type Table from './components/table';
+import type TitleCard from './components/title-card';
 import type Toast from './components/toast';
 
-import type AsideItem from './components/aside/item';
+import type AccordionBody from './components/accordion/body';
+import type AccordionButton from './components/accordion/button';
+import type AccordionItem from './components/accordion/item';
 
-import type DropdownItem from './components/dropdown/item';
+import type AsideGroup from './components/aside/group';
+import type AsideItem from './components/aside/item';
+import type AsideTitle from './components/aside/title';
+
+import type CardBody from './components/card/body';
+import type CardFooter from './components/card/footer';
+import type CardHeader from './components/card/header';
+
 import type DropdownDivider from './components/dropdown/divider';
+import type DropdownHeader from './components/dropdown/header';
+import type DropdownItem from './components/dropdown/item';
 
 import type FormCheck from './components/form/check';
 import type FormDateInput from './components/form/date-input';
@@ -65,10 +79,12 @@ import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type timestamp from './helpers/timestamp';
 
-import type tdsDropdown from './modifiers/tds-dropdown';
-import type tdsTooltip from './modifiers/tds-tooltip';
+import type collapse from './modifiers/collapse';
+import type dropdown from './modifiers/dropdown';
+import type tooltip from './modifiers/tooltip';
 
 export default interface Registry {
+  Accordion: typeof Accordion;
   Alert: typeof Alert;
   Aside: typeof Aside;
   Avatar: typeof Avatar;
@@ -84,6 +100,7 @@ export default interface Registry {
   FileType: typeof FileType;
   Flyout: typeof Flyout;
   Heading: typeof Heading;
+  Icon: typeof Icon;
   ListFilter: typeof ListFilter;
   ListGroup: typeof ListGroup;
   Loader: typeof Loader;
@@ -98,12 +115,24 @@ export default interface Registry {
   StatCard: typeof StatCard;
   Subheading: typeof Subheading;
   Table: typeof Table;
+  TitleCard: typeof TitleCard;
   Toast: typeof Toast;
 
-  'Aside::Item': typeof AsideItem;
+  'Accordion::Body': typeof AccordionBody;
+  'Accordion::Button': typeof AccordionButton;
+  'Accordion::Item': typeof AccordionItem;
 
-  'Dropdown::Item': typeof DropdownItem;
+  'Aside::Group': typeof AsideGroup;
+  'Aside::Item': typeof AsideItem;
+  'Aside::Title': typeof AsideTitle;
+
+  'Card::Body': typeof CardBody;
+  'Card::Footer': typeof CardFooter;
+  'Card::Header': typeof CardHeader;
+
   'Dropdown::Divider': typeof DropdownDivider;
+  'Dropdown::Header': typeof DropdownHeader;
+  'Dropdown::Item': typeof DropdownItem;
 
   'Form::Check': typeof FormCheck;
   'Form::DateInput': typeof FormDateInput;
@@ -136,6 +165,7 @@ export default interface Registry {
   'from-now': typeof fromNow;
   timestamp: typeof timestamp;
 
-  'tds-dropdown': typeof tdsDropdown;
-  'tds-tooltip': typeof tdsTooltip;
+  collapse: typeof collapse;
+  dropdown: typeof dropdown;
+  tooltip: typeof tooltip;
 }

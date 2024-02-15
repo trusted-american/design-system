@@ -1,6 +1,4 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
-import { typeOf } from '@ember/utils';
 import { action, set } from '@ember/object';
 import dayjs from 'dayjs';
 
@@ -73,6 +71,9 @@ export type Predicate<T = unknown> =
 export interface ListFilterSignature<T> {
   Args: {
     predicates: Predicate<T>[];
+    text: string;
+    clearText: string;
+    doneText: string;
     onChange: (key: string, value: unknown) => void;
   };
 }
@@ -82,15 +83,6 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
   constructor(owner: unknown, args: ListFilterSignature<T>['Args']) {
     super(owner, args);
-
-    assert(
-      '<ListFilter />: Must pass a predicates array',
-      typeOf(this.args.predicates) === 'array',
-    );
-    assert(
-      '<ListFilter />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function',
-    );
 
     this.predicates = this.args.predicates.map((p) => {
       const predicate = { ...p }; // clone

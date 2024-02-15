@@ -1,38 +1,33 @@
 <div class="d-inline" data-test-file-type ...attributes>
   {{#if (eq "image" this.fileType)}}
-    <FaIcon
+    <Icon
       @icon="file-image"
       @size={{@size}}
       @fixedWidth={{true}}
       class="text-warning"
     />
   {{else if (eq "pdf" this.fileType)}}
-    <FaIcon
+    <Icon
       @icon="file-pdf"
       @size={{@size}}
       @fixedWidth={{true}}
       class="text-danger"
     />
   {{else if (eq "word" this.fileType)}}
-    <FaIcon
+    <Icon
       @icon="file-word"
       @size={{@size}}
       @fixedWidth={{true}}
       class="text-primary"
     />
   {{else if (eq "excel" this.fileType)}}
-    <FaIcon
+    <Icon
       @icon="file-excel"
       @size={{@size}}
       @fixedWidth={{true}}
       class="text-success"
     />
   {{else}}
-    <FaIcon
-      @icon="file"
-      @size={{@size}}
-      @fixedWidth={{true}}
-      class="text-body"
-    />
+    <Icon @icon="file" @size={{@size}} @fixedWidth={{true}} class="text-body" />
   {{/if}}
 </div>

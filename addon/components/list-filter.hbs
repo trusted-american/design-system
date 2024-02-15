@@ -1,28 +1,25 @@
-<button
-  type="button"
-  class="btn btn-secondary"
+<Button
+  @text={{@text}}
+  @icon="filter"
+  @count={{this.selections.length}}
   data-test-list-filter
-  {{tds-dropdown autoClose="outside"}}
->
-  <FaIcon @icon="filter" @fixedWidth={{true}} />
-  Filter
-  {{#if this.selections}}
-    <span class="text-danger ms-1">
-      {{this.selections.length}}
-    </span>
-  {{/if}}
-</button>
+  {{dropdown autoClose="outside"}}
+/>
 
-<Dropdown class="p-0" data-test-list-filter-dropdown>
+<Dropdown class="overflow-hidden p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
     <ListGroup @flush={{true}}>
 
       <ListGroup::Item class="bg-body-tertiary px-2">
         <ButtonSet class="justify-content-between">
-          <Button @text="Clear" data-test-clear {{on "click" this.clear}} />
+          <Button
+            @text={{@clearText}}
+            data-test-clear
+            {{on "click" this.clear}}
+          />
           <Button
             @isSubmit={{true}}
-            @text="Done"
+            @text={{@doneText}}
             @color="primary"
             data-test-done
           />

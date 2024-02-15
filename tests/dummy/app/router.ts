@@ -8,6 +8,7 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('comps', function () {
+    this.route('accordion');
     this.route('alert');
     this.route('aside');
     this.route('avatar');
@@ -24,6 +25,7 @@ Router.map(function () {
     this.route('flyout');
     this.route('form');
     this.route('heading');
+    this.route('icon');
     this.route('list-filter');
     this.route('list-group');
     this.route('loader');
@@ -38,6 +40,7 @@ Router.map(function () {
     this.route('stat-card');
     this.route('subheading');
     this.route('table');
+    this.route('title-card');
     this.route('toast');
   });
   this.route('helpers');

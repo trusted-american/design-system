@@ -1,0 +1,8 @@
+<button
+  class="accordion-button {{unless @show 'collapsed'}}"
+  type="button"
+  {{collapse @item.id}}
+  ...attributes
+>
+  {{yield}}
+</button>
