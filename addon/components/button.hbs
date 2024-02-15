@@ -49,5 +49,8 @@
       />
     {{/if}}
     {{if (and (not @iconOnly) (not @iconTrailing)) @text}}
+    {{#if @count}}
+      <span class="text-warning ms-1">{{@count}}</span>
+    {{/if}}
   </button>
 {{/if}}

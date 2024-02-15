@@ -13,6 +13,7 @@ export interface ButtonSignature {
     loading?: boolean;
     route?: string;
     href?: string;
+    count?: number;
   };
   Element: HTMLButtonElement | HTMLAnchorElement;
 }
