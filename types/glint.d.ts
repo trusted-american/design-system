@@ -1,5 +1,3 @@
-import '@glint/environment-ember-loose';
-
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
