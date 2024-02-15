@@ -1,3 +1,5 @@
+import '@glint/environment-ember-loose';
+
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
