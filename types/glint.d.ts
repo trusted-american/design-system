@@ -4,6 +4,8 @@ import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
+import type PreventDefault from 'ember-event-helpers/helpers/prevent-default';
+import type StopPropagation from 'ember-event-helpers/helpers/stop-propagation';
 import type {
   YetiTableHeader,
   YetiTableBody,
@@ -83,6 +85,10 @@ declare module '@glint/environment-ember-loose/registry' {
       Args: { Positional: [string, (...args: never[]) => unknown] };
       Return: () => void;
     }>;
+
+    // ember-event-helpers
+    'prevent-default': typeof PreventDefault;
+    'stop-propagation': typeof StopPropagation;
 
     // ember-yeti-table
     YetiTable: ComponentLike<{
