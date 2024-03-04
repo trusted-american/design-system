@@ -1,4 +1,11 @@
-export type Type = 'image' | 'pdf' | 'csv' | 'word' | 'excel' | 'outlook';
+export type Type =
+  | 'image'
+  | 'audio'
+  | 'pdf'
+  | 'csv'
+  | 'word'
+  | 'excel'
+  | 'outlook';
 
 /**
  * Determines file type from name.
@@ -8,6 +15,7 @@ export type Type = 'image' | 'pdf' | 'csv' | 'word' | 'excel' | 'outlook';
 export default function fileType(name: string): Type | null {
   const types: Record<Type, string[]> = {
     image: ['png', 'jpg', 'jpeg'],
+    audio: ['mp3'],
     pdf: ['pdf'],
     csv: ['csv'],
     word: ['doc', 'docx'],

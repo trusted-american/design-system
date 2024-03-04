@@ -6,12 +6,26 @@
       @fixedWidth={{true}}
       class="text-warning"
     />
+  {{else if (eq "audio" this.fileType)}}
+    <Icon
+      @icon="file-audio"
+      @size={{@size}}
+      @fixedWidth={{true}}
+      class="text-warning"
+    />
   {{else if (eq "pdf" this.fileType)}}
     <Icon
       @icon="file-pdf"
       @size={{@size}}
       @fixedWidth={{true}}
       class="text-danger"
+    />
+  {{else if (eq "csv" this.fileType)}}
+    <Icon
+      @icon="file-csv"
+      @size={{@size}}
+      @fixedWidth={{true}}
+      class="text-success"
     />
   {{else if (eq "word" this.fileType)}}
     <Icon
