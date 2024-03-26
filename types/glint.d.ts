@@ -3,7 +3,9 @@ import '@glint/environment-ember-loose';
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
-import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
+import type { ComponentLike, ModifierLike } from '@glint/template';
+import type Breadcrumb from 'ember-breadcrumb-trail/helpers/breadcrumb';
+import type Breadcrumbs from 'ember-breadcrumb-trail/helpers/breadcrumbs';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type Call from 'ember-composable-helpers/helpers/call';
 import type Dec from 'ember-composable-helpers/helpers/dec';
@@ -54,16 +56,8 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-breadcrumb-trail
-    breadcrumb: HelperLike<{
-      Args: {
-        Positional: [title: string];
-        Named: Record<string, unknown>;
-      };
-      Return: never;
-    }>;
-    breadcrumbs: HelperLike<{
-      Return: { title: string; data: { route: string; model: string } }[];
-    }>;
+    breadcrumb: typeof Breadcrumb;
+    breadcrumbs: typeof Breadcrumbs;
 
     // ember-cli-clipboard
     CopyButton: typeof CopyButton;
