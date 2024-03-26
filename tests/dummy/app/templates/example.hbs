@@ -3,12 +3,13 @@
 
 <Heading @title="Example">
   <ButtonSet>
-    <Input
+    <Form::Input
       @value={{this.search}}
       @type="search"
-      class="form-control"
+      @label="Search"
+      @identifier="search"
+      @inputOnly={{true}}
       placeholder="Search"
-      aria-label="Search"
     />
     <Button @text="Filter" {{on "click" this.do}} />
     <Button @text="Sort" {{on "click" this.do}} />
