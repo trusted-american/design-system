@@ -67,14 +67,15 @@
 
               <div class="d-flex align-items-center gap-2">
                 {{#if (eq "inTheLast" predicate.mode)}}
-                  {{! @glint-expect-error }}
-                  <Input
+                  <Form::NumberInput
                     @value={{predicate.valueA}}
-                    @type="number"
+                    @label="Value A"
+                    @identifier=""
+                    @required={{true}}
+                    @inputOnly={{true}}
+                    {{! @glint-expect-error }}
+                    @onChange={{fn (mut predicate.valueA)}}
                     min="1"
-                    class="form-control"
-                    aria-label="Value A"
-                    required
                   />
                   <Form::Select
                     @options={{array
@@ -129,11 +130,11 @@
 
             {{else if (eq "string" predicate.type)}}
 
-              <Input
+              <Form::Input
                 @value={{predicate.value}}
-                @type="text"
-                class="form-control"
-                aria-label="Value"
+                @label="Value"
+                @identifier=""
+                @inputOnly={{true}}
               />
 
             {{else}}
