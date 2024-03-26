@@ -41,7 +41,7 @@ declare module '@glint/environment-ember-loose/registry' {
         Positional: [title: string];
         Named: Record<string, unknown>;
       };
-      Return: void;
+      Return: never;
     }>;
     breadcrumbs: HelperLike<{
       Return: { title: string; data: { route: string; model: string } }[];
