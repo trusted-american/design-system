@@ -4,6 +4,25 @@ import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { ComponentLike, HelperLike, ModifierLike } from '@glint/template';
+import type CopyButton from 'ember-cli-clipboard/components/copy-button';
+import type Call from 'ember-composable-helpers/helpers/call';
+import type Dec from 'ember-composable-helpers/helpers/dec';
+import type FilterBy from 'ember-composable-helpers/helpers/filter-by';
+import type HasNext from 'ember-composable-helpers/helpers/has-next';
+import type Inc from 'ember-composable-helpers/helpers/inc';
+import type Includes from 'ember-composable-helpers/helpers/includes';
+import type Join from 'ember-composable-helpers/helpers/join';
+import type Keys from 'ember-composable-helpers/helpers/keys';
+import type MapBy from 'ember-composable-helpers/helpers/map-by';
+import type Noop from 'ember-composable-helpers/helpers/noop';
+import type ObjectAt from 'ember-composable-helpers/helpers/object-at';
+import type Optional from 'ember-composable-helpers/helpers/optional';
+import type Pick from 'ember-composable-helpers/helpers/pick';
+import type Range from 'ember-composable-helpers/helpers/range';
+import type Slice from 'ember-composable-helpers/helpers/slice';
+import type SortBy from 'ember-composable-helpers/helpers/sort-by';
+import type Values from 'ember-composable-helpers/helpers/values';
+import type Without from 'ember-composable-helpers/helpers/without';
 import type PreventDefault from 'ember-event-helpers/helpers/prevent-default';
 import type StopPropagation from 'ember-event-helpers/helpers/stop-propagation';
 import type {
@@ -11,7 +30,6 @@ import type {
   YetiTableBody,
   YetiTableFooter,
 } from '@trusted-american/design-system/components/table';
-import type Ember from 'ember';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -48,43 +66,27 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // ember-cli-clipboard
-    CopyButton: ComponentLike<{
-      Args: {
-        text: unknown;
-        delegateClickEvent?: boolean;
-      };
-      Blocks: {
-        default: [];
-      };
-      Element: HTMLElement;
-    }>;
+    CopyButton: typeof CopyButton;
 
     // ember-composable-helpers
-    dec: HelperLike<{
-      Args: {
-        Positional: [value: number | Ember.ComputedProperty<number, number>];
-      };
-      Return: number;
-    }>;
-    'has-next': HelperLike<{
-      Args: { Positional: [unknown, unknown[]] };
-      Return: boolean;
-    }>;
-    inc: HelperLike<{
-      Args: { Positional: [value: number] };
-      Return: number;
-    }>;
-    includes: HelperLike<{
-      Args: { Positional: [...value: unknown[]] };
-      Return: boolean;
-    }>;
-    noop: HelperLike<{
-      Return: () => void;
-    }>;
-    pick: HelperLike<{
-      Args: { Positional: [string, (...args: never[]) => unknown] };
-      Return: () => void;
-    }>;
+    call: typeof Call;
+    dec: typeof Dec;
+    'filter-by': typeof FilterBy;
+    'has-next': typeof HasNext;
+    inc: typeof Inc;
+    includes: typeof Includes;
+    join: typeof Join;
+    keys: typeof Keys;
+    'map-by': typeof MapBy;
+    noop: typeof Noop;
+    'object-at': typeof ObjectAt;
+    optional: typeof Optional;
+    pick: typeof Pick;
+    range: typeof Range;
+    slice: typeof Slice;
+    'sort-by': typeof SortBy;
+    values: typeof Values;
+    without: typeof Without;
 
     // ember-event-helpers
     'prevent-default': typeof PreventDefault;
