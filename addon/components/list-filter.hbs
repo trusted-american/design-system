@@ -70,7 +70,7 @@
                   <Form::NumberInput
                     @value={{predicate.valueA}}
                     @label="Value A"
-                    @identifier=""
+                    @identifier="valueA{{index}}"
                     @required={{true}}
                     @inputOnly={{true}}
                     {{! @glint-expect-error }}
@@ -91,8 +91,10 @@
                 {{else}}
                   <Form::DateInput
                     @value={{predicate.valueA}}
-                    @identifier=""
+                    @label="Value A"
+                    @identifier="valueA{{index}}"
                     @required={{true}}
+                    @inputOnly={{true}}
                     {{! @glint-expect-error }}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
@@ -102,8 +104,10 @@
                     </div>
                     <Form::DateInput
                       @value={{predicate.valueB}}
-                      @identifier=""
+                      @label="Value B"
+                      @identifier="valueB{{index}}"
                       @required={{true}}
+                      @inputOnly={{true}}
                       {{! @glint-expect-error }}
                       @onChange={{fn (mut predicate.valueB)}}
                     />
@@ -133,7 +137,7 @@
               <Form::Input
                 @value={{predicate.value}}
                 @label="Value"
-                @identifier=""
+                @identifier="value{{index}}"
                 @inputOnly={{true}}
               />
 
