@@ -12,6 +12,7 @@ export interface FileTypeSignature {
 export default class FileType extends Component<FileTypeSignature> {
   get fileType(): Type | null {
     const { name } = this.args;
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!name || !name.split) {
       return null;
     }

@@ -27,11 +27,9 @@ export default class Flyout extends Component<FlyoutSignature> {
     this.offcanvas.show();
 
     const { onClose } = this.args;
-    if (onClose) {
-      element.addEventListener('hidden.bs.offcanvas', () => {
-        onClose();
-      });
-    }
+    element.addEventListener('hidden.bs.offcanvas', () => {
+      onClose();
+    });
   }
 
   willDestroy(): void {

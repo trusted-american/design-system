@@ -25,7 +25,7 @@
   </YetiTable>
 </div>
 
-{{#if (not-eq "local" @pagination)}}
+{{#if (eq "remote" @pagination)}}
   <ButtonSet class="justify-content-end mt-3">
     {{#if @onPrevious}}
       <Button

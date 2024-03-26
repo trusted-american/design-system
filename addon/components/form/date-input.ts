@@ -46,8 +46,8 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   }
 
   private dateToString(date: Date): string | null {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error shouldn't be necessary to check toISOString
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (isValidDate(date) && date.toISOString) {
       const value = dayjs(date).utc(false).format('YYYY-MM-DD');
       return value;
@@ -61,6 +61,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
     let value;
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!date.toISOString || isNaN(date.getTime())) {
       value = null;
     } else if (date.getFullYear() > 9999) {

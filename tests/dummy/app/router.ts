@@ -40,7 +40,6 @@ Router.map(function () {
     this.route('stat-card');
     this.route('subheading');
     this.route('table');
-    this.route('title-card');
     this.route('toast');
   });
   this.route('helpers');
