@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
-type DateRangeQueryParam =
+export type DateRangeQueryParam =
   | {
       gte: Date | null;
       gt: Date | null;
