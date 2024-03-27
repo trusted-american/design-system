@@ -67,14 +67,15 @@
 
               <div class="d-flex align-items-center gap-2">
                 {{#if (eq "inTheLast" predicate.mode)}}
-                  {{! @glint-expect-error }}
-                  <Input
+                  <Form::NumberInput
                     @value={{predicate.valueA}}
-                    @type="number"
+                    @label="Value A"
+                    @identifier="valueA{{index}}"
+                    @required={{true}}
+                    @inputOnly={{true}}
+                    {{! @glint-expect-error }}
+                    @onChange={{fn (mut predicate.valueA)}}
                     min="1"
-                    class="form-control"
-                    aria-label="Value A"
-                    required
                   />
                   <Form::Select
                     @options={{array
@@ -90,8 +91,10 @@
                 {{else}}
                   <Form::DateInput
                     @value={{predicate.valueA}}
-                    @identifier=""
+                    @label="Value A"
+                    @identifier="valueA{{index}}"
                     @required={{true}}
+                    @inputOnly={{true}}
                     {{! @glint-expect-error }}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
@@ -101,8 +104,10 @@
                     </div>
                     <Form::DateInput
                       @value={{predicate.valueB}}
-                      @identifier=""
+                      @label="Value B"
+                      @identifier="valueB{{index}}"
                       @required={{true}}
+                      @inputOnly={{true}}
                       {{! @glint-expect-error }}
                       @onChange={{fn (mut predicate.valueB)}}
                     />
@@ -129,11 +134,11 @@
 
             {{else if (eq "string" predicate.type)}}
 
-              <Input
+              <Form::Input
                 @value={{predicate.value}}
-                @type="text"
-                class="form-control"
-                aria-label="Value"
+                @label="Value"
+                @identifier="value{{index}}"
+                @inputOnly={{true}}
               />
 
             {{else}}

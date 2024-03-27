@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
-type DateRangeQueryParam =
+export type DateRangeQueryParam =
   | {
       gte: Date | null;
       gt: Date | null;
@@ -130,15 +130,17 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       } else if (predicate.type === 'string') {
         set(predicate, 'value', 'Text');
       } else if (predicate.type === 'date') {
+        const valueA = new Date();
+        const valueB = new Date();
         set(predicate, 'value', {
-          gte: new Date(),
+          gte: valueA,
           gt: null,
           lt: null,
-          lte: new Date(),
+          lte: valueB,
         });
         set(predicate, 'mode', 'between');
-        set(predicate, 'valueA', new Date());
-        set(predicate, 'valueB', new Date());
+        set(predicate, 'valueA', valueA);
+        set(predicate, 'valueB', valueB);
       } else {
         set(predicate, 'value', predicate.options[0]?.value);
       }
