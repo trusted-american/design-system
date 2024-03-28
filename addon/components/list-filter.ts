@@ -87,27 +87,29 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     this.predicates = this.args.predicates.map((p) => {
       const predicate = { ...p }; // clone
 
-      if (predicate.type === 'date' && !Array.isArray(predicate.value)) {
-        const { value } = predicate;
-        if (value.gte && value.lte) {
-          predicate.mode = 'between';
-          predicate.valueA = value.gte;
-          predicate.valueB = value.lte;
-        } else if (value.gt) {
-          predicate.mode = 'isAfter';
-          predicate.valueA = value.gt;
-        } else if (value.gte) {
-          predicate.mode = 'isAfterOrOn';
-          predicate.valueA = value.gte;
-        } else if (value.lt) {
-          predicate.mode = 'isBefore';
-          predicate.valueA = value.lt;
-        } else if (value.lte) {
-          predicate.mode = 'isBeforeOrOn';
-          predicate.valueA = value.lte;
-        } else {
-          predicate.mode = 'inTheLast';
-        }
+      if (predicate.type !== 'date' || Array.isArray(predicate.value)) {
+        return predicate;
+      }
+
+      const { value } = predicate;
+      if (value.gte && value.lte) {
+        predicate.mode = 'between';
+        predicate.valueA = value.gte;
+        predicate.valueB = value.lte;
+      } else if (value.gt) {
+        predicate.mode = 'isAfter';
+        predicate.valueA = value.gt;
+      } else if (value.gte) {
+        predicate.mode = 'isAfterOrOn';
+        predicate.valueA = value.gte;
+      } else if (value.lt) {
+        predicate.mode = 'isBefore';
+        predicate.valueA = value.lt;
+      } else if (value.lte) {
+        predicate.mode = 'isBeforeOrOn';
+        predicate.valueA = value.lte;
+      } else {
+        predicate.mode = 'inTheLast';
       }
 
       return predicate;
