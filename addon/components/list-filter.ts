@@ -37,36 +37,41 @@ interface StringPredicate extends _Predicate {
   value: string | undefined;
 }
 
-interface _DatePredicate extends _Predicate {
+interface DatePredicate extends _Predicate {
   type: 'date';
   value: DateRangeQueryParam;
-  valueB?: Date | string; // TODO:
 }
 
-interface OffsetDatePredicate extends _DatePredicate {
+interface _OffsetDatePredicate extends DatePredicate {
   mode: 'inTheLast';
-  valueA: number;
+  valueA: number | null;
   valueB: 'months' | 'days';
 }
 
-interface RangeDatePredicate extends _DatePredicate {
+interface _RangeDatePredicate extends DatePredicate {
   mode: 'between';
-  valueA: Date;
-  valueB: Date;
+  valueA: Date | null;
+  valueB: Date | null;
 }
 
-interface SingleDatePredicate extends _DatePredicate {
-  mode?: 'equals' | 'isAfter' | 'isAfterOrOn' | 'isBefore' | 'isBeforeOrOn';
-  valueA?: Date;
+interface _SingleDatePredicate extends DatePredicate {
+  mode: 'equals' | 'isAfter' | 'isAfterOrOn' | 'isBefore' | 'isBeforeOrOn';
+  valueA: Date | null;
 }
 
 export type Predicate<T = unknown> =
   | SingleSelectPredicate<T>
   | MultiSelectPredicate<T>
   | StringPredicate
-  | OffsetDatePredicate
-  | RangeDatePredicate
-  | SingleDatePredicate;
+  | DatePredicate;
+
+type InternalPredicate<T = unknown> =
+  | SingleSelectPredicate<T>
+  | MultiSelectPredicate<T>
+  | StringPredicate
+  | _OffsetDatePredicate
+  | _RangeDatePredicate
+  | _SingleDatePredicate;
 
 export interface ListFilterSignature<T> {
   Args: {
@@ -79,40 +84,65 @@ export interface ListFilterSignature<T> {
 }
 
 export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
-  predicates: Predicate<T>[];
+  predicates: InternalPredicate<T>[];
 
   constructor(owner: unknown, args: ListFilterSignature<T>['Args']) {
     super(owner, args);
 
-    this.predicates = this.args.predicates.map((p) => {
-      const predicate = { ...p }; // clone
+    this.predicates = this.args.predicates.map((predicate) => {
+      if (predicate.type !== 'date') {
+        return { ...predicate };
+      }
 
-      if (predicate.type !== 'date' || Array.isArray(predicate.value)) {
-        return predicate;
+      if (Array.isArray(predicate.value)) {
+        return {
+          ...predicate,
+          mode: 'inTheLast',
+          valueA: 1,
+          valueB: 'days',
+        };
       }
 
       const { value } = predicate;
       if (value.gte && value.lte) {
-        predicate.mode = 'between';
-        predicate.valueA = value.gte;
-        predicate.valueB = value.lte;
+        return {
+          ...predicate,
+          mode: 'between',
+          valueA: value.gte,
+          valueB: value.lte,
+        };
       } else if (value.gt) {
-        predicate.mode = 'isAfter';
-        predicate.valueA = value.gt;
+        return {
+          ...predicate,
+          mode: 'isAfter',
+          valueA: value.gt,
+        };
       } else if (value.gte) {
-        predicate.mode = 'isAfterOrOn';
-        predicate.valueA = value.gte;
+        return {
+          ...predicate,
+          mode: 'isAfterOrOn',
+          valueA: value.gte,
+        };
       } else if (value.lt) {
-        predicate.mode = 'isBefore';
-        predicate.valueA = value.lt;
+        return {
+          ...predicate,
+          mode: 'isBefore',
+          valueA: value.lt,
+        };
       } else if (value.lte) {
-        predicate.mode = 'isBeforeOrOn';
-        predicate.valueA = value.lte;
+        return {
+          ...predicate,
+          mode: 'isBeforeOrOn',
+          valueA: value.lte,
+        };
       } else {
-        predicate.mode = 'inTheLast';
+        return {
+          ...predicate,
+          mode: 'inTheLast',
+          valueA: 1,
+          valueB: 'days',
+        };
       }
-
-      return predicate;
     });
   }
 
@@ -125,7 +155,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  toggle(predicate: Predicate<T>, checked: boolean): void {
+  toggle(predicate: InternalPredicate<T>, checked: boolean): void {
     if (checked) {
       if (predicate.type === 'multi') {
         set(predicate, 'value', [predicate.options[0]?.value as T]);
@@ -142,7 +172,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         });
         set(predicate, 'mode', 'between');
         set(predicate, 'valueA', valueA);
-        set(predicate, 'valueB', valueB);
+        set(predicate as _RangeDatePredicate, 'valueB', valueB);
       } else {
         set(predicate, 'value', predicate.options[0]?.value);
       }
@@ -201,25 +231,25 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         if (predicate.mode === 'inTheLast') {
           value.gte = dayjs()
             .subtract(
-              predicate.valueA,
+              predicate.valueA as number,
               predicate.valueB === 'months' ? 'months' : 'days',
             )
             .toDate();
           value.lte = new Date();
         } else if (predicate.mode === 'equals') {
-          value.gte = predicate.valueA as Date;
+          value.gte = predicate.valueA;
           value.lte = dayjs(predicate.valueA).endOf('day').toDate();
         } else if (predicate.mode === 'between') {
           value.gte = predicate.valueA;
           value.lte = predicate.valueB;
         } else if (predicate.mode === 'isAfter') {
-          value.gt = predicate.valueA as Date;
+          value.gt = predicate.valueA;
         } else if (predicate.mode === 'isAfterOrOn') {
-          value.gte = predicate.valueA as Date;
+          value.gte = predicate.valueA;
         } else if (predicate.mode === 'isBefore') {
-          value.lt = predicate.valueA as Date;
-        } else if (predicate.mode === 'isBeforeOrOn') {
-          value.lte = predicate.valueA as Date;
+          value.lt = predicate.valueA;
+        } else {
+          value.lte = predicate.valueA;
         }
         set(predicate, 'value', value);
       }
