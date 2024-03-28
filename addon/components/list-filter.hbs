@@ -100,9 +100,7 @@
                     @onChange={{fn (mut predicate.valueA)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
-                    <div>
-                      and
-                    </div>
+                    <div>and</div>
                     <Form::DateInput
                       @value={{predicate.valueB}}
                       @label="Value B"
