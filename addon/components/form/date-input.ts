@@ -18,6 +18,7 @@ export interface FormDateInputSignature {
     invalidFeedback?: string;
     inputOnly?: boolean;
     size?: 'sm' | 'lg';
+    isLocalTimeZone?: boolean;
     onChange: (value: Date | null) => void;
   };
   Element: HTMLInputElement;
@@ -49,7 +50,10 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
     // @ts-expect-error shouldn't be necessary to check toISOString
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (isValidDate(date) && date.toISOString) {
-      const value = dayjs(date).utc(false).format('YYYY-MM-DD');
+      const djs = this.args.isLocalTimeZone
+        ? dayjs(date)
+        : dayjs(date).utc(false);
+      const value = djs.format('YYYY-MM-DD');
       return value;
     }
     return null;
@@ -57,6 +61,12 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
   @action
   change({ target }: Event): void {
+    if (this.args.isLocalTimeZone) {
+      const value = dayjs((target as HTMLInputElement).value).toDate();
+      this.args.onChange(value);
+      return;
+    }
+
     const date = new Date((target as HTMLInputElement).value);
 
     let value;

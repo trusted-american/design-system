@@ -97,6 +97,7 @@
                     @identifier="valueA{{index}}"
                     @required={{true}}
                     @inputOnly={{true}}
+                    @isLocalTimeZone={{true}}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
@@ -107,7 +108,8 @@
                       @identifier="valueB{{index}}"
                       @required={{true}}
                       @inputOnly={{true}}
-                      @onChange={{fn (mut predicate.valueB)}}
+                      @isLocalTimeZone={{true}}
+                      @onChange={{fn this.setValueB predicate}}
                     />
                   {{/if}}
                 {{/if}}

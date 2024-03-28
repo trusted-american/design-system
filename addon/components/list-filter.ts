@@ -164,8 +164,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       } else if (predicate.type === 'string') {
         set(predicate, 'value', 'Text');
       } else if (predicate.type === 'date') {
-        const valueA = new Date();
-        const valueB = new Date();
+        const djs = dayjs();
+        const valueA = djs.startOf('day').toDate();
+        const valueB = djs.endOf('day').toDate();
         set(predicate, 'value', {
           gte: valueA,
           gt: null,
@@ -186,6 +187,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         set(predicate, 'value', undefined);
       }
     }
+  }
+
+  @action
+  setValueB(predicate: _RangeDatePredicate, date: Date | null): void {
+    predicate.valueB = dayjs(date).endOf('day').toDate();
   }
 
   @action
