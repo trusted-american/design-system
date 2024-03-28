@@ -13,60 +13,60 @@ export type DateRangeQueryParam =
     }
   | [];
 
-interface P {
+interface _Predicate {
   label: string;
   key: string;
 }
 
-interface SelectP<T> extends P {
+interface SelectPredicate<T> extends _Predicate {
   options: Option<T>[];
 }
 
-interface SingleSelectP<T> extends SelectP<T> {
+interface SingleSelectPredicate<T> extends SelectPredicate<T> {
   type?: 'single';
   value: T | undefined;
 }
 
-interface MultiSelectP<T> extends SelectP<T> {
+interface MultiSelectPredicate<T> extends SelectPredicate<T> {
   type: 'multi';
   value: T[];
 }
 
-interface StringP extends P {
+interface StringPredicate extends _Predicate {
   type: 'string';
   value: string | undefined;
 }
 
-interface DateP extends P {
+interface _DatePredicate extends _Predicate {
   type: 'date';
   value: DateRangeQueryParam;
   valueB?: Date | string; // TODO:
 }
 
-interface ADateP extends DateP {
+interface OffsetDatePredicate extends _DatePredicate {
   mode: 'inTheLast';
   valueA: number;
   valueB: 'months' | 'days';
 }
 
-interface BDateP extends DateP {
+interface RangeDatePredicate extends _DatePredicate {
   mode: 'between';
   valueA: Date;
   valueB: Date;
 }
 
-interface CDateP extends DateP {
+interface SingleDatePredicate extends _DatePredicate {
   mode?: 'equals' | 'isAfter' | 'isAfterOrOn' | 'isBefore' | 'isBeforeOrOn';
   valueA?: Date;
 }
 
 export type Predicate<T = unknown> =
-  | SingleSelectP<T>
-  | MultiSelectP<T>
-  | StringP
-  | ADateP
-  | BDateP
-  | CDateP;
+  | SingleSelectPredicate<T>
+  | MultiSelectPredicate<T>
+  | StringPredicate
+  | OffsetDatePredicate
+  | RangeDatePredicate
+  | SingleDatePredicate;
 
 export interface ListFilterSignature<T> {
   Args: {
@@ -154,7 +154,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  toggleMulti(predicate: MultiSelectP<T>, value: T, checked: boolean): void {
+  toggleMulti(
+    predicate: MultiSelectPredicate<T>,
+    value: T,
+    checked: boolean,
+  ): void {
     if (checked) {
       predicate.value = [...predicate.value, value];
     } else {
