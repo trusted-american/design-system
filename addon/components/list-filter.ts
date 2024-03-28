@@ -13,12 +13,12 @@ export type DateRangeQueryParam =
     }
   | [];
 
-interface _Predicate {
+interface BasePredicate {
   label: string;
   key: string;
 }
 
-interface SelectPredicate<T> extends _Predicate {
+interface SelectPredicate<T> extends BasePredicate {
   options: Option<T>[];
 }
 
@@ -32,12 +32,12 @@ interface MultiSelectPredicate<T> extends SelectPredicate<T> {
   value: T[];
 }
 
-interface StringPredicate extends _Predicate {
+interface StringPredicate extends BasePredicate {
   type: 'string';
   value: string | undefined;
 }
 
-interface DatePredicate extends _Predicate {
+interface DatePredicate extends BasePredicate {
   type: 'date';
   value: DateRangeQueryParam;
 }
@@ -158,7 +158,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   toggle(predicate: InternalPredicate<T>, checked: boolean): void {
     if (checked) {
       if (predicate.type === 'multi') {
-        set(predicate, 'value', [predicate.options[0]?.value as T]);
+        const [option] = predicate.options;
+        const value = option ? [option.value] : [];
+        set(predicate, 'value', value);
       } else if (predicate.type === 'string') {
         set(predicate, 'value', 'Text');
       } else if (predicate.type === 'date') {
@@ -174,7 +176,8 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         set(predicate, 'valueA', valueA);
         set(predicate as _RangeDatePredicate, 'valueB', valueB);
       } else {
-        set(predicate, 'value', predicate.options[0]?.value);
+        const [option] = predicate.options;
+        set(predicate, 'value', option?.value);
       }
     } else {
       if (predicate.type === 'date' || predicate.type === 'multi') {
