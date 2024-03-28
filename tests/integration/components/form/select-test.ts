@@ -25,7 +25,7 @@ module('Integration | Component | form/select', function (hooks) {
         value: 'c',
       },
     ];
-    this.selected = undefined;
+    this.selected = 'a';
     this.label = 'Label';
     this.identifier = 'identifier';
 
@@ -50,7 +50,7 @@ module('Integration | Component | form/select', function (hooks) {
 
   test('simple works', async function (this: Context, assert) {
     // this.options = ['A', 'B', 'C'];
-    this.selected = undefined;
+    this.selected = 'A';
     this.label = 'Label';
     this.identifier = 'identifier';
     this.required = true;

@@ -7,7 +7,7 @@ export interface Option<T = unknown> {
 }
 
 interface Args<T> {
-  selected: T | null | undefined;
+  selected: T;
   label: string;
   identifier: string;
   required?: boolean;
@@ -15,7 +15,7 @@ interface Args<T> {
   invalidFeedback?: string;
   inputOnly?: boolean;
   size?: 'sm' | 'lg';
-  onChange: (value: never) => void;
+  onChange: (value: T) => void;
 }
 
 interface ComplexArgs<T> extends Args<T> {
