@@ -30,8 +30,11 @@
 
         <label class="list-group-item px-2" data-test-predicate-toggle>
           <input
-            {{! @glint-expect-error }}
-            checked={{or predicate.value (eq false predicate.value)}}
+            checked={{if
+              (or predicate.value (eq false predicate.value))
+              true
+              false
+            }}
             type="checkbox"
             class="form-check-input me-1"
             id={{unique-id}}
@@ -73,7 +76,6 @@
                     @identifier="valueA{{index}}"
                     @required={{true}}
                     @inputOnly={{true}}
-                    {{! @glint-expect-error }}
                     @onChange={{fn (mut predicate.valueA)}}
                     min="1"
                   />
@@ -95,21 +97,19 @@
                     @identifier="valueA{{index}}"
                     @required={{true}}
                     @inputOnly={{true}}
-                    {{! @glint-expect-error }}
+                    @isLocalTimeZone={{true}}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
-                    <div>
-                      and
-                    </div>
+                    <div>and</div>
                     <Form::DateInput
                       @value={{predicate.valueB}}
                       @label="Value B"
                       @identifier="valueB{{index}}"
                       @required={{true}}
                       @inputOnly={{true}}
-                      {{! @glint-expect-error }}
-                      @onChange={{fn (mut predicate.valueB)}}
+                      @isLocalTimeZone={{true}}
+                      @onChange={{fn this.setValueB predicate}}
                     />
                   {{/if}}
                 {{/if}}
@@ -121,8 +121,7 @@
                 <Form::Check
                   @value={{includes opt.value predicate.value}}
                   @label={{opt.label}}
-                  {{! @glint-expect-error }}
-                  @identifier={{opt.value}}
+                  @identifier="{{opt.value}}"
                   {{on
                     "change"
                     (pick

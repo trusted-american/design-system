@@ -11,7 +11,7 @@ export default class CompsListFilterController extends Controller {
   @tracked createdAt: DateRangeQueryParam = [];
 
   @action
-  change(key: keyof this, value: this[keyof this]): void {
-    this[key] = value;
+  change(key: string, value: unknown): void {
+    this[key as keyof this] = value as this[keyof this];
   }
 }
