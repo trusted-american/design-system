@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export interface Option<T = unknown> {
+export interface Option<T> {
   value: T;
   label: string;
 }
@@ -38,13 +38,16 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
   change({ target }: Event): void {
     const index = parseInt((target as HTMLFormElement)['value'] as string);
 
-    const options = this.args.options as Option[];
+    const options = this.args.options as Option<T>[];
     const selected = options[index];
 
     if (selected) {
-      this.args.onChange(selected.value as never);
+      this.args.onChange(selected.value);
     } else {
-      this.args.onChange(options[0]?.value as never);
+      const [firstOption] = options;
+      if (firstOption) {
+        this.args.onChange(firstOption.value);
+      }
     }
   }
 }
