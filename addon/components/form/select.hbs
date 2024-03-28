@@ -13,11 +13,13 @@
     {{on "change" (pick "target.value" @onChange)}}
     ...attributes
   >
+    {{! @glint-expect-error }}
     <option value="" selected={{not @selected}}>
       Choose&hellip;
     </option>
     {{#each @options as |opt|}}
       <option selected={{eq @selected opt}}>
+        {{! @glint-expect-error }}
         {{opt}}
       </option>
     {{/each}}

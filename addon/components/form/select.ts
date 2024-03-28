@@ -23,13 +23,13 @@ interface ComplexArgs<T> extends Args<T> {
   simple?: undefined;
 }
 
-interface SimpleArgs extends Args<string> {
-  options: string[];
+interface SimpleArgs<T> extends Args<T> {
+  options: T[];
   simple: true;
 }
 
 export interface FormSelectSignature<T> {
-  Args: ComplexArgs<T> | SimpleArgs;
+  Args: ComplexArgs<T> | SimpleArgs<T>;
   Element: HTMLSelectElement;
 }
 
