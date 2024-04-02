@@ -65,7 +65,7 @@ export type Predicate<T = unknown> =
   | StringPredicate
   | DatePredicate;
 
-type InternalPredicate<T = unknown> =
+type InternalPredicate<T> =
   | SingleSelectPredicate<T>
   | MultiSelectPredicate<T>
   | StringPredicate
