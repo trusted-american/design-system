@@ -17,7 +17,19 @@
       Last Name
     </header.column>
   </table.header>
-  <table.body />
+  <table.body as |body user|>
+    <body.row as |row|>
+      <row.cell>
+        {{user.email}}
+      </row.cell>
+      <row.cell>
+        {{user.firstName}}
+      </row.cell>
+      <row.cell>
+        {{user.lastName}}
+      </row.cell>
+    </body.row>
+  </table.body>
 </Table>
 
 <Subheading @title="Sortable" />

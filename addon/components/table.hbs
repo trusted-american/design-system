@@ -8,7 +8,6 @@
     ...attributes
     as |table|
   >
-    {{! @glint-expect-error }}
     {{yield table}}
     {{#if (eq "local" @pagination)}}
       <table.tfoot as |foot|>

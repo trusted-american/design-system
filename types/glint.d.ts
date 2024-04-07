@@ -27,11 +27,7 @@ import type Values from 'ember-composable-helpers/helpers/values';
 import type Without from 'ember-composable-helpers/helpers/without';
 import type PreventDefault from 'ember-event-helpers/helpers/prevent-default';
 import type StopPropagation from 'ember-event-helpers/helpers/stop-propagation';
-import type {
-  YetiTableHeader,
-  YetiTableBody,
-  YetiTableFooter,
-} from '@trusted-american/design-system/components/table';
+import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -87,54 +83,6 @@ declare module '@glint/environment-ember-loose/registry' {
     'stop-propagation': typeof StopPropagation;
 
     // ember-yeti-table
-    YetiTable: ComponentLike<{
-      Args: {
-        data: unknown[];
-        pagination?: boolean;
-        sortable?: boolean;
-        pageSize?: number;
-      };
-      Blocks: {
-        default: [
-          {
-            columns: [];
-            header: YetiTableHeader;
-            body: YetiTableBody<unknown>;
-            footer: YetiTableFooter;
-            tfoot: ComponentLike<{
-              Blocks: {
-                default: [
-                  {
-                    row: ComponentLike<{
-                      Blocks: {
-                        default: [
-                          {
-                            cell: ComponentLike<{
-                              Args: {
-                                visible?: boolean;
-                              };
-                              Blocks: {
-                                default: [];
-                              };
-                              Element: HTMLElement;
-                            }>;
-                          },
-                        ];
-                      };
-                      Element: HTMLElement;
-                    }>;
-                  },
-                ];
-              };
-              Element: HTMLElement;
-            }>;
-            pagination: ComponentLike<{
-              Element: HTMLElement;
-            }>;
-          },
-        ];
-      };
-      Element: HTMLTableElement;
-    }>;
+    YetiTable: typeof YetiTable;
   }
 }

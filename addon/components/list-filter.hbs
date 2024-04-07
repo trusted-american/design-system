@@ -37,7 +37,7 @@
             }}
             type="checkbox"
             class="form-check-input me-1"
-            id={{unique-id}}
+            id="toggle{{index}}"
             {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
           />
           {{predicate.label}}
