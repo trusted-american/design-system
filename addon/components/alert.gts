@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
+import Icon from './icon';
 
 export interface AlertSignature {
   Args: {
@@ -8,7 +8,7 @@ export interface AlertSignature {
   };
   Blocks: {
     title: [];
-    body: [];
+    default: [];
   };
   Element: HTMLDivElement;
 }
@@ -23,14 +23,14 @@ export default class Alert extends Component<AlertSignature> {
     >
       {{#if @icon}}
         <div>
-          <FaIcon @icon={{@icon}} />
+          <Icon @icon={{@icon}} />
         </div>
       {{/if}}
       <div>
         {{#if (has-block 'title')}}
           <h6 class='alert-heading'>{{yield to='title'}}</h6>
         {{/if}}
-        {{yield to='body'}}
+        {{yield}}
       </div>
     </div>
   </template>
