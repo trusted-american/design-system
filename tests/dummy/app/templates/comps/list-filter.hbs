@@ -3,7 +3,41 @@
 
 <Subheading @title="ListFilter" />
 
-<p>Status: {{this.status}}</p>
+<ul>
+  <li>Status: {{this.status}}</li>
+  <li>Type:
+    {{#each this.type as |t|}}
+      {{t}}
+    {{/each}}
+  </li>
+  <li>Tag: {{this.tag}}</li>
+  <li>Created Date:
+    {{#if this.createdAt}}
+      <ul>
+        <li>
+          gte:
+          {{! @glint-expect-error }}
+          {{this.createdAt.gte}}
+        </li>
+        <li>
+          gt:
+          {{! @glint-expect-error }}
+          {{this.createdAt.gt}}
+        </li>
+        <li>
+          lt:
+          {{! @glint-expect-error }}
+          {{this.createdAt.lt}}
+        </li>
+        <li>
+          lte:
+          {{! @glint-expect-error }}
+          {{this.createdAt.lte}}
+        </li>
+      </ul>
+    {{/if}}
+  </li>
+</ul>
 
 <ListFilter
   @predicates={{array
@@ -16,7 +50,21 @@
         (hash value="inactive" label="Inactive")
       )
     )
+    (hash
+      type="multi"
+      label="Type"
+      key="type"
+      value=this.type
+      options=(array
+        (hash value="primary" label="Primary")
+        (hash value="secondary" label="Secondary")
+      )
+    )
+    (hash type="string" label="Tag" key="tag" value=this.tag)
+    (hash type="date" label="Created Date" key="createdAt" value=this.createdAt)
   }}
-  {{! @glint-expect-error }}
+  @text="Filter"
+  @clearText="Clear"
+  @doneText="Done"
   @onChange={{this.change}}
 />

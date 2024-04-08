@@ -35,6 +35,7 @@ module('Integration | Component | avatar', function (hooks) {
 
     this.set('url', 'https://via.placeholder.com/350x150');
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     assert.dom('[data-test-avatar]').hasAttribute('src', this.url ?? '');
 
     this.set('size', 2);

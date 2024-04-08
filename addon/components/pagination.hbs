@@ -5,8 +5,7 @@
         class="page-link"
         href="#"
         data-test-previous
-        {{! TODO: prevent-default }}
-        {{on "click" (fn @onChange (dec @curPage))}}
+        {{on "click" (prevent-default (fn @onChange (dec @curPage)))}}
       >Previous</a>
     </li>
     {{#each this.pages as |page index|}}
@@ -14,8 +13,7 @@
         <a
           class="page-link"
           href="#"
-          {{! TODO: prevent-default }}
-          {{on "click" (fn @onChange index)}}
+          {{on "click" (prevent-default (fn @onChange index))}}
         >{{inc index}}</a>
       </li>
     {{/each}}
@@ -24,8 +22,7 @@
         class="page-link"
         href="#"
         data-test-next
-        {{! TODO: prevent-default }}
-        {{on "click" (fn @onChange (inc @curPage))}}
+        {{on "click" (prevent-default (fn @onChange (inc @curPage)))}}
       >Next</a>
     </li>
   </ul>

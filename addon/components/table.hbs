@@ -8,36 +8,33 @@
     ...attributes
     as |table|
   >
-    {{! @glint-expect-error }}
     {{yield table}}
-    <table.tfoot as |foot|>
-      <foot.row as |row|>
-        <row.cell
-          @visible={{if @pagination true false}}
-          colspan={{table.columns.length}}
-        >
-          {{#if (eq "local" @pagination)}}
+    {{#if (eq "local" @pagination)}}
+      <table.tfoot as |foot|>
+        <foot.row as |row|>
+          <row.cell
+            @visible={{if @pagination true false}}
+            colspan={{table.columns.length}}
+          >
             <table.pagination />
-          {{else}}
-            <ButtonSet>
-              {{#if @onPrevious}}
-                <Button
-                  @text="Previous"
-                  disabled={{not @canPrevious}}
-                  {{on "click" @onPrevious}}
-                />
-              {{/if}}
-              {{#if @onNext}}
-                <Button
-                  @text="Next"
-                  disabled={{not @canNext}}
-                  {{on "click" @onNext}}
-                />
-              {{/if}}
-            </ButtonSet>
-          {{/if}}
-        </row.cell>
-      </foot.row>
-    </table.tfoot>
+          </row.cell>
+        </foot.row>
+      </table.tfoot>
+    {{/if}}
   </YetiTable>
 </div>
+
+{{#if (eq "remote" @pagination)}}
+  <ButtonSet class="justify-content-end mt-3">
+    {{#if @onPrevious}}
+      <Button
+        @text="Previous"
+        disabled={{not @canPrevious}}
+        {{on "click" @onPrevious}}
+      />
+    {{/if}}
+    {{#if @onNext}}
+      <Button @text="Next" disabled={{not @canNext}} {{on "click" @onNext}} />
+    {{/if}}
+  </ButtonSet>
+{{/if}}

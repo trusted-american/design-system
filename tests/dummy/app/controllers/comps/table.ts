@@ -1,8 +1,10 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
+import type { User } from '../../routes/comps/table';
+
 export default class CompsTableController extends Controller {
-  declare model: { email: string; firstName: string; lastName: string }[];
+  declare model: User[];
 
   @action
   do() {

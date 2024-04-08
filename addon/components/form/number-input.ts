@@ -4,7 +4,6 @@ import Component from '@glimmer/component';
 export interface FormNumberInputSignature {
   Args: {
     value: number | null | undefined;
-    type?: string;
     label: string;
     identifier: string;
     required?: boolean;

@@ -1,15 +1,13 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
-import { typeOf } from '@ember/utils';
 import { action } from '@ember/object';
 
-export interface Option<T = unknown> {
+export interface Option<T> {
   value: T;
   label: string;
 }
 
-interface Args {
-  selected?: unknown;
+interface Args<T> {
+  selected: T;
   label: string;
   identifier: string;
   required?: boolean;
@@ -17,58 +15,39 @@ interface Args {
   invalidFeedback?: string;
   inputOnly?: boolean;
   size?: 'sm' | 'lg';
-  onChange: (value: never) => void;
+  onChange: (value: T) => void;
 }
 
-interface ComplexArgs extends Args {
-  options: Option[];
+interface ComplexArgs<T> extends Args<T> {
+  options: Option<T>[];
   simple?: undefined;
 }
 
-interface SimpleArgs extends Args {
-  options: string[];
+interface SimpleArgs<T> extends Args<T> {
+  options: T[];
   simple: true;
 }
 
-export interface FormSelectSignature {
-  Args: ComplexArgs | SimpleArgs;
+export interface FormSelectSignature<T> {
+  Args: ComplexArgs<T> | SimpleArgs<T>;
   Element: HTMLSelectElement;
 }
 
-export default class FormSelect extends Component<FormSelectSignature> {
-  constructor(owner: unknown, args: FormSelectSignature['Args']) {
-    super(owner, args);
-    assert(
-      '<Form::Select />: Must pass an options array',
-      typeOf(this.args.options) === 'array',
-    );
-    // assert(
-    //   '<Form::Select />: Must pass a selected string or undefined',
-    //   typeOf(this.args.selected) === 'string' ||
-    //     this.args.selected === undefined ||
-    //     this.args.selected === null
-    // );
-    assert(
-      '<Form::Select />: Must pass a label string or undefined',
-      typeOf(this.args.label) === 'string' || this.args.label === undefined,
-    );
-    assert(
-      '<Form::Select />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function',
-    );
-  }
-
+export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
   @action
   change({ target }: Event): void {
     const index = parseInt((target as HTMLFormElement)['value'] as string);
 
-    const options = this.args.options as Option[];
+    const options = this.args.options as Option<T>[];
     const selected = options[index];
 
     if (selected) {
-      this.args.onChange(selected.value as never);
+      this.args.onChange(selected.value);
     } else {
-      this.args.onChange(options[0]?.value as never);
+      const [firstOption] = options;
+      if (firstOption) {
+        this.args.onChange(firstOption.value);
+      }
     }
   }
 }

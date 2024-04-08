@@ -19,6 +19,7 @@
     </option>
     {{#each @options as |opt|}}
       <option selected={{eq @selected opt}}>
+        {{! @glint-expect-error }}
         {{opt}}
       </option>
     {{/each}}

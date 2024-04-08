@@ -1,6 +1,4 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
-import { typeOf } from '@ember/utils';
 
 export interface FormPhoneInputSignature {
   Args: {
@@ -34,11 +32,6 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
   }
 
   set value(value: string) {
-    assert(
-      '<Form::PhoneInput />: Must pass an onChange function',
-      typeOf(this.args.onChange) === 'function',
-    );
-
     value = value.replace(/\D/g, '');
     if (value) {
       value = '+1' + value;

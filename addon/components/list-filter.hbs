@@ -1,28 +1,25 @@
-<button
-  type="button"
-  class="btn btn-secondary"
+<Button
+  @text={{@text}}
+  @icon="filter"
+  @count={{this.selections.length}}
   data-test-list-filter
-  {{tds-dropdown autoClose="outside"}}
->
-  <FaIcon @icon="filter" @fixedWidth={{true}} />
-  Filter
-  {{#if this.selections}}
-    <span class="text-danger ms-1">
-      {{this.selections.length}}
-    </span>
-  {{/if}}
-</button>
+  {{dropdown autoClose="outside"}}
+/>
 
-<Dropdown class="p-0" data-test-list-filter-dropdown>
+<Dropdown class="overflow-hidden p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
     <ListGroup @flush={{true}}>
 
       <ListGroup::Item class="bg-body-tertiary px-2">
         <ButtonSet class="justify-content-between">
-          <Button @text="Clear" data-test-clear {{on "click" this.clear}} />
+          <Button
+            @text={{@clearText}}
+            data-test-clear
+            {{on "click" this.clear}}
+          />
           <Button
             @isSubmit={{true}}
-            @text="Done"
+            @text={{@doneText}}
             @color="primary"
             data-test-done
           />
@@ -33,11 +30,14 @@
 
         <label class="list-group-item px-2" data-test-predicate-toggle>
           <input
-            {{! @glint-expect-error }}
-            checked={{or predicate.value (eq false predicate.value)}}
+            checked={{if
+              (or predicate.value (eq false predicate.value))
+              true
+              false
+            }}
             type="checkbox"
             class="form-check-input me-1"
-            id={{unique-id}}
+            id="toggle{{index}}"
             {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
           />
           {{predicate.label}}
@@ -70,14 +70,14 @@
 
               <div class="d-flex align-items-center gap-2">
                 {{#if (eq "inTheLast" predicate.mode)}}
-                  {{! @glint-expect-error }}
-                  <Input
+                  <Form::NumberInput
                     @value={{predicate.valueA}}
-                    @type="number"
+                    @label="Value A"
+                    @identifier="valueA{{index}}"
+                    @required={{true}}
+                    @inputOnly={{true}}
+                    @onChange={{fn (mut predicate.valueA)}}
                     min="1"
-                    class="form-control"
-                    aria-label="Value A"
-                    required
                   />
                   <Form::Select
                     @options={{array
@@ -93,21 +93,23 @@
                 {{else}}
                   <Form::DateInput
                     @value={{predicate.valueA}}
-                    @identifier=""
+                    @label="Value A"
+                    @identifier="valueA{{index}}"
                     @required={{true}}
-                    {{! @glint-expect-error }}
+                    @inputOnly={{true}}
+                    @isLocalTimeZone={{true}}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
-                    <div>
-                      and
-                    </div>
+                    <div>and</div>
                     <Form::DateInput
                       @value={{predicate.valueB}}
-                      @identifier=""
+                      @label="Value B"
+                      @identifier="valueB{{index}}"
                       @required={{true}}
-                      {{! @glint-expect-error }}
-                      @onChange={{fn (mut predicate.valueB)}}
+                      @inputOnly={{true}}
+                      @isLocalTimeZone={{true}}
+                      @onChange={{fn this.setValueB predicate}}
                     />
                   {{/if}}
                 {{/if}}
@@ -119,8 +121,7 @@
                 <Form::Check
                   @value={{includes opt.value predicate.value}}
                   @label={{opt.label}}
-                  {{! @glint-expect-error }}
-                  @identifier={{opt.value}}
+                  @identifier="{{opt.value}}"
                   {{on
                     "change"
                     (pick
@@ -132,11 +133,11 @@
 
             {{else if (eq "string" predicate.type)}}
 
-              <Input
+              <Form::Input
                 @value={{predicate.value}}
-                @type="text"
-                class="form-control"
-                aria-label="Value"
+                @label="Value"
+                @identifier="value{{index}}"
+                @inputOnly={{true}}
               />
 
             {{else}}

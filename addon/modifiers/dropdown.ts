@@ -58,6 +58,6 @@ export default dropdown;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'tds-dropdown': typeof dropdown;
+    dropdown: typeof dropdown;
   }
 }

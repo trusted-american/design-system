@@ -1,29 +1,35 @@
-<div
-  class="d-flex justify-content-center text-secondary"
-  data-test-placeholder
-  ...attributes
->
+<div class="d-flex justify-content-center" data-test-placeholder ...attributes>
   {{! template-lint-disable no-inline-styles }}
-  <div class="text-center" style="max-width: 22rem;">
+  <div class="text-center" style="max-width: 25rem;">
     <h1 class="mb-3">
-      <FaIcon @icon={{@icon}} data-test-icon />
+      <Icon @icon={{@icon}} data-test-icon />
     </h1>
-    <h6 class="h5 mb-0" data-test-title>
+    <h4 class="mb-0" data-test-title>
       {{@title}}
-    </h6>
+    </h4>
     {{#if @subtitle}}
-      <p class="mt-2 mb-0" data-test-subtitle>
+      <p class="text-secondary mt-2 mb-0" data-test-subtitle>
         {{@subtitle}}
       </p>
     {{/if}}
     {{#if @onClick}}
       <Button
-        @text={{or @buttonTitle "Create"}}
-        @color="primary"
-        @icon={{or @buttonIcon "plus"}}
-        class="mt-3"
+        @text={{or @buttonText "Create"}}
+        @color="success"
+        class="mt-4"
         {{on "click" @onClick}}
       />
+    {{/if}}
+    {{#if @onSecondaryClick}}
+      {{#if @secondaryButtonText}}
+        <br />
+        <Button
+          @text={{@secondaryButtonText}}
+          @color="link"
+          class="mt-3"
+          {{on "click" @onSecondaryClick}}
+        />
+      {{/if}}
     {{/if}}
   </div>
 </div>

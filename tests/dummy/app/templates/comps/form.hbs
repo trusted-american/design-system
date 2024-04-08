@@ -45,6 +45,7 @@
 />
 
 <Subheading @title="Form::NumberInput" />
+
 <Form::NumberInput
   @value={{this.number}}
   @label="Label"
@@ -125,6 +126,16 @@
   @identifier="select"
   @required={{true}}
   @help="Help"
+  @onChange={{fn (mut this.status)}}
+/>
+
+<Form::Select
+  @options={{array "active" "inactive"}}
+  @selected={{this.status}}
+  @label="Label"
+  @identifier="selectSimple"
+  @required={{true}}
+  @simple={{true}}
   @onChange={{fn (mut this.status)}}
 />
 

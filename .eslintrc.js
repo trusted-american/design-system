@@ -5,15 +5,8 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
-    requireConfigFile: false,
-    babelOptions: {
-      plugins: [
-        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
-      ],
-    },
   },
-  plugins: ['ember'],
+  plugins: ['ember', '@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -26,6 +19,16 @@ module.exports = {
     'ember/no-empty-glimmer-component-classes': 'off',
   },
   overrides: [
+    // ts files
+    {
+      files: ['**/*.ts'],
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: __dirname,
+      },
+      extends: ['plugin:@typescript-eslint/strict-type-checked'],
+      rules: {},
+    },
     // node files
     {
       files: [
@@ -40,9 +43,6 @@ module.exports = {
         './config/**/*.js',
         './tests/dummy/config/**/*.js',
       ],
-      parserOptions: {
-        sourceType: 'script',
-      },
       env: {
         browser: false,
         node: true,

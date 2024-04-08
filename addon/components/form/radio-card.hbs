@@ -10,7 +10,7 @@
     <div class="col">
 
       <label class="w-100">
-        <div class="card text-center">
+        <Card class="text-center" as |card|>
           {{#if option.imgUrl}}
             <img
               src={{option.imgUrl}}
@@ -18,18 +18,18 @@
               class="card-img-top"
             />
           {{/if}}
-          <div class="card-body">
+          <card.body>
             {{#if option.icon}}
               <h5 class="card-title">
-                <FaIcon @icon={{option.icon}} />
+                <Icon @icon={{option.icon}} />
               </h5>
             {{/if}}
             <h5 class="card-title">{{option.label}}</h5>
             {{#if option.help}}
               <p class="card-text">{{option.help}}</p>
             {{/if}}
-          </div>
-          <div class="card-footer">
+          </card.body>
+          <card.footer>
             <input
               class="form-check-input"
               type="radio"
@@ -39,8 +39,8 @@
               required={{@required}}
               {{on "change" (fn @onChange option.value)}}
             />
-          </div>
-        </div>
+          </card.footer>
+        </Card>
       </label>
 
     </div>

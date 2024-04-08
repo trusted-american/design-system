@@ -45,7 +45,10 @@ const tooltip = modifier<Element, [string], Options>(
         element.removeEventListener('hidden.bs.tooltip', onHidden);
       }
 
-      setTimeout(() => tooltip.dispose(), 100); // TODO: https://github.com/twbs/bootstrap/issues/37474
+      // TODO: https://github.com/twbs/bootstrap/issues/37474
+      setTimeout(() => {
+        tooltip.dispose();
+      }, 100);
     };
   },
 );
@@ -54,6 +57,6 @@ export default tooltip;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'tds-tooltip': typeof tooltip;
+    tooltip: typeof tooltip;
   }
 }
