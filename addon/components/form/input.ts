@@ -1,18 +1,23 @@
 import Component from '@glimmer/component';
 
+export interface BaseArgs {
+  label: string;
+  identifier: string;
+  required?: boolean;
+  help?: string;
+  invalidFeedback?: string;
+}
+
+interface Args extends BaseArgs {
+  value: string | null | undefined;
+  type?: string;
+  inputOnly?: boolean;
+  size?: 'sm' | 'lg';
+  errors?: { message: string }[];
+}
+
 export interface FormInputSignature {
-  Args: {
-    value: string | null | undefined;
-    type?: string;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    inputOnly?: boolean;
-    size?: 'sm' | 'lg';
-    errors?: { message: string }[];
-  };
+  Args: Args;
   Element: HTMLInputElement;
 }
 

@@ -1,15 +1,15 @@
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
+
+interface Args extends BaseArgs {
+  value: string | null | undefined;
+  inputOnly?: boolean;
+  onChange: (value: string | null) => void;
+}
+
 export interface FormPhoneInputSignature {
-  Args: {
-    value: string | null | undefined;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    inputOnly?: boolean;
-    onChange: (value: string | null) => void;
-  };
+  Args: Args;
   Element: HTMLInputElement;
 }
 

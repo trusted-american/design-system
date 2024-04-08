@@ -2,18 +2,17 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 
+import type { BaseArgs } from './input';
+
+interface Args extends BaseArgs {
+  value: Date | null;
+  inputOnly?: boolean;
+  size?: 'sm' | 'lg';
+  onChange: (value: Date | null) => void;
+}
+
 export interface FormTimeInputSignature {
-  Args: {
-    value: Date | null;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    inputOnly?: boolean;
-    size?: 'sm' | 'lg';
-    onChange: (value: Date | null) => void;
-  };
+  Args: Args;
   Element: HTMLInputElement;
 }
 

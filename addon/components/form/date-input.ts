@@ -4,23 +4,22 @@ import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
+import type { BaseArgs } from './input';
+
 dayjs.extend(utc);
 
+interface Args extends BaseArgs {
+  value: Date | null | undefined;
+  min?: Date | null;
+  max?: Date | null;
+  inputOnly?: boolean;
+  size?: 'sm' | 'lg';
+  isLocalTimeZone?: boolean;
+  onChange: (value: Date | null) => void;
+}
+
 export interface FormDateInputSignature {
-  Args: {
-    value: Date | null | undefined;
-    min?: Date | null;
-    max?: Date | null;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    inputOnly?: boolean;
-    size?: 'sm' | 'lg';
-    isLocalTimeZone?: boolean;
-    onChange: (value: Date | null) => void;
-  };
+  Args: Args;
   Element: HTMLInputElement;
 }
 
