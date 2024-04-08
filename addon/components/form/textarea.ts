@@ -1,16 +1,15 @@
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
+
+interface Args extends BaseArgs {
+  value: string | null | undefined;
+  inputOnly?: boolean;
+  size?: 'sm' | 'lg';
+}
+
 export interface FormTextareaSignature {
-  Args: {
-    value: string | null | undefined;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    inputOnly?: boolean;
-    size?: 'sm' | 'lg';
-  };
+  Args: Args;
   Element: HTMLTextAreaElement;
 }
 

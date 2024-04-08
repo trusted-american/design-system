@@ -1,16 +1,15 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
+import type { BaseArgs } from './input';
+
+interface Args extends BaseArgs {
+  inputOnly?: boolean;
+  onChange: (file: File) => void;
+}
+
 export interface FormFileInputSignature {
-  Args: {
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    inputOnly?: boolean;
-    onChange: (file: File) => void;
-  };
+  Args: Args;
   Element: HTMLInputElement;
 }
 

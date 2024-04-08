@@ -1,18 +1,15 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
+import type { BaseArgs } from './input';
+
 export interface Option<T> {
   value: T;
   label: string;
 }
 
-interface Args<T> {
+interface Args<T> extends BaseArgs {
   selected: T;
-  label: string;
-  identifier: string;
-  required?: boolean;
-  help?: string;
-  invalidFeedback?: string;
   inputOnly?: boolean;
   size?: 'sm' | 'lg';
   onChange: (value: T) => void;

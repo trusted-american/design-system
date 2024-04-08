@@ -1,18 +1,17 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
+
+interface Args extends BaseArgs {
+  value: number | null | undefined;
+  inputOnly?: boolean;
+  size?: 'sm' | 'lg';
+  onChange: (value: number | null) => void;
+}
+
 export interface FormNumberInputSignature {
-  Args: {
-    value: number | null | undefined;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    inputOnly?: boolean;
-    size?: 'sm' | 'lg';
-    onChange: (value: number | null) => void;
-  };
+  Args: Args;
   Element: HTMLInputElement;
 }
 
