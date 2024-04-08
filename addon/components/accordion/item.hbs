@@ -5,7 +5,6 @@
   <div
     class="accordion-collapse collapse {{if @show 'show'}}"
     id={{this.id}}
-    {{! @glint-ignore }}
     data-bs-parent={{unless @accordion.alwaysOpen (concat "#" @accordion.id)}}
   >
     {{yield (hash body=(component "accordion/body"))}}
