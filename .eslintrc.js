@@ -55,25 +55,6 @@ module.exports = {
       extends: ['plugin:qunit/recommended'],
     },
     {
-      // typescript files
-      files: ['**/*.ts'],
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: __dirname,
-      },
-      plugins: ['@typescript-eslint'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      ],
-    },
-    // {
-    //   // glimmer files
-    //   files: ['**/*.gts'],
-    //   plugins: ['@typescript-eslint'],
-    //   extends: ['plugin:@typescript-eslint/recommended'],
-    // },
-    {
       files: ['**/*.gts'],
       parser: 'ember-eslint-parser',
       plugins: ['ember'],
