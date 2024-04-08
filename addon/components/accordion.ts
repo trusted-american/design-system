@@ -19,6 +19,10 @@ export default class Accordion extends Component<AccordionComponentSignature> {
   get id(): string {
     return guidFor(this);
   }
+
+  get alwaysOpen(): boolean | undefined {
+    return this.args.alwaysOpen;
+  }
 }
 
 declare module '@glint/environment-ember-loose/registry' {

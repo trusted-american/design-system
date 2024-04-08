@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export interface Option<T = unknown> {
+export interface Option<T> {
   value: T;
   label: string;
 }
 
 interface Args<T> {
-  selected: T | null | undefined;
+  selected: T;
   label: string;
   identifier: string;
   required?: boolean;
@@ -15,7 +15,7 @@ interface Args<T> {
   invalidFeedback?: string;
   inputOnly?: boolean;
   size?: 'sm' | 'lg';
-  onChange: (value: never) => void;
+  onChange: (value: T) => void;
 }
 
 interface ComplexArgs<T> extends Args<T> {
@@ -23,13 +23,13 @@ interface ComplexArgs<T> extends Args<T> {
   simple?: undefined;
 }
 
-interface SimpleArgs extends Args<string> {
-  options: string[];
+interface SimpleArgs<T> extends Args<T> {
+  options: T[];
   simple: true;
 }
 
 export interface FormSelectSignature<T> {
-  Args: ComplexArgs<T> | SimpleArgs;
+  Args: ComplexArgs<T> | SimpleArgs<T>;
   Element: HTMLSelectElement;
 }
 
@@ -38,13 +38,16 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
   change({ target }: Event): void {
     const index = parseInt((target as HTMLFormElement)['value'] as string);
 
-    const options = this.args.options as Option[];
+    const options = this.args.options as Option<T>[];
     const selected = options[index];
 
     if (selected) {
-      this.args.onChange(selected.value as never);
+      this.args.onChange(selected.value);
     } else {
-      this.args.onChange(options[0]?.value as never);
+      const [firstOption] = options;
+      if (firstOption) {
+        this.args.onChange(firstOption.value);
+      }
     }
   }
 }

@@ -11,37 +11,23 @@ module('Integration | Component | form/select', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    this.options = [
-      {
-        label: 'A',
-        value: 'a',
-      },
-      {
-        label: 'B',
-        value: 'b',
-      },
-      {
-        label: 'C',
-        value: 'c',
-      },
-    ];
-    this.selected = undefined;
-    this.label = 'Label';
-    this.identifier = 'identifier';
-
     await render<Context>(hbs`
-      {{! @glint-expect-error }}
       <Form::Select
-        @options={{this.options}}
+        @options={{array
+          (hash value='a' label='A')
+          (hash value='b' label='B')
+          (hash value='c' label='C')
+        }}
         @selected={{this.selected}}
-        @label={{this.label}}
-        @identifier={{this.identifier}}
+        @label='Label'
+        @identifier='identifier'
+        @required={{true}}
         @onChange={{fn (mut this.selected)}}
       />
     `);
 
     assert.dom('label').exists();
-    assert.dom('label').hasText('Label');
+    assert.dom('label').hasText('Label *');
 
     await select('select', '2');
 
@@ -49,20 +35,13 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('simple works', async function (this: Context, assert) {
-    // this.options = ['A', 'B', 'C'];
-    this.selected = undefined;
-    this.label = 'Label';
-    this.identifier = 'identifier';
-    this.required = true;
-    // this.simple = true;
-
     await render<Context>(hbs`
       <Form::Select
         @options={{array 'A' 'B' 'C'}}
         @selected={{this.selected}}
-        @label={{this.label}}
-        @identifier={{this.identifier}}
-        @required={{this.required}}
+        @label='Label'
+        @identifier='identifier'
+        @required={{true}}
         @simple={{true}}
         @onChange={{fn (mut this.selected)}}
       />

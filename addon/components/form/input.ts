@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface FormInputSignature {
   Args: {
-    value: unknown; // string | number | null | undefined | unknown;
+    value: string | null | undefined;
     type?: string;
     label: string;
     identifier: string;
