@@ -7,22 +7,12 @@ module('Integration | Component | accordion/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{! @glint-ignore}}
-    <Accordion::Item />`);
-
-    assert.dom().hasText('');
-
-    // Template block usage:
     await render(hbs`
-      {{! @glint-ignore}}
-      <Accordion::Item>
-        template block text
-      </Accordion::Item>
+      <Accordion as |accordion|>
+        <accordion.item>Item</accordion.item>
+      </Accordion>
     `);
 
-    assert.dom().hasText('template block text template block text');
+    assert.dom().hasText('Item Item');
   });
 });
