@@ -9,11 +9,12 @@
     id={{@identifier}}
     class="form-check-input"
     required={{@required}}
+    aria-label={{if @inputOnly @label}}
     ...attributes
   />
 
   <Form::Label
-    @text={{@label}}
+    @text={{unless @inputOnly @label}}
     @identifier={{@identifier}}
     @required={{@required}}
     @isCheck={{true}}
