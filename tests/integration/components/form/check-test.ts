@@ -17,7 +17,6 @@ module('Integration | Component | form/check', function (hooks) {
     this.inline = false;
     this.switch = false;
     this.help = 'Help';
-    // this.helpTooltip = 'Help Tooltip';
 
     await render<Context>(hbs`
       <Form::Check
@@ -27,7 +26,6 @@ module('Integration | Component | form/check', function (hooks) {
         @inline={{this.inline}}
         @switch={{this.switch}}
         @help={{this.help}}
-        @helpTooltip={{this.helpTooltip}}
       />
     `);
 

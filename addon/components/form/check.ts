@@ -10,7 +10,7 @@ export interface FormCheckSignature {
     inline?: boolean;
     switch?: boolean;
     help?: string;
-    helpTooltip?: string;
+    isHelpTooltip?: string;
   };
   Element: HTMLInputElement;
 }
