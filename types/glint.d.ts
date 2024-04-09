@@ -1,7 +1,8 @@
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
-import type { ComponentLike, ModifierLike } from '@glint/template';
+import type { ModifierLike } from '@glint/template';
+import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type Breadcrumb from 'ember-breadcrumb-trail/helpers/breadcrumb';
 import type Breadcrumbs from 'ember-breadcrumb-trail/helpers/breadcrumbs';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
@@ -38,16 +39,7 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
 
     // @fortawesome/ember-fontawesome
-    FaIcon: ComponentLike<{
-      Args: {
-        icon: string;
-        fixedWidth?: boolean;
-        size?: string;
-        prefix?: string;
-        transform?: string;
-      };
-      Element: HTMLElement;
-    }>;
+    FaIcon: typeof FaIcon;
 
     // ember-breadcrumb-trail
     breadcrumb: typeof Breadcrumb;
