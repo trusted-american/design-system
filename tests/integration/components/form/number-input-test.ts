@@ -14,12 +14,12 @@ module('Integration | Component | form/number-input', function (hooks) {
     await render<Context>(hbs`
       <Form::NumberInput
         @value={{this.value}}
-        @label="Label"
-        @identifier="numberInput"
+        @label='Label'
+        @identifier='numberInput'
         @required={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        placeholder="Placeholder"
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
+        placeholder='Placeholder'
         @onChange={{fn (mut this.value)}}
       />
     `);

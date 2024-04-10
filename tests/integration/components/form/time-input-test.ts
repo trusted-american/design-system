@@ -12,7 +12,12 @@ module('Integration | Component | form/time-input', function (hooks) {
 
   test('it renders', async function (assert) {
     await render<Context>(hbs`
-      <Form::TimeInput @value={{null}} @label="Label" @identifier='' @onChange={{fn (mut this.value)}} />
+      <Form::TimeInput
+        @value={{null}}
+        @label='Label'
+        @identifier='identifier'
+        @onChange={{fn (mut this.value)}}
+      />
     `);
 
     assert.dom().hasText('Label');

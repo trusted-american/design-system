@@ -9,8 +9,8 @@ module('Integration | Component | form/label', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`
       <Form::Label
-        @text="Test"
-        @identifier="test"
+        @text='Test'
+        @identifier='test'
         @required={{true}}
       />
     `);
