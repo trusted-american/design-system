@@ -61,7 +61,12 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   @action
   change({ target }: Event): void {
     if (this.args.isLocalTimeZone) {
-      const value = dayjs((target as HTMLInputElement).value).toDate();
+      const dateStr = (target as HTMLInputElement).value;
+      const value = dayjs(dateStr).toDate();
+
+      // https://github.com/iamkun/dayjs/issues/1237
+      value.setFullYear(parseInt(dateStr.split('-')[0] as string));
+
       this.args.onChange(value);
       return;
     }
