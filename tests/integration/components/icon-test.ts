@@ -7,7 +7,7 @@ module('Integration | Component | icon', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Icon @icon="book" />`);
+    await render(hbs`<Icon @icon='book' />`);
 
     assert.dom('svg').exists();
   });

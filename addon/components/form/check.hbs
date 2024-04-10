@@ -9,21 +9,22 @@
     id={{@identifier}}
     class="form-check-input"
     required={{@required}}
+    aria-label={{if @inputOnly @label}}
     ...attributes
   />
 
   <Form::Label
-    @text={{@label}}
+    @text={{unless @inputOnly @label}}
     @identifier={{@identifier}}
     @required={{@required}}
     @isCheck={{true}}
   />
 
-  {{#if @helpTooltip}}
-    <a href="#" tabindex="-1" class="link-secondary" {{tooltip @helpTooltip}}>
+  {{#if (and @isHelpTooltip @help)}}
+    <a href="#" tabindex="-1" class="link-secondary" {{tooltip @help}}>
       <Icon @icon="circle-info" />
     </a>
+  {{else}}
+    <Form::Help @text={{@help}} class="mt-0 mb-2" />
   {{/if}}
-
-  <Form::Help @text={{@help}} class="mt-0 mb-2" />
 </div>

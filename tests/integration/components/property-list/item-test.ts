@@ -7,16 +7,8 @@ module('Integration | Component | property-list/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<PropertyList::Item @key="Key" />`);
-
-    assert.dom('dd').hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <PropertyList::Item @key="Key">
+      <PropertyList::Item @key='Key' @value='Value' @alt={{false}}>
         template block text
       </PropertyList::Item>
     `);

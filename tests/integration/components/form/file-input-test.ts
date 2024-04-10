@@ -11,22 +11,16 @@ module('Integration | Component | form/file-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    // assert.expect(2);
-
-    this.label = 'Label';
-    this.identifier = 'identifier';
-    this.required = true;
-    this.invalidFeedback = 'Please provide a file.';
     this.onChange = () => {
       assert.true(true);
     };
 
     await render<Context>(hbs`
       <Form::FileInput
-        @label={{this.label}}
-        @identifier={{this.identifier}}
-        @required={{this.required}}
-        @invalidFeedback={{this.invalidFeedback}}
+        @label='Label'
+        @identifier='identifier'
+        @required={{true}}
+        @invalidFeedback='Please provide a file.'
         @onChange={{this.onChange}}
       />
     `);

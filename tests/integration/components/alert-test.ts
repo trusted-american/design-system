@@ -8,10 +8,10 @@ module('Integration | Component | alert', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-    <Alert>
-      <:title>Title here</:title>
-      <:default>Body here</:default>
-    </Alert>
+      <Alert>
+        <:title>Title here</:title>
+        <:default>Body here</:default>
+      </Alert>
     `);
 
     assert.dom().hasText('Title here Body here');

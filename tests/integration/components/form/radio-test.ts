@@ -11,17 +11,11 @@ module('Integration | Component | form/radio', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    // assert.expect(3);
-
     this.options = [
       { value: 'one', label: 'One' },
       { value: 'two', label: 'Two' },
     ];
     this.selected = undefined;
-    this.label = 'Label';
-    this.identifier = 'identifier';
-    this.required = undefined;
-    this.inline = undefined;
     this.onChange = (selected) => {
       this.selected = selected;
       assert.ok(selected);
@@ -31,10 +25,10 @@ module('Integration | Component | form/radio', function (hooks) {
       <Form::Radio
         @options={{this.options}}
         @selected={{this.selected}}
-        @label={{this.label}}
-        @identifier={{this.identifier}}
-        @required={{this.required}}
-        @inline={{this.inline}}
+        @label='Label'
+        @identifier='identifier'
+        @required={{undefined}}
+        @inline={{undefined}}
         @onChange={{this.onChange}}
       />
     `);

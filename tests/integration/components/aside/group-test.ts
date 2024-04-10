@@ -8,7 +8,7 @@ module('Integration | Component | aside/group', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Aside::Group @text="Text" @icon="boxes-stacked" @route="index">
+      <Aside::Group @text='Text' @icon='boxes-stacked' @route='index'>
         template block text
       </Aside::Group>
     `);

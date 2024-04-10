@@ -11,16 +11,11 @@ module('Integration | Component | form/radio-button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    // assert.expect(1);
-
     this.options = [
       { value: 'one', label: 'One' },
       { value: 'two', label: 'Two' },
     ];
     this.selected = undefined;
-    this.identifier = 'identifier';
-    this.size = 'sm';
-    this.color = 'success';
     this.onChange = (selected) => {
       assert.ok(selected);
     };
@@ -29,9 +24,9 @@ module('Integration | Component | form/radio-button', function (hooks) {
       <Form::RadioButton
         @options={{this.options}}
         @selected={{this.selected}}
-        @identifier={{this.identifier}}
-        @size={{this.size}}
-        @color={{this.color}}
+        @identifier='identifier'
+        @size='sm'
+        @color='success'
         @onChange={{this.onChange}}
       />
     `);

@@ -10,13 +10,13 @@ module('Integration | Component | table', function (hooks) {
     await render<TestContext>(hbs`
       <Table @data={{(array)}} as |table|>
         <table.header as |header|>
-          <header.column @prop="email">
+          <header.column @prop='email'>
             Email
           </header.column>
-          <header.column @prop="firstName">
+          <header.column @prop='firstName'>
             First Name
           </header.column>
-          <header.column @prop="lastName">
+          <header.column @prop='lastName'>
             Last Name
           </header.column>
         </table.header>

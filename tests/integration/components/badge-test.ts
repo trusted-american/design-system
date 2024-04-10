@@ -7,10 +7,7 @@ module('Integration | Component | badge', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Badge @text="Test" />`);
+    await render(hbs`<Badge @text='Test' />`);
 
     assert.dom().hasText('Test');
   });

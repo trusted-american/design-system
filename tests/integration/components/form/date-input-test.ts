@@ -11,14 +11,9 @@ module('Integration | Component | form/date-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    // assert.expect(4);
-
     this.value = new Date();
     this.min = undefined;
     this.max = undefined;
-    this.label = 'Label';
-    this.required = true;
-    this.identifier = 'identifier';
     this.onChange = (value) => {
       const date = new Date(2014, 8, 13);
       assert.strictEqual(value?.getTime(), date.getTime());
@@ -29,16 +24,16 @@ module('Integration | Component | form/date-input', function (hooks) {
         @value={{this.value}}
         @min={{this.min}}
         @max={{this.max}}
-        @label={{this.label}}
-        @required={{this.required}}
-        @identifier={{this.identifier}}
+        @label='Label'
+        @identifier='identifier'
+        @required={{true}}
         @onChange={{this.onChange}}
       />
     `);
 
     assert.dom('label').hasText('Label *');
     assert.dom('input').hasAttribute('type', 'date');
-    assert.dom('input').hasAttribute('id', this.identifier);
+    assert.dom('input').hasAttribute('id', 'identifier');
 
     await fillIn('input', '2014-09-13');
   });
