@@ -9,7 +9,7 @@ module('Integration | Component | flyout', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`
       <Flyout
-        @title="Title"
+        @title='Title'
         @onClose={{(noop)}}
       >
         Body
