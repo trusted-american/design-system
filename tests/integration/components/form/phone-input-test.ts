@@ -14,9 +14,6 @@ module('Integration | Component | form/phone-input', function (hooks) {
     // assert.expect(3);
 
     this.value = '+12223334444';
-    this.label = 'Label';
-    this.identifier = 'identifier';
-    this.required = true;
     this.onChange = () => {
       assert.true(true);
     };
@@ -24,9 +21,9 @@ module('Integration | Component | form/phone-input', function (hooks) {
     await render<Context>(hbs`
       <Form::PhoneInput
         @value={{this.value}}
-        @label={{this.label}}
-        @identifier={{this.identifier}}
-        @required={{this.required}}
+        @label='Label'
+        @identifier='identifier'
+        @required={{true}}
         @onChange={{this.onChange}}
       />
     `);

@@ -12,20 +12,15 @@ module('Integration | Component | form/check', function (hooks) {
 
   test('it renders', async function (this: Context, assert) {
     this.value = false;
-    this.label = 'Label';
-    this.identifier = 'identifier';
-    this.inline = false;
-    this.switch = false;
-    this.help = 'Help';
 
     await render<Context>(hbs`
       <Form::Check
         @value={{this.value}}
-        @label={{this.label}}
-        @identifier={{this.identifier}}
-        @inline={{this.inline}}
-        @switch={{this.switch}}
-        @help={{this.help}}
+        @label='Label'
+        @identifier='identifier'
+        @inline={{false}}
+        @switch={{false}}
+        @help='Help'
       />
     `);
 
