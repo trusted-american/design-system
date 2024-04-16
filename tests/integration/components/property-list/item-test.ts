@@ -8,7 +8,7 @@ module('Integration | Component | property-list/item', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <PropertyList::Item @key='Key' @value='Value' @alt={{false}}>
+      <PropertyList::Item @label='Label' @value='Value' @alt={{false}}>
         template block text
       </PropertyList::Item>
     `);

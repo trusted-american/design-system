@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface StatCardSignature {
   Args: {
-    key: string;
+    label: string;
     value: string | number | null | undefined;
   };
   Element: HTMLDivElement;

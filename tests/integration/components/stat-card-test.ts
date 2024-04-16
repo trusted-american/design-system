@@ -7,7 +7,7 @@ module('Integration | Component | stat-card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<StatCard @key='Key' @value='Value' />`);
+    await render(hbs`<StatCard @label='Key' @value='Value' />`);
 
     assert.dom('div').hasText('Key Value');
   });

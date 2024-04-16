@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface PropertyListItemSignature {
   Args: {
-    key: string | number;
+    label: string | number;
     value?: string | null;
     alt?: unknown;
     tooltip?: string;
