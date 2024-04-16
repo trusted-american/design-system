@@ -15,7 +15,7 @@ module('Integration | Component | form/number-input', function (hooks) {
       <Form::NumberInput
         @value={{this.value}}
         @label='Label'
-        @identifier='numberInput'
+        @identifier='identifier'
         @required={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
@@ -24,6 +24,10 @@ module('Integration | Component | form/number-input', function (hooks) {
       />
     `);
 
-    assert.dom().hasText('Label * Invalid feedback Help');
+    assert.dom('[data-test-form-label]').exists();
+    assert.dom('input').hasAttribute('id', 'identifier');
+    assert.dom('input').isRequired();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
   });
 });

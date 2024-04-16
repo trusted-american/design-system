@@ -16,10 +16,16 @@ module('Integration | Component | form/time-input', function (hooks) {
         @value={{null}}
         @label='Label'
         @identifier='identifier'
+        @required={{true}}
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
         @onChange={{fn (mut this.value)}}
       />
     `);
 
-    assert.dom().hasText('Label');
+    assert.dom('[data-test-form-label]').exists();
+    assert.dom('input').exists();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
   });
 });

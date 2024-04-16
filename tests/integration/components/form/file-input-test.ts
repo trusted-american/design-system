@@ -20,12 +20,16 @@ module('Integration | Component | form/file-input', function (hooks) {
         @label='Label'
         @identifier='identifier'
         @required={{true}}
-        @invalidFeedback='Please provide a file.'
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
         @onChange={{this.onChange}}
       />
     `);
 
-    assert.dom('label').hasText('Label *');
-    assert.dom('.invalid-feedback').hasText('Please provide a file.');
+    assert.dom('[data-test-form-label]').exists();
+    assert.dom('input').hasAttribute('id', 'identifier');
+    assert.dom('input').isRequired();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
   });
 });

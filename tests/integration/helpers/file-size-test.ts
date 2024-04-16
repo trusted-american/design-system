@@ -12,7 +12,6 @@ interface Context extends TestContext {
 module('Integration | Helper | file-size', function (hooks) {
   setupRenderingTest(hooks);
 
-  // TODO: Replace this with your real tests.
   test('it renders', async function (this: Context, assert) {
     this.inputValue = 1234;
 

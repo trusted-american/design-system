@@ -20,14 +20,15 @@ module('Integration | Component | form/input', function (hooks) {
         @label='Label'
         @identifier='identifier'
         @required={{true}}
-        @help='Provide any value you would like.'
-        @invalidFeedback='Please provide a value.'
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
       />
     `);
 
-    assert.dom('label').hasText('Label *');
-    assert.dom('input').exists();
-    assert.dom('.invalid-feedback').hasText('Please provide a value.');
-    assert.dom('.form-text').hasText('Provide any value you would like.');
+    assert.dom('[data-test-form-label]').exists();
+    assert.dom('input').hasAttribute('id', 'identifier');
+    assert.dom('input').isRequired();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
   });
 });

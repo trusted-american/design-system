@@ -29,7 +29,7 @@ module('Integration | Component | form/radio-card', function (hooks) {
         }}
         @selected={{this.selected}}
         @label='Label'
-        @identifier='radioCard'
+        @identifier='identifier'
         @onChange={{fn (mut this.selected)}}
       />
     `);
