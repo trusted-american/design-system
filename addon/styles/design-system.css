@@ -46,7 +46,7 @@ aside.collapsed {
   min-width: inherit !important;
 }
 
-aside.collapsed .link-light > h4,
+aside.collapsed .tds-aside-title,
 aside.collapsed .nav-link > span {
   display: none;
 }
