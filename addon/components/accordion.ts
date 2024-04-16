@@ -4,7 +4,7 @@ import { guidFor } from '@ember/object/internals';
 import type { WithBoundArgs } from '@glint/template';
 import type AccordionItem from './accordion/item';
 
-export interface AccordionComponentSignature {
+export interface AccordionSignature {
   Args: {
     flush?: boolean;
     alwaysOpen?: boolean;
@@ -15,7 +15,7 @@ export interface AccordionComponentSignature {
   Element: HTMLDivElement;
 }
 
-export default class Accordion extends Component<AccordionComponentSignature> {
+export default class Accordion extends Component<AccordionSignature> {
   get id(): string {
     return guidFor(this);
   }

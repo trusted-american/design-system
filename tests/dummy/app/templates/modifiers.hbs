@@ -9,8 +9,14 @@
 
 <Subheading @title="dropdown" />
 
-<p>TODO</p>
+<Button @text="Open dropdown" {{dropdown}} />
+<Dropdown>
+  <Dropdown::Item @text="Item" />
+</Dropdown>
 
 <Subheading @title="tooltip" />
 
-<p>TODO</p>
+<Button
+  @text="Hover me"
+  {{tooltip "This is a tooltip." trigger="hover" placement="right"}}
+/>
