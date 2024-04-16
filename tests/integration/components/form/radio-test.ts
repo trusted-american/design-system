@@ -33,7 +33,7 @@ module('Integration | Component | form/radio', function (hooks) {
       />
     `);
 
-    assert.dom('label').hasText('Label');
+    assert.dom('[data-test-form-label]').exists();
     assert.dom('.form-check').hasText('One');
     assert.dom('.form-check:last-child').hasText('Two');
   });

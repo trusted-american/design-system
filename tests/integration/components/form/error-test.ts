@@ -7,8 +7,8 @@ module('Integration | Component | form/error', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Form::Error @text='Test' />`);
+    await render(hbs`<Form::Error @text='Text' />`);
 
-    assert.dom().hasText('Test');
+    assert.dom('.invalid-feedback').hasText('Text');
   });
 });

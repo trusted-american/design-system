@@ -22,14 +22,17 @@ module('Integration | Component | form/phone-input', function (hooks) {
         @label='Label'
         @identifier='identifier'
         @required={{true}}
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
         @onChange={{this.onChange}}
       />
     `);
 
-    assert.dom('label').hasText('Label *');
+    assert.dom('[data-test-form-label]').exists();
     assert.dom('input').hasValue('(222) 333-4444');
-    assert
-      .dom('.invalid-feedback')
-      .hasText('Please provide a valid phone number.');
+    assert.dom('input').hasAttribute('id', 'identifier');
+    assert.dom('input').isRequired();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
   });
 });

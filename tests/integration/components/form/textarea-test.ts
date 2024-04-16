@@ -20,13 +20,19 @@ module('Integration | Component | form/textarea', function (hooks) {
         @label='Label'
         @identifier='identifier'
         @required={{this.required}}
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
       />
     `);
 
-    assert.dom('label').hasText('Label *');
+    assert.dom('[data-test-form-label]').exists();
+    assert.dom('textarea').hasAttribute('id', 'identifier');
+    assert.dom('textarea').isRequired();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
 
     this.set('required', false);
 
-    assert.dom('label').hasText('Label');
+    assert.dom('textarea').isNotRequired();
   });
 });

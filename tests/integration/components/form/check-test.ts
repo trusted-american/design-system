@@ -25,6 +25,6 @@ module('Integration | Component | form/check', function (hooks) {
     `);
 
     assert.dom('label').hasText('Label');
-    assert.dom('.form-text').hasText('Help');
+    assert.dom('[data-test-form-help]').exists();
   });
 });

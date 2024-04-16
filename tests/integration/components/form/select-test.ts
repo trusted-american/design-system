@@ -22,12 +22,17 @@ module('Integration | Component | form/select', function (hooks) {
         @label='Label'
         @identifier='identifier'
         @required={{true}}
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
         @onChange={{fn (mut this.selected)}}
       />
     `);
 
-    assert.dom('label').exists();
-    assert.dom('label').hasText('Label *');
+    assert.dom('[data-test-form-label]').exists();
+    assert.dom('select').hasAttribute('id', 'identifier');
+    assert.dom('select').isRequired();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
 
     await select('select', '2');
 
@@ -47,8 +52,7 @@ module('Integration | Component | form/select', function (hooks) {
       />
     `);
 
-    assert.dom('label').exists();
-    assert.dom('label').hasText('Label *');
+    assert.dom('[data-test-form-label]').exists();
 
     await select('select', 'C');
 

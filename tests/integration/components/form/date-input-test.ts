@@ -27,13 +27,18 @@ module('Integration | Component | form/date-input', function (hooks) {
         @label='Label'
         @identifier='identifier'
         @required={{true}}
+        @help='Help'
+        @invalidFeedback='Invalid feedback'
         @onChange={{this.onChange}}
       />
     `);
 
-    assert.dom('label').hasText('Label *');
+    assert.dom('[data-test-form-label]').exists();
     assert.dom('input').hasAttribute('type', 'date');
     assert.dom('input').hasAttribute('id', 'identifier');
+    assert.dom('input').isRequired();
+    assert.dom('[data-test-form-help]').exists();
+    assert.dom('[data-test-form-error]').exists();
 
     await fillIn('input', '2014-09-13');
   });
