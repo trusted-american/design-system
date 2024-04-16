@@ -9,6 +9,7 @@ import type ButtonSet from './components/button-set';
 import type Calendar from './components/calendar';
 import type Card from './components/card';
 import type CloseButton from './components/close-button';
+import type Collapse from './components/collapse';
 import type Dropdown from './components/dropdown';
 import type ExternalLink from './components/external-link';
 import type FileType from './components/file-type';
@@ -94,6 +95,7 @@ export default interface Registry {
   Calendar: typeof Calendar;
   Card: typeof Card;
   CloseButton: typeof CloseButton;
+  Collapse: typeof Collapse;
   Dropdown: typeof Dropdown;
   ExternalLink: typeof ExternalLink;
   FileType: typeof FileType;

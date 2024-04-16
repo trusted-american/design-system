@@ -19,6 +19,7 @@ Router.map(function () {
     this.route('calendar');
     this.route('card');
     this.route('close-button');
+    this.route('collapse');
     this.route('dropdown');
     this.route('external-link');
     this.route('file-type');

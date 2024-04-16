@@ -9,6 +9,7 @@ export { default as ButtonSet } from './components/button-set';
 export { default as Calendar } from './components/calendar';
 export { default as Card } from './components/card';
 export { default as CloseButton } from './components/close-button';
+export { default as Collapse } from './components/collapse';
 export { default as Dropdown } from './components/dropdown';
 export { default as ExternalLink } from './components/external-link';
 export { default as FileType } from './components/file-type';
