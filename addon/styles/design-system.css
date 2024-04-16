@@ -18,8 +18,22 @@ body > aside {
   min-width: 17rem;
 }
 
+aside .nav-link {
+  color: var(--bs-body-color) !important;
+}
+
+aside .nav-link:hover {
+  background-color: var(--bs-secondary-bg);
+}
+
+aside .nav-link.active {
+  background-color: var(--bs-white) !important;
+  font-weight: 600;
+}
+
 body aside .tds-aside-logo {
   height: 2.25rem;
+  filter: invert(1);
 }
 
 body > main {
