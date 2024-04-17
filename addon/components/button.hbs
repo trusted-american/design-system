@@ -4,7 +4,8 @@
     @route={{@route}}
     class="btn
       {{if @size (concat 'btn-' @size)}}
-      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}"
+      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}
+      {{if @isFullWidth 'w-100'}}"
     role="button"
     ...attributes
   >
@@ -25,7 +26,8 @@
     @iconTrailing={{@iconTrailing}}
     class="btn
       {{if @size (concat 'btn-' @size)}}
-      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}"
+      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}
+      {{if @isFullWidth 'w-100'}}"
     role="button"
     ...attributes
   />
@@ -34,7 +36,8 @@
     type={{if @isSubmit "submit" "button"}}
     class="btn
       {{if @size (concat 'btn-' @size)}}
-      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}"
+      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}
+      {{if @isFullWidth 'w-100'}}"
     disabled={{if @loading true}}
     aria-label={{if @iconOnly @text}}
     ...attributes

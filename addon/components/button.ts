@@ -9,6 +9,7 @@ export interface ButtonSignature {
     iconOnly?: boolean;
     size?: 'sm' | 'lg';
     outline?: boolean;
+    isFullWidth?: boolean;
     color?: string;
     loading?: boolean;
     route?: string;
