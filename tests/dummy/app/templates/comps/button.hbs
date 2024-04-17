@@ -3,35 +3,52 @@
 
 <Subheading @title="Button" />
 
-<Button @text="Default button" {{on "click" this.do}} />
+<p>
+  <Button @text="Default button" {{on "click" this.do}} />
 
-<Button @text="Success button" @color="success" {{on "click" this.do}} />
+  <Button @text="Success button" @color="success" {{on "click" this.do}} />
 
-<Button
-  @text="Success button with icon"
-  @color="success"
-  @icon="plus"
-  {{on "click" this.do}}
-/>
+  <Button
+    @text="Success button with icon"
+    @color="success"
+    @icon="plus"
+    {{on "click" this.do}}
+  />
 
-<Button
-  @text="Success button with trailing icon"
-  @color="success"
-  @icon="plus"
-  @iconTrailing={{true}}
-  {{on "click" this.do}}
-/>
+  <Button
+    @text="Success button with trailing icon"
+    @color="success"
+    @icon="plus"
+    @iconTrailing={{true}}
+    {{on "click" this.do}}
+  />
 
-<Button
-  @text="Success button with only icon"
-  @icon="plus"
-  @iconOnly={{true}}
-  @color="success"
-  {{on "click" this.do}}
-/>
+  <Button
+    @text="Success button with only icon"
+    @icon="plus"
+    @iconOnly={{true}}
+    @color="success"
+    {{on "click" this.do}}
+  />
 
-<Button @text="Loading button" @loading={{true}} {{on "click" this.do}} />
+  <Button @text="Loading button" @loading={{true}} {{on "click" this.do}} />
 
-<Button @text="Disabled button" disabled {{on "click" this.do}} />
+  <Button @text="Disabled button" disabled {{on "click" this.do}} />
 
-<Button @text="Count button" @count={{3}} {{on "click" this.do}} />
+  <Button @text="Count button" @count={{3}} {{on "click" this.do}} />
+</p>
+
+<p>
+  <Button
+    @text="href button"
+    @icon="up-right-from-square"
+    @href="https://www.google.com/"
+  />
+
+  <Button
+    @text="href button with trailing icon"
+    @icon="arrow-right"
+    @iconTrailing={{true}}
+    @href="https://www.google.com/"
+  />
+</p>
