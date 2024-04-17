@@ -71,6 +71,8 @@ import type MainFooter from './components/main/footer';
 import type MainHeader from './components/main/header';
 import type MainTopHeader from './components/main/top-header';
 
+import type NavItem from './components/nav/item';
+
 import type ProgressBar from './components/progress/bar';
 
 import type PropertyListItem from './components/property-list/item';
@@ -156,6 +158,8 @@ export default interface Registry {
   'Main::Footer': typeof MainFooter;
   'Main::Header': typeof MainHeader;
   'Main::TopHeader': typeof MainTopHeader;
+
+  'Nav::Item': typeof NavItem;
 
   'Progress::Bar': typeof ProgressBar;
 

@@ -71,6 +71,8 @@ export { default as MainFooter } from './components/main/footer';
 export { default as MainHeader } from './components/main/header';
 export { default as MainTopHeader } from './components/main/top-header';
 
+export { default as NavItem } from './components/nav/item';
+
 export { default as ProgressBar } from './components/progress/bar';
 
 export { default as PropertyListItem } from './components/property-list/item';

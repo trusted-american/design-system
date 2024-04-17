@@ -1,0 +1,24 @@
+{{! TODO: avoid duplication }}
+{{#if (and @route @model @query)}}
+  <LinkTo
+    @route={{@route}}
+    @model={{@model}}
+    @query={{@query}}
+    class="nav-link"
+    ...attributes
+  >
+    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+  </LinkTo>
+{{else if (and @route @model)}}
+  <LinkTo @route={{@route}} @model={{@model}} class="nav-link" ...attributes>
+    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+  </LinkTo>
+{{else if @route}}
+  <LinkTo @route={{@route}} class="nav-link" ...attributes>
+    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+  </LinkTo>
+{{else if @query}}
+  <LinkTo @query={{@query}} class="nav-link" ...attributes>
+    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+  </LinkTo>
+{{/if}}
