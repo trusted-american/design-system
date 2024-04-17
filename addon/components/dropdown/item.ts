@@ -8,6 +8,7 @@ export interface DropdownItemSignature {
     shortcut?: string;
     color?: string;
     route?: string;
+    model?: unknown;
     href?: string;
   };
   Element: HTMLElement;

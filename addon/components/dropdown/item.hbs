@@ -1,4 +1,26 @@
-{{#if @route}}
+{{#if (and @route @model)}}
+  <LinkTo
+    @route={{@route}}
+    @model={{@model}}
+    class="dropdown-item d-flex align-items-center gap-2
+      {{if @color (concat 'text-' @color)}}"
+    ...attributes
+  >
+    {{#if @icon}}
+      <Icon @icon={{@icon}} @fixedWidth={{true}} />
+    {{/if}}
+    <div>
+      {{@text}}
+      {{#if @subtitle}}
+        <br />
+        <span class="small">{{@subtitle}}</span>
+      {{/if}}
+    </div>
+    {{#if @shortcut}}
+      <span class="text-secondary ms-auto">{{@shortcut}}</span>
+    {{/if}}
+  </LinkTo>
+{{else if @route}}
   <LinkTo
     @route={{@route}}
     class="dropdown-item d-flex align-items-center gap-2
