@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface DropdownItemSignature {
   Args: {
-    text: string;
+    text?: string;
     subtitle?: string;
     icon?: string;
     shortcut?: string;
@@ -10,6 +10,9 @@ export interface DropdownItemSignature {
     route?: string;
     model?: unknown;
     href?: string;
+  };
+  Blocks: {
+    default: [];
   };
   Element: HTMLElement;
 }
