@@ -2,6 +2,27 @@
 
 :root {
   font-size: 0.875rem;
+
+  --bs-dark: #131313;
+}
+
+body {
+  background-color: var(--bs-dark);
+}
+
+aside .nav-link,
+.link-light {
+  color: var(--bs-gray-400) !important;
+}
+
+aside .nav-link:hover {
+  color: var(--bs-white) !important;
+  background-color: var(--bs-gray-800);
+}
+
+aside .nav-link.active {
+  color: var(--bs-white) !important;
+  background-color: var(--bs-gray-600) !important;
 }
 
 .breadcrumb {
@@ -9,7 +30,7 @@
 }
 
 .container-fluid {
-  --bs-gutter-x: 4rem;
+  --bs-gutter-x: 3rem;
 }
 
 .tds-subheading {
