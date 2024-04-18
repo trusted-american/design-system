@@ -20,6 +20,7 @@ body > aside {
 
 aside .nav-link {
   color: var(--bs-body-color) !important;
+  transition: none;
 }
 
 aside .nav-link:hover {
