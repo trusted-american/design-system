@@ -6,6 +6,9 @@ export interface AsideItemSignature {
     icon?: string;
     route: string;
   };
+  Blocks: {
+    default: [];
+  };
   Element: HTMLAnchorElement;
 }
 
