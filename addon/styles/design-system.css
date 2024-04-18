@@ -18,6 +18,10 @@ body > aside {
   min-width: 17rem;
 }
 
+aside .nav-link.active {
+  font-weight: 600;
+}
+
 body aside .tds-aside-logo {
   height: 2.25rem;
 }
