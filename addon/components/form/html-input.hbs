@@ -10,7 +10,7 @@
       <a
         href="#"
         class="nav-link {{if (eq false this.isCode) 'active'}}"
-        {{on "click" (preventDefault (fn (mut this.isCode) false))}}
+        {{on "click" (prevent-default (fn (mut this.isCode) false))}}
         data-test-editor
       >
         Editor
@@ -18,7 +18,7 @@
       <a
         href="#"
         class="nav-link {{if (eq true this.isCode) 'active'}}"
-        {{on "click" (preventDefault (fn (mut this.isCode) true))}}
+        {{on "click" (prevent-default (fn (mut this.isCode) true))}}
         data-test-code
       >
         Code
