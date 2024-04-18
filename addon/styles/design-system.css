@@ -28,7 +28,7 @@ aside .nav-link:hover {
 }
 
 aside .nav-link.active {
-  background-color: var(--bs-white) !important;
+  background-color: var(--bs-body-bg) !important;
   font-weight: 600;
 }
 
