@@ -1,0 +1,59 @@
+<Form::Label
+  @text={{unless @inputOnly @label}}
+  @identifier={{@identifier}}
+  @required={{@required}}
+/>
+
+<Card as |card|>
+  <card.header>
+    <Nav class="card-header-tabs">
+      <a
+        href="#"
+        class="nav-link {{if (eq false this.isCode) 'active'}}"
+        {{on "click" (preventDefault (fn (mut this.isCode) false))}}
+        data-test-editor
+      >
+        Editor
+      </a>
+      <a
+        href="#"
+        class="nav-link {{if (eq true this.isCode) 'active'}}"
+        {{on "click" (preventDefault (fn (mut this.isCode) true))}}
+        data-test-code
+      >
+        Code
+      </a>
+    </Nav>
+  </card.header>
+  <card.body class="p-0">
+    {{#if this.isCode}}
+      <Form::Textarea
+        @value={{@value}}
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @required={{@required}}
+        @inputOnly={{true}}
+        class="border-0"
+        data-test-value-code
+        ...attributes
+      />
+    {{else}}
+      <PellEditor
+        @value={{this.value}}
+        @onChange={{@onChange}}
+        data-test-value-editor
+        ...attributes
+      />
+    {{/if}}
+  </card.body>
+</Card>
+
+<Input
+  @value={{this.value}}
+  @type="text"
+  required={{@required}}
+  class="d-none"
+  aria-label={{@label}}
+/>
+<Form::Error @text="Please provide a value." />
+<Form::Help @text={{@help}} />

@@ -150,6 +150,16 @@
   placeholder="Placeholder"
 />
 
+<Subheading @title="Form::HtmlInput" />
+<Form::HtmlInput
+  @value={{this.value}}
+  @label="Label"
+  @identifier="textarea"
+  @required={{true}}
+  @help="Help"
+  placeholder="Placeholder"
+/>
+
 <Subheading @title="Form::TimeInput" />
 
 <Form::TimeInput
@@ -157,6 +167,5 @@
   @label="Label"
   @identifier="timeInput"
   @required={{true}}
-  @help="Help"
   @onChange={{fn (mut this.date)}}
 />
