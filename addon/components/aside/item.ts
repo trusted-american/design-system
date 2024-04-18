@@ -4,7 +4,7 @@ export interface AsideItemSignature {
   Args: {
     text: string;
     icon?: string;
-    route: string;
+    route?: string;
   };
   Blocks: {
     default: [];
