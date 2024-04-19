@@ -3,15 +3,21 @@
 
 <Heading @title="ListGroup" />
 
+<Subheading @title="Default" />
+
 <ListGroup>
   <ListGroup::Item class="active">An active item</ListGroup::Item>
   <ListGroup::Item>A second item</ListGroup::Item>
 </ListGroup>
 
+<Subheading @title="Disabled" />
+
 <ListGroup>
   <ListGroup::Item class="disabled">A disabled item</ListGroup::Item>
   <ListGroup::Item>A second item</ListGroup::Item>
 </ListGroup>
+
+<Subheading @title="Flush" />
 
 <ListGroup @flush={{true}}>
   <ListGroup::Item>An item</ListGroup::Item>
