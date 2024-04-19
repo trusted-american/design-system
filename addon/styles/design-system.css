@@ -57,6 +57,21 @@ aside.collapsed nav .fa-fw {
   margin-right: 0 !important;
 }
 
+/* components */
+
+.form-file-dropzone {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--bs-secondary);
+  background-color: var(--bs-secondary-bg);
+  border: 1px var(--bs-gray-400) dashed;
+  border-radius: var(--bs-border-radius);
+}
+
+.form-file-dropzone label {
+  cursor: pointer;
+}
+
 /* vendor components */
 
 .copy-btn {

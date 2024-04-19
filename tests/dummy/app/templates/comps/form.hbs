@@ -22,6 +22,10 @@
   @onChange={{fn (mut this.date)}}
 />
 
+<Subheading @title="Form::FileDropzone" />
+
+<Form::FileDropzone @onCreate={{(noop)}} />
+
 <Subheading @title="Form::FileInput" />
 
 <Form::FileInput

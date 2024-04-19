@@ -1,3 +1,4 @@
+import type EmberFileUploadRegistry from 'ember-file-upload/template-registry';
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
@@ -30,7 +31,8 @@ import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
-    extends EmberPageTitleRegistry,
+    extends EmberFileUploadRegistry,
+      EmberPageTitleRegistry,
       EmberTruthHelpersRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{

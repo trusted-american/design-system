@@ -62,10 +62,12 @@
     "ember-cli-htmlbars": "^6.3.0",
     "ember-composable-helpers": "^5.0.0",
     "ember-event-helpers": "^0.1.1",
+    "ember-file-upload": "^9.0.0",
     "ember-modifier": "^4.1.0",
     "ember-truth-helpers": "^4.0.3",
     "ember-yeti-table": "^1.7.4",
-    "identicon.js": "^2.3.3"
+    "identicon.js": "^2.3.3",
+    "tracked-built-ins": "^3.3.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.1.0",

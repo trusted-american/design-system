@@ -1,0 +1,35 @@
+{{#let (file-queue name=this.id onFileAdded=this.create) as |queue|}}
+  <FileDropzone
+    @queue={{queue}}
+    class="form-file-dropzone"
+    ...attributes
+    as |dropzone|
+  >
+    {{#if dropzone.active}}
+      <h5 class="text-success">
+        <Icon @icon="cloud-arrow-up" />
+      </h5>
+      <h5 class="text-success">
+        Drop to Upload
+      </h5>
+    {{else}}
+      <h5>
+        <Icon @icon="cloud-arrow-up" />
+      </h5>
+      <h5>
+        Drag and Drop Your Files Here
+      </h5>
+      <label class="text-reset">
+        Or select a file from your computer&hellip;
+        <input
+          type="file"
+          id="files"
+          accept={{@accept}}
+          multiple={{if @multiple @multiple true}}
+          hidden
+          {{queue.selectFile}}
+        />
+      </label>
+    {{/if}}
+  </FileDropzone>
+{{/let}}
