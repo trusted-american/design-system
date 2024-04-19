@@ -1,4 +1,13 @@
-{{#if @route}}
+{{#if (and @route @model)}}
+  <LinkTo
+    @route={{@route}}
+    @model={{@model}}
+    class="list-group-item list-group-item-action"
+    ...attributes
+  >
+    {{yield}}
+  </LinkTo>
+{{else if @route}}
   <LinkTo
     @route={{@route}}
     class="list-group-item list-group-item-action"

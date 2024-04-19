@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 interface ListGroupItemSignature {
   Args: {
     route?: string;
+    model?: unknown;
     href?: string;
   };
   Blocks: {
