@@ -32,6 +32,19 @@
   @onChange={{fn (mut this.file)}}
 />
 
+<Subheading @title="Form::HtmlInput" />
+
+<Form::HtmlInput
+  @value={{this.value}}
+  @label="Label"
+  @identifier="textarea"
+  @required={{true}}
+  @inputOnly={{false}}
+  @help="Help"
+  @onChange={{fn (mut this.value)}}
+  placeholder="Placeholder"
+/>
+
 <Subheading @title="Form::Input" />
 
 <Form::Input
@@ -150,16 +163,6 @@
   placeholder="Placeholder"
 />
 
-<Subheading @title="Form::HtmlInput" />
-<Form::HtmlInput
-  @value={{this.value}}
-  @label="Label"
-  @identifier="textarea"
-  @required={{true}}
-  @help="Help"
-  placeholder="Placeholder"
-/>
-
 <Subheading @title="Form::TimeInput" />
 
 <Form::TimeInput
@@ -168,4 +171,5 @@
   @identifier="timeInput"
   @required={{true}}
   @onChange={{fn (mut this.date)}}
+  @help="Help"
 />
