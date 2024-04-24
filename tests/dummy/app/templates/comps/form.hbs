@@ -38,6 +38,16 @@
   @onChange={{fn (mut this.file)}}
 />
 
+<Subheading @title="Form::HtmlInput" />
+
+<Form::HtmlInput
+  @value={{this.htmlValue}}
+  @label="Label"
+  @identifier="htmlInput"
+  @required={{true}}
+  @onChange={{fn (mut this.htmlValue)}}
+/>
+
 <Subheading @title="Form::Input" />
 
 <Form::Input

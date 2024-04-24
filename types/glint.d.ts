@@ -27,6 +27,7 @@ import type Values from 'ember-composable-helpers/helpers/values';
 import type Without from 'ember-composable-helpers/helpers/without';
 import type PreventDefault from 'ember-event-helpers/helpers/prevent-default';
 import type StopPropagation from 'ember-event-helpers/helpers/stop-propagation';
+import type PellEditor from 'ember-pell/components/pell-editor';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
 declare module '@glint/environment-ember-loose/registry' {
@@ -73,6 +74,9 @@ declare module '@glint/environment-ember-loose/registry' {
     // ember-event-helpers
     'prevent-default': typeof PreventDefault;
     'stop-propagation': typeof StopPropagation;
+
+    // ember-pell
+    PellEditor: typeof PellEditor;
 
     // ember-yeti-table
     YetiTable: typeof YetiTable;

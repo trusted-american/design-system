@@ -72,6 +72,34 @@ aside.collapsed nav .fa-fw {
   cursor: pointer;
 }
 
+/* html input */
+
+.pell-actionbar {
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: var(--bs-body-bg);
+}
+
+.pell-actionbar .pell-button-selected {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-primary);
+}
+
+.pell-content {
+  height: 20rem;
+
+  /* transition: $input-transition; */
+}
+
+.pell-content:hover,
+.pell-content:focus {
+  border-color: var(--bs-primary);
+}
+
+/* .pell-content:focus {
+  box-shadow: $input-focus-box-shadow;
+} */
+
 /* vendor components */
 
 .copy-btn {
