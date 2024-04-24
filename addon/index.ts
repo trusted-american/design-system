@@ -54,6 +54,7 @@ export { default as FormError } from './components/form/error';
 export { default as FormFileDropzone } from './components/form/file-dropzone';
 export { default as FormFileInput } from './components/form/file-input';
 export { default as FormHelp } from './components/form/help';
+export { default as FormHtmlInput } from './components/form/html-input';
 export { default as FormInput } from './components/form/input';
 export { default as FormLabel } from './components/form/label';
 export { default as FormNumberInput } from './components/form/number-input';

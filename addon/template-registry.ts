@@ -54,6 +54,7 @@ import type FormError from './components/form/error';
 import type FormFileDropzone from './components/form/file-dropzone';
 import type FormFileInput from './components/form/file-input';
 import type FormHelp from './components/form/help';
+import type FormHtmlInput from './components/form/html-input';
 import type FormInput from './components/form/input';
 import type FormLabel from './components/form/label';
 import type FormNumberInput from './components/form/number-input';
@@ -143,6 +144,7 @@ export default interface Registry {
   'Form::FileDropzone': typeof FormFileDropzone;
   'Form::FileInput': typeof FormFileInput;
   'Form::Help': typeof FormHelp;
+  'Form::HtmlInput': typeof FormHtmlInput;
   'Form::Input': typeof FormInput;
   'Form::Label': typeof FormLabel;
   'Form::NumberInput': typeof FormNumberInput;
