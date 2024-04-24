@@ -41,14 +41,11 @@
 <Subheading @title="Form::HtmlInput" />
 
 <Form::HtmlInput
-  @value={{this.value}}
+  @value={{this.htmlValue}}
   @label="Label"
-  @identifier="textarea"
+  @identifier="htmlInput"
   @required={{true}}
-  @inputOnly={{false}}
-  @help="Help"
   @onChange={{fn (mut this.value)}}
-  placeholder="Placeholder"
 />
 
 <Subheading @title="Form::Input" />
