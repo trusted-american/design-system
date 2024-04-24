@@ -3,12 +3,11 @@ import { tracked } from '@glimmer/tracking';
 
 interface FormHtmlInputSignature {
   Args: {
-    value: string | null | undefined;
+    value: string | null;
     label: string;
     identifier: string;
     required?: boolean;
     inputOnly?: boolean;
-    help?: string;
     onChange: (value: string) => void;
   };
   Element: HTMLElement;
@@ -25,8 +24,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         element.innerHTML = '';
       }
     }
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return this.args.value!;
+    return this.args.value;
   }
 }
 

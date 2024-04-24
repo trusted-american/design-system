@@ -10,16 +10,16 @@
       <a
         href="#"
         class="nav-link {{if (eq false this.isCode) 'active'}}"
-        {{on "click" (prevent-default (fn (mut this.isCode) false))}}
         data-test-editor
+        {{on "click" (prevent-default (fn (mut this.isCode) false))}}
       >
         Editor
       </a>
       <a
         href="#"
         class="nav-link {{if (eq true this.isCode) 'active'}}"
-        {{on "click" (prevent-default (fn (mut this.isCode) true))}}
         data-test-code
+        {{on "click" (prevent-default (fn (mut this.isCode) true))}}
       >
         Code
       </a>
@@ -56,4 +56,3 @@
   aria-label={{@label}}
 />
 <Form::Error @text="Please provide a value." />
-<Form::Help @text={{@help}} />

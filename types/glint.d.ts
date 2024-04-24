@@ -18,7 +18,6 @@ import type MapBy from 'ember-composable-helpers/helpers/map-by';
 import type Noop from 'ember-composable-helpers/helpers/noop';
 import type ObjectAt from 'ember-composable-helpers/helpers/object-at';
 import type Optional from 'ember-composable-helpers/helpers/optional';
-import type PellEditor from 'ember-pell/components/pell-editor';
 import type Pick from 'ember-composable-helpers/helpers/pick';
 import type Range from 'ember-composable-helpers/helpers/range';
 import type Slice from 'ember-composable-helpers/helpers/slice';
@@ -27,6 +26,7 @@ import type Values from 'ember-composable-helpers/helpers/values';
 import type Without from 'ember-composable-helpers/helpers/without';
 import type PreventDefault from 'ember-event-helpers/helpers/prevent-default';
 import type StopPropagation from 'ember-event-helpers/helpers/stop-propagation';
+import type PellEditor from 'ember-pell/components/pell-editor';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
 declare module '@glint/environment-ember-loose/registry' {
@@ -38,9 +38,6 @@ declare module '@glint/environment-ember-loose/registry' {
       Args: { Positional: [(element: HTMLElement) => void] };
       Element: HTMLElement;
     }>;
-
-    // pell editor
-    PellEditor: typeof PellEditor;
 
     // @fortawesome/ember-fontawesome
     FaIcon: typeof FaIcon;
@@ -75,6 +72,9 @@ declare module '@glint/environment-ember-loose/registry' {
     // ember-event-helpers
     'prevent-default': typeof PreventDefault;
     'stop-propagation': typeof StopPropagation;
+
+    // ember-pell
+    PellEditor: typeof PellEditor;
 
     // ember-yeti-table
     YetiTable: typeof YetiTable;
