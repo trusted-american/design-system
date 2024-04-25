@@ -1,6 +1,8 @@
 {{page-title "Form"}}
 {{breadcrumb "Form"}}
 
+<Heading @title="Form" />
+
 <Subheading @title="Form::Check" />
 
 <Form::Check
@@ -21,6 +23,10 @@
   @help="Help"
   @onChange={{fn (mut this.date)}}
 />
+
+<Subheading @title="Form::FileDropzone" />
+
+<Form::FileDropzone @onCreate={{(noop)}} />
 
 <Subheading @title="Form::FileInput" />
 
