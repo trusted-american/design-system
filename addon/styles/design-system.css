@@ -32,12 +32,17 @@ aside.collapsed {
   min-width: inherit !important;
 }
 
+aside.collapsed nav .text-secondary,
 aside.collapsed .tds-aside-title,
 aside.collapsed .nav-link > span {
   display: none;
 }
 
-aside.collapsed .tds-aside-logo,
+aside.collapsed nav .collapse nav .nav-link > span {
+  display: block;
+}
+
+aside.collapsed .tds-aside- aside.collapsed .tds-aside-logo,
 aside.collapsed nav .fa-fw {
   margin-right: 0 !important;
 }
