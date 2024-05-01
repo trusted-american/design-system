@@ -1,18 +1,7 @@
-{{! TODO: avoid duplication }}
-{{#if @route}}
-  <LinkTo @route={{@route}} class="nav-link px-2" ...attributes>
-    {{#if @icon}}
-      <Icon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
-    {{/if}}
-    <span class={{unless @icon "ms-2"}}>{{@text}}</span>
-    {{yield}}
-  </LinkTo>
-{{else}}
-  <a href="#" class="nav-link px-2" ...attributes>
-    {{#if @icon}}
-      <Icon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
-    {{/if}}
-    <span class={{unless @icon "ms-2"}}>{{@text}}</span>
-    {{yield}}
-  </a>
-{{/if}}
+<Nav::Item @route={{@route}} class="px-2" ...attributes>
+  {{#if @icon}}
+    <Icon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
+  {{/if}}
+  <span class={{unless @icon "ms-2"}}>{{@text}}</span>
+  {{yield}}
+</Nav::Item>

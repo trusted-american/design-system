@@ -7,22 +7,18 @@
 <Card as |card|>
   <card.header>
     <Nav class="card-header-tabs">
-      <a
-        href="#"
-        class="nav-link {{if (eq false this.isCode) 'active'}}"
+      <Nav::Item
+        @text="Editor"
+        class={{if (eq false this.isCode) "active"}}
         data-test-editor
         {{on "click" (prevent-default (fn (mut this.isCode) false))}}
-      >
-        Editor
-      </a>
-      <a
-        href="#"
-        class="nav-link {{if (eq true this.isCode) 'active'}}"
+      />
+      <Nav::Item
+        @text="Code"
+        class={{if (eq true this.isCode) "active"}}
         data-test-code
         {{on "click" (prevent-default (fn (mut this.isCode) true))}}
-      >
-        Code
-      </a>
+      />
     </Nav>
   </card.header>
   <card.body class="p-0">

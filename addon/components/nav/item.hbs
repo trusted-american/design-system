@@ -21,4 +21,8 @@
   <LinkTo @query={{@query}} class="nav-link" ...attributes>
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
   </LinkTo>
+{{else}}
+  <a href="#" class="nav-link" ...attributes>
+    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+  </a>
 {{/if}}

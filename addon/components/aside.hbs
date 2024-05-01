@@ -10,13 +10,13 @@
     <h4 class="tds-aside-title mb-0">{{@title}}</h4>
   </LinkTo>
 
-  <nav class="nav nav-pills flex-column flex-grow-1" aria-label="Upper nav">
+  <Nav @pills={{true}} class="flex-column flex-grow-1" aria-label="Upper nav">
     {{yield}}
-  </nav>
+  </Nav>
 
-  <nav class="nav nav-pills flex-column" aria-label="Lower nav">
+  <Nav @pills={{true}} class="flex-column" aria-label="Lower nav">
     {{yield to="lower"}}
-  </nav>
+  </Nav>
 
   {{#if (has-block "bottom")}}
     <div class="pt-3">
