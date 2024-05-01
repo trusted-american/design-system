@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 interface IconSignature {
   Args: {
     icon: string;
+    color?: string;
     fixedWidth?: boolean;
     size?: string;
     prefix?: string;
