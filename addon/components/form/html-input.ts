@@ -1,15 +1,16 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-interface FormHtmlInputSignature {
-  Args: {
-    value: string | null;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    inputOnly?: boolean;
-    onChange: (value: string) => void;
-  };
+import type { BaseArgs } from './input';
+
+interface Args extends BaseArgs {
+  value: string | null;
+  inputOnly?: boolean;
+  onChange: (value: string) => void;
+}
+
+export interface FormHtmlInputSignature {
+  Args: Args;
   Element: HTMLElement;
 }
 
