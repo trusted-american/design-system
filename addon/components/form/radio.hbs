@@ -18,9 +18,11 @@
         ...attributes
       />
 
-      <label class="form-check-label" for="{{@identifier}}{{index}}">
-        {{option.label}}
-      </label>
+      <Form::Label
+        @text={{option.label}}
+        @identifier="{{@identifier}}{{index}}"
+        @isCheck={{true}}
+      />
 
       {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
         <div class="invalid-feedback">
@@ -30,3 +32,5 @@
     </div>
   {{/each}}
 </div>
+
+<Form::Help @text={{@help}} />

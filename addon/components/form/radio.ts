@@ -1,18 +1,17 @@
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
+interface Args<T> extends BaseArgs {
+  options: Option<T>[];
+  selected?: T | null;
+  inline?: boolean;
+  onChange: (selected: T) => void;
+}
+
 export interface FormRadioSignature<T> {
-  Args: {
-    options: Option<T>[];
-    selected?: T | null;
-    inline?: boolean;
-    label?: string;
-    identifier: string;
-    required?: boolean;
-    invalidFeedback?: string;
-    onChange: (selected: T) => void;
-  };
+  Args: Args<T>;
   Element: HTMLElement;
 }
 
