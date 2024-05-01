@@ -4,7 +4,9 @@ interface ListGroupItemSignature {
   Args: {
     route?: string;
     model?: unknown;
+    query?: Record<string, unknown>;
     href?: string;
+    isAction?: boolean;
   };
   Blocks: {
     default: [];

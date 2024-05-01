@@ -1,3 +1,4 @@
+{{! TODO: avoid duplication }}
 {{#if (and @route @model)}}
   <LinkTo
     @route={{@route}}
@@ -15,6 +16,14 @@
   >
     {{yield}}
   </LinkTo>
+{{else if @query}}
+  <LinkTo
+    @query={{@query}}
+    class="list-group-item list-group-item-action"
+    ...attributes
+  >
+    {{yield}}
+  </LinkTo>
 {{else if @href}}
   <ExternalLink
     @href={{@href}}
@@ -23,6 +32,10 @@
   >
     {{yield}}
   </ExternalLink>
+{{else if @isAction}}
+  <a href="#" class="list-group-item list-group-item-action">
+    {{yield}}
+  </a>
 {{else}}
   <li class="list-group-item" ...attributes>
     {{yield}}
