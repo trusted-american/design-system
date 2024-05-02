@@ -24,6 +24,8 @@
         @isCheck={{true}}
       />
 
+      <Form::Help @text={{option.help}} class="mt-0" />
+
       {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
         <div class="invalid-feedback">
           {{@invalidFeedback}}

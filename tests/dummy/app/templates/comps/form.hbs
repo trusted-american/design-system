@@ -90,7 +90,18 @@
 <Subheading @title="Form::Radio" />
 
 <Form::Radio
-  @options={{array (hash value=true label="Yes") (hash value=false label="No")}}
+  @options={{array
+    (hash
+      value=true
+      label="Yes"
+      help="With supporting text below as a natural lead-in to additional content."
+    )
+    (hash
+      value=false
+      label="No"
+      help="With supporting text below as a natural lead-in to additional content."
+    )
+  }}
   @selected={{this.radio}}
   @label="Label"
   @identifier="radio"
