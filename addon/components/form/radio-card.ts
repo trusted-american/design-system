@@ -12,6 +12,7 @@ interface RadioCardOption<T> extends Option<T> {
 interface Args<T> extends BaseArgs {
   options: RadioCardOption<T>[];
   selected: T | null | undefined;
+  inputOnly?: boolean;
   onChange: (selected: T) => void;
 }
 
