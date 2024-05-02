@@ -5,7 +5,7 @@ import type { Option } from '@trusted-american/design-system/components/form/sel
 
 interface Args<T> extends BaseArgs {
   options: Option<T>[];
-  selected?: T | null;
+  selected: T | null | undefined;
   inline?: boolean;
   onChange: (selected: T) => void;
 }

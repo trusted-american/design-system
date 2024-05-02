@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
 interface RadioCardOption<T> extends Option<T> {
@@ -8,15 +9,14 @@ interface RadioCardOption<T> extends Option<T> {
   help?: string;
 }
 
+interface Args<T> extends BaseArgs {
+  options: RadioCardOption<T>[];
+  selected: T | null | undefined;
+  onChange: (selected: T) => void;
+}
+
 export interface FormRadioCardSignature<T> {
-  Args: {
-    options: RadioCardOption<T>[];
-    selected?: T | null;
-    label?: string;
-    identifier: string;
-    required?: boolean;
-    onChange: (selected: T) => void;
-  };
+  Args: Args<T>;
   Element: HTMLDivElement;
 }
 
