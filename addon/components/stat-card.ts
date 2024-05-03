@@ -3,7 +3,12 @@ import Component from '@glimmer/component';
 export interface StatCardSignature {
   Args: {
     label: string;
-    value: string | number | null | undefined;
+    value?: string | number | null;
+    icon?: string;
+    route?: string;
+  };
+  Blocks: {
+    default: [];
   };
   Element: HTMLDivElement;
 }
