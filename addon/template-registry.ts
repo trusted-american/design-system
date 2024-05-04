@@ -44,6 +44,8 @@ import type CardBody from './components/card/body';
 import type CardFooter from './components/card/footer';
 import type CardHeader from './components/card/header';
 
+import type CopyButton from './components/copy/button';
+
 import type DropdownDivider from './components/dropdown/divider';
 import type DropdownHeader from './components/dropdown/header';
 import type DropdownItem from './components/dropdown/item';
@@ -133,6 +135,8 @@ export default interface Registry {
   'Card::Body': typeof CardBody;
   'Card::Footer': typeof CardFooter;
   'Card::Header': typeof CardHeader;
+
+  'Copy::Button': typeof CopyButton;
 
   'Dropdown::Divider': typeof DropdownDivider;
   'Dropdown::Header': typeof DropdownHeader;
