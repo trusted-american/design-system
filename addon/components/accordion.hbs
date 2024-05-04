@@ -1,6 +1,7 @@
 <div
   class="accordion {{if @flush 'accordion-flush'}}"
   id={{this.id}}
+  data-test-accordion
   ...attributes
 >
   {{yield (hash item=(component "accordion/item" accordion=this))}}
