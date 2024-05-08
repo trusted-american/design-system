@@ -5,6 +5,7 @@ export interface ButtonSignature {
     isSubmit?: true;
     text: string;
     icon?: string;
+    iconPrefix?: string;
     iconTrailing?: boolean;
     iconOnly?: boolean;
     size?: 'sm' | 'lg';

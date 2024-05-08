@@ -13,6 +13,7 @@
     {{#if @icon}}
       <Icon
         @icon={{@icon}}
+        @prefix={{@iconPrefix}}
         class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
       />
     {{/if}}
@@ -23,6 +24,7 @@
     @href={{@href}}
     @text={{@text}}
     @icon={{@icon}}
+    @iconPrefix={{@iconPrefix}}
     @iconTrailing={{@iconTrailing}}
     class="btn
       {{if @size (concat 'btn-' @size)}}
@@ -49,6 +51,7 @@
     {{#if @icon}}
       <Icon
         @icon={{@icon}}
+        @prefix={{@iconPrefix}}
         class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
       />
     {{/if}}

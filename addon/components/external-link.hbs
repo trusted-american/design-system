@@ -9,7 +9,11 @@
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
   {{/if}}
   {{#if @icon}}
-    <Icon @icon={{@icon}} class={{if @iconTrailing "ms-1" "me-1"}} />
+    <Icon
+      @icon={{@icon}}
+      @prefix={{@iconPrefix}}
+      class={{if @iconTrailing "ms-1" "me-1"}}
+    />
   {{/if}}
   {{#unless @iconTrailing}}
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
