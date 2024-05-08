@@ -28,9 +28,9 @@
   <div class="pt-3">
     <Button
       @text="Toggle menu"
-      @icon="toggle-{{if this.collapsed 'off' 'on'}}"
+      @icon="angles-{{if this.collapsed 'right' 'left'}}"
       @iconOnly={{true}}
-      @color="dark"
+      @color="light"
       class="px-2"
       {{tooltip "Toggle menu" trigger="hover" placement="right"}}
       {{on "click" (fn (mut this.collapsed) (not this.collapsed))}}
