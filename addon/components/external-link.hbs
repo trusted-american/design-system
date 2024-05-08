@@ -12,7 +12,7 @@
     <Icon
       @icon={{@icon}}
       @prefix={{@iconPrefix}}
-      class={{if @iconTrailing "ms-1" "me-1"}}
+      class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
     />
   {{/if}}
   {{#unless @iconTrailing}}
