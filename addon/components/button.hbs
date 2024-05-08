@@ -1,5 +1,5 @@
+{{! TODO: avoid duplication }}
 {{#if @route}}
-  {{! template-lint-disable require-presentational-children }}
   <LinkTo
     @route={{@route}}
     class="btn
@@ -15,6 +15,7 @@
         @icon={{@icon}}
         @prefix={{@iconPrefix}}
         class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
+        role="presentation"
       />
     {{/if}}
     {{if (and (not @iconOnly) (not @iconTrailing)) @text}}
