@@ -14,6 +14,7 @@ export interface ButtonSignature {
     color?: string;
     loading?: boolean;
     route?: string;
+    query?: Record<string, unknown>;
     href?: string;
     count?: number;
   };

@@ -1,5 +1,27 @@
 {{! TODO: avoid duplication }}
-{{#if @route}}
+{{#if (and @route @query)}}
+  <LinkTo
+    @route={{@route}}
+    @query={{@query}}
+    class="btn
+      {{if @size (concat 'btn-' @size)}}
+      btn-{{if @outline 'outline-' ''}}{{if @color @color 'secondary'}}
+      {{if @isFullWidth 'w-100'}}"
+    role="button"
+    ...attributes
+  >
+    {{if (and (not @iconOnly) @iconTrailing) @text}}
+    {{#if @icon}}
+      <Icon
+        @icon={{@icon}}
+        @prefix={{@iconPrefix}}
+        class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
+        role="presentation"
+      />
+    {{/if}}
+    {{if (and (not @iconOnly) (not @iconTrailing)) @text}}
+  </LinkTo>
+{{else if @route}}
   <LinkTo
     @route={{@route}}
     class="btn
