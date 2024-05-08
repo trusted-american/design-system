@@ -1,13 +1,14 @@
 import Component from '@glimmer/component';
 
+import type { LinkToArgs } from '../button';
+
+interface Args extends LinkToArgs {
+  href?: string;
+  isAction?: boolean;
+}
+
 interface ListGroupItemSignature {
-  Args: {
-    route?: string;
-    model?: unknown;
-    query?: Record<string, unknown>;
-    href?: string;
-    isAction?: boolean;
-  };
+  Args: Args;
   Blocks: {
     default: [];
   };

@@ -1,12 +1,13 @@
 import Component from '@glimmer/component';
 
+import type { LinkToArgs } from '../button';
+
+interface Args extends LinkToArgs {
+  text?: string;
+}
+
 export interface NavItemSignature {
-  Args: {
-    text?: string;
-    route?: string;
-    model?: unknown;
-    query?: Record<string, unknown>;
-  };
+  Args: Args;
   Blocks: {
     default: [];
   };

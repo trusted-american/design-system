@@ -1,12 +1,15 @@
 import Component from '@glimmer/component';
 
+import type { LinkToArgs } from './button';
+
+interface Args extends LinkToArgs {
+  label: string;
+  value?: string | number | null;
+  icon?: string;
+}
+
 export interface StatCardSignature {
-  Args: {
-    label: string;
-    value?: string | number | null;
-    icon?: string;
-    route?: string;
-  };
+  Args: Args;
   Blocks: {
     default: [];
   };

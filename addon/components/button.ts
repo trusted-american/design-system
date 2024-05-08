@@ -1,23 +1,29 @@
 import Component from '@glimmer/component';
 
+export interface LinkToArgs {
+  route?: string;
+  model?: unknown;
+  query?: Record<string, unknown>;
+}
+
+interface Args extends LinkToArgs {
+  isSubmit?: true;
+  text: string;
+  icon?: string;
+  iconPrefix?: string;
+  iconTrailing?: boolean;
+  iconOnly?: boolean;
+  size?: 'sm' | 'lg';
+  outline?: boolean;
+  isFullWidth?: boolean;
+  color?: string;
+  loading?: boolean;
+  href?: string;
+  count?: number;
+}
+
 export interface ButtonSignature {
-  Args: {
-    isSubmit?: true;
-    text: string;
-    icon?: string;
-    iconPrefix?: string;
-    iconTrailing?: boolean;
-    iconOnly?: boolean;
-    size?: 'sm' | 'lg';
-    outline?: boolean;
-    isFullWidth?: boolean;
-    color?: string;
-    loading?: boolean;
-    route?: string;
-    query?: Record<string, unknown>;
-    href?: string;
-    count?: number;
-  };
+  Args: Args;
   Element: HTMLButtonElement | HTMLAnchorElement;
 }
 
