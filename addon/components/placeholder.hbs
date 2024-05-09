@@ -20,9 +20,11 @@
         {{on "click" @onClick}}
       />
     {{/if}}
+    {{#if (and @onClick @onSecondaryClick)}}
+      <br />
+    {{/if}}
     {{#if @onSecondaryClick}}
       {{#if @secondaryButtonText}}
-        <br />
         <Button
           @text={{@secondaryButtonText}}
           @color="link"
