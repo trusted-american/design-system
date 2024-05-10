@@ -18,7 +18,7 @@ const fromNow = helper(
     const relativeTime = short
       ? {
           future: 'in %s',
-          past: '%s ago',
+          past: '%s',
           s: '1s',
           ss: '%ss',
           m: '1m',

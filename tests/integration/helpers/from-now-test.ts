@@ -31,7 +31,7 @@ module('Integration | Helper | from-now', function (hooks) {
 
     await render<Context>(hbs`{{from-now this.inputValue short=true}}`);
 
-    assert.dom(this.element).hasText('1Y ago');
+    assert.dom(this.element).hasText('1Y');
   });
 
   test('object reference quirks are compensated for', async function (this: Context, assert) {
@@ -46,6 +46,6 @@ module('Integration | Helper | from-now', function (hooks) {
       {{from-now this.inputValue short=true}}
     `);
 
-    assert.dom(this.element).hasText('1Y ago a year ago 1Y ago');
+    assert.dom(this.element).hasText('1Y a year ago 1Y');
   });
 });
