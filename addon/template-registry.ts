@@ -65,6 +65,7 @@ import type FormPhoneInput from './components/form/phone-input';
 import type FormRadioButton from './components/form/radio-button';
 import type FormRadioCard from './components/form/radio-card';
 import type FormRadio from './components/form/radio';
+import type FormRadioInput from './components/form/radio/input';
 import type FormSelect from './components/form/select';
 import type FormTextarea from './components/form/textarea';
 import type FormTimeInput from './components/form/time-input';
@@ -158,6 +159,7 @@ export default interface Registry {
   'Form::RadioButton': typeof FormRadioButton;
   'Form::RadioCard': typeof FormRadioCard;
   'Form::Radio': typeof FormRadio;
+  'Form::Radio::Input': typeof FormRadioInput;
   'Form::Select': typeof FormSelect;
   'Form::Textarea': typeof FormTextarea;
   'Form::TimeInput': typeof FormTimeInput;

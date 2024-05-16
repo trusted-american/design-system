@@ -65,6 +65,7 @@ export { default as FormPhoneInput } from './components/form/phone-input';
 export { default as FormRadioButton } from './components/form/radio-button';
 export { default as FormRadioCard } from './components/form/radio-card';
 export { default as FormRadio } from './components/form/radio';
+export { default as FormRadioInput } from './components/form/radio/input';
 export { default as FormSelect } from './components/form/select';
 export { default as FormTextarea } from './components/form/textarea';
 export { default as FormTimeInput } from './components/form/time-input';
