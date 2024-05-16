@@ -16,7 +16,7 @@ interface Args<T> extends BaseArgs {
 
 export interface FormRadioSignature<T> {
   Args: Args<T>;
-  Element: HTMLElement;
+  Element: HTMLInputElement;
 }
 
 export default class FormRadio<T> extends Component<FormRadioSignature<T>> {}
