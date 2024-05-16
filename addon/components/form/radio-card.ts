@@ -1,12 +1,11 @@
 import Component from '@glimmer/component';
 
 import type { BaseArgs } from './input';
-import type { Option } from '@trusted-american/design-system/components/form/select';
+import type { RadioOption } from './radio';
 
-interface RadioCardOption<T> extends Option<T> {
+interface RadioCardOption<T> extends RadioOption<T> {
   imgUrl?: string;
   icon?: string;
-  help?: string;
 }
 
 interface Args<T> extends BaseArgs {

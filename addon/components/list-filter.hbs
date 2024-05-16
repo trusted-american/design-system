@@ -27,17 +27,16 @@
       </ListGroup::Item>
 
       {{#each this.predicates as |predicate index|}}
-
         <label class="list-group-item px-2" data-test-predicate-toggle>
-          <input
-            checked={{if
+          <Form::Check::Input
+            @value={{if
               (or predicate.value (eq false predicate.value))
               true
               false
             }}
-            type="checkbox"
-            class="form-check-input me-1"
-            id="toggle{{index}}"
+            @label={{predicate.label}}
+            @identifier="toggle{{index}}"
+            class="me-1"
             {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
           />
           {{predicate.label}}
@@ -154,9 +153,7 @@
             {{/if}}
           </ListGroup::Item>
         {{/if}}
-
       {{/each}}
-
     </ListGroup>
   </form>
 </Dropdown>
