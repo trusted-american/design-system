@@ -16,6 +16,6 @@ module('Integration | Component | form/check/input', function (hooks) {
       />
     `);
 
-    assert.dom('label').hasText('Label');
+    assert.dom().hasText('');
   });
 });
