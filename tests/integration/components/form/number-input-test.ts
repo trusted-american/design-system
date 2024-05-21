@@ -19,8 +19,8 @@ module('Integration | Component | form/number-input', function (hooks) {
         @required={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
-        placeholder='Placeholder'
         @onChange={{fn (mut this.value)}}
+        placeholder='Placeholder'
       />
     `);
 
