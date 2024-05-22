@@ -18,8 +18,11 @@ body > aside {
   min-width: 17rem;
 }
 
-aside .nav-link {
-  color: var(--bs-body-color) !important;
+aside .nav-link,
+aside .nav-link:hover,
+aside .nav-link:focus,
+aside .nav-pills .nav-link.active {
+  color: var(--bs-body-color);
   transition: none;
 }
 
