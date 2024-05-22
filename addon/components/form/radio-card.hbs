@@ -24,7 +24,9 @@
                 <Icon @icon={{option.icon}} />
               </h5>
             {{/if}}
-            <h5 class="card-title">{{option.label}}</h5>
+            <h5
+              class="card-title {{unless option.help 'mb-0'}}"
+            >{{option.label}}</h5>
             {{#if option.help}}
               <p class="card-text">{{option.help}}</p>
             {{/if}}
