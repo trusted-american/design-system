@@ -15,6 +15,7 @@
     {{#if @onClick}}
       <Button
         @text={{or @buttonText "Create"}}
+        @icon={{or @buttonIcon "plus"}}
         @color="success"
         class="mt-4"
         {{on "click" @onClick}}
