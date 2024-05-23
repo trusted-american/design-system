@@ -4,7 +4,9 @@
   @required={{@required}}
 />
 
-<div class="input-group has-validation">
+<div
+  class="input-group has-validation {{if @size (concat 'input-group-' @size)}}"
+>
   <span class="input-group-text">
     +1
   </span>

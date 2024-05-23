@@ -7,7 +7,7 @@
 <input
   type="file"
   id={{@identifier}}
-  class="form-control"
+  class="form-control {{if @size (concat 'form-control-' @size)}}"
   required={{@required}}
   aria-label={{if @inputOnly @label}}
   {{on "change" this.change}}
