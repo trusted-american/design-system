@@ -19,11 +19,5 @@
     @isCheck={{true}}
   />
 
-  {{#if (and @isHelpTooltip @help)}}
-    <a href="#" tabindex="-1" class="link-secondary" {{tooltip @help}}>
-      <Icon @icon="circle-info" />
-    </a>
-  {{else}}
-    <Form::Help @text={{@help}} class="mt-0 mb-2" />
-  {{/if}}
+  <Form::Help @text={{@help}} class="mt-0 mb-2" />
 </div>
