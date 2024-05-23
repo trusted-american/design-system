@@ -18,7 +18,12 @@
   </ButtonSet>
 </Heading>
 
-<Table @data={{this.users}} as |table|>
+<Table
+  @data={{this.users}}
+  @nextText="Next"
+  @previousText="Previous"
+  as |table|
+>
   <table.header as |header|>
     <header.column @prop="email">
       Email

@@ -28,13 +28,17 @@
   <ButtonSet class="justify-content-end mt-3">
     {{#if @onPrevious}}
       <Button
-        @text="Previous"
+        @text={{@previousText}}
         disabled={{not @canPrevious}}
         {{on "click" @onPrevious}}
       />
     {{/if}}
     {{#if @onNext}}
-      <Button @text="Next" disabled={{not @canNext}} {{on "click" @onNext}} />
+      <Button
+        @text={{@nextText}}
+        disabled={{not @canNext}}
+        {{on "click" @onNext}}
+      />
     {{/if}}
   </ButtonSet>
 {{/if}}

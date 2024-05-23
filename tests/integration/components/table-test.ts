@@ -8,7 +8,7 @@ module('Integration | Component | table', function (hooks) {
 
   test('it renders', async function (assert) {
     await render<TestContext>(hbs`
-      <Table @data={{(array)}} as |table|>
+      <Table @data={{(array)}} @nextText='Next' @previousText='Previous' as |table|>
         <table.header as |header|>
           <header.column @prop='email'>
             Email

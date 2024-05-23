@@ -5,7 +5,12 @@
 
 <Subheading @title="Default" />
 
-<Table @data={{this.model}} as |table|>
+<Table
+  @data={{this.model}}
+  @nextText="Next"
+  @previousText="Previous"
+  as |table|
+>
   <table.header as |header|>
     <header.column @prop="email">
       Email
@@ -34,7 +39,13 @@
 
 <Subheading @title="Sortable" />
 
-<Table @data={{this.model}} @sortable={{true}} as |table|>
+<Table
+  @data={{this.model}}
+  @sortable={{true}}
+  @nextText="Next"
+  @previousText="Previous"
+  as |table|
+>
   <table.header as |header|>
     <header.column @prop="email" @sort="asc">
       Email
@@ -51,7 +62,14 @@
 
 <Subheading @title="Pagination, Local" />
 
-<Table @data={{this.model}} @sortable={{true}} @pagination="local" as |table|>
+<Table
+  @data={{this.model}}
+  @sortable={{true}}
+  @pagination="local"
+  @nextText="Next"
+  @previousText="Previous"
+  as |table|
+>
   <table.header as |header|>
     <header.column @prop="email" @sort="asc">
       Email
@@ -72,6 +90,8 @@
   @data={{this.model}}
   @sortable={{true}}
   @pagination="remote"
+  @nextText="Next"
+  @previousText="Previous"
   @canNext={{false}}
   @canPrevious={{false}}
   @onNext={{this.do}}

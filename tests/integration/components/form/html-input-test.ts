@@ -13,6 +13,8 @@ module('Integration | Component | form/html-input', function (hooks) {
         @label='Label'
         @identifier='identifier'
         @required={{true}}
+        @editorText='Editor'
+        @codeText='Code'
         @onChange={{(noop)}}
       />
     `);

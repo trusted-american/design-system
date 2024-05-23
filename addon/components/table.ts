@@ -65,6 +65,8 @@ export interface TableSignature<T> {
     data: T[];
     sortable?: boolean;
     pagination?: 'local' | 'remote';
+    nextText: string;
+    previousText: string;
     canNext?: boolean;
     canPrevious?: boolean;
     onNext?: () => void;

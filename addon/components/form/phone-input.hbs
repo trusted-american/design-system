@@ -23,7 +23,7 @@
     data-test-input
     ...attributes
   />
-  <Form::Error @text="Please provide a valid phone number." />
+  <Form::Error @text={{@invalidFeedback}} />
 </div>
 
 <Form::Help @text={{@help}} />

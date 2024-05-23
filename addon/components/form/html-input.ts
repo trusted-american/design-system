@@ -5,6 +5,8 @@ import type { BaseArgs } from './input';
 
 interface Args extends BaseArgs {
   value: string | null;
+  editorText: string;
+  codeText: string;
   onChange: (value: string) => void;
 }
 

@@ -49,6 +49,7 @@
           >
 
             {{#if (eq "date" predicate.type)}}
+              {{! TODO: string }}
               <Form::Select
                 @options={{array
                   (hash value="inTheLast" label="is in the last")
