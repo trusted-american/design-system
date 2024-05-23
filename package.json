@@ -67,7 +67,8 @@
     "ember-pell": "^1.4.5",
     "ember-truth-helpers": "^4.0.3",
     "ember-yeti-table": "^1.7.4",
-    "identicon.js": "^2.3.3"
+    "identicon.js": "^2.3.3",
+    "tracked-built-ins": "^3.3.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.1.0",
