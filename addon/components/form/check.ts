@@ -4,7 +4,6 @@ import type { BaseArgs } from './input';
 
 interface Args extends BaseArgs {
   value: boolean | undefined;
-  inputOnly?: boolean;
   inline?: boolean;
   switch?: boolean;
 }

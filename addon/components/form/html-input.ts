@@ -5,7 +5,6 @@ import type { BaseArgs } from './input';
 
 interface Args extends BaseArgs {
   value: string | null;
-  inputOnly?: boolean;
   onChange: (value: string) => void;
 }
 
