@@ -8,20 +8,34 @@
   @logo="https://a3.taia.us/assets/images/logo.svg"
   @route="index"
 >
-  <:default>Default</:default>
+  <:default>
+    <Aside::Item @route="index" @text="Home" @icon="house" />
+    <Aside::Item
+      @route="index"
+      @text='With a "count"'
+      @icon="users"
+      @count={{12}}
+    />
+    <Aside::Item
+      @route="index"
+      @text="Disabled"
+      @icon="house"
+      @disabled={{true}}
+    />
+  </:default>
   <:footerNav>Footer nav</:footerNav>
   <:footer>Footer</:footer>
 </Aside>
 
 <Subheading @title="Aside::Group" />
 
-<Aside::Group @text="Text" @icon="box" @route="comps.aside">
-  <Aside::Item @text="Text" @icon="box" @route="index" />
+<Aside::Group @route="comps.aside" @text="Text" @icon="box">
+  <Aside::Item @route="index" @text="Text" @icon="box" />
 </Aside::Group>
 
 <Subheading @title="Aside::Item" />
 
-<Aside::Item @text="Text" @icon="box" @route="index" />
+<Aside::Item @route="index" @text="Text" @icon="box" />
 
 <Subheading @title="Aside::Title" />
 

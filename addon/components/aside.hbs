@@ -3,13 +3,16 @@
     {{if this.collapsed 'collapsed'}}"
   data-test-aside
 >
-  <LinkTo
-    @route={{@route}}
-    class="d-flex align-items-center link-dark text-decoration-none pt-2 pb-4"
-  >
-    <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-3" />
-    <h4 class="tds-aside-title mb-0">{{@title}}</h4>
-  </LinkTo>
+  <div class="d-flex pt-2 pb-4">
+    <LinkTo
+      @route={{@route}}
+      class="d-flex align-items-center link-dark text-decoration-none flex-grow-1"
+    >
+      <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-3" />
+      <h4 class="tds-aside-title mb-0">{{@title}}</h4>
+    </LinkTo>
+    {{yield to="header"}}
+  </div>
 
   <Nav @pills={{true}} class="flex-column flex-grow-1" aria-label="Main nav">
     {{yield}}

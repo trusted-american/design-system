@@ -11,4 +11,7 @@
   {{/if}}
   <span class={{unless @icon "ms-2"}}>{{@text}}</span>
   {{yield}}
+  {{#if @count}}
+    <Badge @text="{{@count}}" />
+  {{/if}}
 </Nav::Item>

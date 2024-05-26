@@ -5,6 +5,7 @@ import type { LinkToArgs } from '../button';
 interface Args extends LinkToArgs {
   text: string;
   icon?: string;
+  count?: number;
   disabled?: boolean;
 }
 

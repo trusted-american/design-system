@@ -8,6 +8,7 @@ export interface AsideSignature {
     route: string;
   };
   Blocks: {
+    header: [];
     default: [];
     footerNav: [];
     footer: [];
