@@ -4,25 +4,38 @@
     @route={{@route}}
     @model={{@model}}
     @query={{@query}}
-    class="nav-link"
+    class="nav-link{{if @disabled ' disabled'}}"
     ...attributes
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
   </LinkTo>
 {{else if (and @route @model)}}
-  <LinkTo @route={{@route}} @model={{@model}} class="nav-link" ...attributes>
+  <LinkTo
+    @route={{@route}}
+    @model={{@model}}
+    class="nav-link{{if @disabled ' disabled'}}"
+    ...attributes
+  >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
   </LinkTo>
 {{else if @route}}
-  <LinkTo @route={{@route}} class="nav-link" ...attributes>
+  <LinkTo
+    @route={{@route}}
+    class="nav-link{{if @disabled ' disabled'}}"
+    ...attributes
+  >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
   </LinkTo>
 {{else if @query}}
-  <LinkTo @query={{@query}} class="nav-link" ...attributes>
+  <LinkTo
+    @query={{@query}}
+    class="nav-link{{if @disabled ' disabled'}}"
+    ...attributes
+  >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
   </LinkTo>
 {{else}}
-  <a href="#" class="nav-link" ...attributes>
+  <a href="#" class="nav-link{{if @disabled ' disabled'}}" ...attributes>
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
   </a>
 {{/if}}
