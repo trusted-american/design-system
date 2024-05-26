@@ -9,8 +9,8 @@ export interface AsideSignature {
   };
   Blocks: {
     default: [];
-    lower: [];
-    bottom: [];
+    footerNav: [];
+    footer: [];
   };
 }
 

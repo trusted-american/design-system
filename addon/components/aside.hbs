@@ -11,17 +11,17 @@
     <h4 class="tds-aside-title mb-0">{{@title}}</h4>
   </LinkTo>
 
-  <Nav @pills={{true}} class="flex-column flex-grow-1" aria-label="Upper nav">
+  <Nav @pills={{true}} class="flex-column flex-grow-1" aria-label="Main nav">
     {{yield}}
   </Nav>
 
-  <Nav @pills={{true}} class="flex-column" aria-label="Lower nav">
-    {{yield to="lower"}}
+  <Nav @pills={{true}} class="flex-column" aria-label="Footer nav">
+    {{yield to="footerNav"}}
   </Nav>
 
-  {{#if (has-block "bottom")}}
+  {{#if (has-block "footer")}}
     <div class="pt-3">
-      {{yield to="bottom"}}
+      {{yield to="footer"}}
     </div>
   {{/if}}
 

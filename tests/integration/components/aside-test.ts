@@ -16,9 +16,9 @@ module('Integration | Component | aside', function (hooks) {
         <:default>
           Default
         </:default>
-        <:bottom>
+        <:footer>
           Bottom
-        </:bottom>
+        </:footer>
       </Aside>
     `);
 
