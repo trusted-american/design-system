@@ -1,6 +1,7 @@
 <div
   class="toast mt-3 {{if @color (concat 'text-bg-' @color)}}"
   role="alert"
+  data-test-toast
   {{did-insert this.didInsert}}
 >
   {{#if (has-block "title")}}
