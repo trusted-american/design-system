@@ -1,5 +1,7 @@
 <div
-  class="alert alert-{{if @color @color 'secondary'}} d-flex gap-3"
+  class="alert alert-{{if @color @color 'secondary'}}
+    {{if @onClose 'alert-dismissible'}}
+    d-flex gap-3"
   role="alert"
   data-test-alert
   ...attributes
@@ -15,4 +17,7 @@
     {{/if}}
     {{yield}}
   </div>
+  {{#if @onClose}}
+    <CloseButton data-bs-dismiss="alert" {{on "click" @onClose}} />
+  {{/if}}
 </div>

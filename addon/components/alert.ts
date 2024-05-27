@@ -4,6 +4,7 @@ export interface AlertSignature {
   Args: {
     color?: string;
     icon?: string;
+    onClose?: () => void;
   };
   Blocks: {
     title: [];
