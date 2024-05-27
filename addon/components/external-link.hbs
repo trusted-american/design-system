@@ -5,13 +5,21 @@
   data-test-external-link
   ...attributes
 >
-  {{#if @iconTrailing}}
-    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-  {{/if}}
+  {{#unless @iconOnly}}
+    {{#if @iconTrailing}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    {{/if}}
+  {{/unless}}
   {{#if @icon}}
-    <Icon @icon={{@icon}} class={{if @iconTrailing "ms-1" "me-1"}} />
+    <Icon
+      @icon={{@icon}}
+      @prefix={{@iconPrefix}}
+      class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
+    />
   {{/if}}
-  {{#unless @iconTrailing}}
-    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+  {{#unless @iconOnly}}
+    {{#unless @iconTrailing}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    {{/unless}}
   {{/unless}}
 </a>

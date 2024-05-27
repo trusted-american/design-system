@@ -18,18 +18,21 @@ body > aside {
   min-width: 17rem;
 }
 
-aside .nav-link {
-  color: var(--bs-body-color) !important;
+aside .nav-link.active {
+  background-color: var(--bs-body-bg) !important;
+  font-weight: 600;
+}
+
+aside .nav-link,
+aside .nav-link:hover,
+aside .nav-link:focus,
+aside .nav-pills .nav-link.active {
+  color: var(--bs-body-color);
   transition: none;
 }
 
 aside .nav-link:hover {
   background-color: var(--bs-secondary-bg);
-}
-
-aside .nav-link.active {
-  background-color: var(--bs-body-bg) !important;
-  font-weight: 600;
 }
 
 body aside .tds-aside-logo {

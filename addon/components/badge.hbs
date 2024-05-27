@@ -1,6 +1,10 @@
-<span class="badge text-bg-{{if @color @color 'secondary'}}" ...attributes>
+<span
+  class="badge text-bg-{{if @color @color 'secondary'}}"
+  data-test-badge
+  ...attributes
+>
   {{#if @icon}}
-    <Icon @icon={{@icon}} class="me-1" />
+    <Icon @icon={{@icon}} class={{if @text "me-1"}} />
   {{/if}}
   {{@text}}
 </span>

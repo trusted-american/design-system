@@ -1,11 +1,14 @@
 import Component from '@glimmer/component';
 
+import type { LinkToArgs } from '../button';
+
+interface Args extends LinkToArgs {
+  text: string;
+  icon?: string;
+}
+
 export interface AsideItemSignature {
-  Args: {
-    text: string;
-    icon?: string;
-    route?: string;
-  };
+  Args: Args;
   Blocks: {
     default: [];
   };

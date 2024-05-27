@@ -12,7 +12,6 @@ interface Args extends BaseArgs {
   value: Date | null | undefined;
   min?: Date | null;
   max?: Date | null;
-  inputOnly?: boolean;
   size?: 'sm' | 'lg';
   isLocalTimeZone?: boolean;
   onChange: (value: Date | null) => void;

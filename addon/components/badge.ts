@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface BadgeSignature {
   Args: {
-    text: string;
+    text?: string;
     color?: string;
     icon?: string;
   };

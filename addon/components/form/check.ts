@@ -1,17 +1,15 @@
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
+
+interface Args extends BaseArgs {
+  value: boolean | undefined;
+  inline?: boolean;
+  switch?: boolean;
+}
+
 export interface FormCheckSignature {
-  Args: {
-    value: boolean | undefined;
-    label: string;
-    identifier: string;
-    required?: boolean;
-    help?: string;
-    inputOnly?: boolean;
-    inline?: boolean;
-    switch?: boolean;
-    isHelpTooltip?: boolean;
-  };
+  Args: Args;
   Element: HTMLInputElement;
 }
 

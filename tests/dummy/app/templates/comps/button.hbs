@@ -39,14 +39,20 @@
 </p>
 
 <p>
+  <Button @text="Route button" @route="index" />
+
+  <Button @text="Route button with query" @route="index" @query={{(hash)}} />
+</p>
+
+<p>
   <Button
-    @text="href button"
+    @text="Href button"
     @icon="up-right-from-square"
     @href="https://www.google.com/"
   />
 
   <Button
-    @text="href button with trailing icon"
+    @text="Href button with trailing icon"
     @icon="arrow-right"
     @iconTrailing={{true}}
     @href="https://www.google.com/"

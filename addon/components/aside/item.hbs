@@ -1,4 +1,10 @@
-<Nav::Item @route={{@route}} class="px-2" ...attributes>
+<Nav::Item
+  @route={{@route}}
+  @model={{@model}}
+  @query={{@query}}
+  class="px-2"
+  ...attributes
+>
   {{#if @icon}}
     <Icon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
   {{/if}}

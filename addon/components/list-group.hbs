@@ -4,6 +4,7 @@
     {{if @numbered 'list-group-numbered'}}
     {{if @horizontal 'list-group-horizontal'}}
     {{if @color (concat 'list-group-item-' @color)}}"
+  data-test-list-group
   ...attributes
 >
   {{yield}}

@@ -44,11 +44,14 @@ import type CardBody from './components/card/body';
 import type CardFooter from './components/card/footer';
 import type CardHeader from './components/card/header';
 
+import type CopyButton from './components/copy/button';
+
 import type DropdownDivider from './components/dropdown/divider';
 import type DropdownHeader from './components/dropdown/header';
 import type DropdownItem from './components/dropdown/item';
 
 import type FormCheck from './components/form/check';
+import type FormCheckInput from './components/form/check/input';
 import type FormDateInput from './components/form/date-input';
 import type FormError from './components/form/error';
 import type FormFileDropzone from './components/form/file-dropzone';
@@ -62,6 +65,7 @@ import type FormPhoneInput from './components/form/phone-input';
 import type FormRadioButton from './components/form/radio-button';
 import type FormRadioCard from './components/form/radio-card';
 import type FormRadio from './components/form/radio';
+import type FormRadioInput from './components/form/radio/input';
 import type FormSelect from './components/form/select';
 import type FormTextarea from './components/form/textarea';
 import type FormTimeInput from './components/form/time-input';
@@ -134,11 +138,14 @@ export default interface Registry {
   'Card::Footer': typeof CardFooter;
   'Card::Header': typeof CardHeader;
 
+  'Copy::Button': typeof CopyButton;
+
   'Dropdown::Divider': typeof DropdownDivider;
   'Dropdown::Header': typeof DropdownHeader;
   'Dropdown::Item': typeof DropdownItem;
 
   'Form::Check': typeof FormCheck;
+  'Form::Check::Input': typeof FormCheckInput;
   'Form::DateInput': typeof FormDateInput;
   'Form::Error': typeof FormError;
   'Form::FileDropzone': typeof FormFileDropzone;
@@ -152,6 +159,7 @@ export default interface Registry {
   'Form::RadioButton': typeof FormRadioButton;
   'Form::RadioCard': typeof FormRadioCard;
   'Form::Radio': typeof FormRadio;
+  'Form::Radio::Input': typeof FormRadioInput;
   'Form::Select': typeof FormSelect;
   'Form::Textarea': typeof FormTextarea;
   'Form::TimeInput': typeof FormTimeInput;

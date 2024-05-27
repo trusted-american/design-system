@@ -1,16 +1,18 @@
 import Component from '@glimmer/component';
 
+import type { LinkToArgs } from '../button';
+
+interface Args extends LinkToArgs {
+  text?: string;
+  subtitle?: string;
+  icon?: string;
+  shortcut?: string;
+  color?: string;
+  href?: string;
+}
+
 export interface DropdownItemSignature {
-  Args: {
-    text?: string;
-    subtitle?: string;
-    icon?: string;
-    shortcut?: string;
-    color?: string;
-    route?: string;
-    model?: unknown;
-    href?: string;
-  };
+  Args: Args;
   Blocks: {
     default: [];
   };

@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import type { BaseArgs } from './input';
 
 interface Args extends BaseArgs {
-  inputOnly?: boolean;
+  size?: 'sm' | 'lg';
   onChange: (file: File) => void;
 }
 

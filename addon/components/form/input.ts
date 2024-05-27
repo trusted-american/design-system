@@ -6,12 +6,12 @@ export interface BaseArgs {
   required?: boolean;
   help?: string;
   invalidFeedback?: string;
+  inputOnly?: boolean;
 }
 
 interface Args extends BaseArgs {
   value: string | null | undefined;
   type?: string;
-  inputOnly?: boolean;
   size?: 'sm' | 'lg';
   errors?: { message: string }[];
 }

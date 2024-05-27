@@ -44,11 +44,14 @@ export { default as CardBody } from './components/card/body';
 export { default as CardFooter } from './components/card/footer';
 export { default as CardHeader } from './components/card/header';
 
+export { default as CopyButton } from './components/copy/button';
+
 export { default as DropdownDivider } from './components/dropdown/divider';
 export { default as DropdownHeader } from './components/dropdown/header';
 export { default as DropdownItem } from './components/dropdown/item';
 
 export { default as FormCheck } from './components/form/check';
+export { default as FormCheckInput } from './components/form/check/input';
 export { default as FormDateInput } from './components/form/date-input';
 export { default as FormError } from './components/form/error';
 export { default as FormFileDropzone } from './components/form/file-dropzone';
@@ -62,6 +65,7 @@ export { default as FormPhoneInput } from './components/form/phone-input';
 export { default as FormRadioButton } from './components/form/radio-button';
 export { default as FormRadioCard } from './components/form/radio-card';
 export { default as FormRadio } from './components/form/radio';
+export { default as FormRadioInput } from './components/form/radio/input';
 export { default as FormSelect } from './components/form/select';
 export { default as FormTextarea } from './components/form/textarea';
 export { default as FormTimeInput } from './components/form/time-input';

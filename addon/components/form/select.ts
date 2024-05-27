@@ -10,7 +10,6 @@ export interface Option<T> {
 
 interface Args<T> extends BaseArgs {
   selected: T;
-  inputOnly?: boolean;
   size?: 'sm' | 'lg';
   onChange: (value: T) => void;
 }
