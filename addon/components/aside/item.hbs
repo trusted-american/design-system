@@ -12,6 +12,6 @@
   <span class={{unless @icon "ms-2"}}>{{@text}}</span>
   {{yield}}
   {{#if @count}}
-    <Badge @text="{{@count}}" />
+    <Badge @text="{{@count}}" @pill={{true}} />
   {{/if}}
 </Nav::Item>
