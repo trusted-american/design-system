@@ -9,7 +9,7 @@
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{#if @count}}
-      <Badge @text="{{@count}}" @pill={{true}} />
+      <Badge @text="{{@count}}" @pill={{true}} class="ms-1" />
     {{/if}}
   </LinkTo>
 {{else if (and @route @model)}}
@@ -21,7 +21,7 @@
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{#if @count}}
-      <Badge @text="{{@count}}" @pill={{true}} />
+      <Badge @text="{{@count}}" @pill={{true}} class="ms-1" />
     {{/if}}
   </LinkTo>
 {{else if @route}}
@@ -32,7 +32,7 @@
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{#if @count}}
-      <Badge @text="{{@count}}" @pill={{true}} />
+      <Badge @text="{{@count}}" @pill={{true}} class="ms-1" />
     {{/if}}
   </LinkTo>
 {{else if @query}}
@@ -43,14 +43,14 @@
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{#if @count}}
-      <Badge @text="{{@count}}" @pill={{true}} />
+      <Badge @text="{{@count}}" @pill={{true}} class="ms-1" />
     {{/if}}
   </LinkTo>
 {{else}}
   <a href="#" class="nav-link{{if @disabled ' disabled'}}" ...attributes>
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{#if @count}}
-      <Badge @text="{{@count}}" @pill={{true}} />
+      <Badge @text="{{@count}}" @pill={{true}} class="ms-1" />
     {{/if}}
   </a>
 {{/if}}
