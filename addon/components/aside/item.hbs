@@ -2,6 +2,7 @@
   @route={{@route}}
   @model={{@model}}
   @query={{@query}}
+  @count={{@count}}
   @disabled={{@disabled}}
   class="px-2"
   ...attributes
@@ -11,7 +12,4 @@
   {{/if}}
   <span class={{unless @icon "ms-2"}}>{{@text}}</span>
   {{yield}}
-  {{#if @count}}
-    <Badge @text="{{@count}}" @pill={{true}} />
-  {{/if}}
 </Nav::Item>
