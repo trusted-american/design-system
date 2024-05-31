@@ -11,13 +11,13 @@ interface Args extends LinkToArgs {
   text: string;
   icon?: string;
   iconPrefix?: string;
-  iconTrailing?: boolean;
-  iconOnly?: boolean;
+  isIconTrailing?: boolean;
+  isIconOnly?: boolean;
   size?: 'sm' | 'lg';
-  outline?: boolean;
+  isOutline?: boolean;
   isFullWidth?: boolean;
   color?: string;
-  loading?: boolean;
+  isLoading?: boolean;
   href?: string;
   count?: number;
 }

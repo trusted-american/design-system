@@ -6,7 +6,7 @@ interface Args extends LinkToArgs {
   text: string;
   icon?: string;
   count?: number;
-  disabled?: boolean;
+  isDisabled?: boolean;
 }
 
 export interface AsideItemSignature {

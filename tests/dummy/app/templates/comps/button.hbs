@@ -19,19 +19,19 @@
     @text="Success button with trailing icon"
     @color="success"
     @icon="plus"
-    @iconTrailing={{true}}
+    @isIconTrailing={{true}}
     {{on "click" this.do}}
   />
 
   <Button
     @text="Success button with only icon"
     @icon="plus"
-    @iconOnly={{true}}
+    @isIconOnly={{true}}
     @color="success"
     {{on "click" this.do}}
   />
 
-  <Button @text="Loading button" @loading={{true}} {{on "click" this.do}} />
+  <Button @text="Loading button" @isLoading={{true}} {{on "click" this.do}} />
 
   <Button @text="Disabled button" disabled {{on "click" this.do}} />
 
@@ -54,7 +54,7 @@
   <Button
     @text="Href button with trailing icon"
     @icon="arrow-right"
-    @iconTrailing={{true}}
+    @isIconTrailing={{true}}
     @href="https://www.google.com/"
   />
 </p>

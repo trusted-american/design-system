@@ -5,7 +5,7 @@ import type { LinkToArgs } from '../button';
 interface Args extends LinkToArgs {
   text?: string;
   count?: number;
-  disabled?: boolean;
+  isDisabled?: boolean;
 }
 
 export interface NavItemSignature {

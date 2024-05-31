@@ -5,8 +5,8 @@
   data-test-external-link
   ...attributes
 >
-  {{#unless @iconOnly}}
-    {{#if @iconTrailing}}
+  {{#unless @isIconOnly}}
+    {{#if @isIconTrailing}}
       {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{/if}}
   {{/unless}}
@@ -14,11 +14,11 @@
     <Icon
       @icon={{@icon}}
       @prefix={{@iconPrefix}}
-      class={{unless @iconOnly (if @iconTrailing "ms-1" "me-1")}}
+      class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
     />
   {{/if}}
-  {{#unless @iconOnly}}
-    {{#unless @iconTrailing}}
+  {{#unless @isIconOnly}}
+    {{#unless @isIconTrailing}}
       {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{/unless}}
   {{/unless}}

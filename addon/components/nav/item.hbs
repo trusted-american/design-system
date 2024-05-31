@@ -4,7 +4,7 @@
     @route={{@route}}
     @model={{@model}}
     @query={{@query}}
-    class="nav-link{{if @disabled ' disabled'}}"
+    class="nav-link{{if @isDisabled ' disabled'}}"
     ...attributes
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
@@ -16,7 +16,7 @@
   <LinkTo
     @route={{@route}}
     @model={{@model}}
-    class="nav-link{{if @disabled ' disabled'}}"
+    class="nav-link{{if @isDisabled ' disabled'}}"
     ...attributes
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
@@ -27,7 +27,7 @@
 {{else if @route}}
   <LinkTo
     @route={{@route}}
-    class="nav-link{{if @disabled ' disabled'}}"
+    class="nav-link{{if @isDisabled ' disabled'}}"
     ...attributes
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
@@ -38,7 +38,7 @@
 {{else if @query}}
   <LinkTo
     @query={{@query}}
-    class="nav-link{{if @disabled ' disabled'}}"
+    class="nav-link{{if @isDisabled ' disabled'}}"
     ...attributes
   >
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
@@ -47,7 +47,7 @@
     {{/if}}
   </LinkTo>
 {{else}}
-  <a href="#" class="nav-link{{if @disabled ' disabled'}}" ...attributes>
+  <a href="#" class="nav-link{{if @isDisabled ' disabled'}}" ...attributes>
     {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     {{#if @count}}
       <Badge @text="{{@count}}" @pill={{true}} class="ms-1" />

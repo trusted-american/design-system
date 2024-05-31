@@ -6,8 +6,8 @@ export interface ExternalLinkSignature {
     text?: string;
     icon?: string;
     iconPrefix?: string;
-    iconTrailing?: boolean;
-    iconOnly?: boolean;
+    isIconTrailing?: boolean;
+    isIconOnly?: boolean;
   };
   Blocks: {
     default: [];
