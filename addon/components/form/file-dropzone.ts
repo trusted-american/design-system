@@ -14,9 +14,7 @@ export interface FormFileDropzoneSignature {
 }
 
 export default class FormFileDropzone extends Component<FormFileDropzoneSignature> {
-  get id(): string {
-    return guidFor(this);
-  }
+  id = guidFor(this);
 
   @action
   create({ file }: UploadFile): void {

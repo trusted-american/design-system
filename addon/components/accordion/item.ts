@@ -23,9 +23,7 @@ export interface AccordionItemSignature {
 }
 
 export default class AccordionItem extends Component<AccordionItemSignature> {
-  get id(): string {
-    return guidFor(this);
-  }
+  id = guidFor(this);
 }
 
 declare module '@glint/environment-ember-loose/registry' {

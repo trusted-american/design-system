@@ -16,9 +16,7 @@ export interface AccordionSignature {
 }
 
 export default class Accordion extends Component<AccordionSignature> {
-  get id(): string {
-    return guidFor(this);
-  }
+  id = guidFor(this);
 
   get alwaysOpen(): boolean | undefined {
     return this.args.alwaysOpen;

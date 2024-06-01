@@ -17,9 +17,7 @@ export interface FlyoutSignature {
 export default class Flyout extends Component<FlyoutSignature> {
   offcanvas?: Offcanvas;
 
-  get id(): string {
-    return guidFor(this);
-  }
+  id = guidFor(this);
 
   @action
   didInsert(element: Element): void {

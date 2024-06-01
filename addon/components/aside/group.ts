@@ -13,9 +13,7 @@ interface AsideGroupSignature {
 }
 
 export default class AsideGroup extends Component<AsideGroupSignature> {
-  get id(): string {
-    return guidFor(this);
-  }
+  id = guidFor(this);
 }
 
 declare module '@glint/environment-ember-loose/registry' {
