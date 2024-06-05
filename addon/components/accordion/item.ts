@@ -9,12 +9,12 @@ import type { WithBoundArgs } from '@glint/template';
 export interface AccordionItemSignature {
   Args: {
     accordion: Accordion;
-    show?: boolean;
+    isOpen?: boolean;
   };
   Blocks: {
     default: [
       {
-        button?: WithBoundArgs<typeof AccordionButton, 'item' | 'show'>;
+        button?: WithBoundArgs<typeof AccordionButton, 'item' | 'isOpen'>;
         body?: WithBoundArgs<typeof AccordionBody, never>;
       },
     ];

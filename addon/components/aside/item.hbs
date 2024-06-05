@@ -8,7 +8,7 @@
   ...attributes
 >
   {{#if @icon}}
-    <Icon @icon={{@icon}} @fixedWidth={{true}} class="me-1" />
+    <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
   {{/if}}
   <span class={{unless @icon "ms-2"}}>{{@text}}</span>
   {{yield}}

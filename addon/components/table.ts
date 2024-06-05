@@ -63,7 +63,7 @@ export type YetiTableFooter = ComponentLike<{
 export interface TableSignature<T> {
   Args: {
     data: T[];
-    sortable?: boolean;
+    isSortable?: boolean;
     pagination?: 'local' | 'remote';
     nextText: string;
     previousText: string;

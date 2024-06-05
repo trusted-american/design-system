@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface NavSignature {
   Args: {
-    pills?: boolean;
+    isPills?: boolean;
   };
   Blocks: {
     default: [];

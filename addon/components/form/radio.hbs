@@ -1,12 +1,12 @@
 <Form::Label
-  @text={{unless @inputOnly @label}}
+  @text={{unless @isInputOnly @label}}
   @identifier="{{@identifier}}0"
   @required={{@required}}
 />
 
 <div>
   {{#each @options as |option index|}}
-    <div class="form-check {{if @inline 'form-check-inline'}}">
+    <div class="form-check {{if @isInline 'form-check-inline'}}">
       <Form::Radio::Input
         @checked={{eq @selected option.value}}
         @name={{@identifier}}

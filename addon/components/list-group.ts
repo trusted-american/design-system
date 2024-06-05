@@ -2,9 +2,9 @@ import Component from '@glimmer/component';
 
 export interface ListGroupSignature {
   Args: {
-    flush?: boolean;
-    numbered?: boolean;
-    horizontal?: boolean;
+    isFlush?: boolean;
+    isNumbered?: boolean;
+    isHorizontal?: boolean;
     color?: string;
   };
   Blocks: {

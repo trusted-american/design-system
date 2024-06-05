@@ -6,7 +6,7 @@ export interface BaseArgs {
   required?: boolean;
   help?: string;
   invalidFeedback?: string;
-  inputOnly?: boolean;
+  isInputOnly?: boolean;
 }
 
 interface Args extends BaseArgs {

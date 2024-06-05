@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface CollapseSignature {
   Args: {
-    horizontal?: boolean;
+    isHorizontal?: boolean;
   };
   Blocks: {
     default: [];

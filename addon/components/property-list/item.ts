@@ -6,7 +6,7 @@ export interface PropertyListItemSignature {
     value?: string | null;
     alt?: unknown;
     tooltip?: string;
-    horizontal?: boolean;
+    isHorizontal?: boolean;
   };
   Blocks: {
     default: [];

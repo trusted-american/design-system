@@ -6,12 +6,12 @@ import type PropertyListItem from './property-list/item';
 export interface PropertyListSignature {
   Args: {
     title?: string;
-    horizontal?: boolean;
+    isHorizontal?: boolean;
   };
   Blocks: {
     default: [
       {
-        item: WithBoundArgs<typeof PropertyListItem, 'horizontal'>;
+        item: WithBoundArgs<typeof PropertyListItem, 'isHorizontal'>;
       },
     ];
   };

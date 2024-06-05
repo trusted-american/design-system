@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @inputOnly @label}}
+  @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
   @required={{@required}}
 />
@@ -28,7 +28,7 @@
         @label={{@label}}
         @identifier={{@identifier}}
         @required={{@required}}
-        @inputOnly={{true}}
+        @isInputOnly={{true}}
         class="border-0"
         data-test-value-code
         ...attributes

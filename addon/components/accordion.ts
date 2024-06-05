@@ -6,8 +6,8 @@ import type AccordionItem from './accordion/item';
 
 export interface AccordionSignature {
   Args: {
-    flush?: boolean;
-    alwaysOpen?: boolean;
+    isFlush?: boolean;
+    isAlwaysOpen?: boolean;
   };
   Blocks: {
     default: [{ item: WithBoundArgs<typeof AccordionItem, 'accordion'> }];
@@ -18,8 +18,8 @@ export interface AccordionSignature {
 export default class Accordion extends Component<AccordionSignature> {
   id = guidFor(this);
 
-  get alwaysOpen(): boolean | undefined {
-    return this.args.alwaysOpen;
+  get isAlwaysOpen(): boolean | undefined {
+    return this.args.isAlwaysOpen;
   }
 }
 

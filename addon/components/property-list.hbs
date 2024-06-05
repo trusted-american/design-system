@@ -4,9 +4,9 @@
       {{@title}}
     </p>
   {{/if}}
-  <dl class="row {{if @horizontal 'gx-5'}} mb-0">
+  <dl class="row {{if @isHorizontal 'gx-5'}} mb-0">
     {{yield
-      (hash item=(component "property-list/item" horizontal=@horizontal))
+      (hash item=(component "property-list/item" isHorizontal=@isHorizontal))
     }}
   </dl>
 </div>

@@ -1,19 +1,19 @@
 <div
   class="form-check
-    {{if @inline 'form-check-inline'}}
-    {{if @switch 'form-switch'}}"
+    {{if @isInline 'form-check-inline'}}
+    {{if @isSwitch 'form-switch'}}"
 >
   <Form::Check::Input
     @value={{@value}}
     @label={{@label}}
     @identifier={{@identifier}}
     @required={{@required}}
-    @inputOnly={{@inputOnly}}
+    @isInputOnly={{@isInputOnly}}
     ...attributes
   />
 
   <Form::Label
-    @text={{unless @inputOnly @label}}
+    @text={{unless @isInputOnly @label}}
     @identifier={{@identifier}}
     @required={{@required}}
     @isCheck={{true}}

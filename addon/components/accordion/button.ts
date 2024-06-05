@@ -5,7 +5,7 @@ import type AccordionItem from './item';
 export interface AccordionButtonSignature {
   Args: {
     item: AccordionItem;
-    show?: boolean;
+    isOpen?: boolean;
   };
   Blocks: {
     default: [];

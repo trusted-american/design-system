@@ -6,7 +6,7 @@ export interface FormCheckInputSignature {
     label: string;
     identifier: string;
     required?: boolean;
-    inputOnly?: boolean;
+    isInputOnly?: boolean;
   };
   Element: HTMLInputElement;
 }

@@ -10,7 +10,7 @@ export interface RadioOption<T> extends Option<T> {
 interface Args<T> extends BaseArgs {
   options: RadioOption<T>[];
   selected: T | null | undefined;
-  inline?: boolean;
+  isInline?: boolean;
   onChange: (selected: T) => void;
 }
 

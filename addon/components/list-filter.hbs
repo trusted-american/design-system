@@ -8,7 +8,7 @@
 
 <Dropdown class="overflow-hidden p-0" data-test-list-filter-dropdown>
   <form novalidate {{on "submit" this.done}}>
-    <ListGroup @flush={{true}}>
+    <ListGroup @isFlush={{true}}>
 
       <ListGroup::Item class="bg-body-tertiary px-2">
         <ButtonSet class="justify-content-between">
@@ -63,7 +63,7 @@
                 @selected={{predicate.mode}}
                 @label="Mode"
                 @identifier="mode{{index}}"
-                @inputOnly={{true}}
+                @isInputOnly={{true}}
                 @onChange={{fn (mut predicate.mode)}}
                 class="mb-2"
               />
@@ -75,7 +75,7 @@
                     @label="Value A"
                     @identifier="valueA{{index}}"
                     @required={{true}}
-                    @inputOnly={{true}}
+                    @isInputOnly={{true}}
                     @onChange={{fn (mut predicate.valueA)}}
                     min="1"
                   />
@@ -87,7 +87,7 @@
                     @selected={{predicate.valueB}}
                     @label="Value B"
                     @identifier="valueB{{index}}"
-                    @inputOnly={{true}}
+                    @isInputOnly={{true}}
                     @onChange={{fn (mut predicate.valueB)}}
                   />
                 {{else}}
@@ -96,7 +96,7 @@
                     @label="Value A"
                     @identifier="valueA{{index}}"
                     @required={{true}}
-                    @inputOnly={{true}}
+                    @isInputOnly={{true}}
                     @isLocalTimeZone={{true}}
                     @onChange={{fn (mut predicate.valueA)}}
                   />
@@ -107,7 +107,7 @@
                       @label="Value B"
                       @identifier="valueB{{index}}"
                       @required={{true}}
-                      @inputOnly={{true}}
+                      @isInputOnly={{true}}
                       @isLocalTimeZone={{true}}
                       @onChange={{fn this.setValueB predicate}}
                     />
@@ -137,7 +137,7 @@
                 @value={{predicate.value}}
                 @label="Value"
                 @identifier="value{{index}}"
-                @inputOnly={{true}}
+                @isInputOnly={{true}}
               />
 
             {{else}}
@@ -147,7 +147,7 @@
                 @selected={{predicate.value}}
                 @label="Value"
                 @identifier="value{{index}}"
-                @inputOnly={{true}}
+                @isInputOnly={{true}}
                 @onChange={{fn (mut predicate.value)}}
               />
 

@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @inputOnly @label}}
+  @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
   @required={{@required}}
 />
@@ -19,7 +19,7 @@
     autocomplete="tel-national"
     class="form-control"
     required={{@required}}
-    aria-label={{if @inputOnly @label}}
+    aria-label={{if @isInputOnly @label}}
     data-test-input
     ...attributes
   />

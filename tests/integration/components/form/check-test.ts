@@ -18,8 +18,8 @@ module('Integration | Component | form/check', function (hooks) {
         @value={{this.value}}
         @label='Label'
         @identifier='identifier'
-        @inline={{false}}
-        @switch={{false}}
+        @isInline={{false}}
+        @isSwitch={{false}}
         @help='Help'
       />
     `);

@@ -4,8 +4,8 @@ import type { BaseArgs } from './input';
 
 interface Args extends BaseArgs {
   value: boolean | undefined;
-  inline?: boolean;
-  switch?: boolean;
+  isInline?: boolean;
+  isSwitch?: boolean;
 }
 
 export interface FormCheckSignature {

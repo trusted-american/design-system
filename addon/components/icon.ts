@@ -4,7 +4,7 @@ interface IconSignature {
   Args: {
     icon: string;
     color?: string;
-    fixedWidth?: boolean;
+    isFixedWidth?: boolean;
     size?: string;
     prefix?: string;
     transform?: string;
