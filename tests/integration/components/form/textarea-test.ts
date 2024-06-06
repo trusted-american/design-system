@@ -31,7 +31,7 @@ module('Integration | Component | form/textarea', function (hooks) {
     assert.dom('[data-test-form-help]').exists();
     assert.dom('[data-test-form-error]').exists();
 
-    this.set('required', false);
+    this.set('isRequired', false);
 
     assert.dom('textarea').isNotRequired();
   });
