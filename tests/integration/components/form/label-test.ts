@@ -11,7 +11,7 @@ module('Integration | Component | form/label', function (hooks) {
       <Form::Label
         @text='Text'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
       />
     `);
 

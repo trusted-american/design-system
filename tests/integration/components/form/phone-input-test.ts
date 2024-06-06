@@ -21,7 +21,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
         @value={{this.value}}
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
         @onChange={{this.onChange}}

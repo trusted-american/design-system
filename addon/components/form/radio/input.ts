@@ -5,7 +5,7 @@ export interface FormRadioInputSignature {
     checked: boolean;
     name: string;
     identifier: string;
-    required?: boolean;
+    isRequired?: boolean;
   };
   Element: HTMLInputElement;
 }

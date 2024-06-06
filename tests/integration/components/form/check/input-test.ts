@@ -12,7 +12,7 @@ module('Integration | Component | form/check/input', function (hooks) {
         @value={{false}}
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
       />
     `);
 

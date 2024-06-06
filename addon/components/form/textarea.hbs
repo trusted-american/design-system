@@ -1,14 +1,14 @@
 <Form::Label
   @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
-  @required={{@required}}
+  @isRequired={{@isRequired}}
 />
 
 <Textarea
   @value={{@value}}
   id={{@identifier}}
   class="form-control {{if @size (concat 'form-control-' @size)}}"
-  required={{@required}}
+  required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
   ...attributes
 />

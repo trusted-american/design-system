@@ -16,12 +16,12 @@ interface Args<T> extends BaseArgs {
 
 interface ComplexArgs<T> extends Args<T> {
   options: Option<T>[];
-  simple?: undefined;
+  isSimple?: undefined;
 }
 
 interface SimpleArgs<T> extends Args<T> {
   options: T[];
-  simple: true;
+  isSimple: true;
 }
 
 export interface FormSelectSignature<T> {

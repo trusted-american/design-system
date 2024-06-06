@@ -16,7 +16,7 @@ module('Integration | Component | form/time-input', function (hooks) {
         @value={{null}}
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
         @onChange={{fn (mut this.value)}}

@@ -1,7 +1,7 @@
 <Form::Label
   @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
-  @required={{@required}}
+  @isRequired={{@isRequired}}
 />
 
 <div
@@ -18,7 +18,7 @@
     pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
     autocomplete="tel-national"
     class="form-control"
-    required={{@required}}
+    required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
     data-test-input
     ...attributes

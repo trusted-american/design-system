@@ -12,7 +12,7 @@ module('Integration | Component | form/html-input', function (hooks) {
         @value='value'
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @editorText='Editor'
         @codeText='Code'
         @onChange={{(noop)}}

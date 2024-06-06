@@ -19,7 +19,7 @@ module('Integration | Component | form/file-input', function (hooks) {
       <Form::FileInput
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
         @onChange={{this.onChange}}

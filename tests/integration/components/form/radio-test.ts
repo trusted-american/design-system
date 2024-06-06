@@ -27,7 +27,7 @@ module('Integration | Component | form/radio', function (hooks) {
         @selected={{this.selected}}
         @label='Label'
         @identifier='identifier'
-        @required={{undefined}}
+        @isRequired={{undefined}}
         @isInline={{undefined}}
         @onChange={{this.onChange}}
       />

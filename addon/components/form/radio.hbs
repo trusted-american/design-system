@@ -1,7 +1,7 @@
 <Form::Label
   @text={{unless @isInputOnly @label}}
   @identifier="{{@identifier}}0"
-  @required={{@required}}
+  @isRequired={{@isRequired}}
 />
 
 <div>
@@ -11,7 +11,7 @@
         @checked={{eq @selected option.value}}
         @name={{@identifier}}
         @identifier="{{@identifier}}{{index}}"
-        @required={{@required}}
+        @isRequired={{@isRequired}}
         {{on "change" (fn @onChange option.value)}}
         ...attributes
       />

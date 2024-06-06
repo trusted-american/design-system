@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 export interface BaseArgs {
   label: string;
   identifier: string;
-  required?: boolean;
+  isRequired?: boolean;
   help?: string;
   invalidFeedback?: string;
   isInputOnly?: boolean;

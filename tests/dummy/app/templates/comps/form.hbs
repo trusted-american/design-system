@@ -9,7 +9,7 @@
   @value={{this.check}}
   @label="Label"
   @identifier="check"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
 />
@@ -20,7 +20,7 @@
   @value={{this.date}}
   @label="Label"
   @identifier="dateInput"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
   @onChange={{fn (mut this.date)}}
@@ -35,7 +35,7 @@
 <Form::FileInput
   @label="Label"
   @identifier="file"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
   @onChange={{fn (mut this.file)}}
@@ -47,7 +47,7 @@
   @value={{this.htmlValue}}
   @label="Label"
   @identifier="htmlInput"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
   @editorText="Editor"
@@ -61,7 +61,7 @@
   @value={{this.value}}
   @label="Label"
   @identifier="input"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
   placeholder="Placeholder"
@@ -73,7 +73,7 @@
   @value={{this.number}}
   @label="Label"
   @identifier="numberInput"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
   @onChange={{fn (mut this.number)}}
@@ -86,7 +86,7 @@
   @value={{this.phone}}
   @label="Label"
   @identifier="phoneInput"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @onChange={{fn (mut this.phone)}}
   placeholder="Placeholder"
@@ -110,7 +110,7 @@
   @selected={{this.radio}}
   @label="Label"
   @identifier="radio"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @onChange={{fn (mut this.radio)}}
 />
@@ -144,7 +144,7 @@
   @selected={{this.radio}}
   @label="Label"
   @identifier="radioCard"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @onChange={{fn (mut this.radio)}}
 />
@@ -160,7 +160,7 @@
   @selected={{this.status}}
   @label="Label"
   @identifier="select"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @onChange={{fn (mut this.status)}}
 />
@@ -170,8 +170,8 @@
   @selected={{this.status}}
   @label="Label"
   @identifier="selectSimple"
-  @required={{true}}
-  @simple={{true}}
+  @isRequired={{true}}
+  @isSimple={{true}}
   @onChange={{fn (mut this.status)}}
 />
 
@@ -181,7 +181,7 @@
   @value={{this.value}}
   @label="Label"
   @identifier="textarea"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   placeholder="Placeholder"
 />
@@ -192,7 +192,7 @@
   @value={{this.date}}
   @label="Label"
   @identifier="timeInput"
-  @required={{true}}
+  @isRequired={{true}}
   @help="Help"
   @onChange={{fn (mut this.date)}}
 />

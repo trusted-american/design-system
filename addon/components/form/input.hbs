@@ -1,7 +1,7 @@
 <Form::Label
   @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
-  @required={{@required}}
+  @isRequired={{@isRequired}}
 />
 
 <Input
@@ -13,7 +13,7 @@
     {{if (eq 'color' @type) 'form-control-color'}}
     {{if (eq 'range' @type) 'form-range'}}
     {{if @errors 'is-invalid'}}"
-  required={{@required}}
+  required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
   ...attributes
 />

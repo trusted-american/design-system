@@ -16,7 +16,7 @@ module('Integration | Component | form/number-input', function (hooks) {
         @value={{this.value}}
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
         @onChange={{fn (mut this.value)}}

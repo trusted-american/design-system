@@ -19,7 +19,7 @@ module('Integration | Component | form/input', function (hooks) {
         @type='text'
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
       />

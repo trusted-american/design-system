@@ -12,14 +12,14 @@ module('Integration | Component | form/textarea', function (hooks) {
 
   test('it renders', async function (this: Context, assert) {
     this.value = 'Value';
-    this.required = true;
+    this.isRequired = true;
 
     await render<Context>(hbs`
       <Form::Textarea
         @value={{this.value}}
         @label='Label'
         @identifier='identifier'
-        @required={{this.required}}
+        @isRequired={{this.isRequired}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
       />

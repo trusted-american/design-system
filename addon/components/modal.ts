@@ -6,11 +6,11 @@ export interface ModalSignature {
   Args: {
     title: string;
     size?: 'sm' | 'lg' | 'xl';
-    static?: boolean;
-    keyboard?: boolean;
-    focus?: boolean;
-    scroll?: boolean;
-    fullscreen?: boolean;
+    isStatic?: boolean;
+    isKeyboard?: boolean;
+    isFocus?: boolean;
+    isScroll?: boolean;
+    isFullscreen?: boolean;
     hideClose?: boolean;
     onClose: () => void;
   };
@@ -27,9 +27,9 @@ export default class Modal extends Component<ModalSignature> {
   @action
   didInsert(element: Element): void {
     this.modal = new _Modal(element, {
-      backdrop: this.args.static ? 'static' : true,
-      keyboard: this.args.keyboard ?? true,
-      focus: this.args.focus ?? true,
+      backdrop: this.args.isStatic ? 'static' : true,
+      keyboard: this.args.isKeyboard ?? true,
+      focus: this.args.isFocus ?? true,
     });
 
     element.addEventListener('shown.bs.modal', () => {

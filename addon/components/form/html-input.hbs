@@ -1,7 +1,7 @@
 <Form::Label
   @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
-  @required={{@required}}
+  @isRequired={{@isRequired}}
 />
 
 <Card as |card|>
@@ -27,7 +27,7 @@
         @value={{@value}}
         @label={{@label}}
         @identifier={{@identifier}}
-        @required={{@required}}
+        @isRequired={{@isRequired}}
         @isInputOnly={{true}}
         class="border-0"
         data-test-value-code
@@ -47,7 +47,7 @@
 <Input
   @value={{this.value}}
   @type="text"
-  required={{@required}}
+  required={{@isRequired}}
   class="d-none"
   aria-label={{@label}}
 />

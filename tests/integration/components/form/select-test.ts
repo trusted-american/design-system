@@ -21,7 +21,7 @@ module('Integration | Component | form/select', function (hooks) {
         @selected={{this.selected}}
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
         @onChange={{fn (mut this.selected)}}
@@ -46,8 +46,8 @@ module('Integration | Component | form/select', function (hooks) {
         @selected={{this.selected}}
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
-        @simple={{true}}
+        @isRequired={{true}}
+        @isSimple={{true}}
         @onChange={{fn (mut this.selected)}}
       />
     `);

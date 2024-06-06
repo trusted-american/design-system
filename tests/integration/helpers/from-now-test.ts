@@ -29,7 +29,7 @@ module('Integration | Helper | from-now', function (hooks) {
 
     this.inputValue = date;
 
-    await render<Context>(hbs`{{from-now this.inputValue short=true}}`);
+    await render<Context>(hbs`{{from-now this.inputValue isCompact=true}}`);
 
     assert.dom(this.element).hasText('1Y');
   });
@@ -41,9 +41,9 @@ module('Integration | Helper | from-now', function (hooks) {
     this.inputValue = date;
 
     await render<Context>(hbs`
-      {{from-now this.inputValue short=true}}
+      {{from-now this.inputValue isCompact=true}}
       {{from-now this.inputValue}}
-      {{from-now this.inputValue short=true}}
+      {{from-now this.inputValue isCompact=true}}
     `);
 
     assert.dom(this.element).hasText('1Y a year ago 1Y');

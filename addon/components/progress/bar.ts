@@ -7,9 +7,9 @@ interface ProgressBarSignature {
   Args: {
     value: number;
     color?: string;
-    labeled?: boolean;
-    striped?: boolean;
-    animated?: boolean;
+    isLabeled?: boolean;
+    isStriped?: boolean;
+    isAnimated?: boolean;
   };
   Element: HTMLDivElement;
 }

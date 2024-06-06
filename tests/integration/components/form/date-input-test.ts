@@ -26,7 +26,7 @@ module('Integration | Component | form/date-input', function (hooks) {
         @max={{this.max}}
         @label='Label'
         @identifier='identifier'
-        @required={{true}}
+        @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
         @onChange={{this.onChange}}

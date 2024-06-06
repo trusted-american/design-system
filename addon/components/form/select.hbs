@@ -1,14 +1,14 @@
 <Form::Label
   @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
-  @required={{@required}}
+  @isRequired={{@isRequired}}
 />
 
-{{#if @simple}}
+{{#if @isSimple}}
   <select
     id={{@identifier}}
     class="form-select {{if @size (concat 'form-select-' @size)}}"
-    required={{@required}}
+    required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
     {{on "change" (pick "target.value" @onChange)}}
     ...attributes
@@ -29,7 +29,7 @@
   <select
     id={{@identifier}}
     class="form-select {{if @size (concat 'form-select-' @size)}}"
-    required={{@required}}
+    required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
     {{on "change" this.change}}
     ...attributes

@@ -8,8 +8,8 @@
   <div
     class="modal-dialog
       {{if @size (concat 'modal-' @size)}}
-      {{if @scroll 'modal-dialog-scrollable'}}
-      {{if @fullscreen 'modal-fullscreen'}}"
+      {{if @isScroll 'modal-dialog-scrollable'}}
+      {{if @isFullscreen 'modal-fullscreen'}}"
   >
     <div class="modal-content">
       {{#if @title}}

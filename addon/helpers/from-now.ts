@@ -10,12 +10,12 @@ dayjs.extend(relativeTime);
  * Returns time relative to now.
  */
 const fromNow = helper(
-  ([date]: [unknown], { short }: { short?: boolean }): string => {
+  ([date]: [unknown], { isCompact }: { isCompact?: boolean }): string => {
     if (!date) {
       return date as string;
     }
 
-    const relativeTime = short
+    const relativeTime = isCompact
       ? {
           future: 'in %s',
           past: '%s',
