@@ -5,6 +5,8 @@ import {
   type EventClickArg,
 } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
 
 export interface Event {
   title: string;
@@ -27,12 +29,18 @@ export default class Calendar extends Component<CalendarSignature> {
     const { events } = this.args;
 
     this.calendar = new FullCalendar(element, {
-      plugins: [dayGridPlugin],
-      initialView: 'dayGridMonth',
+      plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+      },
+      buttonText: {
+        today: 'Today',
+        month: 'Month',
+        week: 'Week',
+        day: 'Day',
+        list: 'List',
       },
       events,
       eventClick: (arg) => {

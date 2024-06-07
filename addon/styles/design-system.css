@@ -105,6 +105,15 @@ aside.collapsed nav .fa-fw {
   box-shadow: $input-focus-box-shadow;
 } */
 
+/* calendar */
+
+:root {
+  --fc-border-color: var(--bs-border-color);
+  --fc-button-text-color: var(--bs-body-color);
+  --fc-button-bg-color: var(--bs-tertiary-bg);
+  --fc-button-border-color: var(--bs-secondary-border-subtle);
+}
+
 /* vendor components */
 
 .copy-btn {
