@@ -9,6 +9,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 
 export interface Event {
+  id?: string;
   title: string;
   start: Date;
   backgroundColor?: string;
