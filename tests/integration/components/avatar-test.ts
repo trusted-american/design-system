@@ -29,8 +29,8 @@ module('Integration | Component | avatar', function (hooks) {
     assert.true(img?.src.includes('data:image/png'));
     assert.dom('[data-test-avatar]').hasAttribute('alt', this.alt);
     assert.dom('[data-test-avatar]').hasStyle({
-      width: '56px',
-      height: '56px',
+      width: '64px',
+      height: '64px',
     });
 
     this.set('url', 'https://via.placeholder.com/350x150');
@@ -42,8 +42,8 @@ module('Integration | Component | avatar', function (hooks) {
     this.set('size', 2);
 
     assert.dom('[data-test-avatar]').hasStyle({
-      width: '28px',
-      height: '28px',
+      width: '32px',
+      height: '32px',
     });
   });
 });
