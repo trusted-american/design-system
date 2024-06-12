@@ -25,7 +25,7 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
     const number =
       value === '' || isNaN(value as unknown as number)
         ? null
-        : parseInt(value);
+        : parseFloat(value);
     this.args.onChange(number);
   }
 }

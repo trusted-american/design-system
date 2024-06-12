@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { fillIn, render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { FormNumberInputSignature } from '@trusted-american/design-system/components/form/number-input';
@@ -29,5 +29,13 @@ module('Integration | Component | form/number-input', function (hooks) {
     assert.dom('input').isRequired();
     assert.dom('[data-test-form-help]').exists();
     assert.dom('[data-test-form-error]').exists();
+
+    await fillIn('input', '1');
+    // @ts-expect-error TestContext
+    assert.strictEqual(this.value, 1);
+
+    await fillIn('input', '1.01');
+    // @ts-expect-error TestContext
+    assert.strictEqual(this.value, 1.01);
   });
 });
