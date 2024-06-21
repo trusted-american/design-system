@@ -11,7 +11,6 @@
   class="form-control
     {{if @size (concat 'form-control-' @size)}}
     {{if (eq 'color' @type) 'form-control-color'}}
-    {{if (eq 'range' @type) 'form-range'}}
     {{if @errors 'is-invalid'}}"
   required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}

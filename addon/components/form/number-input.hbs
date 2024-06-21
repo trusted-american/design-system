@@ -5,10 +5,11 @@
 />
 
 <input
-  type="number"
+  type={{if @isRange "range" "number"}}
   id={{@identifier}}
   value={{this.value}}
-  class="form-control {{if @size (concat 'form-control-' @size)}}"
+  class="{{if @isRange 'form-range' 'form-control'}}
+    {{if @size (concat 'form-control-' @size)}}"
   required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
   {{on "input" this.change}}
