@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-interface IconSignature {
+export interface IconSignature {
   Args: {
     icon: string;
     color?: string;
