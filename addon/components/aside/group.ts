@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-interface AsideGroupSignature {
+export interface AsideGroupSignature {
   Args: {
     text: string;
     icon?: string;

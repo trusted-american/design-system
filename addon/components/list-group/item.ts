@@ -7,7 +7,7 @@ interface Args extends LinkToArgs {
   isAction?: boolean;
 }
 
-interface ListGroupItemSignature {
+export interface ListGroupItemSignature {
   Args: Args;
   Blocks: {
     default: [];

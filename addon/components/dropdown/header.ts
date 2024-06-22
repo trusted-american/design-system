@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-interface DropdownHeaderSignature {
+export interface DropdownHeaderSignature {
   Args: {
     text: string;
   };

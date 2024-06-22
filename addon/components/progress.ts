@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import type ProgressBar from './progress/bar';
 import type { WithBoundArgs } from '@glint/template';
 
-interface ProgressSignature {
+export interface ProgressSignature {
   Blocks: {
     default: [
       {

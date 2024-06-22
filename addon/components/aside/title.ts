@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-interface AsideTitleSignature {
+export interface AsideTitleSignature {
   Args: {
     text: string;
   };

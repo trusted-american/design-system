@@ -15,7 +15,7 @@ export interface Event {
   backgroundColor?: string;
 }
 
-interface CalendarSignature {
+export interface CalendarSignature {
   Args: {
     events: Event[];
     onSelect?: (event: Event, index: EventClickArg) => void;
