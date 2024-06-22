@@ -16,7 +16,7 @@ interface ProgressBarSignature {
 
 export default class ProgressBar extends Component<ProgressBarSignature> {
   get style(): SafeString {
-    return htmlSafe(`width: ${this.args.value}%;`);
+    return htmlSafe(`width: ${this.args.value * 100}%;`);
   }
 }
 
