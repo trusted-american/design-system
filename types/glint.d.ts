@@ -1,6 +1,5 @@
 import type EmberFileUploadRegistry from 'ember-file-upload/template-registry';
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
-import type EmberPowerSelectRegistry from 'ember-power-select/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { ModifierLike } from '@glint/template';
@@ -29,15 +28,12 @@ import type Without from 'ember-composable-helpers/helpers/without';
 import type PreventDefault from 'ember-event-helpers/helpers/prevent-default';
 import type StopPropagation from 'ember-event-helpers/helpers/stop-propagation';
 import type PellEditor from 'ember-pell/components/pell-editor';
-import type PowerSelectWithCreate from 'ember-power-select-with-create/components/power-select-with-create';
-import type PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends EmberFileUploadRegistry,
       EmberPageTitleRegistry,
-      EmberPowerSelectRegistry,
       EmberTruthHelpersRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{
@@ -81,10 +77,6 @@ declare module '@glint/environment-ember-loose/registry' {
 
     // ember-pell
     PellEditor: typeof PellEditor;
-
-    // ember-power-select
-    PowerSelectWithCreate: typeof PowerSelectWithCreate;
-    PowerSelectMultipleWithCreate: typeof PowerSelectMultipleWithCreate;
 
     // ember-yeti-table
     YetiTable: typeof YetiTable;

@@ -10,5 +10,4 @@ export default class CompsFormController extends Controller {
   value?: string | null | undefined;
   status?: 'active' | 'inactive';
   number: number | null = null;
-  arr: string[] = [];
 }
