@@ -92,6 +92,33 @@
   placeholder="Placeholder"
 />
 
+<Subheading @title="Form::PowerSelect" />
+
+<Form::PowerSelect
+  @options={{array "a" "c" "b"}}
+  @selected={{this.value}}
+  @label="Label"
+  @identifier="identifier"
+  @onChange={{fn (mut this.value)}}
+  as |option|
+>
+  {{option}}
+</Form::PowerSelect>
+
+<Subheading @title="Form::PowerSelectMultiple" />
+
+<Form::PowerSelectMultiple
+  @options={{array "a" "c" "b"}}
+  @selected={{this.arr}}
+  @label="Label"
+  @identifier="identifier"
+  @onChange={{fn (mut this.arr)}}
+  @onCreate={{(noop)}}
+  as |option|
+>
+  {{option}}
+</Form::PowerSelectMultiple>
+
 <Subheading @title="Form::Radio" />
 
 <Form::Radio
