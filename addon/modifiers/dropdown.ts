@@ -17,6 +17,7 @@ const dropdown = modifier(function dropdown(
 
   element.classList.add('dropdown-toggle');
   element.setAttribute('data-bs-toggle', 'dropdown');
+  element.setAttribute('name', 'done-button');
 
   const dropdown = new Dropdown(element, options);
 
