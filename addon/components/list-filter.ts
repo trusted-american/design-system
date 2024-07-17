@@ -269,7 +269,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       this.args.onChange(key, value);
     }
 
-    const doneButton = document.getElementsByName('done-button')[0];
+    const doneButton = document.getElementsByName('the-done-button')[0];
     console.log(doneButton);
     if (doneButton) {
       doneButton.setAttribute('class', 'btn btn-secondary dropdown-toggle');
