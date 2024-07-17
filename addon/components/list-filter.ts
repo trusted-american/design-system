@@ -270,7 +270,6 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     }
 
     const doneButton = document.getElementsByName('the-done-button')[0];
-    console.log(doneButton);
     if (doneButton) {
       doneButton.setAttribute('class', 'btn btn-secondary dropdown-toggle');
       doneButton.setAttribute('aria-expanded', 'false');
@@ -279,7 +278,6 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     const filterForm = document.getElementsByClassName(
       'dropdown-menu dropdown-menu-end overflow-hidden p-0 show',
     )[0];
-    console.log(filterForm);
     if (filterForm) {
       filterForm.setAttribute(
         'class',

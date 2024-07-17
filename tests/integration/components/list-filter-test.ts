@@ -73,12 +73,23 @@ module('Integration | Component | list-filter', function (hooks) {
     `);
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
+
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
 
     await click('[data-test-predicate-toggle] input');
 
     assert.dom('[data-test-predicate-value]').exists({ count: 1 });
 
+    await click('[data-test-list-filter]');
+
+    assert
+      .dom('[data-test-list-filter-dropdown]')
+      .hasAttribute('data-popper-placement');
+
     await click('[data-test-done]');
+
+    assert
+      .dom('[data-test-list-filter-dropdown]')
+      .hasNoAttribute('data-popper-placement');
   });
 });
