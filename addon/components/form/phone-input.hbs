@@ -5,7 +5,9 @@
 />
 
 <div
-  class="input-group has-validation {{if @size (concat 'input-group-' @size)}}"
+  class="input-group
+    {{if @size (concat 'input-group-' @size)}}
+    {{if @invalidFeedback 'has-validation'}}"
 >
   <span class="input-group-text">
     +1
@@ -20,7 +22,6 @@
     class="form-control"
     required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
-    data-test-input
     ...attributes
   />
   <Form::Error @text={{@invalidFeedback}} />
