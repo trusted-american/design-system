@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/design-system",
-  "version": "0.0.186",
+  "version": "0.0.187",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
