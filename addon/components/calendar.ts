@@ -20,6 +20,7 @@ export interface CalendarSignature {
     events: Event[];
     onSelect?: (event: Event, index: EventClickArg) => void;
   };
+  Element: HTMLDivElement;
 }
 
 export default class Calendar extends Component<CalendarSignature> {
