@@ -7,9 +7,11 @@
   class="px-2"
   ...attributes
 >
-  {{#if @icon}}
-    <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
-  {{/if}}
-  <span class={{unless @icon "ms-2"}}>{{@text}}</span>
+  <div>
+    {{#if @icon}}
+      <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+    {{/if}}
+    <span class={{unless @icon "ms-2"}}>{{@text}}</span>
+  </div>
   {{yield}}
 </Nav::Item>

@@ -3,8 +3,26 @@
 
 <Heading @title="Nav" />
 
+<Subheading @title="Default" />
+
 <Nav>
-  <Nav::Item @route="index">First</Nav::Item>
-  <Nav::Item @route="comps">Second</Nav::Item>
+  <Nav::Item @route="comps" @count={{12}}>First</Nav::Item>
+  <Nav::Item @route="index">Second</Nav::Item>
+  <Nav::Item @route="index">Third</Nav::Item>
+</Nav>
+
+<Subheading @title="Pills" />
+
+<Nav @isPills={{true}}>
+  <Nav::Item @route="comps">First</Nav::Item>
+  <Nav::Item @route="index">Second</Nav::Item>
+  <Nav::Item @route="index">Third</Nav::Item>
+</Nav>
+
+<Subheading @title="Vertical" />
+
+<Nav @isPills={{true}} class="flex-column">
+  <Nav::Item @route="comps" @count={{12}}>First</Nav::Item>
+  <Nav::Item @route="index" @count={{12}}>Second</Nav::Item>
   <Nav::Item @route="index">Third</Nav::Item>
 </Nav>
