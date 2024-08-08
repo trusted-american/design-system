@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { Modal as _Modal } from 'bootstrap';
+import { Modal as BootstrapModal } from 'bootstrap';
 
 export interface ModalSignature {
   Args: {
@@ -22,11 +22,11 @@ export interface ModalSignature {
 }
 
 export default class Modal extends Component<ModalSignature> {
-  modal?: _Modal;
+  modal?: BootstrapModal;
 
   @action
   didInsert(element: Element): void {
-    this.modal = new _Modal(element, {
+    this.modal = new BootstrapModal(element, {
       backdrop: this.args.isStatic ? 'static' : true,
       keyboard: this.args.isKeyboard ?? true,
       focus: this.args.isFocus ?? true,
@@ -55,16 +55,19 @@ export default class Modal extends Component<ModalSignature> {
     if (!this.modal) {
       throw new Error();
     }
+
     this.modal.hide();
   }
 
   willDestroy(): void {
     super.willDestroy();
 
-    if (this.modal) {
-      this.modal.hide();
-      // this.modal.dispose();
+    if (!this.modal) {
+      throw new Error();
     }
+
+    this.modal.hide();
+    // this.modal.dispose();
   }
 }
 

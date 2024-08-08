@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { Toast as _Toast } from 'bootstrap';
+import { Toast as BootstrapToast } from 'bootstrap';
 import { action } from '@ember/object';
 
 export interface ToastSignature {
@@ -15,11 +15,11 @@ export interface ToastSignature {
 }
 
 export default class Toast extends Component<ToastSignature> {
-  toast?: _Toast;
+  toast?: BootstrapToast;
 
   @action
   didInsert(element: Element): void {
-    const toast = new _Toast(element, {
+    const toast = new BootstrapToast(element, {
       autohide: false,
     });
     this.toast = toast;
