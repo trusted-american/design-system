@@ -51,7 +51,7 @@ aside.collapsed {
 }
 
 aside.collapsed .tds-aside-title,
-aside.collapsed .nav-link > span {
+aside.collapsed .nav-link > div > span {
   display: none;
 }
 
