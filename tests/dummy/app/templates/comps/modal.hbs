@@ -6,7 +6,8 @@
 <Button @text="Open modal" {{on "click" (fn (mut this.showModal) true)}} />
 
 {{#if this.showModal}}
-  <Modal @title="Title" @onClose={{this.close}}>
-    Body
+  <Modal @title="Title" @onClose={{this.close}} as |onClose|>
+    <p>Body</p>
+    <Button @text="Close" {{on "click" onClose}} />
   </Modal>
 {{/if}}

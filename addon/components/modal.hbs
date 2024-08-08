@@ -21,11 +21,11 @@
         </div>
       {{/if}}
       <div class="modal-body">
-        {{yield}}
+        {{yield this.close}}
       </div>
       {{#if (has-block "footer")}}
         <div class="modal-footer">
-          {{yield to="footer"}}
+          {{yield this.close to="footer"}}
         </div>
       {{/if}}
     </div>

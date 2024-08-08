@@ -15,8 +15,8 @@ export interface ModalSignature {
     onClose: () => void;
   };
   Blocks: {
-    default: [];
-    footer: [];
+    default: [() => void];
+    footer: [() => void];
   };
   Element: HTMLDivElement;
 }
@@ -48,6 +48,14 @@ export default class Modal extends Component<ModalSignature> {
     });
 
     this.modal.show();
+  }
+
+  @action
+  close(): void {
+    if (!this.modal) {
+      throw new Error();
+    }
+    this.modal.hide();
   }
 
   willDestroy(): void {
