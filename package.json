@@ -58,7 +58,7 @@
     "change-case": "^5.4.4",
     "dayjs": "^1.11.11",
     "ember-auto-import": "^2.7.2",
-    "ember-breadcrumb-trail": "^0.2.0",
+    "ember-breadcrumb-trail": "^1.0.0",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-clipboard": "^1.1.0",
     "ember-cli-htmlbars": "^6.3.0",
