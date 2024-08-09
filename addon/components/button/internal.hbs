@@ -12,5 +12,5 @@
 {{/if}}
 {{if (and (not @isIconOnly) (not @isIconTrailing)) @text}}
 {{#if @count}}
-  <span class="text-warning ms-1">{{@count}}</span>
+  <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
 {{/if}}

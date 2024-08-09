@@ -9,7 +9,6 @@ export interface ModalSignature {
     isStatic?: boolean;
     isKeyboard?: boolean;
     isFocus?: boolean;
-    isScroll?: boolean;
     isFullscreen?: boolean;
     hideClose?: boolean;
     onClose: () => void;
