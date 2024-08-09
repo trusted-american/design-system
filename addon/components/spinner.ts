@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 
-export interface LoaderSignature {
+export interface SpinnerSignature {
   Element: HTMLDivElement;
 }
 
-export default class Loader extends Component<LoaderSignature> {}
+export default class Spinner extends Component<SpinnerSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    Loader: typeof Loader;
+    Spinner: typeof Spinner;
   }
 }

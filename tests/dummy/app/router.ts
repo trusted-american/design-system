@@ -30,7 +30,6 @@ Router.map(function () {
     this.route('icon');
     this.route('list-filter');
     this.route('list-group');
-    this.route('loader');
     this.route('main');
     this.route('modal');
     this.route('nav');
@@ -39,6 +38,7 @@ Router.map(function () {
     this.route('progress');
     this.route('property-list');
     this.route('skeleton');
+    this.route('spinner');
     this.route('stat-card');
     this.route('subheading');
     this.route('table');
