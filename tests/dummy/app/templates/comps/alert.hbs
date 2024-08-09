@@ -3,6 +3,27 @@
 
 <Heading @title="Alert" />
 
+<Alert @color="danger" @icon="triangle-exclamation">
+  One of your domains is unverified. Please verify your domain to prevent others
+  from claiming it.
+  <a href="#" class="alert-link">Learn more</a>
+</Alert>
+
+<Alert @color="warning" @icon="circle-exclamation" @onClose={{(noop)}}>
+  <a href="#" class="alert-link">Prebuilds</a>
+  consume storage space that will incur a billable charge.
+</Alert>
+
+<Alert @color="success" @icon="check" @onClose={{(noop)}}>
+  Payment information added successfully. Change it any time in
+  <a href="#" class="alert-link">your profile</a>.
+</Alert>
+
+<Alert @color="info" @icon="circle-info" @onClose={{(noop)}}>
+  Ignoring revisions in
+  <a href="#" class="alert-link">.git-blame-ignore-revs</a>.
+</Alert>
+
 <Alert>
   Body here
 </Alert>
