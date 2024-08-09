@@ -3,41 +3,41 @@
 
 <Heading @title="Toast" />
 
-<Toast>
+<Toast @closeText="Close">
   <:body>Body</:body>
 </Toast>
 
-<Toast>
+<Toast @closeText="Close">
   <:title>Title</:title>
   <:body>Body</:body>
 </Toast>
 
-<Toast @onClose={{this.do}}>
+<Toast @closeText="Close" @onClose={{this.do}}>
   <:title>Title</:title>
   <:body>Body</:body>
 </Toast>
 
-<Toast @color="primary" @onClose={{this.do}}>
+<Toast @closeText="Close" @color="primary" @onClose={{this.do}}>
   <:title>Title</:title>
   <:body>Body</:body>
 </Toast>
 
-<Toast @color="success" @onClose={{this.do}}>
+<Toast @closeText="Close" @color="success" @onClose={{this.do}}>
   <:title>Title</:title>
   <:body>Body</:body>
 </Toast>
 
-<Toast @color="warning" @onClose={{this.do}}>
+<Toast @closeText="Close" @color="warning" @onClose={{this.do}}>
   <:title>Title</:title>
   <:body>Body</:body>
 </Toast>
 
-<Toast @color="danger" @onClose={{this.do}}>
+<Toast @closeText="Close" @color="danger" @onClose={{this.do}}>
   <:title>Title</:title>
   <:body>Body</:body>
 </Toast>
 
-<Toast @onClose={{this.do}}>
+<Toast @closeText="Close" @onClose={{this.do}}>
   <:title>Title</:title>
   <:body>Body</:body>
   <:buttons>
