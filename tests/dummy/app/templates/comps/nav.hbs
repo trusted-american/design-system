@@ -3,7 +3,7 @@
 
 <Heading @title="Nav" />
 
-<Subheading @title="Default" />
+<Subheading @title="Default" class="mt-3" />
 
 <Nav>
   <Nav::Item @route="comps" @text="First" @icon="house" @count={{12}} />
@@ -11,7 +11,7 @@
   <Nav::Item @route="index" @text="Third" />
 </Nav>
 
-<Subheading @title="Pills" />
+<Subheading @title="Pills" class="mt-3" />
 
 <Nav @isPills={{true}}>
   <Nav::Item @route="comps" @text="First" />
@@ -19,7 +19,7 @@
   <Nav::Item @route="index" @text="Third" />
 </Nav>
 
-<Subheading @title="Vertical" />
+<Subheading @title="Vertical" class="mt-3" />
 
 <Nav @isPills={{true}} class="flex-column">
   <Nav::Item @route="comps" @text="First" @icon="house" @count={{12}} />
