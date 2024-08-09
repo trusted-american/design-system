@@ -9,17 +9,17 @@
   <a href="#" class="alert-link">Learn more</a>
 </Alert>
 
-<Alert @color="warning" @icon="circle-exclamation" @onClose={{(noop)}}>
+<Alert @color="warning" @icon="circle-exclamation" @onClose={{this.close}}>
   <a href="#" class="alert-link">Prebuilds</a>
   consume storage space that will incur a billable charge.
 </Alert>
 
-<Alert @color="success" @icon="check" @onClose={{(noop)}}>
+<Alert @color="success" @icon="check" @onClose={{this.close}}>
   Payment information added successfully. Change it any time in
   <a href="#" class="alert-link">your profile</a>.
 </Alert>
 
-<Alert @color="info" @icon="circle-info" @onClose={{(noop)}}>
+<Alert @color="info" @icon="circle-info" @onClose={{this.close}}>
   Ignoring revisions in
   <a href="#" class="alert-link">.git-blame-ignore-revs</a>.
 </Alert>
@@ -43,7 +43,7 @@
   <:default>Body here</:default>
 </Alert>
 
-<Alert @color="success" @icon="info-circle" @onClose={{(noop)}}>
+<Alert @color="success" @icon="info-circle" @onClose={{this.close}}>
   <:title>Title here</:title>
   <:default>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

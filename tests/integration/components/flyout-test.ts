@@ -7,10 +7,12 @@ module('Integration | Component | flyout', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
+    this.onClose = () => {};
+
     await render(hbs`
       <Flyout
         @title='Title'
-        @onClose={{(noop)}}
+        @onClose={{this.onClose}}
       >
         Body
       </Flyout>

@@ -8,7 +8,9 @@ module('Integration | Component | form/file-dropzone', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Form::FileDropzone @onCreate={{(noop)}} />`);
+    this.onCreate = () => {};
+
+    await render(hbs`<Form::FileDropzone @onCreate={{this.onCreate}} />`);
 
     assert.dom().includesText('Drag and Drop Your Files Here');
 

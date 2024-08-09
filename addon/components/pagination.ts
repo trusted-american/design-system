@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 export interface PaginationSignature {
@@ -22,6 +23,24 @@ export default class Pagination extends Component<PaginationSignature> {
 
   get canNext(): boolean {
     return this.args.curPage < this.pages.length - 1;
+  }
+
+  @action
+  previous(event: Event) {
+    event.preventDefault();
+    this.args.onChange(this.args.curPage - 1);
+  }
+
+  @action
+  next(event: Event) {
+    event.preventDefault();
+    this.args.onChange(this.args.curPage + 1);
+  }
+
+  @action
+  change(index: number, event: Event) {
+    event.preventDefault();
+    this.args.onChange(index);
   }
 }
 

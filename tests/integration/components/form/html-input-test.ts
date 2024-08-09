@@ -7,6 +7,8 @@ module('Integration | Component | form/html-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
+    this.onChange = () => {};
+
     await render(hbs`
       <Form::HtmlInput
         @value='value'
@@ -15,7 +17,7 @@ module('Integration | Component | form/html-input', function (hooks) {
         @isRequired={{true}}
         @editorText='Editor'
         @codeText='Code'
-        @onChange={{(noop)}}
+        @onChange={{this.onChange}}
       />
     `);
 

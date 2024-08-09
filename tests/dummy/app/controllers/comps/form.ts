@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
 export default class CompsFormController extends Controller {
   check = false;
@@ -10,4 +11,7 @@ export default class CompsFormController extends Controller {
   value?: string | null | undefined;
   status?: 'active' | 'inactive';
   number: number | null = null;
+
+  @action
+  create() {}
 }

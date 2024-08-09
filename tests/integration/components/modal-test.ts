@@ -7,8 +7,10 @@ module('Integration | Component | modal', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
+    this.onClose = () => {};
+
     await render(hbs`
-      <Modal @title='Title' @onClose={{(noop)}}>
+      <Modal @title='Title' @onClose={{this.onClose}}>
         template block text
       </Modal>
     `);
