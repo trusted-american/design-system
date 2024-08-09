@@ -8,7 +8,12 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    <div>
+      {{#if @icon}}
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+      {{/if}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    </div>
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
@@ -21,7 +26,12 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    <div>
+      {{#if @icon}}
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+      {{/if}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    </div>
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
@@ -33,7 +43,12 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    <div>
+      {{#if @icon}}
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+      {{/if}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    </div>
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
@@ -45,7 +60,12 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    <div>
+      {{#if @icon}}
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+      {{/if}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    </div>
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
@@ -57,7 +77,12 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    <div>
+      {{#if @icon}}
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+      {{/if}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
+    </div>
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}

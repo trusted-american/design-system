@@ -2,16 +2,12 @@
   @route={{@route}}
   @model={{@model}}
   @query={{@query}}
+  @icon={{@icon}}
   @count={{@count}}
   @isDisabled={{@isDisabled}}
   class="px-2"
   ...attributes
 >
-  <div>
-    {{#if @icon}}
-      <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
-    {{/if}}
-    <span class={{unless @icon "ms-2"}}>{{@text}}</span>
-  </div>
+  <span class={{unless @icon "ms-2"}}>{{@text}}</span>
   {{yield}}
 </Nav::Item>
