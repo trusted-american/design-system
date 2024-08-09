@@ -1,16 +1,22 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { selectFiles } from 'ember-file-upload/test-support';
+
+import type { FormFileDropzoneSignature } from '@trusted-american/design-system/components/form/file-dropzone';
+
+type Context = FormFileDropzoneSignature['Args'] & TestContext;
 
 module('Integration | Component | form/file-dropzone', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     this.onCreate = () => {};
 
-    await render(hbs`<Form::FileDropzone @onCreate={{this.onCreate}} />`);
+    await render<Context>(
+      hbs`<Form::FileDropzone @onCreate={{this.onCreate}} />`,
+    );
 
     assert.dom().includesText('Drag and Drop Your Files Here');
 

@@ -10,17 +10,17 @@ module('Integration | Component | button/internal', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Button::Internal />`);
-
-    assert.dom().hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <Button::Internal>
-        template block text
-      </Button::Internal>
+      <Button::Internal
+        @text=''
+        @icon=''
+        @iconPrefix=''
+        @isIconTrailing={{false}}
+        @isIconOnly={{false}}
+        @isLoading={{false}}
+      />
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('');
   });
 });
