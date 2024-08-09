@@ -11,13 +11,13 @@
         @text={{@editorText}}
         class={{if (eq false this.isCode) "active"}}
         data-test-editor
-        {{on "click" (prevent-default (fn (mut this.isCode) false))}}
+        {{on "click" this.setEditor}}
       />
       <Nav::Item
         @text={{@codeText}}
         class={{if (eq true this.isCode) "active"}}
         data-test-code
-        {{on "click" (prevent-default (fn (mut this.isCode) true))}}
+        {{on "click" this.setCode}}
       />
     </Nav>
   </card.header>

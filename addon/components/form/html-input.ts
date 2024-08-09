@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 import type { BaseArgs } from './input';
+import { action } from '@ember/object';
 
 interface Args extends BaseArgs {
   value: string | null;
@@ -27,6 +28,18 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       }
     }
     return this.args.value;
+  }
+
+  @action
+  setEditor(event: Event) {
+    event.preventDefault();
+    this.isCode = false;
+  }
+
+  @action
+  setCode(event: Event) {
+    event.preventDefault();
+    this.isCode = true;
   }
 }
 

@@ -12,7 +12,6 @@ import type HasNext from 'ember-composable-helpers/helpers/has-next';
 import type Inc from 'ember-composable-helpers/helpers/inc';
 import type Includes from 'ember-composable-helpers/helpers/includes';
 import type Pick from 'ember-composable-helpers/helpers/pick';
-import type PreventDefault from 'ember-event-helpers/helpers/prevent-default';
 import type PellEditor from 'ember-pell/components/pell-editor';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
@@ -43,9 +42,6 @@ declare module '@glint/environment-ember-loose/registry' {
     inc: typeof Inc;
     includes: typeof Includes;
     pick: typeof Pick;
-
-    // ember-event-helpers
-    'prevent-default': typeof PreventDefault;
 
     // ember-pell
     PellEditor: typeof PellEditor;
