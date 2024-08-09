@@ -17,6 +17,9 @@
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
+    {{#if @trailingIcon}}
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+    {{/if}}
   </LinkTo>
 {{else if (and @route @model)}}
   <LinkTo
@@ -35,6 +38,9 @@
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
+    {{#if @trailingIcon}}
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+    {{/if}}
   </LinkTo>
 {{else if @route}}
   <LinkTo
@@ -51,6 +57,9 @@
     </div>
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
+    {{/if}}
+    {{#if @trailingIcon}}
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
     {{/if}}
   </LinkTo>
 {{else if @query}}
@@ -69,6 +78,9 @@
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
+    {{#if @trailingIcon}}
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+    {{/if}}
   </LinkTo>
 {{else}}
   <a
@@ -85,6 +97,9 @@
     </div>
     {{#if @count}}
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
+    {{/if}}
+    {{#if @trailingIcon}}
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
     {{/if}}
   </a>
 {{/if}}

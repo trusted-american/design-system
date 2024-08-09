@@ -6,6 +6,7 @@ interface Args extends LinkToArgs {
   text?: string;
   icon?: string;
   count?: number;
+  trailingIcon?: string;
   isDisabled?: boolean;
 }
 
