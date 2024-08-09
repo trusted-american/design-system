@@ -1,0 +1,16 @@
+{{#if @isLoading}}
+  <span class="spinner-border spinner-border-sm" role="status"></span>
+{{/if}}
+{{if (and (not @isIconOnly) @isIconTrailing) @text}}
+{{#if @icon}}
+  <Icon
+    @icon={{@icon}}
+    @prefix={{@iconPrefix}}
+    class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
+    ...attributes
+  />
+{{/if}}
+{{if (and (not @isIconOnly) (not @isIconTrailing)) @text}}
+{{#if @count}}
+  <span class="text-warning ms-1">{{@count}}</span>
+{{/if}}

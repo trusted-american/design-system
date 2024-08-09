@@ -1,4 +1,3 @@
-{{! TODO: avoid duplication }}
 {{#if (and @route @query)}}
   <LinkTo
     @route={{@route}}
@@ -10,16 +9,16 @@
     role="button"
     ...attributes
   >
-    {{if (and (not @isIconOnly) @isIconTrailing) @text}}
-    {{#if @icon}}
-      <Icon
-        @icon={{@icon}}
-        @prefix={{@iconPrefix}}
-        class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
-        role="presentation"
-      />
-    {{/if}}
-    {{if (and (not @isIconOnly) (not @isIconTrailing)) @text}}
+    <Button::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @iconPrefix={{@iconPrefix}}
+      @isIconTrailing={{@isIconTrailing}}
+      @isIconOnly={{@isIconOnly}}
+      @isLoading={{@isLoading}}
+      @count={{@count}}
+      role="presentation"
+    />
   </LinkTo>
 {{else if @route}}
   <LinkTo
@@ -31,16 +30,16 @@
     role="button"
     ...attributes
   >
-    {{if (and (not @isIconOnly) @isIconTrailing) @text}}
-    {{#if @icon}}
-      <Icon
-        @icon={{@icon}}
-        @prefix={{@iconPrefix}}
-        class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
-        role="presentation"
-      />
-    {{/if}}
-    {{if (and (not @isIconOnly) (not @isIconTrailing)) @text}}
+    <Button::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @iconPrefix={{@iconPrefix}}
+      @isIconTrailing={{@isIconTrailing}}
+      @isIconOnly={{@isIconOnly}}
+      @isLoading={{@isLoading}}
+      @count={{@count}}
+      role="presentation"
+    />
   </LinkTo>
 {{else if @query}}
   <LinkTo
@@ -52,16 +51,16 @@
     role="button"
     ...attributes
   >
-    {{if (and (not @isIconOnly) @isIconTrailing) @text}}
-    {{#if @icon}}
-      <Icon
-        @icon={{@icon}}
-        @prefix={{@iconPrefix}}
-        class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
-        role="presentation"
-      />
-    {{/if}}
-    {{if (and (not @isIconOnly) (not @isIconTrailing)) @text}}
+    <Button::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @iconPrefix={{@iconPrefix}}
+      @isIconTrailing={{@isIconTrailing}}
+      @isIconOnly={{@isIconOnly}}
+      @isLoading={{@isLoading}}
+      @count={{@count}}
+      role="presentation"
+    />
   </LinkTo>
 {{else if @href}}
   <ExternalLink
@@ -89,20 +88,15 @@
     aria-label={{if @isIconOnly @text}}
     ...attributes
   >
-    {{#if @isLoading}}
-      <span class="spinner-border spinner-border-sm" role="status"></span>
-    {{/if}}
-    {{if (and (not @isIconOnly) @isIconTrailing) @text}}
-    {{#if @icon}}
-      <Icon
-        @icon={{@icon}}
-        @prefix={{@iconPrefix}}
-        class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
-      />
-    {{/if}}
-    {{if (and (not @isIconOnly) (not @isIconTrailing)) @text}}
-    {{#if @count}}
-      <span class="text-warning ms-1">{{@count}}</span>
-    {{/if}}
+    <Button::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @iconPrefix={{@iconPrefix}}
+      @isIconTrailing={{@isIconTrailing}}
+      @isIconOnly={{@isIconOnly}}
+      @isLoading={{@isLoading}}
+      @count={{@count}}
+      role="presentation"
+    />
   </button>
 {{/if}}
