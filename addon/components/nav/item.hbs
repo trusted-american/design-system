@@ -10,7 +10,7 @@
   >
     <div>
       {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-2" />
       {{/if}}
       {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     </div>
@@ -18,7 +18,7 @@
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
     {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />
     {{/if}}
   </LinkTo>
 {{else if (and @route @model)}}
@@ -31,7 +31,7 @@
   >
     <div>
       {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-2" />
       {{/if}}
       {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     </div>
@@ -39,7 +39,7 @@
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
     {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />
     {{/if}}
   </LinkTo>
 {{else if @route}}
@@ -51,7 +51,7 @@
   >
     <div>
       {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-2" />
       {{/if}}
       {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     </div>
@@ -59,7 +59,7 @@
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
     {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />
     {{/if}}
   </LinkTo>
 {{else if @query}}
@@ -71,7 +71,7 @@
   >
     <div>
       {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-2" />
       {{/if}}
       {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     </div>
@@ -79,7 +79,7 @@
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
     {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />
     {{/if}}
   </LinkTo>
 {{else}}
@@ -91,7 +91,7 @@
   >
     <div>
       {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-2" />
       {{/if}}
       {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
     </div>
@@ -99,7 +99,7 @@
       <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
     {{/if}}
     {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />
     {{/if}}
   </a>
 {{/if}}

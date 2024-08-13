@@ -6,9 +6,17 @@
   @count={{@count}}
   @trailingIcon={{@trailingIcon}}
   @isDisabled={{@isDisabled}}
-  class="px-2"
+  class="px-2 py-1"
   ...attributes
 >
-  <span class={{unless @icon "ms-2"}}>{{@text}}</span>
+
+  {{#unless @icon}}
+    <Icon
+      @icon="arrow-turn-down"
+      @isFixedWidth={{true}}
+      class="me-2 invisible"
+    />
+  {{/unless}}
+  <span>{{@text}}</span>
   {{yield}}
 </Nav::Item>
