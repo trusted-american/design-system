@@ -48,5 +48,6 @@ Router.map(function () {
   this.route('modifiers');
   this.route('utils');
   this.route('example');
+  this.route('detail');
   this.route('not-found', { path: '/*path' });
 });
