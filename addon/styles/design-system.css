@@ -32,7 +32,7 @@ aside .nav-pills .nav-link.active {
 }
 
 .collapsing {
-  transition: height 0.1s cubic-bezier(0.19, 0.91, 0.38, 1);
+  transition: height 0.1s cubic-bezier(0.19, 0.91, 0.38, 1) !important;
 }
 
 aside .nav-link:hover {
