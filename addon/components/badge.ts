@@ -6,6 +6,7 @@ export interface BadgeSignature {
     color?: string;
     icon?: string;
     isPill?: boolean;
+    isLoading?: boolean;
   };
   Element: HTMLElement;
 }

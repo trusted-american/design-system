@@ -4,6 +4,9 @@
   data-test-badge
   ...attributes
 >
+  {{#if @isLoading}}
+    <Spinner::Internal />
+  {{/if}}
   {{#if @icon}}
     <Icon @icon={{@icon}} class={{if @text "me-1"}} />
   {{/if}}

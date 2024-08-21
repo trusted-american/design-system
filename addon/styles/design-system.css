@@ -109,6 +109,13 @@ aside.collapsed nav .fa-fw {
   box-shadow: $input-focus-box-shadow;
 } */
 
+/* badge */
+
+.badge .spinner-border-sm {
+  --bs-spinner-width: 1em;
+  --bs-spinner-height: 1em;
+}
+
 /* calendar */
 
 :root {
