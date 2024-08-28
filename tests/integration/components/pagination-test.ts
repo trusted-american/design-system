@@ -14,7 +14,7 @@ module('Integration | Component | pagination', function (hooks) {
     await render<Context>(hbs`
       <Pagination
         @curPage={{0}}
-        @perPage={{3}}
+        @pageSize={{3}}
         @totalItems={{9}}
         @onChange={{fn (mut this.curPage)}}
       />
