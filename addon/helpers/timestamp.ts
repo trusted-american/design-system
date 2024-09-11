@@ -13,26 +13,22 @@ dayjs.extend(isTomorrow);
 const DATE_FORMAT = 'MMM D, YYYY';
 const TIME_FORMAT = 'h:mm A';
 
+interface Named {
+  format?: 'date' | 'time' | 'full';
+  number?: boolean;
+  year?: boolean;
+  utc?: boolean;
+}
+
 /**
  * Returns formatted date.
  * @param param0
  * @param param1
  * @returns
  */
-export const timestamp = (
-  [date]: [date: unknown],
-  {
-    format,
-    number,
-    year,
-    utc,
-  }: {
-    format?: 'date' | 'time';
-    number?: boolean;
-    year?: boolean;
-    utc?: boolean;
-  },
-): string => {
+export const timestamp = ([date]: [date: unknown], opts?: Named): string => {
+  const { format, number, year, utc } = opts ?? {};
+
   if (!date) {
     return date as string;
   }
@@ -56,14 +52,16 @@ export const timestamp = (
   } else if (format === 'time') {
     return djs.format(TIME_FORMAT);
   } else {
-    if (djs.isYesterday()) {
-      return djs.format(`[Yesterday at] ${TIME_FORMAT}`);
-    }
-    if (djs.isToday()) {
-      return djs.format(`[Today at] ${TIME_FORMAT}`);
-    }
-    if (djs.isTomorrow()) {
-      return djs.format(`[Tomorrow at] ${TIME_FORMAT}`);
+    if (format !== 'full') {
+      if (djs.isYesterday()) {
+        return djs.format(`[Yesterday at] ${TIME_FORMAT}`);
+      }
+      if (djs.isToday()) {
+        return djs.format(`[Today at] ${TIME_FORMAT}`);
+      }
+      if (djs.isTomorrow()) {
+        return djs.format(`[Tomorrow at] ${TIME_FORMAT}`);
+      }
     }
     return djs.format(`${DATE_FORMAT} [at] ${TIME_FORMAT}`);
   }

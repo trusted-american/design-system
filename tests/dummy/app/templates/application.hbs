@@ -14,7 +14,7 @@
 >
   <:default>
     <Aside::Item @text="Home" @route="index" @icon="house" />
-    <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps">
+    <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps.index">
       <Aside::Item @text="Accordion" @route="comps.accordion" />
       <Aside::Item @text="Alert" @route="comps.alert" />
       <Aside::Item @text="Aside" @route="comps.aside" />
@@ -57,12 +57,12 @@
     <Aside::Item @text="Utils" @icon="screwdriver-wrench" @route="utils" />
 
     <Aside::Title @text="Examples" />
-    <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
-    <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
+    <Aside::Item @text="List" @icon="crop-simple" @route="example" />
+    <Aside::Item @text="Detail" @icon="crop-simple" @route="detail" />
     <Aside::Item
-      @text="Example"
+      @text="Disabled"
       @icon="crop-simple"
-      @route="example"
+      @route="index"
       class="disabled"
     />
   </:default>

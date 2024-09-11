@@ -7,9 +7,7 @@
 >
   {{#unless @isIconOnly}}
     {{#if @isIconTrailing}}
-      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-    {{/if}}
-  {{/unless}}
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}{{/if}}{{/unless}}
   {{#if @icon}}
     <Icon
       @icon={{@icon}}
@@ -19,7 +17,4 @@
   {{/if}}
   {{#unless @isIconOnly}}
     {{#unless @isIconTrailing}}
-      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-    {{/unless}}
-  {{/unless}}
-</a>
+      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}{{/unless}}{{/unless}}</a>

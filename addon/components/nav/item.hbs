@@ -1,4 +1,3 @@
-{{! TODO: avoid duplication }}
 {{#if (and @route @model @query)}}
   <LinkTo
     @route={{@route}}
@@ -8,18 +7,14 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    <div>
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
-      {{/if}}
-      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-    </div>
-    {{#if @count}}
-      <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
-    {{/if}}
-    {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
-    {{/if}}
+    <Nav::Item::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @count={{@count}}
+      @trailingIcon={{@trailingIcon}}
+    >
+      {{yield}}
+    </Nav::Item::Internal>
   </LinkTo>
 {{else if (and @route @model)}}
   <LinkTo
@@ -29,18 +24,14 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    <div>
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
-      {{/if}}
-      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-    </div>
-    {{#if @count}}
-      <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
-    {{/if}}
-    {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
-    {{/if}}
+    <Nav::Item::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @count={{@count}}
+      @trailingIcon={{@trailingIcon}}
+    >
+      {{yield}}
+    </Nav::Item::Internal>
   </LinkTo>
 {{else if @route}}
   <LinkTo
@@ -49,18 +40,14 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    <div>
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
-      {{/if}}
-      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-    </div>
-    {{#if @count}}
-      <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
-    {{/if}}
-    {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
-    {{/if}}
+    <Nav::Item::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @count={{@count}}
+      @trailingIcon={{@trailingIcon}}
+    >
+      {{yield}}
+    </Nav::Item::Internal>
   </LinkTo>
 {{else if @query}}
   <LinkTo
@@ -69,18 +56,14 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    <div>
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
-      {{/if}}
-      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-    </div>
-    {{#if @count}}
-      <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
-    {{/if}}
-    {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
-    {{/if}}
+    <Nav::Item::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @count={{@count}}
+      @trailingIcon={{@trailingIcon}}
+    >
+      {{yield}}
+    </Nav::Item::Internal>
   </LinkTo>
 {{else}}
   <a
@@ -89,17 +72,13 @@
       {{if @isDisabled 'disabled'}}"
     ...attributes
   >
-    <div>
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
-      {{/if}}
-      {{#if @text}}{{@text}}{{else}}{{yield}}{{/if}}
-    </div>
-    {{#if @count}}
-      <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
-    {{/if}}
-    {{#if @trailingIcon}}
-      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-1" />
-    {{/if}}
+    <Nav::Item::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @count={{@count}}
+      @trailingIcon={{@trailingIcon}}
+    >
+      {{yield}}
+    </Nav::Item::Internal>
   </a>
 {{/if}}

@@ -4,7 +4,7 @@ import Component from '@glimmer/component';
 export interface PaginationSignature {
   Args: {
     curPage: number;
-    perPage: number;
+    pageSize: number;
     totalItems: number;
     onChange: (curPage: number) => void;
   };
@@ -13,7 +13,7 @@ export interface PaginationSignature {
 
 export default class Pagination extends Component<PaginationSignature> {
   get pages(): number[] {
-    const num = Math.ceil(this.args.totalItems / this.args.perPage);
+    const num = Math.ceil(this.args.totalItems / this.args.pageSize);
     return new Array(num) as number[];
   }
 

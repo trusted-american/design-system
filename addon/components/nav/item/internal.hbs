@@ -1,0 +1,13 @@
+<div>
+  {{#if @icon}}
+    <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-2" />
+  {{/if}}
+  {{#if @text}}{{@text}}{{/if}}
+  {{yield}}
+</div>
+{{#if @count}}
+  <Badge @text="{{@count}}" @isPill={{true}} class="ms-2" />
+{{/if}}
+{{#if @trailingIcon}}
+  <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />
+{{/if}}

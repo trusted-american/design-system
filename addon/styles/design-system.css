@@ -31,6 +31,10 @@ aside .nav-pills .nav-link.active {
   transition: none;
 }
 
+.collapsing {
+  transition: height 0.1s cubic-bezier(0.19, 0.91, 0.38, 1) !important;
+}
+
 aside .nav-link:hover {
   background-color: var(--bs-secondary-bg);
 }
@@ -104,6 +108,13 @@ aside.collapsed nav .fa-fw {
 /* .pell-content:focus {
   box-shadow: $input-focus-box-shadow;
 } */
+
+/* badge */
+
+.badge .spinner-border-sm {
+  --bs-spinner-width: 1em;
+  --bs-spinner-height: 1em;
+}
 
 /* calendar */
 

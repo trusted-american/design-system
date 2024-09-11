@@ -10,6 +10,7 @@ export interface AsideGroupSignature {
   Blocks: {
     default: [];
   };
+  Element: HTMLAnchorElement;
 }
 
 export default class AsideGroup extends Component<AsideGroupSignature> {
