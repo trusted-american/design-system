@@ -1,4 +1,5 @@
 import type EmberBreadcrumbTrailRegistry from 'ember-breadcrumb-trail/template-registry';
+import type EmberComposableHelpersRegistry from '@nullvoxpopuli/ember-composable-helpers/template-registry';
 import type EmberFileUploadRegistry from 'ember-file-upload/template-registry';
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
@@ -6,17 +7,13 @@ import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registr
 import type { ModifierLike } from '@glint/template';
 import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
-import type Dec from 'ember-composable-helpers/helpers/dec';
-import type HasNext from 'ember-composable-helpers/helpers/has-next';
-import type Inc from 'ember-composable-helpers/helpers/inc';
-import type Includes from 'ember-composable-helpers/helpers/includes';
-import type Pick from 'ember-composable-helpers/helpers/pick';
 import type PellEditor from 'ember-pell/components/pell-editor';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends EmberBreadcrumbTrailRegistry,
+      EmberComposableHelpersRegistry,
       EmberFileUploadRegistry,
       EmberPageTitleRegistry,
       EmberTruthHelpersRegistry {
@@ -31,13 +28,6 @@ declare module '@glint/environment-ember-loose/registry' {
 
     // ember-cli-clipboard
     CopyButton: typeof CopyButton;
-
-    // ember-composable-helpers
-    dec: typeof Dec;
-    'has-next': typeof HasNext;
-    inc: typeof Inc;
-    includes: typeof Includes;
-    pick: typeof Pick;
 
     // ember-pell
     PellEditor: typeof PellEditor;

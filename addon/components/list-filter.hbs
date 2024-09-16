@@ -37,6 +37,7 @@
             @label={{predicate.label}}
             @identifier="toggle{{index}}"
             class="me-1"
+            {{! @glint-expect-error }}
             {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
           />
           {{predicate.label}}
@@ -122,6 +123,7 @@
                   @value={{includes opt.value predicate.value}}
                   @label={{opt.label}}
                   @identifier="{{opt.value}}"
+                  {{! @glint-nocheck }}
                   {{on
                     "change"
                     (pick
