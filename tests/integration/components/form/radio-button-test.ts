@@ -12,7 +12,7 @@ module('Integration | Component | form/radio-button', function (hooks) {
 
   test('it renders', async function (this: Context, assert) {
     this.options = [
-      { value: 'one', label: 'One' },
+      { value: 'one', label: 'One', color: 'success' },
       { value: 'two', label: 'Two' },
     ];
     this.selected = undefined;
@@ -26,7 +26,6 @@ module('Integration | Component | form/radio-button', function (hooks) {
         @selected={{this.selected}}
         @identifier='identifier'
         @size='sm'
-        @color='success'
         @onChange={{this.onChange}}
       />
     `);
