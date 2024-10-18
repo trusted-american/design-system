@@ -5,6 +5,7 @@ import type Avatar from './components/avatar';
 import type Badge from './components/badge';
 import type BreadcrumbTrail from './components/breadcrumb-trail';
 import type Button from './components/button';
+import type ButtonGroup from './components/button-group';
 import type ButtonSet from './components/button-set';
 import type Calendar from './components/calendar';
 import type Card from './components/card';
@@ -101,6 +102,7 @@ export default interface Registry {
   Badge: typeof Badge;
   BreadcrumbTrail: typeof BreadcrumbTrail;
   Button: typeof Button;
+  ButtonGroup: typeof ButtonGroup;
   ButtonSet: typeof ButtonSet;
   Calendar: typeof Calendar;
   Card: typeof Card;

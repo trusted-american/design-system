@@ -5,6 +5,7 @@ export { default as Avatar } from './components/avatar';
 export { default as Badge } from './components/badge';
 export { default as BreadcrumbTrail } from './components/breadcrumb-trail';
 export { default as Button } from './components/button';
+export { default as ButtonGroup } from './components/button-group';
 export { default as ButtonSet } from './components/button-set';
 export { default as Calendar } from './components/calendar';
 export { default as Card } from './components/card';
