@@ -21,6 +21,7 @@ interface Args extends LinkToArgs {
   href?: string;
   count?: number;
   isLabel?: boolean;
+  isLocalHref?: boolean;
 }
 
 export interface ButtonSignature {

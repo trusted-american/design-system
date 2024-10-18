@@ -63,20 +63,42 @@
     />
   </LinkTo>
 {{else if @href}}
-  <ExternalLink
-    @href={{@href}}
-    @text={{@text}}
-    @icon={{@icon}}
-    @iconPrefix={{@iconPrefix}}
-    @isIconTrailing={{@isIconTrailing}}
-    @isIconOnly={{@isIconOnly}}
-    class="btn
-      {{if @size (concat 'btn-' @size)}}
-      btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-      {{if @isFullWidth 'w-100'}}"
-    role="button"
-    ...attributes
-  />
+  {{#if @isLocalHref}}
+    <a
+      href={{@href}}
+      class="btn
+        {{if @size (concat 'btn-' @size)}}
+        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
+        {{if @isFullWidth 'w-100'}}"
+      ...attributes
+    >
+      <Button::Internal
+        @text={{@text}}
+        @icon={{@icon}}
+        @iconPrefix={{@iconPrefix}}
+        @isIconTrailing={{@isIconTrailing}}
+        @isIconOnly={{@isIconOnly}}
+        @isLoading={{@isLoading}}
+        @count={{@count}}
+        role="presentation"
+      />
+    </a>
+  {{else}}
+    <ExternalLink
+      @href={{@href}}
+      @text={{@text}}
+      @icon={{@icon}}
+      @iconPrefix={{@iconPrefix}}
+      @isIconTrailing={{@isIconTrailing}}
+      @isIconOnly={{@isIconOnly}}
+      class="btn
+        {{if @size (concat 'btn-' @size)}}
+        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
+        {{if @isFullWidth 'w-100'}}"
+      role="button"
+      ...attributes
+    />
+  {{/if}}
 {{else if @isLabel}}
   <label
     class="btn
