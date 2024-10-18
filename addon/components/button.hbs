@@ -77,6 +77,26 @@
     role="button"
     ...attributes
   />
+{{else if @isLabel}}
+  <label
+    class="btn
+      {{if @size (concat 'btn-' @size)}}
+      btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
+      {{if @isFullWidth 'w-100'}}"
+    ...attributes
+  >
+    <Button::Internal
+      @text={{@text}}
+      @icon={{@icon}}
+      @iconPrefix={{@iconPrefix}}
+      @isIconTrailing={{@isIconTrailing}}
+      @isIconOnly={{@isIconOnly}}
+      @isLoading={{@isLoading}}
+      @count={{@count}}
+      role="presentation"
+    />
+    {{yield}}
+  </label>
 {{else}}
   <button
     type={{if @isSubmit "submit" "button"}}

@@ -20,11 +20,15 @@ interface Args extends LinkToArgs {
   isLoading?: boolean;
   href?: string;
   count?: number;
+  isLabel?: boolean;
 }
 
 export interface ButtonSignature {
   Args: Args;
-  Element: HTMLButtonElement | HTMLAnchorElement;
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement;
 }
 
 export default class Button extends Component<ButtonSignature> {}
