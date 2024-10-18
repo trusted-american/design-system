@@ -13,11 +13,11 @@
       checked={{eq @selected option.value}}
       {{on "change" (fn @onChange option.value)}}
     />
-    <label
-      class="btn btn-{{if @color @color 'secondary'}}"
+    <Button
+      @text={{option.label}}
+      @color={{@color}}
+      @isLabel={{true}}
       for="{{@identifier}}{{index}}"
-    >
-      {{option.label}}
-    </label>
+    />
   {{/each}}
 </div>
