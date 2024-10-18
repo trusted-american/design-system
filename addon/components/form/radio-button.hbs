@@ -1,8 +1,4 @@
-<div
-  class="btn-group {{if @size (concat 'btn-group-' @size)}}"
-  role="group"
-  ...attributes
->
+<ButtonGroup @size={{@size}}>
   {{#each @options as |option index|}}
     <input
       type="radio"
@@ -20,4 +16,4 @@
       for="{{@identifier}}{{index}}"
     />
   {{/each}}
-</div>
+</ButtonGroup>

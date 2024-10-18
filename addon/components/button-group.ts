@@ -1,6 +1,9 @@
 import Component from '@glimmer/component';
 
 export interface ButtonGroupSignature {
+  Args: {
+    size?: 'sm' | 'lg';
+  };
   Blocks: {
     default: [];
   };

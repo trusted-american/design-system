@@ -1,3 +1,8 @@
-<div class="btn-group" role="group" data-test-button-group ...attributes>
+<div
+  class="btn-group {{if @size (concat 'btn-group-' @size)}}"
+  role="group"
+  data-test-button-group
+  ...attributes
+>
   {{yield}}
 </div>
