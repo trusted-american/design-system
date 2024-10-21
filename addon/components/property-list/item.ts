@@ -10,6 +10,7 @@ export interface PropertyListItemSignature {
   };
   Blocks: {
     default: [];
+    side: [];
   };
   Element: HTMLElement;
 }
