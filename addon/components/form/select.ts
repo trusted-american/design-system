@@ -3,6 +3,11 @@ import { action } from '@ember/object';
 
 import type { BaseArgs } from './input';
 
+export interface OptGroup<T> {
+  groupName: string;
+  options: Option<T>[];
+}
+
 export interface Option<T> {
   value: T;
   label: string;
@@ -14,8 +19,8 @@ interface Args<T> extends BaseArgs {
   onChange: (value: T) => void;
 }
 
-interface ComplexArgs<T> extends Args<T> {
-  options: Option<T>[];
+export interface ComplexArgs<T> extends Args<T> {
+  options: (OptGroup<T> | Option<T>)[];
   isSimple?: undefined;
 }
 
