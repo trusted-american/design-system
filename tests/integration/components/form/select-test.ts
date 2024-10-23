@@ -58,4 +58,25 @@ module('Integration | Component | form/select', function (hooks) {
 
     assert.strictEqual(this.selected, 'C');
   });
+
+  test('grouped works', async function (this: Context, assert) {
+    await render<Context>(hbs`
+      <Form::Select
+        @options={{array (hash groupName='First' options=(array 'A' 'B' 'C'))}}
+        @selected={{this.selected}}
+        @label='Label'
+        @identifier='identifier'
+        @isRequired={{true}}
+        @isSimple={{true}}
+        @onChange={{fn (mut this.selected)}}
+      />
+    `);
+
+    assert.dom('select optgroup').hasAttribute('label', 'First');
+    assert.dom('select optgroup option').exists();
+
+    await select('select', 'C');
+
+    assert.strictEqual(this.selected, 'C');
+  });
 });
