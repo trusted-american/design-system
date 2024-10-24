@@ -13,18 +13,14 @@
     {{on "change" (pick "target.value" @onChange)}}
     ...attributes
   >
-    {{#each @options as |opt|}}
-      <optgroup label={{opt.groupName}}>
-        {{#each opt.options as |option|}}
+    {{#each @options as |group|}}
+      <optgroup label={{group.groupName}}>
+        {{#each group.options as |opt index|}}
           <option
-            value={{if
-              (or option.value (eq false option.value))
-              option.value
-              ""
-            }}
-            selected={{eq @selected option.value}}
+            value={{if (or opt.value (eq false opt.value)) index ""}}
+            selected={{eq @selected opt.value}}
           >
-            {{option.label}}
+            {{opt.label}}
           </option>
         {{/each}}
       </optgroup>
@@ -37,7 +33,6 @@
       class="form-select {{if @size (concat 'form-select-' @size)}}"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}
-      {{! @glint-expect-error }}
       {{on "change" (pick "target.value" @onChange)}}
       ...attributes
     >
