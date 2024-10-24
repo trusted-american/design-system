@@ -18,26 +18,19 @@ interface Args<T> extends BaseArgs {
   size?: 'sm' | 'lg';
   onChange: (value: T) => void;
 }
-export interface GroupArgs<T> extends Args<T> {
-  options: OptGroup<T>[];
-  isGroup: true;
-  isSimple?: undefined;
-}
 
 export interface ComplexArgs<T> extends Args<T> {
-  options: Option<T>[];
+  options: (Option<T> | OptGroup<T>)[];
   isSimple?: undefined;
-  isGroup?: undefined;
 }
 
 interface SimpleArgs<T> extends Args<T> {
   options: T[];
   isSimple: true;
-  isGroup: undefined;
 }
 
 export interface FormSelectSignature<T> {
-  Args: ComplexArgs<T> | SimpleArgs<T> | GroupArgs<T>;
+  Args: ComplexArgs<T> | SimpleArgs<T>;
   Element: HTMLSelectElement;
 }
 
