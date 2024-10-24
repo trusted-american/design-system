@@ -33,11 +33,11 @@ export default class CompsFormController extends Controller {
   };
 
   @tracked group2: OptGroup<string> = {
-    groupName: 'Norcal',
+    groupName: 'Socal',
     options: [
-      { label: 'Sacramento', value: 'Sacramento' },
-      { label: 'Roseville', value: 'Roseville' },
-      { label: 'Davis', value: 'Davis' },
+      { label: 'Los Angeles', value: 'Los Angeles' },
+      { label: 'Pomona', value: 'Pomona' },
+      { label: 'Temecula', value: 'Temecula' },
     ] as Option<string>[],
   };
 

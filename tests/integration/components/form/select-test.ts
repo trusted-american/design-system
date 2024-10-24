@@ -60,9 +60,19 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('grouped works', async function (this: Context, assert) {
+    const option = [
+      {
+        groupName: 'First',
+        option: [
+          { key: 'A', value: 'A' },
+          { key: 'B', value: 'B' },
+          { key: 'C', value: 'C' },
+        ],
+      },
+    ];
     await render<Context>(hbs`
       <Form::Select
-        @options={{array (hash groupName='First' options=(array 'A' 'B' 'C'))}}
+        @options={{option}}
         @selected={{this.selected}}
         @label='Label'
         @identifier='identifier'

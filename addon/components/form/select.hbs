@@ -34,29 +34,32 @@
     {{on "change" this.change}}
     ...attributes
   >
-    {{#each @options as |opt index|}}
+    {{#each @options as |opt|}}
       {{#if opt.groupName}}
-        {{#each opt.options as secondaryOption}}
-          <option
-            value={{if
-              (or secondaryOption.value (eq false secondaryOption.value))
-              index
-              ""
-            }}
-            selected={{eq @selected secondaryOptiont.value}}
-          >
-            {{secondaryOption.label}}
-          </option>
-        {{/each}}
+        <optgroup label={{opt.groupName}}>
+          {{#each opt.options as |option|}}
+            <option
+              value={{if
+                (or option.value (eq false option.value))
+                option.value
+                ""
+              }}
+              selected={{eq @selected option.value}}
+            >
+              {{option.label}}
+            </option>
+          {{/each}}
+        </optgroup>
       {{else}}
         <option
-          value={{if (or opt.value (eq false opt.value)) index ""}}
+          value={{if (or opt.value (eq false opt.value)) opt.value ""}}
           selected={{eq @selected opt.value}}
         >
           {{opt.label}}
         </option>
       {{/if}}
     {{/each}}
+
   </select>
 {{/if}}
 
