@@ -18,7 +18,11 @@ export default class CompsFormController extends Controller {
   number: number | null = null;
   city?: string;
 
-  @tracked group1: OptGroup<string> = {
+  starting: Option<string | undefined> = {
+    label: 'Select...',
+    value: undefined,
+  };
+  group1: OptGroup<string> = {
     groupName: 'Norcal',
     options: [
       { label: 'Sacramento', value: 'Sacramento' },
@@ -26,8 +30,7 @@ export default class CompsFormController extends Controller {
       { label: 'Davis', value: 'Davis' },
     ] as Option<string>[],
   };
-
-  @tracked group2: OptGroup<string> = {
+  group2: OptGroup<string> = {
     groupName: 'Socal',
     options: [
       { label: 'Los Angeles', value: 'Los Angeles' },
@@ -35,8 +38,14 @@ export default class CompsFormController extends Controller {
       { label: 'Temecula', value: 'Temecula' },
     ] as Option<string>[],
   };
+  option1: Option<string> = { label: 'Bakersfield', value: 'Bakersfield' };
 
-  @tracked groupOptions: OptGroup<string>[] = [this.group1, this.group2];
+  @tracked groupOptions: (OptGroup<string> | Option<string>)[] = [
+    this.starting,
+    this.group1,
+    this.group2,
+    this.option1,
+  ];
 
   @action
   create() {}

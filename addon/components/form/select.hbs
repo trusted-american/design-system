@@ -34,22 +34,28 @@
     ...attributes
   >
     {{#each @options as |opt index|}}
+      {{! @glint-expect-error }}
       {{#if opt.groupName}}
+        {{! @glint-expect-error }}
         <optgroup label={{opt.groupName}}>
-          {{#each opt.options as |option i|}}
+          {{! @glint-expect-error }}
+          {{#each opt.options as |_opt i|}}
             <option
-              value={{if (or option.value (eq false option.value)) i ""}}
-              selected={{eq @selected option.value}}
+              value={{if (or _opt.value (eq false _opt.value)) i ""}}
+              selected={{eq @selected _opt.value}}
             >
-              {{option.label}}
+              {{_opt.label}}
             </option>
           {{/each}}
         </optgroup>
       {{else}}
         <option
+          {{! @glint-expect-error }}
           value={{if (or opt.value (eq false opt.value)) index ""}}
+          {{! @glint-expect-error }}
           selected={{eq @selected opt.value}}
         >
+          {{! @glint-expect-error }}
           {{opt.label}}
         </option>
       {{/if}}
