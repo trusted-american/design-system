@@ -4,7 +4,7 @@
   @isRequired={{@isRequired}}
 />
 
-{{#if @isSimple}}
+{{#if @isGroup}}
   <select
     id={{@identifier}}
     class="form-select {{if @size (concat 'form-select-' @size)}}"
@@ -13,54 +13,66 @@
     {{on "change" (pick "target.value" @onChange)}}
     ...attributes
   >
-    {{! @glint-expect-error }}
-    <option value="" selected={{not @selected}}>
-      {{! TODO: string }}
-      Choose&hellip;
-    </option>
     {{#each @options as |opt|}}
-      <option selected={{eq @selected opt}}>
-        {{! @glint-expect-error }}
-        {{opt}}
-      </option>
+      <optgroup label={{opt.groupName}}>
+        {{#each opt.options as |option|}}
+          <option
+            value={{if
+              (or option.value (eq false option.value))
+              option.value
+              ""
+            }}
+            selected={{eq @selected option.value}}
+          >
+            {{option.label}}
+          </option>
+        {{/each}}
+      </optgroup>
     {{/each}}
   </select>
 {{else}}
-  <select
-    id={{@identifier}}
-    class="form-select {{if @size (concat 'form-select-' @size)}}"
-    required={{@isRequired}}
-    aria-label={{if @isInputOnly @label}}
-    {{on "change" this.change}}
-    ...attributes
-  >
-    {{#each @options as |opt|}}
-      {{#if opt.groupName}}
-        <optgroup label={{opt.groupName}}>
-          {{#each opt.options as |option|}}
-            <option
-              value={{if
-                (or option.value (eq false option.value))
-                option.value
-                ""
-              }}
-              selected={{eq @selected option.value}}
-            >
-              {{option.label}}
-            </option>
-          {{/each}}
-        </optgroup>
-      {{else}}
+  {{#if @isSimple}}
+    <select
+      id={{@identifier}}
+      class="form-select {{if @size (concat 'form-select-' @size)}}"
+      required={{@isRequired}}
+      aria-label={{if @isInputOnly @label}}
+      {{! @glint-expect-error }}
+      {{on "change" (pick "target.value" @onChange)}}
+      ...attributes
+    >
+      {{! @glint-expect-error }}
+      <option value="" selected={{not @selected}}>
+        {{! TODO: string }}
+        Choose&hellip;
+      </option>
+      {{#each @options as |opt|}}
+        <option selected={{eq @selected opt}}>
+          {{! @glint-expect-error }}
+          {{opt}}
+        </option>
+      {{/each}}
+    </select>
+  {{else}}
+    <select
+      id={{@identifier}}
+      class="form-select {{if @size (concat 'form-select-' @size)}}"
+      required={{@isRequired}}
+      aria-label={{if @isInputOnly @label}}
+      {{on "change" this.change}}
+      ...attributes
+    >
+      {{#each @options as |opt index|}}
         <option
-          value={{if (or opt.value (eq false opt.value)) opt.value ""}}
+          value={{if (or opt.value (eq false opt.value)) index ""}}
           selected={{eq @selected opt.value}}
         >
           {{opt.label}}
         </option>
-      {{/if}}
-    {{/each}}
+      {{/each}}
+    </select>
+  {{/if}}
 
-  </select>
 {{/if}}
 
 <Form::Error @text={{@invalidFeedback}} />

@@ -18,11 +18,6 @@ export default class CompsFormController extends Controller {
   number: number | null = null;
   city?: string;
 
-  @tracked default: Option<string> = {
-    value: 'undefined',
-    label: 'Choose…',
-  };
-
   @tracked group1: OptGroup<string> = {
     groupName: 'Norcal',
     options: [
@@ -41,17 +36,7 @@ export default class CompsFormController extends Controller {
     ] as Option<string>[],
   };
 
-  @tracked option1: Option<string> = {
-    label: 'Midcal',
-    value: 'Bakersfield',
-  };
-
-  @tracked groupOptions: (OptGroup<string> | Option<string>)[] = [
-    this.default,
-    this.group1,
-    this.group2,
-    this.option1,
-  ];
+  @tracked groupOptions: OptGroup<string>[] = [this.group1, this.group2];
 
   @action
   create() {}
