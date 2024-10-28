@@ -3,6 +3,10 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, select, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+import type {
+  OptGroup,
+  Option,
+} from '@trusted-american/design-system/components/form/select';
 import type { FormSelectSignature } from '@trusted-american/design-system/components/form/select';
 
 type Context = FormSelectSignature<string>['Args'] & TestContext;
@@ -60,31 +64,31 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('grouped works', async function (this: Context, assert) {
-    this.options = [
+    this.multigroup = [
       {
         groupName: 'First',
         options: [
           { label: 'A', value: 'A' },
           { label: 'B', value: 'B' },
           { label: 'C', value: 'C' },
-        ],
+        ] as Option<string>[],
       },
-      { label: 'D', value: 'D' },
-    ];
+      { label: 'D', value: 'D' } as Option<string>,
+    ] as (Option<string> | OptGroup<string>)[];
+
     await render<Context>(hbs`
       <Form::Select
-        @options={{this.options}}
+        @options={{this.multigroup}}
         @selected={{this.selected}}
         @label='Label'
         @identifier='identifier'
-        @isRequired={{true}}
+        @isRequired={{true}} 
         @onChange={{fn (mut this.selected)}}
       />
     `);
 
     assert.dom('select optgroup').hasAttribute('label', 'First');
     assert.dom('select optgroup option').exists();
-    await this.pauseTest();
     await select('select', 'C');
 
     assert.strictEqual(this.selected, 'C');

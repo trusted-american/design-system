@@ -18,9 +18,9 @@ export default class CompsFormController extends Controller {
   number: number | null = null;
   city?: string;
 
-  starting: Option<string | undefined> = {
+  starting: Option<string> = {
     label: 'Select...',
-    value: undefined,
+    value: 'undefined',
   };
   group1: OptGroup<string> = {
     groupName: 'Norcal',
