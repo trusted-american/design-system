@@ -64,21 +64,23 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('grouped works', async function (this: Context, assert) {
-    this.multigroup = [
-      {
-        groupName: 'First',
-        options: [
-          { label: 'A', value: 'A' },
-          { label: 'B', value: 'B' },
-          { label: 'C', value: 'C' },
-        ] as Option<string>[],
-      },
-      { label: 'D', value: 'D' } as Option<string>,
-    ] as (Option<string> | OptGroup<string>)[];
+    this.setProperties({
+      multigroup: [
+        {
+          groupName: 'First',
+          options: [
+            { label: 'A', value: 'A' },
+            { label: 'B', value: 'B' },
+            { label: 'C', value: 'C' },
+          ],
+        },
+        { label: 'D', value: 'D' },
+      ] as (Option<string> | OptGroup<string>)[],
+    });
 
     await render<Context>(hbs`
       <Form::Select
-        @options={{this.multigroup}}
+        @options={{this.multigroup}} 
         @selected={{this.selected}}
         @label='Label'
         @identifier='identifier'
