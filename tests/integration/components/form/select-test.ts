@@ -79,7 +79,8 @@ module('Integration | Component | form/select', function (hooks) {
     });
 
     await render<Context>(hbs`
-      <Form::Select
+      <Form::Select 
+      {{! @glint-expect-error }}
         @options={{this.multigroup}} 
         @selected={{this.selected}}
         @label='Label'
