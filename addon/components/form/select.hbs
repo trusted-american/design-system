@@ -37,11 +37,15 @@
       {{! @glint-expect-error }}
       {{#if opt.groupName}}
         {{! @glint-expect-error }}
-        <optgroup label={{opt.groupName}}>
+        <optgroup label={{opt.groupName}} value={{index}}>
           {{! @glint-expect-error }}
           {{#each opt.options as |_opt i|}}
             <option
-              value={{if (or _opt.value (eq false _opt.value)) i ""}}
+              value="{{index}}-{{if
+                (or _opt.value (eq false _opt.value))
+                i
+                ''
+              }}"
               selected={{eq @selected _opt.value}}
             >
               {{_opt.label}}

@@ -1,12 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, select, type TestContext } from '@ember/test-helpers';
+import { click, render, select, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type {
-  OptGroup,
-  Option,
-} from '@trusted-american/design-system/components/form/select';
 import type { FormSelectSignature } from '@trusted-american/design-system/components/form/select';
 
 type Context = FormSelectSignature<string>['Args'] & TestContext;
@@ -64,27 +60,21 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('grouped works', async function (this: Context, assert) {
-    this.setProperties({
-      multigroup: [
-        {
-          groupName: 'First',
-          options: [
-            { label: 'A', value: 'A' },
-            { label: 'B', value: 'B' },
-            { label: 'C', value: 'C' },
-          ],
-        },
-        { label: 'D', value: 'D' },
-      ] as (Option<string> | OptGroup<string>)[],
-    });
-
     await render<Context>(hbs`
       <Form::Select 
-      {{! @glint-expect-error }}
-        @options={{this.multigroup}} 
+        @options={{(array
+          (hash label="A" value="A")
+          (hash groupName="First" options=(array
+            (hash value="B" label="B")
+            (hash value="C" label="C")
+            (hash value="D" label="D")
+          ))
+          (hash label="E" value="E")
+        )
+        }} 
         @selected={{this.selected}}
         @label='Label'
-        @identifier='identifier'
+        @identifier='group'
         @isRequired={{true}} 
         @onChange={{fn (mut this.selected)}}
       />
@@ -92,8 +82,14 @@ module('Integration | Component | form/select', function (hooks) {
 
     assert.dom('select optgroup').hasAttribute('label', 'First');
     assert.dom('select optgroup option').exists();
-    await select('select', 'C');
+    assert.dom('#group option:nth-child(3)').exists();
 
-    assert.strictEqual(this.selected, 'C');
+    await click('#group');
+    await select('#group', '1-2');
+    assert.strictEqual(this.selected, 'D');
+
+    await this.pauseTest();
+    await select('#group', '2');
+    assert.strictEqual(this.selected, 'E');
   });
 });
