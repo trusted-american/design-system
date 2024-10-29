@@ -63,13 +63,12 @@ module('Integration | Component | form/select', function (hooks) {
     await render<Context>(hbs`
       <Form::Select 
         @options={{(array
-          (hash label="A" value="A")
           (hash groupName="First" options=(array
+            (hash value="A" label="A")
             (hash value="B" label="B")
             (hash value="C" label="C")
-            (hash value="D" label="D")
           ))
-          (hash label="E" value="E")
+          (hash label="D" value="D")
         )
         }} 
         @selected={{this.selected}}
@@ -84,12 +83,12 @@ module('Integration | Component | form/select', function (hooks) {
     assert.dom('select optgroup option').exists();
     assert.dom('#group option:nth-child(3)').exists();
 
+    assert.strictEqual(this.selected, 'A');
     await click('#group');
-    await select('#group', '1-2');
-    assert.strictEqual(this.selected, 'D');
+    await select('#group', '0-1');
+    assert.strictEqual(this.selected, 'B');
 
-    await this.pauseTest();
-    await select('#group', '2');
-    assert.strictEqual(this.selected, 'E');
+    await select('#group', '1');
+    assert.strictEqual(this.selected, 'D');
   });
 });
