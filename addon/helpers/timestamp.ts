@@ -12,9 +12,10 @@ dayjs.extend(isTomorrow);
 
 const DATE_FORMAT = 'MMM D, YYYY';
 const TIME_FORMAT = 'h:mm A';
+const YEAR_FORMAT = 'YYYY';
 
-interface Named {
-  format?: 'date' | 'time' | 'full';
+interface Options {
+  format?: 'date' | 'time' | 'year' | 'full';
   number?: boolean;
   year?: boolean;
   utc?: boolean;
@@ -26,14 +27,17 @@ interface Named {
  * @param param1
  * @returns
  */
-export const timestamp = ([date]: [date: unknown], opts?: Named): string => {
+export const timestamp = (
+  [date]: [Date | string | number | null | undefined],
+  opts?: Options,
+): string => {
   const { format, number, year, utc } = opts ?? {};
 
   if (!date) {
     return date as string;
   }
 
-  let djs = typeof date === 'number' ? dayjs.unix(date) : dayjs(date as string);
+  let djs = typeof date === 'number' ? dayjs.unix(date) : dayjs(date);
 
   if (year) {
     return djs.year().toString();
@@ -51,6 +55,8 @@ export const timestamp = ([date]: [date: unknown], opts?: Named): string => {
     return djs.format(DATE_FORMAT);
   } else if (format === 'time') {
     return djs.format(TIME_FORMAT);
+  } else if (format === 'year') {
+    return djs.format(YEAR_FORMAT);
   } else {
     if (format !== 'full') {
       if (djs.isYesterday()) {
