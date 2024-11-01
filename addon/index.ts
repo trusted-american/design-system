@@ -46,7 +46,6 @@ export { default as CardFooter } from './components/card/footer';
 export { default as CardHeader } from './components/card/header';
 
 export { default as CopyButton } from './components/copy/button';
-export { default as CopyButtonFull } from './components/copy/button-full';
 
 export { default as DropdownDivider } from './components/dropdown/divider';
 export { default as DropdownHeader } from './components/dropdown/header';

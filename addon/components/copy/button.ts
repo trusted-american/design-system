@@ -4,6 +4,8 @@ export interface CopyButtonSignature {
   Args: {
     text: string;
     delegateClickEvent?: boolean;
+    isButton?: boolean;
+    isFullWidth?: boolean;
   };
   Blocks: {
     default: [];
