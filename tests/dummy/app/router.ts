@@ -20,7 +20,7 @@ Router.map(function () {
     this.route('card');
     this.route('close-button');
     this.route('collapse');
-    this.route('copy-button');
+    this.route('copy');
     this.route('dropdown');
     this.route('external-link');
     this.route('file-type');

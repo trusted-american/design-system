@@ -16,9 +16,9 @@
         </span>
       {{else}}
         {{#if @value}}
-          <Copy::Button @text={{@value}} {{tooltip (concat "Copy " @label)}}>
+          <Copy @text={{@value}} {{tooltip (concat "Copy " @label)}}>
             {{yield}}
-          </Copy::Button>
+          </Copy>
           <span class="float-end">{{yield to="side"}}</span>
         {{else}}
           {{yield}}
@@ -43,9 +43,9 @@
       </span>
     {{else}}
       {{#if @value}}
-        <Copy::Button @text={{@value}} {{tooltip (concat "Copy " @label)}}>
+        <Copy @text={{@value}} {{tooltip (concat "Copy " @label)}}>
           {{yield}}
-        </Copy::Button>
+        </Copy>
         <span class="float-end">{{yield to="side"}}</span>
       {{else}}
         {{yield}}

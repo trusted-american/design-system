@@ -11,6 +11,7 @@ import type Calendar from './components/calendar';
 import type Card from './components/card';
 import type CloseButton from './components/close-button';
 import type Collapse from './components/collapse';
+import type Copy from './components/copy';
 import type Dropdown from './components/dropdown';
 import type ExternalLink from './components/external-link';
 import type FileType from './components/file-type';
@@ -44,8 +45,6 @@ import type AsideTitle from './components/aside/title';
 import type CardBody from './components/card/body';
 import type CardFooter from './components/card/footer';
 import type CardHeader from './components/card/header';
-
-import type CopyButton from './components/copy/button';
 
 import type DropdownDivider from './components/dropdown/divider';
 import type DropdownHeader from './components/dropdown/header';
@@ -107,6 +106,7 @@ export default interface Registry {
   Card: typeof Card;
   CloseButton: typeof CloseButton;
   Collapse: typeof Collapse;
+  Copy: typeof Copy;
   Dropdown: typeof Dropdown;
   ExternalLink: typeof ExternalLink;
   FileType: typeof FileType;
@@ -140,8 +140,6 @@ export default interface Registry {
   'Card::Body': typeof CardBody;
   'Card::Footer': typeof CardFooter;
   'Card::Header': typeof CardHeader;
-
-  'Copy::Button': typeof CopyButton;
 
   'Dropdown::Divider': typeof DropdownDivider;
   'Dropdown::Header': typeof DropdownHeader;

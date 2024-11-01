@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export interface CopyButtonSignature {
+export interface CopySignature {
   Args: {
     text: string;
     delegateClickEvent?: boolean;
@@ -13,10 +13,10 @@ export interface CopyButtonSignature {
   Element: HTMLElement;
 }
 
-export default class CopyButton extends Component<CopyButtonSignature> {}
+export default class Copy extends Component<CopySignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Copy::Button': typeof CopyButton;
+    Copy: typeof Copy;
   }
 }

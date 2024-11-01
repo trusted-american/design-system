@@ -11,6 +11,7 @@ export { default as Calendar } from './components/calendar';
 export { default as Card } from './components/card';
 export { default as CloseButton } from './components/close-button';
 export { default as Collapse } from './components/collapse';
+export { default as Copy } from './components/copy';
 export { default as Dropdown } from './components/dropdown';
 export { default as ExternalLink } from './components/external-link';
 export { default as FileType } from './components/file-type';
@@ -44,8 +45,6 @@ export { default as AsideTitle } from './components/aside/title';
 export { default as CardBody } from './components/card/body';
 export { default as CardFooter } from './components/card/footer';
 export { default as CardHeader } from './components/card/header';
-
-export { default as CopyButton } from './components/copy/button';
 
 export { default as DropdownDivider } from './components/dropdown/divider';
 export { default as DropdownHeader } from './components/dropdown/header';
