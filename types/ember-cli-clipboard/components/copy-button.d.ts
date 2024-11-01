@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export default class CopyButton extends Component<{
   Args: {
-    text: unknown;
+    text: string;
     target?: string;
     action?: 'copy' | 'cut';
     container?: string | Element;

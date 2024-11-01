@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface CopyButtonSignature {
   Args: {
-    text: unknown;
+    text: string;
     delegateClickEvent?: boolean;
   };
   Blocks: {

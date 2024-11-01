@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface CopyButtonFullSignature {
   Args: {
-    text: unknown;
+    text: string;
     isFullWidth?: boolean;
   };
   Blocks: {
