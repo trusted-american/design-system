@@ -1,5 +1,8 @@
 <nav
-  class="nav {{unless @isPills 'nav-tabs'}} {{if @isPills 'nav-pills'}}"
+  class="nav
+    {{unless @isPills 'nav-tabs'}}
+    {{if @isPills 'nav-pills'}}
+    {{if @isVertical 'flex-column'}}"
   data-test-nav
   ...attributes
 >
