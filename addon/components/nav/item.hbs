@@ -3,8 +3,7 @@
     @route={{@route}}
     @model={{@model}}
     @query={{@query}}
-    class="nav-link d-flex justify-content-between align-items-center
-      {{if @isDisabled 'disabled'}}"
+    class="nav-link {{if @isDisabled 'disabled'}}"
     ...attributes
   >
     <Nav::Item::Internal
@@ -20,8 +19,7 @@
   <LinkTo
     @route={{@route}}
     @model={{@model}}
-    class="nav-link d-flex justify-content-between align-items-center
-      {{if @isDisabled 'disabled'}}"
+    class="nav-link {{if @isDisabled 'disabled'}}"
     ...attributes
   >
     <Nav::Item::Internal
@@ -36,8 +34,7 @@
 {{else if @route}}
   <LinkTo
     @route={{@route}}
-    class="nav-link d-flex justify-content-between align-items-center
-      {{if @isDisabled 'disabled'}}"
+    class="nav-link {{if @isDisabled 'disabled'}}"
     ...attributes
   >
     <Nav::Item::Internal
@@ -52,8 +49,7 @@
 {{else if @query}}
   <LinkTo
     @query={{@query}}
-    class="nav-link d-flex justify-content-between align-items-center
-      {{if @isDisabled 'disabled'}}"
+    class="nav-link {{if @isDisabled 'disabled'}}"
     ...attributes
   >
     <Nav::Item::Internal
@@ -66,12 +62,7 @@
     </Nav::Item::Internal>
   </LinkTo>
 {{else}}
-  <a
-    href="#"
-    class="nav-link d-flex justify-content-between align-items-center
-      {{if @isDisabled 'disabled'}}"
-    ...attributes
-  >
+  <a href="#" class="nav-link {{if @isDisabled 'disabled'}}" ...attributes>
     <Nav::Item::Internal
       @text={{@text}}
       @icon={{@icon}}
