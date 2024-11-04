@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 export interface CopySignature {
   Args: {
     text: string;
+    container?: string | Element;
     delegateClickEvent?: boolean;
     isButton?: boolean;
     isFullWidth?: boolean;
@@ -10,7 +11,7 @@ export interface CopySignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HTMLButtonElement;
 }
 
 export default class Copy extends Component<CopySignature> {}

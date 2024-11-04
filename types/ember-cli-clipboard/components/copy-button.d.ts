@@ -14,5 +14,5 @@ export default class CopyButton extends Component<{
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HTMLButtonElement;
 }> {}
