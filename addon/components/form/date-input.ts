@@ -59,29 +59,33 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
   @action
   change({ target }: Event): void {
+    const dateStr = (target as HTMLInputElement).value;
+
     if (this.args.isLocalTimeZone) {
-      const dateStr = (target as HTMLInputElement).value;
-      const value = dayjs(dateStr).toDate();
+      let value: Date | null = dayjs(dateStr).toDate();
 
       // https://github.com/iamkun/dayjs/issues/1237
-      value.setFullYear(parseInt(dateStr.split('-')[0] as string));
+      const [yearStr] = dateStr.split('-');
+      if (yearStr) {
+        value.setFullYear(parseInt(yearStr));
+      }
+
+      if (!isValidDate(value)) {
+        value = null;
+      }
 
       this.args.onChange(value);
       return;
     }
 
-    const date = new Date((target as HTMLInputElement).value);
+    let value: Date | null = new Date(dateStr);
 
-    let value;
-
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (!date.toISOString || isNaN(date.getTime())) {
-      value = null;
-    } else if (date.getFullYear() > 9999) {
-      date.setFullYear(Math.floor(date.getFullYear() / 10));
-      value = date;
+    if (isValidDate(value)) {
+      if (value.getFullYear() > 9999) {
+        value.setFullYear(Math.floor(value.getFullYear() / 10));
+      }
     } else {
-      value = date;
+      value = null;
     }
 
     this.args.onChange(value);
