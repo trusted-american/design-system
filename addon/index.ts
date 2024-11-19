@@ -3,6 +3,7 @@ export { default as Alert } from './components/alert';
 export { default as Aside } from './components/aside';
 export { default as Avatar } from './components/avatar';
 export { default as Badge } from './components/badge';
+export { default as BasicTable } from './components/basic-table';
 export { default as BreadcrumbTrail } from './components/breadcrumb-trail';
 export { default as Button } from './components/button';
 export { default as ButtonGroup } from './components/button-group';
