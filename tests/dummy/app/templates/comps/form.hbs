@@ -167,13 +167,13 @@
 />
 
 <Form::Select
-  @options={{array "active" "inactive"}}
-  @selected={{this.status}}
+  @options={{this.groupOptions}}
+  @selected={{this.city}}
   @label="Label"
-  @identifier="selectSimple"
+  @identifier="select"
   @isRequired={{true}}
-  @isSimple={{true}}
-  @onChange={{fn (mut this.status)}}
+  @help="Help"
+  @onChange={{fn (mut this.city)}}
 />
 
 <Subheading @title="Form::Textarea" class="mt-3" />
