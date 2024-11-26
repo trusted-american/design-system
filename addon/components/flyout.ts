@@ -10,6 +10,7 @@ export interface FlyoutSignature {
   };
   Blocks: {
     default: [];
+    footer: [];
   };
   Element: HTMLDivElement;
 }

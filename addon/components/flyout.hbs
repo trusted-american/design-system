@@ -14,4 +14,9 @@
   <div class="offcanvas-body">
     {{yield}}
   </div>
+  {{#if (has-block "footer")}}
+    <div class="offcanvas-header border-top">
+      {{yield to="footer"}}
+    </div>
+  {{/if}}
 </div>
