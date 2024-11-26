@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { Offcanvas } from 'bootstrap';
 import { action } from '@ember/object';
-import { guidFor } from '@ember/object/internals';
 
 export interface FlyoutSignature {
   Args: {
@@ -17,8 +16,6 @@ export interface FlyoutSignature {
 
 export default class Flyout extends Component<FlyoutSignature> {
   offcanvas?: Offcanvas;
-
-  id = guidFor(this);
 
   @action
   didInsert(element: Element): void {
