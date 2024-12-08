@@ -13,6 +13,7 @@ interface Args extends BaseArgs {
   min?: Date | null;
   max?: Date | null;
   size?: 'sm' | 'lg';
+  isMonth?: boolean;
   isLocalTimeZone?: boolean;
   onChange: (value: Date | null) => void;
 }
@@ -25,6 +26,10 @@ export interface FormDateInputSignature {
 export default class FormDateInput extends Component<FormDateInputSignature> {
   get value(): string | null {
     if (this.args.value) {
+      if (this.args.isMonth) {
+        const djs = dayjs(this.args.value).utc(false);
+        return djs.format('YYYY-MM');
+      }
       return this.dateToString(this.args.value);
     }
     return '';
