@@ -44,6 +44,16 @@ body aside .tds-aside-logo {
   filter: invert(1);
 }
 
+[data-bs-theme="dark"] {
+  .tds-aside-logo {
+    filter: invert(0) !important;
+  }
+
+  .tds-aside-title {
+    color: white !important;
+  }
+}
+
 body > main {
   grid-area: main;
 }
