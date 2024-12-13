@@ -5,9 +5,10 @@
 />
 
 <div
-  class="input-group
-    {{if @size (concat 'input-group-' @size)}}
-    {{if @invalidFeedback 'has-validation'}}"
+  class="input-group{{if @size (concat ' input-group-' @size)}}{{if
+      @invalidFeedback
+      ' has-validation'
+    }}"
 >
   {{#if (has-block)}}
     <span class="input-group-text">
@@ -19,10 +20,13 @@
     type={{if @type @type "text"}}
     id={{@identifier}}
     value={{@value}}
-    class="{{if (eq 'range' @type) 'form-range' 'form-control'}}
-      {{if @size (concat 'form-control-' @size)}}
-      {{if (eq 'color' @type) 'form-control-color'}}
-      {{if @errors 'is-invalid'}}"
+    class="{{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
+        @size
+        (concat ' form-control-' @size)
+      }}{{if (eq 'color' @type) ' form-control-color'}}{{if
+        @errors
+        ' is-invalid'
+      }}"
     required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
     {{on "input" this.change}}

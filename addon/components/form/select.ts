@@ -31,7 +31,11 @@ export interface FormSelectSignature<T> {
 export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
   @action
   change({ target }: Event): void {
-    const index = parseInt((target as HTMLFormElement)['value'] as string);
+    if (!(target instanceof HTMLSelectElement)) {
+      throw new Error();
+    }
+
+    const index = parseInt(target.value);
 
     const options = this.args.options as Option<T>[];
     const selected = options[index];
