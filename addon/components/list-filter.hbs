@@ -36,9 +36,8 @@
             }}
             @label={{predicate.label}}
             @identifier="toggle{{index}}"
+            @onChange={{fn this.toggle predicate}}
             class="me-1"
-            {{! @glint-expect-error }}
-            {{on "change" (pick "target.checked" (fn this.toggle predicate))}}
           />
           {{predicate.label}}
         </label>
@@ -123,13 +122,7 @@
                   @value={{includes opt.value predicate.value}}
                   @label={{opt.label}}
                   @identifier="{{opt.value}}"
-                  {{! @glint-nocheck }}
-                  {{on
-                    "change"
-                    (pick
-                      "target.checked" (fn this.toggleMulti predicate opt.value)
-                    )
-                  }}
+                  @onChange={{fn this.toggleMulti predicate opt.value}}
                 />
               {{/each}}
 
@@ -140,6 +133,8 @@
                 @label="Value"
                 @identifier="value{{index}}"
                 @isInputOnly={{true}}
+                {{! @glint-expect-error }}
+                @onChange={{fn (mut predicate.type)}}
                 {{autoselect}}
               />
 
