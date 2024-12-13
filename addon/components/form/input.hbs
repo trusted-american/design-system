@@ -4,12 +4,17 @@
   @isRequired={{@isRequired}}
 />
 
-<div class="input-group">
+<div
+  class="input-group
+    {{if @size (concat 'input-group-' @size)}}
+    {{if @invalidFeedback 'has-validation'}}"
+>
   {{#if (has-block)}}
     <span class="input-group-text">
       {{yield}}
     </span>
   {{/if}}
+
   <input
     type={{if @type @type "text"}}
     id={{@identifier}}
@@ -23,12 +28,12 @@
     {{on "input" this.change}}
     ...attributes
   />
+
+  <Form::Error @text={{@invalidFeedback}} />
+
+  {{#each @errors as |error|}}
+    <Form::Error @text={{error.message}} />
+  {{/each}}
 </div>
-
-<Form::Error @text={{@invalidFeedback}} />
-
-{{#each @errors as |error|}}
-  <Form::Error @text={{error.message}} />
-{{/each}}
 
 <Form::Help @text={{@help}} />
