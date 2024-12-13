@@ -7,14 +7,14 @@ export interface BaseArgs {
   isRequired?: boolean;
   help?: string;
   invalidFeedback?: string;
+  size?: 'sm' | 'lg';
   isInputOnly?: boolean;
+  errors?: { message: string }[];
 }
 
 interface Args extends BaseArgs {
   value: string | null | undefined;
   type?: string;
-  size?: 'sm' | 'lg';
-  errors?: { message: string }[];
   onChange: (value: string) => void;
 }
 

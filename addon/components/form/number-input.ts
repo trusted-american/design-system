@@ -5,7 +5,6 @@ import type { BaseArgs } from './input';
 
 interface Args extends BaseArgs {
   value: number | null | undefined;
-  size?: 'sm' | 'lg';
   isRange?: boolean;
   onChange: (value: number | null) => void;
 }
