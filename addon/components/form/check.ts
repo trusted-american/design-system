@@ -6,6 +6,7 @@ interface Args extends BaseArgs {
   value: boolean | undefined;
   isInline?: boolean;
   isSwitch?: boolean;
+  onChange: (value: boolean) => void;
 }
 
 export interface FormCheckSignature {

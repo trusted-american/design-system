@@ -5,6 +5,8 @@
 
 <Subheading @title="Form::Check" class="mt-3" />
 
+<p>Value: {{if this.check "True" " False"}}</p>
+
 <Form::Check
   @value={{this.check}}
   @label="Label"
@@ -12,6 +14,7 @@
   @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
+  @onChange={{fn (mut this.check)}}
 />
 
 <Subheading @title="Form::DateInput" class="mt-3" />

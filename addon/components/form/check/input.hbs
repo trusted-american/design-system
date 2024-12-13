@@ -1,9 +1,10 @@
-<Input
-  @checked={{@value}}
-  @type="checkbox"
+<input
+  type="checkbox"
   id={{@identifier}}
+  checked={{@value}}
   class="form-check-input"
   required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
+  {{on "input" this.change}}
   ...attributes
 />
