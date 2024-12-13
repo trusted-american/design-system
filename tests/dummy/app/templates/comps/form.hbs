@@ -83,6 +83,18 @@
   placeholder="Placeholder"
 />
 
+<Form::NumberInput
+  @value={{this.number}}
+  @label="Label"
+  @identifier="numberInput"
+  @isRequired={{true}}
+  @help="Help"
+  @invalidFeedback="Invalid feedback"
+  @isRange={{true}}
+  @onChange={{fn (mut this.number)}}
+  placeholder="Placeholder"
+/>
+
 <Subheading @title="Form::PhoneInput" class="mt-3" />
 
 <Form::PhoneInput

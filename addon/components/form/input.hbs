@@ -4,19 +4,26 @@
   @isRequired={{@isRequired}}
 />
 
-<input
-  value={{@value}}
-  type={{if @type @type "text"}}
-  id={{@identifier}}
-  class="form-control
-    {{if @size (concat 'form-control-' @size)}}
-    {{if (eq 'color' @type) 'form-control-color'}}
-    {{if @errors 'is-invalid'}}"
-  required={{@isRequired}}
-  aria-label={{if @isInputOnly @label}}
-  {{on "input" this.change}}
-  ...attributes
-/>
+<div class="input-group">
+  {{#if (has-block)}}
+    <span class="input-group-text">
+      {{yield}}
+    </span>
+  {{/if}}
+  <input
+    type={{if @type @type "text"}}
+    id={{@identifier}}
+    value={{@value}}
+    class="form-control
+      {{if @size (concat 'form-control-' @size)}}
+      {{if (eq 'color' @type) 'form-control-color'}}
+      {{if @errors 'is-invalid'}}"
+    required={{@isRequired}}
+    aria-label={{if @isInputOnly @label}}
+    {{on "input" this.change}}
+    ...attributes
+  />
+</div>
 
 <Form::Error @text={{@invalidFeedback}} />
 

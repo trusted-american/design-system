@@ -20,6 +20,9 @@ interface Args extends BaseArgs {
 
 export interface FormInputSignature {
   Args: Args;
+  Blocks: {
+    default: [];
+  };
   Element: HTMLInputElement;
 }
 
