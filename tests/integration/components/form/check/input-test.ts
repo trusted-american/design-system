@@ -11,15 +11,15 @@ module('Integration | Component | form/check/input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    this.onChange = () => {};
+    this.value = false;
 
     await render<Context>(hbs`
       <Form::Check::Input
-        @value={{false}}
+        @value={{this.value}}
         @label='Label'
         @identifier='identifier'
         @isRequired={{true}}
-        @onChange={{this.onChange}}
+        @onChange={{fn (mut this.value)}}
       />
     `);
 

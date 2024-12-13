@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render, click, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { FormCheckSignature } from '@trusted-american/design-system/components/form/check';
@@ -21,10 +21,15 @@ module('Integration | Component | form/check', function (hooks) {
         @isInline={{false}}
         @isSwitch={{false}}
         @help='Help'
+        @onChange={{fn (mut this.value)}}
       />
     `);
 
     assert.dom('label').hasText('Label');
     assert.dom('[data-test-form-help]').exists();
+
+    await click('input');
+
+    assert.true(this.value);
   });
 });
