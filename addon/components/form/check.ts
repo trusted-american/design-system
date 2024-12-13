@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import type { BaseArgs } from './input';
 
 interface Args extends BaseArgs {
-  value: boolean | undefined;
+  value: boolean | null | undefined;
   isInline?: boolean;
   isSwitch?: boolean;
   onChange: (value: boolean) => void;
