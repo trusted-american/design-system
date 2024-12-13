@@ -15,4 +15,9 @@
 />
 
 <Form::Error @text={{@invalidFeedback}} />
+
+{{#each @errors as |error|}}
+  <Form::Error @text={{error.message}} />
+{{/each}}
+
 <Form::Help @text={{@help}} />
