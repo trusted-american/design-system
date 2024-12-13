@@ -15,8 +15,10 @@ module('Integration | Component | form/date-input', function (hooks) {
     this.min = undefined;
     this.max = undefined;
     this.onChange = (value) => {
-      const date = new Date(2014, 8, 13);
-      assert.strictEqual(value?.getTime(), date.getTime());
+      assert.strictEqual(
+        value?.toISOString(),
+        new Date(Date.UTC(2014, 8, 13)).toISOString(),
+      );
     };
 
     await render<Context>(hbs`
