@@ -1,19 +1,11 @@
-<Form::Label
-  @text={{unless @isInputOnly @label}}
+<Form::Input
+  @type="time"
+  @value={{this.value}}
+  @label={{@label}}
   @identifier={{@identifier}}
-  @isRequired={{@isRequired}}
-/>
-
-<input
-  type="time"
-  id={{@identifier}}
-  value={{this.value}}
-  class="form-control {{if @size (concat 'form-control-' @size)}}"
-  required={{@isRequired}}
-  aria-label={{if @isInputOnly @label}}
-  {{on "change" this.change}}
+  @isRequired={{true}}
+  @help={{@help}}
+  @invalidFeedback={{@invalidFeedback}}
+  @onChange={{this.change}}
   ...attributes
 />
-
-<Form::Error @text={{@invalidFeedback}} />
-<Form::Help @text={{@help}} />

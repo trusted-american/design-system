@@ -33,9 +33,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
   }
 
   @action
-  change({ target }: Event): void {
-    const v = (target as HTMLInputElement).value;
-
+  change(v: string): void {
     const value = this.args.value ? new Date(this.args.value) : new Date();
     const [hours, minutes] = v.split(':').map(Number);
     if (hours) value.setHours(hours);
