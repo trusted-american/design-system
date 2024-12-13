@@ -1,28 +1,19 @@
-<Form::Label
-  @text={{unless @isInputOnly @label}}
+<Form::Input
+  @type={{if @isMonth "month" "date"}}
+  @value={{this.value}}
+  @label={{@label}}
   @identifier={{@identifier}}
-  @isRequired={{@isRequired}}
-/>
-
-<div class="input-group">
+  @isRequired={{true}}
+  @help={{@help}}
+  @invalidFeedback={{@invalidFeedback}}
+  @onChange={{this.change}}
+  min={{this.min}}
+  max={{this.max}}
+  ...attributes
+>
   {{#if @isMonth}}
-    <span class="input-group-text">
-      1st of
-    </span>
+    1st of
+  {{else}}
+    <Icon @icon="calendar" />
   {{/if}}
-  <input
-    type={{if @isMonth "month" "date"}}
-    id={{@identifier}}
-    value={{this.value}}
-    min={{this.min}}
-    max={{this.max}}
-    class="form-control {{if @size (concat 'form-control-' @size)}}"
-    required={{@isRequired}}
-    aria-label={{if @isInputOnly @label}}
-    {{on "change" this.change}}
-    ...attributes
-  />
-</div>
-
-<Form::Error @text={{@invalidFeedback}} />
-<Form::Help @text={{@help}} />
+</Form::Input>

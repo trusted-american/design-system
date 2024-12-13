@@ -63,9 +63,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   }
 
   @action
-  change({ target }: Event): void {
-    const dateStr = (target as HTMLInputElement).value;
-
+  change(dateStr: string): void {
     if (this.args.isLocalTimeZone) {
       let value: Date | null = dayjs(dateStr).toDate();
 
