@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export interface BaseArgs {
   label: string;
@@ -14,6 +15,7 @@ interface Args extends BaseArgs {
   type?: string;
   size?: 'sm' | 'lg';
   errors?: { message: string }[];
+  onChange: (value: string) => void;
 }
 
 export interface FormInputSignature {
@@ -21,7 +23,15 @@ export interface FormInputSignature {
   Element: HTMLInputElement;
 }
 
-export default class FormInput extends Component<FormInputSignature> {}
+export default class FormInput extends Component<FormInputSignature> {
+  @action
+  change({ target }: Event): void {
+    if (!(target instanceof HTMLInputElement)) {
+      throw new Error();
+    }
+    this.args.onChange(target.value);
+  }
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

@@ -9,6 +9,7 @@
       @label="Search"
       @identifier="search"
       @isInputOnly={{true}}
+      @onChange={{fn (mut this.search)}}
       placeholder="Search"
     />
     <Button @text="Filter" {{on "click" this.do}} />

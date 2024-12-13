@@ -22,6 +22,7 @@ module('Integration | Component | form/input', function (hooks) {
         @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
+        @onChange={{fn (mut this.value)}}
       />
     `);
 

@@ -4,9 +4,9 @@
   @isRequired={{@isRequired}}
 />
 
-<Input
-  @value={{@value}}
-  @type={{if @type @type "text"}}
+<input
+  value={{@value}}
+  type={{if @type @type "text"}}
   id={{@identifier}}
   class="form-control
     {{if @size (concat 'form-control-' @size)}}
@@ -14,6 +14,7 @@
     {{if @errors 'is-invalid'}}"
   required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
+  {{on "input" this.change}}
   ...attributes
 />
 

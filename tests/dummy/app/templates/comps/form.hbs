@@ -57,6 +57,8 @@
 
 <Subheading @title="Form::Input" class="mt-3" />
 
+<p>Value: {{this.value}}</p>
+
 <Form::Input
   @value={{this.value}}
   @label="Label"
@@ -64,6 +66,7 @@
   @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
+  @onChange={{fn (mut this.value)}}
   placeholder="Placeholder"
 />
 
