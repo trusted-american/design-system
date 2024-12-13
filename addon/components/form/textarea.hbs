@@ -4,12 +4,13 @@
   @isRequired={{@isRequired}}
 />
 
-<Textarea
-  @value={{@value}}
+<textarea
   id={{@identifier}}
+  value={{@value}}
   class="form-control {{if @size (concat 'form-control-' @size)}}"
   required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
+  {{on "input" this.change}}
   ...attributes
 />
 

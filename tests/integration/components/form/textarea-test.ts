@@ -22,6 +22,7 @@ module('Integration | Component | form/textarea', function (hooks) {
         @isRequired={{this.isRequired}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
+        @onChange={{fn (mut this.value)}}
       />
     `);
 
