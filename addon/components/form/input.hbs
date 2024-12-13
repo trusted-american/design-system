@@ -14,7 +14,7 @@
     type={{if @type @type "text"}}
     id={{@identifier}}
     value={{@value}}
-    class="form-control
+    class="{{if (eq 'range' @type) 'form-range' 'form-control'}}
       {{if @size (concat 'form-control-' @size)}}
       {{if (eq 'color' @type) 'form-control-color'}}
       {{if @errors 'is-invalid'}}"

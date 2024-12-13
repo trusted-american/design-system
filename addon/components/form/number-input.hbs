@@ -1,20 +1,11 @@
-<Form::Label
-  @text={{unless @isInputOnly @label}}
+<Form::Input
+  @type={{if @isRange "range" "number"}}
+  @value={{this.value}}
+  @label={{@label}}
   @identifier={{@identifier}}
-  @isRequired={{@isRequired}}
-/>
-
-<input
-  type={{if @isRange "range" "number"}}
-  id={{@identifier}}
-  value={{this.value}}
-  class="{{if @isRange 'form-range' 'form-control'}}
-    {{if @size (concat 'form-control-' @size)}}"
-  required={{@isRequired}}
-  aria-label={{if @isInputOnly @label}}
-  {{on "input" this.change}}
+  @isRequired={{true}}
+  @help={{@help}}
+  @invalidFeedback={{@invalidFeedback}}
+  @onChange={{this.change}}
   ...attributes
 />
-
-<Form::Error @text={{@invalidFeedback}} />
-<Form::Help @text={{@help}} />

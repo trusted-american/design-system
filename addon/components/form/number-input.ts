@@ -21,8 +21,7 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
   }
 
   @action
-  change({ target }: Event) {
-    const { value } = target as HTMLInputElement;
+  change(value: string): void {
     const number =
       value === '' || isNaN(value as unknown as number)
         ? null
