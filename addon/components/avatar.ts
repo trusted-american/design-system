@@ -64,7 +64,7 @@ export default class Avatar extends Component<AvatarSignature> {
 
   get style() {
     return htmlSafe(
-      `object-fit: cover; width: ${this.size}rem; height: ${this.size}rem;`,
+      `object-fit: cover; width: ${this.size.toString()}rem; height: ${this.size.toString()}rem;`,
     );
   }
 }

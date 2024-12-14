@@ -10,7 +10,6 @@
     class="form-select {{if @size (concat 'form-select-' @size)}}"
     required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
-    {{! @glint-expect-error }}
     {{on "change" (pick "target.value" @onChange)}}
     ...attributes
   >

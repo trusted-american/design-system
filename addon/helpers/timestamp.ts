@@ -29,9 +29,9 @@ interface Options {
  */
 export const timestamp = (
   [date]: [Date | string | number | null | undefined],
-  opts?: Options,
+  opts: Options,
 ): string => {
-  const { format, number, year, utc } = opts ?? {};
+  const { format, number, year, utc } = opts;
 
   if (!date) {
     return date as string;

@@ -1,7 +1,5 @@
 import Component from '@glimmer/component';
-import { htmlSafe } from '@ember/template';
-
-import type { SafeString } from '@ember/template/-private/handlebars';
+import { htmlSafe, type SafeString } from '@ember/template';
 
 export interface ProgressBarSignature {
   Args: {
@@ -16,7 +14,7 @@ export interface ProgressBarSignature {
 
 export default class ProgressBar extends Component<ProgressBarSignature> {
   get style(): SafeString {
-    return htmlSafe(`width: ${this.args.value * 100}%;`);
+    return htmlSafe(`width: ${(this.args.value * 100).toString()}%;`);
   }
 }
 
