@@ -1,5 +1,5 @@
 <Form::Input
-  @type={{if @isMonth "month" "date"}}
+  @type={{if @type @type "date"}}
   @value={{this.value}}
   @label={{@label}}
   @identifier={{@identifier}}
@@ -14,7 +14,7 @@
   max={{this.max}}
   ...attributes
 >
-  {{#if @isMonth}}
+  {{#if (eq "month" @type)}}
     1st of
   {{else}}
     <Icon @icon="calendar" />

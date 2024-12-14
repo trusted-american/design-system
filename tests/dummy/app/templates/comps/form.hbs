@@ -92,12 +92,12 @@
 
 <Form::NumberInput
   @value={{this.number}}
+  @type="range"
   @label="Label"
   @identifier="numberInput"
   @isRequired={{true}}
   @help="Help"
   @invalidFeedback="Invalid feedback"
-  @isRange={{true}}
   @onChange={{fn (mut this.number)}}
   placeholder="Placeholder"
 />

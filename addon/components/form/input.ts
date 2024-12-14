@@ -22,6 +22,7 @@ export interface FormInputSignature {
   Args: Args;
   Blocks: {
     default: [];
+    actions: [];
   };
   Element: HTMLInputElement;
 }

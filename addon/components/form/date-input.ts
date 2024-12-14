@@ -10,9 +10,9 @@ dayjs.extend(utc);
 
 interface Args extends BaseArgs {
   value: Date | null | undefined;
+  type?: 'date' | 'month';
   min?: Date | null;
   max?: Date | null;
-  isMonth?: boolean;
   isLocalTimeZone?: boolean;
   onChange: (value: Date | null) => void;
 }
@@ -25,7 +25,7 @@ export interface FormDateInputSignature {
 export default class FormDateInput extends Component<FormDateInputSignature> {
   get value(): string | null {
     if (this.args.value) {
-      if (this.args.isMonth) {
+      if (this.args.type === 'month') {
         const djs = dayjs(this.args.value).utc(false);
         return djs.format('YYYY-MM');
       }
@@ -52,9 +52,11 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
     // @ts-expect-error shouldn't be necessary to check toISOString
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (isValidDate(date) && date.toISOString) {
-      const djs = this.args.isLocalTimeZone
-        ? dayjs(date)
-        : dayjs(date).utc(false);
+      let djs = dayjs(date);
+      if (!this.args.isLocalTimeZone) {
+        djs = djs.utc(false);
+      }
+
       const value = djs.format('YYYY-MM-DD');
       return value;
     }

@@ -4,16 +4,18 @@
   @isRequired={{@isRequired}}
 />
 
-{{#if (has-block)}}
+{{#if (or (has-block) (has-block "actions"))}}
   <div
     class="input-group{{if @size (concat ' input-group-' @size)}}{{if
         @invalidFeedback
         ' has-validation'
       }}"
   >
-    <span class="input-group-text">
-      {{yield}}
-    </span>
+    {{#if (has-block)}}
+      <span class="input-group-text">
+        {{yield}}
+      </span>
+    {{/if}}
 
     <input
       type={{if @type @type "text"}}
@@ -38,6 +40,8 @@
     {{#each @errors as |error|}}
       <Form::Error @text={{error.message}} />
     {{/each}}
+
+    {{yield to="actions"}}
   </div>
 {{else}}
   <input
