@@ -7,6 +7,7 @@
       btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
       {{if @isFullWidth 'w-100'}}"
     role="button"
+    data-test-button
     ...attributes
   >
     <Button::Internal
@@ -28,6 +29,7 @@
       btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
       {{if @isFullWidth 'w-100'}}"
     role="button"
+    data-test-button
     ...attributes
   >
     <Button::Internal
@@ -49,6 +51,7 @@
       btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
       {{if @isFullWidth 'w-100'}}"
     role="button"
+    data-test-button
     ...attributes
   >
     <Button::Internal
@@ -71,6 +74,7 @@
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
         {{if @isFullWidth 'w-100'}}"
       role="button"
+      data-test-button
       ...attributes
     >
       <Button::Internal
@@ -97,6 +101,7 @@
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
         {{if @isFullWidth 'w-100'}}"
       role="button"
+      data-test-button
       ...attributes
     />
   {{/if}}
@@ -106,6 +111,7 @@
       {{if @size (concat 'btn-' @size)}}
       btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
       {{if @isFullWidth 'w-100'}}"
+    data-test-button
     ...attributes
   >
     <Button::Internal
@@ -129,6 +135,7 @@
       {{if @isFullWidth 'w-100'}}"
     disabled={{if @isLoading true}}
     aria-label={{if @isIconOnly @text}}
+    data-test-button
     ...attributes
   >
     <Button::Internal

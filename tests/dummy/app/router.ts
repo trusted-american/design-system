@@ -13,6 +13,7 @@ Router.map(function () {
     this.route('aside');
     this.route('avatar');
     this.route('badge');
+    this.route('basic-table');
     this.route('breadcrumb-trail');
     this.route('button');
     this.route('button-set');
