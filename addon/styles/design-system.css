@@ -41,11 +41,10 @@ aside .nav-link:hover {
 
 body aside .tds-aside-logo {
   height: 2.25rem;
-  filter: invert(1);
 }
 
 [data-bs-theme="dark"] .tds-aside-logo {
-  filter: invert(0) !important;
+  filter: invert(1);
 }
 
 [data-bs-theme="dark"] .tds-aside-title {
