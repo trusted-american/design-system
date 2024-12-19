@@ -1,3 +1,7 @@
-<div class="ratio ratio-1x1" data-test-ratio ...attributes>
+<div
+  class="ratio {{if @ratio (concat 'ratio-' @ratio)}}"
+  data-test-ratio
+  ...attributes
+>
   {{yield}}
 </div>

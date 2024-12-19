@@ -8,7 +8,7 @@ module('Integration | Component | ratio', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Ratio @size='1x1'>
+      <Ratio @ratio='1x1'>
         template block text
       </Ratio>
     `);
