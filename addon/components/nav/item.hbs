@@ -4,6 +4,7 @@
     @model={{@model}}
     @query={{@query}}
     class="nav-link {{if @isDisabled 'disabled'}}"
+    data-test-nav-item
     ...attributes
   >
     <Nav::Item::Internal
@@ -20,6 +21,7 @@
     @route={{@route}}
     @model={{@model}}
     class="nav-link {{if @isDisabled 'disabled'}}"
+    data-test-nav-item
     ...attributes
   >
     <Nav::Item::Internal
@@ -35,6 +37,7 @@
   <LinkTo
     @route={{@route}}
     class="nav-link {{if @isDisabled 'disabled'}}"
+    data-test-nav-item
     ...attributes
   >
     <Nav::Item::Internal
@@ -50,6 +53,7 @@
   <LinkTo
     @query={{@query}}
     class="nav-link {{if @isDisabled 'disabled'}}"
+    data-test-nav-item
     ...attributes
   >
     <Nav::Item::Internal
@@ -62,7 +66,12 @@
     </Nav::Item::Internal>
   </LinkTo>
 {{else}}
-  <a href="#" class="nav-link {{if @isDisabled 'disabled'}}" ...attributes>
+  <a
+    href="#"
+    class="nav-link {{if @isDisabled 'disabled'}}"
+    data-test-nav-item
+    ...attributes
+  >
     <Nav::Item::Internal
       @text={{@text}}
       @icon={{@icon}}
