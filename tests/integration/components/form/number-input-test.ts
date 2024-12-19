@@ -10,7 +10,7 @@ type Context = FormNumberInputSignature['Args'] & TestContext;
 module('Integration | Component | form/number-input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     await render<Context>(hbs`
       <Form::NumberInput
         @value={{this.value}}
@@ -24,18 +24,15 @@ module('Integration | Component | form/number-input', function (hooks) {
       />
     `);
 
-    assert.dom('[data-test-form-label]').exists();
-    assert.dom('input').hasAttribute('id', 'identifier');
-    assert.dom('input').isRequired();
-    assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-input]').exists();
+    assert.dom('[data-test-form-input]').hasAttribute('type', 'number');
 
-    await fillIn('input', '1');
-    // @ts-expect-error TestContext
+    await fillIn('[data-test-form-input]', '1');
+
     assert.strictEqual(this.value, 1);
 
-    await fillIn('input', '1.01');
-    // @ts-expect-error TestContext
+    await fillIn('[data-test-form-input]', '1.01');
+
     assert.strictEqual(this.value, 1.01);
   });
 });

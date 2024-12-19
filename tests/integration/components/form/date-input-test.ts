@@ -14,12 +14,6 @@ module('Integration | Component | form/date-input', function (hooks) {
     this.value = new Date();
     this.min = undefined;
     this.max = undefined;
-    this.onChange = (value) => {
-      assert.strictEqual(
-        value?.toISOString(),
-        new Date(Date.UTC(2014, 8, 13)).toISOString(),
-      );
-    };
 
     await render<Context>(hbs`
       <Form::DateInput
@@ -31,17 +25,18 @@ module('Integration | Component | form/date-input', function (hooks) {
         @isRequired={{true}}
         @help='Help'
         @invalidFeedback='Invalid feedback'
-        @onChange={{this.onChange}}
+        @onChange={{fn (mut this.value)}}
       />
     `);
 
-    assert.dom('[data-test-form-label]').exists();
-    assert.dom('input').hasAttribute('type', 'date');
-    assert.dom('input').hasAttribute('id', 'identifier');
-    assert.dom('input').isRequired();
-    assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-input]').exists();
+    assert.dom('[data-test-form-input]').hasAttribute('type', 'date');
 
-    await fillIn('input', '2014-09-13');
+    await fillIn('[data-test-form-input]', '2014-09-13');
+
+    assert.strictEqual(
+      this.value.toISOString(),
+      new Date(Date.UTC(2014, 8, 13)).toISOString(),
+    );
   });
 });

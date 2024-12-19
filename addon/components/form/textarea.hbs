@@ -10,6 +10,7 @@
   class="form-control {{if @size (concat 'form-control-' @size)}}"
   required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
+  data-test-form-textarea
   {{on "input" this.change}}
   ...attributes
 />

@@ -31,6 +31,7 @@
         flex-nowrap"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}
+      data-test-form-input
       {{on "input" this.change}}
       ...attributes
     />
@@ -58,6 +59,7 @@
       flex-nowrap"
     required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
+    data-test-form-input
     {{on "input" this.change}}
     ...attributes
   />

@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render, fillIn, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { FormTextareaSignature } from '@trusted-american/design-system/components/form/textarea';
@@ -27,13 +27,17 @@ module('Integration | Component | form/textarea', function (hooks) {
     `);
 
     assert.dom('[data-test-form-label]').exists();
-    assert.dom('textarea').hasAttribute('id', 'identifier');
-    assert.dom('textarea').isRequired();
+    assert.dom('[data-test-form-textarea]').hasAttribute('id', 'identifier');
+    assert.dom('[data-test-form-textarea]').isRequired();
     assert.dom('[data-test-form-help]').exists();
     assert.dom('[data-test-form-error]').exists();
 
     this.set('isRequired', false);
 
-    assert.dom('textarea').isNotRequired();
+    assert.dom('[data-test-form-textarea]').isNotRequired();
+
+    await fillIn('[data-test-form-textarea]', 'test');
+
+    assert.strictEqual(this.value, 'test');
   });
 });

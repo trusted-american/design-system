@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render, fillIn, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { FormInputSignature } from '@trusted-american/design-system/components/form/input';
@@ -27,9 +27,13 @@ module('Integration | Component | form/input', function (hooks) {
     `);
 
     assert.dom('[data-test-form-label]').exists();
-    assert.dom('input').hasAttribute('id', 'identifier');
-    assert.dom('input').isRequired();
+    assert.dom('[data-test-form-input]').hasAttribute('id', 'identifier');
+    assert.dom('[data-test-form-input]').isRequired();
     assert.dom('[data-test-form-help]').exists();
     assert.dom('[data-test-form-error]').exists();
+
+    await fillIn('[data-test-form-input]', 'test');
+
+    assert.strictEqual(this.value, 'test');
   });
 });
