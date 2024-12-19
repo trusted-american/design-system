@@ -38,6 +38,7 @@ Router.map(function () {
     this.route('placeholder');
     this.route('progress');
     this.route('property-list');
+    this.route('ratio');
     this.route('skeleton');
     this.route('spinner');
     this.route('stat-card');
