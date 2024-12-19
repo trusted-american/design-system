@@ -28,6 +28,7 @@ export { default as Pagination } from './components/pagination';
 export { default as Placeholder } from './components/placeholder';
 export { default as Progress } from './components/progress';
 export { default as PropertyList } from './components/property-list';
+export { default as Ratio } from './components/ratio';
 export { default as Skeleton } from './components/skeleton';
 export { default as Spinner } from './components/spinner';
 export { default as StatCard } from './components/stat-card';

@@ -28,6 +28,7 @@ import type Pagination from './components/pagination';
 import type Placeholder from './components/placeholder';
 import type Progress from './components/progress';
 import type PropertyList from './components/property-list';
+import type Ratio from './components/ratio';
 import type Skeleton from './components/skeleton';
 import type Spinner from './components/spinner';
 import type StatCard from './components/stat-card';
@@ -124,6 +125,7 @@ export default interface Registry {
   Placeholder: typeof Placeholder;
   Progress: typeof Progress;
   PropertyList: typeof PropertyList;
+  Ratio: typeof Ratio;
   Skeleton: typeof Skeleton;
   Spinner: typeof Spinner;
   StatCard: typeof StatCard;
