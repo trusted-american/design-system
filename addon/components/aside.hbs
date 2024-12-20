@@ -15,7 +15,6 @@
       @text="Toggle menu"
       @icon="angles-{{if this.collapsed 'right' 'left'}}"
       @isIconOnly={{true}}
-      @color="light"
       class="px-2"
       {{tooltip "Toggle menu" trigger="hover" placement="right"}}
       {{on "click" (fn (mut this.collapsed) (not this.collapsed))}}
