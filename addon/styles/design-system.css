@@ -58,6 +58,7 @@ body > main {
 /* collapsed */
 
 aside.collapsed {
+  width: inherit !important;
   min-width: inherit !important;
 }
 

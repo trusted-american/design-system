@@ -16,7 +16,7 @@ export interface AsideSignature {
 }
 
 export default class Aside extends Component<AsideSignature> {
-  @tracked collapsed = false;
+  @tracked isCollapsed = false;
 }
 
 declare module '@glint/environment-ember-loose/registry' {
