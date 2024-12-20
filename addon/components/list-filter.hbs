@@ -133,8 +133,7 @@
                 @label="Value"
                 @identifier="value{{index}}"
                 @isInputOnly={{true}}
-                {{! @glint-expect-error }}
-                @onChange={{fn (mut predicate.type)}}
+                @onChange={{fn (mut predicate.value)}}
                 {{autoselect}}
               />
 
