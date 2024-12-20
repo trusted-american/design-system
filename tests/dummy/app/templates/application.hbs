@@ -7,11 +7,10 @@
   </section>
 </section>
 
-<Aside
-  @title="Design System"
-  @logo="https://a3.taia.us/assets/images/logo.svg"
-  @route="index"
->
+<Aside @title="Design" @logo="/logo.svg" @route="index">
+  <:header>
+    Header
+  </:header>
   <:default>
     <Aside::Item @text="Home" @route="index" @icon="house" />
     <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps.index">
@@ -72,6 +71,9 @@
   <:footerNav>
     <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
   </:footerNav>
+  <:footer>
+    Footer
+  </:footer>
 </Aside>
 
 <Main>
