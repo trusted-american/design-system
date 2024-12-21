@@ -31,6 +31,15 @@ aside .nav-pills .nav-link.active {
   transition: none;
 }
 
+aside .nav-link svg {
+  color: var(--bs-secondary);
+}
+
+aside .nav-pills .nav-link.active,
+aside .nav-link.active svg {
+  color: var(--bs-nav-link-color) !important;
+}
+
 .collapsing {
   transition: height 0.1s cubic-bezier(0.19, 0.91, 0.38, 1) !important;
 }
