@@ -8,8 +8,8 @@ export interface User {
 
 export default class CompsTableRoute extends Route {
   model(): User[] {
-    // const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    const alphabet = 'abcdef';
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    // const alphabet = 'abcdef';
     return [...alphabet].map((char) => ({
       email: `${char}@example.com`,
       firstName: char.toUpperCase(),

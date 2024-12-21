@@ -226,3 +226,7 @@ aside.collapsed nav .fa-fw {
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
 }
+
+.table {
+  margin-bottom: 0;
+}

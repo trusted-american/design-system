@@ -84,18 +84,47 @@
   <table.body />
 </Table>
 
-<Subheading @title="Pagination, Remote" />
+<Subheading @title="Pagination, Cursor" />
 
 <Table
   @data={{this.model}}
   @isSortable={{true}}
-  @pagination="remote"
+  @pagination="cursor"
   @nextText="Next"
   @previousText="Previous"
   @canNext={{false}}
   @canPrevious={{false}}
   @onNext={{this.do}}
   @onPrevious={{this.do}}
+  as |table|
+>
+  <table.header as |header|>
+    <header.column @prop="email" @sort="asc">
+      Email
+    </header.column>
+    <header.column @prop="firstName">
+      First Name
+    </header.column>
+    <header.column @prop="lastName">
+      Last Name
+    </header.column>
+  </table.header>
+  <table.body />
+</Table>
+
+<Subheading @title="Pagination, Offset" />
+
+<Table
+  @data={{this.model}}
+  @isSortable={{true}}
+  @pagination="offset"
+  @nextText="Next"
+  @previousText="Previous"
+  @page={{this.page}}
+  @totalItems={{this.model.length}}
+  @onNext={{this.do}}
+  @onPrevious={{this.do}}
+  @onChangePage={{fn (mut this.page)}}
   as |table|
 >
   <table.header as |header|>
