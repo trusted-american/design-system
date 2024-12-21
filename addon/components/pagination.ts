@@ -6,6 +6,8 @@ export interface PaginationSignature {
     curPage: number;
     pageSize: number;
     totalItems: number;
+    nextText: string;
+    previousText: string;
     onChange: (curPage: number) => void;
   };
   Element: HTMLElement;
