@@ -6,7 +6,7 @@
   <div class="d-flex gap-3">
     <LinkTo
       @route={{@route}}
-      class="d-flex align-items-center link-dark text-decoration-none flex-grow-1"
+      class="d-flex align-items-center text-reset text-decoration-none flex-grow-1"
     >
       <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-3" />
       <h4 class="tds-aside-title mb-0">{{@title}}</h4>
@@ -15,7 +15,6 @@
       @text="Toggle menu"
       @icon="angles-{{if this.isCollapsed 'right' 'left'}}"
       @isIconOnly={{true}}
-      class="px-2"
       {{tooltip "Toggle menu" trigger="hover" placement="right"}}
       {{on "click" (fn (mut this.isCollapsed) (not this.isCollapsed))}}
     />
