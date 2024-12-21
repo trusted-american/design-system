@@ -1,11 +1,9 @@
 {{page-title "Design System"}}
 {{breadcrumb "Design System" route="index"}}
 
-<section>
-  <section class="text-bg-primary text-center p-2">
-    This is a banner.
-  </section>
-</section>
+<Banner @color="primary">
+  This is a banner.
+</Banner>
 
 <Aside @title="Design" @logo="/logo.svg" @route="index">
   <:header>
@@ -77,6 +75,10 @@
 </Aside>
 
 <Main>
+  <Banner @color="success">
+    This is another banner.
+  </Banner>
+
   <Main::TopHeader>
     Search
   </Main::TopHeader>

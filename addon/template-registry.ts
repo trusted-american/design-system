@@ -3,6 +3,7 @@ import type Alert from './components/alert';
 import type Aside from './components/aside';
 import type Avatar from './components/avatar';
 import type Badge from './components/badge';
+import type Banner from './components/banner';
 import type BasicTable from './components/basic-table';
 import type BreadcrumbTrail from './components/breadcrumb-trail';
 import type Button from './components/button';
@@ -100,6 +101,7 @@ export default interface Registry {
   Aside: typeof Aside;
   Avatar: typeof Avatar;
   Badge: typeof Badge;
+  Banner: typeof Banner;
   BasicTable: typeof BasicTable;
   BreadcrumbTrail: typeof BreadcrumbTrail;
   Button: typeof Button;

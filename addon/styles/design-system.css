@@ -25,8 +25,7 @@ aside .nav-link.active {
 
 aside .nav-link,
 aside .nav-link:hover,
-aside .nav-link:focus,
-aside .nav-pills .nav-link.active {
+aside .nav-link:focus {
   color: var(--bs-body-color);
   transition: none;
 }
@@ -37,7 +36,7 @@ aside .nav-link svg {
 
 aside .nav-pills .nav-link.active,
 aside .nav-link.active svg {
-  color: var(--bs-nav-link-color) !important;
+  color: var(--bs-nav-link-color);
 }
 
 .collapsing {
