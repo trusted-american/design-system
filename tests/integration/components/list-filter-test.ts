@@ -1,12 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import {
-  render,
-  click,
-  type TestContext,
-  fillIn,
-  triggerEvent,
-} from '@ember/test-helpers';
+import { render, click, type TestContext, fillIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
@@ -112,7 +106,5 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.dom('li:nth-of-type(6) div div:nth-of-type(1) input').exists();
     assert.dom('li:nth-of-type(6) div div:nth-of-type(2)').hasText('and');
     assert.dom('li:nth-of-type(6) div div:nth-of-type(3) input').exists();
-
-    // await this.pauseTest();
   });
 });
