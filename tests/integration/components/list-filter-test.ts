@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext, fillIn } from '@ember/test-helpers';
+import { render, click, fillIn, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
