@@ -34,6 +34,10 @@ aside .nav-link svg {
   color: var(--bs-secondary);
 }
 
+.dropdown-menu .dropdown-item svg {
+  color: var(--bs-secondary);
+}
+
 aside .nav-pills .nav-link.active,
 aside .nav-link.active svg {
   color: var(--bs-nav-link-color);
@@ -74,10 +78,6 @@ aside.collapsed .nav-link span {
 aside.collapsed .tds-aside-logo,
 aside.collapsed nav .fa-fw {
   margin-right: 0 !important;
-}
-
-.dropdown-menu .dropdown-item svg {
-  color: var(--bs-secondary);
 }
 
 /* components */
