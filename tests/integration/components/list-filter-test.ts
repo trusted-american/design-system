@@ -1,6 +1,12 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext, fillIn } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  type TestContext,
+  fillIn,
+  triggerEvent,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
@@ -76,28 +82,37 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.dom('[data-test-list-filter]').hasText('Filter');
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
 
-    await click('#toggle0');
+    //Single Multiple
+    await click('[data-test-predicate-toggle]:nth-of-type(1)');
     assert.dom('[data-test-predicate-value]').exists({ count: 1 });
-    assert.dom('#value0').hasValue('0');
+    assert.dom('li:nth-of-type(2) select').hasValue('0');
 
-    await click('#toggle1');
+    //Single Binary
+    await click('[data-test-predicate-toggle]:nth-of-type(2)');
     assert.dom('[data-test-predicate-value]').exists({ count: 2 });
-    assert.dom('#value1').hasValue('0');
+    assert.dom('li:nth-of-type(3) select').hasValue('0');
 
-    await click('#toggle2');
+    //Multi
+    await click('[data-test-predicate-toggle]:nth-of-type(3)');
     assert.dom('[data-test-predicate-value]').exists({ count: 3 });
-    assert.dom('#az').exists();
-    assert.dom('#ca').exists();
+    assert.dom('li:nth-of-type(4) div:nth-of-type(1) input').exists();
+    assert.dom('li:nth-of-type(4) div:nth-of-type(2) input').exists();
+    assert.dom('li:nth-of-type(4) div:nth-of-type(3) input').doesNotExist();
 
-    await click('#toggle3');
+    //String
+    await click('[data-test-predicate-toggle]:nth-of-type(4)');
     assert.dom('[data-test-predicate-value]').exists({ count: 4 });
-    assert.dom('#value3').hasValue('Text');
-    await fillIn('#value3', 'String');
-    assert.dom('#value3').hasValue('String');
+    assert.dom('li:nth-of-type(5) input').hasValue('Text');
+    await fillIn('li:nth-of-type(5) input', 'String');
+    assert.dom('li:nth-of-type(5) input').hasValue('String');
 
-    await click('#toggle4');
+    //Date
+    await click('[data-test-predicate-toggle]:nth-of-type(5)');
     assert.dom('[data-test-predicate-value]').exists({ count: 5 });
-    assert.dom('#valueA4').exists();
-    assert.dom('#valueB4').exists();
+    assert.dom('li:nth-of-type(6) div div:nth-of-type(1) input').exists();
+    assert.dom('li:nth-of-type(6) div div:nth-of-type(2)').hasText('and');
+    assert.dom('li:nth-of-type(6) div div:nth-of-type(3) input').exists();
+
+    // await this.pauseTest();
   });
 });
