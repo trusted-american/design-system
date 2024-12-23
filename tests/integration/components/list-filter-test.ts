@@ -71,6 +71,7 @@ module('Integration | Component | list-filter', function (hooks) {
         @onChange={{this.onChange}}
       />
     `);
+    await this.pauseTest();
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
