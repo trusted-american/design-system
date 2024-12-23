@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
+import { render, click, type TestContext, fillIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
@@ -58,6 +58,7 @@ module('Integration | Component | list-filter', function (hooks) {
         value: [],
       },
     ];
+
     this.onChange = () => {
       assert.true(true);
     };
@@ -71,15 +72,32 @@ module('Integration | Component | list-filter', function (hooks) {
         @onChange={{this.onChange}}
       />
     `);
-    await this.pauseTest();
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
 
-    await click('[data-test-predicate-toggle] input');
-
+    await click('#toggle0');
     assert.dom('[data-test-predicate-value]').exists({ count: 1 });
+    assert.dom('#value0').hasValue('0');
 
-    await click('[data-test-done]');
+    await click('#toggle1');
+    assert.dom('[data-test-predicate-value]').exists({ count: 2 });
+    assert.dom('#value1').hasValue('0');
+
+    await click('#toggle2');
+    assert.dom('[data-test-predicate-value]').exists({ count: 3 });
+    assert.dom('#az').exists();
+    assert.dom('#ca').exists();
+
+    await click('#toggle3');
+    assert.dom('[data-test-predicate-value]').exists({ count: 4 });
+    assert.dom('#value3').hasValue('Text');
+    await fillIn('#value3', 'String');
+    assert.dom('#value3').hasValue('String');
+
+    await click('#toggle4');
+    assert.dom('[data-test-predicate-value]').exists({ count: 5 });
+    assert.dom('#valueA4').exists();
+    assert.dom('#valueB4').exists();
   });
 });
