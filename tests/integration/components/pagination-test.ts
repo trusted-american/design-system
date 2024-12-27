@@ -16,6 +16,8 @@ module('Integration | Component | pagination', function (hooks) {
         @curPage={{0}}
         @pageSize={{3}}
         @totalItems={{9}}
+        @nextText='Next'
+        @previousText='Previous'
         @onChange={{fn (mut this.curPage)}}
       />
     `);

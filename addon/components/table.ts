@@ -64,13 +64,16 @@ export interface TableSignature<T> {
   Args: {
     data: T[];
     isSortable?: boolean;
-    pagination?: 'local' | 'remote';
+    pagination?: 'local' | 'cursor' | 'offset';
     nextText: string;
     previousText: string;
     canNext?: unknown;
     canPrevious?: unknown;
+    page?: number;
+    totalItems?: number;
     onNext?: () => void;
     onPrevious?: () => void;
+    onChangePage?: (page: number) => void;
   };
   Blocks: {
     default: [
@@ -81,10 +84,24 @@ export interface TableSignature<T> {
       },
     ];
   };
-  Element: HTMLTableElement;
+  Element: HTMLDivElement;
 }
 
-export default class Table<T> extends Component<TableSignature<T>> {}
+export default class Table<T> extends Component<TableSignature<T>> {
+  get offsetStart(): number | undefined {
+    if (this.args.page === undefined || this.args.totalItems === undefined) {
+      return undefined;
+    }
+    return 1 + this.args.page * 20;
+  }
+
+  get offsetEnd(): number | undefined {
+    if (!this.offsetStart || this.args.totalItems === undefined) {
+      return undefined;
+    }
+    return Math.min(this.offsetStart + 20, this.args.totalItems);
+  }
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

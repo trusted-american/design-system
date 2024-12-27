@@ -6,7 +6,7 @@
         href="#"
         data-test-previous
         {{on "click" this.previous}}
-      >Previous</a>
+      >{{@previousText}}</a>
     </li>
     {{#each this.pages as |page index|}}
       <li class="page-item {{if (eq @curPage index) 'active'}}">
@@ -23,7 +23,7 @@
         href="#"
         data-test-next
         {{on "click" this.next}}
-      >Next</a>
+      >{{@nextText}}</a>
     </li>
   </ul>
 </nav>

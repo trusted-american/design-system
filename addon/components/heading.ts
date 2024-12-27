@@ -5,7 +5,7 @@ export interface HeadingSignature {
     title: string;
     subtitle?: string;
     type?: string;
-    code?: string;
+    identifier?: string;
   };
   Blocks: {
     default: [];

@@ -1,42 +1,47 @@
 <aside
-  class="d-flex flex-column flex-shrink-0 overflow-y-auto bg-body-tertiary border-end p-3
-    {{if this.collapsed 'collapsed'}}"
+  class="d-flex flex-column flex-shrink-0 overflow-y-auto bg-body-tertiary border-end gap-3 p-3
+    {{if this.isCollapsed 'collapsed'}}"
   data-test-aside
 >
-  <div class="d-flex pb-3">
+  <div class="d-flex gap-3">
     <LinkTo
       @route={{@route}}
-      class="d-flex align-items-center link-dark text-decoration-none flex-grow-1"
+      class="d-flex align-items-center text-reset text-decoration-none flex-grow-1"
     >
       <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-3" />
       <h4 class="tds-aside-title mb-0">{{@title}}</h4>
     </LinkTo>
-    {{yield to="header"}}
+    <Button
+      @text="Toggle menu"
+      @icon="angles-{{if this.isCollapsed 'right' 'left'}}"
+      @isIconOnly={{true}}
+      {{tooltip "Toggle menu" trigger="hover" placement="right"}}
+      {{on "click" (fn (mut this.isCollapsed) (not this.isCollapsed))}}
+    />
   </div>
 
-  <Nav @isPills={{true}} class="flex-column flex-grow-1" aria-label="Main nav">
+  {{#if (has-block "header")}}
+    <div>
+      {{yield to="header"}}
+    </div>
+  {{/if}}
+
+  <Nav
+    @isPills={{true}}
+    @isVertical={{true}}
+    class="flex-grow-1"
+    aria-label="Main nav"
+  >
     {{yield}}
   </Nav>
 
-  <Nav @isPills={{true}} class="flex-column" aria-label="Footer nav">
+  <Nav @isPills={{true}} @isVertical={{true}} aria-label="Footer nav">
     {{yield to="footerNav"}}
   </Nav>
 
   {{#if (has-block "footer")}}
-    <div class="pt-3">
+    <div>
       {{yield to="footer"}}
     </div>
   {{/if}}
-
-  <div class="pt-3">
-    <Button
-      @text="Toggle menu"
-      @icon="angles-{{if this.collapsed 'right' 'left'}}"
-      @isIconOnly={{true}}
-      @color="light"
-      class="px-2"
-      {{tooltip "Toggle menu" trigger="hover" placement="right"}}
-      {{on "click" (fn (mut this.collapsed) (not this.collapsed))}}
-    />
-  </div>
 </aside>
