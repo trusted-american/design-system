@@ -4,20 +4,17 @@
 
 Components for building robust user interfaces.
 
-
 ## Compatibility
 
-* Ember.js v4.8 or above
-* Ember CLI v4.8 or above
-* Node.js v18 or above
-
+- Ember.js v4.8 or above
+- Ember CLI v4.8 or above
+- Node.js v18 or above
 
 ## Installation
 
 ```
 ember install @trusted-american/design-system
 ```
-
 
 ## Usage
 
@@ -27,11 +24,7 @@ ember install @trusted-american/design-system
 {{page-title "Title"}}
 {{breadcrumb "Title" route="index"}}
 
-<Aside
-  @title="Title"
-  @logo="/logo.svg"
-  @route="index"
->
+<Aside @title="Title" @logo="/logo.svg" @route="index">
   <Aside::Item @text="Link 1" @route="index" @icon="house" />
   <Aside::Item @text="Link 2" @route="index" @icon="house" />
   <Aside::Item @text="Link 3" @route="index" @icon="house" />
@@ -52,11 +45,9 @@ ember install @trusted-american/design-system
 </Main>
 ```
 
-
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
-
 
 ## License
 
