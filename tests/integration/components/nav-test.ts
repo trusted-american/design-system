@@ -9,10 +9,15 @@ module('Integration | Component | nav', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`
       <Nav>
-        template block text
+        <Nav::Item @route="comps" @text="First" @icon="house" @count={{12}} />
+        <Nav::Item @route="index" @text="Second" />
+        <Nav::Item @route="index" @text="Third" />
+        <Nav::Item @route="index" @text="Custom">
+          <Badge @text="New" />
+        </Nav::Item>
       </Nav>
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('First 12 Second Third Custom New');
   });
 });
