@@ -14,14 +14,14 @@ module('Integration | Component | heading', function (hooks) {
     this.title = 'Title';
     this.subtitle = undefined;
     this.type = undefined;
-    this.code = undefined;
+    this.identifier = undefined;
 
     await render<Context>(hbs`
       <Heading
         @title={{this.title}}
         @subtitle={{this.subtitle}}
         @type={{this.type}}
-        @code={{this.code}}
+        @identifier={{this.identifier}}
       />
     `);
 
@@ -32,7 +32,7 @@ module('Integration | Component | heading', function (hooks) {
     assert.dom().hasText('Title Subtitle');
 
     this.set('type', 'Agent');
-    this.set('code', '1');
+    this.set('identifier', '1');
 
     assert.dom().hasText('Agent 1 Title Subtitle');
 
@@ -41,7 +41,7 @@ module('Integration | Component | heading', function (hooks) {
         @title={{this.title}}
         @subtitle={{this.subtitle}}
         @type={{this.type}}
-        @code={{this.code}}
+        @identifier={{this.identifier}}
       >
         template block text
       </Heading>

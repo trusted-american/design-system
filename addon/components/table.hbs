@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive" ...attributes>
   <YetiTable
     @data={{@data}}
     @sortable={{@isSortable}}
@@ -6,40 +6,62 @@
     @pageSize={{10}}
     class="table table-hover"
     data-test-table
-    ...attributes
     as |table|
   >
     {{yield table}}
-    <table.tfoot as |foot|>
-      <foot.row as |row|>
-        <row.cell
-          @visible={{if @pagination true false}}
-          colspan={{table.columns.length}}
-        >
-          {{#if (eq "local" @pagination)}}
+    {{#if (eq "local" @pagination)}}
+      <table.tfoot as |foot|>
+        <foot.row as |row|>
+          <row.cell
+            @visible={{if @pagination true false}}
+            colspan={{table.columns.length}}
+          >
             <table.pagination />
-          {{else if (eq "remote" @pagination)}}
-            <ButtonSet class="justify-content-end">
-              {{#if @onPrevious}}
-                <Button
-                  @text={{@previousText}}
-                  {{! @glint-expect-error }}
-                  disabled={{not @canPrevious}}
-                  {{on "click" @onPrevious}}
-                />
-              {{/if}}
-              {{#if @onNext}}
-                <Button
-                  @text={{@nextText}}
-                  {{! @glint-expect-error }}
-                  disabled={{not @canNext}}
-                  {{on "click" @onNext}}
-                />
-              {{/if}}
-            </ButtonSet>
-          {{/if}}
-        </row.cell>
-      </foot.row>
-    </table.tfoot>
+          </row.cell>
+        </foot.row>
+      </table.tfoot>
+    {{/if}}
   </YetiTable>
 </div>
+
+{{#if (eq "cursor" @pagination)}}
+  <ButtonSet class="justify-content-end mt-3">
+    {{#if @onPrevious}}
+      <Button
+        @text={{@previousText}}
+        {{! @glint-expect-error }}
+        disabled={{not @canPrevious}}
+        {{on "click" @onPrevious}}
+      />
+    {{/if}}
+    {{#if @onNext}}
+      <Button
+        @text={{@nextText}}
+        {{! @glint-expect-error }}
+        disabled={{not @canNext}}
+        {{on "click" @onNext}}
+      />
+    {{/if}}
+  </ButtonSet>
+{{else if (eq "offset" @pagination)}}
+  <div class="d-flex justify-content-between mt-3">
+    <span>
+      Viewing
+      <strong>{{this.offsetStart}}-{{this.offsetEnd}}</strong>
+      of
+      <strong>{{@totalItems}}</strong>
+      results
+    </span>
+    <Pagination
+      {{! @glint-expect-error }}
+      @curPage={{@page}}
+      @pageSize={{20}}
+      {{! @glint-expect-error }}
+      @totalItems={{@totalItems}}
+      @nextText={{@nextText}}
+      @previousText={{@previousText}}
+      {{! @glint-expect-error }}
+      @onChange={{@onChangePage}}
+    />
+  </div>
+{{/if}}

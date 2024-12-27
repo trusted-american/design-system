@@ -25,10 +25,22 @@ aside .nav-link.active {
 
 aside .nav-link,
 aside .nav-link:hover,
-aside .nav-link:focus,
-aside .nav-pills .nav-link.active {
+aside .nav-link:focus {
   color: var(--bs-body-color);
   transition: none;
+}
+
+aside .nav-link svg {
+  color: var(--bs-secondary);
+}
+
+.dropdown-menu .dropdown-item svg {
+  color: var(--bs-secondary);
+}
+
+aside .nav-pills .nav-link.active,
+aside .nav-link.active svg {
+  color: var(--bs-nav-link-color);
 }
 
 .collapsing {
@@ -47,10 +59,6 @@ body aside .tds-aside-logo {
   filter: invert(1);
 }
 
-[data-bs-theme="dark"] .tds-aside-title {
-  color: white !important;
-}
-
 body > main {
   grid-area: main;
 }
@@ -58,11 +66,12 @@ body > main {
 /* collapsed */
 
 aside.collapsed {
+  width: inherit !important;
   min-width: inherit !important;
 }
 
 aside.collapsed .tds-aside-title,
-aside.collapsed .nav-link > span {
+aside.collapsed .nav-link span {
   display: none;
 }
 
@@ -216,4 +225,8 @@ aside.collapsed nav .fa-fw {
     background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
+}
+
+.table {
+  margin-bottom: 0;
 }
