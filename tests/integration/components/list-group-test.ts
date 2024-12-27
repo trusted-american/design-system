@@ -17,10 +17,19 @@ module('Integration | Component | list-group', function (hooks) {
     // Template block usage:
     await render(hbs`
       <ListGroup>
-        template block text
+        <ListGroup::Item class="active" data-test-active>An active item</ListGroup::Item>
+        <ListGroup::Item class="disabled" data-test-disabled>A second item</ListGroup::Item>
+        <ListGroup::Item @route="index" data-test-index>Route</ListGroup::Item>
+        <ListGroup::Item @href="https://www.google.com/" data-test-href>Href</ListGroup::Item>
       </ListGroup>
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom('[data-test-active]').exists();
+    assert.dom('[data-test-disabled]').exists();
+    assert.dom('[data-test-disabled]').hasClass('disabled');
+    assert.dom('[data-test-index]').exists();
+    assert.dom('[data-test-href]').exists();
+
+    assert.dom().hasText('An active item A second item Route Href');
   });
 });
