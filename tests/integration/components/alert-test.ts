@@ -15,5 +15,14 @@ module('Integration | Component | alert', function (hooks) {
     `);
 
     assert.dom().hasText('Title here Body here');
+
+    await render(hbs`
+      <Alert @icon="house" @color="danger">
+        <:title>Title here</:title>
+        <:default>Body here</:default>
+      </Alert>
+    `);
+
+    assert.dom('svg').exists();
   });
 });

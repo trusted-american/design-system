@@ -14,5 +14,21 @@ module('Integration | Component | basic-table', function (hooks) {
     `);
 
     assert.dom().hasText('template block text');
+
+    await render(hbs`
+      <BasicTable @isSmall={{true}}>
+        template block text
+      </BasicTable>
+    `);
+
+    assert.dom().hasText('template block text');
+
+    await render(hbs`
+      <BasicTable @isBordered={{true}}>
+        template block text
+      </BasicTable>
+    `);
+
+    assert.dom().hasText('template block text');
   });
 });

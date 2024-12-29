@@ -7,8 +7,14 @@ module('Integration | Component | badge', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Badge @text='Test' />`);
+    await render(hbs`<Badge @text='Test1' />`);
+    assert.dom().hasText('Test1');
+    assert.dom('svg').doesNotExist();
+    assert.dom('span div').doesNotExist();
 
-    assert.dom().hasText('Test');
+    await render(hbs`<Badge @text='Test2' @icon="check" @isLoading={{true}}/>`);
+    assert.dom('span div').exists();
+    assert.dom('svg').exists();
+    assert.dom().hasText('Test2');
   });
 });

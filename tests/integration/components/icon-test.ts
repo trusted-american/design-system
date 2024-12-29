@@ -10,5 +10,11 @@ module('Integration | Component | icon', function (hooks) {
     await render(hbs`<Icon @icon='book' />`);
 
     assert.dom('svg').exists();
+
+    await render(
+      hbs`<Icon @icon='book' @color='danger' @isFixedWidth={{true}} @size='lg'/>`,
+    );
+
+    assert.dom('svg').exists();
   });
 });
