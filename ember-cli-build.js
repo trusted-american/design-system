@@ -6,6 +6,9 @@ module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
     'ember-cli-babel': { enableTypeScriptTransform: true },
     snippetSearchPaths: ['app', 'tests'],
+    'ember-shiki': {
+      defaultThemes: ['solarized-light'], //Customize Later
+    },
     // Add options here
   });
 
