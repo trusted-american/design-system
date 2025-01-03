@@ -3,6 +3,12 @@
 
 <Heading @title="Alert" />
 
+<b>Code:</b>
+{{#let (get-code-snippet "alert.hbs") as |snippet|}}
+  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
+{{/let}}
+
+<b>Examples: </b>
 {{! BEGIN-SNIPPET alert }}
 <Alert @color="danger" @icon="triangle-exclamation">
   One of your domains is unverified. Please verify your domain to prevent others
@@ -10,10 +16,6 @@
   <a href="#" class="alert-link">Learn more</a>
 </Alert>
 {{! END-SNIPPET }}
-
-{{#let (get-code-snippet "alert.hbs") as |snippet|}}
-  <pre class={{snippet.language}}>{{snippet.source}}</pre>
-{{/let}}
 
 <Alert @color="warning" @icon="circle-exclamation" @onClose={{this.close}}>
   <a href="#" class="alert-link">Prebuilds</a>

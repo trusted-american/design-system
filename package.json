@@ -99,6 +99,7 @@
     "ember-code-snippet": "^3.0.0",
     "ember-load-initializers": "^2.1.2",
     "ember-page-title": "^8.2.3",
+    "ember-prism": "^1.0.0",
     "ember-qunit": "^8.1.1",
     "ember-resolver": "^11.0.1",
     "ember-source": "~5.7.0",
