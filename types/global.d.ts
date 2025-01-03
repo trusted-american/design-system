@@ -8,12 +8,11 @@ import type EmberFileUploadRegistry from 'ember-file-upload/template-registry';
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
-import type { ModifierLike } from '@glint/template';
+import type { HelperLike, ModifierLike } from '@glint/template';
 import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type PellEditor from 'ember-pell/components/pell-editor';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
-
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends EmberBreadcrumbTrailRegistry,
@@ -38,5 +37,14 @@ declare module '@glint/environment-ember-loose/registry' {
 
     // ember-yeti-table
     YetiTable: typeof YetiTable;
+
+    //Code Snippet
+    'get-code-snippet': HelperLike<{
+      Args: {
+        Positional: [string];
+        Named: { unindent?: boolean };
+      };
+      Return: { language: string; source: string };
+    }>;
   }
 }
