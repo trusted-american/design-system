@@ -13,7 +13,8 @@ import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type PellEditor from 'ember-pell/components/pell-editor';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
-import type CodeBlock from 'ember-prism';
+import { CodeBlock } from 'ember-shiki';
+
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends EmberBreadcrumbTrailRegistry,
@@ -47,7 +48,6 @@ declare module '@glint/environment-ember-loose/registry' {
       };
       Return: { language: string; source: unkown };
     }>;
-
     CodeBlock: typeof CodeBlock;
   }
 }
