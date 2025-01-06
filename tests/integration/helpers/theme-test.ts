@@ -13,7 +13,7 @@ module('Integration | Helper | theme', function (hooks) {
   test('it renders dark', async function (assert) {
     localStorage.setItem('isDarkMode', 'dark');
 
-    await render(hbs`{{theme}}`);
+    await render(hbs`{{(theme)}}`);
 
     const element = document.querySelectorAll('.highcharts-dark');
     assert.dom(element[0]).exists();
@@ -28,7 +28,7 @@ module('Integration | Helper | theme', function (hooks) {
 
   test('it renders back to light', async function (assert) {
     localStorage.setItem('isDarkMode', 'light');
-    await render(hbs`{{theme}}`);
+    await render(hbs`{{(theme)}}`);
     const element = document.querySelectorAll('.highcharts-light');
     assert.dom(element[0]).exists();
     assert.deepEqual(element[1], undefined);
