@@ -1,7 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Theme from '@trusted-american/design-system/helpers/theme';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Helper | theme', function (hooks) {
