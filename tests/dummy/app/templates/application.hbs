@@ -70,6 +70,9 @@
 
   <:footerNav>
     <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
+  </:footerNav>
+  <:footer>
+    Footer
     <a
       class="dropdown-item d-flex justify-content-between align-items-center"
       href="#"
@@ -79,7 +82,6 @@
         <Icon @icon="moon" @isFixedWidth={{true}} class="me-1" />
         Dark mode
       </div>
-
       <Form::Check
         @value={{this.isDarkTheme}}
         @label="Dark mode"
@@ -89,9 +91,6 @@
         @onChange={{fn (mut this.isDarkTheme)}}
       />
     </a>
-  </:footerNav>
-  <:footer>
-    Footer
   </:footer>
 </Aside>
 

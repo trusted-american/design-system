@@ -9,16 +9,15 @@ interface ThemeSignature {
 }
 
 export default class Theme extends Helper<ThemeSignature> {
-  @localStorage theme: 'light' | 'dark' = 'light';
+  @localStorage isDarkMode: 'light' | 'dark' = 'light';
 
   compute(): void {
-    console.log('hey');
-    const { theme } = this;
+    const { isDarkMode } = this;
 
-    document.documentElement.setAttribute('data-bs-theme', theme);
+    document.documentElement.setAttribute('data-bs-theme', isDarkMode);
 
     document.body.classList.remove('highcharts-light', 'highcharts-dark');
-    document.body.classList.add(`highcharts-${theme}`);
+    document.body.classList.add(`highcharts-${isDarkMode}`);
   }
 }
 
