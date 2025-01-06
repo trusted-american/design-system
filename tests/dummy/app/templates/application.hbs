@@ -1,6 +1,8 @@
 {{page-title "Design System"}}
 {{breadcrumb "Design System" route="index"}}
 
+{{theme}}
+
 <Banner @color="primary">
   This is a banner.
 </Banner>
@@ -68,6 +70,25 @@
 
   <:footerNav>
     <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
+    <a
+      class="dropdown-item d-flex justify-content-between align-items-center"
+      href="#"
+      {{on "click" this.toggleDarkTheme}}
+    >
+      <div>
+        <Icon @icon="moon" @isFixedWidth={{true}} class="me-1" />
+        Dark mode
+      </div>
+
+      <Form::Check
+        @value={{this.isDarkTheme}}
+        @label="Dark mode"
+        @identifier="isDarkTheme"
+        @isInputOnly={{true}}
+        @isSwitch={{true}}
+        @onChange={{fn (mut this.isDarkTheme)}}
+      />
+    </a>
   </:footerNav>
   <:footer>
     Footer

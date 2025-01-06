@@ -90,6 +90,7 @@ import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type htmlSafe from './helpers/html-safe';
 import type timestamp from './helpers/timestamp';
+import type theme from './helpers/theme';
 
 import type autoselect from './modifiers/autoselect';
 import type collapse from './modifiers/collapse';
@@ -189,6 +190,7 @@ export default interface Registry {
   'from-now': typeof fromNow;
   'html-safe': typeof htmlSafe;
   timestamp: typeof timestamp;
+  theme: typeof theme;
 
   autoselect: typeof autoselect;
   collapse: typeof collapse;
