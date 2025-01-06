@@ -1,9 +1,9 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import localStorage from 'ember-local-storage-decorator';
+import { tracked } from '@glimmer/tracking';
 
 export default class ApplicationController extends Controller {
-  @localStorage isDarkMode?: 'light' | 'dark';
+  @tracked isDarkMode: 'light' | 'dark' = 'light';
 
   @action
   toggleDarkTheme(event: Event): void {
@@ -14,6 +14,7 @@ export default class ApplicationController extends Controller {
   get isDarkTheme(): boolean {
     return this.isDarkMode === 'dark';
   }
+
   set isDarkTheme(value: boolean) {
     this.isDarkMode = value ? 'dark' : 'light';
   }
