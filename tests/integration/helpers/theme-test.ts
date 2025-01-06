@@ -22,7 +22,7 @@ module('Integration | Helper | theme', function (hooks) {
     assert.deepEqual(elementShouldnotExist[1], undefined);
   });
 
-  test('it renders back to light', async function (assert) {
+  test('it renders light', async function (assert) {
     await render(hbs`{{theme 'light'}}`);
     const element = document.querySelectorAll('.highcharts-light');
     assert.dom(element[0]).exists();
