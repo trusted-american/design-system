@@ -9,8 +9,7 @@ module('Integration | Modifier | autoselect', function (hooks) {
   // Replace this with your real tests.
   test('it renders', async function (assert) {
     await render(hbs`
-      {{! template-lint-disable require-input-label }}
-      <input {{autoselect}} />
+      <input aria-label='' {{autoselect}} />
     `);
 
     assert.ok(true);

@@ -8,6 +8,7 @@ import { run } from '@ember/runloop';
 import Route from '@ember/routing/route';
 
 import type { TestContext } from '@ember/test-helpers';
+import type Transition from '@ember/routing/transition';
 
 interface Context extends TestContext {
   TestApplication: typeof Application;
@@ -44,7 +45,7 @@ module('Unit | Initializer | body-class', function (hooks) {
       routeName: 'application',
     });
 
-    route.activate();
+    route.activate({} as Transition);
 
     assert.true(document.body.classList.contains('route-application'));
 
