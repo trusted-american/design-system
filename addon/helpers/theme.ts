@@ -1,15 +1,18 @@
 import { helper } from '@ember/component/helper';
 
-const Theme = helper(function Theme([theme]: ['light' | 'dark']): void {
+export type Theme = 'light' | 'dark';
+
+const theme = helper(function theme([theme]: [Theme]): void {
   document.documentElement.setAttribute('data-bs-theme', theme);
+
   document.body.classList.remove('highcharts-light', 'highcharts-dark');
   document.body.classList.add(`highcharts-${theme}`);
 });
 
-export default Theme;
+export default theme;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    theme: typeof Theme;
+    theme: typeof theme;
   }
 }

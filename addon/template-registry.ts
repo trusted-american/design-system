@@ -89,8 +89,8 @@ import type PropertyListItem from './components/property-list/item';
 import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type htmlSafe from './helpers/html-safe';
-import type timestamp from './helpers/timestamp';
 import type theme from './helpers/theme';
+import type timestamp from './helpers/timestamp';
 
 import type autoselect from './modifiers/autoselect';
 import type collapse from './modifiers/collapse';
@@ -189,8 +189,8 @@ export default interface Registry {
   'file-size': typeof fileSize;
   'from-now': typeof fromNow;
   'html-safe': typeof htmlSafe;
-  timestamp: typeof timestamp;
   theme: typeof theme;
+  timestamp: typeof timestamp;
 
   autoselect: typeof autoselect;
   collapse: typeof collapse;

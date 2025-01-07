@@ -89,8 +89,8 @@ export { default as PropertyListItem } from './components/property-list/item';
 export { default as fileSize } from './helpers/file-size';
 export { default as fromNow } from './helpers/from-now';
 export { default as htmlSafe } from './helpers/html-safe';
-export { default as timestamp } from './helpers/timestamp';
 export { default as theme } from './helpers/theme';
+export { default as timestamp } from './helpers/timestamp';
 
 export { default as collapse } from './modifiers/collapse';
 export { default as dropdown } from './modifiers/dropdown';

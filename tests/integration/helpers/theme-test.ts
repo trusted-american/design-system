@@ -6,10 +6,6 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Helper | theme', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function () {
-    localStorage.removeItem('isDarkMode');
-  });
-
   test('it renders dark', async function (assert) {
     await render(hbs`{{theme 'dark'}}`);
 
@@ -24,6 +20,7 @@ module('Integration | Helper | theme', function (hooks) {
 
   test('it renders light', async function (assert) {
     await render(hbs`{{theme 'light'}}`);
+
     const element = document.querySelectorAll('.highcharts-light');
     assert.dom(element[0]).exists();
     assert.deepEqual(element[1], undefined);
