@@ -72,25 +72,13 @@
     <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
   </:footerNav>
   <:footer>
-    Footer
-    <a
-      class="dropdown-item d-flex justify-content-between align-items-center"
-      href="#"
-      {{on "click" this.toggleDarkTheme}}
-    >
-      <div>
-        <Icon @icon="moon" @isFixedWidth={{true}} class="me-1" />
-        Dark mode
-      </div>
-      <Form::Check
-        @value={{this.isDarkTheme}}
-        @label="Dark mode"
-        @identifier="isDarkTheme"
-        @isInputOnly={{true}}
-        @isSwitch={{true}}
-        @onChange={{fn (mut this.isDarkTheme)}}
-      />
-    </a>
+    <Form::Check
+      @value={{this.isDarkTheme}}
+      @label="Dark theme"
+      @identifier="isDarkTheme"
+      @isSwitch={{true}}
+      @onChange={{fn (mut this.isDarkTheme)}}
+    />
   </:footer>
 </Aside>
 
