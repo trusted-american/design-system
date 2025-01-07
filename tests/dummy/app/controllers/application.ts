@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class ApplicationController extends Controller {
-  @tracked isDarkMode: 'light' | 'dark' = 'light';
+  @tracked theme: 'light' | 'dark' = 'light';
 
   @action
   toggleDarkTheme(event: Event): void {
@@ -12,10 +12,10 @@ export default class ApplicationController extends Controller {
   }
 
   get isDarkTheme(): boolean {
-    return this.isDarkMode === 'dark';
+    return this.theme === 'dark';
   }
 
   set isDarkTheme(value: boolean) {
-    this.isDarkMode = value ? 'dark' : 'light';
+    this.theme = value ? 'dark' : 'light';
   }
 }
