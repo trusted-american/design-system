@@ -7,6 +7,8 @@ module.exports = function (defaults) {
     'ember-cli-babel': { enableTypeScriptTransform: true },
 
     // Add options here
+
+    snippetSearchPaths: ['tests/dummy/app'],
   });
 
   app.import('node_modules/bootstrap/dist/css/bootstrap.css');
