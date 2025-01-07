@@ -17,7 +17,17 @@
 
 <Subheading @title="theme" />
 
-<p>TODO:</p>
+<p>
+  {{theme this.theme}}
+
+  <Form::Check
+    @value={{this.isDarkTheme}}
+    @label="Dark theme"
+    @identifier="isDarkTheme"
+    @isSwitch={{true}}
+    @onChange={{fn (mut this.isDarkTheme)}}
+  />
+</p>
 
 <Subheading @title="timestamp" />
 

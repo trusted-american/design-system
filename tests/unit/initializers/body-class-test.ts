@@ -5,6 +5,7 @@ import { initialize } from '@trusted-american/design-system/initializers/body-cl
 import { module, test } from 'qunit';
 import Resolver from 'ember-resolver';
 import { run } from '@ember/runloop';
+import Route from '@ember/routing/route';
 
 import type { TestContext } from '@ember/test-helpers';
 
@@ -36,10 +37,19 @@ module('Unit | Initializer | body-class', function (hooks) {
     run(this.application, 'destroy');
   });
 
-  // TODO: Replace this with your real tests.
   test('it works', async function (this: Context, assert) {
     await this.application.boot();
 
-    assert.ok(true);
+    const route = Route.create({
+      routeName: 'application',
+    });
+
+    route.activate();
+
+    assert.true(document.body.classList.contains('route-application'));
+
+    route.deactivate();
+
+    assert.false(document.body.classList.contains('route-application'));
   });
 });
