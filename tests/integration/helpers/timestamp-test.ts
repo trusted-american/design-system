@@ -34,10 +34,10 @@ module('Integration | Helper | timestamp', function (hooks) {
     assert.dom().hasText('12:00 AM');
   });
 
-  test('it renders number format', async function (this: Context, assert) {
+  test('it renders numberDate format', async function (this: Context, assert) {
     this.set('date', new Date(2022, 0, 1));
 
-    await render<Context>(hbs`{{timestamp this.date number=true}}`);
+    await render<Context>(hbs`{{timestamp this.date format='numberDate'}}`);
 
     assert.dom().hasText('01/01/2022');
   });
@@ -45,9 +45,17 @@ module('Integration | Helper | timestamp', function (hooks) {
   test('it renders year format', async function (this: Context, assert) {
     this.set('date', new Date(2022, 0, 1));
 
-    await render<Context>(hbs`{{timestamp this.date year=true}}`);
+    await render<Context>(hbs`{{timestamp this.date format='year'}}`);
 
     assert.dom().hasText('2022');
+  });
+
+  test('it renders full format', async function (this: Context, assert) {
+    this.set('date', new Date(2022, 0, 1));
+
+    await render<Context>(hbs`{{timestamp this.date format='full'}}`);
+
+    assert.dom().hasText('Jan 1, 2022 at 12:00 AM');
   });
 
   test('it renders relative time', async function (this: Context, assert) {
