@@ -5,11 +5,10 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
     'ember-cli-babel': { enableTypeScriptTransform: true },
-    snippetSearchPaths: ['app', 'tests'],
-    'ember-shiki': {
-      defaultThemes: ['solarized-light'], //Customize Later
-    },
+
     // Add options here
+
+    snippetSearchPaths: ['tests/dummy/app'],
   });
 
   app.import('node_modules/bootstrap/dist/css/bootstrap.css');

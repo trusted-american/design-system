@@ -3,8 +3,7 @@
 
 <Heading @title="Alert" />
 
-<b>Example: </b>
-{{! BEGIN-SNIPPET alert }}
+{{! BEGIN-SNIPPET example1 }}
 <Alert @color="danger" @icon="triangle-exclamation">
   One of your domains is unverified. Please verify your domain to prevent others
   from claiming it.
@@ -12,28 +11,58 @@
 </Alert>
 {{! END-SNIPPET }}
 
-<b>Code:</b>
-{{#let (get-code-snippet "alert.hbs") as |snippet|}}
-  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
+{{#let (get-code-snippet "example1.hbs") as |snippet|}}
+  <CodeBlock
+    @language={{snippet.language}}
+    @code={{snippet.source}}
+    class="mb-4"
+  />
 {{/let}}
 
-<br />
-<b>Other Examples: </b>
-
+{{! BEGIN-SNIPPET example2 }}
 <Alert @color="warning" @icon="circle-exclamation" @onClose={{this.close}}>
   <a href="#" class="alert-link">Prebuilds</a>
   consume storage space that will incur a billable charge.
 </Alert>
+{{! END-SNIPPET }}
 
+{{#let (get-code-snippet "example2.hbs") as |snippet|}}
+  <CodeBlock
+    @language={{snippet.language}}
+    @code={{snippet.source}}
+    class="mb-4"
+  />
+{{/let}}
+
+{{! BEGIN-SNIPPET example3 }}
 <Alert @color="success" @icon="check" @onClose={{this.close}}>
   Payment information added successfully. Change it any time in
   <a href="#" class="alert-link">your profile</a>.
 </Alert>
+{{! END-SNIPPET }}
 
+{{#let (get-code-snippet "example3.hbs") as |snippet|}}
+  <CodeBlock
+    @language={{snippet.language}}
+    @code={{snippet.source}}
+    class="mb-4"
+  />
+{{/let}}
+
+{{! BEGIN-SNIPPET example4 }}
 <Alert @color="info" @icon="circle-info" @onClose={{this.close}}>
   Ignoring revisions in
   <a href="#" class="alert-link">.git-blame-ignore-revs</a>.
 </Alert>
+{{! END-SNIPPET }}
+
+{{#let (get-code-snippet "example4.hbs") as |snippet|}}
+  <CodeBlock
+    @language={{snippet.language}}
+    @code={{snippet.source}}
+    class="mb-4"
+  />
+{{/let}}
 
 <Alert>
   Body here

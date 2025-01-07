@@ -12,8 +12,8 @@ import type { HelperLike, ModifierLike } from '@glint/template';
 import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type PellEditor from 'ember-pell/components/pell-editor';
+import type { CodeBlock } from 'ember-shiki';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
-import { CodeBlock } from 'ember-shiki';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -34,13 +34,7 @@ declare module '@glint/environment-ember-loose/registry' {
     // ember-cli-clipboard
     CopyButton: typeof CopyButton;
 
-    // ember-pell
-    PellEditor: typeof PellEditor;
-
-    // ember-yeti-table
-    YetiTable: typeof YetiTable;
-
-    //Code Snippet
+    // ember-code-snippet
     'get-code-snippet': HelperLike<{
       Args: {
         Positional: [string];
@@ -48,6 +42,14 @@ declare module '@glint/environment-ember-loose/registry' {
       };
       Return: { language: string; source: unkown };
     }>;
+
+    // ember-pell
+    PellEditor: typeof PellEditor;
+
+    // ember-shiki
     CodeBlock: typeof CodeBlock;
+
+    // ember-yeti-table
+    YetiTable: typeof YetiTable;
   }
 }
