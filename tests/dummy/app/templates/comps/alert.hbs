@@ -12,11 +12,7 @@
 {{! END-SNIPPET }}
 
 {{#let (get-code-snippet "example1.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mb-4"
-  />
+  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
 {{/let}}
 
 {{! BEGIN-SNIPPET example2 }}
@@ -27,11 +23,7 @@
 {{! END-SNIPPET }}
 
 {{#let (get-code-snippet "example2.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mb-4"
-  />
+  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
 {{/let}}
 
 {{! BEGIN-SNIPPET example3 }}
@@ -42,11 +34,7 @@
 {{! END-SNIPPET }}
 
 {{#let (get-code-snippet "example3.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mb-4"
-  />
+  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
 {{/let}}
 
 {{! BEGIN-SNIPPET example4 }}
@@ -57,11 +45,7 @@
 {{! END-SNIPPET }}
 
 {{#let (get-code-snippet "example4.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mb-4"
-  />
+  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
 {{/let}}
 
 <Alert>
