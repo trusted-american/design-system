@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 import type { BaseArgs } from './input';
-import { action } from '@ember/object';
 
 interface Args extends BaseArgs {
   value: string | null;

@@ -3,8 +3,12 @@
 
 <Heading @title="Progress" />
 
-<Progress as |progress|>
-  <progress.bar @value={{0.3}} @color="danger" />
-  <progress.bar @value={{0.3}} @color="warning" />
-  <progress.bar @value={{0.3}} @color="success" />
-</Progress>
+<Snippet @name="progress.hbs">
+  {{! BEGIN-SNIPPET progress }}
+  <Progress as |progress|>
+    <progress.bar @value={{0.3}} @color="danger" />
+    <progress.bar @value={{0.3}} @color="warning" />
+    <progress.bar @value={{0.3}} @color="success" />
+  </Progress>
+  {{! END-SNIPPET }}
+</Snippet>

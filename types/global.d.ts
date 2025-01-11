@@ -11,6 +11,7 @@ import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registr
 import type { HelperLike, ModifierLike } from '@glint/template';
 import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
+import type MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
 import type PellEditor from 'ember-pell/components/pell-editor';
 import type { CodeBlock } from 'ember-shiki';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
@@ -33,6 +34,9 @@ declare module '@glint/environment-ember-loose/registry' {
 
     // ember-cli-clipboard
     CopyButton: typeof CopyButton;
+
+    // ember-cli-showdown
+    MarkdownToHtml: typeof MarkdownToHtml;
 
     // ember-code-snippet
     'get-code-snippet': HelperLike<{

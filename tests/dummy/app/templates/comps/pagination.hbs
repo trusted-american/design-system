@@ -5,21 +5,15 @@
 
 <p>Page: {{this.page}}</p>
 
-{{! BEGIN-SNIPPET pagination }}
-<Pagination
-  @curPage={{this.page}}
-  @pageSize={{3}}
-  @totalItems={{10}}
-  @nextText="Next"
-  @previousText="Previous"
-  @onChange={{fn (mut this.page)}}
-/>
-{{! END-SNIPPET }}
-
-{{#let (get-code-snippet "pagination.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mt-3"
+<Snippet @name="pagination.hbs">
+  {{! BEGIN-SNIPPET pagination }}
+  <Pagination
+    @curPage={{this.page}}
+    @pageSize={{3}}
+    @totalItems={{10}}
+    @nextText="Next"
+    @previousText="Previous"
+    @onChange={{fn (mut this.page)}}
   />
-{{/let}}
+  {{! END-SNIPPET }}
+</Snippet>

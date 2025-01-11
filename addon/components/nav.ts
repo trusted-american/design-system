@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 export interface NavSignature {
   Args: {
     isPills?: boolean;
+    isFill?: boolean;
     isVertical?: boolean;
   };
   Blocks: {

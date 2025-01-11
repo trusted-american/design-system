@@ -25,7 +25,7 @@ module('Integration | Component | form/html-input', function (hooks) {
       />
     `);
 
-    assert.dom().includesText('Label *');
+    assert.dom().includesText('Label Required');
 
     assert.dom('[data-test-value-editor]').exists();
     assert.dom('[data-test-value-code]').doesNotExist();

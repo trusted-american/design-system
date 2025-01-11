@@ -3,16 +3,10 @@
 
 <Heading @title="Banner" />
 
-{{! BEGIN-SNIPPET banner }}
-<Banner @color="primary">
-  This is a banner.
-</Banner>
-{{! END-SNIPPET }}
-
-{{#let (get-code-snippet "banner.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mt-3"
-  />
-{{/let}}
+<Snippet @name="banner.hbs">
+  {{! BEGIN-SNIPPET banner }}
+  <Banner @color="primary">
+    This is a banner.
+  </Banner>
+  {{! END-SNIPPET }}
+</Snippet>

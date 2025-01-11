@@ -9,6 +9,13 @@ export default class CompsTableController extends Controller {
 
   @tracked page = 0;
 
+  get _page(): User[] {
+    const pageSize = 20;
+    const start = this.page * pageSize;
+    const end = start + pageSize;
+    return this.model.slice(start, end);
+  }
+
   @action
   do() {
     console.log('Something');

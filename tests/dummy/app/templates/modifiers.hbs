@@ -3,20 +3,56 @@
 
 <Heading @title="Modifiers" />
 
-<Subheading @title="collapse" />
+<Subheading @title="Autoselect" />
+
+<Snippet @name="autoselect.hbs">
+  {{! BEGIN-SNIPPET autoselect }}
+  <Form::Input
+    @value={{this.value}}
+    @label="Label"
+    @identifier="identifier"
+    @onChange={{fn (mut this.value)}}
+    {{autoselect}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
+
+<Subheading @title="Collapse" />
 
 <p><LinkTo @route="comps.collapse">See collapse component</LinkTo></p>
 
-<Subheading @title="dropdown" class="mt-3" />
+<Subheading @title="Dropdown" />
 
-<Button @text="Open dropdown" {{dropdown}} />
-<Dropdown>
-  <Dropdown::Item @text="Item" />
-</Dropdown>
+<Snippet @name="dropdown.hbs">
+  {{! BEGIN-SNIPPET dropdown }}
+  <Button @text="Open dropdown" {{dropdown}} />
+  <Dropdown>
+    <Dropdown::Item @text="Item" />
+  </Dropdown>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="tooltip" class="mt-3" />
+<Subheading @title="Tooltip" />
 
-<Button
-  @text="Hover me"
-  {{tooltip "This is a tooltip." trigger="hover" placement="right"}}
-/>
+<Snippet @name="tooltip.hbs">
+  {{! BEGIN-SNIPPET tooltip }}
+  <Button @text="Tooltip on top" {{tooltip "Tooltip on top" placement="top"}} />
+  <Button
+    @text="Tooltip on right"
+    {{tooltip "Tooltip on right" placement="right"}}
+  />
+  <Button
+    @text="Tooltip on bottom"
+    {{tooltip "Tooltip on bottom" placement="bottom"}}
+  />
+  <Button
+    @text="Tooltip on left"
+    {{tooltip "Tooltip on left" placement="left"}}
+  />
+  <Button
+    @text="Tooltip with HTML"
+    {{tooltip "<em>Tooltip</em> <u>with</u> <b>HTML</b>" html=true}}
+  />
+  <Button @text="Hover me" {{tooltip "This is a tooltip." trigger="hover"}} />
+  {{! END-SNIPPET }}
+</Snippet>

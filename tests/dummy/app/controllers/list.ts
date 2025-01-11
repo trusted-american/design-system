@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class ExampleController extends Controller {
+export default class ListController extends Controller {
   search = '';
 
   users = [

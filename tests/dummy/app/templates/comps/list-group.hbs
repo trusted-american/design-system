@@ -1,26 +1,38 @@
-{{page-title "ListGroup"}}
-{{breadcrumb "ListGroup"}}
+{{page-title "List group"}}
+{{breadcrumb "List group"}}
 
-<Heading @title="ListGroup" />
+<Heading @title="List group" />
 
-<Subheading @title="Default" class="mt-3" />
+<Subheading @title="Default" />
 
-<ListGroup>
-  <ListGroup::Item class="active">An active item</ListGroup::Item>
-  <ListGroup::Item>A second item</ListGroup::Item>
-  <ListGroup::Item @route="index">Route</ListGroup::Item>
-  <ListGroup::Item @href="https://www.google.com/">Href</ListGroup::Item>
-</ListGroup>
+<Snippet @name="list-group.hbs">
+  {{! BEGIN-SNIPPET list-group }}
+  <ListGroup>
+    <ListGroup::Item class="active">An active item</ListGroup::Item>
+    <ListGroup::Item>A second item</ListGroup::Item>
+    <ListGroup::Item @route="index">Route</ListGroup::Item>
+    <ListGroup::Item @href="https://www.google.com/">Href</ListGroup::Item>
+  </ListGroup>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Disabled" class="mt-3" />
+<Subheading @title="Disabled" />
 
-<ListGroup>
-  <ListGroup::Item class="disabled">A disabled item</ListGroup::Item>
-  <ListGroup::Item>A second item</ListGroup::Item>
-</ListGroup>
+<Snippet @name="list-group2.hbs">
+  {{! BEGIN-SNIPPET list-group2 }}
+  <ListGroup>
+    <ListGroup::Item class="disabled">A disabled item</ListGroup::Item>
+    <ListGroup::Item>A second item</ListGroup::Item>
+  </ListGroup>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Flush" class="mt-3" />
+<Subheading @title="Flush" />
 
-<ListGroup @isFlush={{true}}>
-  <ListGroup::Item>An item</ListGroup::Item>
-</ListGroup>
+<Snippet @name="list-group3.hbs">
+  {{! BEGIN-SNIPPET list-group3 }}
+  <ListGroup @isFlush={{true}}>
+    <ListGroup::Item>An item</ListGroup::Item>
+  </ListGroup>
+  {{! END-SNIPPET }}
+</Snippet>

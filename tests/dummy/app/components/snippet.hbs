@@ -1,0 +1,8 @@
+<Card class="overflow-hidden mb-4" as |card|>
+  <card.body class="border-bottom">
+    {{yield}}
+  </card.body>
+  {{#let (get-code-snippet @name) as |snippet|}}
+    <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
+  {{/let}}
+</Card>

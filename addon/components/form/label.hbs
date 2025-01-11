@@ -7,9 +7,7 @@
   >
     {{@text}}
     {{#if @isRequired}}
-      <span class="text-danger">
-        *
-      </span>
+      <Badge @text="Required" @color="light" class="ms-1" />
     {{/if}}
   </label>
 {{/if}}

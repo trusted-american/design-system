@@ -11,11 +11,7 @@
 >
 
   {{#unless @icon}}
-    <Icon
-      @icon="arrow-turn-down"
-      @isFixedWidth={{true}}
-      class="me-2 invisible"
-    />
+    <Icon @icon="circle" @isFixedWidth={{true}} class="me-1 invisible" />
   {{/unless}}
   <span>{{@text}}</span>
   {{yield}}
