@@ -132,6 +132,12 @@ aside.collapsed nav .fa-fw {
   border-color: transparent !important;
 }
 
+/* alert */
+
+.alert {
+  margin-bottom: 0;
+}
+
 /* badge */
 
 .badge .spinner-border-sm {

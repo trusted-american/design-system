@@ -51,6 +51,9 @@ Router.map(function () {
   this.route('helpers');
   this.route('modifiers');
   this.route('utils');
+  this.route('guides', function () {
+    this.route('introduction');
+  });
   this.route('list');
   this.route('detail');
   this.route('not-found', { path: '/*path' });

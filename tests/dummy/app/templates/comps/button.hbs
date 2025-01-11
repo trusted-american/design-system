@@ -3,18 +3,16 @@
 
 <Heading @title="Button" />
 
-<p>
+<Snippet @name="button">
+  {{! BEGIN-SNIPPET button }}
   <Button @text="Default button" {{on "click" this.do}} />
-
   <Button @text="Success button" @color="success" {{on "click" this.do}} />
-
   <Button
     @text="Success button with icon"
     @color="success"
     @icon="plus"
     {{on "click" this.do}}
   />
-
   <Button
     @text="Success button with trailing icon"
     @color="success"
@@ -22,7 +20,6 @@
     @isIconTrailing={{true}}
     {{on "click" this.do}}
   />
-
   <Button
     @text="Success button with only icon"
     @icon="plus"
@@ -30,13 +27,11 @@
     @color="success"
     {{on "click" this.do}}
   />
-
   <Button @text="Loading button" @isLoading={{true}} {{on "click" this.do}} />
-
   <Button @text="Disabled button" disabled {{on "click" this.do}} />
-
   <Button @text="Count button" @count={{3}} {{on "click" this.do}} />
-</p>
+  {{! END-SNIPPET }}
+</Snippet>
 
 <p>
   <Button @text="Route button" @route="index" />

@@ -3,27 +3,21 @@
 
 <Heading @title="Accordion" />
 
-{{! BEGIN-SNIPPET accordion }}
-<Accordion as |accordion|>
-  <accordion.item as |item|>
-    <item.button>Accordion Item #1</item.button>
-    <item.body>Accordion Body</item.body>
-  </accordion.item>
-  <accordion.item as |item|>
-    <item.button>Accordion Item #2</item.button>
-    <item.body>Accordion Body</item.body>
-  </accordion.item>
-  <accordion.item as |item|>
-    <item.button>Accordion Item #3</item.button>
-    <item.body>Accordion Body</item.body>
-  </accordion.item>
-</Accordion>
-{{! END-SNIPPET }}
-
-{{#let (get-code-snippet "accordion.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mt-3"
-  />
-{{/let}}
+<Snippet @name="accordion">
+  {{! BEGIN-SNIPPET accordion }}
+  <Accordion as |accordion|>
+    <accordion.item as |item|>
+      <item.button>Accordion Item #1</item.button>
+      <item.body>Accordion Body</item.body>
+    </accordion.item>
+    <accordion.item as |item|>
+      <item.button>Accordion Item #2</item.button>
+      <item.body>Accordion Body</item.body>
+    </accordion.item>
+    <accordion.item as |item|>
+      <item.button>Accordion Item #3</item.button>
+      <item.body>Accordion Body</item.body>
+    </accordion.item>
+  </Accordion>
+  {{! END-SNIPPET }}
+</Snippet>

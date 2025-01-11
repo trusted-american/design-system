@@ -3,17 +3,11 @@
 
 <Heading @title="Badge" />
 
-{{! BEGIN-SNIPPET badge }}
-<Badge @text="Default badge" />
-<Badge @text="Success badge" @color="success" />
-<Badge @text="Success badge with icon" @color="success" @icon="check" />
-<Badge @text="Loading badge" @isLoading={{true}} />
-{{! END-SNIPPET }}
-
-{{#let (get-code-snippet "badge.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mt-3"
-  />
-{{/let}}
+<Snippet @name="badge">
+  {{! BEGIN-SNIPPET badge }}
+  <Badge @text="Default badge" />
+  <Badge @text="Success badge" @color="success" />
+  <Badge @text="Success badge with icon" @color="success" @icon="check" />
+  <Badge @text="Loading badge" @isLoading={{true}} />
+  {{! END-SNIPPET }}
+</Snippet>

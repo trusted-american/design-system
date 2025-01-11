@@ -3,14 +3,18 @@
 
 <Heading @title="Card" />
 
-<Card as |card|>
-  <card.header>
-    Header
-  </card.header>
-  <card.body>
-    Body
-  </card.body>
-  <card.footer>
-    Footer
-  </card.footer>
-</Card>
+<Snippet @name="card">
+  {{! BEGIN-SNIPPET card }}
+  <Card as |card|>
+    <card.header>
+      Header
+    </card.header>
+    <card.body>
+      Body
+    </card.body>
+    <card.footer>
+      Footer
+    </card.footer>
+  </Card>
+  {{! END-SNIPPET }}
+</Snippet>

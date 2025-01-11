@@ -3,9 +3,24 @@
 
 <Heading @title="Main" />
 
-<Main>
-  Main
-</Main>
+<Snippet @name="main">
+  {{! BEGIN-SNIPPET main }}
+  <Main>
+    <Main::TopHeader>
+      Top header
+    </Main::TopHeader>
+    <Main::Header>
+      Header
+    </Main::Header>
+    <Main::Body>
+      Body
+    </Main::Body>
+    <Main::Footer>
+      Footer
+    </Main::Footer>
+  </Main>
+  {{! END-SNIPPET }}
+</Snippet>
 
 <Subheading @title="Main::Body" />
 
@@ -35,5 +50,5 @@
 <Subheading @title="Main::TopHeader" />
 
 <Main::TopHeader>
-  TopHeader
+  Top header
 </Main::TopHeader>

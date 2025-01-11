@@ -3,7 +3,11 @@
 
 <Heading @title="ButtonSet" />
 
-<ButtonSet>
-  <Button @text="Button 1" {{on "click" this.do}} />
-  <Button @text="Button 2" {{on "click" this.do}} />
-</ButtonSet>
+<Snippet @name="buttonSet">
+  {{! BEGIN-SNIPPET buttonSet }}
+  <ButtonSet>
+    <Button @text="Button 1" {{on "click" this.do}} />
+    <Button @text="Button 2" {{on "click" this.do}} />
+  </ButtonSet>
+  {{! END-SNIPPET }}
+</Snippet>

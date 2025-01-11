@@ -3,7 +3,11 @@
 
 <Heading @title="Calendar" />
 
-<Calendar @events={{this.model}} @onSelect={{fn (mut this.event)}} />
+<Snippet @name="calendar">
+  {{! BEGIN-SNIPPET calendar }}
+  <Calendar @events={{this.model}} @onSelect={{fn (mut this.event)}} />
+  {{! END-SNIPPET }}
+</Snippet>
 
 {{#if this.event}}
   <Modal @title="Event" @onClose={{this.close}}>

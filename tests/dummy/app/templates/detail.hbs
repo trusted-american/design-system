@@ -1,6 +1,25 @@
 {{page-title "Detail"}}
 {{breadcrumb "Detail"}}
 
-<Heading @title="Detail" @type="Detail" @identifier="0123" />
+<Alert @icon="box-archive">
+  Test
+</Alert>
 
-Body
+<Alert @color="warning" @icon="circle-exclamation">
+  Test
+</Alert>
+
+<Heading @title="Detail" @type="Type" @identifier="1234567890">
+  <Button
+    @text="Actions"
+    @icon="angle-down"
+    @isIconTrailing={{true}}
+    @color="primary"
+  />
+</Heading>
+
+<Card as |card|>
+  <card.body>
+    Body
+  </card.body>
+</Card>
