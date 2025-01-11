@@ -39,6 +39,7 @@
   </li>
 </ul>
 
+{{! BEGIN-SNIPPET list-filter }}
 <ListFilter
   @predicates={{array
     (hash
@@ -68,3 +69,12 @@
   @doneText="Done"
   @onChange={{this.change}}
 />
+{{! END-SNIPPET }}
+
+{{#let (get-code-snippet "list-filter.hbs") as |snippet|}}
+  <CodeBlock
+    @language={{snippet.language}}
+    @code={{snippet.source}}
+    class="mt-3"
+  />
+{{/let}}

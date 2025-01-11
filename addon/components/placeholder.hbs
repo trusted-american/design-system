@@ -1,6 +1,5 @@
 <div class="d-flex justify-content-center" data-test-placeholder ...attributes>
-  {{! template-lint-disable no-inline-styles }}
-  <div class="text-center" style="max-width: 25rem;">
+  <div class="text-center" style={{html-safe "max-width: 25rem;"}}>
     <h1 class="mb-3">
       <Icon @icon={{@icon}} />
     </h1>

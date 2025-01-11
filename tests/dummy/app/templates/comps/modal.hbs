@@ -3,6 +3,7 @@
 
 <Heading @title="Modal" />
 
+{{! BEGIN-SNIPPET modal }}
 <Button @text="Open modal" {{on "click" (fn (mut this.showModal) true)}} />
 
 {{#if this.showModal}}
@@ -11,3 +12,12 @@
     <Button @text="Close" {{on "click" onClose}} />
   </Modal>
 {{/if}}
+{{! END-SNIPPET }}
+
+{{#let (get-code-snippet "modal.hbs") as |snippet|}}
+  <CodeBlock
+    @language={{snippet.language}}
+    @code={{snippet.source}}
+    class="mt-3"
+  />
+{{/let}}
