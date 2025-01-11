@@ -1,8 +1,6 @@
 {{page-title "Design System"}}
 {{breadcrumb "Design System" route="application"}}
 
-{{theme this.theme}}
-
 <Banner @color="primary">
   This is a banner.
 </Banner>
@@ -74,13 +72,6 @@
     <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
   </:footerNav>
   <:footer>
-    <Form::Check
-      @value={{this.isDarkTheme}}
-      @label="Dark theme"
-      @identifier="isDarkTheme"
-      @isSwitch={{true}}
-      @onChange={{fn (mut this.isDarkTheme)}}
-    />
   </:footer>
 </Aside>
 

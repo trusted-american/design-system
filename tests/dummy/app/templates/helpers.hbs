@@ -1,5 +1,6 @@
 {{page-title "Helpers"}}
 {{breadcrumb "Helpers"}}
+{{theme this.theme}}
 
 <Heading @title="Helpers" />
 
@@ -17,7 +18,15 @@
 
 <Subheading @title="theme" />
 
-<p>TODO:</p>
+<Form::Check
+  @value={{this.isDarkTheme}}
+  @label=""
+  @identifier="isDarkTheme"
+  @isSwitch={{true}}
+  @onChange={{fn (mut this.isDarkTheme)}}
+/>
+
+<br />
 
 <Subheading @title="timestamp" />
 
