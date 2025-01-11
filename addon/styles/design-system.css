@@ -15,7 +15,7 @@ body > section {
 
 body > aside {
   grid-area: aside;
-  min-width: 17rem;
+  min-width: 19rem;
 }
 
 aside .nav-link.active {

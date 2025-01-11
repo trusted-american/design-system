@@ -3,39 +3,33 @@
 
 <Heading @title="Alert" />
 
-{{! BEGIN-SNIPPET example1 }}
-<Alert @color="danger" @icon="triangle-exclamation">
-  One of your domains is unverified. Please verify your domain to prevent others
-  from claiming it.
-  <a href="#" class="alert-link">Learn more</a>
-</Alert>
-{{! END-SNIPPET }}
+<Snippet @name="example1">
+  {{! BEGIN-SNIPPET example1 }}
+  <Alert @color="danger" @icon="triangle-exclamation">
+    One of your domains is unverified. Please verify your domain to prevent
+    others from claiming it.
+    <a href="#" class="alert-link">Learn more</a>
+  </Alert>
+  {{! END-SNIPPET }}
+</Snippet>
 
-{{#let (get-code-snippet "example1.hbs") as |snippet|}}
-  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
-{{/let}}
+<Snippet @name="example2">
+  {{! BEGIN-SNIPPET example2 }}
+  <Alert @color="warning" @icon="circle-exclamation" @onClose={{this.close}}>
+    <a href="#" class="alert-link">Prebuilds</a>
+    consume storage space that will incur a billable charge.
+  </Alert>
+  {{! END-SNIPPET }}
+</Snippet>
 
-{{! BEGIN-SNIPPET example2 }}
-<Alert @color="warning" @icon="circle-exclamation" @onClose={{this.close}}>
-  <a href="#" class="alert-link">Prebuilds</a>
-  consume storage space that will incur a billable charge.
-</Alert>
-{{! END-SNIPPET }}
-
-{{#let (get-code-snippet "example2.hbs") as |snippet|}}
-  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
-{{/let}}
-
-{{! BEGIN-SNIPPET example3 }}
-<Alert @color="success" @icon="check" @onClose={{this.close}}>
-  Payment information added successfully. Change it any time in
-  <a href="#" class="alert-link">your profile</a>.
-</Alert>
-{{! END-SNIPPET }}
-
-{{#let (get-code-snippet "example3.hbs") as |snippet|}}
-  <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
-{{/let}}
+<Snippet @name="example3">
+  {{! BEGIN-SNIPPET example3 }}
+  <Alert @color="success" @icon="check" @onClose={{this.close}}>
+    Payment information added successfully. Change it any time in
+    <a href="#" class="alert-link">your profile</a>.
+  </Alert>
+  {{! END-SNIPPET }}
+</Snippet>
 
 {{! BEGIN-SNIPPET example4 }}
 <Alert @color="info" @icon="circle-info" @onClose={{this.close}}>

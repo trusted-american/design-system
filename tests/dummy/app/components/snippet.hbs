@@ -1,0 +1,12 @@
+<style>
+  .shiki { border-radius: 0; }
+</style>
+
+<Card class="mb-4" as |card|>
+  <card.body class="border-bottom">
+    {{yield}}
+  </card.body>
+  {{#let (get-code-snippet (concat @name ".hbs")) as |snippet|}}
+    <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
+  {{/let}}
+</Card>
