@@ -5,7 +5,15 @@
 
 <Subheading @title="autoselect" />
 
-<p>TODO:</p>
+<Form::Input
+  @value={{this.value}}
+  @label=""
+  @identifier=""
+  @isInputOnly={{true}}
+  @onChange={{fn (mut this.value)}}
+  {{autoselect}}
+  class="mb-3"
+/>
 
 <Subheading @title="collapse" />
 

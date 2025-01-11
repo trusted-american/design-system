@@ -33,7 +33,12 @@
 
 <Subheading @title="Form::FileDropzone" class="mt-3" />
 
-<Form::FileDropzone @onCreate={{this.create}} />
+<Form::FileDropzone
+  @titleText="Drag and Drop Your Files Here"
+  @subtitleText="Or select a file from your computer…"
+  @titleActiveText="Drop to Upload"
+  @onCreate={{this.create}}
+/>
 
 <Subheading @title="Form::FileInput" class="mt-3" />
 
