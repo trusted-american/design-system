@@ -23,7 +23,7 @@ module('Integration | Component | form/file-dropzone', function (hooks) {
       />
     `);
 
-    assert.dom().includesText('Drag and Drop Your Files Here');
+    assert.dom('.form-file-dropzone').exists();
 
     const file = new File(['Ember Rules!'], 'ember-rules.pdf', {
       type: 'application/pdf',

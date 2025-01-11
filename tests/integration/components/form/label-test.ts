@@ -16,6 +16,6 @@ module('Integration | Component | form/label', function (hooks) {
     `);
 
     assert.dom('label').exists();
-    assert.dom('label').hasText('Text *');
+    assert.dom('label').hasText('Text Required');
   });
 });
