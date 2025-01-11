@@ -3,15 +3,15 @@
 
 <Heading @title="Nav" />
 
-<Subheading @title="Default" />
+<Subheading @title="Tabs" />
 
 <Snippet @name="nav.hbs">
   {{! BEGIN-SNIPPET nav }}
   <Nav>
-    <Nav::Item @route="comps" @text="First" @icon="house" @count={{12}} />
-    <Nav::Item @route="index" @text="Second" />
-    <Nav::Item @route="index" @text="Third" />
-    <Nav::Item @route="index" @text="Custom">
+    <Nav::Item @route="comps" @text="First" />
+    <Nav::Item @route="index" @text="Second" @icon="house" />
+    <Nav::Item @route="index" @text="Third" @count={{12}} />
+    <Nav::Item @route="index" @text="Fourth">
       <Badge @text="New" />
     </Nav::Item>
   </Nav>
@@ -24,14 +24,20 @@
   {{! BEGIN-SNIPPET nav2 }}
   <Nav @isPills={{true}}>
     <Nav::Item @route="comps" @text="First" />
-    <Nav::Item @route="index" @text="Second" />
-    <Nav::Item @route="index" @text="Third" />
+    <Nav::Item @route="index" @text="Second" @icon="house" />
+    <Nav::Item @route="index" @text="Third" @count={{12}} />
+    <Nav::Item @route="index" @text="Fourth">
+      <Badge @text="New" />
+    </Nav::Item>
   </Nav>
-
-  <Nav @isPills={{true}} class="nav-fill">
+  <hr />
+  <Nav @isPills={{true}} @isFill={{true}}>
     <Nav::Item @route="comps" @text="First" />
-    <Nav::Item @route="index" @text="Second" />
-    <Nav::Item @route="index" @text="Third" />
+    <Nav::Item @route="index" @text="Second" @icon="house" />
+    <Nav::Item @route="index" @text="Third" @count={{12}} />
+    <Nav::Item @route="index" @text="Fourth">
+      <Badge @text="New" />
+    </Nav::Item>
   </Nav>
   {{! END-SNIPPET }}
 </Snippet>
@@ -41,9 +47,12 @@
 <Snippet @name="nav3.hbs">
   {{! BEGIN-SNIPPET nav3 }}
   <Nav @isPills={{true}} @isVertical={{true}}>
-    <Nav::Item @route="comps" @text="First" @icon="house" @count={{12}} />
-    <Nav::Item @route="index" @text="Second" @count={{12}} />
-    <Nav::Item @route="index" @text="Third" />
+    <Nav::Item @route="comps" @text="First" />
+    <Nav::Item @route="index" @text="Second" @icon="house" />
+    <Nav::Item @route="index" @text="Third" @count={{12}} />
+    <Nav::Item @route="index" @text="Fourth">
+      <Badge @text="New" />
+    </Nav::Item>
   </Nav>
   {{! END-SNIPPET }}
 </Snippet>
