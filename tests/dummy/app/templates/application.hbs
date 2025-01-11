@@ -8,9 +8,6 @@
 </Banner>
 
 <Aside @title="Design" @logo="/logo.svg" @route="index">
-  <:header>
-    Header
-  </:header>
   <:default>
     <Aside::Item @text="Home" @route="index" @icon="house" />
     <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps.index">
@@ -60,7 +57,7 @@
     <Aside::Item @text="Utils" @icon="screwdriver-wrench" @route="utils" />
 
     <Aside::Title @text="Examples" />
-    <Aside::Item @text="List" @icon="crop-simple" @route="example" />
+    <Aside::Item @text="List" @icon="crop-simple" @route="list" />
     <Aside::Item @text="Detail" @icon="crop-simple" @route="detail" />
     <Aside::Item
       @text="Disabled"
@@ -69,10 +66,6 @@
       class="disabled"
     />
   </:default>
-
-  <:footerNav>
-    <Aside::Item @text="Example" @icon="crop-simple" @route="example" />
-  </:footerNav>
   <:footer>
     <Form::Check
       @value={{this.isDarkTheme}}
@@ -89,11 +82,11 @@
     This is another banner.
   </Banner>
 
-  <Main::TopHeader>
+  <Main::TopHeader class="border-bottom">
     Search
   </Main::TopHeader>
 
-  <Main::TopHeader>
+  <Main::TopHeader class="pb-0">
     <BreadcrumbTrail />
   </Main::TopHeader>
 
