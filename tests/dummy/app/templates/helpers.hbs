@@ -3,21 +3,34 @@
 
 <Heading @title="Helpers" />
 
-<Subheading @title="file-size" />
+<Subheading @title="File size" />
 
-<p>{{file-size 1234}}</p>
+<Snippet @name="file-size.hbs">
+  {{! BEGIN-SNIPPET file-size }}
+  {{file-size 1234}}
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="from-now" />
+<Subheading @title="From now" />
 
-<p>{{from-now this.date}}</p>
+<Snippet @name="from-now.hbs">
+  {{! BEGIN-SNIPPET from-now }}
+  {{from-now this.date}}
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="html-safe" />
+<Subheading @title="HTML safe" />
 
-<p>{{html-safe "<em>Test</em>"}}</p>
+<Snippet @name="html-safe.hbs">
+  {{! BEGIN-SNIPPET html-safe }}
+  {{html-safe "<em>Test</em>"}}
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="theme" />
+<Subheading @title="Theme" />
 
-<p>
+<Snippet @name="theme.hbs">
+  {{! BEGIN-SNIPPET theme }}
   {{theme this.theme}}
 
   <Form::Check
@@ -27,16 +40,21 @@
     @isSwitch={{true}}
     @onChange={{fn (mut this.isDarkTheme)}}
   />
-</p>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="timestamp" />
+<Subheading @title="Timestamp" />
 
-<ul>
-  <li>{{timestamp this.date}}</li>
-  <li>{{timestamp this.date format="date"}}</li>
-  <li>{{timestamp this.date format="time"}}</li>
-  <li>{{timestamp this.date format="numberDate"}}</li>
-  <li>{{timestamp this.date format="year"}}</li>
-  <li>{{timestamp this.date format="full"}}</li>
-  <li>{{timestamp this.date utc=true}}</li>
-</ul>
+<Snippet @name="timestamp.hbs">
+  {{! BEGIN-SNIPPET timestamp }}
+  <ul>
+    <li>{{timestamp this.date}}</li>
+    <li>{{timestamp this.date format="date"}}</li>
+    <li>{{timestamp this.date format="time"}}</li>
+    <li>{{timestamp this.date format="numberDate"}}</li>
+    <li>{{timestamp this.date format="year"}}</li>
+    <li>{{timestamp this.date format="full"}}</li>
+    <li>{{timestamp this.date utc=true}}</li>
+  </ul>
+  {{! END-SNIPPET }}
+</Snippet>

@@ -19,7 +19,7 @@ body > aside {
 }
 
 aside .nav-link.active {
-  background-color: var(--bs-body-bg) !important;
+  background-color: var(--bs-secondary-bg) !important;
   font-weight: 600;
 }
 

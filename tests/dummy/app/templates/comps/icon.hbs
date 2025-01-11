@@ -3,6 +3,13 @@
 
 <Heading @title="Icon" />
 
-<Icon @icon="book" />
-
-<Icon @icon="flag" @color="danger" />
+<Snippet @name="icon.hbs">
+  {{! BEGIN-SNIPPET icon }}
+  <Icon @icon="flag" />
+  <Icon @icon="flag" @color="danger" />
+  <Icon @icon="flag" @size="sm" />
+  <Icon @icon="flag" @size="md" />
+  <Icon @icon="flag" @size="lg" />
+  <Icon @icon="flag" @size="xl" />
+  {{! END-SNIPPET }}
+</Snippet>

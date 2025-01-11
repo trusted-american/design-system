@@ -6,7 +6,7 @@
   <card.body class="border-bottom">
     {{yield}}
   </card.body>
-  {{#let (get-code-snippet (concat @name ".hbs")) as |snippet|}}
+  {{#let (get-code-snippet @name) as |snippet|}}
     <CodeBlock @language={{snippet.language}} @code={{snippet.source}} />
   {{/let}}
 </Card>

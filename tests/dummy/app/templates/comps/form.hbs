@@ -1,242 +1,333 @@
 {{page-title "Form"}}
 {{breadcrumb "Form"}}
 
-<Heading @title="Form" />
+<Heading
+  @title="Form"
+  @subtitle="Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms."
+/>
 
-<Subheading @title="Form::Check" class="mt-3" />
+<Subheading @title="Form check" />
 
 <p>Value: {{if this.check "True" " False"}}</p>
 
-<Form::Check
-  @value={{this.check}}
-  @label="Label"
-  @identifier="check"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.check)}}
-/>
+<Snippet @name="form-check.hbs">
+  {{! BEGIN-SNIPPET form-check }}
+  <Form::Check
+    @value={{this.check}}
+    @label="Label"
+    @identifier="check"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.check)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Form::DateInput" class="mt-3" />
+<Subheading @title="Form date input" />
 
 <p>Value: {{timestamp this.date}}</p>
 
-<Form::DateInput
-  @value={{this.date}}
-  @label="Label"
-  @identifier="dateInput"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.date)}}
-/>
+<Snippet @name="form-date-input.hbs">
+  {{! BEGIN-SNIPPET form-date-input }}
+  <Form::DateInput
+    @value={{this.date}}
+    @label="Label"
+    @identifier="dateInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.date)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Form::FileDropzone" class="mt-3" />
+<Subheading @title="Form file dropzone" />
 
-<Form::FileDropzone
-  @titleText="Drag and Drop Your Files Here"
-  @subtitleText="Or select a file from your computer…"
-  @titleActiveText="Drop to Upload"
-  @onCreate={{this.create}}
-/>
+<p>
+  Value:
+  <ul>
+    {{#each this.files as |file|}}
+      <li>{{file.name}}</li>
+    {{/each}}
+  </ul>
+</p>
 
-<Subheading @title="Form::FileInput" class="mt-3" />
+<Snippet @name="form-file-dropzone.hbs">
+  {{! BEGIN-SNIPPET form-file-dropzone }}
+  <Form::FileDropzone
+    @titleText="Drag and Drop Your Files Here"
+    @subtitleText="Or select a file from your computer…"
+    @titleActiveText="Drop to Upload"
+    @onCreate={{this.create}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Form::FileInput
-  @label="Label"
-  @identifier="file"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.file)}}
-/>
+<Subheading @title="Form file input" />
 
-<Subheading @title="Form::HtmlInput" class="mt-3" />
+<p>Value: {{this.file.name}}</p>
+
+<Snippet @name="form-file-input.hbs">
+  {{! BEGIN-SNIPPET form-file-input }}
+  <Form::FileInput
+    @label="Label"
+    @identifier="file"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.file)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
+
+<Subheading @title="Form HTML input" />
 
 <p>Value: {{this.htmlValue}}</p>
 
-<Form::HtmlInput
-  @value={{this.htmlValue}}
-  @label="Label"
-  @identifier="htmlInput"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @editorText="Editor"
-  @codeText="Code"
-  @onChange={{fn (mut this.htmlValue)}}
-/>
+<Snippet @name="form-html-input.hbs">
+  {{! BEGIN-SNIPPET form-html-input }}
+  <Form::HtmlInput
+    @value={{this.htmlValue}}
+    @label="Label"
+    @identifier="htmlInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @editorText="Editor"
+    @codeText="Code"
+    @onChange={{fn (mut this.htmlValue)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Form::Input" class="mt-3" />
+<Subheading @title="Form input" />
 
 <p>Value: {{this.value}}</p>
 
-<Form::Input
-  @value={{this.value}}
-  @label="Label"
-  @identifier="input"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.value)}}
-  placeholder="Placeholder"
-/>
+<Snippet @name="form-input.hbs">
+  {{! BEGIN-SNIPPET form-input }}
+  <Form::Input
+    @value={{this.value}}
+    @label="Label"
+    @identifier="input"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.value)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Form::MarkdownInput" class="mt-3" />
+<Subheading @title="Form Markdown input" />
 
 <p>Value: {{this.markdownValue}}</p>
 
-<Form::MarkdownInput
-  @value={{this.markdownValue}}
-  @label="Label"
-  @identifier="markdownInput"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.markdownValue)}}
-/>
+<Snippet @name="form-markdown-input.hbs">
+  {{! BEGIN-SNIPPET form-markdown-input }}
+  <Form::MarkdownInput
+    @value={{this.markdownValue}}
+    @label="Label"
+    @identifier="markdownInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.markdownValue)}}
+    placeholder="Add your comment here…"
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Form::NumberInput" class="mt-3" />
+<Subheading @title="Form number input" />
 
-<Form::NumberInput
-  @value={{this.number}}
-  @label="Label"
-  @identifier="numberInput"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.number)}}
-  placeholder="Placeholder"
-/>
+<p>Value: {{this.numberValue}}</p>
 
-<Form::NumberInput
-  @value={{this.number}}
-  @type="range"
-  @label="Label"
-  @identifier="numberInput"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.number)}}
-  placeholder="Placeholder"
-/>
+<Snippet @name="form-number-input.hbs">
+  {{! BEGIN-SNIPPET form-number-input }}
+  <Form::NumberInput
+    @value={{this.numberValue}}
+    @label="Label"
+    @identifier="numberInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.numberValue)}}
+    placeholder="Placeholder"
+  />
+  <hr />
+  <Form::NumberInput
+    @value={{this.numberValue}}
+    @type="range"
+    @label="Label"
+    @identifier="numberInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.numberValue)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Form::PhoneInput" class="mt-3" />
+<Subheading @title="Form phone input" />
 
-<Form::PhoneInput
-  @value={{this.phone}}
-  @label="Label"
-  @identifier="phoneInput"
-  @isRequired={{true}}
-  @help="Help"
-  @invalidFeedback="Invalid feedback"
-  @onChange={{fn (mut this.phone)}}
-  placeholder="Placeholder"
-/>
+<p>Value: {{this.phone}}</p>
 
-<Subheading @title="Form::Radio" class="mt-3" />
+<Snippet @name="form-phone-input.hbs">
+  {{! BEGIN-SNIPPET form-phone-input }}
+  <Form::PhoneInput
+    @value={{this.phone}}
+    @label="Label"
+    @identifier="phoneInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.phone)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Form::Radio
-  @options={{array
-    (hash
-      value=true
-      label="Yes"
-      help="With supporting text below as a natural lead-in to additional content."
-    )
-    (hash
-      value=false
-      label="No"
-      help="With supporting text below as a natural lead-in to additional content."
-    )
-  }}
-  @selected={{this.radio}}
-  @label="Label"
-  @identifier="radio"
-  @isRequired={{true}}
-  @help="Help"
-  @onChange={{fn (mut this.radio)}}
-/>
+<Subheading @title="Form radio" />
 
-<Subheading @title="Form::RadioButton" class="mt-3" />
+<p>Value: {{this.radio}}</p>
 
-<Form::RadioButton
-  @options={{array (hash value=true label="Yes") (hash value=false label="No")}}
-  @selected={{this.radio}}
-  @identifier="radioButton"
-  @onChange={{fn (mut this.radio)}}
-/>
+<Snippet @name="form-radio.hbs">
+  {{! BEGIN-SNIPPET form-radio }}
+  <Form::Radio
+    @options={{array
+      (hash value=true label="Yes" help="This is an example of help.")
+      (hash value=false label="No" help="This is an example of help.")
+    }}
+    @selected={{this.radio}}
+    @label="Label"
+    @identifier="radio"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.radio)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Form::RadioCard" class="mt-3" />
+<Subheading @title="Form radio button" />
 
-<Form::RadioCard
-  @options={{array
-    (hash
-      value=true
-      label="Yes"
-      icon="check"
-      help="With supporting text below as a natural lead-in to additional content."
-    )
-    (hash
-      value=false
-      label="No"
-      icon="xmark"
-      help="With supporting text below as a natural lead-in to additional content."
-    )
-  }}
-  @selected={{this.radio}}
-  @label="Label"
-  @identifier="radioCard"
-  @isRequired={{true}}
-  @help="Help"
-  @onChange={{fn (mut this.radio)}}
-/>
+<p>Value: {{this.radio}}</p>
 
-<Subheading @title="Form::Select" class="mt-3" />
+<Snippet @name="form-radio-button.hbs">
+  {{! BEGIN-SNIPPET form-radio-button }}
+  <Form::RadioButton
+    @options={{array
+      (hash value=true label="Yes")
+      (hash value=false label="No")
+    }}
+    @selected={{this.radio}}
+    @label="Label"
+    @identifier="radioButton"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.radio)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Form::Select
-  @options={{array
-    (hash value=undefined label="Choose…")
-    (hash value="active" label="Active")
-    (hash value="inactive" label="Inactive")
-  }}
-  @selected={{this.status}}
-  @label="Label"
-  @identifier="select"
-  @isRequired={{true}}
-  @help="Help"
-  @onChange={{fn (mut this.status)}}
-/>
+<Subheading @title="Form radio card" />
 
-<Form::Select
-  @options={{array "active" "inactive"}}
-  @selected={{this.status}}
-  @label="Label"
-  @identifier="selectSimple"
-  @isRequired={{true}}
-  @isSimple={{true}}
-  @chooseText="Choose…"
-  @onChange={{fn (mut this.status)}}
-/>
+<p>Value: {{this.radio}}</p>
 
-<Subheading @title="Form::Textarea" class="mt-3" />
+<Snippet @name="form-radio-card.hbs">
+  {{! BEGIN-SNIPPET form-radio-card }}
+  <Form::RadioCard
+    @options={{array
+      (hash
+        value=true label="Yes" icon="check" help="This is an example of help."
+      )
+      (hash
+        value=false label="No" icon="xmark" help="This is an example of help."
+      )
+    }}
+    @selected={{this.radio}}
+    @label="Label"
+    @identifier="radioCard"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.radio)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Form::Textarea
-  @value={{this.value}}
-  @label="Label"
-  @identifier="textarea"
-  @isRequired={{true}}
-  @help="Help"
-  @onChange={{fn (mut this.value)}}
-  placeholder="Placeholder"
-/>
+<Subheading @title="Form select" />
 
-<Subheading @title="Form::TimeInput" class="mt-3" />
+<p>Value: {{this.status}}</p>
 
-<Form::TimeInput
-  @value={{this.date}}
-  @label="Label"
-  @identifier="timeInput"
-  @isRequired={{true}}
-  @help="Help"
-  @onChange={{fn (mut this.date)}}
-/>
+<Snippet @name="form-select.hbs">
+  {{! BEGIN-SNIPPET form-select }}
+  <Form::Select
+    @options={{array
+      (hash value=undefined label="Choose…")
+      (hash value="active" label="Active")
+      (hash value="inactive" label="Inactive")
+    }}
+    @selected={{this.status}}
+    @label="Label"
+    @identifier="select"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.status)}}
+  />
+  <hr />
+  <Form::Select
+    @options={{array "active" "inactive"}}
+    @selected={{this.status}}
+    @label="Label"
+    @identifier="selectSimple"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @isSimple={{true}}
+    @chooseText="Choose…"
+    @onChange={{fn (mut this.status)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
+
+<Subheading @title="Form textarea" />
+
+<p>Value: {{this.value}}</p>
+
+<Snippet @name="form-textarea.hbs">
+  {{! BEGIN-SNIPPET form-textarea }}
+  <Form::Textarea
+    @value={{this.value}}
+    @label="Label"
+    @identifier="textarea"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.value)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>
+
+<Subheading @title="Form time input" />
+
+<p>Value: {{timestamp this.date format="time"}}</p>
+
+<Snippet @name="form-time-input.hbs">
+  {{! BEGIN-SNIPPET form-time-input }}
+  <Form::TimeInput
+    @value={{this.date}}
+    @label="Label"
+    @identifier="timeInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="Invalid feedback"
+    @onChange={{fn (mut this.date)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

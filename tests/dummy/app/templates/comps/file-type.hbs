@@ -1,7 +1,11 @@
-{{page-title "FileType"}}
-{{breadcrumb "FileType"}}
+{{page-title "File type"}}
+{{breadcrumb "File type"}}
 
-<Heading @title="FileType" />
+<Heading @title="File type" />
 
-<FileType @name="test.pdf" />
-<FileType @name="test.pdf" @size="lg" />
+<Snippet @name="file-type.hbs">
+  {{! BEGIN-SNIPPET file-type }}
+  <FileType @name="test.pdf" />
+  <FileType @name="test.pdf" @size="lg" />
+  {{! END-SNIPPET }}
+</Snippet>

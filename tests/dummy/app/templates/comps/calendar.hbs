@@ -3,7 +3,7 @@
 
 <Heading @title="Calendar" />
 
-<Snippet @name="calendar">
+<Snippet @name="calendar.hbs">
   {{! BEGIN-SNIPPET calendar }}
   <Calendar @events={{this.model}} @onSelect={{fn (mut this.event)}} />
   {{! END-SNIPPET }}

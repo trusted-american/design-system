@@ -12,7 +12,7 @@ interface Args extends BaseArgs {
 
 export interface FormMarkdownInputSignature {
   Args: Args;
-  Element: HTMLElement;
+  Element: HTMLTextAreaElement;
 }
 
 export default class FormMarkdownInput extends Component<FormMarkdownInputSignature> {

@@ -99,7 +99,7 @@ export default class Table<T> extends Component<TableSignature<T>> {
     if (!this.offsetStart || this.args.totalItems === undefined) {
       return undefined;
     }
-    return Math.min(this.offsetStart + 20, this.args.totalItems);
+    return Math.min(this.offsetStart + 20 - 1, this.args.totalItems);
   }
 }
 

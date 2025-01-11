@@ -1,9 +1,9 @@
 <aside
-  class="d-flex flex-column flex-shrink-0 overflow-y-auto border-end gap-3 p-3
+  class="d-flex flex-column flex-shrink-0 overflow-y-auto border-end gap-3 py-3 ps-3
     {{if this.isCollapsed 'collapsed'}}"
   data-test-aside
 >
-  <div class="d-flex gap-3">
+  <div class="d-flex gap-3 pe-3">
     <LinkTo
       @route={{@route}}
       class="d-flex align-items-center text-reset text-decoration-none flex-grow-1"
@@ -22,26 +22,27 @@
   </div>
 
   {{#if (has-block "header")}}
-    <div>
+    <div class="pe-3">
       {{yield to="header"}}
     </div>
   {{/if}}
 
-  <Nav
-    @isPills={{true}}
-    @isVertical={{true}}
-    class="flex-grow-1"
-    aria-label="Main nav"
-  >
-    {{yield}}
-  </Nav>
+  <div class="flex-grow-1 overflow-y-auto pe-3">
+    <Nav @isPills={{true}} @isVertical={{true}} aria-label="Main nav">
+      {{yield}}
+    </Nav>
+  </div>
 
-  <Nav @isPills={{true}} @isVertical={{true}} aria-label="Footer nav">
-    {{yield to="footerNav"}}
-  </Nav>
+  {{#if (has-block "footerNav")}}
+    <div class="pe-3">
+      <Nav @isPills={{true}} @isVertical={{true}} aria-label="Footer nav">
+        {{yield to="footerNav"}}
+      </Nav>
+    </div>
+  {{/if}}
 
   {{#if (has-block "footer")}}
-    <div>
+    <div class="pe-3">
       {{yield to="footer"}}
     </div>
   {{/if}}

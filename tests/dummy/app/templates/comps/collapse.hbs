@@ -3,17 +3,11 @@
 
 <Heading @title="Collapse" />
 
-{{! BEGIN-SNIPPET collapse }}
-<Button @text="Click me" {{collapse "identifier"}} />
-<Collapse id="identifier">
-  Collapsed content
-</Collapse>
-{{! END-SNIPPET }}
-
-{{#let (get-code-snippet "collapse.hbs") as |snippet|}}
-  <CodeBlock
-    @language={{snippet.language}}
-    @code={{snippet.source}}
-    class="mt-3"
-  />
-{{/let}}
+<Snippet @name="collapse.hbs">
+  {{! BEGIN-SNIPPET collapse }}
+  <Button @text="Click me" {{collapse "identifier"}} />
+  <Collapse id="identifier">
+    Collapsed content
+  </Collapse>
+  {{! END-SNIPPET }}
+</Snippet>

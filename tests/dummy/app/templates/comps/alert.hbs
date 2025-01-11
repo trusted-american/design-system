@@ -1,10 +1,15 @@
 {{page-title "Alert"}}
 {{breadcrumb "Alert"}}
 
-<Heading @title="Alert" />
+<Heading
+  @title="Alert"
+  @subtitle="Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
+/>
 
-<Snippet @name="example1">
-  {{! BEGIN-SNIPPET example1 }}
+<Subheading @title="Examples" />
+
+<Snippet @name="alert1.hbs">
+  {{! BEGIN-SNIPPET alert1 }}
   <Alert @color="danger" @icon="triangle-exclamation">
     One of your domains is unverified. Please verify your domain to prevent
     others from claiming it.
@@ -13,8 +18,8 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="example2">
-  {{! BEGIN-SNIPPET example2 }}
+<Snippet @name="alert2.hbs">
+  {{! BEGIN-SNIPPET alert2 }}
   <Alert @color="warning" @icon="circle-exclamation" @onClose={{this.close}}>
     <a href="#" class="alert-link">Prebuilds</a>
     consume storage space that will incur a billable charge.
@@ -22,8 +27,8 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="example3">
-  {{! BEGIN-SNIPPET example3 }}
+<Snippet @name="alert3.hbs">
+  {{! BEGIN-SNIPPET alert3 }}
   <Alert @color="success" @icon="check" @onClose={{this.close}}>
     Payment information added successfully. Change it any time in
     <a href="#" class="alert-link">your profile</a>.
@@ -31,8 +36,8 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="example4">
-  {{! BEGIN-SNIPPET example4 }}
+<Snippet @name="alert4.hbs">
+  {{! BEGIN-SNIPPET alert4 }}
   <Alert @color="info" @icon="circle-info" @onClose={{this.close}}>
     Ignoring revisions in
     <a href="#" class="alert-link">.git-blame-ignore-revs</a>.
@@ -40,7 +45,7 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="alert5">
+<Snippet @name="alert5.hbs">
   {{! BEGIN-SNIPPET alert5 }}
   <Alert>
     Body here
@@ -48,7 +53,7 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="alert6">
+<Snippet @name="alert6.hbs">
   {{! BEGIN-SNIPPET alert6 }}
   <Alert>
     <:title>Title here</:title>
@@ -57,7 +62,7 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="alert7">
+<Snippet @name="alert7.hbs">
   {{! BEGIN-SNIPPET alert7 }}
   <Alert @color="success">
     <:title>Title here</:title>
@@ -66,7 +71,7 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="alert8">
+<Snippet @name="alert8.hbs">
   {{! BEGIN-SNIPPET alert8 }}
   <Alert @color="success" @icon="info-circle">
     <:title>Title here</:title>
@@ -75,7 +80,7 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Snippet @name="alert9">
+<Snippet @name="alert9.hbs">
   {{! BEGIN-SNIPPET alert9 }}
   <Alert @color="success" @icon="info-circle" @onClose={{this.close}}>
     <:title>Title here</:title>

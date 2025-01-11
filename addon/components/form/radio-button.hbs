@@ -1,19 +1,29 @@
-<ButtonGroup @size={{@size}} ...attributes>
-  {{#each @options as |option index|}}
-    <input
-      type="radio"
-      class="btn-check"
-      name={{@identifier}}
-      id="{{@identifier}}{{index}}"
-      autocomplete="off"
-      checked={{eq @selected option.value}}
-      {{on "change" (fn @onChange option.value)}}
-    />
-    <Button
-      @text={{option.label}}
-      @color={{option.color}}
-      @isLabel={{true}}
-      for="{{@identifier}}{{index}}"
-    />
-  {{/each}}
-</ButtonGroup>
+<Form::Label
+  @text={{unless @isInputOnly @label}}
+  @identifier="{{@identifier}}0"
+  @isRequired={{@isRequired}}
+/>
+
+<div>
+  <ButtonGroup @size={{@size}} ...attributes>
+    {{#each @options as |option index|}}
+      <input
+        type="radio"
+        class="btn-check"
+        name={{@identifier}}
+        id="{{@identifier}}{{index}}"
+        autocomplete="off"
+        checked={{eq @selected option.value}}
+        {{on "change" (fn @onChange option.value)}}
+      />
+      <Button
+        @text={{option.label}}
+        @color={{option.color}}
+        @isLabel={{true}}
+        for="{{@identifier}}{{index}}"
+      />
+    {{/each}}
+  </ButtonGroup>
+</div>
+
+<Form::Help @text={{@help}} />
