@@ -3,10 +3,6 @@
 
 {{theme this.theme}}
 
-<Banner @color="primary">
-  This is a banner.
-</Banner>
-
 <Aside @title="Design" @logo="/logo.svg" @route="index">
   <:default>
     <Aside::Item @text="Home" @route="index" @icon="house" />
@@ -57,12 +53,12 @@
     <Aside::Item @text="Utils" @icon="screwdriver-wrench" @route="utils" />
 
     <Aside::Title @text="Examples" />
-    <Aside::Item @text="List" @icon="crop-simple" @route="list" />
-    <Aside::Item @text="Detail" @icon="crop-simple" @route="detail" />
+    <Aside::Item @text="List" @icon="list" @route="list" />
+    <Aside::Item @text="Detail" @icon="box" @route="detail" />
     <Aside::Item
       @text="Disabled"
       @icon="crop-simple"
-      @route="index"
+      @route="detail"
       class="disabled"
     />
   </:default>
@@ -78,10 +74,6 @@
 </Aside>
 
 <Main>
-  <Banner @color="success">
-    This is another banner.
-  </Banner>
-
   <Main::TopHeader class="border-bottom">
     Search
   </Main::TopHeader>

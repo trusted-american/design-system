@@ -7,20 +7,18 @@ module('Integration | Component | form/markdown-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Form::MarkdownInput />`);
-
-    assert.dom().hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <Form::MarkdownInput>
-        template block text
-      </Form::MarkdownInput>
+      <Form::MarkdownInput
+        @value={{this.markdownValue}}
+        @label="Label"
+        @identifier="markdownInput"
+        @isRequired={{true}}
+        @help="Help"
+        @invalidFeedback="Invalid feedback"
+        @onChange={{fn (mut this.markdownValue)}}
+      />
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('');
   });
 });
