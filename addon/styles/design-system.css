@@ -125,6 +125,13 @@ aside.collapsed nav .fa-fw {
   box-shadow: $input-focus-box-shadow;
 } */
 
+/* form/markdown-input */
+
+.markdown-input-preview {
+  padding: 0.375rem 0.75rem;
+  border-color: transparent !important;
+}
+
 /* badge */
 
 .badge .spinner-border-sm {

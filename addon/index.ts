@@ -63,6 +63,7 @@ export { default as FormHelp } from './components/form/help';
 export { default as FormHtmlInput } from './components/form/html-input';
 export { default as FormInput } from './components/form/input';
 export { default as FormLabel } from './components/form/label';
+export { default as FormMarkdownInput } from './components/form/markdown-input';
 export { default as FormNumberInput } from './components/form/number-input';
 export { default as FormPhoneInput } from './components/form/phone-input';
 export { default as FormRadioButton } from './components/form/radio-button';

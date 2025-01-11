@@ -63,6 +63,7 @@ import type FormHelp from './components/form/help';
 import type FormHtmlInput from './components/form/html-input';
 import type FormInput from './components/form/input';
 import type FormLabel from './components/form/label';
+import type FormMarkdownInput from './components/form/markdown-input';
 import type FormNumberInput from './components/form/number-input';
 import type FormPhoneInput from './components/form/phone-input';
 import type FormRadioButton from './components/form/radio-button';
@@ -163,6 +164,7 @@ export default interface Registry {
   'Form::HtmlInput': typeof FormHtmlInput;
   'Form::Input': typeof FormInput;
   'Form::Label': typeof FormLabel;
+  'Form::MarkdownInput': typeof FormMarkdownInput;
   'Form::NumberInput': typeof FormNumberInput;
   'Form::PhoneInput': typeof FormPhoneInput;
   'Form::RadioButton': typeof FormRadioButton;

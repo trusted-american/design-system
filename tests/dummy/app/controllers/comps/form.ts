@@ -6,6 +6,7 @@ export default class CompsFormController extends Controller {
   date: Date | null = new Date();
   file?: unknown;
   htmlValue: string | null = null;
+  markdownValue: string | null = null;
   phone?: string | null | undefined;
   radio?: unknown;
   value?: string | null | undefined;

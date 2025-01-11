@@ -82,6 +82,20 @@
   placeholder="Placeholder"
 />
 
+<Subheading @title="Form::MarkdownInput" class="mt-3" />
+
+<p>Value: {{this.markdownValue}}</p>
+
+<Form::MarkdownInput
+  @value={{this.markdownValue}}
+  @label="Label"
+  @identifier="markdownInput"
+  @isRequired={{true}}
+  @help="Help"
+  @invalidFeedback="Invalid feedback"
+  @onChange={{fn (mut this.markdownValue)}}
+/>
+
 <Subheading @title="Form::NumberInput" class="mt-3" />
 
 <Form::NumberInput
