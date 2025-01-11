@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import type { Theme } from '@trusted-american/design-system/helpers/theme';
 
 export default class ApplicationController extends Controller {
-  @tracked theme: Theme = 'dark';
+  @tracked theme: Theme = 'light';
 
   get isDarkTheme(): boolean {
     return this.theme === 'dark';
