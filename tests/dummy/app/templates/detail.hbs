@@ -27,11 +27,11 @@
         @identifier="input"
         @isRequired={{true}}
         @help="This is an example of help."
-        @invalidFeedback="Invalid feedback"
+        @invalidFeedback="This is an example of invalid feedback."
         @onChange={{fn (mut this.value)}}
         placeholder="Placeholder"
       />
-      <Button @text="Submit" @isSubmit={{true}} class="mt-3" />
+      <Button @text="Submit" @isSubmit={{true}} @color="primary" class="mt-3" />
     </form>
   </card.body>
 </Card>

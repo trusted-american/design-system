@@ -3,45 +3,54 @@
 
 <Heading @title="Toast" />
 
-<Toast @closeText="Close">
-  <:body>Body</:body>
-</Toast>
+<Snippet @name="toast.hbs">
+  {{! BEGIN-SNIPPET toast }}
+  <Toast @closeText="Close">
+    <:body>Body</:body>
+  </Toast>
 
-<Toast @closeText="Close">
-  <:title>Title</:title>
-  <:body>Body</:body>
-</Toast>
+  <Toast @closeText="Close">
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
 
-<Toast @closeText="Close" @onClose={{this.do}}>
-  <:title>Title</:title>
-  <:body>Body</:body>
-</Toast>
+  <Toast @closeText="Close" @onClose={{this.do}}>
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
 
-<Toast @closeText="Close" @color="primary" @onClose={{this.do}}>
-  <:title>Title</:title>
-  <:body>Body</:body>
-</Toast>
+  <Toast @closeText="Close" @color="primary" @onClose={{this.do}}>
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
 
-<Toast @closeText="Close" @color="success" @onClose={{this.do}}>
-  <:title>Title</:title>
-  <:body>Body</:body>
-</Toast>
+  <Toast @closeText="Close" @color="success" @onClose={{this.do}}>
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
 
-<Toast @closeText="Close" @color="warning" @onClose={{this.do}}>
-  <:title>Title</:title>
-  <:body>Body</:body>
-</Toast>
+  <Toast @closeText="Close" @color="warning" @onClose={{this.do}}>
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
 
-<Toast @closeText="Close" @color="danger" @onClose={{this.do}}>
-  <:title>Title</:title>
-  <:body>Body</:body>
-</Toast>
+  <Toast @closeText="Close" @color="danger" @onClose={{this.do}}>
+    <:title>Title</:title>
+    <:body>Body</:body>
+  </Toast>
 
-<Toast @closeText="Close" @onClose={{this.do}}>
-  <:title>Title</:title>
-  <:body>Body</:body>
-  <:buttons>
-    <Button @text="Button" @size="sm" @color="light" {{on "click" this.do}} />
-    <Button @text="Link text" @size="sm" @color="link" {{on "click" this.do}} />
-  </:buttons>
-</Toast>
+  <Toast @closeText="Close" @onClose={{this.do}}>
+    <:title>Title</:title>
+    <:body>Body</:body>
+    <:buttons>
+      <Button @text="Button" @size="sm" @color="light" {{on "click" this.do}} />
+      <Button
+        @text="Link text"
+        @size="sm"
+        @color="link"
+        {{on "click" this.do}}
+      />
+    </:buttons>
+  </Toast>
+  {{! END-SNIPPET }}
+</Snippet>

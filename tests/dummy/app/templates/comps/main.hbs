@@ -22,33 +22,49 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Subheading @title="Main::Body" />
+<Subheading @title="Main body" />
 
-<Main::Body>
-  Body
-</Main::Body>
+<Snippet @name="main-body.hbs">
+  {{! BEGIN-SNIPPET main-body }}
+  <Main::Body>
+    Body
+  </Main::Body>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Main::Footer" />
+<Subheading @title="Main footer" />
 
-<Main::Footer>
-  Footer
-</Main::Footer>
+<Snippet @name="main-footer.hbs">
+  {{! BEGIN-SNIPPET main-footer }}
+  <Main::Footer>
+    Footer
+  </Main::Footer>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Main::Header" />
+<Subheading @title="Main header" />
 
-<Main::Header>
-  <Heading @title="Title" @type="Type" @identifier="identifier">
-    <Button @text="Actions" @color="primary" {{dropdown}} />
-    <Dropdown>
-      <Dropdown::Item @text="Action 1" />
-      <Dropdown::Item @text="Action 2" />
-      <Dropdown::Item @text="Action 3" />
-    </Dropdown>
-  </Heading>
-</Main::Header>
+<Snippet @name="main-header.hbs">
+  {{! BEGIN-SNIPPET main-header }}
+  <Main::Header>
+    <Heading @title="Title" @type="Type" @identifier="identifier">
+      <Button @text="Actions" @color="primary" {{dropdown}} />
+      <Dropdown>
+        <Dropdown::Item @text="Action 1" />
+        <Dropdown::Item @text="Action 2" />
+        <Dropdown::Item @text="Action 3" />
+      </Dropdown>
+    </Heading>
+  </Main::Header>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Main::TopHeader" />
+<Subheading @title="Main top header" />
 
-<Main::TopHeader>
-  Top header
-</Main::TopHeader>
+<Snippet @name="main-top-header.hbs">
+  {{! BEGIN-SNIPPET main-top-header }}
+  <Main::TopHeader>
+    Top header
+  </Main::TopHeader>
+  {{! END-SNIPPET }}
+</Snippet>

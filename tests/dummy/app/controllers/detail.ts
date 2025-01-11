@@ -2,6 +2,8 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
 export default class DetailController extends Controller {
+  value?: string;
+
   @action
   submit(event: Event) {
     event.preventDefault();

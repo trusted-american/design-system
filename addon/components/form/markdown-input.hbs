@@ -1,3 +1,9 @@
+<Form::Label
+  @text={{unless @isInputOnly @label}}
+  @identifier={{@identifier}}
+  @isRequired={{@isRequired}}
+/>
+
 <Card as |card|>
   <card.header class="d-flex justify-content-between align-items-center">
     <Nav class="card-header-tabs">
@@ -118,3 +124,5 @@
     {{/if}}
   </card.body>
 </Card>
+
+<Form::Help @text={{@help}} />
