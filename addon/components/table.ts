@@ -81,6 +81,23 @@ export interface TableSignature<T> {
         header: YetiTableHeader;
         body: YetiTableBody<T>;
         footer: YetiTableFooter;
+        paginationData: {
+          isFirstPage: boolean;
+          isLastPage: boolean;
+          pageEnd: number;
+          pageNumber: number;
+          pageSize: number;
+          pageStart: number;
+          totalPages: undefined;
+          totalRows: number;
+        };
+        actions: {
+          changePageSize: () => void;
+          goToPage: () => void;
+          nextPage: () => void;
+          previousPage: () => void;
+          reloadData: () => void;
+        };
       },
     ];
   };

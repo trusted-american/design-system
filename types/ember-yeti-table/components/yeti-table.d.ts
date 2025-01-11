@@ -51,6 +51,23 @@ export default class YetiTable<T> extends Component<{
         pagination: ComponentLike<{
           Element: HTMLElement;
         }>;
+        paginationData: {
+          isFirstPage: boolean;
+          isLastPage: boolean;
+          pageEnd: number;
+          pageNumber: number;
+          pageSize: number;
+          pageStart: number;
+          totalPages: undefined;
+          totalRows: number;
+        };
+        actions: {
+          changePageSize: () => void;
+          goToPage: () => void;
+          nextPage: () => void;
+          previousPage: () => void;
+          reloadData: () => void;
+        };
       },
     ];
   };

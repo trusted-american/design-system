@@ -68,7 +68,7 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Subheading @title="Pagination (local)" />
+<Subheading @title="Local pagination" />
 
 <Snippet @name="table3.hbs">
   {{! BEGIN-SNIPPET table3 }}
@@ -96,57 +96,65 @@
   {{! END-SNIPPET }}
 </Snippet>
 
-<Subheading @title="Pagination (cursor)" />
+<Subheading @title="Cursor pagination" />
 
-<Table
-  @data={{this.model}}
-  @isSortable={{true}}
-  @pagination="cursor"
-  @nextText="Next"
-  @previousText="Previous"
-  @canNext={{false}}
-  @canPrevious={{false}}
-  @onNext={{this.do}}
-  @onPrevious={{this.do}}
-  as |table|
->
-  <table.header as |header|>
-    <header.column @prop="email" @sort="asc">
-      Email
-    </header.column>
-    <header.column @prop="firstName">
-      First Name
-    </header.column>
-    <header.column @prop="lastName">
-      Last Name
-    </header.column>
-  </table.header>
-  <table.body />
-</Table>
+<Snippet @name="table4.hbs">
+  {{! BEGIN-SNIPPET table4 }}
+  <Table
+    @data={{this.model}}
+    @isSortable={{true}}
+    @pagination="cursor"
+    @nextText="Next"
+    @previousText="Previous"
+    @canNext={{false}}
+    @canPrevious={{false}}
+    @onNext={{this.do}}
+    @onPrevious={{this.do}}
+    as |table|
+  >
+    <table.header as |header|>
+      <header.column @prop="email" @sort="asc">
+        Email
+      </header.column>
+      <header.column @prop="firstName">
+        First Name
+      </header.column>
+      <header.column @prop="lastName">
+        Last Name
+      </header.column>
+    </table.header>
+    <table.body />
+  </Table>
+  {{! END-SNIPPET }}
+</Snippet>
 
-<Subheading @title="Pagination (offset)" />
+<Subheading @title="Offset pagination" />
 
-<Table
-  @data={{this._page}}
-  @isSortable={{true}}
-  @pagination="offset"
-  @nextText="Next"
-  @previousText="Previous"
-  @page={{this.page}}
-  @totalItems={{this.model.length}}
-  @onChangePage={{fn (mut this.page)}}
-  as |table|
->
-  <table.header as |header|>
-    <header.column @prop="email" @sort="asc">
-      Email
-    </header.column>
-    <header.column @prop="firstName">
-      First Name
-    </header.column>
-    <header.column @prop="lastName">
-      Last Name
-    </header.column>
-  </table.header>
-  <table.body />
-</Table>
+<Snippet @name="table5.hbs">
+  {{! BEGIN-SNIPPET table5 }}
+  <Table
+    @data={{this._page}}
+    @isSortable={{true}}
+    @pagination="offset"
+    @nextText="Next"
+    @previousText="Previous"
+    @page={{this.page}}
+    @totalItems={{this.model.length}}
+    @onChangePage={{fn (mut this.page)}}
+    as |table|
+  >
+    <table.header as |header|>
+      <header.column @prop="email" @sort="asc">
+        Email
+      </header.column>
+      <header.column @prop="firstName">
+        First Name
+      </header.column>
+      <header.column @prop="lastName">
+        Last Name
+      </header.column>
+    </table.header>
+    <table.body />
+  </Table>
+  {{! END-SNIPPET }}
+</Snippet>
