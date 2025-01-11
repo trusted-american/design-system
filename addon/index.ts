@@ -56,7 +56,7 @@ export { default as DropdownItem } from './components/dropdown/item';
 export { default as FormCheck } from './components/form/check';
 export { default as FormCheckInput } from './components/form/check/input';
 export { default as FormDateInput } from './components/form/date-input';
-export { default as FormError } from './components/form/error';
+export { default as FormFeedback } from './components/form/feedback';
 export { default as FormFileDropzone } from './components/form/file-dropzone';
 export { default as FormFileInput } from './components/form/file-input';
 export { default as FormHelp } from './components/form/help';

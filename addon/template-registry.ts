@@ -56,7 +56,7 @@ import type DropdownItem from './components/dropdown/item';
 import type FormCheck from './components/form/check';
 import type FormCheckInput from './components/form/check/input';
 import type FormDateInput from './components/form/date-input';
-import type FormError from './components/form/error';
+import type FormFeedback from './components/form/feedback';
 import type FormFileDropzone from './components/form/file-dropzone';
 import type FormFileInput from './components/form/file-input';
 import type FormHelp from './components/form/help';
@@ -157,7 +157,7 @@ export default interface Registry {
   'Form::Check': typeof FormCheck;
   'Form::Check::Input': typeof FormCheckInput;
   'Form::DateInput': typeof FormDateInput;
-  'Form::Error': typeof FormError;
+  'Form::Feedback': typeof FormFeedback;
   'Form::FileDropzone': typeof FormFileDropzone;
   'Form::FileInput': typeof FormFileInput;
   'Form::Help': typeof FormHelp;

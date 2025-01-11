@@ -44,10 +44,10 @@
   </select>
 {{/if}}
 
-<Form::Error @text={{@invalidFeedback}} />
+<Form::Feedback @text={{@invalidFeedback}} />
 
 {{#each @errors as |error|}}
-  <Form::Error @text={{error.message}} />
+  <Form::Feedback @text={{error.message}} />
 {{/each}}
 
 <Form::Help @text={{@help}} />
