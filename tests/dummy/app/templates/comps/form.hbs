@@ -323,6 +323,10 @@
       (hash value=undefined label="Choose…")
       (hash value="active" label="Active")
       (hash value="inactive" label="Inactive")
+      (hash
+        groupLabel="Label" options=(array (hash value="third" label="Third"))
+      )
+      "fourth"
     }}
     @selected={{this.status}}
     @label="Label"
@@ -330,19 +334,6 @@
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.status)}}
-  />
-  <hr />
-  <Form::Select
-    @options={{array "active" "inactive"}}
-    @selected={{this.status}}
-    @label="Label"
-    @identifier="selectSimple"
-    @isRequired={{true}}
-    @help="This is an example of help."
-    @invalidFeedback="This is an example of invalid feedback."
-    @isSimple={{true}}
-    @chooseText="Choose…"
     @onChange={{fn (mut this.status)}}
   />
   {{! END-SNIPPET }}

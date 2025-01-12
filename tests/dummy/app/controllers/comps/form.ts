@@ -17,7 +17,7 @@ export default class CompsFormController extends Controller {
   phone?: string | null | undefined;
   radio?: boolean;
   value?: string | null | undefined;
-  status?: 'active' | 'inactive';
+  status?: 'active' | 'inactive' | 'third' | 'fourth';
   numberValue: number | null = null;
   objectValue?: Post;
   arrayValue: Post[] = [];

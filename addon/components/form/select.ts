@@ -8,24 +8,20 @@ export interface Option<T> {
   label: string;
 }
 
+interface Group<T> {
+  groupLabel: string;
+  options: Option<T>[];
+}
+
 interface Args<T> extends BaseArgs {
+  options: (T | Option<T> | Group<T>)[];
   selected: T;
+  chooseText?: string;
   onChange: (value: T) => void;
 }
 
-interface ComplexArgs<T> extends Args<T> {
-  options: Option<T>[];
-  isSimple?: undefined;
-}
-
-interface SimpleArgs<T> extends Args<T> {
-  options: T[];
-  isSimple: true;
-  chooseText: string;
-}
-
 export interface FormSelectSignature<T> {
-  Args: ComplexArgs<T> | SimpleArgs<T>;
+  Args: Args<T>;
   Element: HTMLSelectElement;
 }
 
@@ -36,17 +32,30 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
       throw new Error();
     }
 
-    const index = parseInt(target.value);
+    const options = this.args.options;
 
-    const options = this.args.options as Option<T>[];
-    const selected = options[index];
+    const index = parseInt(target.value);
+    let selected = options[index] ?? options[0];
+
+    if (target.value.includes('-')) {
+      const [optIndex, subOptIndex] = target.value.split('-');
+      if (optIndex && subOptIndex) {
+        selected = (options[parseInt(optIndex)] as Group<T>).options[
+          parseInt(subOptIndex)
+        ];
+      }
+    }
 
     if (selected) {
-      this.args.onChange(selected.value);
-    } else {
-      const [firstOption] = options;
-      if (firstOption) {
-        this.args.onChange(firstOption.value);
+      if (typeof selected === 'object' && 'groupLabel' in selected) {
+        const [firstOption] = selected.options;
+        if (firstOption) {
+          this.args.onChange(firstOption.value);
+        }
+      } else if (typeof selected === 'object' && 'label' in selected) {
+        this.args.onChange(selected.value);
+      } else {
+        this.args.onChange(selected);
       }
     }
   }
