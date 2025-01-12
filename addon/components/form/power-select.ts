@@ -2,6 +2,8 @@ import Component from '@glimmer/component';
 
 import type { Group } from 'ember-power-select/utils/group-utils';
 
+export type { Group };
+
 export interface FormPowerSelectSignature<T> {
   Args: {
     options?: (T | Group)[];

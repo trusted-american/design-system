@@ -3,6 +3,8 @@
 
 <Heading @title="Property list" />
 
+<Subheading @title="Default" />
+
 <Snippet @name="property-list.hbs">
   {{! BEGIN-SNIPPET property-list }}
   <PropertyList as |list|>
@@ -26,7 +28,13 @@
       </:side>
     </list.item>
   </PropertyList>
+  {{! END-SNIPPET }}
+</Snippet>
 
+<Subheading @title="Horizontal" />
+
+<Snippet @name="property-list2.hbs">
+  {{! BEGIN-SNIPPET property-list2 }}
   <PropertyList @isHorizontal={{true}} as |list|>
     <list.item
       @label="Key 1"
