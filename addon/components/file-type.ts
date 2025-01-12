@@ -3,7 +3,7 @@ import fileType, { type Type } from '../utils/file-type';
 
 export interface FileTypeSignature {
   Args: {
-    name?: string;
+    name: string;
     size?: string;
   };
   Element: HTMLDivElement;
@@ -12,10 +12,6 @@ export interface FileTypeSignature {
 export default class FileType extends Component<FileTypeSignature> {
   get fileType(): Type | null {
     const { name } = this.args;
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (!name || !name.split) {
-      return null;
-    }
     return fileType(name);
   }
 }

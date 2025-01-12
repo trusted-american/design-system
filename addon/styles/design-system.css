@@ -151,6 +151,10 @@ aside.collapsed nav .fa-fw {
   --fc-button-text-color: var(--bs-body-color);
   --fc-button-bg-color: var(--bs-tertiary-bg);
   --fc-button-border-color: var(--bs-secondary-border-subtle);
+  --fc-button-hover-bg-color: var(--bs-gray-500);
+  --fc-button-hover-border-color: var(--bs-gray-500);
+  --fc-button-active-bg-color: var(--bs-gray-500);
+  --fc-button-active-border-color: var(--bs-gray-500);
 }
 
 /* copy */

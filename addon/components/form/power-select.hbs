@@ -4,13 +4,13 @@
   @isRequired={{@isRequired}}
 />
 
-{{! for validation }}
+{{! hidden input for validation }}
 <input
   value="{{@selected}}"
   type="text"
   required={{@isRequired}}
   class="d-none"
-  aria-label=""
+  aria-label={{@label}}
 />
 
 {{#if @onCreate}}
@@ -34,7 +34,6 @@
     ...attributes
     as |option|
   >
-    {{! @glint-expect-error }}
     {{yield option}}
   </PowerSelectWithCreate>
 {{else}}
@@ -60,8 +59,10 @@
   </PowerSelect>
 {{/if}}
 
-<Form::Feedback @text={{or @invalidFeedback "Please choose an option."}} />
+<Form::Feedback @text={{@invalidFeedback}} />
 
-{{#if @help}}
-  <Form::Help @text={{@help}} />
-{{/if}}
+{{#each @errors as |error|}}
+  <Form::Feedback @text={{error.message}} />
+{{/each}}
+
+<Form::Help @text={{@help}} />
