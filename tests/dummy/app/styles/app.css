@@ -7,3 +7,7 @@
 .container-fluid {
   --bs-gutter-x: 3rem;
 }
+
+.shiki {
+  border-radius: 0 !important;
+}

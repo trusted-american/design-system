@@ -3,12 +3,16 @@
 
 <Heading @title="Placeholder" />
 
-<Placeholder
-  @icon="book"
-  @title="Placeholder heading"
-  @subtitle="Use it to provide information when no dynamic content exists."
-  @buttonText="Create the first page"
-  @secondaryButtonText="Learn more about wikis"
-  @onClick={{this.do}}
-  @onSecondaryClick={{this.do}}
-/>
+<Snippet @name="placeholder.hbs">
+  {{! BEGIN-SNIPPET placeholder }}
+  <Placeholder
+    @icon="book"
+    @title="Placeholder heading"
+    @subtitle="Use it to provide information when no dynamic content exists."
+    @buttonText="Create the first page"
+    @secondaryButtonText="Learn more about wikis"
+    @onClick={{this.do}}
+    @onSecondaryClick={{this.do}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

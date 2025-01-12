@@ -1,0 +1,40 @@
+{{page-title "Introduction"}}
+{{breadcrumb "Introduction" route="guides.introduction"}}
+
+<Heading @title="Introduction" />
+
+<Snippet @name="introduction.hbs">
+  {{! BEGIN-SNIPPET introduction }}
+  {{page-title "Title"}}
+  {{breadcrumb "Title" route="application"}}
+  {{theme "light"}}
+
+  <Aside @title="Title" @logo="/logo.svg" @route="application">
+    <:header>
+      Header
+    </:header>
+    <:default>
+      <Aside::Item @text="First" @route="index" @icon="house" />
+      <Aside::Item @text="Second" @route="index" @icon="house" />
+      <Aside::Item @text="Third" @route="index" @icon="house" />
+    </:default>
+    <:footer>
+      Footer
+    </:footer>
+  </Aside>
+  <Main>
+    <Main::TopHeader>
+      Top header
+    </Main::TopHeader>
+    <Main::Header>
+      Header
+    </Main::Header>
+    <Main::Body>
+      Body
+    </Main::Body>
+    <Main::Footer>
+      Footer
+    </Main::Footer>
+  </Main>
+  {{! END-SNIPPET }}
+</Snippet>

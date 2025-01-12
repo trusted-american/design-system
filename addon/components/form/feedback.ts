@@ -1,16 +1,16 @@
 import Component from '@glimmer/component';
 
-export interface FormErrorSignature {
+export interface FormFeedbackSignature {
   Args: {
     text?: string;
   };
   Element: HTMLDivElement;
 }
 
-export default class FormError extends Component<FormErrorSignature> {}
+export default class FormFeedback extends Component<FormFeedbackSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Form::Error': typeof FormError;
+    'Form::Feedback': typeof FormFeedback;
   }
 }

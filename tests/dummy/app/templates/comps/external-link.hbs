@@ -1,20 +1,24 @@
-{{page-title "ExternalLink"}}
-{{breadcrumb "ExternalLink"}}
+{{page-title "External link"}}
+{{breadcrumb "External link"}}
 
-<Heading @title="ExternalLink" />
+<Heading @title="External link" />
 
-<p>
-  <ExternalLink
-    @href="https://www.google.com/"
-  >https://www.google.com</ExternalLink>
-  &middot;
-  <ExternalLink @href="https://www.google.com/">
-    https://www.google.com/
-  </ExternalLink>
-</p>
+<Snippet @name="external-link.hbs">
+  {{! BEGIN-SNIPPET external-link }}
+  <p>
+    <ExternalLink
+      @href="https://www.google.com/"
+    >https://www.google.com</ExternalLink>
+    ·
+    <ExternalLink @href="https://www.google.com/">
+      https://www.google.com/
+    </ExternalLink>
+  </p>
 
-<p>
-  <ExternalLink @href="https://www.google.com/" @icon="up-right-from-square">
-    https://www.google.com/
-  </ExternalLink>
-</p>
+  <p>
+    <ExternalLink @href="https://www.google.com/" @icon="up-right-from-square">
+      https://www.google.com/
+    </ExternalLink>
+  </p>
+  {{! END-SNIPPET }}
+</Snippet>

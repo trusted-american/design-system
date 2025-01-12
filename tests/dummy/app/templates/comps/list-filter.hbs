@@ -1,7 +1,7 @@
-{{page-title "ListFilter"}}
-{{breadcrumb "ListFilter"}}
+{{page-title "List filter"}}
+{{breadcrumb "List filter"}}
 
-<Heading @title="ListFilter" />
+<Heading @title="List filter" />
 
 <ul>
   <li>Status: {{this.status}}</li>
@@ -39,32 +39,38 @@
   </li>
 </ul>
 
-<ListFilter
-  @predicates={{array
-    (hash
-      label="Status"
-      key="status"
-      value=this.status
-      options=(array
-        (hash value="active" label="Active")
-        (hash value="inactive" label="Inactive")
+<Snippet @name="list-filter.hbs">
+  {{! BEGIN-SNIPPET list-filter }}
+  <ListFilter
+    @predicates={{array
+      (hash
+        label="Status"
+        key="status"
+        value=this.status
+        options=(array
+          (hash value="active" label="Active")
+          (hash value="inactive" label="Inactive")
+        )
       )
-    )
-    (hash
-      type="multi"
-      label="Type"
-      key="type"
-      value=this.type
-      options=(array
-        (hash value="primary" label="Primary")
-        (hash value="secondary" label="Secondary")
+      (hash
+        type="multi"
+        label="Type"
+        key="type"
+        value=this.type
+        options=(array
+          (hash value="primary" label="Primary")
+          (hash value="secondary" label="Secondary")
+        )
       )
-    )
-    (hash type="string" label="Tag" key="tag" value=this.tag)
-    (hash type="date" label="Created Date" key="createdAt" value=this.createdAt)
-  }}
-  @text="Filter"
-  @clearText="Clear"
-  @doneText="Done"
-  @onChange={{this.change}}
-/>
+      (hash type="string" label="Tag" key="tag" value=this.tag)
+      (hash
+        type="date" label="Created Date" key="createdAt" value=this.createdAt
+      )
+    }}
+    @text="Filter"
+    @clearText="Clear"
+    @doneText="Done"
+    @onChange={{this.change}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

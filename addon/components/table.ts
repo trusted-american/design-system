@@ -81,6 +81,23 @@ export interface TableSignature<T> {
         header: YetiTableHeader;
         body: YetiTableBody<T>;
         footer: YetiTableFooter;
+        paginationData: {
+          isFirstPage: boolean;
+          isLastPage: boolean;
+          pageEnd: number;
+          pageNumber: number;
+          pageSize: number;
+          pageStart: number;
+          totalPages: undefined;
+          totalRows: number;
+        };
+        actions: {
+          changePageSize: () => void;
+          goToPage: () => void;
+          nextPage: () => void;
+          previousPage: () => void;
+          reloadData: () => void;
+        };
       },
     ];
   };
@@ -99,7 +116,7 @@ export default class Table<T> extends Component<TableSignature<T>> {
     if (!this.offsetStart || this.args.totalItems === undefined) {
       return undefined;
     }
-    return Math.min(this.offsetStart + 20, this.args.totalItems);
+    return Math.min(this.offsetStart + 20 - 1, this.args.totalItems);
   }
 }
 

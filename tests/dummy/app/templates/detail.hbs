@@ -1,6 +1,37 @@
 {{page-title "Detail"}}
 {{breadcrumb "Detail"}}
 
-<Heading @title="Detail" @type="Detail" @identifier="0123" />
+<Alert @icon="box-archive">
+  Test
+</Alert>
 
-Body
+<Alert @color="warning" @icon="circle-exclamation">
+  Test
+</Alert>
+
+<Heading @title="Detail" @type="Type" @identifier="1234567890">
+  <Button
+    @text="Actions"
+    @icon="angle-down"
+    @isIconTrailing={{true}}
+    @color="primary"
+  />
+</Heading>
+
+<Card as |card|>
+  <card.body>
+    <form novalidate {{on "submit" this.submit}}>
+      <Form::Input
+        @value={{this.value}}
+        @label="Label"
+        @identifier="input"
+        @isRequired={{true}}
+        @help="This is an example of help."
+        @invalidFeedback="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+        placeholder="Placeholder"
+      />
+      <Button @text="Submit" @isSubmit={{true}} @color="primary" class="mt-3" />
+    </form>
+  </card.body>
+</Card>

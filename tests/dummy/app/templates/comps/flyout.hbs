@@ -3,10 +3,14 @@
 
 <Heading @title="Flyout" />
 
-<Button @text="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
+<Snippet @name="flyout.hbs">
+  {{! BEGIN-SNIPPET flyout }}
+  <Button @text="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
 
-{{#if this.showFlyout}}
-  <Flyout @title="Title" @onClose={{this.close}}>
-    Body
-  </Flyout>
-{{/if}}
+  {{#if this.showFlyout}}
+    <Flyout @title="Title" @onClose={{this.close}}>
+      Body
+    </Flyout>
+  {{/if}}
+  {{! END-SNIPPET }}
+</Snippet>

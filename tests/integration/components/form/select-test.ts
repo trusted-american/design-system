@@ -48,6 +48,7 @@ module('Integration | Component | form/select', function (hooks) {
         @identifier='identifier'
         @isRequired={{true}}
         @isSimple={{true}}
+        @chooseText='Choose…'
         @onChange={{fn (mut this.selected)}}
       />
     `);

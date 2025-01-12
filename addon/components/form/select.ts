@@ -21,6 +21,7 @@ interface ComplexArgs<T> extends Args<T> {
 interface SimpleArgs<T> extends Args<T> {
   options: T[];
   isSimple: true;
+  chooseText: string;
 }
 
 export interface FormSelectSignature<T> {

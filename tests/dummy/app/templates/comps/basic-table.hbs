@@ -1,21 +1,25 @@
-{{page-title "BasicTable"}}
-{{breadcrumb "BasicTable"}}
+{{page-title "Basic table"}}
+{{breadcrumb "Basic table"}}
 
-<Heading @title="BasicTable" />
+<Heading @title="Basic table" />
 
-<BasicTable>
-  <thead>
-    <tr>
-      <th scope="col">
-        Test
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        Test
-      </td>
-    </tr>
-  </tbody>
-</BasicTable>
+<Snippet @name="basic-table.hbs">
+  {{! BEGIN-SNIPPET basic-table }}
+  <BasicTable>
+    <thead>
+      <tr>
+        <th scope="col">
+          Test
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Test
+        </td>
+      </tr>
+    </tbody>
+  </BasicTable>
+  {{! END-SNIPPET }}
+</Snippet>

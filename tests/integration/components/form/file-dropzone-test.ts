@@ -14,11 +14,16 @@ module('Integration | Component | form/file-dropzone', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.onCreate = () => {};
 
-    await render<Context>(
-      hbs`<Form::FileDropzone @onCreate={{this.onCreate}} />`,
-    );
+    await render<Context>(hbs`
+      <Form::FileDropzone
+        @titleText=""
+        @subtitleText=""
+        @titleActiveText=""
+        @onCreate={{this.onCreate}}
+      />
+    `);
 
-    assert.dom().includesText('Drag and Drop Your Files Here');
+    assert.dom('.form-file-dropzone').exists();
 
     const file = new File(['Ember Rules!'], 'ember-rules.pdf', {
       type: 'application/pdf',

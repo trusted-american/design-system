@@ -6,24 +6,13 @@
     as |dropzone|
   >
     {{#if dropzone.active}}
-      <h5 class="text-success">
-        <Icon @icon="cloud-arrow-up" />
-      </h5>
-      <h5 class="text-success">
-        {{! TODO: string }}
-        Drop to Upload
-      </h5>
+      <h5 class="text-success"><Icon @icon="cloud-arrow-up" /></h5>
+      <h5 class="text-success">{{@titleActiveText}}</h5>
     {{else}}
-      <h5>
-        <Icon @icon="cloud-arrow-up" />
-      </h5>
-      <h5>
-        {{! TODO: string }}
-        Drag and Drop Your Files Here
-      </h5>
+      <h5><Icon @icon="cloud-arrow-up" /></h5>
+      <h5>{{@titleText}}</h5>
       <label class="text-reset">
-        {{! TODO: string }}
-        Or select a file from your computer&hellip;
+        {{@subtitleText}}
         <input
           type="file"
           id="files"
