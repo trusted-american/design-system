@@ -16,23 +16,19 @@
       <ul>
         <li>
           gte:
-          {{! @glint-expect-error }}
-          {{this.createdAt.gte}}
+          {{timestamp this.gte}}
         </li>
         <li>
           gt:
-          {{! @glint-expect-error }}
-          {{this.createdAt.gt}}
+          {{timestamp this.gt}}
         </li>
         <li>
           lt:
-          {{! @glint-expect-error }}
-          {{this.createdAt.lt}}
+          {{timestamp this.lt}}
         </li>
         <li>
           lte:
-          {{! @glint-expect-error }}
-          {{this.createdAt.lte}}
+          {{timestamp this.lte}}
         </li>
       </ul>
     {{/if}}

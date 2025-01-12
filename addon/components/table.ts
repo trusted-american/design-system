@@ -67,8 +67,8 @@ export interface TableSignature<T> {
     pagination?: 'local' | 'cursor' | 'offset';
     nextText: string;
     previousText: string;
-    canNext?: unknown;
-    canPrevious?: unknown;
+    canNext?: boolean;
+    canPrevious?: boolean;
     page?: number;
     totalItems?: number;
     onNext?: () => void;
