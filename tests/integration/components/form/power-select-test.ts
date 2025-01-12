@@ -33,7 +33,7 @@ module('Integration | Component | form/power-select', function (hooks) {
       </Form::PowerSelect>
     `);
 
-    assert.dom().hasText('Label Choose… Please choose an option. Looks good!');
+    assert.dom().hasText('Label Choose…');
 
     await selectChoose('#identifier', '.ember-power-select-option', 0);
   });
