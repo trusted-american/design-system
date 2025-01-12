@@ -1,0 +1,68 @@
+<Form::Label
+  @text={{unless @isInputOnly @label}}
+  @identifier={{@identifier}}
+  @isRequired={{@isRequired}}
+/>
+
+{{! for validation }}
+<input
+  value="{{@selected}}"
+  type="text"
+  required={{@isRequired}}
+  class="d-none"
+  aria-label=""
+/>
+
+{{#if @onCreate}}
+  <PowerSelectWithCreate
+    @options={{@options}}
+    @search={{@search}}
+    @selected={{@selected}}
+    @disabled={{@disabled}}
+    @placeholder="Choose…"
+    @renderInPlace={{true}}
+    @searchEnabled={{true}}
+    @searchField={{@searchField}}
+    @searchPlaceholder="Search…"
+    @matcher={{@matcher}}
+    @allowClear={{@allowClear}}
+    @verticalPosition={{@verticalPosition}}
+    @showCreatePosition="bottom"
+    @onChange={{@onChange}}
+    @onCreate={{@onCreate}}
+    id={{@identifier}}
+    ...attributes
+    as |option|
+  >
+    {{! @glint-expect-error }}
+    {{yield option}}
+  </PowerSelectWithCreate>
+{{else}}
+  <PowerSelect
+    @options={{@options}}
+    @search={{@search}}
+    @selected={{@selected}}
+    @disabled={{@disabled}}
+    @placeholder="Choose…"
+    @renderInPlace={{true}}
+    @searchEnabled={{true}}
+    @searchField={{@searchField}}
+    @searchPlaceholder="Search…"
+    @matcher={{@matcher}}
+    @allowClear={{@allowClear}}
+    @verticalPosition={{@verticalPosition}}
+    @triggerId={{@identifier}}
+    {{! @glint-expect-error }}
+    @onChange={{@onChange}}
+    ...attributes
+    as |option|
+  >
+    {{yield option}}
+  </PowerSelect>
+{{/if}}
+
+<Form::Feedback @text={{or @invalidFeedback "Please choose an option."}} />
+
+{{#if @help}}
+  <Form::Help @text={{@help}} />
+{{/if}}

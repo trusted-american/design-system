@@ -1,0 +1,44 @@
+<Form::Label
+  @text={{@label}}
+  @identifier={{@identifier}}
+  @isRequired={{@isRequired}}
+/>
+
+{{#if @onCreate}}
+  <PowerSelectMultipleWithCreate
+    @options={{@options}}
+    @selected={{@selected}}
+    @disabled={{@disabled}}
+    @placeholder="Choose…"
+    @renderInPlace={{true}}
+    @searchEnabled={{true}}
+    @searchField={{@searchField}}
+    @onChange={{@onChange}}
+    @onCreate={{@onCreate}}
+    id={{@identifier}}
+    ...attributes
+    as |option|
+  >
+    {{yield option}}
+  </PowerSelectMultipleWithCreate>
+{{else}}
+  <PowerSelectMultiple
+    @options={{@options}}
+    @selected={{@selected}}
+    @disabled={{@disabled}}
+    @placeholder="Choose…"
+    @renderInPlace={{true}}
+    @searchEnabled={{true}}
+    @searchField={{@searchField}}
+    @onChange={{@onChange}}
+    id={{@identifier}}
+    ...attributes
+    as |option|
+  >
+    {{yield option}}
+  </PowerSelectMultiple>
+{{/if}}
+
+{{#if @help}}
+  <Form::Help @text={{@help}} />
+{{/if}}

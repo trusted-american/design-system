@@ -66,6 +66,8 @@ import type FormLabel from './components/form/label';
 import type FormMarkdownInput from './components/form/markdown-input';
 import type FormNumberInput from './components/form/number-input';
 import type FormPhoneInput from './components/form/phone-input';
+import type FormPowerSelect from './components/form/power-select';
+import type FormPowerSelectMultiple from './components/form/power-select-multiple';
 import type FormRadioButton from './components/form/radio-button';
 import type FormRadioCard from './components/form/radio-card';
 import type FormRadio from './components/form/radio';
@@ -167,6 +169,8 @@ export default interface Registry {
   'Form::MarkdownInput': typeof FormMarkdownInput;
   'Form::NumberInput': typeof FormNumberInput;
   'Form::PhoneInput': typeof FormPhoneInput;
+  'Form::PowerSelect': typeof FormPowerSelect;
+  'Form::PowerSelectMultiple': typeof FormPowerSelectMultiple;
   'Form::RadioButton': typeof FormRadioButton;
   'Form::RadioCard': typeof FormRadioCard;
   'Form::Radio': typeof FormRadio;

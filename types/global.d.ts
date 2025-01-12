@@ -6,6 +6,7 @@ import type EmberBreadcrumbTrailRegistry from 'ember-breadcrumb-trail/template-r
 import type EmberComposableHelpersRegistry from '@nullvoxpopuli/ember-composable-helpers/template-registry';
 import type EmberFileUploadRegistry from 'ember-file-upload/template-registry';
 import type EmberPageTitleRegistry from 'ember-page-title/template-registry';
+import type EmberPowerSelectRegistry from 'ember-power-select/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
 import type { HelperLike, ModifierLike } from '@glint/template';
@@ -13,6 +14,8 @@ import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
 import type PellEditor from 'ember-pell/components/pell-editor';
+import type PowerSelectWithCreate from 'ember-power-select-with-create/components/power-select-with-create';
+import type PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
 import type { CodeBlock } from 'ember-shiki';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
 
@@ -22,6 +25,7 @@ declare module '@glint/environment-ember-loose/registry' {
       EmberComposableHelpersRegistry,
       EmberFileUploadRegistry,
       EmberPageTitleRegistry,
+      EmberPowerSelectRegistry,
       EmberTruthHelpersRegistry {
     // @ember/render-modifiers
     'did-insert': ModifierLike<{
@@ -49,6 +53,10 @@ declare module '@glint/environment-ember-loose/registry' {
 
     // ember-pell
     PellEditor: typeof PellEditor;
+
+    // ember-power-select-with-create
+    PowerSelectWithCreate: typeof PowerSelectWithCreate;
+    PowerSelectMultipleWithCreate: typeof PowerSelectMultipleWithCreate;
 
     // ember-shiki
     CodeBlock: typeof CodeBlock;

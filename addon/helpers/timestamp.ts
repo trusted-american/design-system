@@ -15,8 +15,8 @@ const TIME_FORMAT = 'h:mm A';
 const YEAR_FORMAT = 'YYYY';
 
 interface Options {
-  format?: 'date' | 'time' | 'numberDate' | 'year' | 'full';
   utc?: boolean;
+  format?: 'date' | 'time' | 'numberDate' | 'year' | 'full';
 }
 
 /**
