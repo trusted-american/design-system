@@ -1,22 +1,22 @@
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
+
+interface Args<T> extends BaseArgs {
+  options: T[];
+  selected: T[];
+  disabled?: boolean;
+  placeholder?: string;
+  renderInPlace?: boolean;
+  searchEnabled?: boolean;
+  searchField?: string;
+  chooseText: string;
+  onChange: (selected: T[]) => void;
+  onCreate?: (query: string) => void;
+}
+
 export interface FormPowerSelectMultipleSignature<T> {
-  Args: {
-    options: T[];
-    selected: T[];
-    disabled?: boolean;
-    placeholder?: string;
-    label?: string;
-    identifier: string;
-    isRequired?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    renderInPlace?: boolean;
-    searchEnabled?: boolean;
-    searchField?: string;
-    onChange: (selected: T[]) => void;
-    onCreate?: (query: string) => void;
-  };
+  Args: Args<T>;
   Blocks: {
     default: [T];
   };

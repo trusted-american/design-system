@@ -18,14 +18,14 @@
     @options={{@options}}
     @search={{@search}}
     @selected={{@selected}}
-    @disabled={{@disabled}}
-    @placeholder="Choose…"
+    @disabled={{@isDisabled}}
+    @placeholder={{@chooseText}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
     @searchField={{@searchField}}
-    @searchPlaceholder="Search…"
+    @searchPlaceholder={{@searchText}}
     @matcher={{@matcher}}
-    @allowClear={{@allowClear}}
+    @allowClear={{@isClearable}}
     @verticalPosition={{@verticalPosition}}
     @showCreatePosition="bottom"
     @onChange={{@onChange}}
@@ -42,17 +42,16 @@
     @options={{@options}}
     @search={{@search}}
     @selected={{@selected}}
-    @disabled={{@disabled}}
-    @placeholder="Choose…"
+    @disabled={{@isDisabled}}
+    @placeholder={{@chooseText}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
     @searchField={{@searchField}}
-    @searchPlaceholder="Search…"
+    @searchPlaceholder={{@searchText}}
     @matcher={{@matcher}}
-    @allowClear={{@allowClear}}
+    @allowClear={{@isClearable}}
     @verticalPosition={{@verticalPosition}}
     @triggerId={{@identifier}}
-    {{! @glint-expect-error }}
     @onChange={{@onChange}}
     ...attributes
     as |option|

@@ -1,22 +1,37 @@
-<Form::Input
-  @type={{if @type @type "date"}}
-  @value={{this.value}}
-  @label={{@label}}
-  @identifier={{@identifier}}
-  @isRequired={{@isRequired}}
-  @help={{@help}}
-  @invalidFeedback={{@invalidFeedback}}
-  @size={{@size}}
-  @isInputOnly={{@isInputOnly}}
-  @errors={{@errors}}
-  @onChange={{this.change}}
-  min={{this.min}}
-  max={{this.max}}
-  ...attributes
->
-  {{#if (eq "month" @type)}}
+{{#if (eq "month" @type)}}
+  <Form::Input
+    @type={{if @type @type "date"}}
+    @value={{this.value}}
+    @label={{@label}}
+    @identifier={{@identifier}}
+    @isRequired={{@isRequired}}
+    @help={{@help}}
+    @invalidFeedback={{@invalidFeedback}}
+    @size={{@size}}
+    @isInputOnly={{@isInputOnly}}
+    @errors={{@errors}}
+    @onChange={{this.change}}
+    min={{this.min}}
+    max={{this.max}}
+    ...attributes
+  >
     1st of
-  {{else}}
-    <Icon @icon="calendar" />
-  {{/if}}
-</Form::Input>
+  </Form::Input>
+{{else}}
+  <Form::Input
+    @type={{if @type @type "date"}}
+    @value={{this.value}}
+    @label={{@label}}
+    @identifier={{@identifier}}
+    @isRequired={{@isRequired}}
+    @help={{@help}}
+    @invalidFeedback={{@invalidFeedback}}
+    @size={{@size}}
+    @isInputOnly={{@isInputOnly}}
+    @errors={{@errors}}
+    @onChange={{this.change}}
+    min={{this.min}}
+    max={{this.max}}
+    ...attributes
+  />
+{{/if}}

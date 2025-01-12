@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{@label}}
+  @text={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
   @isRequired={{@isRequired}}
 />
@@ -9,7 +9,7 @@
     @options={{@options}}
     @selected={{@selected}}
     @disabled={{@disabled}}
-    @placeholder="Choose…"
+    @placeholder={{@chooseText}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
     @searchField={{@searchField}}
@@ -26,7 +26,7 @@
     @options={{@options}}
     @selected={{@selected}}
     @disabled={{@disabled}}
-    @placeholder="Choose…"
+    @placeholder={{@chooseText}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
     @searchField={{@searchField}}
