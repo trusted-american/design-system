@@ -7,29 +7,29 @@ module('Integration | Component | property-list', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<PropertyList as |list|>
-      <list.item
-        @label="Key 1"
-        @value="Value 1"
-        @alt={{false}}
-        @tooltip="This is a tooltip."
-      >
-        Value 1
-      </list.item>
-      <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
-        Value 2
-      </list.item>
-      <list.item @label="Key 3" @value="Value 3" @alt={{false}}>
-        <:default>
-          Value 3
-        </:default>
-        <:side>
-          Side
-        </:side>
-      </list.item>
-    </PropertyList>`);
-
-    // await this.pauseTest();
+    await render(hbs`
+      <PropertyList as |list|>
+        <list.item
+          @label="Key 1"
+          @value="Value 1"
+          @alt={{false}}
+          @tooltip="This is a tooltip."
+        >
+          Value 1
+        </list.item>
+        <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
+          Value 2
+        </list.item>
+        <list.item @label="Key 3" @value="Value 3" @alt={{false}}>
+          <:default>
+            Value 3
+          </:default>
+          <:side>
+            Side
+          </:side>
+        </list.item>
+      </PropertyList>
+    `);
 
     assert.dom('dl dt:nth-of-type(1)').hasText('Key 1');
     assert.dom('dl dd:nth-of-type(1)').hasText('Value 1');
@@ -42,27 +42,29 @@ module('Integration | Component | property-list', function (hooks) {
   });
 
   test('it renders horizontal', async function (assert) {
-    await render(hbs`<PropertyList @isHorizontal={{true}}  as |list|>
-      <list.item
-        @label="Key 1"
-        @value="Value 1"
-        @alt={{false}}
-        @tooltip="This is a tooltip."
-      >
-        Value 1
-      </list.item>
-      <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
-        Value 2
-      </list.item>
-      <list.item @label="Key 3" @value="Value 3" @alt={{false}}>
-        <:default>
-          Value 3
-        </:default>
-        <:side>
-          Side
-        </:side>
-      </list.item>
-    </PropertyList>`);
+    await render(hbs`
+      <PropertyList @isHorizontal={{true}}  as |list|>
+        <list.item
+          @label="Key 1"
+          @value="Value 1"
+          @alt={{false}}
+          @tooltip="This is a tooltip."
+        >
+          Value 1
+        </list.item>
+        <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
+          Value 2
+        </list.item>
+        <list.item @label="Key 3" @value="Value 3" @alt={{false}}>
+          <:default>
+            Value 3
+          </:default>
+          <:side>
+            Side
+          </:side>
+        </list.item>
+      </PropertyList>
+    `);
 
     assert.dom('dl div:nth-of-type(1) dt').hasText('Key 1');
     assert.dom('dl div:nth-of-type(1) dd').hasText('Value 1');
@@ -72,14 +74,10 @@ module('Integration | Component | property-list', function (hooks) {
 
     assert.dom('dl div:nth-of-type(3) dt').hasText('Key 3');
     assert.dom('dl div:nth-of-type(3) dd').hasText('Value 3 Side');
-
-    // await this.pauseTest();
   });
 
   test('it renders with title', async function (assert) {
-    await render(hbs`<PropertyList @title='Test'>
-
-    </PropertyList>`);
+    await render(hbs`<PropertyList @title='Test'></PropertyList>`);
 
     assert.dom().hasText('Test');
   });

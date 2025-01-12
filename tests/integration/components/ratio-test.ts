@@ -1,16 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { find, render } from '@ember/test-helpers';
+import { render, find } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | ratio', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders 1 x 1', async function (assert) {
-    await render(hbs`
-      <Ratio @ratio='1x1'>
-      </Ratio>
-    `);
+  test('it renders 1x1', async function (assert) {
+    await render(hbs`<Ratio @ratio='1x1' />`);
 
     const element = find('[data-test-ratio]');
     assert.ok(element, '.bg-danger exists');
@@ -26,11 +23,8 @@ module('Integration | Component | ratio', function (hooks) {
     assert.deepEqual(numericWidth, numericHeight);
   });
 
-  test('it renders 4 x 3', async function (assert) {
-    await render(hbs`
-      <Ratio @ratio='4x3'>
-      </Ratio>
-    `);
+  test('it renders 4x3', async function (assert) {
+    await render(hbs`<Ratio @ratio='4x3' />`);
 
     const element = find('[data-test-ratio]');
     assert.ok(element, '.bg-danger exists');
@@ -46,11 +40,8 @@ module('Integration | Component | ratio', function (hooks) {
     assert.deepEqual(numericWidth / numericHeight, 4 / 3);
   });
 
-  test('it renders 16 x 9', async function (assert) {
-    await render(hbs`
-      <Ratio @ratio='16x9'>
-      </Ratio>
-    `);
+  test('it renders 16x9', async function (assert) {
+    await render(hbs`<Ratio @ratio='16x9' />`);
 
     const element = find('[data-test-ratio]');
     assert.ok(element, '.bg-danger exists');
@@ -66,11 +57,8 @@ module('Integration | Component | ratio', function (hooks) {
     assert.deepEqual(numericWidth / numericHeight, 16 / 9);
   });
 
-  test('it renders 21 x 9', async function (assert) {
-    await render(hbs`
-      <Ratio @ratio='21x9'>
-      </Ratio>
-    `);
+  test('it renders 21x9', async function (assert) {
+    await render(hbs`<Ratio @ratio='21x9' />`);
 
     const element = find('[data-test-ratio]');
     assert.ok(element, '.bg-danger exists');
