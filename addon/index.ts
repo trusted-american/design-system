@@ -66,6 +66,8 @@ export { default as FormLabel } from './components/form/label';
 export { default as FormMarkdownInput } from './components/form/markdown-input';
 export { default as FormNumberInput } from './components/form/number-input';
 export { default as FormPhoneInput } from './components/form/phone-input';
+export { default as FormPowerSelect } from './components/form/power-select';
+export { default as FormPowerSelectMultiple } from './components/form/power-select-multiple';
 export { default as FormRadioButton } from './components/form/radio-button';
 export { default as FormRadioCard } from './components/form/radio-card';
 export { default as FormRadio } from './components/form/radio';

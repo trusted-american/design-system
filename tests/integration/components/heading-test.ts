@@ -47,6 +47,6 @@ module('Integration | Component | heading', function (hooks) {
       </Heading>
     `);
 
-    assert.dom().hasText('Agent 1 Title Subtitle template block text');
+    assert.dom().hasText('Agent 1 Title template block text Subtitle');
   });
 });

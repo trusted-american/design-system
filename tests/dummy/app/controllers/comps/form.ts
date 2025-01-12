@@ -2,6 +2,11 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
+interface Post {
+  subject: string;
+  body: string;
+}
+
 export default class CompsFormController extends Controller {
   check = false;
   date: Date | null = new Date();
@@ -14,6 +19,8 @@ export default class CompsFormController extends Controller {
   value?: string | null | undefined;
   status?: 'active' | 'inactive';
   numberValue: number | null = null;
+  objectValue?: Post;
+  arrayValue: Post[] = [];
 
   @action
   create(file: File) {
