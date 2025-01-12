@@ -15,7 +15,7 @@ module('Integration | Component | form/markdown-input', function (hooks) {
       <Form::MarkdownInput
         @value={{this.value}}
         @label="Label"
-        @identifier='identifier'
+        @identifier="identifier"
         @isRequired={{true}}
         @help="Help"
         @invalidFeedback="Invalid feedback"

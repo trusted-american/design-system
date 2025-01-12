@@ -9,6 +9,7 @@
   class="form-select {{if @size (concat 'form-select-' @size)}}"
   required={{@isRequired}}
   aria-label={{if @isInputOnly @label}}
+  data-test-form-select
   {{on "change" this.change}}
   ...attributes
 >
@@ -19,8 +20,11 @@
     </option>
   {{/if}}
   {{#each @options as |opt index|}}
+    {{! @glint-expect-error }}
     {{#if opt.groupLabel}}
+      {{! @glint-expect-error }}
       <optgroup label={{opt.groupLabel}}>
+        {{! @glint-expect-error }}
         {{#each opt.options as |subOpt subIndex|}}
           <option
             value="{{index}}-{{if
@@ -34,11 +38,15 @@
           </option>
         {{/each}}
       </optgroup>
+      {{! @glint-expect-error }}
     {{else if opt.label}}
       <option
+        {{! @glint-expect-error }}
         value={{if (or opt.value (eq false opt.value)) index ""}}
+        {{! @glint-expect-error }}
         selected={{eq @selected opt.value}}
       >
+        {{! @glint-expect-error }}
         {{opt.label}}
       </option>
     {{else}}
@@ -46,6 +54,7 @@
         value={{if (or opt (eq false opt)) index ""}}
         selected={{eq @selected opt}}
       >
+        {{! @glint-expect-error }}
         {{opt}}
       </option>
     {{/if}}

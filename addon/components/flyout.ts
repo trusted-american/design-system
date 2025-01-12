@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 export interface FlyoutSignature {
   Args: {
     title: string;
+    closeText: string;
     onClose: () => void;
   };
   Blocks: {

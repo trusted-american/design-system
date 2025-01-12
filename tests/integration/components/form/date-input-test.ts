@@ -20,11 +20,11 @@ module('Integration | Component | form/date-input', function (hooks) {
         @value={{this.value}}
         @min={{this.min}}
         @max={{this.max}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{true}}
-        @help='Help'
-        @invalidFeedback='Invalid feedback'
+        @help="Help"
+        @invalidFeedback="Invalid feedback"
         @onChange={{fn (mut this.value)}}
       />
     `);

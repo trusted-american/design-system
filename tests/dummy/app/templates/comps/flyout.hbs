@@ -8,7 +8,7 @@
   <Button @text="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
 
   {{#if this.showFlyout}}
-    <Flyout @title="Title" @onClose={{this.close}}>
+    <Flyout @title="Title" @closeText="Close" @onClose={{this.close}}>
       Body
     </Flyout>
   {{/if}}

@@ -17,11 +17,11 @@ module('Integration | Component | form/textarea', function (hooks) {
     await render<Context>(hbs`
       <Form::Textarea
         @value={{this.value}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{this.isRequired}}
-        @help='Help'
-        @invalidFeedback='Invalid feedback'
+        @help="Help"
+        @invalidFeedback="Invalid feedback"
         @onChange={{fn (mut this.value)}}
       />
     `);

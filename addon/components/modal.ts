@@ -11,6 +11,7 @@ export interface ModalSignature {
     isFocus?: boolean;
     isFullscreen?: boolean;
     hideClose?: boolean;
+    closeText: string;
     onClose: () => void;
   };
   Blocks: {

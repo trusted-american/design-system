@@ -17,11 +17,11 @@ module('Integration | Component | form/file-input', function (hooks) {
 
     await render<Context>(hbs`
       <Form::FileInput
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{true}}
-        @help='Help'
-        @invalidFeedback='Invalid feedback'
+        @help="Help"
+        @invalidFeedback="Invalid feedback"
         @onChange={{this.onChange}}
       />
     `);

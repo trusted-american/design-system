@@ -14,16 +14,16 @@ module('Integration | Component | form/select', function (hooks) {
     await render<Context>(hbs`
       <Form::Select
         @options={{array
-          (hash value='a' label='A')
-          (hash value='b' label='B')
-          (hash value='c' label='C')
+          (hash value="a" label="A")
+          (hash value="b" label="B")
+          (hash value="c" label="C")
         }}
         @selected={{this.selected}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{true}}
-        @help='Help'
-        @invalidFeedback='Invalid feedback'
+        @help="Help"
+        @invalidFeedback="Invalid feedback"
         @onChange={{fn (mut this.selected)}}
       />
     `);
@@ -34,29 +34,38 @@ module('Integration | Component | form/select', function (hooks) {
     assert.dom('[data-test-form-help]').exists();
     assert.dom('[data-test-form-error]').exists();
 
-    await select('select', '2');
+    await select('[data-test-form-select]', '2');
 
     assert.strictEqual(this.selected, 'c');
   });
 
-  test('simple works', async function (this: Context, assert) {
+  test('it works with heterogeneous options', async function (this: Context, assert) {
     await render<Context>(hbs`
       <Form::Select
-        @options={{array 'A' 'B' 'C'}}
+        @options={{array
+          "a"
+          (hash value="b" label="B")
+          (hash groupLabel="Label" options=(array (hash value="c" label="C")))
+        }}
         @selected={{this.selected}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{true}}
-        @isSimple={{true}}
-        @chooseText='Choose…'
+        @chooseText="Choose…"
         @onChange={{fn (mut this.selected)}}
       />
     `);
 
-    assert.dom('[data-test-form-label]').exists();
+    await select('[data-test-form-select]', '0');
 
-    await select('select', 'C');
+    assert.strictEqual(this.selected, 'a');
 
-    assert.strictEqual(this.selected, 'C');
+    await select('[data-test-form-select]', '1');
+
+    assert.strictEqual(this.selected, 'b');
+
+    await select('[data-test-form-select]', '2-0');
+
+    assert.strictEqual(this.selected, 'c');
   });
 });

@@ -24,9 +24,9 @@ module('Integration | Component | form/radio-button', function (hooks) {
       <Form::RadioButton
         @options={{this.options}}
         @selected={{this.selected}}
-        @label='Label'
-        @identifier='identifier'
-        @size='sm'
+        @label="Label"
+        @identifier="identifier"
+        @size="sm"
         @onChange={{this.onChange}}
       />
     `);
