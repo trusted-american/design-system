@@ -30,13 +30,12 @@
       {{/if}}
     </div>
     {{#if @onClose}}
-      <button
-        type="button"
-        class="btn-close me-2 {{if @color 'btn-close-white'}}"
+      <CloseButton
+        @closeText={{@closeText}}
+        class="me-2 {{if @color 'btn-close-white'}}"
         data-bs-dismiss="toast"
-        aria-label={{@closeText}}
         {{on "click" @onClose}}
-      ></button>
+      />
     {{/if}}
   </div>
 </div>

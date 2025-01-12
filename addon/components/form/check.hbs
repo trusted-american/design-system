@@ -1,7 +1,8 @@
 <div
   class="form-check
     {{if @isInline 'form-check-inline'}}
-    {{if @isSwitch 'form-switch'}}"
+    {{if @isSwitch 'form-switch'}}
+    mb-0"
 >
   <Form::Check::Input
     @value={{@value}}
@@ -21,5 +22,5 @@
   />
 
   <Form::Feedback @text={{@invalidFeedback}} />
-  <Form::Help @text={{@help}} class="mb-2" />
+  <Form::Help @text={{@help}} />
 </div>

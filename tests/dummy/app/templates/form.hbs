@@ -1,0 +1,43 @@
+{{page-title "Form"}}
+{{breadcrumb "Form"}}
+
+<Heading @title="Form" />
+
+<form novalidate {{on "submit" this.submit}}>
+  <div class="mb-3">
+    <Form::Input
+      @value={{this.value}}
+      @label="Label"
+      @identifier="input"
+      @isRequired={{true}}
+      @help="This is an example of help."
+      @invalidFeedback="This is an example of invalid feedback."
+      @onChange={{fn (mut this.value)}}
+      placeholder="Placeholder"
+    />
+  </div>
+  <div class="mb-3">
+    <Form::Textarea
+      @value={{this.value}}
+      @label="Label"
+      @identifier="textarea"
+      @isRequired={{true}}
+      @help="This is an example of help."
+      @invalidFeedback="This is an example of invalid feedback."
+      @onChange={{fn (mut this.value)}}
+      placeholder="Placeholder"
+    />
+  </div>
+  <div class="mb-3">
+    <Form::Check
+      @value={{this.check}}
+      @label="Label"
+      @identifier="check"
+      @isRequired={{true}}
+      @help="This is an example of help."
+      @invalidFeedback="This is an example of invalid feedback."
+      @onChange={{fn (mut this.check)}}
+    />
+  </div>
+  <Button @text="Submit" @isSubmit={{true}} @color="primary" />
+</form>

@@ -1,8 +1,9 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class DetailController extends Controller {
+export default class FormController extends Controller {
   value?: string;
+  check = false;
 
   @action
   submit(event: Event) {

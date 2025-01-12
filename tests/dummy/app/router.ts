@@ -56,5 +56,6 @@ Router.map(function () {
   });
   this.route('list');
   this.route('detail');
+  this.route('form');
   this.route('not-found', { path: '/*path' });
 });
