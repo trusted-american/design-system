@@ -14,7 +14,7 @@ export default class PowerSelectWithCreate<T> extends Component<{
     searchPlaceholder?: string;
     search?: (query: string) => unknown[];
     allowClear?: boolean;
-    verticalPosition?: string;
+    verticalPosition?: 'auto' | 'above' | 'below';
     showCreatePosition?: string;
     matcher?: unknown;
     onChange: (selected: never) => void;

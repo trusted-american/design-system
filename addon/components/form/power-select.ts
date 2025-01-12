@@ -1,19 +1,21 @@
 import Component from '@glimmer/component';
 
 import type { BaseArgs } from './input';
-import type { Group } from 'ember-power-select/utils/group-utils';
+import type { Group as _Group } from 'ember-power-select/utils/group-utils';
 
-export type { Group };
+export interface Group<T> extends _Group {
+  options: T[];
+}
 
 interface Args<T> extends BaseArgs {
-  options?: (T | Group)[];
+  options?: (T | Group<T>)[];
   selected: T | null | undefined;
-  disabled?: boolean;
   search?: (query: string) => T[];
   searchField?: keyof T & string;
-  matcher?: (record: T, query: string) => number;
-  allowClear?: boolean;
-  verticalPosition?: string;
+  matcher?: (value: T, query: string) => number;
+  isClearable?: boolean;
+  isDisabled?: boolean;
+  verticalPosition?: 'auto' | 'above' | 'below';
   chooseText: string;
   searchText: string;
   onChange: (selected: T) => void;

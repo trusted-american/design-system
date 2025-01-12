@@ -170,10 +170,25 @@ aside.collapsed nav .fa-fw {
   color: var(--bs-secondary);
 }
 
+/* property-list */
+
+dl dt {
+  margin-bottom: 0.5rem;
+}
+
+dl dt:last-of-type,
+dl dd:last-child {
+  margin-bottom: 0;
+}
+
 /* table */
 
 .table {
   margin-bottom: 0 !important;
+}
+
+.table thead th {
+  white-space: nowrap;
 }
 
 .yeti-table thead tr th.yeti-table-sorted-asc::after {
