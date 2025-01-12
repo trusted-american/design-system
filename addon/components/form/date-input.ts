@@ -49,9 +49,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
   }
 
   private dateToString(date: Date): string | null {
-    // @ts-expect-error shouldn't be necessary to check toISOString
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (isValidDate(date) && date.toISOString) {
+    if (isValidDate(date)) {
       let djs = dayjs(date);
       if (!this.args.isLocalTimeZone) {
         djs = djs.utc(false);

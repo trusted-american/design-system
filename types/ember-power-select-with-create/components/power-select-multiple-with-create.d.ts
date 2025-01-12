@@ -1,11 +1,9 @@
 import Component from '@glimmer/component';
 
-import type EmberArray from '@ember/array';
-
 export default class PowerSelectMultipleWithCreate<T> extends Component<{
   Args: {
-    options: T[] | EmberArray<T>;
-    selected: T[] | EmberArray<T>;
+    options: T[];
+    selected: T[];
     disabled?: unknown;
     placeholder?: string;
     renderInPlace?: boolean;

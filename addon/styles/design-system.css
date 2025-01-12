@@ -19,12 +19,7 @@ h1,
 
 body {
   display: grid;
-  grid-template-areas:
-    "section section"
-    "aside main";
-  grid-template-rows: min-content 1fr;
-  /* stylelint-disable declaration-block-no-redundant-longhand-properties */
-  grid-template-columns: min-content 1fr;
+  grid-template: "section section" min-content "aside main" 1fr / min-content 1fr;
   height: 100vh;
 }
 
@@ -54,7 +49,7 @@ aside .nav-link svg {
 }
 
 aside .nav-pills .nav-link.active,
-aside .nav-link.active svg {
+.nav-link.active svg {
   color: var(--bs-nav-link-color);
 }
 
@@ -151,6 +146,10 @@ aside.collapsed nav .fa-fw {
   --fc-button-text-color: var(--bs-body-color);
   --fc-button-bg-color: var(--bs-tertiary-bg);
   --fc-button-border-color: var(--bs-secondary-border-subtle);
+  --fc-button-hover-bg-color: var(--bs-gray-500);
+  --fc-button-hover-border-color: var(--bs-gray-500);
+  --fc-button-active-bg-color: var(--bs-gray-500);
+  --fc-button-active-border-color: var(--bs-gray-500);
 }
 
 /* copy */
@@ -165,7 +164,6 @@ aside.collapsed nav .fa-fw {
 
 /* dropdown */
 
-/* stylelint-disable-next-line no-descending-specificity */
 .dropdown-menu .dropdown-item svg {
   color: var(--bs-secondary);
 }

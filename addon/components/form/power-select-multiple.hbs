@@ -39,6 +39,10 @@
   </PowerSelectMultiple>
 {{/if}}
 
-{{#if @help}}
-  <Form::Help @text={{@help}} />
-{{/if}}
+<Form::Feedback @text={{@invalidFeedback}} />
+
+{{#each @errors as |error|}}
+  <Form::Feedback @text={{error.message}} />
+{{/each}}
+
+<Form::Help @text={{@help}} />

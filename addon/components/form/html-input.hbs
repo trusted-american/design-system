@@ -45,12 +45,19 @@
   </card.body>
 </Card>
 
-<Input
-  @value={{this.value}}
-  @type="text"
+{{! hidden input for validation }}
+<input
+  value="{{this.value}}"
+  type="text"
   required={{@isRequired}}
   class="d-none"
   aria-label={{@label}}
 />
+
 <Form::Feedback @text={{@invalidFeedback}} />
+
+{{#each @errors as |error|}}
+  <Form::Feedback @text={{error.message}} />
+{{/each}}
+
 <Form::Help @text={{@help}} />

@@ -11,8 +11,7 @@ const fileSize = helper(function fileSize([bytes]): string {
   }
 
   const k = 1024;
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const dm = DECIMALS < 0 ? 0 : DECIMALS;
+  const dm = DECIMALS;
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));

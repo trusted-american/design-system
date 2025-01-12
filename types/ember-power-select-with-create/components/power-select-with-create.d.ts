@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 
-import type EmberArray from '@ember/array';
+import type { Group } from 'ember-power-select/utils/group-utils';
 
 export default class PowerSelectWithCreate<T> extends Component<{
   Args: {
-    options?: T[] | EmberArray<T>;
-    selected: T;
+    options?: (T | Group)[];
+    selected: T | null | undefined;
     disabled?: unknown;
     placeholder?: string;
     renderInPlace?: boolean;
@@ -17,7 +17,7 @@ export default class PowerSelectWithCreate<T> extends Component<{
     verticalPosition?: 'auto' | 'above' | 'below';
     showCreatePosition?: string;
     matcher?: unknown;
-    onChange: (selected: never) => void;
+    onChange: (selected: T) => void;
     onCreate?: (query: string) => void;
   };
   Blocks: {

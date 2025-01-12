@@ -47,7 +47,6 @@
     {{#if @onPrevious}}
       <Button
         @text={{@previousText}}
-        {{! @glint-expect-error }}
         disabled={{not @canPrevious}}
         {{on "click" @onPrevious}}
       />
@@ -55,7 +54,6 @@
     {{#if @onNext}}
       <Button
         @text={{@nextText}}
-        {{! @glint-expect-error }}
         disabled={{not @canNext}}
         {{on "click" @onNext}}
       />
@@ -70,16 +68,15 @@
       <strong>{{@totalItems}}</strong>
       results
     </span>
-    <Pagination
-      {{! @glint-expect-error }}
-      @curPage={{@page}}
-      @pageSize={{20}}
-      {{! @glint-expect-error }}
-      @totalItems={{@totalItems}}
-      @nextText={{@nextText}}
-      @previousText={{@previousText}}
-      {{! @glint-expect-error }}
-      @onChange={{@onChangePage}}
-    />
+    {{#if (and (or @page (eq 0 @page)) @totalItems @onChangePage)}}
+      <Pagination
+        @curPage={{@page}}
+        @pageSize={{20}}
+        @totalItems={{@totalItems}}
+        @nextText={{@nextText}}
+        @previousText={{@previousText}}
+        @onChange={{@onChangePage}}
+      />
+    {{/if}}
   </div>
 {{/if}}
