@@ -70,6 +70,13 @@
     />
   </:default>
   <:footer>
+    <Form::Check
+      @value={{this.isDarkTheme}}
+      @label="Dark theme"
+      @identifier="isDarkTheme"
+      @isSwitch={{true}}
+      @onChange={{fn (mut this.isDarkTheme)}}
+    />
   </:footer>
 </Aside>
 
