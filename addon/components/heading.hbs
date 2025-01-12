@@ -19,12 +19,13 @@
       <h1 class="mb-0">
         {{@title}}
       </h1>
-      {{#if @subtitle}}
-        <p class="lead mt-1 mb-0">
-          {{@subtitle}}
-        </p>
-      {{/if}}
     </div>
     {{yield}}
   </div>
+
+  {{#if @subtitle}}
+    <p class="lead mt-1 mb-0">
+      {{@subtitle}}
+    </p>
+  {{/if}}
 </div>
