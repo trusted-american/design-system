@@ -103,8 +103,8 @@ module('Integration | Component | list-filter', function (hooks) {
     //Date
     await click('[data-test-predicate-toggle]:nth-of-type(5)');
     assert.dom('[data-test-predicate-value]').exists({ count: 5 });
-    assert.dom('li:nth-of-type(6) div div:nth-of-type(1) input').exists();
-    assert.dom('li:nth-of-type(6) div div:nth-of-type(2)').hasText('and');
-    assert.dom('li:nth-of-type(6) div div:nth-of-type(3) input').exists();
+    assert.dom('li:nth-of-type(6) div input:nth-of-type(1)').exists();
+    assert.dom('li:nth-of-type(6) div div:nth-of-type(1)').hasText('and');
+    assert.dom('li:nth-of-type(6) div input:nth-of-type(2)').exists();
   });
 });
