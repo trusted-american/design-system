@@ -1,3 +1,22 @@
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1 {
+  font-weight: 700 !important;
+}
+
+.collapsing {
+  transition: height 0.1s cubic-bezier(0.19, 0.91, 0.38, 1) !important;
+}
+
 body {
   display: grid;
   grid-template-areas:
@@ -34,17 +53,9 @@ aside .nav-link svg {
   color: var(--bs-secondary);
 }
 
-.dropdown-menu .dropdown-item svg {
-  color: var(--bs-secondary);
-}
-
 aside .nav-pills .nav-link.active,
 aside .nav-link.active svg {
   color: var(--bs-nav-link-color);
-}
-
-.collapsing {
-  transition: height 0.1s cubic-bezier(0.19, 0.91, 0.38, 1) !important;
 }
 
 aside .nav-link:hover {
@@ -55,7 +66,7 @@ body aside .tds-aside-logo {
   height: 2.25rem;
 }
 
-[data-bs-theme="dark"] .tds-aside-logo {
+[data-bs-theme="dark"] aside .tds-aside-logo {
   filter: invert(1);
 }
 
@@ -112,18 +123,12 @@ aside.collapsed nav .fa-fw {
 
 .pell-content {
   height: 16rem;
-
-  /* transition: $input-transition; */
 }
 
 .pell-content:hover,
 .pell-content:focus {
   border-color: var(--bs-primary);
 }
-
-/* .pell-content:focus {
-  box-shadow: $input-focus-box-shadow;
-} */
 
 /* form/markdown-input */
 
@@ -148,9 +153,7 @@ aside.collapsed nav .fa-fw {
   --fc-button-border-color: var(--bs-secondary-border-subtle);
 }
 
-/* vendor components */
-
-/* ember-cli-clipboard */
+/* copy */
 
 .copy-btn {
   padding: 0;
@@ -160,7 +163,18 @@ aside.collapsed nav .fa-fw {
   text-align: inherit;
 }
 
-/* ember-yeti-table */
+/* dropdown */
+
+/* stylelint-disable-next-line no-descending-specificity */
+.dropdown-menu .dropdown-item svg {
+  color: var(--bs-secondary);
+}
+
+/* table */
+
+.table {
+  margin-bottom: 0 !important;
+}
 
 .yeti-table thead tr th.yeti-table-sorted-asc::after {
   content: "↑";
@@ -168,23 +182,4 @@ aside.collapsed nav .fa-fw {
 
 .yeti-table thead tr th.yeti-table-sorted-desc::after {
   content: "↓";
-}
-
-.table {
-  margin-bottom: 0 !important;
-}
-
-h6,
-.h6,
-h5,
-.h5,
-h4,
-.h4,
-h3,
-.h3,
-h2,
-.h2,
-h1,
-.h1 {
-  font-weight: 700 !important;
 }

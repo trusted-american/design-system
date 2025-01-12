@@ -1,28 +1,27 @@
 import Component from '@glimmer/component';
 
+import type { BaseArgs } from './input';
 import type { Group } from 'ember-power-select/utils/group-utils';
 
 export type { Group };
 
+interface Args<T> extends BaseArgs {
+  options?: (T | Group)[];
+  selected: T | null | undefined;
+  disabled?: boolean;
+  search?: (query: string) => T[];
+  searchField?: keyof T & string;
+  matcher?: (record: T, query: string) => number;
+  allowClear?: boolean;
+  verticalPosition?: string;
+  chooseText: string;
+  searchText: string;
+  onChange: (selected: T) => void;
+  onCreate?: (query: string) => void;
+}
+
 export interface FormPowerSelectSignature<T> {
-  Args: {
-    options?: (T | Group)[];
-    selected: T | null | undefined;
-    label?: string;
-    identifier: string;
-    isRequired?: boolean;
-    help?: string;
-    invalidFeedback?: string;
-    isInputOnly?: boolean;
-    disabled?: boolean;
-    search?: (query: string) => T[];
-    searchField?: string;
-    matcher?: (record: T, query: string) => number;
-    allowClear?: boolean;
-    verticalPosition?: string;
-    onChange: (selected: never) => void;
-    onCreate?: (query: string) => void;
-  };
+  Args: Args<T>;
   Blocks: {
     default: [T];
   };

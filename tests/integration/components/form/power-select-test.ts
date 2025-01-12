@@ -24,6 +24,8 @@ module('Integration | Component | form/power-select', function (hooks) {
         @selected={{this.selected}}
         @label="Label"
         @identifier="identifier"
+        @chooseText="Choose…"
+        @searchText="Search…"
         @onChange={{this.onChange}}
         as |option|
       >
