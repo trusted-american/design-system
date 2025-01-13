@@ -35,28 +35,30 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     const options = this.args.options;
 
     const index = parseInt(target.value);
-    let selected = options[index] ?? options[0];
+    let selected = options[index] ?? null;
 
     if (target.value.includes('-')) {
       const [optIndex, subOptIndex] = target.value.split('-');
       if (optIndex && subOptIndex) {
         selected = (options[parseInt(optIndex)] as Group<T>).options[
           parseInt(subOptIndex)
-        ];
+        ] as Option<T>;
       }
     }
 
-    if (selected) {
-      if (typeof selected === 'object' && 'groupLabel' in selected) {
-        const [firstOption] = selected.options;
-        if (firstOption) {
-          this.args.onChange(firstOption.value);
-        }
-      } else if (typeof selected === 'object' && 'label' in selected) {
-        this.args.onChange(selected.value);
-      } else {
-        this.args.onChange(selected);
+    if (selected && typeof selected === 'object' && 'groupLabel' in selected) {
+      const [firstOption] = selected.options;
+      if (firstOption) {
+        this.args.onChange(firstOption.value);
       }
+    } else if (
+      selected &&
+      typeof selected === 'object' &&
+      'label' in selected
+    ) {
+      this.args.onChange(selected.value);
+    } else {
+      this.args.onChange(selected as T);
     }
   }
 }

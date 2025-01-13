@@ -67,5 +67,9 @@ module('Integration | Component | form/select', function (hooks) {
     await select('[data-test-form-select]', '2-0');
 
     assert.strictEqual(this.selected, 'c');
+
+    await select('[data-test-form-select]', '');
+
+    assert.strictEqual(this.selected, null);
   });
 });
