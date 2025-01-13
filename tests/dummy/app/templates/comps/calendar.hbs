@@ -10,7 +10,7 @@
 </Snippet>
 
 {{#if this.event}}
-  <Modal @title="Event" @onClose={{this.close}}>
+  <Modal @title="Event" @closeText="Close" @onClose={{this.close}}>
     {{this.event.title}}
   </Modal>
 {{/if}}

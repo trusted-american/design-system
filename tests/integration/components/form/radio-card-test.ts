@@ -16,20 +16,20 @@ module('Integration | Component | form/radio-card', function (hooks) {
         @options={{array
           (hash
             value=true
-            label='Yes'
-            icon='check'
-            help='Help'
+            label="Yes"
+            icon="check"
+            help="Help"
           )
           (hash
             value=false
-            label='No'
-            icon='xmark'
-            help='Help'
+            label="No"
+            icon="xmark"
+            help="Help"
           )
         }}
         @selected={{this.selected}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @onChange={{fn (mut this.selected)}}
       />
     `);

@@ -14,11 +14,11 @@ module('Integration | Component | form/phone-input', function (hooks) {
     await render<Context>(hbs`
       <Form::PhoneInput
         @value={{this.value}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{true}}
-        @help='Help'
-        @invalidFeedback='Invalid feedback'
+        @help="Help"
+        @invalidFeedback="Invalid feedback"
         @onChange={{fn (mut this.value)}}
       />
     `);

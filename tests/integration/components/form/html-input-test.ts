@@ -15,12 +15,12 @@ module('Integration | Component | form/html-input', function (hooks) {
 
     await render<Context>(hbs`
       <Form::HtmlInput
-        @value='value'
-        @label='Label'
-        @identifier='identifier'
+        @value="value"
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{true}}
-        @editorText='Editor'
-        @codeText='Code'
+        @editorText="Editor"
+        @codeText="Code"
         @onChange={{this.onChange}}
       />
     `);
@@ -28,11 +28,11 @@ module('Integration | Component | form/html-input', function (hooks) {
     assert.dom().includesText('Label Required');
 
     assert.dom('[data-test-value-editor]').exists();
-    assert.dom('[data-test-value-code]').doesNotExist();
+    assert.dom('[data-test-form-textarea]').doesNotExist();
 
     await click('[data-test-code]');
 
     assert.dom('[data-test-value-editor]').doesNotExist();
-    assert.dom('[data-test-value-code]').exists();
+    assert.dom('[data-test-form-textarea]').exists();
   });
 });

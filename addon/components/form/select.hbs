@@ -4,45 +4,62 @@
   @isRequired={{@isRequired}}
 />
 
-{{#if @isSimple}}
-  <select
-    id={{@identifier}}
-    class="form-select {{if @size (concat 'form-select-' @size)}}"
-    required={{@isRequired}}
-    aria-label={{if @isInputOnly @label}}
-    {{on "change" (pick "target.value" @onChange)}}
-    ...attributes
-  >
+<select
+  id={{@identifier}}
+  class="form-select {{if @size (concat 'form-select-' @size)}}"
+  required={{@isRequired}}
+  aria-label={{if @isInputOnly @label}}
+  data-test-form-select
+  {{on "change" this.change}}
+  ...attributes
+>
+  {{#if @chooseText}}
     {{! @glint-expect-error }}
     <option value="" selected={{not @selected}}>
       {{@chooseText}}
     </option>
-    {{#each @options as |opt|}}
-      <option selected={{eq @selected opt}}>
+  {{/if}}
+  {{#each @options as |opt index|}}
+    {{! @glint-expect-error }}
+    {{#if opt.groupLabel}}
+      {{! @glint-expect-error }}
+      <optgroup label={{opt.groupLabel}}>
+        {{! @glint-expect-error }}
+        {{#each opt.options as |subOpt subIndex|}}
+          <option
+            value="{{index}}-{{if
+              (or subOpt.value (eq false subOpt.value))
+              subIndex
+              ''
+            }}"
+            selected={{eq @selected subOpt.value}}
+          >
+            {{subOpt.label}}
+          </option>
+        {{/each}}
+      </optgroup>
+      {{! @glint-expect-error }}
+    {{else if opt.label}}
+      <option
+        {{! @glint-expect-error }}
+        value={{if (or opt.value (eq false opt.value)) index ""}}
+        {{! @glint-expect-error }}
+        selected={{eq @selected opt.value}}
+      >
+        {{! @glint-expect-error }}
+        {{opt.label}}
+      </option>
+    {{else}}
+      <option
+        value={{if (or opt (eq false opt)) index ""}}
+        selected={{eq @selected opt}}
+      >
         {{! @glint-expect-error }}
         {{opt}}
       </option>
-    {{/each}}
-  </select>
-{{else}}
-  <select
-    id={{@identifier}}
-    class="form-select {{if @size (concat 'form-select-' @size)}}"
-    required={{@isRequired}}
-    aria-label={{if @isInputOnly @label}}
-    {{on "change" this.change}}
-    ...attributes
-  >
-    {{#each @options as |opt index|}}
-      <option
-        value={{if (or opt.value (eq false opt.value)) index ""}}
-        selected={{eq @selected opt.value}}
-      >
-        {{opt.label}}
-      </option>
-    {{/each}}
-  </select>
-{{/if}}
+    {{/if}}
+  {{/each}}
+</select>
 
 <Form::Feedback @text={{@invalidFeedback}} />
 

@@ -16,11 +16,11 @@ module('Integration | Component | form/check', function (hooks) {
     await render<Context>(hbs`
       <Form::Check
         @value={{this.value}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isInline={{false}}
         @isSwitch={{false}}
-        @help='Help'
+        @help="Help"
         @onChange={{fn (mut this.value)}}
       />
     `);

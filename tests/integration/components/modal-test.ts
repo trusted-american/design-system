@@ -16,7 +16,7 @@ module('Integration | Component | modal', function (hooks) {
     };
 
     await render<Context>(hbs`
-      <Modal @title='Title' @onClose={{this.onClose}} data-test-modal>
+      <Modal @title="Title" @closeText="Close" @onClose={{this.onClose}}>
         template block text
       </Modal>
     `);
@@ -31,6 +31,6 @@ module('Integration | Component | modal', function (hooks) {
     );
     backdrop[0]?.remove();
 
-    await click('.btn-close');
+    await click('[data-test-close-button]');
   });
 });

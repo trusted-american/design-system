@@ -25,8 +25,8 @@ module('Integration | Component | form/radio', function (hooks) {
       <Form::Radio
         @options={{this.options}}
         @selected={{this.selected}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{undefined}}
         @isInline={{undefined}}
         @onChange={{this.onChange}}
