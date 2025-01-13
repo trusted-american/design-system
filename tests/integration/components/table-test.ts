@@ -388,6 +388,6 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('tbody tr:nth-of-type(26) td:nth-of-type(2)').hasText('Z');
     assert.dom('tbody tr:nth-of-type(26) td:nth-of-type(3)').hasText('z');
 
-    await this.pauseTest();
+    // await this.pauseTest();
   });
 });
