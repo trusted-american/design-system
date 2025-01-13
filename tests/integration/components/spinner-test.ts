@@ -9,6 +9,6 @@ module('Integration | Component | spinner', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Spinner />`);
 
-    assert.dom().hasText('');
+    assert.dom('[data-test-spinner]').exists();
   });
 });
