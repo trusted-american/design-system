@@ -39,5 +39,22 @@
       @onChange={{fn (mut this.check)}}
     />
   </div>
+  <div class="mb-3">
+    <Form::PowerSelect
+      @options={{array "A" "B" "C"}}
+      @selected={{this.value}}
+      @label="Label"
+      @identifier="powerSelect"
+      @isRequired={{true}}
+      @help="This is an example of help."
+      @invalidFeedback="This is an example of invalid feedback."
+      @chooseText="Choose…"
+      @searchText="Search…"
+      @onChange={{fn (mut this.value)}}
+      as |value|
+    >
+      {{value}}
+    </Form::PowerSelect>
+  </div>
   <Button @text="Submit" @isSubmit={{true}} @color="primary" />
 </form>
