@@ -9,6 +9,7 @@ export interface ButtonInternalSignature {
     isIconOnly?: boolean;
     isLoading?: boolean;
     count?: number;
+    shortcut?: string;
   };
   Element: HTMLElement;
 }
