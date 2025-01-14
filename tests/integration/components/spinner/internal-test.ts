@@ -11,7 +11,6 @@ module('Integration | Component | spinner/internal', function (hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`<Spinner::Internal />`);
-
-    assert.dom().hasText('');
+    assert.dom('.spinner-border').exists();
   });
 });
