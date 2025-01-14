@@ -1,40 +1,44 @@
 {{page-title "Detail"}}
 {{breadcrumb "Detail"}}
 
-<Alert @icon="box-archive">
-  Test
-</Alert>
+<Main::Header>
+  <Alert @icon="box-archive">
+    Test
+  </Alert>
 
-<Alert @color="warning" @icon="circle-exclamation">
-  Test
-</Alert>
+  <Alert @color="warning" @icon="circle-exclamation">
+    Test
+  </Alert>
 
-<Heading
-  @title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-  @type="Type"
-  @identifier="1234567890"
->
-  <Button
-    @text="Actions"
-    @icon="angle-down"
-    @isIconTrailing={{true}}
-    @color="primary"
-  />
-</Heading>
+  <Heading
+    @title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    @type="Type"
+    @identifier="1234567890"
+  >
+    <Button
+      @text="Actions"
+      @icon="angle-down"
+      @isIconTrailing={{true}}
+      @color="primary"
+    />
+  </Heading>
 
-<Nav class="mb-4">
-  <Nav::Item @route="detail" @text="First" />
-  <Nav::Item @route="index" @text="Second" />
-  <Nav::Item @route="index" @text="Third" />
-  <Nav::Item @route="index" @text="Fourth" />
-  <Nav::Item @route="index" @text="Fifth" />
-  <Nav::Item @route="index" @text="Sixth" />
-  <Nav::Item @route="index" @text="Seventh" />
-  <Nav::Item @route="index" @text="Eighth" />
-</Nav>
+  <Nav>
+    <Nav::Item @route="detail" @text="First" />
+    <Nav::Item @route="index" @text="Second" />
+    <Nav::Item @route="index" @text="Third" />
+    <Nav::Item @route="index" @text="Fourth" />
+    <Nav::Item @route="index" @text="Fifth" />
+    <Nav::Item @route="index" @text="Sixth" />
+    <Nav::Item @route="index" @text="Seventh" />
+    <Nav::Item @route="index" @text="Eighth" />
+  </Nav>
+</Main::Header>
 
-<Card as |card|>
-  <card.body>
-    Body
-  </card.body>
-</Card>
+<Main::Body>
+  <Card as |card|>
+    <card.body>
+      Body
+    </card.body>
+  </Card>
+</Main::Body>
