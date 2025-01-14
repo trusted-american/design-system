@@ -1,58 +1,63 @@
 {{page-title "Modifiers"}}
 {{breadcrumb "Modifiers"}}
 
-<Heading @title="Modifiers" />
+<Main::Body>
+  <Heading @title="Modifiers" />
 
-<Subheading @title="Autoselect" />
+  <Subheading @title="Autoselect" />
 
-<Snippet @name="autoselect.hbs">
-  {{! BEGIN-SNIPPET autoselect }}
-  <Form::Input
-    @value={{this.value}}
-    @label="Label"
-    @identifier="identifier"
-    @onChange={{fn (mut this.value)}}
-    {{autoselect}}
-  />
-  {{! END-SNIPPET }}
-</Snippet>
+  <Snippet @name="autoselect.hbs">
+    {{! BEGIN-SNIPPET autoselect }}
+    <Form::Input
+      @value={{this.value}}
+      @label="Label"
+      @identifier="identifier"
+      @onChange={{fn (mut this.value)}}
+      {{autoselect}}
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
 
-<Subheading @title="Collapse" />
+  <Subheading @title="Collapse" />
 
-<p><LinkTo @route="comps.collapse">See collapse component</LinkTo></p>
+  <p><LinkTo @route="comps.collapse">See collapse component</LinkTo></p>
 
-<Subheading @title="Dropdown" />
+  <Subheading @title="Dropdown" />
 
-<Snippet @name="dropdown.hbs">
-  {{! BEGIN-SNIPPET dropdown }}
-  <Button @text="Open dropdown" {{dropdown}} />
-  <Dropdown>
-    <Dropdown::Item @text="Item" />
-  </Dropdown>
-  {{! END-SNIPPET }}
-</Snippet>
+  <Snippet @name="dropdown.hbs">
+    {{! BEGIN-SNIPPET dropdown }}
+    <Button @text="Open dropdown" {{dropdown}} />
+    <Dropdown>
+      <Dropdown::Item @text="Item" />
+    </Dropdown>
+    {{! END-SNIPPET }}
+  </Snippet>
 
-<Subheading @title="Tooltip" />
+  <Subheading @title="Tooltip" />
 
-<Snippet @name="tooltip.hbs">
-  {{! BEGIN-SNIPPET tooltip }}
-  <Button @text="Tooltip on top" {{tooltip "Tooltip on top" placement="top"}} />
-  <Button
-    @text="Tooltip on right"
-    {{tooltip "Tooltip on right" placement="right"}}
-  />
-  <Button
-    @text="Tooltip on bottom"
-    {{tooltip "Tooltip on bottom" placement="bottom"}}
-  />
-  <Button
-    @text="Tooltip on left"
-    {{tooltip "Tooltip on left" placement="left"}}
-  />
-  <Button
-    @text="Tooltip with HTML"
-    {{tooltip "<em>Tooltip</em> <u>with</u> <b>HTML</b>" html=true}}
-  />
-  <Button @text="Hover me" {{tooltip "This is a tooltip." trigger="hover"}} />
-  {{! END-SNIPPET }}
-</Snippet>
+  <Snippet @name="tooltip.hbs">
+    {{! BEGIN-SNIPPET tooltip }}
+    <Button
+      @text="Tooltip on top"
+      {{tooltip "Tooltip on top" placement="top"}}
+    />
+    <Button
+      @text="Tooltip on right"
+      {{tooltip "Tooltip on right" placement="right"}}
+    />
+    <Button
+      @text="Tooltip on bottom"
+      {{tooltip "Tooltip on bottom" placement="bottom"}}
+    />
+    <Button
+      @text="Tooltip on left"
+      {{tooltip "Tooltip on left" placement="left"}}
+    />
+    <Button
+      @text="Tooltip with HTML"
+      {{tooltip "<em>Tooltip</em> <u>with</u> <b>HTML</b>" html=true}}
+    />
+    <Button @text="Hover me" {{tooltip "This is a tooltip." trigger="hover"}} />
+    {{! END-SNIPPET }}
+  </Snippet>
+</Main::Body>

@@ -1,40 +1,42 @@
 {{page-title "List"}}
 {{breadcrumb "List"}}
 
-<Heading @title="List">
-  <ButtonSet>
-    <Form::Input
-      @value={{this.search}}
-      @type="search"
-      @label="Search"
-      @identifier="search"
-      @isInputOnly={{true}}
-      @onChange={{fn (mut this.search)}}
-      placeholder="Search…"
-    />
-    <Button @text="Filter" {{on "click" this.do}} />
-    <Button @text="Sort" {{on "click" this.do}} />
-    <Button @text="Export" {{on "click" this.do}} />
-    <Button @text="Create" @color="primary" {{on "click" this.do}} />
-  </ButtonSet>
-</Heading>
+<Main::Body>
+  <Heading @title="List">
+    <ButtonSet>
+      <Form::Input
+        @value={{this.search}}
+        @type="search"
+        @label="Search"
+        @identifier="search"
+        @isInputOnly={{true}}
+        @onChange={{fn (mut this.search)}}
+        placeholder="Search…"
+      />
+      <Button @text="Filter" {{on "click" this.do}} />
+      <Button @text="Sort" {{on "click" this.do}} />
+      <Button @text="Export" {{on "click" this.do}} />
+      <Button @text="Create" @color="primary" {{on "click" this.do}} />
+    </ButtonSet>
+  </Heading>
 
-<Table
-  @data={{this.users}}
-  @nextText="Next"
-  @previousText="Previous"
-  as |table|
->
-  <table.header as |header|>
-    <header.column @prop="email">
-      Email
-    </header.column>
-    <header.column @prop="firstName">
-      First Name
-    </header.column>
-    <header.column @prop="lastName">
-      Last Name
-    </header.column>
-  </table.header>
-  <table.body />
-</Table>
+  <Table
+    @data={{this.users}}
+    @nextText="Next"
+    @previousText="Previous"
+    as |table|
+  >
+    <table.header as |header|>
+      <header.column @prop="email">
+        Email
+      </header.column>
+      <header.column @prop="firstName">
+        First Name
+      </header.column>
+      <header.column @prop="lastName">
+        Last Name
+      </header.column>
+    </table.header>
+    <table.body />
+  </Table>
+</Main::Body>

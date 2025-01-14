@@ -40,7 +40,7 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     if (target.value.includes('-')) {
       const [optIndex, subOptIndex] = target.value.split('-');
       if (optIndex && subOptIndex) {
-        selected = (options[parseInt(optIndex)] as Group<T>).options[
+        selected = (options as Group<T>[])[parseInt(optIndex)]?.options[
           parseInt(subOptIndex)
         ] as Option<T>;
       }
