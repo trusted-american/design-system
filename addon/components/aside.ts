@@ -1,6 +1,4 @@
 import Component from '@glimmer/component';
-// import { tracked } from '@glimmer/tracking';
-// import { action } from '@ember/object';
 
 export interface AsideSignature {
   Args: {
@@ -18,15 +16,7 @@ export interface AsideSignature {
   };
 }
 
-export default class Aside extends Component<AsideSignature> {
-  // @tracked isCollapsed = false;
-  // @action setTrue() {
-  //   this.isCollapsed = true;
-  // }
-  // @action setFalse() {
-  //   this.isCollapsed = false;
-  // }
-}
+export default class Aside extends Component<AsideSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

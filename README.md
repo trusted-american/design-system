@@ -24,7 +24,13 @@ ember install @trusted-american/design-system
 {{page-title "Title"}}
 {{breadcrumb "Title" route="index"}}
 
-<Aside @title="Title" @logo="/logo.svg" @route="index">
+<Aside
+  @title="Title"
+  @logo="/logo.svg"
+  @route="index"
+  @isCollapsed={{false}}
+  @onChange={{(noop)}}
+>
   <Aside::Item @text="Link 1" @route="index" @icon="house" />
   <Aside::Item @text="Link 2" @route="index" @icon="house" />
   <Aside::Item @text="Link 3" @route="index" @icon="house" />
