@@ -14,3 +14,6 @@
 {{#if @count}}
   <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
 {{/if}}
+{{#if @shortcut}}
+  <kbd>{{@shortcut}}</kbd>
+{{/if}}

@@ -3,7 +3,7 @@
     @route={{@route}}
     @model={{@model}}
     @query={{@query}}
-    class="nav-link {{if @isDisabled 'disabled'}}"
+    class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
     data-test-nav-item
     ...attributes
   >
@@ -20,7 +20,7 @@
   <LinkTo
     @route={{@route}}
     @model={{@model}}
-    class="nav-link {{if @isDisabled 'disabled'}}"
+    class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
     data-test-nav-item
     ...attributes
   >
@@ -36,7 +36,7 @@
 {{else if @route}}
   <LinkTo
     @route={{@route}}
-    class="nav-link {{if @isDisabled 'disabled'}}"
+    class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
     data-test-nav-item
     ...attributes
   >
@@ -52,7 +52,7 @@
 {{else if @query}}
   <LinkTo
     @query={{@query}}
-    class="nav-link {{if @isDisabled 'disabled'}}"
+    class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
     data-test-nav-item
     ...attributes
   >
@@ -68,7 +68,7 @@
 {{else}}
   <a
     href="#"
-    class="nav-link {{if @isDisabled 'disabled'}}"
+    class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
     data-test-nav-item
     ...attributes
   >
