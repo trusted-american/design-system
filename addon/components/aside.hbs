@@ -1,3 +1,13 @@
+{{#if this.isCollapsed}}
+  <Button
+    @text="Toggle menu"
+    @icon="angles-right"
+    @color="none"
+    @isIconOnly={{true}}
+    {{tooltip "Toggle menu" trigger="hover" placement="right"}}
+    {{on "click" this.setFalse}}
+  />
+{{/if}}
 <aside
   class="d-flex flex-column flex-shrink-0 overflow-y-auto border-end gap-3 py-3 ps-3
     {{if this.isCollapsed 'collapsed'}}"
@@ -13,11 +23,11 @@
     </LinkTo>
     <Button
       @text="Toggle menu"
-      @icon="angles-{{if this.isCollapsed 'right' 'left'}}"
+      @icon="angles-left"
       @color="none"
       @isIconOnly={{true}}
       {{tooltip "Toggle menu" trigger="hover" placement="right"}}
-      {{on "click" (fn (mut this.isCollapsed) (not this.isCollapsed))}}
+      {{on "click" this.setTrue}}
     />
   </div>
 

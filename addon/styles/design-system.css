@@ -72,12 +72,13 @@ body > main {
 /* collapsed */
 
 aside.collapsed {
-  width: inherit !important;
+  width: 0;
   min-width: inherit !important;
 }
 
 aside.collapsed .tds-aside-title,
-aside.collapsed .nav-link span {
+aside.collapsed .nav-link span,
+aside.collapsed div button {
   display: none;
 }
 
