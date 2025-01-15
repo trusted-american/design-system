@@ -96,7 +96,7 @@
         @color="none"
         @isIconOnly={{true}}
         {{tooltip "Toggle menu" trigger="hover" placement="right"}}
-        {{on "click" (fn (mut this.isCollapsed) false)}}
+        {{on "click" this.setFalse}}
       />
     </Main::TopHeader>
   {{/if}}
