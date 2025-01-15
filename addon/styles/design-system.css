@@ -74,6 +74,7 @@ body > main {
 aside.collapsed {
   width: 0;
   min-width: inherit !important;
+  padding: 0 !important;
 }
 
 aside.collapsed .tds-aside-title,

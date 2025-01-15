@@ -1,16 +1,6 @@
-{{#if this.isCollapsed}}
-  <Button
-    @text="Toggle menu"
-    @icon="angles-right"
-    @color="none"
-    @isIconOnly={{true}}
-    {{tooltip "Toggle menu" trigger="hover" placement="right"}}
-    {{on "click" this.setFalse}}
-  />
-{{/if}}
 <aside
   class="d-flex flex-column flex-shrink-0 overflow-y-auto border-end gap-3 py-3 ps-3
-    {{if this.isCollapsed 'collapsed'}}"
+    {{if @isCollapsed 'collapsed'}}"
   data-test-aside
 >
   <div class="d-flex gap-3 pe-3">
@@ -27,7 +17,7 @@
       @color="none"
       @isIconOnly={{true}}
       {{tooltip "Toggle menu" trigger="hover" placement="right"}}
-      {{on "click" this.setTrue}}
+      {{on "click" (fn @onChange true)}}
     />
   </div>
 

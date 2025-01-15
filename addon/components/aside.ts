@@ -1,12 +1,14 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+// import { tracked } from '@glimmer/tracking';
+// import { action } from '@ember/object';
 
 export interface AsideSignature {
   Args: {
     title: string;
     logo: string;
     route: string;
+    isCollapsed: boolean;
+    onChange: (isCollapsed: boolean) => void;
   };
   Blocks: {
     header: [];
@@ -17,15 +19,13 @@ export interface AsideSignature {
 }
 
 export default class Aside extends Component<AsideSignature> {
-  @tracked isCollapsed = false;
-
-  @action setTrue() {
-    this.isCollapsed = true;
-  }
-
-  @action setFalse() {
-    this.isCollapsed = false;
-  }
+  // @tracked isCollapsed = false;
+  // @action setTrue() {
+  //   this.isCollapsed = true;
+  // }
+  // @action setFalse() {
+  //   this.isCollapsed = false;
+  // }
 }
 
 declare module '@glint/environment-ember-loose/registry' {
