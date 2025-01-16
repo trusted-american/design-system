@@ -139,14 +139,19 @@
 
             {{else}}
 
-              <Form::Select
+               <Form::PowerSelect
                 @options={{predicate.options}}
                 @selected={{predicate.value}}
                 @label="Value"
                 @identifier="value{{index}}"
                 @isInputOnly={{true}}
-                @onChange={{fn (mut predicate.value)}}
-              />
+                @chooseText=""
+                @searchText=""
+                @onChange={{fn this.change predicate}}
+                as |option|
+              >
+                {{option.label}}
+              </Form::PowerSelect>
 
             {{/if}}
           </ListGroup::Item>
