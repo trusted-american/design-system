@@ -139,9 +139,10 @@
 
             {{else}}
 
-               <Form::PowerSelect
+              <Form::PowerSelect
                 @options={{predicate.options}}
-                @selected={{predicate.value}}
+                @selected={{find-by "value" predicate.value predicate.options}}
+                @searchField="label"
                 @label="Value"
                 @identifier="value{{index}}"
                 @isInputOnly={{true}}
