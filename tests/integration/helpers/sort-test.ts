@@ -12,12 +12,12 @@ module('Integration | Helper | sort', function (hooks) {
 
   // TODO: Replace this with your real tests.
   test('it renders', async function (this: Context, assert) {
-    this.set('inputValue', ['a', 'c', 'b']);
+    this.inputValue = ['a', 'c', 'b'];
 
-    await render(hbs`{{#each (sort this.inputValue) as |value|}}
+    await render<Context>(hbs`{{#each (sort this.inputValue) as |value|}}
     {{value}}
   {{/each}}`);
 
-    assert.dom().hasText('1234');
+    assert.dom().hasText('a b c');
   });
 });
