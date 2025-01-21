@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import type { ListSortSignature } from '@trusted-american/design-system/components/list-sort';
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
 // type Context = ListSortSignature<unknown>['Args'] & TestContext;
@@ -10,17 +9,18 @@ interface Context<T> extends TestContext {
   sortBy: keyof UserModel;
   sortAscending: boolean;
   options: Option<T>[];
+  onChange: (sortBy: keyof UserModel, sortAscending: boolean) => void;
 }
 
 interface UserModel {
   createdAt: Date;
-  modefiedAt: Date;
+  modifiedAt: Date;
 }
 
 module('Integration | Component | list-sort', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (this: Context<string>, assert) {
     this.sortBy = 'createdAt';
     this.sortAscending = false;
     this.options = [
@@ -32,7 +32,7 @@ module('Integration | Component | list-sort', function (hooks) {
       assert.true(sortAscending);
     };
 
-    await render<Context>(hbs`
+    await render<Context<'createdAt' | 'modifiedAt'>>(hbs`
       <ListSort
           @sortBy={{this.sortBy}}
           @sortAscending={{this.sortAscending}}
@@ -41,7 +41,11 @@ module('Integration | Component | list-sort', function (hooks) {
         />
     `);
 
-    assert.dom().hasText('Sort Created Date High to Low Low to High');
+    await this.pauseTest();
+
+    assert
+      .dom()
+      .hasText('Sort Created Date Modified Date High to Low Low to High');
     assert
       .dom('[data-test-list-sort-dropdown] button')
       .doesNotHaveClass('invisible-icon');

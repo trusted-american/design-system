@@ -8,10 +8,10 @@
 <Snippet @name="list-sort.hbs">
   {{! BEGIN-SNIPPET list-sort }}
   <ListSort
-    @sortBy={{@sortBy}}
-    @sortAscending={{true}}
-    @options={{}}
-    @onChange={{@onSort}}
+    @sortBy={{this.sortBy}}
+    @sortAscending={{this.sortAscending}}
+    @options={{this.options}}
+    @onChange={{this.onChange}}
   />
   {{! END-SNIPPET }}
 </Snippet>
