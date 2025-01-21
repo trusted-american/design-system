@@ -33,6 +33,7 @@ Router.map(function () {
     this.route('icon');
     this.route('list-filter');
     this.route('list-group');
+    this.route('list-sort');
     this.route('main');
     this.route('modal');
     this.route('nav');

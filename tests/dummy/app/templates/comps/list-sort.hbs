@@ -1,0 +1,17 @@
+{{page-title "List sort"}}
+{{breadcrumb "List sort"}}
+
+<Heading @title="List sort" />
+
+<Subheading @title="Default" />
+
+<Snippet @name="list-sort.hbs">
+  {{! BEGIN-SNIPPET list-sort }}
+  <ListSort
+    @sortBy={{@sortBy}}
+    @sortAscending={{true}}
+    @options={{}}
+    @onChange={{@onSort}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
