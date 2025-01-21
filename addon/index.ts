@@ -94,6 +94,8 @@ export { default as fromNow } from './helpers/from-now';
 export { default as htmlSafe } from './helpers/html-safe';
 export { default as theme } from './helpers/theme';
 export { default as timestamp } from './helpers/timestamp';
+export { default as phoneNumber } from './helpers/phone-number';
+export { default as sort } from './helpers/sort';
 
 export { default as autoselect } from './modifiers/autoselect';
 export { default as collapse } from './modifiers/collapse';
