@@ -22,6 +22,7 @@ export { default as Heading } from './components/heading';
 export { default as Icon } from './components/icon';
 export { default as ListFilter } from './components/list-filter';
 export { default as ListGroup } from './components/list-group';
+export { default as ListSort } from './components/list-sort';
 export { default as Main } from './components/main';
 export { default as Modal } from './components/modal';
 export { default as Nav } from './components/nav';
@@ -95,7 +96,6 @@ export { default as htmlSafe } from './helpers/html-safe';
 export { default as theme } from './helpers/theme';
 export { default as timestamp } from './helpers/timestamp';
 export { default as phoneNumber } from './helpers/phone-number';
-export { default as sort } from './helpers/sort';
 
 export { default as autoselect } from './modifiers/autoselect';
 export { default as collapse } from './modifiers/collapse';

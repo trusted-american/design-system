@@ -22,6 +22,7 @@ import type Heading from './components/heading';
 import type Icon from './components/icon';
 import type ListFilter from './components/list-filter';
 import type ListGroup from './components/list-group';
+import type ListSort from './components/list-sort';
 import type Main from './components/main';
 import type Modal from './components/modal';
 import type Nav from './components/nav';
@@ -125,6 +126,7 @@ export default interface Registry {
   Icon: typeof Icon;
   ListFilter: typeof ListFilter;
   ListGroup: typeof ListGroup;
+  ListSort: typeof ListSort;
   Main: typeof Main;
   Modal: typeof Modal;
   Nav: typeof Nav;
