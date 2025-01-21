@@ -9,7 +9,7 @@ export default class ApplicationController extends Controller {
 
   @tracked isCollapsed = false;
 
-  @action setFalse() {
+  @action expand() {
     this.isCollapsed = false;
   }
 
