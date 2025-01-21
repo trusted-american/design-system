@@ -17,7 +17,13 @@
   {{breadcrumb "Title" route="application"}}
   {{theme "light"}}
 
-  <Aside @title="Title" @logo="/logo.svg" @route="application">
+  <Aside
+    @title="Title"
+    @logo="/logo.svg"
+    @route="application"
+    @isCollapsed={{false}}
+    @onChange={{(noop)}}
+  >
     <:header>
       Header
     </:header>

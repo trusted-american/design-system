@@ -3,7 +3,13 @@
 
 {{theme this.theme}}
 
-<Aside @title="Design System" @logo="/logo.svg" @route="application">
+<Aside
+  @title="Design System"
+  @logo="/logo.svg"
+  @route="application"
+  @isCollapsed={{this.isCollapsed}}
+  @onChange={{fn (mut this.isCollapsed)}}
+>
   <:default>
     <Aside::Item @text="Home" @route="index" @icon="house" />
     <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps.index">
@@ -82,6 +88,18 @@
 </Aside>
 
 <Main>
+  {{#if this.isCollapsed}}
+    <Main::TopHeader>
+      <Button
+        @text="Toggle menu"
+        @icon="angles-right"
+        @color="none"
+        @isIconOnly={{true}}
+        {{tooltip "Toggle menu" trigger="hover" placement="right"}}
+        {{on "click" this.expand}}
+      />
+    </Main::TopHeader>
+  {{/if}}
   <Main::TopHeader>
     Search
   </Main::TopHeader>
