@@ -11,7 +11,9 @@
       "@trusted-american/design-system": ["addon"],
       "@trusted-american/design-system/*": ["addon/*"],
       "@trusted-american/design-system/test-support": ["addon-test-support"],
-      "@trusted-american/design-system/test-support/*": ["addon-test-support/*"],
+      "@trusted-american/design-system/test-support/*": [
+        "addon-test-support/*"
+      ],
       "*": ["types/*"]
     }
   },
@@ -22,6 +24,16 @@
           "globals": {
             "eq": "===",
             "not-eq": "!==",
+            "and": "&&",
+            "or": "||"
+          }
+        }
+      },
+      "ember-template-imports": {
+        "additionalSpecialForms": {
+          "globals": {
+            "eq": "===",
+            "notEq": "!==",
             "and": "&&",
             "or": "||"
           }

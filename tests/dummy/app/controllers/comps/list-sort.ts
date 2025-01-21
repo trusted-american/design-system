@@ -5,11 +5,12 @@ import { tracked } from '@glimmer/tracking';
 export default class CompsListSortController extends Controller {
   @tracked
   sortBy: 'createdAt' | 'modifiedAt' = 'createdAt';
+
   @tracked
   sortAscending = false;
 
   options = [
-    { label: 'Created DatesortAscendingeatedAt' },
+    { label: 'Created Date', value: 'createdAt' },
     { label: 'Modified Date', value: 'modifiedAt' },
   ];
 

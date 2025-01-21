@@ -9,7 +9,7 @@
     <Dropdown::Item
       @text={{opt.label}}
       @icon="check"
-      class={{if (not-eq opt.value @sortBy) "invisible-icon"}}
+      class={{if (notEq opt.value @sortBy) "invisible-icon"}}
       data-test-sort-by
       {{on "click" (fn @onChange opt.value @sortAscending)}}
     />
@@ -18,14 +18,14 @@
   <Dropdown::Item
     @text="High to Low"
     @icon="check"
-    class={{if (not-eq false @sortAscending) "invisible-icon"}}
+    class={{if (notEq false @sortAscending) "invisible-icon"}}
     data-test-sort-ascending-false
     {{on "click" (fn @onChange @sortBy false)}}
   />
   <Dropdown::Item
     @text="Low to High"
     @icon="check"
-    class={{if (not-eq true @sortAscending) "invisible-icon"}}
+    class={{if (notEq true @sortAscending) "invisible-icon"}}
     data-test-sort-ascending-true
     {{on "click" (fn @onChange @sortBy true)}}
   />
