@@ -269,6 +269,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       this.args.onChange(key, value);
     }
   }
+
+  @action
+  change(predicate: Predicate, opt: Option<T>) {
+    set(predicate, 'value', opt.value);
+  }
 }
 
 declare module '@glint/environment-ember-loose/registry' {

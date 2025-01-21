@@ -2,23 +2,39 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, fillIn, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { selectChoose } from 'ember-power-select/test-support';
 
-import type { ListFilterSignature } from '@trusted-american/design-system/components/list-filter';
+import type {
+  ListFilterSignature,
+  DateRangeQueryParam,
+} from '@trusted-american/design-system/components/list-filter';
 
-type Context = ListFilterSignature<unknown>['Args'] & TestContext;
+interface Props {
+  status?: string;
+  isArchived?: boolean;
+  state: string[];
+  city?: string;
+  createdAt: DateRangeQueryParam;
+}
+
+type Context = ListFilterSignature<unknown>['Args'] & TestContext & Props;
 
 module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    // assert.expect(3 + 5);
+    this.status = undefined;
+    this.isArchived = undefined;
+    this.state = [];
+    this.city = undefined;
+    this.createdAt = [];
 
     this.predicates = [
       {
         type: 'single',
         label: 'Status',
         key: 'status',
-        value: undefined,
+        value: this.status,
         options: [
           { value: 'one', label: 'One' },
           { value: 'two', label: 'Two' },
@@ -29,7 +45,7 @@ module('Integration | Component | list-filter', function (hooks) {
         type: 'single',
         label: 'Archived',
         key: 'isArchived',
-        value: undefined,
+        value: this.isArchived,
         options: [
           { value: true, label: 'True' },
           { value: false, label: 'False' },
@@ -39,7 +55,7 @@ module('Integration | Component | list-filter', function (hooks) {
         type: 'multi',
         label: 'State',
         key: 'state',
-        value: [],
+        value: this.state,
         options: [
           { value: 'az', label: 'AZ' },
           { value: 'ca', label: 'CA' },
@@ -49,18 +65,19 @@ module('Integration | Component | list-filter', function (hooks) {
         type: 'string',
         label: 'City',
         key: 'city',
-        value: undefined,
+        value: this.city,
       },
       {
         type: 'date',
         label: 'Created Date',
         key: 'createdAt',
-        value: [],
+        value: this.createdAt,
       },
     ];
 
-    this.onChange = () => {
-      assert.true(true);
+    this.onChange = (key: string, value: unknown) => {
+      // @ts-expect-error keyof this doesn't work here
+      this[key] = value;
     };
 
     await render<Context>(hbs`
@@ -76,35 +93,84 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.dom('[data-test-list-filter]').hasText('Filter');
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
 
-    //Single Multiple
+    // single
     await click('[data-test-predicate-toggle]:nth-of-type(1)');
-    assert.dom('[data-test-predicate-value]').exists({ count: 1 });
-    assert.dom('li:nth-of-type(2) select').hasValue('0');
+    assert
+      .dom(
+        '[data-test-predicate-value]:nth-of-type(2) [data-test-form-power-select]',
+      )
+      .exists();
+    await selectChoose(
+      '[data-test-predicate-value]:nth-of-type(2) [data-test-form-power-select]',
+      '.ember-power-select-option',
+      1,
+    );
 
-    //Single Binary
+    // single
     await click('[data-test-predicate-toggle]:nth-of-type(2)');
-    assert.dom('[data-test-predicate-value]').exists({ count: 2 });
-    assert.dom('li:nth-of-type(3) select').hasValue('0');
+    assert
+      .dom(
+        '[data-test-predicate-value]:nth-of-type(3) [data-test-form-power-select]',
+      )
+      .exists();
+    await selectChoose(
+      '[data-test-predicate-value]:nth-of-type(3) [data-test-form-power-select]',
+      '.ember-power-select-option',
+      1,
+    );
 
-    //Multi
+    // multi
     await click('[data-test-predicate-toggle]:nth-of-type(3)');
-    assert.dom('[data-test-predicate-value]').exists({ count: 3 });
-    assert.dom('li:nth-of-type(4) div:nth-of-type(1) input').exists();
-    assert.dom('li:nth-of-type(4) div:nth-of-type(2) input').exists();
-    assert.dom('li:nth-of-type(4) div:nth-of-type(3) input').doesNotExist();
+    assert
+      .dom('[data-test-predicate-value]:nth-of-type(4) [data-test-form-check]')
+      .exists({ count: 2 });
+    await click(
+      '[data-test-predicate-value]:nth-of-type(4) [data-test-form-check]:nth-of-type(2) input',
+    );
 
-    //String
+    // string
     await click('[data-test-predicate-toggle]:nth-of-type(4)');
-    assert.dom('[data-test-predicate-value]').exists({ count: 4 });
-    assert.dom('li:nth-of-type(5) input').hasValue('Text');
-    await fillIn('li:nth-of-type(5) input', 'String');
-    assert.dom('li:nth-of-type(5) input').hasValue('String');
+    assert
+      .dom('[data-test-predicate-value]:nth-of-type(5) [data-test-form-input]')
+      .exists();
+    await fillIn(
+      '[data-test-predicate-value]:nth-of-type(5) [data-test-form-input]',
+      'Test',
+    );
 
-    //Date
+    // date
     await click('[data-test-predicate-toggle]:nth-of-type(5)');
-    assert.dom('[data-test-predicate-value]').exists({ count: 5 });
-    assert.dom('li:nth-of-type(6) div input:nth-of-type(1)').exists();
-    assert.dom('li:nth-of-type(6) div div:nth-of-type(1)').hasText('and');
-    assert.dom('li:nth-of-type(6) div input:nth-of-type(2)').exists();
+    assert
+      .dom('[data-test-predicate-value]:nth-of-type(6) [data-test-form-select]')
+      .exists();
+    assert
+      .dom(
+        '[data-test-predicate-value]:nth-of-type(6) div input:nth-of-type(1)',
+      )
+      .exists();
+    assert
+      .dom('[data-test-predicate-value]:nth-of-type(6) div div:nth-of-type(1)')
+      .hasText('and');
+    assert
+      .dom(
+        '[data-test-predicate-value]:nth-of-type(6) div input:nth-of-type(2)',
+      )
+      .exists();
+
+    await click('[data-test-done]');
+
+    assert.strictEqual(this.status, 'two');
+    assert.false(this.isArchived);
+    assert.deepEqual(this.state, ['az', 'ca']);
+    assert.strictEqual(this.city, 'Test');
+    assert.strictEqual(Object.keys(this.createdAt).length, 4);
+
+    await click('[data-test-clear]');
+
+    assert.strictEqual(this.status, undefined);
+    assert.strictEqual(this.isArchived, undefined);
+    assert.deepEqual(this.state, []);
+    assert.strictEqual(this.city, undefined);
+    assert.deepEqual(this.createdAt, []);
   });
 });
