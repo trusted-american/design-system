@@ -1,6 +1,6 @@
 <aside
   class="d-flex flex-column flex-shrink-0 overflow-y-auto border-end gap-3 py-3 ps-3
-    {{if this.isCollapsed 'collapsed'}}"
+    {{if @isCollapsed 'collapsed'}}"
   data-test-aside
 >
   <div class="d-flex gap-3 pe-3">
@@ -8,16 +8,16 @@
       @route={{@route}}
       class="d-flex align-items-center text-reset text-decoration-none flex-grow-1"
     >
-      <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-2" />
+      <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-3" />
       <h5 class="tds-aside-title mb-0">{{@title}}</h5>
     </LinkTo>
     <Button
-      @text="Toggle menu"
-      @icon="angles-{{if this.isCollapsed 'right' 'left'}}"
+      @text="Collapse menu"
+      @icon="angles-left"
       @color="none"
       @isIconOnly={{true}}
-      {{tooltip "Toggle menu" trigger="hover" placement="right"}}
-      {{on "click" (fn (mut this.isCollapsed) (not this.isCollapsed))}}
+      {{tooltip "Collapse menu" trigger="hover"}}
+      {{on "click" (fn @onChange true)}}
     />
   </div>
 

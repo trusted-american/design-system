@@ -27,9 +27,9 @@ body > section {
   grid-area: section;
 }
 
-body > aside {
+aside {
   grid-area: aside;
-  min-width: 19rem;
+  width: 18rem;
 }
 
 aside .nav-link.active {
@@ -72,12 +72,13 @@ body > main {
 /* collapsed */
 
 aside.collapsed {
-  width: inherit !important;
-  min-width: inherit !important;
+  width: 0;
+  padding: 0 !important;
 }
 
 aside.collapsed .tds-aside-title,
-aside.collapsed .nav-link span {
+aside.collapsed .nav-link span,
+aside.collapsed div button {
   display: none;
 }
 

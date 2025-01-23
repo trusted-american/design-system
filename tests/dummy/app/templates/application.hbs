@@ -3,7 +3,13 @@
 
 {{theme this.theme}}
 
-<Aside @title="Design System" @logo="/logo.svg" @route="application">
+<Aside
+  @title="Design System"
+  @logo="/logo.svg"
+  @route="application"
+  @isCollapsed={{this.isCollapsed}}
+  @onChange={{fn (mut this.isCollapsed)}}
+>
   <:default>
     <Aside::Item @text="Home" @route="index" @icon="house" />
     <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps.index">
@@ -83,7 +89,27 @@
 
 <Main>
   <Main::TopHeader>
-    Search
+    <div class="d-flex align-items-center gap-3">
+      {{#if this.isCollapsed}}
+        <Button
+          @text="Expand menu"
+          @icon="angles-right"
+          @color="none"
+          @isIconOnly={{true}}
+          {{tooltip "Expand menu" trigger="hover"}}
+          {{on "click" this.expand}}
+        />
+      {{/if}}
+      <Form::Input
+        @value={{this.query}}
+        @type="search"
+        @label="Search"
+        @identifier="search"
+        @isInputOnly={{true}}
+        @onChange={{fn (mut this.query)}}
+        placeholder="Search"
+      />
+    </div>
   </Main::TopHeader>
   <Main::TopHeader>
     <BreadcrumbTrail />
