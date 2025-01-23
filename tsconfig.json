@@ -28,5 +28,8 @@
       "@trusted-american/design-system/test-support/*": ["addon-test-support/*"],
       "*": ["types/*"]
     }
-  }
+  },
+  "types": [
+    "ember-source/types"
+  ]
 }
