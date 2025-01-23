@@ -45,7 +45,8 @@ const tooltip = modifier<Element, [string], Options>(
         element.removeEventListener('hidden.bs.tooltip', onHidden);
       }
 
-      tooltip.hide();
+      // TODO: https://github.com/twbs/bootstrap/issues/37474
+      // tooltip.hide();
       tooltip.dispose();
     };
   },

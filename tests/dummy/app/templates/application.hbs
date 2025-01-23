@@ -92,11 +92,11 @@
     <div class="d-flex align-items-center gap-3">
       {{#if this.isCollapsed}}
         <Button
-          @text="Toggle menu"
+          @text="Expand menu"
           @icon="angles-right"
           @color="none"
           @isIconOnly={{true}}
-          {{tooltip "Toggle menu" trigger="hover" placement="right"}}
+          {{tooltip "Expand menu" trigger="hover"}}
           {{on "click" this.expand}}
         />
       {{/if}}

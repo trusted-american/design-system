@@ -12,11 +12,11 @@
       <h5 class="tds-aside-title mb-0">{{@title}}</h5>
     </LinkTo>
     <Button
-      @text="Toggle menu"
+      @text="Collapse menu"
       @icon="angles-left"
       @color="none"
       @isIconOnly={{true}}
-      {{tooltip "Toggle menu" trigger="hover" placement="right"}}
+      {{tooltip "Collapse menu" trigger="hover"}}
       {{on "click" (fn @onChange true)}}
     />
   </div>
