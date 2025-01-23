@@ -28,26 +28,13 @@ declare module '@glint/environment-ember-loose/registry' {
       EmberPowerSelectRegistry,
       EmberShikiRegistry,
       EmberTruthHelpersRegistry {
-    // @fortawesome/ember-fontawesome
     FaIcon: typeof FaIcon;
-
-    // ember-cli-clipboard
     CopyButton: typeof CopyButton;
-
-    // ember-cli-showdown
     MarkdownToHtml: typeof MarkdownToHtml;
-
-    // ember-code-snippet
     'get-code-snippet': typeof GetCodeSnippet;
-
-    // ember-pell
     PellEditor: typeof PellEditor;
-
-    // ember-power-select-with-create
     PowerSelectWithCreate: typeof PowerSelectWithCreate;
     PowerSelectMultipleWithCreate: typeof PowerSelectMultipleWithCreate;
-
-    // ember-yeti-table
     YetiTable: typeof YetiTable;
   }
 }

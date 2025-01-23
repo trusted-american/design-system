@@ -5,9 +5,9 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/trusted-american/design-system",
   "license": "MIT",
-  "author": "",
+  "author": "Trusted American Insurance Agency",
   "typesVersions": {
     "*": {
       "test-support": [
@@ -103,10 +103,10 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-code-snippet": "^3.0.0",
-    "ember-load-initializers": "^2.1.2",
+    "ember-load-initializers": "^3.0.1",
     "ember-page-title": "^8.2.3",
     "ember-qunit": "^8.1.1",
-    "ember-resolver": "^11.0.1",
+    "ember-resolver": "^13.1.0",
     "ember-shiki": "^0.3.0",
     "ember-source": "~6.1.0",
     "ember-source-channel-url": "^3.0.0",
@@ -125,7 +125,7 @@
     "qunit-dom": "^3.4.0",
     "rimraf": "^6.0.1",
     "stylelint": "^16.13.2",
-    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard": "^37.0.0",
     "stylelint-prettier": "^5.0.2",
     "typescript": "^5.7.3",
     "webpack": "^5.97.1"
