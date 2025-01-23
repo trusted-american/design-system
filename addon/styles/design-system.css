@@ -146,9 +146,11 @@ aside.collapsed nav .fa-fw {
   background-position: right 0.75rem center;
   background-size: 16px 12px;
   border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
 }
 
 .ember-power-select-trigger[aria-disabled="true"] {
+  background-color: var(--bs-secondary-bg);
   cursor: default;
 }
 
