@@ -49,19 +49,18 @@
           >
 
             {{#if (eq "date" predicate.type)}}
-              {{! TODO: string }}
               <Form::Select
                 @options={{array
-                  (hash value="inTheLast" label="is in the last")
-                  (hash value="equals" label="is equal to")
-                  (hash value="between" label="is between")
-                  (hash value="isAfter" label="is after")
-                  (hash value="isAfterOrOn" label="is on or after")
-                  (hash value="isBefore" label="is before")
-                  (hash value="isBeforeOrOn" label="is before or on")
+                  (hash value="inTheLast" label=@inTheLastText)
+                  (hash value="equals" label=@equalsText)
+                  (hash value="between" label=@betweenText)
+                  (hash value="isAfter" label=@isAfterText)
+                  (hash value="isAfterOrOn" label=@isAfterOrOnText)
+                  (hash value="isBefore" label=@isBeforeText)
+                  (hash value="isBeforeOrOn" label=@isBeforeOrOnText)
                 }}
                 @selected={{predicate.mode}}
-                @label="Mode"
+                @label={{@modeText}}
                 @identifier="mode{{index}}"
                 @isInputOnly={{true}}
                 @onChange={{fn (mut predicate.mode)}}
@@ -72,7 +71,7 @@
                 {{#if (eq "inTheLast" predicate.mode)}}
                   <Form::NumberInput
                     @value={{predicate.valueA}}
-                    @label="Value A"
+                    @label={{@valueAText}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
@@ -81,11 +80,11 @@
                   />
                   <Form::Select
                     @options={{array
-                      (hash value="days" label="Days")
-                      (hash value="months" label="Months")
+                      (hash value="days" label=@daysText)
+                      (hash value="months" label=@monthsText)
                     }}
                     @selected={{predicate.valueB}}
-                    @label="Value B"
+                    @label={{@valueBText}}
                     @identifier="valueB{{index}}"
                     @isInputOnly={{true}}
                     @onChange={{fn (mut predicate.valueB)}}
@@ -93,7 +92,7 @@
                 {{else}}
                   <Form::DateInput
                     @value={{predicate.valueA}}
-                    @label="Value A"
+                    @label={{@valueAText}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
@@ -101,10 +100,10 @@
                     @onChange={{fn (mut predicate.valueA)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
-                    <div>and</div>
+                    <div>{{@andText}}</div>
                     <Form::DateInput
                       @value={{predicate.valueB}}
-                      @label="Value B"
+                      @label={{@valueBText}}
                       @identifier="valueB{{index}}"
                       @isRequired={{true}}
                       @isInputOnly={{true}}
@@ -130,7 +129,7 @@
 
               <Form::Input
                 @value={{predicate.value}}
-                @label="Value"
+                @label={{@valueText}}
                 @identifier="value{{index}}"
                 @isInputOnly={{true}}
                 @onChange={{fn (mut predicate.value)}}
@@ -143,11 +142,11 @@
                 @options={{predicate.options}}
                 @selected={{find-by "value" predicate.value predicate.options}}
                 @searchField="label"
-                @label="Value"
+                @label={{@valueText}}
                 @identifier="value{{index}}"
                 @isInputOnly={{true}}
-                @chooseText="Choose…"
-                @searchText="Search…"
+                @chooseText={{@chooseText}}
+                @searchText={{@searchText}}
                 @onChange={{fn this.change predicate}}
                 as |option|
               >

@@ -83,9 +83,25 @@ module('Integration | Component | list-filter', function (hooks) {
     await render<Context>(hbs`
       <ListFilter
         @predicates={{this.predicates}}
-        @text='Filter'
-        @clearText='Clear'
-        @doneText='Done'
+        @text="Filter"
+        @clearText="Clear"
+        @doneText="Done"
+        @modeText="Mode"
+        @inTheLastText="is in the last"
+        @equalsText="is equal to"
+        @betweenText="is between"
+        @isAfterText="is after"
+        @isAfterOrOnText="is on or after"
+        @isBeforeText="is before"
+        @isBeforeOrOnText="is before or on"
+        @valueText="Value"
+        @valueAText="Value A"
+        @valueBText="Value B"
+        @andText="and"
+        @daysText="Days"
+        @monthsText="Months"
+        @chooseText="Choose…"
+        @searchText="Search…"
         @onChange={{this.onChange}}
       />
     `);

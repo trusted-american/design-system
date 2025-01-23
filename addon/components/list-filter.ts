@@ -79,6 +79,22 @@ export interface ListFilterSignature<T> {
     text: string;
     clearText: string;
     doneText: string;
+    modeText: string;
+    inTheLastText: string;
+    equalsText: string;
+    betweenText: string;
+    isAfterText: string;
+    isAfterOrOnText: string;
+    isBeforeText: string;
+    isBeforeOrOnText: string;
+    valueText: string;
+    valueAText: string;
+    valueBText: string;
+    andText: string;
+    daysText: string;
+    monthsText: string;
+    chooseText: string;
+    searchText: string;
     onChange: (key: string, value: unknown) => void;
   };
 }
