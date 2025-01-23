@@ -206,9 +206,14 @@ aside.collapsed nav .fa-fw {
   padding: 0.25rem 1rem;
 }
 
+.ember-power-select-option[aria-current="true"] {
+  color: var(--bs-body-color);
+  background-color: var(--bs-tertiary-bg);
+}
+
 .ember-power-select-option[aria-selected="true"] {
   color: var(--bs-white);
-  background-color: var(--bs-primary) !important;
+  background-color: var(--bs-primary);
 }
 
 .ember-power-select-option[aria-selected="true"] .text-secondary {
