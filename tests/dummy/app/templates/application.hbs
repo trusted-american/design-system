@@ -88,20 +88,28 @@
 </Aside>
 
 <Main>
-  {{#if this.isCollapsed}}
-    <Main::TopHeader>
-      <Button
-        @text="Toggle menu"
-        @icon="angles-right"
-        @color="none"
-        @isIconOnly={{true}}
-        {{tooltip "Toggle menu" trigger="hover" placement="right"}}
-        {{on "click" this.expand}}
-      />
-    </Main::TopHeader>
-  {{/if}}
   <Main::TopHeader>
-    Search
+    <div class="d-flex align-items-center gap-3">
+      {{#if this.isCollapsed}}
+        <Button
+          @text="Toggle menu"
+          @icon="angles-right"
+          @color="none"
+          @isIconOnly={{true}}
+          {{tooltip "Toggle menu" trigger="hover" placement="right"}}
+          {{on "click" this.expand}}
+        />
+      {{/if}}
+      <Form::Input
+        @value={{this.query}}
+        @type="search"
+        @label="Search"
+        @identifier="search"
+        @isInputOnly={{true}}
+        @onChange={{fn (mut this.query)}}
+        placeholder="Search"
+      />
+    </div>
   </Main::TopHeader>
   <Main::TopHeader>
     <BreadcrumbTrail />

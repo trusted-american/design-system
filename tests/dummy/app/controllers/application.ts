@@ -8,6 +8,7 @@ export default class ApplicationController extends Controller {
   @tracked theme: Theme = 'light';
 
   @tracked isCollapsed = false;
+  @tracked query = '';
 
   @action expand() {
     this.isCollapsed = false;

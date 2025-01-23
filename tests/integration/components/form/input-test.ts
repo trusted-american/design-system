@@ -33,7 +33,7 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('[data-test-form-error]').exists();
   });
 
-  test('it default to text type', async function (this: Context, assert) {
+  test('it defaults to text type', async function (this: Context, assert) {
     this.value = '';
 
     await render<Context>(hbs`

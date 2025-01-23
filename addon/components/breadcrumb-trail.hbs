@@ -7,15 +7,11 @@
             <LinkTo
               @route="{{get breadcrumb.data 'route'}}"
               @model={{get breadcrumb.data "model"}}
-              class="text-decoration-none"
             >
               {{breadcrumb.title}}
             </LinkTo>
           {{else}}
-            <LinkTo
-              @route="{{get breadcrumb.data 'route'}}"
-              class="text-decoration-none"
-            >
+            <LinkTo @route="{{get breadcrumb.data 'route'}}">
               {{breadcrumb.title}}
             </LinkTo>
           {{/if}}
