@@ -10,10 +10,10 @@ import type EmberPowerSelectRegistry from 'ember-power-select/template-registry'
 import type EmberShikiRegistry from 'ember-shiki/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
-import type { HelperLike } from '@glint/template';
 import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
+import type GetCodeSnippet from 'ember-code-snippet/helpers/get-code-snippet';
 import type PellEditor from 'ember-pell/components/pell-editor';
 import type PowerSelectWithCreate from 'ember-power-select-with-create/components/power-select-with-create';
 import type PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
@@ -38,13 +38,7 @@ declare module '@glint/environment-ember-loose/registry' {
     MarkdownToHtml: typeof MarkdownToHtml;
 
     // ember-code-snippet
-    'get-code-snippet': HelperLike<{
-      Args: {
-        Positional: [string];
-        Named: { unindent?: boolean };
-      };
-      Return: { language: string; source: unkown };
-    }>;
+    'get-code-snippet': typeof GetCodeSnippet;
 
     // ember-pell
     PellEditor: typeof PellEditor;
