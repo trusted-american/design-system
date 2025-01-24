@@ -11,15 +11,16 @@ module('Integration | Component | pagination', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    this.curPage = 0;
+    this.page = 0;
+
     await render<Context>(hbs`
       <Pagination
-        @curPage={{this.curPage}}
+        @page={{this.page}}
         @pageSize={{3}}
         @totalItems={{9}}
         @nextText='Next'
         @previousText='Previous'
-        @onChange={{fn (mut this.curPage)}}
+        @onChange={{fn (mut this.page)}}
       />
     `);
 
@@ -30,15 +31,15 @@ module('Integration | Component | pagination', function (hooks) {
     assert.dom('ul li:nth-of-type(4)').hasText('3');
     assert.dom('ul li:nth-of-type(5)').hasText('Next');
 
-    assert.deepEqual(this.curPage, 0);
+    assert.deepEqual(this.page, 0);
 
     await click('ul li:nth-of-type(3) a');
-    assert.deepEqual(this.curPage, 1);
+    assert.deepEqual(this.page, 1);
 
     await click('ul li:nth-of-type(5) a');
-    assert.deepEqual(this.curPage, 2);
+    assert.deepEqual(this.page, 2);
 
     await click('ul li:nth-of-type(1) a');
-    assert.deepEqual(this.curPage, 1);
+    assert.deepEqual(this.page, 1);
   });
 });

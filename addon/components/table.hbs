@@ -22,18 +22,26 @@
                 <strong>{{@data.length}}</strong>
                 results
               </span>
-              <ButtonSet class="justify-content-end">
-                <Button
-                  @text={{@previousText}}
-                  disabled={{table.paginationData.isFirstPage}}
-                  {{on "click" table.actions.previousPage}}
-                />
-                <Button
-                  @text={{@nextText}}
-                  disabled={{table.paginationData.isLastPage}}
-                  {{on "click" table.actions.nextPage}}
-                />
-              </ButtonSet>
+              <nav aria-label="Local pagination">
+                <ul class="pagination mb-0">
+                  <li class="page-item">
+                    <a
+                      class="page-link
+                        {{if table.paginationData.isFirstPage 'disabled'}}"
+                      href="#"
+                      {{on "click" table.actions.previousPage}}
+                    >{{@previousText}}</a>
+                  </li>
+                  <li class="page-item">
+                    <a
+                      class="page-link
+                        {{if table.paginationData.isLastPage 'disabled'}}"
+                      href="#"
+                      {{on "click" table.actions.nextPage}}
+                    >{{@nextText}}</a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </row.cell>
         </foot.row>
@@ -43,40 +51,38 @@
 </div>
 
 {{#if (eq "cursor" @pagination)}}
-  <ButtonSet class="justify-content-end mt-3">
-    {{#if @onPrevious}}
-      <Button
-        @text={{@previousText}}
-        disabled={{not @canPrevious}}
-        {{on "click" @onPrevious}}
-      />
-    {{/if}}
-    {{#if @onNext}}
-      <Button
-        @text={{@nextText}}
-        disabled={{not @canNext}}
-        {{on "click" @onNext}}
-      />
-    {{/if}}
-  </ButtonSet>
+  <nav aria-label="Cursor pagination">
+    <ul class="pagination justify-content-end mt-3 mb-0">
+      {{#if @onPrevious}}
+        <li class="page-item">
+          <a
+            class="page-link {{unless @canPrevious 'disabled'}}"
+            href="#"
+            {{on "click" @onPrevious}}
+          >{{@previousText}}</a>
+        </li>
+      {{/if}}
+      {{#if @onNext}}
+        <li class="page-item">
+          <a
+            class="page-link {{unless @canNext 'disabled'}}"
+            href="#"
+            {{on "click" @onNext}}
+          >{{@nextText}}</a>
+        </li>
+      {{/if}}
+    </ul>
+  </nav>
 {{else if (eq "offset" @pagination)}}
-  <div class="d-flex justify-content-between mt-3">
-    <span>
-      Viewing
-      <strong>{{this.offsetStart}}-{{this.offsetEnd}}</strong>
-      of
-      <strong>{{@totalItems}}</strong>
-      results
-    </span>
-    {{#if (and (or @page (eq 0 @page)) @totalItems @onChangePage)}}
-      <Pagination
-        @curPage={{@page}}
-        @pageSize={{20}}
-        @totalItems={{@totalItems}}
-        @nextText={{@nextText}}
-        @previousText={{@previousText}}
-        @onChange={{@onChangePage}}
-      />
-    {{/if}}
-  </div>
+  {{#if (and (or @page (eq 0 @page)) @totalItems @onChangePage)}}
+    <Pagination
+      @page={{@page}}
+      @pageSize={{20}}
+      @totalItems={{@totalItems}}
+      @nextText={{@nextText}}
+      @previousText={{@previousText}}
+      @onChange={{@onChangePage}}
+      class="mt-3"
+    />
+  {{/if}}
 {{/if}}
