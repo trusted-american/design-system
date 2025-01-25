@@ -3,14 +3,14 @@ import Component from '@glimmer/component';
 
 export interface PaginationSignature {
   Args: {
-    curPage: number;
+    page: number;
     pageSize: number;
     totalItems: number;
     nextText: string;
     previousText: string;
-    onChange: (curPage: number) => void;
+    onChange: (page: number) => void;
   };
-  Element: HTMLElement;
+  Element: HTMLDivElement;
 }
 
 export default class Pagination extends Component<PaginationSignature> {
@@ -19,24 +19,35 @@ export default class Pagination extends Component<PaginationSignature> {
     return new Array(num) as number[];
   }
 
-  get canPrev(): boolean {
-    return this.args.curPage > 0;
-  }
-
   get canNext(): boolean {
-    return this.args.curPage < this.pages.length - 1;
+    return this.args.page < this.pages.length - 1;
   }
 
-  @action
-  previous(event: Event) {
-    event.preventDefault();
-    this.args.onChange(this.args.curPage - 1);
+  get canPrevious(): boolean {
+    return this.args.page > 0;
+  }
+
+  get pageStart(): number {
+    return 1 + this.args.page * this.args.pageSize;
+  }
+
+  get pageEnd(): number {
+    return Math.min(
+      this.pageStart + this.args.pageSize - 1,
+      this.args.totalItems,
+    );
   }
 
   @action
   next(event: Event) {
     event.preventDefault();
-    this.args.onChange(this.args.curPage + 1);
+    this.args.onChange(this.args.page + 1);
+  }
+
+  @action
+  previous(event: Event) {
+    event.preventDefault();
+    this.args.onChange(this.args.page - 1);
   }
 
   @action

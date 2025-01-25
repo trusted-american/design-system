@@ -1,29 +1,39 @@
-<nav data-test-pagination ...attributes>
-  <ul class="pagination mb-0">
-    <li class="page-item {{unless this.canPrev 'disabled'}}">
-      <a
-        class="page-link"
-        href="#"
-        data-test-previous
-        {{on "click" this.previous}}
-      >{{@previousText}}</a>
-    </li>
-    {{#each this.pages as |page index|}}
-      <li class="page-item {{if (eq @curPage index) 'active'}}">
+<div class="d-flex justify-content-between align-items-center" ...attributes>
+  <span>
+    {{! TODO: string }}
+    Viewing
+    <strong>{{this.pageStart}}-{{this.pageEnd}}</strong>
+    of
+    <strong>{{@totalItems}}</strong>
+    results
+  </span>
+  <nav data-test-pagination>
+    <ul class="pagination mb-0">
+      <li class="page-item {{unless this.canPrevious 'disabled'}}">
         <a
           class="page-link"
           href="#"
-          {{on "click" (fn this.change index)}}
-        >{{inc index}}</a>
+          data-test-previous
+          {{on "click" this.previous}}
+        >{{@previousText}}</a>
       </li>
-    {{/each}}
-    <li class="page-item {{unless this.canNext 'disabled'}}">
-      <a
-        class="page-link"
-        href="#"
-        data-test-next
-        {{on "click" this.next}}
-      >{{@nextText}}</a>
-    </li>
-  </ul>
-</nav>
+      {{#each this.pages as |page index|}}
+        <li class="page-item {{if (eq @page index) 'active'}}">
+          <a
+            class="page-link"
+            href="#"
+            {{on "click" (fn this.change index)}}
+          >{{inc index}}</a>
+        </li>
+      {{/each}}
+      <li class="page-item {{unless this.canNext 'disabled'}}">
+        <a
+          class="page-link"
+          href="#"
+          data-test-next
+          {{on "click" this.next}}
+        >{{@nextText}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>

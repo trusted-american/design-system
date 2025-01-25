@@ -10,7 +10,8 @@ export default class ApplicationController extends Controller {
   @tracked isCollapsed = false;
   @tracked query = '';
 
-  @action expand() {
+  @action
+  expand() {
     this.isCollapsed = false;
   }
 
