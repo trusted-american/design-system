@@ -60,6 +60,53 @@ export type YetiTableFooter = ComponentLike<{
   Element: HTMLElement;
 }>;
 
+export type YetiTableTfoot = ComponentLike<{
+  Blocks: {
+    default: [
+      {
+        row: ComponentLike<{
+          Blocks: {
+            default: [
+              {
+                cell: ComponentLike<{
+                  Args: {
+                    visible?: boolean;
+                  };
+                  Blocks: {
+                    default: [];
+                  };
+                  Element: HTMLElement;
+                }>;
+              },
+            ];
+          };
+          Element: HTMLElement;
+        }>;
+      },
+    ];
+  };
+  Element: HTMLElement;
+}>;
+
+export interface PaginationData {
+  isFirstPage: boolean;
+  isLastPage: boolean;
+  pageEnd: number;
+  pageNumber: number;
+  pageSize: number;
+  pageStart: number;
+  totalPages: undefined;
+  totalRows: number;
+}
+
+export interface Actions {
+  changePageSize: () => void;
+  goToPage: () => void;
+  nextPage: () => void;
+  previousPage: () => void;
+  reloadData: () => void;
+}
+
 export interface TableSignature<T> {
   Args: {
     data: T[];
@@ -81,23 +128,9 @@ export interface TableSignature<T> {
         header: YetiTableHeader;
         body: YetiTableBody<T>;
         footer: YetiTableFooter;
-        paginationData: {
-          isFirstPage: boolean;
-          isLastPage: boolean;
-          pageEnd: number;
-          pageNumber: number;
-          pageSize: number;
-          pageStart: number;
-          totalPages: undefined;
-          totalRows: number;
-        };
-        actions: {
-          changePageSize: () => void;
-          goToPage: () => void;
-          nextPage: () => void;
-          previousPage: () => void;
-          reloadData: () => void;
-        };
+        tfoot: YetiTableTfoot;
+        paginationData: PaginationData;
+        actions: Actions;
       },
     ];
   };
