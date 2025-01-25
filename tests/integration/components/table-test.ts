@@ -188,8 +188,8 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
     assert.dom('thead tr th:nth-of-type(2)').hasText('First Name');
     assert.dom('thead tr th:nth-of-type(3)').hasText('Last Name');
-    assert.dom('button:nth-of-type(1)').hasText('Previous').isDisabled();
-    assert.dom('button:nth-of-type(2)').hasText('Next');
+    assert.dom('[data-test-previous]').hasText('Previous').hasClass('disabled');
+    assert.dom('[data-test-next]').hasText('Next');
 
     assert
       .dom('tbody tr:nth-of-type(1) td:nth-of-type(1)')
@@ -197,7 +197,7 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(2)').hasText('A');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(3)').hasText('a');
 
-    await click('button:nth-of-type(2)');
+    await click('[data-test-next]');
 
     assert
       .dom('tbody tr:nth-of-type(1) td:nth-of-type(1)')
@@ -205,19 +205,19 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(2)').hasText('K');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(3)').hasText('k');
 
-    await click('button:nth-of-type(2)');
+    await click('[data-test-next]');
 
     assert
       .dom('tbody tr:nth-of-type(1) td:nth-of-type(1)')
       .hasText('u@example.com');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(2)').hasText('U');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(3)').hasText('u');
-    assert.dom('button:nth-of-type(2)').isDisabled();
+    assert.dom('[data-test-next]').hasClass('disabled');
 
-    await click('button:nth-of-type(1)');
+    await click('[data-test-previous]');
 
-    assert.dom('button:nth-of-type(1)').isEnabled();
-    assert.dom('button:nth-of-type(2)').isEnabled();
+    assert.dom('[data-test-previous]').doesNotHaveClass('disabled');
+    assert.dom('[data-test-next]').doesNotHaveClass('disabled');
   });
 
   test('it renders cursor pagination', async function (this: Context, assert) {

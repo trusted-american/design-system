@@ -29,6 +29,7 @@
                       class="page-link
                         {{if table.paginationData.isFirstPage 'disabled'}}"
                       href="#"
+                      data-test-previous
                       {{on "click" table.actions.previousPage}}
                     >{{@previousText}}</a>
                   </li>
@@ -37,6 +38,7 @@
                       class="page-link
                         {{if table.paginationData.isLastPage 'disabled'}}"
                       href="#"
+                      data-test-next
                       {{on "click" table.actions.nextPage}}
                     >{{@nextText}}</a>
                   </li>

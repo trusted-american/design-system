@@ -24,7 +24,7 @@ module('Integration | Component | pagination', function (hooks) {
       />
     `);
 
-    assert.dom().hasText('Previous 1 2 3 Next');
+    assert.dom().hasText('Viewing 1-3 of 9 results Previous 1 2 3 Next');
     assert.dom('ul li:nth-of-type(1)').hasText('Previous');
     assert.dom('ul li:nth-of-type(2)').hasText('1');
     assert.dom('ul li:nth-of-type(3)').hasText('2');
