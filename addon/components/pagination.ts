@@ -70,22 +70,22 @@ export default class Pagination extends Component<PaginationSignature> {
   next(event: Event) {
     event.preventDefault();
 
-    if (!('pageSize' in this.args)) {
-      return;
+    if ('pageSize' in this.args) {
+      this.args.onChange(this.args.page + 1);
+    } else {
+      this.args.onNext();
     }
-
-    this.args.onChange(this.args.page + 1);
   }
 
   @action
   previous(event: Event) {
     event.preventDefault();
 
-    if (!('pageSize' in this.args)) {
-      return;
+    if ('pageSize' in this.args) {
+      this.args.onChange(this.args.page - 1);
+    } else {
+      this.args.onPrevious();
     }
-
-    this.args.onChange(this.args.page - 1);
   }
 
   @action
