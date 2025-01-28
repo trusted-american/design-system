@@ -1,5 +1,5 @@
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 import type { ComponentLike } from '@glint/template';
 
