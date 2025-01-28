@@ -61,6 +61,53 @@ export type YetiTableFooter = ComponentLike<{
   Element: HTMLElement;
 }>;
 
+export type YetiTableTfoot = ComponentLike<{
+  Blocks: {
+    default: [
+      {
+        row: ComponentLike<{
+          Blocks: {
+            default: [
+              {
+                cell: ComponentLike<{
+                  Args: {
+                    visible?: boolean;
+                  };
+                  Blocks: {
+                    default: [];
+                  };
+                  Element: HTMLElement;
+                }>;
+              },
+            ];
+          };
+          Element: HTMLElement;
+        }>;
+      },
+    ];
+  };
+  Element: HTMLElement;
+}>;
+
+export interface PaginationData {
+  isFirstPage: boolean;
+  isLastPage: boolean;
+  pageEnd: number;
+  pageNumber: number;
+  pageSize: number;
+  pageStart: number;
+  totalPages: undefined;
+  totalRows: number;
+}
+
+export interface Actions {
+  changePageSize: () => void;
+  goToPage: (page: number) => void;
+  nextPage: () => void;
+  previousPage: () => void;
+  reloadData: () => void;
+}
+
 export interface TableSignature<T> {
   Args: {
     data: T[];
@@ -82,23 +129,9 @@ export interface TableSignature<T> {
         header: YetiTableHeader;
         body: YetiTableBody<T>;
         footer: YetiTableFooter;
-        paginationData: {
-          isFirstPage: boolean;
-          isLastPage: boolean;
-          pageEnd: number;
-          pageNumber: number;
-          pageSize: number;
-          pageStart: number;
-          totalPages: undefined;
-          totalRows: number;
-        };
-        actions: {
-          changePageSize: () => void;
-          goToPage: () => void;
-          nextPage: () => void;
-          previousPage: () => void;
-          reloadData: () => void;
-        };
+        tfoot: YetiTableTfoot;
+        paginationData: PaginationData;
+        actions: Actions;
       },
     ];
   };
@@ -107,19 +140,8 @@ export interface TableSignature<T> {
 
 export default class Table<T> extends Component<TableSignature<T>> {
   @action
-  next(event: Event) {
-    event.preventDefault();
-    if (this.args.onNext) {
-      this.args.onNext();
-    }
-  }
-
-  @action
-  previous(event: Event) {
-    event.preventDefault();
-    if (this.args.onPrevious) {
-      this.args.onPrevious();
-    }
+  goToPage(actions: Actions, page: number): void {
+    actions.goToPage(page + 1);
   }
 }
 

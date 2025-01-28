@@ -16,6 +16,7 @@ module('Integration | Component | pagination', function (hooks) {
     await render<Context>(hbs`
       <Pagination
         @page={{this.page}}
+        {{! @glint-expect-error }}
         @pageSize={{3}}
         @totalItems={{9}}
         @nextText='Next'

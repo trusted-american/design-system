@@ -13,38 +13,15 @@
       <table.tfoot as |foot|>
         <foot.row as |row|>
           <row.cell colspan={{table.columns.length}}>
-            <div class="d-flex justify-content-between align-items-center">
-              <span>
-                Viewing
-                <strong
-                >{{table.paginationData.pageStart}}-{{table.paginationData.pageEnd}}</strong>
-                of
-                <strong>{{@data.length}}</strong>
-                results
-              </span>
-              <nav aria-label="Local pagination">
-                <ul class="pagination mb-0">
-                  <li class="page-item">
-                    <a
-                      class="page-link
-                        {{if table.paginationData.isFirstPage 'disabled'}}"
-                      href="#"
-                      data-test-previous
-                      {{on "click" table.actions.previousPage}}
-                    >{{@previousText}}</a>
-                  </li>
-                  <li class="page-item">
-                    <a
-                      class="page-link
-                        {{if table.paginationData.isLastPage 'disabled'}}"
-                      href="#"
-                      data-test-next
-                      {{on "click" table.actions.nextPage}}
-                    >{{@nextText}}</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            <Pagination
+              @page={{dec table.paginationData.pageNumber}}
+              {{! @glint-expect-error }}
+              @pageSize={{10}}
+              @totalItems={{@data.length}}
+              @nextText={{@nextText}}
+              @previousText={{@previousText}}
+              @onChange={{fn this.goToPage table.actions}}
+            />
           </row.cell>
         </foot.row>
       </table.tfoot>
@@ -53,28 +30,25 @@
 </div>
 
 {{#if (eq "cursor" @pagination)}}
-  <nav aria-label="Cursor pagination">
-    <ul class="pagination justify-content-end mt-3 mb-0">
-      {{#if @onPrevious}}
-        <li class="page-item">
-          <a
-            class="page-link {{unless @canPrevious 'disabled'}}"
-            href="#"
-            {{on "click" this.previous}}
-          >{{@previousText}}</a>
-        </li>
-      {{/if}}
-      {{#if @onNext}}
-        <li class="page-item">
-          <a
-            class="page-link {{unless @canNext 'disabled'}}"
-            href="#"
-            {{on "click" this.next}}
-          >{{@nextText}}</a>
-        </li>
-      {{/if}}
-    </ul>
-  </nav>
+  {{#if
+    (and
+      (not-eq undefined @canNext)
+      (not-eq undefined @canPrevious)
+      @onNext
+      @onPrevious
+    )
+  }}
+    <div class="d-flex justify-content-end mt-3 mb-0">
+      <Pagination
+        @canNext={{@canNext}}
+        @canPrevious={{@canPrevious}}
+        @nextText={{@nextText}}
+        @previousText={{@previousText}}
+        @onNext={{@onNext}}
+        @onPrevious={{@onPrevious}}
+      />
+    </div>
+  {{/if}}
 {{else if (eq "offset" @pagination)}}
   {{#if (and (or @page (eq 0 @page)) @totalItems @onChangePage)}}
     <Pagination
