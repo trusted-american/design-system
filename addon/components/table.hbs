@@ -53,30 +53,14 @@
 </div>
 
 {{#if (eq "cursor" @pagination)}}
-  <ButtonSet class="justify-content-end mt-3">
-    {{#if @onPrevious}}
-      <Button
-        @text={{@previousText}}
-        disabled={{not @canPrevious}}
-        {{on "click" @onPrevious}}
-      />
-    {{/if}}
-    {{#if @onNext}}
-      <Button
-        @text={{@nextText}}
-        disabled={{not @canNext}}
-        {{on "click" @onNext}}
-      />
-    {{/if}}
-  </ButtonSet>
-  {{!-- <nav aria-label="Cursor pagination">
+  <nav aria-label="Cursor pagination">
     <ul class="pagination justify-content-end mt-3 mb-0">
       {{#if @onPrevious}}
         <li class="page-item">
           <a
             class="page-link {{unless @canPrevious 'disabled'}}"
             href="#"
-            {{on "click" @onPrevious}}
+            {{on "click" this.previous}}
           >{{@previousText}}</a>
         </li>
       {{/if}}
@@ -85,12 +69,12 @@
           <a
             class="page-link {{unless @canNext 'disabled'}}"
             href="#"
-            {{on "click" @onNext}}
+            {{on "click" this.next}}
           >{{@nextText}}</a>
         </li>
       {{/if}}
     </ul>
-  </nav> --}}
+  </nav>
 {{else if (eq "offset" @pagination)}}
   {{#if (and (or @page (eq 0 @page)) @totalItems @onChangePage)}}
     <Pagination

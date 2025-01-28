@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 import type { ComponentLike } from '@glint/template';
 
@@ -104,7 +105,23 @@ export interface TableSignature<T> {
   Element: HTMLDivElement;
 }
 
-export default class Table<T> extends Component<TableSignature<T>> {}
+export default class Table<T> extends Component<TableSignature<T>> {
+  @action
+  next(event: Event) {
+    event.preventDefault();
+    if (this.args.onNext) {
+      this.args.onNext();
+    }
+  }
+
+  @action
+  previous(event: Event) {
+    event.preventDefault();
+    if (this.args.onPrevious) {
+      this.args.onPrevious();
+    }
+  }
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
