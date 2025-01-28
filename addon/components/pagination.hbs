@@ -1,12 +1,16 @@
 <div class="d-flex justify-content-between align-items-center" ...attributes>
-  <span>
-    {{! TODO: string }}
-    Viewing
-    <strong>{{this.pageStart}}-{{this.pageEnd}}</strong>
-    of
-    <strong>{{@totalItems}}</strong>
-    results
-  </span>
+  {{! @glint-expect-error }}
+  {{#if @onChange}}
+    <span>
+      {{! TODO: string }}
+      Viewing
+      <strong>{{this.pageStart}}-{{this.pageEnd}}</strong>
+      of
+      {{! @glint-expect-error }}
+      <strong>{{@totalItems}}</strong>
+      results
+    </span>
+  {{/if}}
   <nav data-test-pagination>
     <ul class="pagination mb-0">
       <li class="page-item {{unless this.canPrevious 'disabled'}}">
@@ -17,7 +21,7 @@
           {{on "click" this.previous}}
         >{{@previousText}}</a>
       </li>
-      {{#each this.pages as |page index|}}
+      {{#each this.pages as |_ index|}}
         <li class="page-item {{if (eq @page index) 'active'}}">
           <a
             class="page-link"
