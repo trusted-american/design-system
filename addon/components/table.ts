@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 import type { ComponentLike } from '@glint/template';
@@ -101,7 +102,7 @@ export interface PaginationData {
 
 export interface Actions {
   changePageSize: () => void;
-  goToPage: () => void;
+  goToPage: (page: number) => void;
   nextPage: () => void;
   previousPage: () => void;
   reloadData: () => void;
@@ -137,7 +138,12 @@ export interface TableSignature<T> {
   Element: HTMLDivElement;
 }
 
-export default class Table<T> extends Component<TableSignature<T>> {}
+export default class Table<T> extends Component<TableSignature<T>> {
+  @action
+  goToPage(actions: Actions, page: number): void {
+    actions.goToPage(page + 1);
+  }
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
