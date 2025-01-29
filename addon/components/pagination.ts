@@ -27,6 +27,27 @@ export interface PaginationSignature {
 }
 
 export default class Pagination extends Component<PaginationSignature> {
+  get twoAway(): number {
+    return this.pages.length - 2; //Used For the trailing ... logic
+  }
+  get length(): number {
+    return this.pages.length - 1;
+  }
+
+  get beforeCurrentIndex(): number {
+    if (!this.args.page) {
+      return -1;
+    }
+    return this.args.page - 1;
+  }
+
+  get afterCurrentIndex(): number {
+    if (!this.args.page) {
+      return -1;
+    }
+    return this.args.page + 1;
+  }
+
   get pages(): number[] {
     if (!('pageSize' in this.args)) {
       return [];

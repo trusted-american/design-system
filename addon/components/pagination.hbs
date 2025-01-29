@@ -22,13 +22,82 @@
         >{{@previousText}}</a>
       </li>
       {{#each this.pages as |_ index|}}
-        <li class="page-item {{if (eq @page index) 'active'}}">
-          <a
-            class="page-link"
-            href="#"
-            {{on "click" (fn this.change index)}}
-          >{{inc index}}</a>
-        </li>
+        {{#if (eq index 0)}}
+          <li class="page-item {{if (eq @page index) 'active'}}">
+            <a
+              class="page-link"
+              href="#"
+              {{on "click" (fn this.change index)}}
+            >{{inc index}}</a>
+          </li>
+          {{#if (eq @page index)}}
+            <li class="page-item">
+              <div class="page-link" disabled>
+                ...
+              </div>
+            </li>
+          {{/if}}
+        {{else if
+          (and
+            (and (eq index this.beforeCurrentIndex) (gt index 0))
+            (lt index this.twoAway)
+          )
+        }}
+          {{#if (gt index 1)}}
+            <li class="page-item">
+              <div class="page-link" disabled>
+                ...
+              </div>
+            </li>
+          {{/if}}
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="#"
+              {{on "click" (fn this.change index)}}
+            >{{inc index}}</a>
+          </li>
+        {{else if (eq index @page)}}
+          <li class="page-item active">
+            <a
+              class="page-link"
+              href="#"
+              {{on "click" (fn this.change index)}}
+            >{{inc index}}</a>
+          </li>
+        {{else if
+          (and (eq index this.afterCurrentIndex) (lt index this.length))
+        }}
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="#"
+              {{on "click" (fn this.change index)}}
+            >{{inc index}}</a>
+          </li>
+          {{#if (lt index this.twoAway)}}
+            <li class="page-item">
+              <div class="page-link" disabled>
+                ...
+              </div>
+            </li>
+          {{/if}}
+        {{else if (eq index this.length)}}
+          {{#if (eq @page index)}}
+            <li class="page-item">
+              <div class="page-link" disabled>
+                ...
+              </div>
+            </li>
+          {{/if}}
+          <li class="page-item {{if (eq @page index) 'active'}}">
+            <a
+              class="page-link"
+              href="#"
+              {{on "click" (fn this.change index)}}
+            >{{inc index}}</a>
+          </li>
+        {{/if}}
       {{/each}}
       <li class="page-item {{unless this.canNext 'disabled'}}">
         <a
