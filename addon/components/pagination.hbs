@@ -23,13 +23,14 @@
       </li>
       {{#if (lt this.length 6)}}
         {{#each this.pages as |_ index|}}
-          <li class="page-item {{if (eq @page index) 'active'}}">
-            <a
-              class="page-link"
-              href="#"
-              {{on "click" (fn this.change index)}}
-            >{{inc index}}</a>
-          </li>{{/each}}
+          {{#if @page}}
+            <Pagination::Item
+              @page={{@page}}
+              @index={{index}}
+              @onClick={{fn this.change index}}
+            />
+          {{/if}}
+        {{/each}}
       {{else}}
         {{#each this.pages as |_ index|}}
           {{#if (eq index 0)}}
