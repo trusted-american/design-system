@@ -3,6 +3,7 @@ export type Type =
   | 'audio'
   | 'pdf'
   | 'csv'
+  | 'zip'
   | 'word'
   | 'excel'
   | 'outlook';
@@ -18,6 +19,7 @@ export default function fileType(name: string): Type | null {
     audio: ['mp3'],
     pdf: ['pdf'],
     csv: ['csv'],
+    zip: ['zip'],
     word: ['doc', 'docx'],
     excel: ['xls', 'xlsx'],
     outlook: ['msg'],
