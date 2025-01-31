@@ -1,12 +1,8 @@
 import Component from '@glimmer/component';
 
-export interface PaginationItemSignature {
+export interface PaginationEllipsisSignature {
   // The arguments accepted by the component
-  Args: {
-    page?: number;
-    index: number;
-    onClick: (event: Event) => void;
-  };
+  Args: unknown;
   // Any blocks yielded by the component
   Blocks: {
     default: [];
@@ -15,10 +11,10 @@ export interface PaginationItemSignature {
   Element: null;
 }
 
-export default class PaginationItemComponent extends Component<PaginationItemSignature> {}
+export default class PaginationEllipsisComponent extends Component<PaginationEllipsisSignature> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Pagination::Item': typeof PaginationItemComponent;
+    'Pagination::Ellipsis': typeof PaginationEllipsisComponent;
   }
 }
