@@ -27,6 +27,13 @@
       @isFixedWidth={{true}}
       class="text-success"
     />
+  {{else if (eq "zip" this.fileType)}}
+    <Icon
+      @icon="file-zipper"
+      @size={{@size}}
+      @isFixedWidth={{true}}
+      class="text-primary"
+    />
   {{else if (eq "word" this.fileType)}}
     <Icon
       @icon="file-word"
