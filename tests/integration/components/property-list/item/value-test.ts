@@ -11,7 +11,6 @@ module('Integration | Component | property-list/item/value', function (hooks) {
       <PropertyList::Item::Value
         @value=""
         @label="Label"
-        @alt={{false}}
       >
         <:default>Default</:default>
         <:side>Side</:side>

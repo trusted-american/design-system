@@ -12,15 +12,14 @@ module('Integration | Component | property-list', function (hooks) {
         <list.item
           @label="Key 1"
           @value="Value 1"
-          @alt={{false}}
           @help="This is a tooltip."
         >
           Value 1
         </list.item>
-        <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
+        <list.item @label="Key 2" @value="Value 2">
           Value 2
         </list.item>
-        <list.item @label="Key 3" @value="Value 3" @alt={{false}}>
+        <list.item @label="Key 3" @value="Value 3">
           <:default>
             Value 3
           </:default>
@@ -47,15 +46,14 @@ module('Integration | Component | property-list', function (hooks) {
         <list.item
           @label="Key 1"
           @value="Value 1"
-          @alt={{false}}
           @help="This is a tooltip."
         >
           Value 1
         </list.item>
-        <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
+        <list.item @label="Key 2" @value="Value 2">
           Value 2
         </list.item>
-        <list.item @label="Key 3" @value="Value 3" @alt={{false}}>
+        <list.item @label="Key 3" @value="Value 3">
           <:default>
             Value 3
           </:default>

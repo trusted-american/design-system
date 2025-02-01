@@ -2,9 +2,8 @@ import Component from '@glimmer/component';
 
 export interface PropertyListItemValueSignature {
   Args: {
-    value: string | null;
+    value: string | number | boolean | Date | null;
     label: string;
-    alt?: unknown;
   };
   Blocks: {
     default: [];

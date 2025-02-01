@@ -4,7 +4,6 @@ export interface PropertyListItemSignature {
   Args: {
     value: string | null;
     label: string;
-    alt?: unknown;
     help?: string;
     isHorizontal?: boolean;
   };
