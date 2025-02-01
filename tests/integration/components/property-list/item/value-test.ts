@@ -17,6 +17,6 @@ module('Integration | Component | property-list/item/value', function (hooks) {
       </PropertyList::Item::Value>
     `);
 
-    assert.dom('dd').hasText('template block text');
+    assert.dom('dd').hasText('No Label');
   });
 });
