@@ -13,7 +13,7 @@ module('Integration | Component | property-list', function (hooks) {
           @label="Key 1"
           @value="Value 1"
           @alt={{false}}
-          @tooltip="This is a tooltip."
+          @help="This is a tooltip."
         >
           Value 1
         </list.item>
@@ -48,7 +48,7 @@ module('Integration | Component | property-list', function (hooks) {
           @label="Key 1"
           @value="Value 1"
           @alt={{false}}
-          @tooltip="This is a tooltip."
+          @help="This is a tooltip."
         >
           Value 1
         </list.item>

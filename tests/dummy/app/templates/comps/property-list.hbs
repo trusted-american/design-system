@@ -12,10 +12,8 @@
       @label="Key 1"
       @value="Value 1"
       @alt={{false}}
-      @tooltip="This is a tooltip."
-    >
-      Value 1
-    </list.item>
+      @help="This is a tooltip."
+    />
     <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
       Value 2
     </list.item>
@@ -27,6 +25,7 @@
         Side
       </:side>
     </list.item>
+    <list.item @label="Key 4" @value={{null}} @alt={{true}} />
   </PropertyList>
   {{! END-SNIPPET }}
 </Snippet>
@@ -40,10 +39,8 @@
       @label="Key 1"
       @value="Value 1"
       @alt={{false}}
-      @tooltip="This is a tooltip."
-    >
-      Value 1
-    </list.item>
+      @help="This is a tooltip."
+    />
     <list.item @label="Key 2" @value="Value 2" @alt={{false}}>
       Value 2
     </list.item>
