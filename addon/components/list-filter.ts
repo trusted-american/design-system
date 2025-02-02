@@ -237,7 +237,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   done(event: Event): void {
     event.preventDefault();
 
-    const form = event.target as HTMLFormElement;
+    if (!(event.target instanceof HTMLFormElement)) {
+      throw new Error();
+    }
+
+    const form = event.target;
     if (!form.checkValidity()) {
       form.classList.add('was-validated');
       return;
