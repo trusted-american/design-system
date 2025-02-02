@@ -29,26 +29,22 @@
       {{#each this.predicates as |predicate index|}}
         <label class="list-group-item px-2" data-test-predicate-toggle>
           <Form::Check::Input
-            @value={{if
-              (or predicate.value (eq false predicate.value))
-              true
-              false
-            }}
-            @label={{predicate.label}}
+            @value={{predicate.isEnabled}}
+            @label={{predicate._predicate.label}}
             @identifier="toggle{{index}}"
-            @onChange={{fn this.toggle predicate}}
+            @onChange={{fn (mut predicate.isEnabled) (not predicate.isEnabled)}}
             class="me-1"
           />
-          {{predicate.label}}
+          {{predicate._predicate.label}}
         </label>
 
-        {{#if (or predicate.value (eq false predicate.value))}}
+        {{#if predicate.isEnabled}}
           <ListGroup::Item
             class="bg-body-tertiary px-2"
             data-test-predicate-value
           >
 
-            {{#if (eq "date" predicate.type)}}
+            {{#if (eq "date" predicate._predicate.type)}}
               <Form::Select
                 @options={{array
                   (hash value="inTheLast" label=@inTheLastText)
@@ -59,23 +55,23 @@
                   (hash value="isBefore" label=@isBeforeText)
                   (hash value="isBeforeOrOn" label=@isBeforeOrOnText)
                 }}
-                @selected={{predicate.mode}}
+                @selected={{predicate._predicate.mode}}
                 @label={{@modeText}}
                 @identifier="mode{{index}}"
                 @isInputOnly={{true}}
-                @onChange={{fn (mut predicate.mode)}}
+                @onChange={{fn (mut predicate._predicate.mode)}}
                 class="mb-2"
               />
 
               <div class="d-flex align-items-center gap-2">
-                {{#if (eq "inTheLast" predicate.mode)}}
+                {{#if (eq "inTheLast" predicate._predicate.mode)}}
                   <Form::NumberInput
-                    @value={{predicate.valueA}}
+                    @value={{predicate._predicate.valueA}}
                     @label={{@valueAText}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
-                    @onChange={{fn (mut predicate.valueA)}}
+                    @onChange={{fn (mut predicate._predicate.valueA)}}
                     min="1"
                   />
                   <Form::Select
@@ -83,67 +79,82 @@
                       (hash value="days" label=@daysText)
                       (hash value="months" label=@monthsText)
                     }}
-                    @selected={{predicate.valueB}}
+                    @selected={{predicate._predicate.valueB}}
                     @label={{@valueBText}}
                     @identifier="valueB{{index}}"
                     @isInputOnly={{true}}
-                    @onChange={{fn (mut predicate.valueB)}}
+                    @onChange={{fn (mut predicate._predicate.valueB)}}
                   />
                 {{else}}
                   <Form::DateInput
-                    @value={{predicate.valueA}}
+                    @value={{predicate._predicate.valueA}}
                     @label={{@valueAText}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
                     @isLocalTimeZone={{true}}
-                    @onChange={{fn (mut predicate.valueA)}}
+                    @onChange={{fn (mut predicate._predicate.valueA)}}
                   />
-                  {{#if (eq "between" predicate.mode)}}
+                  {{#if (eq "between" predicate._predicate.mode)}}
                     <div>{{@andText}}</div>
                     <Form::DateInput
-                      @value={{predicate.valueB}}
+                      @value={{predicate._predicate.valueB}}
                       @label={{@valueBText}}
                       @identifier="valueB{{index}}"
                       @isRequired={{true}}
                       @isInputOnly={{true}}
                       @isLocalTimeZone={{true}}
-                      @onChange={{fn this.setValueB predicate}}
+                      @onChange={{fn this.setValueB predicate._predicate}}
                     />
                   {{/if}}
                 {{/if}}
               </div>
 
-            {{else if (eq "multi" predicate.type)}}
+            {{else if (eq "multi" predicate._predicate.type)}}
 
-              {{#each predicate.options as |opt|}}
+              {{#each predicate._predicate.options as |opt|}}
                 <Form::Check
-                  @value={{includes opt.value predicate.value}}
+                  @value={{includes opt.value predicate._predicate.value}}
                   @label={{opt.label}}
                   @identifier="{{opt.value}}"
-                  @onChange={{fn this.toggleMulti predicate opt.value}}
+                  @onChange={{fn
+                    this.toggleMulti
+                    predicate._predicate
+                    opt.value
+                  }}
                 />
               {{/each}}
 
-            {{else if (eq "string" predicate.type)}}
+            {{else if (eq "string" predicate._predicate.type)}}
 
               <Form::Input
-                @value={{predicate.value}}
+                @value={{predicate._predicate.value}}
                 @label={{@valueText}}
                 @identifier="value{{index}}"
                 @isInputOnly={{true}}
-                @onChange={{fn (mut predicate.value)}}
+                @onChange={{fn (mut predicate._predicate.value)}}
+                placeholder="Value"
                 {{autoselect}}
               />
 
             {{else}}
 
+              {{log
+                predicate._value
+                (find-by "value" predicate._value predicate._predicate.options)
+              }}
+
               <Form::PowerSelect
-                @options={{predicate.options}}
-                @selected={{find-by "value" predicate.value predicate.options}}
+                @options={{predicate._predicate.options}}
+                @selected={{find-by
+                  "value"
+                  predicate._value
+                  predicate._predicate.options
+                }}
                 @searchField="label"
                 @label={{@valueText}}
                 @identifier="value{{index}}"
+                {{!-- @isRequired={{true}} --}}
                 @isInputOnly={{true}}
                 @chooseText={{@chooseText}}
                 @searchText={{@searchText}}
