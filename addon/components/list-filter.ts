@@ -49,7 +49,7 @@ export type Predicate<T = unknown> =
   | StringPredicate
   | DatePredicate;
 
-class _InternalPredicate<T> {
+class InternalPredicate<T> {
   _predicate: Predicate<T>;
 
   @tracked isEnabled = false;
@@ -65,7 +65,7 @@ class _InternalPredicate<T> {
     | 'isBefore'
     | 'isBeforeOrOn' = 'inTheLast';
 
-  @tracked offsetCount: number | null = null;
+  @tracked offsetCount: number | null = 1;
   @tracked offsetMode: 'months' | 'days' = 'days';
 
   @tracked startAt: Date | null = null;
@@ -186,13 +186,13 @@ export interface ListFilterSignature<T> {
 }
 
 export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
-  predicates: _InternalPredicate<T>[];
+  predicates: InternalPredicate<T>[];
 
   constructor(owner: unknown, args: ListFilterSignature<T>['Args']) {
     super(owner, args);
 
     this.predicates = this.args.predicates.map(
-      (predicate) => new _InternalPredicate(predicate),
+      (predicate) => new InternalPredicate(predicate),
     );
   }
 
@@ -229,7 +229,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  change(predicate: _InternalPredicate<T>, opt: Option<T>): void {
+  change(predicate: InternalPredicate<T>, opt: Option<T>): void {
     predicate._value = opt.value;
   }
 
@@ -247,7 +247,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  setEndAt(predicate: _InternalPredicate<T>, date: Date | null): void {
+  setEndAt(predicate: InternalPredicate<T>, date: Date | null): void {
     predicate.endAt = dayjs(date).endOf('day').toDate();
   }
 }
