@@ -1,0 +1,18 @@
+<dd class="d-flex justify-content-between" ...attributes>
+  {{#if (or @value (eq false @value) (eq 0 @value))}}
+    {{! @glint-expect-error }}
+    <Copy @text={{@value}} {{tooltip (concat "Copy " @label)}}>
+      {{yield}}
+    </Copy>
+    {{#if (has-block "side")}}
+      <div>{{yield to="side"}}</div>
+    {{/if}}
+  {{else}}
+    {{! TODO: class dne }}
+    <span class="text-disabled">
+      {{! TODO: string }}
+      No
+      {{@label}}
+    </span>
+  {{/if}}
+</dd>

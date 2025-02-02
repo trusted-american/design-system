@@ -1,55 +1,36 @@
 {{#if @isHorizontal}}
   <div class="col-auto border-end">
-    <dt class="text-secondary">
-      {{@label}}
-      {{#if @tooltip}}
-        <a href="#" class="text-secondary ms-1">
-          <Icon @icon="info-circle" {{tooltip @tooltip}} />
-        </a>
-      {{/if}}
-    </dt>
-    <dd class="" ...attributes>
-      {{#if @alt}}
-        <span class="text-disabled">
-          No
-          {{@label}}
-        </span>
-      {{else}}
-        {{#if @value}}
-          <Copy @text={{@value}} {{tooltip (concat "Copy " @label)}}>
-            {{yield}}
-          </Copy>
-          <span class="float-end">{{yield to="side"}}</span>
-        {{else}}
+    <PropertyList::Item::Key @label={{@label}} @help={{@help}} />
+    <PropertyList::Item::Value
+      @value={{@value}}
+      @label={{@label}}
+      ...attributes
+    >
+      <:default>
+        {{#if (has-block)}}
           {{yield}}
+        {{else}}
+          {{@value}}
         {{/if}}
-      {{/if}}
-    </dd>
+      </:default>
+      <:side>{{yield to="side"}}</:side>
+    </PropertyList::Item::Value>
   </div>
 {{else}}
-  <dt class="col-5 text-secondary">
-    {{@label}}
-    {{#if @tooltip}}
-      <a href="#" class="text-secondary ms-1">
-        <Icon @icon="info-circle" {{tooltip @tooltip}} />
-      </a>
-    {{/if}}
-  </dt>
-  <dd class="col-7 overflow-hidden" ...attributes>
-    {{#if @alt}}
-      <span class="text-disabled">
-        No
-        {{@label}}
-      </span>
-    {{else}}
-      {{#if @value}}
-        <Copy @text={{@value}} {{tooltip (concat "Copy " @label)}}>
-          {{yield}}
-        </Copy>
-        <span class="float-end">{{yield to="side"}}</span>
-      {{else}}
+  <PropertyList::Item::Key @label={{@label}} @help={{@help}} class="col-5" />
+  <PropertyList::Item::Value
+    @value={{@value}}
+    @label={{@label}}
+    class="col-7 overflow-hidden"
+    ...attributes
+  >
+    <:default>
+      {{#if (has-block)}}
         {{yield}}
+      {{else}}
+        {{@value}}
       {{/if}}
-    {{/if}}
-  </dd>
+    </:default>
+    <:side>{{yield to="side"}}</:side>
+  </PropertyList::Item::Value>
 {{/if}}

@@ -130,9 +130,10 @@
                 @value={{predicate._predicate.value}}
                 @label={{@valueText}}
                 @identifier="value{{index}}"
+                @isRequired={{true}}
                 @isInputOnly={{true}}
                 @onChange={{fn (mut predicate._predicate.value)}}
-                placeholder="Value"
+                placeholder={{@valueText}}
                 {{autoselect}}
               />
 
