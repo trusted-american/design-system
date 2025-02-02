@@ -139,11 +139,6 @@
 
             {{else}}
 
-              {{log
-                predicate._value
-                (find-by "value" predicate._value predicate._predicate.options)
-              }}
-
               <Form::PowerSelect
                 @options={{predicate._predicate.options}}
                 @selected={{find-by
