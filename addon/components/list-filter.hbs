@@ -116,11 +116,7 @@
                   @value={{includes opt.value predicate._predicate.value}}
                   @label={{opt.label}}
                   @identifier="{{opt.value}}"
-                  @onChange={{fn
-                    this.toggleMulti
-                    predicate._predicate
-                    opt.value
-                  }}
+                  @onChange={{fn this.toggleMulti predicate opt.value}}
                 />
               {{/each}}
 
@@ -132,7 +128,7 @@
                 @identifier="value{{index}}"
                 @isRequired={{true}}
                 @isInputOnly={{true}}
-                @onChange={{fn (mut predicate._predicate.value)}}
+                @onChange={{fn (mut predicate._value)}}
                 placeholder={{@valueText}}
                 {{autoselect}}
               />

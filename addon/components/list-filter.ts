@@ -54,7 +54,7 @@ class InternalPredicate<T> {
 
   @tracked isEnabled = false;
 
-  @tracked _value: T;
+  @tracked _value: Predicate<T>['value'];
 
   @tracked mode:
     | 'inTheLast'
@@ -74,7 +74,7 @@ class InternalPredicate<T> {
   constructor(predicate: Predicate<T>) {
     this._predicate = { ...predicate };
 
-    this._value = predicate.value as T;
+    this._value = predicate.value;
 
     const { value: val } = predicate;
 
@@ -92,7 +92,6 @@ class InternalPredicate<T> {
       this.mode = 'inTheLast';
       this.offsetCount = 1;
       this.offsetMode = 'days';
-      return;
     } else if (value.gte && value.lte) {
       this.mode = 'between';
       this.startAt = value.gte;
@@ -196,20 +195,8 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     );
   }
 
-  get selections(): Predicate<T>[] {
-    return this.args.predicates.filter(
-      ({ value }) =>
-        (Boolean(value) || value === false) &&
-        (!Array.isArray(value) || value.length),
-    );
-  }
-
-  @action
-  clear(): void {
-    for (const predicate of this.predicates) {
-      predicate.isEnabled = false;
-      this.args.onChange(predicate._predicate.key, predicate.value);
-    }
+  get selections(): InternalPredicate<T>[] {
+    return this.predicates.filter(({ isEnabled }) => isEnabled);
   }
 
   @action
@@ -233,20 +220,28 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
+  clear(): void {
+    for (const predicate of this.predicates) {
+      predicate.isEnabled = false;
+      this.args.onChange(predicate._predicate.key, predicate.value);
+    }
+  }
+
+  @action
   change(predicate: InternalPredicate<T>, opt: Option<T>): void {
     predicate._value = opt.value;
   }
 
   @action
   toggleMulti(
-    predicate: MultiSelectPredicate<T>,
+    predicate: InternalPredicate<T>,
     value: T,
     checked: boolean,
   ): void {
     if (checked) {
-      predicate.value = [...predicate.value, value];
+      predicate._value = [...predicate._value, value];
     } else {
-      predicate.value = predicate.value.filter((v) => v !== value);
+      predicate._value = predicate._value.filter((v) => v !== value);
     }
   }
 
