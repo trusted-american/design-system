@@ -43,7 +43,6 @@
             class="bg-body-tertiary px-2"
             data-test-predicate-value
           >
-
             {{#if (eq "date" predicate._predicate.type)}}
               <Form::Select
                 @options={{array
@@ -55,23 +54,23 @@
                   (hash value="isBefore" label=@isBeforeText)
                   (hash value="isBeforeOrOn" label=@isBeforeOrOnText)
                 }}
-                @selected={{predicate._predicate.mode}}
+                @selected={{predicate.mode}}
                 @label={{@modeText}}
                 @identifier="mode{{index}}"
                 @isInputOnly={{true}}
-                @onChange={{fn (mut predicate._predicate.mode)}}
+                @onChange={{fn (mut predicate.mode)}}
                 class="mb-2"
               />
 
               <div class="d-flex align-items-center gap-2">
-                {{#if (eq "inTheLast" predicate._predicate.mode)}}
+                {{#if (eq "inTheLast" predicate.mode)}}
                   <Form::NumberInput
-                    @value={{predicate._predicate.valueA}}
+                    @value={{predicate.offsetCount}}
                     @label={{@valueAText}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
-                    @onChange={{fn (mut predicate._predicate.valueA)}}
+                    @onChange={{fn (mut predicate.offsetCount)}}
                     min="1"
                   />
                   <Form::Select
@@ -79,32 +78,32 @@
                       (hash value="days" label=@daysText)
                       (hash value="months" label=@monthsText)
                     }}
-                    @selected={{predicate._predicate.valueB}}
+                    @selected={{predicate.offsetMode}}
                     @label={{@valueBText}}
                     @identifier="valueB{{index}}"
                     @isInputOnly={{true}}
-                    @onChange={{fn (mut predicate._predicate.valueB)}}
+                    @onChange={{fn (mut predicate.offsetMode)}}
                   />
                 {{else}}
                   <Form::DateInput
-                    @value={{predicate._predicate.valueA}}
+                    @value={{predicate.startAt}}
                     @label={{@valueAText}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
                     @isLocalTimeZone={{true}}
-                    @onChange={{fn (mut predicate._predicate.valueA)}}
+                    @onChange={{fn (mut predicate.startAt)}}
                   />
-                  {{#if (eq "between" predicate._predicate.mode)}}
+                  {{#if (eq "between" predicate.mode)}}
                     <div>{{@andText}}</div>
                     <Form::DateInput
-                      @value={{predicate._predicate.valueB}}
+                      @value={{predicate.endAt}}
                       @label={{@valueBText}}
                       @identifier="valueB{{index}}"
                       @isRequired={{true}}
                       @isInputOnly={{true}}
                       @isLocalTimeZone={{true}}
-                      @onChange={{fn this.setValueB predicate._predicate}}
+                      @onChange={{fn this.setEndAt predicate}}
                     />
                   {{/if}}
                 {{/if}}

@@ -43,51 +43,38 @@ interface DatePredicate extends BasePredicate {
   value: DateRangeQueryParam;
 }
 
-interface _OffsetDatePredicate extends DatePredicate {
-  mode: 'inTheLast';
-  valueA: number | null;
-  valueB: 'months' | 'days';
-}
-
-interface _RangeDatePredicate extends DatePredicate {
-  mode: 'between';
-  valueA: Date | null;
-  valueB: Date | null;
-}
-
-interface _SingleDatePredicate extends DatePredicate {
-  mode: 'equals' | 'isAfter' | 'isAfterOrOn' | 'isBefore' | 'isBeforeOrOn';
-  valueA: Date | null;
-}
-
 export type Predicate<T = unknown> =
   | SingleSelectPredicate<T>
   | MultiSelectPredicate<T>
   | StringPredicate
   | DatePredicate;
 
-type InternalPredicate<T> =
-  | SingleSelectPredicate<T>
-  | MultiSelectPredicate<T>
-  | StringPredicate
-  | _OffsetDatePredicate
-  | _RangeDatePredicate
-  | _SingleDatePredicate;
-
 class _InternalPredicate<T> {
-  _predicate: InternalPredicate<T>;
+  _predicate: Predicate<T>;
 
   @tracked isEnabled = false;
 
-  // @tracked mode?: InternalPredicate<T>['mode'];
-  // value: PredicateParams['value'];
+  @tracked _value: T;
 
-  @tracked _value: InternalPredicate<T>['value'];
+  @tracked mode:
+    | 'inTheLast'
+    | 'equals'
+    | 'between'
+    | 'isAfter'
+    | 'isAfterOrOn'
+    | 'isBefore'
+    | 'isBeforeOrOn' = 'inTheLast';
+
+  @tracked offsetCount: number | null = null;
+  @tracked offsetMode: 'months' | 'days' = 'days';
+
+  @tracked startAt: Date | null = null;
+  @tracked endAt: Date | null = null;
 
   constructor(predicate: Predicate<T>) {
-    this._predicate = { ...predicate } as InternalPredicate<T>;
+    this._predicate = { ...predicate };
 
-    this._value = predicate.value;
+    this._value = predicate.value as T;
 
     const { value: val } = predicate;
 
@@ -102,26 +89,26 @@ class _InternalPredicate<T> {
     const { value } = this._predicate;
 
     if (Array.isArray(value)) {
-      this._predicate.mode = 'inTheLast';
-      this._predicate.valueA = 1;
-      (this._predicate as _OffsetDatePredicate).valueB = 'days';
+      this.mode = 'inTheLast';
+      this.offsetCount = 1;
+      this.offsetMode = 'days';
       return;
     } else if (value.gte && value.lte) {
-      this._predicate.mode = 'between';
-      this._predicate.valueA = value.gte;
-      (this._predicate as _RangeDatePredicate).valueB = value.lte;
+      this.mode = 'between';
+      this.startAt = value.gte;
+      this.endAt = value.lte;
     } else if (value.gt) {
-      this._predicate.mode = 'isAfter';
-      this._predicate.valueA = value.gt;
+      this.mode = 'isAfter';
+      this.startAt = value.gt;
     } else if (value.gte) {
-      this._predicate.mode = 'isAfterOrOn';
-      this._predicate.valueA = value.gte;
+      this.mode = 'isAfterOrOn';
+      this.startAt = value.gte;
     } else if (value.lt) {
-      this._predicate.mode = 'isBefore';
-      this._predicate.valueA = value.lt;
+      this.mode = 'isBefore';
+      this.startAt = value.lt;
     } else if (value.lte) {
-      this._predicate.mode = 'isBeforeOrOn';
-      this._predicate.valueA = value.lte;
+      this.mode = 'isBeforeOrOn';
+      this.startAt = value.lte;
     }
   }
 
@@ -137,10 +124,6 @@ class _InternalPredicate<T> {
       return this._value;
     }
 
-    if (Array.isArray(this._value)) {
-      return [];
-    }
-
     const value: DateRangeQueryParam = {
       gte: null,
       gt: null,
@@ -148,28 +131,28 @@ class _InternalPredicate<T> {
       lte: null,
     };
 
-    if (this._predicate.mode === 'inTheLast') {
+    if (this.mode === 'inTheLast') {
       value.gte = dayjs()
         .subtract(
-          this._predicate.valueA as number,
-          this._predicate.valueB === 'months' ? 'months' : 'days',
+          this.offsetCount as number,
+          this.offsetMode === 'months' ? 'months' : 'days',
         )
         .toDate();
       value.lte = new Date();
-    } else if (this._predicate.mode === 'equals') {
-      value.gte = this._predicate.valueA;
-      value.lte = dayjs(this._predicate.valueA).endOf('day').toDate();
-    } else if (this._predicate.mode === 'between') {
-      value.gte = this._predicate.valueA;
-      value.lte = this._predicate.valueB;
-    } else if (this._predicate.mode === 'isAfter') {
-      value.gt = this._predicate.valueA;
-    } else if (this._predicate.mode === 'isAfterOrOn') {
-      value.gte = this._predicate.valueA;
-    } else if (this._predicate.mode === 'isBefore') {
-      value.lt = this._predicate.valueA;
+    } else if (this.mode === 'equals') {
+      value.gte = this.startAt;
+      value.lte = dayjs(this.startAt).endOf('day').toDate();
+    } else if (this.mode === 'between') {
+      value.gte = this.startAt;
+      value.lte = this.endAt;
+    } else if (this.mode === 'isAfter') {
+      value.gt = this.startAt;
+    } else if (this.mode === 'isAfterOrOn') {
+      value.gte = this.startAt;
+    } else if (this.mode === 'isBefore') {
+      value.lt = this.startAt;
     } else {
-      value.lte = this._predicate.valueA;
+      value.lte = this.startAt;
     }
 
     return value;
@@ -222,24 +205,6 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  setValueB(predicate: _RangeDatePredicate, date: Date | null): void {
-    predicate.valueB = dayjs(date).endOf('day').toDate();
-  }
-
-  @action
-  toggleMulti(
-    predicate: MultiSelectPredicate<T>,
-    value: T,
-    checked: boolean,
-  ): void {
-    if (checked) {
-      predicate.value = [...predicate.value, value];
-    } else {
-      predicate.value = predicate.value.filter((v) => v !== value);
-    }
-  }
-
-  @action
   clear(): void {
     for (const predicate of this.predicates) {
       predicate.isEnabled = false;
@@ -264,8 +229,26 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  change(predicate: _InternalPredicate<T>, opt: Option<T>) {
+  change(predicate: _InternalPredicate<T>, opt: Option<T>): void {
     predicate._value = opt.value;
+  }
+
+  @action
+  toggleMulti(
+    predicate: MultiSelectPredicate<T>,
+    value: T,
+    checked: boolean,
+  ): void {
+    if (checked) {
+      predicate.value = [...predicate.value, value];
+    } else {
+      predicate.value = predicate.value.filter((v) => v !== value);
+    }
+  }
+
+  @action
+  setEndAt(predicate: _InternalPredicate<T>, date: Date | null): void {
+    predicate.endAt = dayjs(date).endOf('day').toDate();
   }
 }
 
