@@ -9,6 +9,7 @@ export default class CompsListFilterController extends Controller {
   @tracked type: ('primary' | 'secondary')[] = [];
   @tracked tag?: string;
   @tracked createdAt: DateRangeQueryParam = [];
+  @tracked other: 'active' | 'inactive' = 'active';
 
   get gte(): Date | null {
     if (Array.isArray(this.createdAt)) {

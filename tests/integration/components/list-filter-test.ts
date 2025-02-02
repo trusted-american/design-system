@@ -69,7 +69,7 @@ module('Integration | Component | list-filter', function (hooks) {
       },
       {
         type: 'date',
-        label: 'Created Date',
+        label: 'Created date',
         key: 'createdAt',
         value: this.createdAt,
       },
