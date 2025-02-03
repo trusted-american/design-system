@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import { tracked, cached } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import dayjs from 'dayjs';
 
@@ -184,12 +184,9 @@ export interface ListFilterSignature<T> {
 }
 
 export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
-  predicates: InternalPredicate<T>[];
-
-  constructor(owner: unknown, args: ListFilterSignature<T>['Args']) {
-    super(owner, args);
-
-    this.predicates = this.args.predicates.map(
+  @cached
+  get predicates(): InternalPredicate<T>[] {
+    return this.args.predicates.map(
       (predicate) => new InternalPredicate(predicate),
     );
   }

@@ -123,7 +123,7 @@
             {{else if (eq "string" predicate._predicate.type)}}
 
               <Form::Input
-                @value={{predicate._predicate.value}}
+                @value={{predicate._value}}
                 @label={{@valueText}}
                 @identifier="value{{index}}"
                 @isRequired={{true}}
