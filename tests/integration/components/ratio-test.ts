@@ -20,7 +20,7 @@ module('Integration | Component | ratio', function (hooks) {
 
     const numericWidth = Number(width.substring(0, width.length - 2));
     const numericHeight = Number(height.substring(0, height.length - 2));
-    assert.deepEqual(numericWidth, numericHeight);
+    assert.strictEqual(numericWidth, numericHeight);
   });
 
   test('it renders 4x3', async function (assert) {
@@ -37,7 +37,7 @@ module('Integration | Component | ratio', function (hooks) {
 
     const numericWidth = Number(width.substring(0, width.length - 2));
     const numericHeight = Number(height.substring(0, height.length - 2));
-    assert.deepEqual(numericWidth / numericHeight, 4 / 3);
+    assert.strictEqual(numericWidth / numericHeight, 4 / 3);
   });
 
   test('it renders 16x9', async function (assert) {
@@ -54,7 +54,7 @@ module('Integration | Component | ratio', function (hooks) {
 
     const numericWidth = Number(width.substring(0, width.length - 2));
     const numericHeight = Number(height.substring(0, height.length - 2));
-    assert.deepEqual(numericWidth / numericHeight, 16 / 9);
+    assert.strictEqual(numericWidth / numericHeight, 16 / 9);
   });
 
   test('it renders 21x9', async function (assert) {
@@ -71,6 +71,6 @@ module('Integration | Component | ratio', function (hooks) {
 
     const numericWidth = Number(width.substring(0, width.length - 2));
     const numericHeight = Number(height.substring(0, height.length - 2));
-    assert.deepEqual(numericWidth / numericHeight, 21 / 9);
+    assert.strictEqual(numericWidth / numericHeight, 21 / 9);
   });
 });

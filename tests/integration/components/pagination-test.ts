@@ -32,15 +32,15 @@ module('Integration | Component | pagination', function (hooks) {
     assert.dom('ul li:nth-of-type(4)').hasText('3');
     assert.dom('ul li:nth-of-type(5)').hasText('Next');
 
-    assert.deepEqual(this.page, 0);
+    assert.strictEqual(this.page, 0);
 
     await click('ul li:nth-of-type(3) a');
-    assert.deepEqual(this.page, 1);
+    assert.strictEqual(this.page, 1);
 
     await click('ul li:nth-of-type(5) a');
-    assert.deepEqual(this.page, 2);
+    assert.strictEqual(this.page, 2);
 
     await click('ul li:nth-of-type(1) a');
-    assert.deepEqual(this.page, 1);
+    assert.strictEqual(this.page, 1);
   });
 });
