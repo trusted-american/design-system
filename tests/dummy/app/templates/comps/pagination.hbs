@@ -5,12 +5,12 @@
 
 <Subheading @title="Pagination 1" />
 
-<p>Page: {{this.page1}}</p>
+<p>Page: {{this.page}}</p>
 
 <Snippet @name="pagination1.hbs">
   {{! BEGIN-SNIPPET pagination1 }}
   <Pagination
-    @page={{this.page1}}
+    @page={{this.page}}
     @pageSize={{1}}
     @totalItems={{10}}
     @nextText="Next"
@@ -18,7 +18,7 @@
     @viewingText="Viewing"
     @ofText="of"
     @resultsText="results"
-    @onChange={{fn (mut this.page1)}}
+    @onChange={{fn (mut this.page)}}
   />
   {{! END-SNIPPET }}
 </Snippet>
@@ -27,14 +27,17 @@
 
 <p>Page: {{this.page2}}</p>
 
-<Snippet @name="pagination3.hbs">
-  {{! BEGIN-SNIPPET pagination3 }}
+<Snippet @name="pagination2.hbs">
+  {{! BEGIN-SNIPPET pagination2 }}
   <Pagination
     @page={{this.page2}}
     @pageSize={{1}}
     @totalItems={{6}}
     @nextText="Next"
     @previousText="Previous"
+    @viewingText="Viewing"
+    @ofText="of"
+    @resultsText="results"
     @onChange={{fn (mut this.page2)}}
   />
   {{! END-SNIPPET }}
