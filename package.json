@@ -68,7 +68,7 @@
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-showdown": "^9.0.1",
     "ember-concurrency": "^4.0.2",
-    "ember-file-upload": "^9.1.0",
+    "ember-file-upload": "^9.2.0",
     "ember-modifier": "^4.2.0",
     "ember-pell": "^1.4.5",
     "ember-power-select": "^8.7.0",
