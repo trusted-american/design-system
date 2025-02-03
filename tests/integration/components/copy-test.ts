@@ -8,7 +8,7 @@ module('Integration | Component | copy', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Copy @text='Text'>
+      <Copy @text="Text">
         template block text
       </Copy>
     `);

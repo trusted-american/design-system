@@ -7,14 +7,6 @@ module('Integration | Component | list-group', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<ListGroup />`);
-
-    assert.dom().hasText('');
-
-    // Template block usage:
     await render(hbs`
       <ListGroup>
         <ListGroup::Item class="active" data-test-active>An active item</ListGroup::Item>
@@ -23,6 +15,8 @@ module('Integration | Component | list-group', function (hooks) {
         <ListGroup::Item @href="https://www.google.com/" data-test-href>Href</ListGroup::Item>
       </ListGroup>
     `);
+
+    assert.dom('ul').exists();
 
     assert.dom('[data-test-active]').exists();
     assert.dom('[data-test-disabled]').exists();

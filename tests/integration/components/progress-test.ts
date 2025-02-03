@@ -33,8 +33,8 @@ module('Integration | Component | progress', function (hooks) {
       ? window.getComputedStyle(element3).width
       : 'error3';
 
-    assert.deepEqual(width1, width2);
-    assert.deepEqual(width2, width3);
-    assert.deepEqual(width3, width1);
+    assert.strictEqual(width1, width2);
+    assert.strictEqual(width2, width3);
+    assert.strictEqual(width3, width1);
   });
 });

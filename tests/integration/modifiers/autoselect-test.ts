@@ -8,7 +8,7 @@ module('Integration | Modifier | autoselect', function (hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function (assert) {
-    await render(hbs`<input aria-label='' {{autoselect}} />`);
+    await render(hbs`<input aria-label="" {{autoselect}} />`);
 
     assert.ok(true);
   });

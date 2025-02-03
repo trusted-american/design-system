@@ -8,7 +8,7 @@ module('Integration | Component | banner', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Banner @color='primary'>
+      <Banner @color="primary">
         template block text
       </Banner>
     `);

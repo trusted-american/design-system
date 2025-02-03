@@ -3,6 +3,12 @@
 
 <Heading @title="List filter" />
 
+<Button
+  @text="Update"
+  class="mb-3"
+  {{on "click" (fn (mut this.status) "inactive")}}
+/>
+
 <ul>
   <li>Status: {{this.status}}</li>
   <li>Type:

@@ -21,7 +21,7 @@ module('Integration | Component | stat-card', function (hooks) {
 
   test('path works', async function (assert) {
     await render(
-      hbs`<StatCard @label="Key" @value="Value" @icon="user" @route='index'/>`,
+      hbs`<StatCard @label="Key" @value="Value" @icon="user" @route="index"/>`,
     );
     assert.dom('p').hasText('Key');
     assert.dom('h1').hasText('Value');
