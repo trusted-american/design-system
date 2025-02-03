@@ -2,10 +2,9 @@ import Component from '@glimmer/component';
 
 export interface PropertyListItemSignature {
   Args: {
-    label: string | number;
-    value?: string | null;
-    alt?: unknown;
-    tooltip?: string;
+    value: string | null;
+    label: string;
+    help?: string;
     isHorizontal?: boolean;
   };
   Blocks: {

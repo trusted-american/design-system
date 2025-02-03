@@ -3,6 +3,12 @@
 
 <Heading @title="List filter" />
 
+<Button
+  @text="Update"
+  class="mb-3"
+  {{on "click" (fn (mut this.status) "inactive")}}
+/>
+
 <ul>
   <li>Status: {{this.status}}</li>
   <li>Type:
@@ -11,7 +17,7 @@
     {{/each}}
   </li>
   <li>Tag: {{this.tag}}</li>
-  <li>Created Date:
+  <li>Created date:
     {{#if this.createdAt}}
       <ul>
         <li>
@@ -33,6 +39,7 @@
       </ul>
     {{/if}}
   </li>
+  <li>Other: {{this.other}}</li>
 </ul>
 
 <Snippet @name="list-filter.hbs">
@@ -60,7 +67,16 @@
       )
       (hash type="string" label="Tag" key="tag" value=this.tag)
       (hash
-        type="date" label="Created Date" key="createdAt" value=this.createdAt
+        type="date" label="Created date" key="createdAt" value=this.createdAt
+      )
+      (hash
+        label="Other"
+        key="other"
+        value=this.other
+        options=(array
+          (hash value="active" label="Active")
+          (hash value="inactive" label="Inactive")
+        )
       )
     }}
     @text="Filter"

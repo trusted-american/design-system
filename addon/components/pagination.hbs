@@ -2,13 +2,12 @@
   {{! @glint-expect-error }}
   {{#if @onChange}}
     <span>
-      {{! TODO: string }}
-      Viewing
+      {{@viewingText}}
       <strong>{{this.pageStart}}-{{this.pageEnd}}</strong>
-      of
+      {{@ofText}}
       {{! @glint-expect-error }}
       <strong>{{@totalItems}}</strong>
-      results
+      {{@resultsText}}
     </span>
   {{/if}}
   <nav data-test-pagination>

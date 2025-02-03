@@ -10,8 +10,8 @@ module('Integration | Component | form/radio/input', function (hooks) {
     await render(hbs`
       <Form::Radio::Input
         @checked={{true}}
-        @name='name'
-        @identifier='identifier'
+        @name="name"
+        @identifier="identifier"
         @isRequired={{true}}
       />
     `);

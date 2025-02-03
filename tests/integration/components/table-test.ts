@@ -19,7 +19,15 @@ module('Integration | Component | table', function (hooks) {
     ];
 
     await render<Context>(hbs`
-      <Table @data={{this.data}} @nextText="Next" @previousText="Previous" as |table|>
+      <Table
+        @data={{this.data}}
+        @nextText="Next"
+        @previousText="Previous"
+        @viewingText="Viewing"
+        @ofText="of"
+        @resultsText="results"
+        as |table|
+      >
         <table.header as |header|>
           <header.column @prop="email">
             Email
@@ -82,20 +90,29 @@ module('Integration | Component | table', function (hooks) {
     ];
 
     await render<Context>(hbs`
-      <Table @data={{this.data}} @isSortable={{true}} @nextText="Next" @previousText="Previous" as |table|>
-        <table.header as |header|>
-          <header.column @prop="email">
-            Email
-          </header.column>
-          <header.column @prop="firstName">
-            First Name
-          </header.column>
-          <header.column @prop="lastName">
-            Last Name
-          </header.column>
-        </table.header>
-        <table.body />
-      </Table>
+     <Table
+      @data={{this.data}}
+      @isSortable={{true}}
+      @nextText="Next"
+      @previousText="Previous"
+      @viewingText="Viewing"
+      @ofText="of"
+      @resultsText="results"
+      as |table|
+    >
+      <table.header as |header|>
+        <header.column @prop="email">
+          Email
+        </header.column>
+        <header.column @prop="firstName">
+          First Name
+        </header.column>
+        <header.column @prop="lastName">
+          Last Name
+        </header.column>
+      </table.header>
+      <table.body />
+    </Table>
     `);
 
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
@@ -169,7 +186,16 @@ module('Integration | Component | table', function (hooks) {
     ];
 
     await render<Context>(hbs`
-      <Table @data={{this.data}} @nextText="Next" @previousText="Previous" @pagination="local" as |table|>
+      <Table
+        @data={{this.data}}
+        @nextText="Next"
+        @previousText="Previous"
+        @viewingText="Viewing"
+        @ofText="of"
+        @resultsText="results"
+        @pagination="local"
+        as |table|
+      >
         <table.header as |header|>
           <header.column @prop="email">
             Email
@@ -251,8 +277,18 @@ module('Integration | Component | table', function (hooks) {
     ];
 
     await render<Context>(hbs`
-      <Table @data={{this.data}} @nextText="Next" @previousText="Previous" @pagination="cursor" @canNext={{false}}
-      @canPrevious={{false}} as |table|>
+      <Table
+        @data={{this.data}}
+        @nextText="Next"
+        @previousText="Previous"
+        @viewingText="Viewing"
+        @ofText="of"
+        @resultsText="results"
+        @pagination="cursor"
+        @canNext={{false}}
+        @canPrevious={{false}}
+        as |table|
+      >
         <table.header as |header|>
           <header.column @prop="email">
             Email
@@ -356,7 +392,19 @@ module('Integration | Component | table', function (hooks) {
     };
 
     await render<Context>(hbs`
-      <Table @data={{this.data}} @nextText="Next" @previousText="Previous" @pagination="offset" @page={{this.page}} @totalItems={{this.totalItems}} @onChangePage={{this.onChangePage}} as |table|>
+      <Table
+        @data={{this.data}}
+        @nextText="Next"
+        @previousText="Previous"
+        @viewingText="Viewing"
+        @ofText="of"
+        @resultsText="results"
+        @pagination="offset"
+        @page={{this.page}}
+        @totalItems={{this.totalItems}}
+        @onChangePage={{this.onChangePage}}
+        as |table|
+      >
         <table.header as |header|>
           <header.column @prop="email">
             Email

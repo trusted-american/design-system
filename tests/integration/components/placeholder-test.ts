@@ -11,9 +11,9 @@ module('Integration | Component | placeholder', function (hooks) {
 
     await render(hbs`
       <Placeholder
-        @icon='xmark'
-        @title='Title'
-        @subtitle='Subtitle'
+        @icon="xmark"
+        @title="Title"
+        @subtitle="Subtitle"
       />
     `);
 

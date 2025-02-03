@@ -11,6 +11,9 @@
     @data={{this.model}}
     @nextText="Next"
     @previousText="Previous"
+    @viewingText="Viewing"
+    @ofText="of"
+    @resultsText="results"
     as |table|
   >
     <table.header as |header|>
@@ -50,6 +53,9 @@
     @isSortable={{true}}
     @nextText="Next"
     @previousText="Previous"
+    @viewingText="Viewing"
+    @ofText="of"
+    @resultsText="results"
     as |table|
   >
     <table.header as |header|>
@@ -78,6 +84,9 @@
     @pagination="local"
     @nextText="Next"
     @previousText="Previous"
+    @viewingText="Viewing"
+    @ofText="of"
+    @resultsText="results"
     as |table|
   >
     <table.header as |header|>
@@ -106,6 +115,9 @@
     @pagination="cursor"
     @nextText="Next"
     @previousText="Previous"
+    @viewingText="Viewing"
+    @ofText="of"
+    @resultsText="results"
     @canNext={{false}}
     @canPrevious={{false}}
     @onNext={{this.do}}
@@ -138,6 +150,9 @@
     @pagination="offset"
     @nextText="Next"
     @previousText="Previous"
+    @viewingText="Viewing"
+    @ofText="of"
+    @resultsText="results"
     @page={{this.page}}
     @totalItems={{this.model.length}}
     @onChangePage={{fn (mut this.page)}}
