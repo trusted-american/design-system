@@ -42,7 +42,7 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
       if (optIndex && subOptIndex) {
         selected = (options as Group<T>[])[parseInt(optIndex)]?.options[
           parseInt(subOptIndex)
-        ] as Option<T>;
+        ]!;
       }
     }
 
