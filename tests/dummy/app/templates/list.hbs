@@ -13,10 +13,10 @@
         @onChange={{fn (mut this.search)}}
         placeholder="Search…"
       />
-      <Button @text="Filter" {{on "click" this.do}} />
-      <Button @text="Sort" {{on "click" this.do}} />
-      <Button @text="Export" {{on "click" this.do}} />
-      <Button @text="Create" @color="primary" {{on "click" this.do}} />
+      <Button @text="Filter" {{on "click" this.click}} />
+      <Button @text="Sort" {{on "click" this.click}} />
+      <Button @text="Export" {{on "click" this.click}} />
+      <Button @text="Create" @color="primary" {{on "click" this.click}} />
     </ButtonSet>
   </Heading>
 

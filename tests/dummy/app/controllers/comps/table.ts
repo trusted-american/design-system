@@ -17,7 +17,12 @@ export default class CompsTableController extends Controller {
   }
 
   @action
-  do() {
-    console.log('Something');
+  next() {
+    alert('Next');
+  }
+
+  @action
+  previous() {
+    alert('Previous');
   }
 }

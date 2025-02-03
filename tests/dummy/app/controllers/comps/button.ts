@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 
 export default class CompsButtonController extends Controller {
   @action
-  do() {
-    console.log('Something');
+  click() {
+    alert('Action');
   }
 }

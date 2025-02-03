@@ -59,7 +59,7 @@ export default class Avatar extends Component<AvatarSignature> {
 
     assert('<Avatar />: Must pass an alt string', typeOf(alt) === 'string');
 
-    return alt as string;
+    return alt!;
   }
 
   get style() {

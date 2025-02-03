@@ -11,7 +11,7 @@ export default class ListController extends Controller {
   ];
 
   @action
-  do() {
-    console.log('Something');
+  click() {
+    alert('Action');
   }
 }

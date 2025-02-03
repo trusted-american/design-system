@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked, cached } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import dayjs from 'dayjs';
+import checkValidity from '../utils/check-validity';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
@@ -133,7 +134,7 @@ class InternalPredicate<T> {
     if (this.mode === 'inTheLast') {
       value.gte = dayjs()
         .subtract(
-          this.offsetCount as number,
+          this.offsetCount!,
           this.offsetMode === 'months' ? 'months' : 'days',
         )
         .toDate();
@@ -197,20 +198,8 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  done(event: Event): void {
-    event.preventDefault();
-
-    if (!(event.target instanceof HTMLFormElement)) {
-      throw new Error();
-    }
-
-    const form = event.target;
-    if (!form.checkValidity()) {
-      form.classList.add('was-validated');
-      return;
-    }
-    form.classList.remove('was-validated');
-
+  @checkValidity
+  done(): void {
     for (const predicate of this.predicates) {
       this.args.onChange(predicate._predicate.key, predicate.value);
     }

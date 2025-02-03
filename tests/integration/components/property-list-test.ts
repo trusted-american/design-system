@@ -10,16 +10,16 @@ module('Integration | Component | property-list', function (hooks) {
     await render(hbs`
       <PropertyList as |list|>
         <list.item
-          @label="Key 1"
           @value="Value 1"
+          @label="Key 1"
           @help="This is a tooltip."
         >
           Value 1
         </list.item>
-        <list.item @label="Key 2" @value="Value 2">
+        <list.item @value="Value 2" @label="Key 2">
           Value 2
         </list.item>
-        <list.item @label="Key 3" @value="Value 3">
+        <list.item @value="Value 3" @label="Key 3">
           <:default>
             Value 3
           </:default>
@@ -44,16 +44,16 @@ module('Integration | Component | property-list', function (hooks) {
     await render(hbs`
       <PropertyList @isHorizontal={{true}}  as |list|>
         <list.item
-          @label="Key 1"
           @value="Value 1"
+          @label="Key 1"
           @help="This is a tooltip."
         >
           Value 1
         </list.item>
-        <list.item @label="Key 2" @value="Value 2">
+        <list.item @value="Value 2" @label="Key 2">
           Value 2
         </list.item>
-        <list.item @label="Key 3" @value="Value 3">
+        <list.item @value="Value 3" @label="Key 3">
           <:default>
             Value 3
           </:default>

@@ -116,7 +116,7 @@
                 <Form::Check
                   @value={{includes opt.value predicate._predicate.value}}
                   @label={{opt.label}}
-                  @identifier="{{opt.value}}"
+                  @identifier="value{{index}}{{opt.value}}"
                   @onChange={{fn this.toggleMulti predicate opt.value}}
                 />
               {{/each}}

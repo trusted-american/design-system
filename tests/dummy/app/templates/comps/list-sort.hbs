@@ -1,0 +1,18 @@
+{{page-title "List sort"}}
+{{breadcrumb "List sort"}}
+
+<Heading @title="List sort" />
+
+<Snippet @name="list-sort.hbs">
+  {{! BEGIN-SNIPPET list-sort }}
+  <ListSort
+    @sortBy="createdAt"
+    @sortAscending={{false}}
+    @options={{array (hash value="createdAt" label="Created date")}}
+    @text="Sort"
+    @highToLowText="High to low"
+    @lowToHighText="Low to high"
+    @onChange={{(noop)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

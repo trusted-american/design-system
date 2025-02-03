@@ -5,32 +5,36 @@
 
 <Snippet @name="button.hbs">
   {{! BEGIN-SNIPPET button }}
-  <Button @text="Default button" {{on "click" this.do}} />
-  <Button @text="Success button" @color="success" {{on "click" this.do}} />
+  <Button @text="Default button" {{on "click" this.click}} />
+  <Button @text="Success button" @color="success" {{on "click" this.click}} />
   <Button
     @text="Success button with icon"
     @color="success"
     @icon="plus"
-    {{on "click" this.do}}
+    {{on "click" this.click}}
   />
   <Button
     @text="Success button with trailing icon"
     @color="success"
     @icon="plus"
     @isIconTrailing={{true}}
-    {{on "click" this.do}}
+    {{on "click" this.click}}
   />
   <Button
     @text="Success button with only icon"
     @icon="plus"
     @isIconOnly={{true}}
     @color="success"
-    {{on "click" this.do}}
+    {{on "click" this.click}}
   />
-  <Button @text="Loading button" @isLoading={{true}} {{on "click" this.do}} />
-  <Button @text="Disabled button" disabled {{on "click" this.do}} />
-  <Button @text="Count button" @count={{3}} {{on "click" this.do}} />
-  <Button @text="Default button" @shortcut="n" {{on "click" this.do}} />
+  <Button
+    @text="Loading button"
+    @isLoading={{true}}
+    {{on "click" this.click}}
+  />
+  <Button @text="Disabled button" disabled {{on "click" this.click}} />
+  <Button @text="Count button" @count={{3}} {{on "click" this.click}} />
+  <Button @text="Default button" @shortcut="n" {{on "click" this.click}} />
   {{! END-SNIPPET }}
 </Snippet>
 

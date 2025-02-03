@@ -22,6 +22,7 @@ interface Args2 extends Args {
   canPrevious: boolean;
   onNext: () => void;
   onPrevious: () => void;
+  onChange?: never;
 }
 
 export interface PaginationSignature {
@@ -117,7 +118,7 @@ export default class Pagination extends Component<PaginationSignature> {
     event.preventDefault();
 
     if ('onChange' in this.args) {
-      this.args.onChange(index);
+      this.args.onChange?.(index);
     }
   }
 }
