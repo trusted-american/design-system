@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface PropertyListItemSignature {
   Args: {
-    value: string | number | boolean | Date | null;
+    value: string | number | boolean | Date | null | undefined;
     label: string;
     help?: string;
     isHorizontal?: boolean;
