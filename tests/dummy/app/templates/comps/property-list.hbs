@@ -8,11 +8,11 @@
 <Snippet @name="property-list.hbs">
   {{! BEGIN-SNIPPET property-list }}
   <PropertyList as |list|>
-    <list.item @label="Key 1" @value="Value 1" @help="This is a tooltip." />
-    <list.item @label="Key 2" @value="Value 2">
+    <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip." />
+    <list.item @value="Value 2" @label="Key 2">
       Value 2
     </list.item>
-    <list.item @label="Key 3" @value="Value 3">
+    <list.item @value="Value 3" @label="Key 3">
       <:default>
         Value 3
       </:default>
@@ -20,9 +20,9 @@
         Side
       </:side>
     </list.item>
-    <list.item @label="Key 4" @value={{null}} />
-    <list.item @label="Key 5" @value={{true}} />
-    <list.item @label="Key 6" @value={{false}} />
+    <list.item @value={{null}} @label="Key 4" />
+    <list.item @value={{true}} @label="Key 5" />
+    <list.item @value={{false}} @label="Key 6" />
   </PropertyList>
   {{! END-SNIPPET }}
 </Snippet>
@@ -32,14 +32,14 @@
 <Snippet @name="property-list2.hbs">
   {{! BEGIN-SNIPPET property-list2 }}
   <PropertyList @isHorizontal={{true}} as |list|>
-    <list.item @label="Key 1" @value="Value 1" @help="This is a tooltip." />
-    <list.item @label="Key 2" @value="Value 2">
+    <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip." />
+    <list.item @value="Value 2" @label="Key 2">
       Value 2
     </list.item>
-    <list.item @label="Key 3" @value="Value 3">
+    <list.item @value="Value 3" @label="Key 3">
       Value 3
     </list.item>
-    <list.item @label="Key 4" @value={{null}} />
+    <list.item @value={{null}} @label="Key 4" />
   </PropertyList>
   {{! END-SNIPPET }}
 </Snippet>

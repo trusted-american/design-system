@@ -1,55 +1,38 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { render, click, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { Option } from '@trusted-american/design-system/components/form/select';
-import type {
-  ListAttributesKey,
-  ListAttributesPreset,
-} from '@trusted-american/design-system/components/list-attributes';
+import type { ListAttributesSignature } from '@trusted-american/design-system/components/list-attributes';
+
+type Context = ListAttributesSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | list-attributes', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     assert.expect(8);
 
-    const state = tracked<{
-      selected: ListAttributesKey<ClientModel>[];
-    }>({
-      selected: [],
-    });
+    this.selected = [];
 
-    const presets: ListAttributesPreset<ClientModel>[] = [
-      {
-        label: 'Primary',
-        values: ['firstName', 'middleName', 'lastName'],
-      },
-      {
-        label: 'Secondary',
-        values: ['nickname', 'status', 'createdAt'],
-      },
-    ];
-    const options: Option<keyof ClientModel>[] = [
-      { label: 'First Name', value: 'firstName' },
-      { label: 'Middle Name', value: 'middleName' },
-      { label: 'Last Name', value: 'lastName' },
-      { label: 'Nickname', value: 'nickname' },
-      { label: 'Status', value: 'status' },
-      { label: 'Created Date', value: 'createdAt' },
-    ];
-    const onChange = (values: ListAttributesKey<ClientModel>[]) => {
-      state.selected = values;
-    };
-
-    await render(hbs`
+    await render<Context>(hbs`
       <ListAttributes
-        @presets={{presets}}
-        @options={{options}}
-        @selected={{state.selected}}
+        @presets={{array
+          (hash label="Primary" values=(array "firstName" "middleName" "lastName"))
+          (hash label="Secondary" values=(array "nickname" "status" "createdAt"))
+        }}
+        @options={{array
+          (hash value="firstName" label="First name")
+          (hash value="middleName" label="Middle name")
+          (hash value="lastName" label="Last name")
+          (hash value="nickname" label="Nickname")
+          (hash value="status" label="Status")
+          (hash value="createdAt" label="Created date")
+        }}
+        @selected={{this.selected}}
         @text="Edit columns"
-        @onChange={{onChange}}
+        {{! @glint-expect-error }}
+        @onChange={{fn (mut this.selected)}}
       />
     `);
 
@@ -60,13 +43,13 @@ module('Integration | Component | list-attributes', function (hooks) {
 
     assert.dom(preset1).doesNotHaveClass('invisible-icon');
     assert.dom(preset2).hasClass('invisible-icon');
-    assert.deepEqual(state.selected, ['firstName', 'middleName', 'lastName']);
+    assert.deepEqual(this.selected, ['firstName', 'middleName', 'lastName']);
 
     await click(preset2);
 
     assert.dom(preset1).hasClass('invisible-icon');
     assert.dom(preset2).doesNotHaveClass('invisible-icon');
-    assert.deepEqual(state.selected, ['nickname', 'status', 'createdAt']);
+    assert.deepEqual(this.selected, ['nickname', 'status', 'createdAt']);
 
     await click('[data-test-option]');
 

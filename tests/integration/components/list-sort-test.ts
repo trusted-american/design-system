@@ -1,36 +1,37 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { render, click, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-import type { Option } from '@trusted-american/design-system/components/form/select';
+import type { ListSortSignature } from '@trusted-american/design-system/components/list-sort';
+
+type Context = ListSortSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | list-sort', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('it renders', async function (this: Context, assert) {
     assert.expect(5);
 
-    const sortBy: keyof UserModel = 'createdAt';
-    const sortAscending = false;
-    const options: Option<keyof UserModel>[] = [
-      { label: 'Created Date', value: 'createdAt' },
-    ];
-    const onChange = (sortBy: keyof UserModel, sortAscending: boolean) => {
+    this.onChange = (sortBy: unknown, sortAscending: boolean) => {
       assert.strictEqual(sortBy, 'createdAt');
       assert.true(sortAscending);
     };
 
-    await render(hbs`
+    await render<Context>(hbs`
       <ListSort
-        @sortBy={{sortBy}}
-        @sortAscending={{sortAscending}}
-        @options={{options}}
-        @onChange={{onChange}}
+        @sortBy="createdAt"
+        @sortAscending={{false}}
+        @options={{array (hash value="createdAt" label="Created date")}}
+        @text="Sort"
+        @highToLowText="High to low"
+        @lowToHighText="Low to high"
+        {{! @glint-expect-error }}
+        @onChange={{this.onChange}}
       />
     `);
 
-    assert.dom().hasText('Sort Created Date High to Low Low to High');
+    assert.dom().hasText('Sort Created date High to low Low to high');
     assert
       .dom('[data-test-list-sort-dropdown] button')
       .doesNotHaveClass('invisible-icon');
