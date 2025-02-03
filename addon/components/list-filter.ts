@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
-import { action, set } from '@ember/object';
+import { tracked, cached } from '@glimmer/tracking';
+import { action } from '@ember/object';
 import dayjs from 'dayjs';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
@@ -42,36 +43,120 @@ interface DatePredicate extends BasePredicate {
   value: DateRangeQueryParam;
 }
 
-interface _OffsetDatePredicate extends DatePredicate {
-  mode: 'inTheLast';
-  valueA: number | null;
-  valueB: 'months' | 'days';
-}
-
-interface _RangeDatePredicate extends DatePredicate {
-  mode: 'between';
-  valueA: Date | null;
-  valueB: Date | null;
-}
-
-interface _SingleDatePredicate extends DatePredicate {
-  mode: 'equals' | 'isAfter' | 'isAfterOrOn' | 'isBefore' | 'isBeforeOrOn';
-  valueA: Date | null;
-}
-
 export type Predicate<T = unknown> =
   | SingleSelectPredicate<T>
   | MultiSelectPredicate<T>
   | StringPredicate
   | DatePredicate;
 
-type InternalPredicate<T> =
-  | SingleSelectPredicate<T>
-  | MultiSelectPredicate<T>
-  | StringPredicate
-  | _OffsetDatePredicate
-  | _RangeDatePredicate
-  | _SingleDatePredicate;
+class InternalPredicate<T> {
+  _predicate: Predicate<T>;
+
+  @tracked isEnabled = false;
+
+  @tracked _value: Predicate<T>['value'];
+
+  @tracked mode:
+    | 'inTheLast'
+    | 'equals'
+    | 'between'
+    | 'isAfter'
+    | 'isAfterOrOn'
+    | 'isBefore'
+    | 'isBeforeOrOn' = 'inTheLast';
+
+  @tracked offsetCount: number | null = 1;
+  @tracked offsetMode: 'days' | 'months' = 'days';
+
+  @tracked startAt: Date | null = null;
+  @tracked endAt: Date | null = null;
+
+  constructor(predicate: Predicate<T>) {
+    this._predicate = predicate;
+
+    const { value: val } = predicate;
+
+    this._value = val;
+
+    if ((val || val === false) && (!Array.isArray(val) || val.length !== 0)) {
+      this.isEnabled = true;
+    }
+
+    if (predicate.type !== 'date') {
+      return;
+    }
+
+    const { value } = predicate;
+
+    if (Array.isArray(value)) {
+      this.mode = 'inTheLast';
+      this.offsetCount = 1;
+      this.offsetMode = 'days';
+    } else if (value.gte && value.lte) {
+      this.mode = 'between';
+      this.startAt = value.gte;
+      this.endAt = value.lte;
+    } else if (value.gt) {
+      this.mode = 'isAfter';
+      this.startAt = value.gt;
+    } else if (value.gte) {
+      this.mode = 'isAfterOrOn';
+      this.startAt = value.gte;
+    } else if (value.lt) {
+      this.mode = 'isBefore';
+      this.startAt = value.lt;
+    } else if (value.lte) {
+      this.mode = 'isBeforeOrOn';
+      this.startAt = value.lte;
+    }
+  }
+
+  get value() {
+    if (!this.isEnabled) {
+      if (this._predicate.type === 'date' || this._predicate.type === 'multi') {
+        return [];
+      }
+      return undefined;
+    }
+
+    if (this._predicate.type !== 'date') {
+      return this._value;
+    }
+
+    const value: DateRangeQueryParam = {
+      gte: null,
+      gt: null,
+      lt: null,
+      lte: null,
+    };
+
+    if (this.mode === 'inTheLast') {
+      value.gte = dayjs()
+        .subtract(
+          this.offsetCount as number,
+          this.offsetMode === 'months' ? 'months' : 'days',
+        )
+        .toDate();
+      value.lte = new Date();
+    } else if (this.mode === 'equals') {
+      value.gte = this.startAt;
+      value.lte = dayjs(this.startAt).endOf('day').toDate();
+    } else if (this.mode === 'between') {
+      value.gte = this.startAt;
+      value.lte = this.endAt;
+    } else if (this.mode === 'isAfter') {
+      value.gt = this.startAt;
+    } else if (this.mode === 'isAfterOrOn') {
+      value.gte = this.startAt;
+    } else if (this.mode === 'isBefore') {
+      value.lt = this.startAt;
+    } else {
+      value.lte = this.startAt;
+    }
+
+    return value;
+  }
+}
 
 export interface ListFilterSignature<T> {
   Args: {
@@ -100,137 +185,15 @@ export interface ListFilterSignature<T> {
 }
 
 export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
-  predicates: InternalPredicate<T>[];
-
-  constructor(owner: unknown, args: ListFilterSignature<T>['Args']) {
-    super(owner, args);
-
-    this.predicates = this.args.predicates.map((predicate) => {
-      if (predicate.type !== 'date') {
-        return { ...predicate };
-      }
-
-      if (Array.isArray(predicate.value)) {
-        return {
-          ...predicate,
-          mode: 'inTheLast',
-          valueA: 1,
-          valueB: 'days',
-        };
-      }
-
-      const { value } = predicate;
-      if (value.gte && value.lte) {
-        return {
-          ...predicate,
-          mode: 'between',
-          valueA: value.gte,
-          valueB: value.lte,
-        };
-      } else if (value.gt) {
-        return {
-          ...predicate,
-          mode: 'isAfter',
-          valueA: value.gt,
-        };
-      } else if (value.gte) {
-        return {
-          ...predicate,
-          mode: 'isAfterOrOn',
-          valueA: value.gte,
-        };
-      } else if (value.lt) {
-        return {
-          ...predicate,
-          mode: 'isBefore',
-          valueA: value.lt,
-        };
-      } else if (value.lte) {
-        return {
-          ...predicate,
-          mode: 'isBeforeOrOn',
-          valueA: value.lte,
-        };
-      } else {
-        return {
-          ...predicate,
-          mode: 'inTheLast',
-          valueA: 1,
-          valueB: 'days',
-        };
-      }
-    });
-  }
-
-  get selections(): Predicate<T>[] {
-    return this.args.predicates.filter(
-      ({ value }) =>
-        (Boolean(value) || value === false) &&
-        (!Array.isArray(value) || value.length),
+  @cached
+  get predicates(): InternalPredicate<T>[] {
+    return this.args.predicates.map(
+      (predicate) => new InternalPredicate(predicate),
     );
   }
 
-  @action
-  toggle(predicate: InternalPredicate<T>, checked: boolean): void {
-    if (checked) {
-      if (predicate.type === 'multi') {
-        const [option] = predicate.options;
-        const value = option ? [option.value] : [];
-        set(predicate, 'value', value);
-      } else if (predicate.type === 'string') {
-        set(predicate, 'value', 'Text');
-      } else if (predicate.type === 'date') {
-        const djs = dayjs();
-        const valueA = djs.startOf('day').toDate();
-        const valueB = djs.endOf('day').toDate();
-        set(predicate, 'value', {
-          gte: valueA,
-          gt: null,
-          lt: null,
-          lte: valueB,
-        });
-        set(predicate, 'mode', 'between');
-        set(predicate, 'valueA', valueA);
-        set(predicate as _RangeDatePredicate, 'valueB', valueB);
-      } else {
-        const [option] = predicate.options;
-        set(predicate, 'value', option?.value);
-      }
-    } else {
-      if (predicate.type === 'date' || predicate.type === 'multi') {
-        set(predicate, 'value', []);
-      } else {
-        set(predicate, 'value', undefined);
-      }
-    }
-  }
-
-  @action
-  setValueB(predicate: _RangeDatePredicate, date: Date | null): void {
-    predicate.valueB = dayjs(date).endOf('day').toDate();
-  }
-
-  @action
-  toggleMulti(
-    predicate: MultiSelectPredicate<T>,
-    value: T,
-    checked: boolean,
-  ): void {
-    if (checked) {
-      predicate.value = [...predicate.value, value];
-    } else {
-      predicate.value = predicate.value.filter((v) => v !== value);
-    }
-  }
-
-  @action
-  clear(): void {
-    for (const predicate of this.predicates) {
-      this.toggle(predicate, false);
-
-      const { key, value } = predicate;
-      this.args.onChange(key, value);
-    }
+  get selections(): InternalPredicate<T>[] {
+    return this.predicates.filter(({ isEnabled }) => isEnabled);
   }
 
   @action
@@ -248,51 +211,44 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     }
     form.classList.remove('was-validated');
 
-    const predicates = this.predicates.map((predicate) => {
-      if (predicate.type === 'date' && !Array.isArray(predicate.value)) {
-        const value: DateRangeQueryParam = {
-          gte: null,
-          gt: null,
-          lt: null,
-          lte: null,
-        };
-
-        if (predicate.mode === 'inTheLast') {
-          value.gte = dayjs()
-            .subtract(
-              predicate.valueA as number,
-              predicate.valueB === 'months' ? 'months' : 'days',
-            )
-            .toDate();
-          value.lte = new Date();
-        } else if (predicate.mode === 'equals') {
-          value.gte = predicate.valueA;
-          value.lte = dayjs(predicate.valueA).endOf('day').toDate();
-        } else if (predicate.mode === 'between') {
-          value.gte = predicate.valueA;
-          value.lte = predicate.valueB;
-        } else if (predicate.mode === 'isAfter') {
-          value.gt = predicate.valueA;
-        } else if (predicate.mode === 'isAfterOrOn') {
-          value.gte = predicate.valueA;
-        } else if (predicate.mode === 'isBefore') {
-          value.lt = predicate.valueA;
-        } else {
-          value.lte = predicate.valueA;
-        }
-        set(predicate, 'value', value);
-      }
-      return predicate;
-    });
-
-    for (const { key, value } of predicates) {
-      this.args.onChange(key, value);
+    for (const predicate of this.predicates) {
+      this.args.onChange(predicate._predicate.key, predicate.value);
     }
   }
 
   @action
-  change(predicate: Predicate, opt: Option<T>) {
-    set(predicate, 'value', opt.value);
+  clear(): void {
+    for (const predicate of this.predicates) {
+      predicate.isEnabled = false;
+      this.args.onChange(predicate._predicate.key, predicate.value);
+    }
+  }
+
+  @action
+  setValue(predicate: InternalPredicate<T>, opt: Option<T>): void {
+    predicate._value = opt.value;
+  }
+
+  @action
+  setEndAt(predicate: InternalPredicate<T>, date: Date | null): void {
+    predicate.endAt = dayjs(date).endOf('day').toDate();
+  }
+
+  @action
+  toggleMulti(
+    predicate: InternalPredicate<T>,
+    value: T,
+    checked: boolean,
+  ): void {
+    if (checked) {
+      // @ts-expect-error fix later todo
+      // eslint-disable-next-line @typescript-eslint/no-misused-spread
+      predicate._value = [...predicate._value, value];
+    } else {
+      // @ts-expect-error fix later todo
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+      predicate._value = predicate._value.filter((v) => v !== value);
+    }
   }
 }
 

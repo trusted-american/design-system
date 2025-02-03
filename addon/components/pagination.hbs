@@ -18,15 +18,88 @@
           {{on "click" this.previous}}
         >{{@previousText}}</a>
       </li>
-      {{#each this.pages as |_ index|}}
-        <li class="page-item {{if (eq @page index) 'active'}}">
-          <a
-            class="page-link"
-            href="#"
-            {{on "click" (fn this.change index)}}
-          >{{inc index}}</a>
-        </li>
-      {{/each}}
+      {{#if (lt this.length 6)}}
+        {{#each this.pages as |_ index|}}
+          <Pagination::Item
+            @page={{@page}}
+            @index={{index}}
+            @onClick={{fn this.change index}}
+          />
+        {{/each}}
+      {{else}}
+        {{#each this.pages as |_ index|}}
+          {{#if (eq index 0)}}
+            <Pagination::Item
+              @page={{@page}}
+              @index={{index}}
+              @onClick={{fn this.change index}}
+            />
+            {{#if (eq @page index)}}
+              <Pagination::Item
+                @page={{@page}}
+                @index={{1}}
+                @onClick={{fn this.change 1}}
+              />
+              <Pagination::Ellipsis />
+              <Pagination::Item
+                @page={{@page}}
+                @index={{this.twoAway}}
+                @onClick={{fn this.change this.twoAway}}
+              />
+            {{/if}}
+          {{else if
+            (and
+              (and (eq index this.beforeCurrentIndex) (gt index 0))
+              (lt index this.twoAway)
+            )
+          }}
+            {{#if (gt index 1)}}
+              <Pagination::Ellipsis />
+            {{/if}}
+            <Pagination::Item
+              @page={{@page}}
+              @index={{index}}
+              @onClick={{fn this.change index}}
+            />
+          {{else if (eq index @page)}}
+            {{#if (eq index this.length)}}
+              <Pagination::Item
+                @page={{@page}}
+                @index={{1}}
+                @onClick={{fn this.change 1}}
+              />
+              <Pagination::Ellipsis />
+              <Pagination::Item
+                @page={{@page}}
+                @index={{this.twoAway}}
+                @onClick={{fn this.change this.twoAway}}
+              />
+            {{/if}}
+            <Pagination::Item
+              @page={{@page}}
+              @index={{index}}
+              @onClick={{fn this.change index}}
+            />
+          {{else if
+            (and (eq index this.afterCurrentIndex) (lt index this.length))
+          }}
+            <Pagination::Item
+              @page={{@page}}
+              @index={{index}}
+              @onClick={{fn this.change index}}
+            />
+            {{#if (lt index this.twoAway)}}
+              <Pagination::Ellipsis />
+            {{/if}}
+          {{else if (eq index this.length)}}
+            <Pagination::Item
+              @page={{@page}}
+              @index={{index}}
+              @onClick={{fn this.change index}}
+            />
+          {{/if}}
+        {{/each}}
+      {{/if}}
       <li class="page-item {{unless this.canNext 'disabled'}}">
         <a
           class="page-link"
