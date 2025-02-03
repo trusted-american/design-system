@@ -8,7 +8,7 @@ module('Integration | Component | nav/item', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Nav::Item @route='index'>
+      <Nav::Item @route="index">
         template block text
       </Nav::Item>
     `);

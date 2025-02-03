@@ -21,7 +21,7 @@ module('Integration | Helper | timestamp', function (hooks) {
   test('it renders date format', async function (this: Context, assert) {
     this.set('date', new Date(2022, 0, 1));
 
-    await render<Context>(hbs`{{timestamp this.date format='date'}}`);
+    await render<Context>(hbs`{{timestamp this.date format="date"}}`);
 
     assert.dom().hasText('Jan 1, 2022');
   });
@@ -29,7 +29,7 @@ module('Integration | Helper | timestamp', function (hooks) {
   test('it renders time format', async function (this: Context, assert) {
     this.set('date', new Date(2022, 0, 1));
 
-    await render<Context>(hbs`{{timestamp this.date format='time'}}`);
+    await render<Context>(hbs`{{timestamp this.date format="time"}}`);
 
     assert.dom().hasText('12:00 AM');
   });
@@ -37,7 +37,7 @@ module('Integration | Helper | timestamp', function (hooks) {
   test('it renders numberDate format', async function (this: Context, assert) {
     this.set('date', new Date(2022, 0, 1));
 
-    await render<Context>(hbs`{{timestamp this.date format='numberDate'}}`);
+    await render<Context>(hbs`{{timestamp this.date format="numberDate"}}`);
 
     assert.dom().hasText('01/01/2022');
   });
@@ -45,7 +45,7 @@ module('Integration | Helper | timestamp', function (hooks) {
   test('it renders year format', async function (this: Context, assert) {
     this.set('date', new Date(2022, 0, 1));
 
-    await render<Context>(hbs`{{timestamp this.date format='year'}}`);
+    await render<Context>(hbs`{{timestamp this.date format="year"}}`);
 
     assert.dom().hasText('2022');
   });
@@ -53,7 +53,7 @@ module('Integration | Helper | timestamp', function (hooks) {
   test('it renders full format', async function (this: Context, assert) {
     this.set('date', new Date(2022, 0, 1));
 
-    await render<Context>(hbs`{{timestamp this.date format='full'}}`);
+    await render<Context>(hbs`{{timestamp this.date format="full"}}`);
 
     assert.dom().hasText('Jan 1, 2022 at 12:00 AM');
   });

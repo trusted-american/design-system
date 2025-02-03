@@ -115,6 +115,9 @@ export interface TableSignature<T> {
     pagination?: 'local' | 'cursor' | 'offset';
     nextText: string;
     previousText: string;
+    viewingText: string;
+    ofText: string;
+    resultsText: string;
     canNext?: boolean;
     canPrevious?: boolean;
     page?: number;

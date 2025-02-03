@@ -14,7 +14,7 @@ module('Integration | Component | aside', function (hooks) {
     this.isCollapsed = false;
 
     await render<Context>(hbs`
-      <Aside @title='Title' @logo='' @route='' @isCollapsed={{this.isCollapsed}} @onChange={{fn (mut this.isCollapsed)}}>
+      <Aside @title="Title" @logo="" @route="" @isCollapsed={{this.isCollapsed}} @onChange={{fn (mut this.isCollapsed)}}>
         <:default>
           Default
         </:default>

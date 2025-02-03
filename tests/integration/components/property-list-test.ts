@@ -75,7 +75,7 @@ module('Integration | Component | property-list', function (hooks) {
   });
 
   test('it renders with title', async function (assert) {
-    await render(hbs`<PropertyList @title='Test'></PropertyList>`);
+    await render(hbs`<PropertyList @title="Test"></PropertyList>`);
 
     assert.dom().hasText('Test');
   });

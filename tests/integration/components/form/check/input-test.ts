@@ -16,8 +16,8 @@ module('Integration | Component | form/check/input', function (hooks) {
     await render<Context>(hbs`
       <Form::Check::Input
         @value={{this.value}}
-        @label='Label'
-        @identifier='identifier'
+        @label="Label"
+        @identifier="identifier"
         @isRequired={{true}}
         @onChange={{fn (mut this.value)}}
       />

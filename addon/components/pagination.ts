@@ -4,6 +4,9 @@ import Component from '@glimmer/component';
 interface Args {
   nextText: string;
   previousText: string;
+  viewingText: string;
+  ofText: string;
+  resultsText: string;
 }
 
 interface Args1 extends Args {

@@ -8,7 +8,7 @@ module('Integration | Modifier | collapse', function (hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function (assert) {
-    await render(hbs`<div {{collapse 'test'}}></div>`);
+    await render(hbs`<div {{collapse "test"}}></div>`);
 
     assert.ok(true);
   });
