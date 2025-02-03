@@ -4,7 +4,7 @@ import { htmlSafe as _htmlSafe, type SafeString } from '@ember/template';
 const htmlSafe = helper(function htmlSafe([value]: [
   string | null,
 ]): SafeString {
-  return _htmlSafe(value as string);
+  return _htmlSafe(value!);
 });
 
 export default htmlSafe;

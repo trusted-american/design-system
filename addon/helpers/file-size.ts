@@ -18,7 +18,7 @@ const fileSize = helper(function fileSize([bytes]): string {
   return (
     (parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) as unknown as string) +
     ' ' +
-    (sizes[i] as string)
+    sizes[i]!
   );
 });
 

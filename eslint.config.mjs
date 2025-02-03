@@ -92,10 +92,11 @@ export default ts.config(
     extends: [
       ...ts.configs.strictTypeChecked,
       ...ts.configs.stylisticTypeChecked,
-      ,
       ember.configs.gts,
     ],
     rules: {
+      '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
       'ember/no-empty-glimmer-component-classes': 'off',
     },
   },
