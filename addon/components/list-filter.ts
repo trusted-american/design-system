@@ -73,9 +73,10 @@ class InternalPredicate<T> {
 
   constructor(predicate: Predicate<T>) {
     this._predicate = predicate;
-    this._value = predicate.value;
 
     const { value: val } = predicate;
+
+    this._value = val;
 
     if ((val || val === false) && (!Array.isArray(val) || val.length !== 0)) {
       this.isEnabled = true;
@@ -240,8 +241,12 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     checked: boolean,
   ): void {
     if (checked) {
+      // @ts-expect-error fix later todo
+      // eslint-disable-next-line @typescript-eslint/no-misused-spread
       predicate._value = [...predicate._value, value];
     } else {
+      // @ts-expect-error fix later todo
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
       predicate._value = predicate._value.filter((v) => v !== value);
     }
   }

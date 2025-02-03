@@ -60,6 +60,7 @@
                 @isInputOnly={{true}}
                 @onChange={{fn (mut predicate.mode)}}
                 class="mb-2"
+                data-test-mode
               />
 
               <div class="d-flex align-items-center gap-2">
@@ -123,6 +124,7 @@
             {{else if (eq "string" predicate._predicate.type)}}
 
               <Form::Input
+                {{! @glint-expect-error }}
                 @value={{predicate._value}}
                 @label={{@valueText}}
                 @identifier="value{{index}}"

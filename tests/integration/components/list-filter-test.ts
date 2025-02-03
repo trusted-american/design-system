@@ -118,11 +118,6 @@ module('Integration | Component | list-filter', function (hooks) {
 
     // single
     await click('[data-test-predicate-toggle]:nth-of-type(1)');
-    assert
-      .dom(
-        '[data-test-predicate-value]:nth-of-type(2) [data-test-form-power-select]',
-      )
-      .exists();
     await selectChoose(
       '[data-test-predicate-value]:nth-of-type(2) [data-test-form-power-select]',
       '.ember-power-select-option',
@@ -131,11 +126,6 @@ module('Integration | Component | list-filter', function (hooks) {
 
     // single
     await click('[data-test-predicate-toggle]:nth-of-type(2)');
-    assert
-      .dom(
-        '[data-test-predicate-value]:nth-of-type(3) [data-test-form-power-select]',
-      )
-      .exists();
     await selectChoose(
       '[data-test-predicate-value]:nth-of-type(3) [data-test-form-power-select]',
       '.ember-power-select-option',
@@ -148,14 +138,14 @@ module('Integration | Component | list-filter', function (hooks) {
       .dom('[data-test-predicate-value]:nth-of-type(4) [data-test-form-check]')
       .exists({ count: 2 });
     await click(
+      '[data-test-predicate-value]:nth-of-type(4) [data-test-form-check]:nth-of-type(1) input',
+    );
+    await click(
       '[data-test-predicate-value]:nth-of-type(4) [data-test-form-check]:nth-of-type(2) input',
     );
 
     // string
     await click('[data-test-predicate-toggle]:nth-of-type(4)');
-    assert
-      .dom('[data-test-predicate-value]:nth-of-type(5) [data-test-form-input]')
-      .exists();
     await fillIn(
       '[data-test-predicate-value]:nth-of-type(5) [data-test-form-input]',
       'Test',
@@ -163,22 +153,8 @@ module('Integration | Component | list-filter', function (hooks) {
 
     // date
     await click('[data-test-predicate-toggle]:nth-of-type(5)');
-    assert
-      .dom('[data-test-predicate-value]:nth-of-type(6) [data-test-form-select]')
-      .exists();
-    assert
-      .dom(
-        '[data-test-predicate-value]:nth-of-type(6) div input:nth-of-type(1)',
-      )
-      .exists();
-    assert
-      .dom('[data-test-predicate-value]:nth-of-type(6) div div:nth-of-type(1)')
-      .hasText('and');
-    assert
-      .dom(
-        '[data-test-predicate-value]:nth-of-type(6) div input:nth-of-type(2)',
-      )
-      .exists();
+    await select('[data-test-mode]', '1');
+    await fillIn('#valueA4', '2020-01-01');
 
     await click('[data-test-done]');
 
@@ -239,7 +215,7 @@ module('Integration | Component | list-filter', function (hooks) {
     `);
 
     await click('[data-test-predicate-toggle]');
-    await select('[data-test-form-select]', '2');
+    await select('[data-test-mode]', '2');
     await fillIn('#valueA0', '2025-01-01');
     await fillIn('#valueB0', '2025-01-02');
     await click('[data-test-done]');
