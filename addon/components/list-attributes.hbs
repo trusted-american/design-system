@@ -1,0 +1,30 @@
+<Button
+  @text={{@text}}
+  @icon="table-columns"
+  {{dropdown autoClose="outside"}}
+  ...attributes
+/>
+<Dropdown>
+  {{#each @presets as |preset|}}
+    <Dropdown::Item
+      @text={{preset.label}}
+      @icon="check"
+      class={{if
+        (not-eq preset.label this.activePreset.label)
+        "invisible-icon"
+      }}
+      data-test-preset
+      {{on "click" (fn @onChange preset.values)}}
+    />
+  {{/each}}
+  <Dropdown::Divider />
+  {{#each @options as |attribute|}}
+    <Dropdown::Item
+      @text={{attribute.label}}
+      @icon="check"
+      class={{if (not (includes attribute.value @selected)) "invisible-icon"}}
+      data-test-option
+      {{on "click" (fn this.toggleAttribute attribute)}}
+    />
+  {{/each}}
+</Dropdown>

@@ -169,6 +169,12 @@ aside.collapsed nav .fa-fw {
   color: var(--bs-secondary);
 }
 
+/* list-attributes */
+
+.invisible-icon .fa-fw {
+  visibility: hidden !important;
+}
+
 /* property-list */
 
 dl dt {
