@@ -245,14 +245,22 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueB0', '2025-01-02');
     await click('[data-test-done]');
 
+    // TODO:
+    type T = {
+      gte: Date | null;
+      gt: Date | null;
+      lt: Date | null;
+      lte: Date | null;
+    };
+
     assert.strictEqual(
-      this.createdAt.gte.toISOString(),
+      (this.createdAt as unknown as T).gte?.toISOString(),
       '2025-01-01T08:00:00.000Z',
     );
-    assert.strictEqual(this.createdAt.gt, null);
-    assert.strictEqual(this.createdAt.lt, null);
+    assert.strictEqual((this.createdAt as unknown as T).gt, null);
+    assert.strictEqual((this.createdAt as unknown as T).lt, null);
     assert.strictEqual(
-      this.createdAt.lte.toISOString(),
+      (this.createdAt as unknown as T).lte?.toISOString(),
       '2025-01-03T07:59:59.999Z',
     );
   });
