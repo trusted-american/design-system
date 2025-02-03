@@ -19,8 +19,11 @@ module('Integration | Component | pagination', function (hooks) {
         {{! @glint-expect-error }}
         @pageSize={{3}}
         @totalItems={{9}}
-        @nextText='Next'
-        @previousText='Previous'
+        @nextText="Next"
+        @previousText="Previous"
+        @viewingText="Viewing"
+        @ofText="of"
+        @resultsText="results"
         @onChange={{fn (mut this.page)}}
       />
     `);
