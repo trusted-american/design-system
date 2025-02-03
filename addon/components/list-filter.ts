@@ -227,8 +227,13 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   }
 
   @action
-  change(predicate: InternalPredicate<T>, opt: Option<T>): void {
+  setValue(predicate: InternalPredicate<T>, opt: Option<T>): void {
     predicate._value = opt.value;
+  }
+
+  @action
+  setEndAt(predicate: InternalPredicate<T>, date: Date | null): void {
+    predicate.endAt = dayjs(date).endOf('day').toDate();
   }
 
   @action
@@ -242,11 +247,6 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     } else {
       predicate._value = predicate._value.filter((v) => v !== value);
     }
-  }
-
-  @action
-  setEndAt(predicate: InternalPredicate<T>, date: Date | null): void {
-    predicate.endAt = dayjs(date).endOf('day').toDate();
   }
 }
 
