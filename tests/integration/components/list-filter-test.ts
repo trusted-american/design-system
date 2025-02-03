@@ -9,6 +9,7 @@ import {
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { selectChoose } from 'ember-power-select/test-support';
+import dayjs from 'dayjs';
 
 import type {
   ListFilterSignature,
@@ -255,13 +256,16 @@ module('Integration | Component | list-filter', function (hooks) {
 
     assert.strictEqual(
       (this.createdAt as unknown as T).gte?.toISOString(),
-      '2025-01-01T08:00:00.000Z',
+      new Date(2025, 0, 1).toISOString(),
     );
     assert.strictEqual((this.createdAt as unknown as T).gt, null);
     assert.strictEqual((this.createdAt as unknown as T).lt, null);
     assert.strictEqual(
       (this.createdAt as unknown as T).lte?.toISOString(),
-      '2025-01-03T07:59:59.999Z',
+      dayjs(new Date(2025, 0, 2))
+        .endOf('day')
+        .toDate()
+        .toISOString(),
     );
   });
 });
