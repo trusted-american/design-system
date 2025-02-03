@@ -1,6 +1,12 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, fillIn, type TestContext } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  fillIn,
+  select,
+  type TestContext,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { selectChoose } from 'ember-power-select/test-support';
 
@@ -188,5 +194,66 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.deepEqual(this.state, []);
     assert.strictEqual(this.city, undefined);
     assert.deepEqual(this.createdAt, []);
+  });
+
+  test('it works with date predicates', async function (this: Context, assert) {
+    this.createdAt = [];
+
+    this.predicates = [
+      {
+        type: 'date',
+        label: 'Created date',
+        key: 'createdAt',
+        value: this.createdAt,
+      },
+    ];
+
+    this.onChange = (key: string, value: unknown) => {
+      // @ts-expect-error keyof this doesn't work here
+      this[key] = value;
+    };
+
+    await render<Context>(hbs`
+      <ListFilter
+        @predicates={{this.predicates}}
+        @text="Filter"
+        @clearText="Clear"
+        @doneText="Done"
+        @modeText="Mode"
+        @inTheLastText="is in the last"
+        @equalsText="is equal to"
+        @betweenText="is between"
+        @isAfterText="is after"
+        @isAfterOrOnText="is on or after"
+        @isBeforeText="is before"
+        @isBeforeOrOnText="is before or on"
+        @valueText="Value"
+        @valueAText="Value A"
+        @valueBText="Value B"
+        @andText="and"
+        @daysText="Days"
+        @monthsText="Months"
+        @chooseText="Choose…"
+        @searchText="Search…"
+        @onChange={{this.onChange}}
+      />
+    `);
+
+    await click('[data-test-predicate-toggle]');
+    await select('[data-test-form-select]', '2');
+    await fillIn('#valueA0', '2025-01-01');
+    await fillIn('#valueB0', '2025-01-02');
+    await click('[data-test-done]');
+
+    assert.strictEqual(
+      this.createdAt.gte.toISOString(),
+      '2025-01-01T08:00:00.000Z',
+    );
+    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(this.createdAt.lt, null);
+    assert.strictEqual(
+      this.createdAt.lte.toISOString(),
+      '2025-01-03T07:59:59.999Z',
+    );
   });
 });
