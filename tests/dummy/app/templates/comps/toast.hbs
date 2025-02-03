@@ -22,7 +22,7 @@
 
 <Snippet @name="toast2.hbs">
   {{! BEGIN-SNIPPET toast2 }}
-  <Toast @closeText="Close" @onClose={{this.do}}>
+  <Toast @closeText="Close" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -31,7 +31,7 @@
 
 <Snippet @name="toast3.hbs">
   {{! BEGIN-SNIPPET toast3 }}
-  <Toast @closeText="Close" @color="primary" @onClose={{this.do}}>
+  <Toast @closeText="Close" @color="primary" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -40,7 +40,7 @@
 
 <Snippet @name="toast4.hbs">
   {{! BEGIN-SNIPPET toast4 }}
-  <Toast @closeText="Close" @color="success" @onClose={{this.do}}>
+  <Toast @closeText="Close" @color="success" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -49,7 +49,7 @@
 
 <Snippet @name="toast5.hbs">
   {{! BEGIN-SNIPPET toast5 }}
-  <Toast @closeText="Close" @color="warning" @onClose={{this.do}}>
+  <Toast @closeText="Close" @color="warning" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -58,7 +58,7 @@
 
 <Snippet @name="toast6.hbs">
   {{! BEGIN-SNIPPET toast6 }}
-  <Toast @closeText="Close" @color="danger" @onClose={{this.do}}>
+  <Toast @closeText="Close" @color="danger" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -67,16 +67,21 @@
 
 <Snippet @name="toast7.hbs">
   {{! BEGIN-SNIPPET toast7 }}
-  <Toast @closeText="Close" @onClose={{this.do}}>
+  <Toast @closeText="Close" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
     <:buttons>
-      <Button @text="Button" @size="sm" @color="light" {{on "click" this.do}} />
+      <Button
+        @text="Button"
+        @size="sm"
+        @color="light"
+        {{on "click" this.close}}
+      />
       <Button
         @text="Link text"
         @size="sm"
         @color="link"
-        {{on "click" this.do}}
+        {{on "click" this.close}}
       />
     </:buttons>
   </Toast>

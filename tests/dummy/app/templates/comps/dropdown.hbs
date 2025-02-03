@@ -12,19 +12,19 @@
       @subtitle="Due by December 31, 2021"
       @icon="copy"
       @shortcut="⌘C"
-      {{on "click" this.do}}
+      {{on "click" this.click}}
     />
     <Dropdown::Item
       @text="Quote reply"
       @icon="quote-left"
       @shortcut="⌘Q"
-      {{on "click" this.do}}
+      {{on "click" this.click}}
     />
     <Dropdown::Item
       @text="Edit comment"
       @icon="pen"
       @shortcut="⌘E"
-      {{on "click" this.do}}
+      {{on "click" this.click}}
     />
     <Dropdown::Divider />
     <Dropdown::Item
@@ -32,7 +32,7 @@
       @icon="trash"
       @shortcut="⌘D"
       @color="danger"
-      {{on "click" this.do}}
+      {{on "click" this.click}}
     />
     <Dropdown::Divider />
     <Dropdown::Item @text="Route" @icon="plus" @route="index" />

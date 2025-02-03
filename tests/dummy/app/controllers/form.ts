@@ -9,6 +9,6 @@ export default class FormController extends Controller {
   @action
   @checkValidity
   submit() {
-    console.log('Success');
+    alert('Success');
   }
 }
