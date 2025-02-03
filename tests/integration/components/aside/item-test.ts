@@ -8,7 +8,7 @@ module('Integration | Component | aside/item', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(
-      hbs`<Aside::Item @text='Text' @icon='boxes-stacked' @route='index' />`,
+      hbs`<Aside::Item @text="Text" @icon="boxes-stacked" @route="index" />`,
     );
 
     assert.dom().hasText('Text');
