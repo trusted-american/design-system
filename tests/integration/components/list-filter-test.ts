@@ -198,14 +198,12 @@ module('Integration | Component | list-filter', function (hooks) {
   });
 
   test('it works with date predicates', async function (this: Context, assert) {
-    this.createdAt = [];
-
     this.predicates = [
       {
         type: 'date',
         label: 'Created date',
         key: 'createdAt',
-        value: this.createdAt,
+        value: [],
       },
     ];
 
@@ -246,22 +244,18 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueB0', '2025-01-02');
     await click('[data-test-done]');
 
-    // TODO:
-    type T = {
-      gte: Date | null;
-      gt: Date | null;
-      lt: Date | null;
-      lte: Date | null;
-    };
+    if (Array.isArray(this.createdAt)) {
+      throw new Error();
+    }
 
     assert.strictEqual(
-      (this.createdAt as unknown as T).gte?.toISOString(),
+      this.createdAt.gte?.toISOString(),
       new Date(2025, 0, 1).toISOString(),
     );
-    assert.strictEqual((this.createdAt as unknown as T).gt, null);
-    assert.strictEqual((this.createdAt as unknown as T).lt, null);
+    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(this.createdAt.lt, null);
     assert.strictEqual(
-      (this.createdAt as unknown as T).lte?.toISOString(),
+      this.createdAt.lte?.toISOString(),
       dayjs(new Date(2025, 0, 2))
         .endOf('day')
         .toDate()
