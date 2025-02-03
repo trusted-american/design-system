@@ -66,14 +66,13 @@ class InternalPredicate<T> {
     | 'isBeforeOrOn' = 'inTheLast';
 
   @tracked offsetCount: number | null = 1;
-  @tracked offsetMode: 'months' | 'days' = 'days';
+  @tracked offsetMode: 'days' | 'months' = 'days';
 
   @tracked startAt: Date | null = null;
   @tracked endAt: Date | null = null;
 
   constructor(predicate: Predicate<T>) {
-    this._predicate = { ...predicate };
-
+    this._predicate = predicate;
     this._value = predicate.value;
 
     const { value: val } = predicate;
@@ -82,11 +81,11 @@ class InternalPredicate<T> {
       this.isEnabled = true;
     }
 
-    if (this._predicate.type !== 'date') {
+    if (predicate.type !== 'date') {
       return;
     }
 
-    const { value } = this._predicate;
+    const { value } = predicate;
 
     if (Array.isArray(value)) {
       this.mode = 'inTheLast';
