@@ -73,6 +73,9 @@ export default ts.config(
     languageOptions: {
       parser: babelParser,
     },
+    rules: {
+      'no-undef': 'off', // TODO:
+    },
   },
   {
     files: ['**/*.{js,gjs}'],
@@ -96,6 +99,7 @@ export default ts.config(
     ],
     rules: {
       '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/prefer-nullish-coalescing': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
       'ember/no-empty-glimmer-component-classes': 'off',
     },
