@@ -34,11 +34,10 @@
         ...attributes
       />
     {{else}}
-      <PellEditor
-        @value={{this.value}}
-        @onChange={{@onChange}}
+      <FroalaEditor
+        @content={{html-safe this.value}}
+        @update={{@onChange}}
         data-test-value-editor
-        ...attributes
       />
     {{/if}}
   </card.body>
