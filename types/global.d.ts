@@ -15,7 +15,7 @@ import type FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
 import type GetCodeSnippet from 'ember-code-snippet/helpers/get-code-snippet';
-import type PellEditor from 'ember-pell/components/pell-editor';
+import type FroalaEditor from 'ember-froala-editor';
 import type PowerSelectWithCreate from 'ember-power-select-with-create/components/power-select-with-create';
 import type PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
 import type YetiTable from 'ember-yeti-table/components/yeti-table';
@@ -39,7 +39,7 @@ declare module '@glint/environment-ember-loose/registry' {
     CopyButton: typeof CopyButton;
     MarkdownToHtml: typeof MarkdownToHtml;
     'get-code-snippet': typeof GetCodeSnippet;
-    PellEditor: typeof PellEditor;
+    FroalaEditor: typeof FroalaEditor;
     PowerSelectWithCreate: typeof PowerSelectWithCreate;
     PowerSelectMultipleWithCreate: typeof PowerSelectMultipleWithCreate;
     YetiTable: typeof YetiTable;
