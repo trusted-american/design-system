@@ -34,7 +34,11 @@
         ...attributes
       />
     {{else}}
-      <FroalaEditor @content={{html-safe this.value}} @update={{@onChange}} />
+      <FroalaEditor
+        @content={{html-safe this.value}}
+        @update={{@onChange}}
+        data-test-value-editor
+      />
     {{/if}}
   </card.body>
 </Card>
