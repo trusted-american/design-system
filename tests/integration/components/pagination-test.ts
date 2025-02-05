@@ -60,9 +60,11 @@ module('Integration | Component | pagination', function (hooks) {
   test('it renders cursor', async function (this: Context, assert) {
     assert.expect(3);
 
+    // @ts-expect-error should exist
     this.onNext = () => {
       assert.true(true);
     };
+    // @ts-expect-error should exist
     this.onPrevious = () => {
       assert.true(true);
     };
@@ -76,7 +78,9 @@ module('Integration | Component | pagination', function (hooks) {
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
+        {{! @glint-expect-error }}
         @onNext={{this.onNext}}
+        {{! @glint-expect-error }}
         @onPrevious={{this.onPrevious}}
       />
     `);

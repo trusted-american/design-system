@@ -40,7 +40,7 @@
     <Button
       @text="Tooltip on top"
       {{tooltip (if this.isClicked "Copied!" "Tooltip on top") placement="top"}}
-      {{on "click" (fn (mut this.isClicked) true)}}
+      {{on "click" this.click}}
     />
     <Button
       @text="Tooltip on right"
