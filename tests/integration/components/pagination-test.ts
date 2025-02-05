@@ -35,6 +35,12 @@ module('Integration | Component | pagination', function (hooks) {
     assert.dom('ul li:nth-of-type(4)').hasText('3');
     assert.dom('ul li:nth-of-type(5)').hasText('Next');
 
+    assert.dom('[data-test-previous]').hasText('Previous');
+    assert.dom('[data-test-next]').hasText('Next');
+
+    // assert.dom('[data-test-previous]').hasClass('disabled');
+    // assert.dom('[data-test-next]').doesNotHaveClass('disabled');
+
     await click('[data-test-next]');
     assert.strictEqual(this.page, 1);
 

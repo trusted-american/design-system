@@ -190,12 +190,12 @@ module('Integration | Component | table', function (hooks) {
     await render<Context>(hbs`
       <Table
         @data={{this.data}}
+        @pagination="local"
         @nextText="Next"
         @previousText="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
-        @pagination="local"
         as |table|
       >
         <table.header as |header|>
@@ -216,8 +216,6 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
     assert.dom('thead tr th:nth-of-type(2)').hasText('First Name');
     assert.dom('thead tr th:nth-of-type(3)').hasText('Last Name');
-    // assert.dom('[data-test-previous]').hasText('Previous').hasClass('disabled');
-    assert.dom('[data-test-next]').hasText('Next');
 
     assert
       .dom('tbody tr:nth-of-type(1) td:nth-of-type(1)')
@@ -240,12 +238,8 @@ module('Integration | Component | table', function (hooks) {
       .hasText('u@example.com');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(2)').hasText('U');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(3)').hasText('u');
-    // assert.dom('[data-test-next]').hasClass('disabled');
 
-    await click('[data-test-previous]');
-
-    // assert.dom('[data-test-previous]').doesNotHaveClass('disabled');
-    // assert.dom('[data-test-next]').doesNotHaveClass('disabled');
+    assert.dom('[data-test-pagination]').exists();
   });
 
   test('it renders cursor pagination', async function (this: Context, assert) {
@@ -281,14 +275,16 @@ module('Integration | Component | table', function (hooks) {
     await render<Context>(hbs`
       <Table
         @data={{this.data}}
+        @pagination="cursor"
+        @canNext={{false}}
+        @canPrevious={{false}}
         @nextText="Next"
         @previousText="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
-        @pagination="cursor"
-        @canNext={{false}}
-        @canPrevious={{false}}
+        @onNext={{(noop)}}
+        @onPrevious={{(noop)}}
         as |table|
       >
         <table.header as |header|>
@@ -320,6 +316,8 @@ module('Integration | Component | table', function (hooks) {
       .hasText('z@example.com');
     assert.dom('tbody tr:nth-of-type(26) td:nth-of-type(2)').hasText('Z');
     assert.dom('tbody tr:nth-of-type(26) td:nth-of-type(3)').hasText('z');
+
+    assert.dom('[data-test-pagination]').exists();
   });
 
   test('it renders offset pagination', async function (this: Context, assert) {
@@ -396,14 +394,14 @@ module('Integration | Component | table', function (hooks) {
     await render<Context>(hbs`
       <Table
         @data={{this.data}}
+        @pagination="offset"
+        @page={{this.page}}
+        @totalItems={{this.totalItems}}
         @nextText="Next"
         @previousText="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
-        @pagination="offset"
-        @page={{this.page}}
-        @totalItems={{this.totalItems}}
         @onChangePage={{this.onChangePage}}
         as |table|
       >
@@ -453,5 +451,7 @@ module('Integration | Component | table', function (hooks) {
       .hasText('u@example.com');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(2)').hasText('U');
     assert.dom('tbody tr:nth-of-type(1) td:nth-of-type(3)').hasText('u');
+
+    assert.dom('[data-test-pagination]').exists();
   });
 });
