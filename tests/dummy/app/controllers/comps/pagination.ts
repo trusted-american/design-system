@@ -3,7 +3,6 @@ import { action } from '@ember/object';
 
 export default class CompsPaginationController extends Controller {
   page = 5;
-  page2 = 0;
 
   @action
   next() {}

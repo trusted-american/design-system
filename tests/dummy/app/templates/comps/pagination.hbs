@@ -25,28 +25,8 @@
 
 <Subheading @title="Pagination 2" />
 
-<p>Page: {{this.page2}}</p>
-
 <Snippet @name="pagination2.hbs">
   {{! BEGIN-SNIPPET pagination2 }}
-  <Pagination
-    @page={{this.page2}}
-    @pageSize={{1}}
-    @totalItems={{6}}
-    @nextText="Next"
-    @previousText="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
-    @onChange={{fn (mut this.page2)}}
-  />
-  {{! END-SNIPPET }}
-</Snippet>
-
-<Subheading @title="Pagination 3" />
-
-<Snippet @name="pagination3.hbs">
-  {{! BEGIN-SNIPPET pagination3 }}
   <Pagination
     @canNext={{false}}
     @canPrevious={{false}}

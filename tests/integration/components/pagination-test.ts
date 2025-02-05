@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { click, render, type TestContext } from '@ember/test-helpers';
+import { render, click, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { PaginationSignature } from '@trusted-american/design-system/components/pagination';
@@ -35,6 +35,10 @@ module('Integration | Component | pagination', function (hooks) {
     assert.dom('ul li:nth-of-type(4)').hasText('3');
     assert.dom('ul li:nth-of-type(5)').hasText('Next');
 
+    await click('[data-test-next]');
+    assert.strictEqual(this.page, 1);
+
+    await click('[data-test-previous]');
     assert.strictEqual(this.page, 0);
 
     await click('ul li:nth-of-type(3) a');
@@ -45,5 +49,35 @@ module('Integration | Component | pagination', function (hooks) {
 
     await click('ul li:nth-of-type(1) a');
     assert.strictEqual(this.page, 1);
+  });
+
+  test('it renders cursor', async function (this: Context, assert) {
+    assert.expect(3);
+
+    this.onNext = () => {
+      assert.true(true);
+    };
+    this.onPrevious = () => {
+      assert.true(true);
+    };
+
+    await render<Context>(hbs`
+      <Pagination
+        @canNext={{false}}
+        @canPrevious={{false}}
+        @nextText="Next"
+        @previousText="Previous"
+        @viewingText="Viewing"
+        @ofText="of"
+        @resultsText="results"
+        @onNext={{this.onNext}}
+        @onPrevious={{this.onPrevious}}
+      />
+    `);
+
+    assert.dom().hasText('Previous Next');
+
+    await click('[data-test-next]');
+    await click('[data-test-previous]');
   });
 });

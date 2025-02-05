@@ -2,10 +2,12 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+
 import type { TableSignature } from '@trusted-american/design-system/components/table';
 import type { User } from 'dummy/tests/dummy/app/routes/comps/table';
 
 type Context = TableSignature<User>['Args'] & TestContext;
+
 module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
 
