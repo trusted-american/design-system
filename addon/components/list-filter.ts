@@ -90,7 +90,7 @@ class InternalPredicate<T> {
     const { value } = predicate;
 
     if (Array.isArray(value)) {
-      this.mode = 'inTheLast';
+      this.mode = 'between';
       this.offsetCount = 1;
       this.offsetMode = 'days';
     } else if (value.gte && value.lte) {
