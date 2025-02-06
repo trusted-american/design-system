@@ -5,7 +5,10 @@ import { hbs } from 'ember-cli-htmlbars';
 
 import type { FormInputSignature } from '@trusted-american/design-system/components/form/input';
 
-type Context = FormInputSignature['Args'] & TestContext;
+type Context = FormInputSignature['Args'] &
+  TestContext & {
+    submit: () => void;
+  };
 
 module('Integration | Component | form/input', function (hooks) {
   setupRenderingTest(hooks);
@@ -76,6 +79,32 @@ module('Integration | Component | form/input', function (hooks) {
     `);
 
     await fillIn('[data-test-form-input]', 'test');
+
+    assert.strictEqual(this.value, 'test');
+  });
+
+  test('invalidFeedback works', async function (this: Context, assert) {
+    this.value = '';
+    this.submit = () => {};
+
+    await render<Context>(hbs`
+      <form novalidate {{on "submit" this.submit}}>
+      <Form::Input
+        @value={{this.value}}
+        @label=""
+        @identifier=""
+        @onChange={{fn (mut this.value)}}
+        @invalidFeedback="Wrong"
+      ><:actions>
+      <button disabled>Hi</button>
+      </:actions>
+      </Form::Input>
+      <button>Submit</button>
+      </form>
+    `);
+
+    await fillIn('[data-test-form-input]', 'test');
+    await this.pauseTest();
 
     assert.strictEqual(this.value, 'test');
   });
