@@ -7,7 +7,7 @@ import type { FormInputSignature } from '@trusted-american/design-system/compone
 
 type Context = FormInputSignature['Args'] &
   TestContext & {
-    submit: () => void;
+    submit: (event: Event) => void;
   };
 
 module('Integration | Component | form/input', function (hooks) {
@@ -86,18 +86,18 @@ module('Integration | Component | form/input', function (hooks) {
   test('invalidFeedback works', async function (this: Context, assert) {
     this.value = '';
     this.submit = (event: Event) => {
-      event.preventDefault()
+      event.preventDefault();
 
       const { target } = event;
-    if (!(target instanceof HTMLFormElement)) {
-      throw new Error();
-    }
+      if (!(target instanceof HTMLFormElement)) {
+        throw new Error();
+      }
 
-    if (!target.checkValidity()) {
-      target.classList.add('was-validated');
-    } else {
-      target.classList.remove('was-validated');
-      return
+      if (!target.checkValidity()) {
+        target.classList.add('was-validated');
+      } else {
+        target.classList.remove('was-validated');
+        return;
       }
     };
 
@@ -110,6 +110,7 @@ module('Integration | Component | form/input', function (hooks) {
         @isRequired={{true}}
         @onChange={{fn (mut this.value)}}
         @invalidFeedback="Wrong"
+      
       ><:actions>
       <button type="button" disabled>Hi</button>
       </:actions>
@@ -118,11 +119,11 @@ module('Integration | Component | form/input', function (hooks) {
       </form>
     `);
 
-    // await fillIn('[data-test-form-input]', 'test');
+    assert.dom('[data-test-form-input]').hasStyle({ height: '38px' });
 
-    await click('[data-test-submit]')
-    await this.pauseTest();
-
-    assert.strictEqual(this.value, 'test');
+    await click('[data-test-submit]');
+    // await this.pauseTest();
+    assert.dom('[data-test-form-error]').hasText('Wrong');
+    assert.dom('[data-test-form-input]').hasStyle({ height: '38px' });
   });
 });
