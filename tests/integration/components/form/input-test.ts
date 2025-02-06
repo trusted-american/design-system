@@ -103,26 +103,26 @@ module('Integration | Component | form/input', function (hooks) {
 
     await render<Context>(hbs`
       <form novalidate {{on "submit" this.submit}}>
-      <Form::Input
+       <Form::Input
         @value={{this.value}}
         @label=""
         @identifier=""
         @isRequired={{true}}
         @onChange={{fn (mut this.value)}}
         @invalidFeedback="Wrong"
-      
-      ><:actions>
-      <button type="button" disabled>Hi</button>
-      </:actions>
+      >
+        <:actions>
+          <button type="button" disabled>Hi</button>
+        </:actions>
       </Form::Input>
-      <button type="submit" data-test-submit>Submit</button>
+        <button type="submit" data-test-submit>Submit</button>
       </form>
     `);
 
     assert.dom('[data-test-form-input]').hasStyle({ height: '38px' });
-
+    assert.dom('form').doesNotHaveClass('was-validated');
     await click('[data-test-submit]');
-    // await this.pauseTest();
+    assert.dom('form').hasClass('was-validated');
     assert.dom('[data-test-form-error]').hasText('Wrong');
     assert.dom('[data-test-form-input]').hasStyle({ height: '38px' });
   });
