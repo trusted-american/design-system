@@ -11,6 +11,7 @@
         ' has-validation'
       }}"
   >
+
     {{#if (has-block)}}
       <span class="input-group-text">
         {{yield}}
@@ -35,6 +36,7 @@
       {{on "input" this.change}}
       ...attributes
     />
+    {{yield to="actions"}}
 
     <Form::Feedback @text={{@invalidFeedback}} />
 
@@ -42,7 +44,6 @@
       <Form::Feedback @text={{error.message}} />
     {{/each}}
 
-    {{yield to="actions"}}
   </div>
 {{else}}
   <input
