@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, fillIn, type TestContext } from '@ember/test-helpers';
+import { render, fillIn, type TestContext, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import type { FormInputSignature } from '@trusted-american/design-system/components/form/input';
@@ -85,7 +85,21 @@ module('Integration | Component | form/input', function (hooks) {
 
   test('invalidFeedback works', async function (this: Context, assert) {
     this.value = '';
-    this.submit = () => {};
+    this.submit = (event: Event) => {
+      event.preventDefault()
+
+      const { target } = event;
+    if (!(target instanceof HTMLFormElement)) {
+      throw new Error();
+    }
+
+    if (!target.checkValidity()) {
+      target.classList.add('was-validated');
+    } else {
+      target.classList.remove('was-validated');
+      return
+      }
+    };
 
     await render<Context>(hbs`
       <form novalidate {{on "submit" this.submit}}>
@@ -93,17 +107,20 @@ module('Integration | Component | form/input', function (hooks) {
         @value={{this.value}}
         @label=""
         @identifier=""
+        @isRequired={{true}}
         @onChange={{fn (mut this.value)}}
         @invalidFeedback="Wrong"
       ><:actions>
-      <button disabled>Hi</button>
+      <button type="button" disabled>Hi</button>
       </:actions>
       </Form::Input>
-      <button>Submit</button>
+      <button type="submit" data-test-submit>Submit</button>
       </form>
     `);
 
-    await fillIn('[data-test-form-input]', 'test');
+    // await fillIn('[data-test-form-input]', 'test');
+
+    await click('[data-test-submit]')
     await this.pauseTest();
 
     assert.strictEqual(this.value, 'test');
