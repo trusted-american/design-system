@@ -1,8 +1,16 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import checkValidity from '@trusted-american/design-system/utils/check-validity';
 import fileType from '@trusted-american/design-system/utils/file-type';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 
 export default class UtilsController extends Controller {
+  // BEGIN-SNIPPET util-check-validity
+  @action
+  @checkValidity
+  submit() {}
+  // END-SNIPPET
+
   // BEGIN-SNIPPET util-file-type
   type = fileType('file.xlsx');
   // END-SNIPPET

@@ -39,7 +39,8 @@
     {{! BEGIN-SNIPPET tooltip }}
     <Button
       @text="Tooltip on top"
-      {{tooltip "Tooltip on top" placement="top"}}
+      {{tooltip (if this.isClicked "Copied!" "Tooltip on top") placement="top"}}
+      {{on "click" this.click}}
     />
     <Button
       @text="Tooltip on right"
@@ -60,4 +61,8 @@
     <Button @text="Hover me" {{tooltip "This is a tooltip." trigger="hover"}} />
     {{! END-SNIPPET }}
   </Snippet>
+
+  {{#if this.isClicked}}
+    <p>Copied!</p>
+  {{/if}}
 </Main::Body>

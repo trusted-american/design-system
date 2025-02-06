@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { click, render, type TestContext } from '@ember/test-helpers';
+import { render, click, type TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+
 import type { CalendarSignature } from '@trusted-american/design-system/components/calendar';
 
 type Context = CalendarSignature['Args'] & TestContext;
