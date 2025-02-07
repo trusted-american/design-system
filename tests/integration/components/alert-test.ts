@@ -25,4 +25,16 @@ module('Integration | Component | alert', function (hooks) {
 
     assert.dom('svg').exists();
   });
+
+  test('close works', async function (assert) {
+    await render(hbs`
+      <Alert @closeText="Close" @onClose={{(noop)}}>
+        <:title>Title here</:title>
+        <:default>Body here</:default>
+      </Alert>
+    `);
+
+    assert.dom().hasText('Title here Body here');
+    assert.dom('[data-test-close-button]').exists();
+  });
 });

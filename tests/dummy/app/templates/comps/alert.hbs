@@ -20,7 +20,12 @@
 
 <Snippet @name="alert2.hbs">
   {{! BEGIN-SNIPPET alert2 }}
-  <Alert @color="warning" @icon="circle-exclamation" @onClose={{this.close}}>
+  <Alert
+    @color="warning"
+    @icon="circle-exclamation"
+    @closeText="Close"
+    @onClose={{this.close}}
+  >
     <a href="#" class="alert-link">Prebuilds</a>
     consume storage space that will incur a billable charge.
   </Alert>
@@ -29,7 +34,12 @@
 
 <Snippet @name="alert3.hbs">
   {{! BEGIN-SNIPPET alert3 }}
-  <Alert @color="success" @icon="check" @onClose={{this.close}}>
+  <Alert
+    @color="success"
+    @icon="check"
+    @closeText="Close"
+    @onClose={{this.close}}
+  >
     Payment information added successfully. Change it any time in
     <a href="#" class="alert-link">your profile</a>.
   </Alert>
@@ -38,7 +48,12 @@
 
 <Snippet @name="alert4.hbs">
   {{! BEGIN-SNIPPET alert4 }}
-  <Alert @color="info" @icon="circle-info" @onClose={{this.close}}>
+  <Alert
+    @color="info"
+    @icon="circle-info"
+    @closeText="Close"
+    @onClose={{this.close}}
+  >
     Ignoring revisions in
     <a href="#" class="alert-link">.git-blame-ignore-revs</a>.
   </Alert>
@@ -82,7 +97,12 @@
 
 <Snippet @name="alert9.hbs">
   {{! BEGIN-SNIPPET alert9 }}
-  <Alert @color="success" @icon="info-circle" @onClose={{this.close}}>
+  <Alert
+    @color="success"
+    @icon="info-circle"
+    @closeText="Close"
+    @onClose={{this.close}}
+  >
     <:title>Title here</:title>
     <:default>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
