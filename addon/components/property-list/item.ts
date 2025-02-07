@@ -5,6 +5,7 @@ export interface PropertyListItemSignature {
     value: unknown; // string | number | boolean | Date | null | undefined
     label: string;
     help?: string;
+    isStatic?: boolean;
     isHorizontal?: boolean;
   };
   Blocks: {

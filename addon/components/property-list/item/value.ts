@@ -4,6 +4,7 @@ export interface PropertyListItemValueSignature {
   Args: {
     value: unknown;
     label: string;
+    isStatic?: boolean;
   };
   Blocks: {
     default: [];
