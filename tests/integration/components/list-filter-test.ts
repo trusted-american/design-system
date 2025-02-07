@@ -232,8 +232,8 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.strictEqual(this.createdAt.gt, null);
     assert.strictEqual(this.createdAt.lt, null);
     assert.strictEqual(
-      dayjs(this.createdAt.lte).startOf('day').toDate().toISOString(),
-      dayjs(today).startOf('day').toDate().toISOString(),
+      dayjs(this.createdAt.lte).endOf('day').toDate().toISOString(),
+      dayjs(today).endOf('day').toDate().toISOString(),
     );
     assert.strictEqual(
       dayjs(this.createdAt.gte).startOf('day').toDate().toISOString(),
@@ -277,20 +277,19 @@ module('Integration | Component | list-filter', function (hooks) {
     if (Array.isArray(this.createdAt)) {
       throw new Error();
     }
-    assert.strictEqual(this.createdAt.gt, null);
 
-    assert.strictEqual(
-      this.createdAt.gte?.toISOString(),
-      new Date(2025, 0, 1).toISOString(),
-    );
-    assert.strictEqual(this.createdAt.gt, null);
     assert.strictEqual(this.createdAt.lt, null);
+    assert.strictEqual(this.createdAt.gt, null);
     assert.strictEqual(
       this.createdAt.lte?.toISOString(),
       dayjs(new Date(2025, 0, 2))
         .endOf('day')
         .toDate()
         .toISOString(),
+    );
+    assert.strictEqual(
+      this.createdAt.gte?.toISOString(),
+      new Date(2025, 0, 1).toISOString(),
     );
 
     /*
@@ -311,6 +310,58 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.strictEqual(this.createdAt.lte, null);
     assert.strictEqual(this.createdAt.gte, null);
 
-    // await this.pauseTest();
+    /*
+     * Is On Or After
+     */
+    await select('[data-test-mode]', '4');
+    await fillIn('#valueA0', '2025-01-01');
+    await click('[data-test-done]');
+
+    if (Array.isArray(this.createdAt)) {
+      throw new Error();
+    }
+    assert.strictEqual(this.createdAt.lt, null);
+    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(this.createdAt.lte, null);
+    assert.strictEqual(
+      this.createdAt.gte?.toISOString(),
+      new Date(2025, 0, 1).toISOString(),
+    );
+
+    /*
+     * Is Before
+     */
+    await select('[data-test-mode]', '5');
+    await fillIn('#valueA0', '2025-01-01');
+    await click('[data-test-done]');
+
+    if (Array.isArray(this.createdAt)) {
+      throw new Error();
+    }
+    assert.strictEqual(
+      this.createdAt.lt?.toISOString(),
+      new Date(2025, 0, 1).toISOString(),
+    );
+    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(this.createdAt.lte, null);
+    assert.strictEqual(this.createdAt.gte, null);
+
+    /*
+     * Is On orBefore
+     */
+    await select('[data-test-mode]', '6');
+    await fillIn('#valueA0', '2025-01-01');
+    await click('[data-test-done]');
+
+    if (Array.isArray(this.createdAt)) {
+      throw new Error();
+    }
+    assert.strictEqual(this.createdAt.lt, null);
+    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(
+      this.createdAt.lte?.toISOString(),
+      new Date(2025, 0, 1).toISOString(),
+    );
+    assert.strictEqual(this.createdAt.gte, null);
   });
 });
