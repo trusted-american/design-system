@@ -57,6 +57,22 @@
         {{value}}
       </Form::PowerSelect>
     </div>
+    <div class="mb-3">
+      <Form::Input
+        @value={{this.value}}
+        @label="Label"
+        @identifier="input"
+        @isRequired={{true}}
+        @help="This is an example of help."
+        @invalidFeedback="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+        placeholder="Placeholder"
+      >
+        <:actions>
+          <Button @text="Test" />
+        </:actions>
+      </Form::Input>
+    </div>
     <Button @text="Submit" @isSubmit={{true}} @color="primary" />
   </form>
 </Main::Body>
