@@ -1,15 +1,21 @@
 import Component from '@glimmer/component';
 
+import type {
+  IconName,
+  SizeProp,
+  IconPrefix,
+} from '@fortawesome/fontawesome-svg-core';
+
 export interface IconSignature {
   Args: {
-    icon: string;
+    icon: IconName;
     color?: string;
     isFixedWidth?: boolean;
-    size?: string;
-    prefix?: string;
+    size?: SizeProp;
+    prefix?: IconPrefix;
     transform?: string;
   };
-  Element: HTMLElement;
+  Element: SVGElement;
 }
 
 export default class Icon extends Component<IconSignature> {}

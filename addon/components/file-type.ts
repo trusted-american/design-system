@@ -1,10 +1,12 @@
 import Component from '@glimmer/component';
 import fileType, { type Type } from '../utils/file-type';
 
+import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
+
 export interface FileTypeSignature {
   Args: {
     name: string;
-    size?: string;
+    size?: SizeProp;
   };
   Element: HTMLDivElement;
 }

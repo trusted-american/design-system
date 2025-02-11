@@ -1,11 +1,13 @@
 import Component from '@glimmer/component';
 
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
+
 export interface NavItemInternalSignature {
   Args: {
     text?: string;
-    icon?: string;
+    icon?: IconName;
     count?: number;
-    trailingIcon?: string;
+    trailingIcon?: IconName;
   };
   Blocks: {
     default: [];

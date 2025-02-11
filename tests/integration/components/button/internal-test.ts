@@ -10,8 +10,7 @@ module('Integration | Component | button/internal', function (hooks) {
     await render(hbs`
       <Button::Internal
         @text=""
-        @icon=""
-        @iconPrefix=""
+        @icon="check"
         @isIconTrailing={{false}}
         @isIconOnly={{false}}
         @isLoading={{false}}
