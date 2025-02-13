@@ -5,5 +5,5 @@ export default class GetCodeSnippet extends Helper<{
     Positional: [string];
     Named: { unindent?: boolean };
   };
-  Return: { language: string; source: unknown };
+  Return: { language: string; source: string };
 }> {}
