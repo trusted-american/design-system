@@ -1,17 +1,19 @@
 import Component from '@glimmer/component';
 
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+
 export interface ButtonInternalSignature {
   Args: {
     text: string;
-    icon?: string;
-    iconPrefix?: string;
+    icon?: IconName;
+    iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
     isLoading?: boolean;
     count?: number;
     shortcut?: string;
   };
-  Element: HTMLElement;
+  Element: SVGElement;
 }
 
 export default class ButtonInternal extends Component<ButtonInternalSignature> {}

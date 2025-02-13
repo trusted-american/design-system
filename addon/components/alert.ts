@@ -1,8 +1,10 @@
 import Component from '@glimmer/component';
 
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
+
 interface Args {
   color?: string;
-  icon?: string;
+  icon?: IconName;
 }
 
 interface Args1 extends Args {

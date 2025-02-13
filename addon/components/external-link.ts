@@ -1,11 +1,13 @@
 import Component from '@glimmer/component';
 
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+
 export interface ExternalLinkSignature {
   Args: {
     href: string;
     text?: string;
-    icon?: string;
-    iconPrefix?: string;
+    icon?: IconName;
+    iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
   };
