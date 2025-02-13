@@ -1,0 +1,128 @@
+{
+  "name": "@trusted-american/design-system",
+  "version": "0.0.252",
+  "description": "Components for building robust user interfaces.",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": "https://github.com/trusted-american/design-system",
+  "license": "MIT",
+  "author": "Trusted American Insurance Agency",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "rollup --config",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
+    "prepack": "rollup --config",
+    "start": "rollup --config --watch",
+    "test": "echo \"A v2 addon does not have tests, run tests in test-app\""
+  },
+  "dependencies": {
+    "@babel/core": "^7.26.7",
+    "@ember/render-modifiers": "^2.1.0",
+    "@embroider/addon-shim": "^1.9.0",
+    "@fortawesome/ember-fontawesome": "^3.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/list": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "@github/markdown-toolbar-element": "^2.2.3",
+    "@nullvoxpopuli/ember-composable-helpers": "^5.2.8",
+    "bootstrap": "^5.3.3",
+    "change-case": "^5.4.4",
+    "dayjs": "^1.11.13",
+    "decorator-transforms": "^2.3.0",
+    "ember-basic-dropdown": "^8.5.0",
+    "ember-breadcrumb-trail": "^1.0.0",
+    "ember-cli-clipboard": "^1.2.1",
+    "ember-cli-showdown": "^9.0.1",
+    "ember-concurrency": "^4.0.2",
+    "ember-file-upload": "^9.2.0",
+    "ember-modifier": "^4.2.0",
+    "ember-pell": "^1.4.5",
+    "ember-power-select": "^8.7.0",
+    "ember-power-select-with-create": "^3.0.0",
+    "ember-template-imports": "^4.3.0",
+    "ember-truth-helpers": "^4.0.3",
+    "ember-yeti-table": "^1.7.4",
+    "identicon.js": "^2.3.3",
+    "tracked-built-ins": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-typescript": "^7.26.5",
+    "@babel/runtime": "^7.26.0",
+    "@embroider/addon-dev": "^7.1.1",
+    "@glint/core": "^1.5.1",
+    "@glint/environment-ember-loose": "^1.5.1",
+    "@glint/environment-ember-template-imports": "^1.5.1",
+    "@glint/template": "^1.5.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@tsconfig/ember": "^3.0.8",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "babel-plugin-ember-template-compilation": "^2.3.0",
+    "concurrently": "^9.1.2",
+    "ember-source": "^6.1.0",
+    "ember-template-lint": "^6.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-ember": "^12.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "prettier": "^3.4.2",
+    "rollup": "^4.30.1",
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 4.0.0"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "app-js": {},
+    "main": "addon-main.cjs",
+    "type": "addon",
+    "version": 2
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ]
+}

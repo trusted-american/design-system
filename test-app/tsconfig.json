@@ -1,0 +1,31 @@
+{
+  "extends": "@tsconfig/ember/tsconfig.json",
+  "glint": {
+    "environment": {
+      "ember-loose": {
+        "additionalSpecialForms": {
+          "globals": {
+            "eq": "===",
+            "not-eq": "!==",
+            "and": "&&",
+            "or": "||"
+          }
+        }
+      }
+    }
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "test-app/tests/*": [
+        "tests/*"
+      ],
+      "test-app/*": [
+        "app/*"
+      ],
+      "*": [
+        "types/*"
+      ]
+    }
+  }
+}
