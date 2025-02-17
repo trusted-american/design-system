@@ -73,9 +73,6 @@ export default ts.config(
     languageOptions: {
       parser: babelParser,
     },
-    rules: {
-      'no-undef': 'off', // TODO:
-    },
   },
   {
     files: ['**/*.{js,gjs}'],
@@ -124,6 +121,8 @@ export default ts.config(
       '.stylelintrc.js',
       '.template-lintrc.js',
       'ember-cli-build.js',
+      'index.js',
+      'tests/dummy/config/**/*.js',
     ],
     plugins: {
       n,
