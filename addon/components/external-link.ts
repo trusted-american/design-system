@@ -5,7 +5,7 @@ import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
 export interface ExternalLinkSignature {
   Args: {
     href: string;
-    text?: string;
+    label?: string;
     icon?: string;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
