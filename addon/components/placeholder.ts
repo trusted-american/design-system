@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+// import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 export interface PlaceholderSignature {
   Args: {
-    icon: IconName;
+    icon: string; // TODO: IconName
     title: string;
     subtitle?: string;
     buttonText?: string;

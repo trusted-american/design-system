@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 export interface LinkToArgs {
   route?: string;
@@ -11,7 +11,7 @@ export interface LinkToArgs {
 interface Args extends LinkToArgs {
   isSubmit?: true;
   text: string;
-  icon?: IconName;
+  icon?: string; // TODO: IconName
   iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;

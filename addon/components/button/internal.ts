@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 
-import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 export interface ButtonInternalSignature {
   Args: {
     text: string;
-    icon?: IconName;
+    icon?: string; // TODO: IconName
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
