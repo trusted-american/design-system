@@ -11,7 +11,7 @@ export interface LinkToArgs {
 interface Args extends LinkToArgs {
   isSubmit?: true;
   text: string;
-  icon?: string; // TODO: IconName
+  icon?: string;
   iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;

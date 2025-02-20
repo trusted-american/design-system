@@ -1,12 +1,10 @@
 import Component from '@glimmer/component';
 
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
-
 export interface BadgeSignature {
   Args: {
     text?: string;
     color?: string;
-    icon?: IconName;
+    icon?: string;
     isPill?: boolean;
     isLoading?: boolean;
   };

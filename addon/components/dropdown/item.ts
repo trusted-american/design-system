@@ -1,12 +1,11 @@
 import Component from '@glimmer/component';
 
 import type { LinkToArgs } from '../button';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface Args extends LinkToArgs {
   text?: string;
   subtitle?: string;
-  icon?: IconName;
+  icon?: string;
   shortcut?: string;
   color?: string;
   href?: string;

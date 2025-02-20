@@ -4,7 +4,6 @@
 {{if (and (not @isIconOnly) @isIconTrailing) @text}}
 {{#if @icon}}
   <Icon
-    {{! @glint-expect-error }}
     @icon={{@icon}}
     @prefix={{@iconPrefix}}
     class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}

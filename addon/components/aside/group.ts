@@ -1,12 +1,10 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
-
 export interface AsideGroupSignature {
   Args: {
     text: string;
-    icon?: IconName;
+    icon?: string;
     route: string;
   };
   Blocks: {

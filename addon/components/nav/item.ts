@@ -1,13 +1,12 @@
 import Component from '@glimmer/component';
 
 import type { LinkToArgs } from '../button';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface Args extends LinkToArgs {
   text?: string;
-  icon?: IconName;
+  icon?: string;
   count?: number;
-  trailingIcon?: IconName;
+  trailingIcon?: string;
   isDisabled?: boolean;
 }
 
