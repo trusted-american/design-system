@@ -7,8 +7,8 @@ module('Integration | Component | dropdown/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Dropdown::Item @text="Text" />`);
+    await render(hbs`<Dropdown::Item @label="Label" />`);
 
-    assert.dom().hasText('Text');
+    assert.dom().hasText('Label');
   });
 });

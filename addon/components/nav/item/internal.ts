@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface NavItemInternalSignature {
   Args: {
-    text?: string;
+    label?: string;
     icon?: string;
     count?: number;
     trailingIcon?: string;

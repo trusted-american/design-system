@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @isInputOnly @label}}
+  @label={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
   @isRequired={{@isRequired}}
 />
@@ -8,13 +8,13 @@
   <card.header>
     <Nav class="card-header-tabs">
       <Nav::Item
-        @text={{@editorText}}
+        @label={{@editorText}}
         class={{if (eq false this.isCode) "active"}}
         data-test-editor
         {{on "click" this.setEditor}}
       />
       <Nav::Item
-        @text={{@codeText}}
+        @label={{@codeText}}
         class={{if (eq true this.isCode) "active"}}
         data-test-code
         {{on "click" this.setCode}}

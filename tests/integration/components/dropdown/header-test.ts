@@ -7,8 +7,8 @@ module('Integration | Component | dropdown/header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Dropdown::Header @text="Text" />`);
+    await render(hbs`<Dropdown::Header @label="Label" />`);
 
-    assert.dom().hasText('Text');
+    assert.dom().hasText('Label');
   });
 });

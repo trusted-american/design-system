@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import type { LinkToArgs } from '../button';
 
 interface Args extends LinkToArgs {
-  text?: string;
+  label?: string;
   icon?: string;
   count?: number;
   trailingIcon?: string;

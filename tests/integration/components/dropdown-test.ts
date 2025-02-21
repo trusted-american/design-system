@@ -11,40 +11,40 @@ module('Integration | Component | dropdown', function (hooks) {
       <Button @label="Open dropdown" {{dropdown}}/>
       <Dropdown>
         <Dropdown::Item
-          @text="Copy link"
+          @label="Copy link"
           @subtitle="Due by December 31, 2021"
           @icon="copy"
           @shortcut="⌘C"
-          {{on "click" (noop)}}
           data-test-copy
+          {{on "click" (noop)}}
         />
         <Dropdown::Item
-          @text="Quote reply"
+          @label="Quote reply"
           @icon="quote-left"
           @shortcut="⌘Q"
-          {{on "click" (noop)}}
           data-test-quote
+          {{on "click" (noop)}}
         />
         <Dropdown::Item
-          @text="Edit comment"
+          @label="Edit comment"
           @icon="pen"
           @shortcut="⌘E"
-          {{on "click" (noop)}}
           data-test-comment
+          {{on "click" (noop)}}
         />
         <Dropdown::Divider data-test-divider/>
         <Dropdown::Item
-          @text="Delete file"
+          @label="Delete file"
           @icon="trash"
           @shortcut="⌘D"
           @color="danger"
-          {{on "click" (noop)}}
           data-test-delete
+          {{on "click" (noop)}}
         />
         <Dropdown::Divider />
-        <Dropdown::Item @text="Route" @icon="plus" @route="index" data-test-route/>
-        <Dropdown::Header @text="Header" data-test-header/>
-        <Dropdown::Item @text="Href" @icon="plus" @href="https://www.google.com/" data-test-href/>
+        <Dropdown::Item @label="Route" @icon="plus" @route="index" data-test-route/>
+        <Dropdown::Header @label="Header" data-test-header/>
+        <Dropdown::Item @label="Href" @icon="plus" @href="https://www.google.com/" data-test-href/>
       </Dropdown>
     `);
 

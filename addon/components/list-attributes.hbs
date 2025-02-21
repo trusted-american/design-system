@@ -7,7 +7,7 @@
 <Dropdown>
   {{#each @presets as |preset|}}
     <Dropdown::Item
-      @text={{preset.label}}
+      @label={{preset.label}}
       @icon="check"
       class={{if
         (not-eq preset.label this.activePreset.label)
@@ -20,7 +20,7 @@
   <Dropdown::Divider />
   {{#each @options as |attribute|}}
     <Dropdown::Item
-      @text={{attribute.label}}
+      @label={{attribute.label}}
       @icon="check"
       class={{if (not (includes attribute.value @selected)) "invisible-icon"}}
       data-test-option

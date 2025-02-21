@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @isInputOnly @label}}
+  @label={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
   @isRequired={{@isRequired}}
 />
@@ -8,13 +8,13 @@
   <card.header class="d-flex justify-content-between align-items-center">
     <Nav class="card-header-tabs">
       <Nav::Item
-        @text="Write"
+        @label="Write"
         class={{if (eq false this.isPreview) "active"}}
         data-test-write
         {{on "click" (fn (mut this.isPreview) false)}}
       />
       <Nav::Item
-        @text="Preview"
+        @label="Preview"
         class={{if (eq true this.isPreview) "active"}}
         data-test-preview
         {{on "click" (fn (mut this.isPreview) true)}}

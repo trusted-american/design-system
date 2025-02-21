@@ -7,7 +7,7 @@
 <Dropdown data-test-list-sort-dropdown>
   {{#each @options as |opt|}}
     <Dropdown::Item
-      @text={{opt.label}}
+      @label={{opt.label}}
       @icon="check"
       class={{if (not-eq opt.value @sortBy) "invisible-icon"}}
       data-test-sort-by
@@ -16,14 +16,14 @@
   {{/each}}
   <Dropdown::Divider />
   <Dropdown::Item
-    @text={{@highToLowLabel}}
+    @label={{@highToLowLabel}}
     @icon="check"
     class={{if (not-eq false @sortAscending) "invisible-icon"}}
     data-test-sort-ascending-false
     {{on "click" (fn @onChange @sortBy false)}}
   />
   <Dropdown::Item
-    @text={{@lowToHighLabel}}
+    @label={{@lowToHighLabel}}
     @icon="check"
     class={{if (not-eq true @sortAscending) "invisible-icon"}}
     data-test-sort-ascending-true

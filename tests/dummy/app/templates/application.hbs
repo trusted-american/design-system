@@ -12,7 +12,11 @@
 >
   <:default>
     <Aside::Item @label="Home" @route="index" @icon="house" />
-    <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps.index">
+    <Aside::Group
+      @label="Components"
+      @icon="boxes-stacked"
+      @route="comps.index"
+    >
       <Aside::Item @label="Accordion" @route="comps.accordion" />
       <Aside::Item @label="Alert" @route="comps.alert" />
       <Aside::Item @label="Aside" @route="comps.aside" />
@@ -60,14 +64,14 @@
     <Aside::Item @label="Modifiers" @icon="code" @route="modifiers" />
     <Aside::Item @label="Utils" @icon="screwdriver-wrench" @route="utils" />
 
-    <Aside::Title @text="Guides" />
+    <Aside::Title @label="Guides" />
     <Aside::Item
       @label="Introduction"
       @icon="book"
       @route="guides.introduction"
     />
 
-    <Aside::Title @text="Examples" />
+    <Aside::Title @label="Examples" />
     <Aside::Item @label="List" @icon="list" @route="list" />
     <Aside::Item @label="Detail" @icon="box" @route="detail" />
     <Aside::Item @label="Form" @icon="table-list" @route="form" />

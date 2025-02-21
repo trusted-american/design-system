@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @isInputOnly @label}}
+  @label={{unless @isInputOnly @label}}
   @identifier="{{@identifier}}0"
   @isRequired={{@isRequired}}
 />
@@ -17,7 +17,7 @@
       />
 
       <Form::Label
-        @text={{option.label}}
+        @label={{option.label}}
         @identifier="{{@identifier}}{{index}}"
         @isCheck={{true}}
       />

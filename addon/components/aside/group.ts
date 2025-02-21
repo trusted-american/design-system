@@ -3,7 +3,7 @@ import { guidFor } from '@ember/object/internals';
 
 export interface AsideGroupSignature {
   Args: {
-    text: string;
+    label: string;
     icon?: string;
     route: string;
   };
