@@ -23,8 +23,8 @@ module('Integration | Component | table', function (hooks) {
     await render<Context>(hbs`
       <Table
         @data={{this.data}}
-        @nextText="Next"
-        @previousText="Previous"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
@@ -95,8 +95,8 @@ module('Integration | Component | table', function (hooks) {
      <Table
       @data={{this.data}}
       @isSortable={{true}}
-      @nextText="Next"
-      @previousText="Previous"
+      @nextButtonLabel="Next"
+      @previousButtonLabel="Previous"
       @viewingText="Viewing"
       @ofText="of"
       @resultsText="results"
@@ -191,8 +191,8 @@ module('Integration | Component | table', function (hooks) {
       <Table
         @data={{this.data}}
         @pagination="local"
-        @nextText="Next"
-        @previousText="Previous"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
@@ -278,8 +278,8 @@ module('Integration | Component | table', function (hooks) {
         @pagination="cursor"
         @canNext={{false}}
         @canPrevious={{false}}
-        @nextText="Next"
-        @previousText="Previous"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
@@ -397,8 +397,8 @@ module('Integration | Component | table', function (hooks) {
         @pagination="offset"
         @page={{this.page}}
         @totalItems={{this.totalItems}}
-        @nextText="Next"
-        @previousText="Previous"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"

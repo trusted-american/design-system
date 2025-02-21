@@ -19,7 +19,7 @@
           href="#"
           data-test-previous
           {{on "click" this.previous}}
-        >{{@previousText}}</a>
+        >{{@previousButtonLabel}}</a>
       </li>
       {{#if (lt this.length 6)}}
         {{#each this.pages as |_ index|}}
@@ -109,7 +109,7 @@
           href="#"
           data-test-next
           {{on "click" this.next}}
-        >{{@nextText}}</a>
+        >{{@nextButtonLabel}}</a>
       </li>
     </ul>
   </nav>

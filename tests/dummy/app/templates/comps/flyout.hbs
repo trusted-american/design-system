@@ -5,7 +5,7 @@
 
 <Snippet @name="flyout.hbs">
   {{! BEGIN-SNIPPET flyout }}
-  <Button @text="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
+  <Button @label="Open flyout" {{on "click" (fn (mut this.showFlyout) true)}} />
 
   {{#if this.showFlyout}}
     <Flyout @title="Title" @closeText="Close" @onClose={{this.close}}>

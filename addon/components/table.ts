@@ -113,8 +113,8 @@ export interface TableSignature<T> {
     data: T[];
     isSortable?: boolean;
     pagination?: 'local' | 'cursor' | 'offset';
-    nextText: string;
-    previousText: string;
+    nextButtonLabel: string;
+    previousButtonLabel: string;
     viewingText: string;
     ofText: string;
     resultsText: string;

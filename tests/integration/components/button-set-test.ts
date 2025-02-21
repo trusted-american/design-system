@@ -9,20 +9,14 @@ module('Integration | Component | button-set', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`
       <ButtonSet>
+        <Button @label="Hi" />
+        <Button @label="Actually" />
+        <Button @label="Bye" />
         <Button
-        @text="Hi"
-      />
-      <Button
-        @text="Actually"
-      />
-      <Button
-        @text="Bye"
-      />
-      <Button
-        @text="This Shouldnt Show Up"
-        @icon="house"
-        @isIconOnly={{true}}
-      />
+          @label="This Shouldnt Show Up"
+          @icon="house"
+          @isIconOnly={{true}}
+        />
       </ButtonSet>
     `);
 

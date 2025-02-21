@@ -9,7 +9,7 @@ module('Integration | Component | button/internal', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`
       <Button::Internal
-        @text=""
+        @label=""
         @icon="check"
         @isIconTrailing={{false}}
         @isIconOnly={{false}}

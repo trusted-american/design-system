@@ -18,8 +18,8 @@
               {{! @glint-expect-error }}
               @pageSize={{10}}
               @totalItems={{@data.length}}
-              @nextText={{@nextText}}
-              @previousText={{@previousText}}
+              @nextButtonLabel={{@nextButtonLabel}}
+              @previousButtonLabel={{@previousButtonLabel}}
               @viewingText={{@viewingText}}
               @ofText={{@ofText}}
               @resultsText={{@resultsText}}
@@ -45,8 +45,8 @@
       <Pagination
         @canNext={{@canNext}}
         @canPrevious={{@canPrevious}}
-        @nextText={{@nextText}}
-        @previousText={{@previousText}}
+        @nextButtonLabel={{@nextButtonLabel}}
+        @previousButtonLabel={{@previousButtonLabel}}
         @viewingText={{@viewingText}}
         @ofText={{@ofText}}
         @resultsText={{@resultsText}}
@@ -61,8 +61,8 @@
       @page={{@page}}
       @pageSize={{20}}
       @totalItems={{@totalItems}}
-      @nextText={{@nextText}}
-      @previousText={{@previousText}}
+      @nextButtonLabel={{@nextButtonLabel}}
+      @previousButtonLabel={{@previousButtonLabel}}
       @viewingText={{@viewingText}}
       @ofText={{@ofText}}
       @resultsText={{@resultsText}}

@@ -19,8 +19,8 @@ module('Integration | Component | pagination', function (hooks) {
         {{! @glint-expect-error }}
         @pageSize={{3}}
         @totalItems={{9}}
-        @nextText="Next"
-        @previousText="Previous"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"
@@ -73,8 +73,8 @@ module('Integration | Component | pagination', function (hooks) {
       <Pagination
         @canNext={{false}}
         @canPrevious={{false}}
-        @nextText="Next"
-        @previousText="Previous"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
         @viewingText="Viewing"
         @ofText="of"
         @resultsText="results"

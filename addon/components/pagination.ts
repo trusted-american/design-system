@@ -2,8 +2,8 @@ import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 interface Args {
-  nextText: string;
-  previousText: string;
+  nextButtonLabel: string;
+  previousButtonLabel: string;
   viewingText: string;
   ofText: string;
   resultsText: string;

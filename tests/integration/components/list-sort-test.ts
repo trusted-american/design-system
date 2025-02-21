@@ -23,9 +23,9 @@ module('Integration | Component | list-sort', function (hooks) {
         @sortBy="createdAt"
         @sortAscending={{false}}
         @options={{array (hash value="createdAt" label="Created date")}}
-        @text="Sort"
-        @highToLowText="High to low"
-        @lowToHighText="Low to high"
+        @label="Sort"
+        @highToLowLabel="High to low"
+        @lowToHighLabel="Low to high"
         {{! @glint-expect-error }}
         @onChange={{this.onChange}}
       />

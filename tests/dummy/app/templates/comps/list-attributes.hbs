@@ -13,14 +13,14 @@
 <Snippet @name="list-attributes.hbs">
   {{! BEGIN-SNIPPET list-attributes }}
   <ListAttributes
-    @presets={{array (hash label="Default" values=(array "a"))}}
+    @presets={{array (hash values=(array "a") label="Default")}}
     @options={{array
       (hash value="a" label="A")
       (hash value="b" label="B")
       (hash value="c" label="C")
     }}
     @selected={{this.selected}}
-    @text="Edit columns"
+    @label="Edit columns"
     @onChange={{fn (mut this.selected)}}
   />
   {{! END-SNIPPET }}

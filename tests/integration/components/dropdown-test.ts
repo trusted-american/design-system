@@ -8,7 +8,7 @@ module('Integration | Component | dropdown', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Button @text="Open dropdown" {{dropdown}}/>
+      <Button @label="Open dropdown" {{dropdown}}/>
       <Dropdown>
         <Dropdown::Item
           @text="Copy link"

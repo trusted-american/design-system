@@ -1,7 +1,7 @@
 {{#if @isLoading}}
   <Spinner::Internal />
 {{/if}}
-{{if (and (not @isIconOnly) @isIconTrailing) @text}}
+{{if (and (not @isIconOnly) @isIconTrailing) @label}}
 {{#if @icon}}
   <Icon
     @icon={{@icon}}
@@ -10,9 +10,9 @@
     ...attributes
   />
 {{/if}}
-{{if (and (not @isIconOnly) (not @isIconTrailing)) @text}}
+{{if (and (not @isIconOnly) (not @isIconTrailing)) @label}}
 {{#if @count}}
-  <Badge @text="{{@count}}" @isPill={{true}} class="ms-1" />
+  <Badge @label="{{@count}}" @isPill={{true}} class="ms-1" />
 {{/if}}
 {{#if @shortcut}}
   <kbd>{{@shortcut}}</kbd>
