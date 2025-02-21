@@ -38,27 +38,30 @@
   <Snippet @name="tooltip.hbs">
     {{! BEGIN-SNIPPET tooltip }}
     <Button
-      @text="Tooltip on top"
+      @label="Tooltip on top"
       {{tooltip (if this.isClicked "Copied!" "Tooltip on top") placement="top"}}
       {{on "click" this.click}}
     />
     <Button
-      @text="Tooltip on right"
+      @label="Tooltip on right"
       {{tooltip "Tooltip on right" placement="right"}}
     />
     <Button
-      @text="Tooltip on bottom"
+      @label="Tooltip on bottom"
       {{tooltip "Tooltip on bottom" placement="bottom"}}
     />
     <Button
-      @text="Tooltip on left"
+      @label="Tooltip on left"
       {{tooltip "Tooltip on left" placement="left"}}
     />
     <Button
-      @text="Tooltip with HTML"
+      @label="Tooltip with HTML"
       {{tooltip "<em>Tooltip</em> <u>with</u> <b>HTML</b>" html=true}}
     />
-    <Button @text="Hover me" {{tooltip "This is a tooltip." trigger="hover"}} />
+    <Button
+      @label="Hover me"
+      {{tooltip "This is a tooltip." trigger="hover"}}
+    />
     {{! END-SNIPPET }}
   </Snippet>
 

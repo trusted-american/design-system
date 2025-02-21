@@ -13,7 +13,7 @@ module('Integration | Component | nav', function (hooks) {
         <Nav::Item @route="index" @text="Second" />
         <Nav::Item @route="index" @text="Third" />
         <Nav::Item @route="index" @text="Custom">
-          <Badge @text="New" />
+          <Badge @label="New" />
         </Nav::Item>
       </Nav>
     `);

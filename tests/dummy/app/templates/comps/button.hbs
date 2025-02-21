@@ -5,36 +5,36 @@
 
 <Snippet @name="button.hbs">
   {{! BEGIN-SNIPPET button }}
-  <Button @text="Default button" {{on "click" this.click}} />
-  <Button @text="Success button" @color="success" {{on "click" this.click}} />
+  <Button @label="Default button" {{on "click" this.click}} />
+  <Button @label="Success button" @color="success" {{on "click" this.click}} />
   <Button
-    @text="Success button with icon"
+    @label="Success button with icon"
     @color="success"
     @icon="plus"
     {{on "click" this.click}}
   />
   <Button
-    @text="Success button with trailing icon"
+    @label="Success button with trailing icon"
     @color="success"
     @icon="plus"
     @isIconTrailing={{true}}
     {{on "click" this.click}}
   />
   <Button
-    @text="Success button with only icon"
+    @label="Success button with only icon"
     @icon="plus"
     @isIconOnly={{true}}
     @color="success"
     {{on "click" this.click}}
   />
   <Button
-    @text="Loading button"
+    @label="Loading button"
     @isLoading={{true}}
     {{on "click" this.click}}
   />
-  <Button @text="Disabled button" disabled {{on "click" this.click}} />
-  <Button @text="Count button" @count={{3}} {{on "click" this.click}} />
-  <Button @text="Default button" @shortcut="n" {{on "click" this.click}} />
+  <Button @label="Disabled button" disabled {{on "click" this.click}} />
+  <Button @label="Count button" @count={{3}} {{on "click" this.click}} />
+  <Button @label="Default button" @shortcut="n" {{on "click" this.click}} />
   {{! END-SNIPPET }}
 </Snippet>
 
@@ -42,8 +42,8 @@
 
 <Snippet @name="button2.hbs">
   {{! BEGIN-SNIPPET button2 }}
-  <Button @text="Route button" @route="index" />
-  <Button @text="Route button with query" @route="index" @query={{(hash)}} />
+  <Button @label="Route button" @route="index" />
+  <Button @label="Route button with query" @route="index" @query={{(hash)}} />
   {{! END-SNIPPET }}
 </Snippet>
 
@@ -52,13 +52,13 @@
 <Snippet @name="button3.hbs">
   {{! BEGIN-SNIPPET button3 }}
   <Button
-    @text="Link button"
+    @label="Link button"
     @icon="up-right-from-square"
     @href="https://www.google.com/"
   />
 
   <Button
-    @text="Link button with trailing icon"
+    @label="Link button with trailing icon"
     @icon="arrow-right"
     @isIconTrailing={{true}}
     @href="https://www.google.com/"
