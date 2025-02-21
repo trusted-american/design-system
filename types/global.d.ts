@@ -11,7 +11,6 @@ import type EmberPowerSelectRegistry from 'ember-power-select/template-registry'
 import type EmberShikiRegistry from 'ember-shiki/template-registry';
 import type EmberTruthHelpersRegistry from 'ember-truth-helpers/template-registry';
 
-import type { ModifierLike } from '@glint/template';
 import type CopyButton from 'ember-cli-clipboard/components/copy-button';
 import type MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
 import type GetCodeSnippet from 'ember-code-snippet/helpers/get-code-snippet';
@@ -30,12 +29,6 @@ declare module '@glint/environment-ember-loose/registry' {
       EmberPowerSelectRegistry,
       EmberShikiRegistry,
       EmberTruthHelpersRegistry {
-    // @ember/render-modifiers
-    'did-insert': ModifierLike<{
-      Args: { Positional: [(element: HTMLElement) => void] };
-      Element: HTMLElement;
-    }>;
-
     CopyButton: typeof CopyButton;
     MarkdownToHtml: typeof MarkdownToHtml;
     'get-code-snippet': typeof GetCodeSnippet;
