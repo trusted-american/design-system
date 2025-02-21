@@ -8,7 +8,7 @@ module('Integration | Modifier | tds-did-insert', function (hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function (assert) {
-    await render(hbs`<div {{tds-did-insert}}></div>`);
+    await render(hbs`<div {{tds-did-insert (noop)}}></div>`);
 
     assert.ok(true);
   });
