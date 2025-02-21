@@ -10,7 +10,7 @@ interface Args<T> extends BaseArgs {
   renderInPlace?: boolean;
   searchEnabled?: boolean;
   searchField?: string;
-  chooseText: string;
+  chooseLabel: string;
   onChange: (selected: T[]) => void;
   onCreate?: (query: string) => void;
 }

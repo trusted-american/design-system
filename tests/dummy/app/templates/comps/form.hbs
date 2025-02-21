@@ -207,8 +207,8 @@
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
     @searchField="subject"
-    @chooseText="Choose…"
-    @searchText="Search…"
+    @chooseLabel="Choose…"
+    @searchLabel="Search…"
     @onChange={{fn (mut this.objectValue)}}
     as |post|
   >
@@ -231,7 +231,7 @@
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @chooseText="Choose…"
+    @chooseLabel="Choose…"
     @onChange={{fn (mut this.arrayValue)}}
     @onCreate={{(noop)}}
     data-test-state-writing-numbers

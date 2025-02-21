@@ -1,5 +1,5 @@
 <Button
-  @text={{@text}}
+  @label={{@label}}
   @icon="filter"
   @count={{this.selections.length}}
   data-test-list-filter
@@ -13,13 +13,13 @@
       <ListGroup::Item class="bg-body-tertiary px-2">
         <ButtonSet class="justify-content-between">
           <Button
-            @text={{@clearText}}
+            @label={{@clearLabel}}
             data-test-clear
             {{on "click" this.clear}}
           />
           <Button
             @isSubmit={{true}}
-            @text={{@doneText}}
+            @label={{@doneLabel}}
             @color="primary"
             data-test-done
           />
@@ -46,16 +46,16 @@
             {{#if (eq "date" predicate._predicate.type)}}
               <Form::Select
                 @options={{array
-                  (hash value="inTheLast" label=@inTheLastText)
-                  (hash value="equals" label=@equalsText)
-                  (hash value="between" label=@betweenText)
-                  (hash value="isAfter" label=@isAfterText)
-                  (hash value="isAfterOrOn" label=@isAfterOrOnText)
-                  (hash value="isBefore" label=@isBeforeText)
-                  (hash value="isBeforeOrOn" label=@isBeforeOrOnText)
+                  (hash value="inTheLast" label=@inTheLastLabel)
+                  (hash value="equals" label=@equalsLabel)
+                  (hash value="between" label=@betweenLabel)
+                  (hash value="isAfter" label=@isAfterLabel)
+                  (hash value="isAfterOrOn" label=@isAfterOrOnLabel)
+                  (hash value="isBefore" label=@isBeforeLabel)
+                  (hash value="isBeforeOrOn" label=@isBeforeOrOnLabel)
                 }}
                 @selected={{predicate.mode}}
-                @label={{@modeText}}
+                @label={{@modeLabel}}
                 @identifier="mode{{index}}"
                 @isInputOnly={{true}}
                 @onChange={{fn (mut predicate.mode)}}
@@ -67,7 +67,7 @@
                 {{#if (eq "inTheLast" predicate.mode)}}
                   <Form::NumberInput
                     @value={{predicate.offsetCount}}
-                    @label={{@valueAText}}
+                    @label={{@valueALabel}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
@@ -76,11 +76,11 @@
                   />
                   <Form::Select
                     @options={{array
-                      (hash value="days" label=@daysText)
-                      (hash value="months" label=@monthsText)
+                      (hash value="days" label=@daysLabel)
+                      (hash value="months" label=@monthsLabel)
                     }}
                     @selected={{predicate.offsetMode}}
-                    @label={{@valueBText}}
+                    @label={{@valueBLabel}}
                     @identifier="valueB{{index}}"
                     @isInputOnly={{true}}
                     @onChange={{fn (mut predicate.offsetMode)}}
@@ -88,7 +88,7 @@
                 {{else}}
                   <Form::DateInput
                     @value={{predicate.startAt}}
-                    @label={{@valueAText}}
+                    @label={{@valueALabel}}
                     @identifier="valueA{{index}}"
                     @isRequired={{true}}
                     @isInputOnly={{true}}
@@ -96,10 +96,10 @@
                     @onChange={{fn (mut predicate.startAt)}}
                   />
                   {{#if (eq "between" predicate.mode)}}
-                    <div>{{@andText}}</div>
+                    <div>{{@andLabel}}</div>
                     <Form::DateInput
                       @value={{predicate.endAt}}
-                      @label={{@valueBText}}
+                      @label={{@valueBLabel}}
                       @identifier="valueB{{index}}"
                       @isRequired={{true}}
                       @isInputOnly={{true}}
@@ -126,12 +126,12 @@
               <Form::Input
                 {{! @glint-expect-error }}
                 @value={{predicate._value}}
-                @label={{@valueText}}
+                @label={{@valueLabel}}
                 @identifier="value{{index}}"
                 @isRequired={{true}}
                 @isInputOnly={{true}}
                 @onChange={{fn (mut predicate._value)}}
-                placeholder={{@valueText}}
+                placeholder={{@valueLabel}}
                 {{autoselect}}
               />
 
@@ -146,12 +146,12 @@
                   predicate._predicate.options
                 }}
                 @searchField="label"
-                @label={{@valueText}}
+                @label={{@valueLabel}}
                 @identifier="value{{index}}"
                 {{!-- @isRequired={{true}} --}}
                 @isInputOnly={{true}}
-                @chooseText={{@chooseText}}
-                @searchText={{@searchText}}
+                @chooseLabel={{@chooseLabel}}
+                @searchLabel={{@searchLabel}}
                 @onChange={{fn this.setValue predicate}}
                 as |option|
               >

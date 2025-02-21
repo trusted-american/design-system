@@ -7,9 +7,9 @@ export interface ListSortSignature<T> {
     sortBy: keyof T;
     sortAscending: boolean;
     options: Option<keyof T>[];
-    text: string;
-    highToLowText: string;
-    lowToHighText: string;
+    label: string;
+    highToLowLabel: string;
+    lowToHighLabel: string;
     onChange: (sortBy: keyof T, sortAscending: boolean) => void;
   };
 }

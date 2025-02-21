@@ -1,5 +1,5 @@
 <Button
-  @text={{@text}}
+  @label={{@label}}
   @icon={{if @sortAscending "arrow-up-wide-short" "arrow-down-wide-short"}}
   data-test-list-sort
   {{dropdown autoClose="outside"}}
@@ -16,14 +16,14 @@
   {{/each}}
   <Dropdown::Divider />
   <Dropdown::Item
-    @text={{@highToLowText}}
+    @text={{@highToLowLabel}}
     @icon="check"
     class={{if (not-eq false @sortAscending) "invisible-icon"}}
     data-test-sort-ascending-false
     {{on "click" (fn @onChange @sortBy false)}}
   />
   <Dropdown::Item
-    @text={{@lowToHighText}}
+    @text={{@lowToHighLabel}}
     @icon="check"
     class={{if (not-eq true @sortAscending) "invisible-icon"}}
     data-test-sort-ascending-true

@@ -49,8 +49,8 @@
         @isRequired={{true}}
         @help="This is an example of help."
         @invalidFeedback="This is an example of invalid feedback."
-        @chooseText="Choose…"
-        @searchText="Search…"
+        @chooseLabel="Choose…"
+        @searchLabel="Search…"
         @onChange={{fn (mut this.value)}}
         as |value|
       >
@@ -69,10 +69,10 @@
         placeholder="Placeholder"
       >
         <:actions>
-          <Button @text="Test" />
+          <Button @label="Test" />
         </:actions>
       </Form::Input>
     </div>
-    <Button @text="Submit" @isSubmit={{true}} @color="primary" />
+    <Button @label="Submit" @isSubmit={{true}} @color="primary" />
   </form>
 </Main::Body>

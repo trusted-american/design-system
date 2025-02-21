@@ -15,7 +15,7 @@ export interface ListAttributesSignature<T> {
     presets: ListAttributesPreset<T>[];
     options: Option<ListAttributesKey<T>>[];
     selected: ListAttributesKey<T>[];
-    text: string;
+    label: string;
     onChange: (selected: ListAttributesKey<T>[]) => void;
   };
   Element: HTMLElement;
