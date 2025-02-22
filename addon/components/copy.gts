@@ -4,7 +4,7 @@ import type { TOC } from '@ember/component/template-only';
 
 export interface CopySignature {
   Args: {
-    label: string;
+    value: string;
     container?: string | Element;
     delegateClickEvent?: boolean;
     isButton?: boolean;
@@ -18,7 +18,7 @@ export interface CopySignature {
 
 const Copy: TOC<CopySignature> = <template>
   <CopyButtonClipboard
-    @text={{@label}}
+    @text={{@value}}
     @container={{@container}}
     @delegateClickEvent={{@delegateClickEvent}}
     class="{{if @isButton 'btn btn-secondary'}} {{if @isFullWidth 'w-100'}}"

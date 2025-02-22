@@ -13,7 +13,7 @@ export interface PropertyListItemSignature {
   };
   Blocks: {
     default: [];
-    side: [];
+    trailing: [];
   };
   Element: HTMLElement;
 }
@@ -36,7 +36,7 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
             {{@value}}
           {{/if}}
         </:default>
-        <:side>{{yield to="side"}}</:side>
+        <:trailing>{{yield to="trailing"}}</:trailing>
       </PropertyListItemValue>
     </div>
   {{else}}
@@ -56,7 +56,7 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
           {{@value}}
         {{/if}}
       </:default>
-      <:side>{{yield to="side"}}</:side>
+      <:trailing>{{yield to="trailing"}}</:trailing>
     </PropertyListItemValue>
   {{/if}}
 </template>;

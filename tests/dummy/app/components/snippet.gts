@@ -14,7 +14,7 @@ export interface SnippetSignature {
 }
 
 const Snippet: TOC<SnippetSignature> = <template>
-  <Card class="overflow-hidden mb-4" as |card|>
+  <Card class="mb-4" as |card|>
     <card.body class="border-bottom">
       {{yield}}
     </card.body>

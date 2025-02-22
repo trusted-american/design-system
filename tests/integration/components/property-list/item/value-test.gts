@@ -11,7 +11,7 @@ module('Integration | Component | property-list/item/value', function (hooks) {
       <template>
         <PropertyListItemValue @value="" @label="Label">
           <:default>Default</:default>
-          <:side>Side</:side>
+          <:trailing>Trailing</:trailing>
         </PropertyListItemValue>
       </template>,
     );
