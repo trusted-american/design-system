@@ -17,25 +17,17 @@ function toClassName(routeName: string) {
  * the current route. This way, styles can be scoped by route.
  */
 export function initialize(application: Application) {
+  const rootElement = document.querySelector(application.rootElement as string);
+
   Route.reopen({
-    activate() {
-      const rootElement = document.querySelector(
-        application.rootElement as string,
-      );
+    activate(this: Route) {
       if (rootElement) {
-        rootElement.classList.add(
-          toClassName((this as unknown as Route).routeName),
-        );
+        rootElement.classList.add(toClassName(this.routeName));
       }
     },
-    deactivate() {
-      const rootElement = document.querySelector(
-        application.rootElement as string,
-      );
+    deactivate(this: Route) {
       if (rootElement) {
-        rootElement.classList.remove(
-          toClassName((this as unknown as Route).routeName),
-        );
+        rootElement.classList.remove(toClassName(this.routeName));
       }
     },
   });
