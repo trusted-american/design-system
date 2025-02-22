@@ -67,6 +67,17 @@ export default class Avatar extends Component<AvatarSignature> {
       `object-fit: cover; width: ${this.size.toString()}rem; height: ${this.size.toString()}rem;`,
     );
   }
+
+  <template>
+    <img
+      src={{this.src}}
+      alt={{this.alt}}
+      class="rounded-circle"
+      style={{this.style}}
+      data-test-avatar
+      ...attributes
+    />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

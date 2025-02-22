@@ -7,6 +7,7 @@ import {
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
+import tdsDidInsert from '../modifiers/tds-did-insert';
 
 export interface Event {
   id?: string;
@@ -53,6 +54,10 @@ export default class Calendar extends Component<CalendarSignature> {
     });
     this.calendar.render();
   }
+
+  <template>
+    <div data-test-calendar {{tdsDidInsert this.didInsert}} ...attributes></div>
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

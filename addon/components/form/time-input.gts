@@ -1,8 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
-
-import type { BaseArgs } from './input';
+import FormInput, { type BaseArgs } from './input';
 
 interface Args extends BaseArgs {
   value: Date | null;
@@ -40,6 +39,23 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
 
     this.args.onChange(value);
   }
+
+  <template>
+    <FormInput
+      @type="time"
+      @value={{this.value}}
+      @label={{@label}}
+      @identifier={{@identifier}}
+      @isRequired={{@isRequired}}
+      @help={{@help}}
+      @invalidFeedback={{@invalidFeedback}}
+      @size={{@size}}
+      @isInputOnly={{@isInputOnly}}
+      @errors={{@errors}}
+      @onChange={{this.change}}
+      ...attributes
+    />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {
