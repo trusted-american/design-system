@@ -11,6 +11,16 @@
             "or": "||"
           }
         }
+      },
+      "ember-template-imports": {
+        "additionalSpecialForms": {
+          "globals": {
+            "eq": "===",
+            "notEq": "!==",
+            "and": "&&",
+            "or": "||"
+          }
+        }
       }
     }
   },
@@ -27,6 +37,12 @@
       "@trusted-american/design-system/test-support": ["addon-test-support"],
       "@trusted-american/design-system/test-support/*": ["addon-test-support/*"],
       "*": ["types/*"]
-    }
+    },
+
+    // TODO: copied from the tsconfig.declarations.json file since glint doesn't support different configs yet
+    "declarationDir": "declarations",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "rootDir": "."
   }
 }
