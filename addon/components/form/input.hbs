@@ -38,10 +38,10 @@
     />
     {{yield to="actions"}}
 
-    <Form::Feedback @text={{@invalidFeedback}} />
+    <Form::Feedback @label={{@invalidFeedback}} />
 
     {{#each @errors as |error|}}
-      <Form::Feedback @text={{error.message}} />
+      <Form::Feedback @label={{error.message}} />
     {{/each}}
 
   </div>
@@ -65,11 +65,11 @@
     ...attributes
   />
 
-  <Form::Feedback @text={{@invalidFeedback}} />
+  <Form::Feedback @label={{@invalidFeedback}} />
 
   {{#each @errors as |error|}}
-    <Form::Feedback @text={{error.message}} />
+    <Form::Feedback @label={{error.message}} />
   {{/each}}
 {{/if}}
 
-<Form::Help @text={{@help}} />
+<Form::Help @label={{@help}} />

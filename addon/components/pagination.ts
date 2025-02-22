@@ -4,9 +4,9 @@ import Component from '@glimmer/component';
 interface Args {
   nextButtonLabel: string;
   previousButtonLabel: string;
-  viewingText: string;
-  ofText: string;
-  resultsText: string;
+  viewingLabel: string;
+  ofLabel: string;
+  resultsLabel: string;
 }
 
 interface Args1 extends Args {

@@ -22,13 +22,13 @@
         @isCheck={{true}}
       />
 
-      <Form::Help @text={{option.help}} class="mt-0" />
+      <Form::Help @label={{option.help}} class="mt-0" />
 
       {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
-        <Form::Feedback @text={{@invalidFeedback}} />
+        <Form::Feedback @label={{@invalidFeedback}} />
       {{/if}}
     </div>
   {{/each}}
 </div>
 
-<Form::Help @text={{@help}} />
+<Form::Help @label={{@help}} />

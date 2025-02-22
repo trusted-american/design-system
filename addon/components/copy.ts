@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface CopySignature {
   Args: {
-    text: string;
+    label: string;
     container?: string | Element;
     delegateClickEvent?: boolean;
     isButton?: boolean;

@@ -3,7 +3,7 @@
     {{#if @isStatic}}
       {{yield}}
     {{else}}
-      <Copy @text="{{@value}}" {{tooltip (concat "Copy " @label)}}>
+      <Copy @label="{{@value}}" {{tooltip (concat "Copy " @label)}}>
         {{yield}}
       </Copy>
     {{/if}}

@@ -11,9 +11,9 @@
     @data={{this.model}}
     @nextButtonLabel="Next"
     @previousButtonLabel="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
+    @viewingLabel="Viewing"
+    @ofLabel="of"
+    @resultsLabel="results"
     as |table|
   >
     <table.header as |header|>
@@ -53,9 +53,9 @@
     @isSortable={{true}}
     @nextButtonLabel="Next"
     @previousButtonLabel="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
+    @viewingLabel="Viewing"
+    @ofLabel="of"
+    @resultsLabel="results"
     as |table|
   >
     <table.header as |header|>
@@ -84,9 +84,9 @@
     @pagination="local"
     @nextButtonLabel="Next"
     @previousButtonLabel="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
+    @viewingLabel="Viewing"
+    @ofLabel="of"
+    @resultsLabel="results"
     as |table|
   >
     <table.header as |header|>
@@ -115,9 +115,9 @@
     @pagination="cursor"
     @nextButtonLabel="Next"
     @previousButtonLabel="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
+    @viewingLabel="Viewing"
+    @ofLabel="of"
+    @resultsLabel="results"
     @canNext={{false}}
     @canPrevious={{false}}
     @onNext={{this.next}}
@@ -150,9 +150,9 @@
     @pagination="offset"
     @nextButtonLabel="Next"
     @previousButtonLabel="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
+    @viewingLabel="Viewing"
+    @ofLabel="of"
+    @resultsLabel="results"
     @page={{this.page}}
     @totalItems={{this.model.length}}
     @onChangePage={{fn (mut this.page)}}

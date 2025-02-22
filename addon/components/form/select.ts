@@ -16,7 +16,7 @@ interface Group<T> {
 interface Args<T> extends BaseArgs {
   options: (T | Option<T> | Group<T>)[];
   selected: T;
-  chooseText?: string;
+  chooseLabel?: string;
   onChange: (value: T) => void;
 }
 

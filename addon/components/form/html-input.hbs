@@ -8,13 +8,13 @@
   <card.header>
     <Nav class="card-header-tabs">
       <Nav::Item
-        @label={{@editorText}}
+        @label={{@editorLabel}}
         class={{if (eq false this.isCode) "active"}}
         data-test-editor
         {{on "click" this.setEditor}}
       />
       <Nav::Item
-        @label={{@codeText}}
+        @label={{@codeLabel}}
         class={{if (eq true this.isCode) "active"}}
         data-test-code
         {{on "click" this.setCode}}
@@ -53,10 +53,10 @@
   aria-label={{@label}}
 />
 
-<Form::Feedback @text={{@invalidFeedback}} />
+<Form::Feedback @label={{@invalidFeedback}} />
 
 {{#each @errors as |error|}}
-  <Form::Feedback @text={{error.message}} />
+  <Form::Feedback @label={{error.message}} />
 {{/each}}
 
-<Form::Help @text={{@help}} />
+<Form::Help @label={{@help}} />

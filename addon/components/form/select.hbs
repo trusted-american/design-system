@@ -13,10 +13,10 @@
   {{on "change" this.change}}
   ...attributes
 >
-  {{#if @chooseText}}
+  {{#if @chooseLabel}}
     {{! @glint-expect-error }}
     <option value="" selected={{not @selected}}>
-      {{@chooseText}}
+      {{@chooseLabel}}
     </option>
   {{/if}}
   {{#each @options as |opt index|}}
@@ -61,10 +61,10 @@
   {{/each}}
 </select>
 
-<Form::Feedback @text={{@invalidFeedback}} />
+<Form::Feedback @label={{@invalidFeedback}} />
 
 {{#each @errors as |error|}}
-  <Form::Feedback @text={{error.message}} />
+  <Form::Feedback @label={{error.message}} />
 {{/each}}
 
-<Form::Help @text={{@help}} />
+<Form::Help @label={{@help}} />

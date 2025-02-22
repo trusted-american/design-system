@@ -21,9 +21,9 @@ module('Integration | Component | pagination', function (hooks) {
         @totalItems={{9}}
         @nextButtonLabel="Next"
         @previousButtonLabel="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         @onChange={{fn (mut this.page)}}
       />
     `);
@@ -75,9 +75,9 @@ module('Integration | Component | pagination', function (hooks) {
         @canPrevious={{false}}
         @nextButtonLabel="Next"
         @previousButtonLabel="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         {{! @glint-expect-error }}
         @onNext={{this.onNext}}
         {{! @glint-expect-error }}

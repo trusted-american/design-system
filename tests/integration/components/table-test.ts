@@ -25,9 +25,9 @@ module('Integration | Component | table', function (hooks) {
         @data={{this.data}}
         @nextButtonLabel="Next"
         @previousButtonLabel="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         as |table|
       >
         <table.header as |header|>
@@ -97,9 +97,9 @@ module('Integration | Component | table', function (hooks) {
       @isSortable={{true}}
       @nextButtonLabel="Next"
       @previousButtonLabel="Previous"
-      @viewingText="Viewing"
-      @ofText="of"
-      @resultsText="results"
+      @viewingLabel="Viewing"
+      @ofLabel="of"
+      @resultsLabel="results"
       as |table|
     >
       <table.header as |header|>
@@ -193,9 +193,9 @@ module('Integration | Component | table', function (hooks) {
         @pagination="local"
         @nextButtonLabel="Next"
         @previousButtonLabel="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         as |table|
       >
         <table.header as |header|>
@@ -280,9 +280,9 @@ module('Integration | Component | table', function (hooks) {
         @canPrevious={{false}}
         @nextButtonLabel="Next"
         @previousButtonLabel="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         @onNext={{(noop)}}
         @onPrevious={{(noop)}}
         as |table|
@@ -399,9 +399,9 @@ module('Integration | Component | table', function (hooks) {
         @totalItems={{this.totalItems}}
         @nextButtonLabel="Next"
         @previousButtonLabel="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         @onChangePage={{this.onChangePage}}
         as |table|
       >

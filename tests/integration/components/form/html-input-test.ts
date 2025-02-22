@@ -19,8 +19,8 @@ module('Integration | Component | form/html-input', function (hooks) {
         @label="Label"
         @identifier="identifier"
         @isRequired={{true}}
-        @editorText="Editor"
-        @codeText="Code"
+        @editorLabel="Editor"
+        @codeLabel="Code"
         @onChange={{this.onChange}}
       />
     `);
