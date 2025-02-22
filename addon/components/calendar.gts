@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 import {
   Calendar as FullCalendar,
   type EventClickArg,
@@ -7,7 +7,6 @@ import {
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-import tdsDidInsert from '../modifiers/tds-did-insert';
 
 export interface Event {
   id?: string;
@@ -27,8 +26,7 @@ export interface CalendarSignature {
 export default class Calendar extends Component<CalendarSignature> {
   calendar?: FullCalendar;
 
-  @action
-  didInsert(element: HTMLElement): void {
+  setup = modifier((element: HTMLElement) => {
     const { events } = this.args;
 
     this.calendar = new FullCalendar(element, {
@@ -53,10 +51,10 @@ export default class Calendar extends Component<CalendarSignature> {
       },
     });
     this.calendar.render();
-  }
+  });
 
   <template>
-    <div data-test-calendar {{tdsDidInsert this.didInsert}} ...attributes></div>
+    <div data-test-calendar {{this.setup}} ...attributes></div>
   </template>
 }
 

@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 import { Modal as BootstrapModal } from 'bootstrap';
 import CloseButton from './close-button';
-import tdsDidInsert from '../modifiers/tds-did-insert';
 import { concat } from '@ember/helper';
 
 export interface ModalSignature {
@@ -27,8 +27,7 @@ export interface ModalSignature {
 export default class Modal extends Component<ModalSignature> {
   modal?: BootstrapModal;
 
-  @action
-  didInsert(element: Element): void {
+  setup = modifier((element) => {
     this.modal = new BootstrapModal(element, {
       backdrop: this.args.isStatic ? 'static' : true,
       keyboard: this.args.isKeyboard ?? true,
@@ -51,7 +50,7 @@ export default class Modal extends Component<ModalSignature> {
     });
 
     this.modal.show();
-  }
+  });
 
   @action
   close(): void {
@@ -78,8 +77,8 @@ export default class Modal extends Component<ModalSignature> {
       class="modal fade"
       tabindex="-1"
       data-test-modal
+      {{this.setup}}
       ...attributes
-      {{tdsDidInsert this.didInsert}}
     >
       <div
         class="modal-dialog modal-dialog-scrollable

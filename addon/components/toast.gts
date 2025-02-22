@@ -1,8 +1,7 @@
 import Component from '@glimmer/component';
 import { Toast as BootstrapToast } from 'bootstrap';
-import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 import { concat } from '@ember/helper';
-import tdsDidInsert from '../modifiers/tds-did-insert';
 import CloseButton from './close-button';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
@@ -23,8 +22,7 @@ export interface ToastSignature {
 export default class Toast extends Component<ToastSignature> {
   toast?: BootstrapToast;
 
-  @action
-  didInsert(element: Element): void {
+  setup = modifier((element) => {
     const toast = new BootstrapToast(element, {
       autohide: false,
     });
@@ -38,7 +36,7 @@ export default class Toast extends Component<ToastSignature> {
         onClose();
       });
     }
-  }
+  });
 
   willDestroy(): void {
     super.willDestroy();
@@ -53,7 +51,7 @@ export default class Toast extends Component<ToastSignature> {
       class="toast mt-3 {{if @color (concat 'text-bg-' @color)}}"
       role="alert"
       data-test-toast
-      {{tdsDidInsert this.didInsert}}
+      {{this.setup}}
     >
       {{#if (has-block "title")}}
         <div class="toast-header">

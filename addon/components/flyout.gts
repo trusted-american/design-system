@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
+import { modifier } from 'ember-modifier';
 import { Offcanvas } from 'bootstrap';
-import { action } from '@ember/object';
-import tdsDidInsert from '../modifiers/tds-did-insert';
 import CloseButton from './close-button';
 
 export interface FlyoutSignature {
@@ -20,8 +19,7 @@ export interface FlyoutSignature {
 export default class Flyout extends Component<FlyoutSignature> {
   offcanvas?: Offcanvas;
 
-  @action
-  didInsert(element: Element): void {
+  setup = modifier((element) => {
     this.offcanvas = new Offcanvas(element);
     this.offcanvas.show();
 
@@ -29,7 +27,7 @@ export default class Flyout extends Component<FlyoutSignature> {
     element.addEventListener('hidden.bs.offcanvas', () => {
       onClose();
     });
-  }
+  });
 
   willDestroy(): void {
     super.willDestroy();
@@ -43,9 +41,9 @@ export default class Flyout extends Component<FlyoutSignature> {
     <div
       class="offcanvas offcanvas-end"
       tabindex="-1"
-      data-test-flyout
+      data-test-Flyout
+      {{this.setup}}
       ...attributes
-      {{tdsDidInsert this.didInsert}}
     >
       <div class="offcanvas-header border-bottom">
         <h6 class="offcanvas-title">{{@title}}</h6>
