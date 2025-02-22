@@ -18,6 +18,5 @@ export default class CardFooter extends Component<CardFooterSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     'Card::Footer': typeof CardFooter;
-    'card/footer': typeof CardFooter;
   }
 }
