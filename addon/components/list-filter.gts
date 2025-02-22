@@ -20,9 +20,13 @@ import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, not } from 'ember-truth-helpers';
 import { findBy, includes } from '@nullvoxpopuli/ember-composable-helpers';
-import autoselect from '../modifiers/autoselect';
+import { modifier } from 'ember-modifier';
 
 import type { Option } from './form/select';
+
+const autoselect = modifier(function autoselect(element: HTMLInputElement) {
+  element.select();
+});
 
 export type DateRangeQueryParam =
   | {
