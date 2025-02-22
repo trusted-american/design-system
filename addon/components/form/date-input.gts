@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
+import isValidDate from '../../utils/is-valid-date';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import FormInput, { type BaseArgs } from './input';

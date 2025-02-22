@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
+import isValidDate from '../../utils/is-valid-date';
 import FormInput, { type BaseArgs } from './input';
 
 interface Args extends BaseArgs {
