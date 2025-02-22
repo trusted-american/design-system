@@ -41,10 +41,6 @@ export default class ListAttributes<T> extends Component<
     return presets.find(({ values }) => this.compare(values, selected));
   }
 
-  compare(a: ListAttributesKey<T>[], b: ListAttributesKey<T>[]): boolean {
-    return [...a].sort().join(',') === [...b].sort().join(',');
-  }
-
   @action
   toggleAttribute(option: Option<ListAttributesKey<T>>): void {
     let selected = [...this.args.selected];
@@ -56,6 +52,13 @@ export default class ListAttributes<T> extends Component<
     }
 
     this.args.onChange(selected);
+  }
+
+  private compare(
+    a: ListAttributesKey<T>[],
+    b: ListAttributesKey<T>[],
+  ): boolean {
+    return [...a].sort().join(',') === [...b].sort().join(',');
   }
 
   <template>
