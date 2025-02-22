@@ -5,7 +5,7 @@
 
 <Snippet @name="toast.hbs">
   {{! BEGIN-SNIPPET toast }}
-  <Toast @closeText="Close">
+  <Toast @closeButtonLabel="Close">
     <:body>Body</:body>
   </Toast>
   {{! END-SNIPPET }}
@@ -13,7 +13,7 @@
 
 <Snippet @name="toast1.hbs">
   {{! BEGIN-SNIPPET toast1 }}
-  <Toast @closeText="Close">
+  <Toast @closeButtonLabel="Close">
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -22,7 +22,7 @@
 
 <Snippet @name="toast2.hbs">
   {{! BEGIN-SNIPPET toast2 }}
-  <Toast @closeText="Close" @onClose={{this.close}}>
+  <Toast @closeButtonLabel="Close" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -31,7 +31,7 @@
 
 <Snippet @name="toast3.hbs">
   {{! BEGIN-SNIPPET toast3 }}
-  <Toast @closeText="Close" @color="primary" @onClose={{this.close}}>
+  <Toast @closeButtonLabel="Close" @color="primary" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -40,7 +40,7 @@
 
 <Snippet @name="toast4.hbs">
   {{! BEGIN-SNIPPET toast4 }}
-  <Toast @closeText="Close" @color="success" @onClose={{this.close}}>
+  <Toast @closeButtonLabel="Close" @color="success" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -49,7 +49,7 @@
 
 <Snippet @name="toast5.hbs">
   {{! BEGIN-SNIPPET toast5 }}
-  <Toast @closeText="Close" @color="warning" @onClose={{this.close}}>
+  <Toast @closeButtonLabel="Close" @color="warning" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -58,7 +58,7 @@
 
 <Snippet @name="toast6.hbs">
   {{! BEGIN-SNIPPET toast6 }}
-  <Toast @closeText="Close" @color="danger" @onClose={{this.close}}>
+  <Toast @closeButtonLabel="Close" @color="danger" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
   </Toast>
@@ -67,7 +67,7 @@
 
 <Snippet @name="toast7.hbs">
   {{! BEGIN-SNIPPET toast7 }}
-  <Toast @closeText="Close" @onClose={{this.close}}>
+  <Toast @closeButtonLabel="Close" @onClose={{this.close}}>
     <:title>Title</:title>
     <:body>Body</:body>
     <:buttons>

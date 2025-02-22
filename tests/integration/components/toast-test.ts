@@ -8,7 +8,7 @@ module('Integration | Component | toast', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Toast @closeText="Close" @onClose={{(noop)}}>
+      <Toast @closeButtonLabel="Close" @onClose={{(noop)}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>

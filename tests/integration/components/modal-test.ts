@@ -16,7 +16,7 @@ module('Integration | Component | modal', function (hooks) {
     };
 
     await render<Context>(hbs`
-      <Modal @title="Title" @closeText="Close" @onClose={{this.onClose}}>
+      <Modal @title="Title" @closeButtonLabel="Close" @onClose={{this.onClose}}>
         template block text
       </Modal>
     `);

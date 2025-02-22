@@ -31,7 +31,7 @@
     </div>
     {{#if @onClose}}
       <CloseButton
-        @closeText={{@closeText}}
+        @label={{@closeButtonLabel}}
         class="me-2 {{if @color 'btn-close-white'}}"
         data-bs-dismiss="toast"
         {{on "click" @onClose}}

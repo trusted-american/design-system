@@ -15,7 +15,7 @@
         <div class="modal-header">
           <h6 class="modal-title">{{@title}}</h6>
           {{#unless @hideClose}}
-            <CloseButton @closeText={{@closeText}} data-bs-dismiss="modal" />
+            <CloseButton @label={{@closeButtonLabel}} data-bs-dismiss="modal" />
           {{/unless}}
         </div>
       {{/if}}

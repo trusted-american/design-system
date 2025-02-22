@@ -17,9 +17,9 @@
     {{/if}}
     {{yield}}
   </div>
-  {{#if (and @closeText @onClose)}}
+  {{#if (and @closeButtonLabel @onClose)}}
     <CloseButton
-      @closeText={{@closeText}}
+      @label={{@closeButtonLabel}}
       data-bs-dismiss="alert"
       {{on "click" @onClose}}
     />
