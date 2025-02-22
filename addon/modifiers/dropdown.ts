@@ -8,51 +8,56 @@ interface Options extends Partial<Dropdown.Options> {
   onHidden?: () => void;
 }
 
-const dropdown = modifier(function dropdown(
-  element,
-  _positional,
-  named: Options,
-) {
-  const { onShow, onShown, onHide, onHidden, ...options } = named;
+interface CollapseSignature {
+  Element: Element;
+  Args: {
+    Named: Options;
+  };
+}
 
-  element.classList.add('dropdown-toggle');
-  element.setAttribute('data-bs-toggle', 'dropdown');
+const dropdown = modifier<CollapseSignature>(
+  function dropdown(element, _positional, named) {
+    const { onShow, onShown, onHide, onHidden, ...options } = named;
 
-  const dropdown = new Dropdown(element, options);
+    element.classList.add('dropdown-toggle');
+    element.setAttribute('data-bs-toggle', 'dropdown');
 
-  if (onShow) {
-    element.addEventListener('show.bs.dropdown', onShow);
-  }
-  if (onShown) {
-    element.addEventListener('shown.bs.dropdown', onShown);
-  }
-  if (onHide) {
-    element.addEventListener('hide.bs.dropdown', onHide);
-  }
-  if (onHidden) {
-    element.addEventListener('hidden.bs.dropdown', onHidden);
-  }
+    const dropdown = new Dropdown(element, options);
 
-  return () => {
     if (onShow) {
-      element.removeEventListener('show.bs.dropdown', onShow);
+      element.addEventListener('show.bs.dropdown', onShow);
     }
     if (onShown) {
-      element.removeEventListener('shown.bs.dropdown', onShown);
+      element.addEventListener('shown.bs.dropdown', onShown);
     }
     if (onHide) {
-      element.removeEventListener('hide.bs.dropdown', onHide);
+      element.addEventListener('hide.bs.dropdown', onHide);
     }
     if (onHidden) {
-      element.removeEventListener('hidden.bs.dropdown', onHidden);
+      element.addEventListener('hidden.bs.dropdown', onHidden);
     }
 
-    dropdown.dispose();
+    return () => {
+      if (onShow) {
+        element.removeEventListener('show.bs.dropdown', onShow);
+      }
+      if (onShown) {
+        element.removeEventListener('shown.bs.dropdown', onShown);
+      }
+      if (onHide) {
+        element.removeEventListener('hide.bs.dropdown', onHide);
+      }
+      if (onHidden) {
+        element.removeEventListener('hidden.bs.dropdown', onHidden);
+      }
 
-    element.removeAttribute('data-bs-toggle');
-    element.classList.remove('dropdown-toggle');
-  };
-});
+      dropdown.dispose();
+
+      element.removeAttribute('data-bs-toggle');
+      element.classList.remove('dropdown-toggle');
+    };
+  },
+);
 
 export default dropdown;
 

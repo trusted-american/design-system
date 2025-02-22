@@ -8,7 +8,15 @@ interface Options extends Partial<Tooltip.Options> {
   onHidden?: () => void;
 }
 
-const tooltip = modifier<Element, [string], Options>(
+interface TooltipSignature {
+  Element: Element;
+  Args: {
+    Named: Options;
+    Positional: [string];
+  };
+}
+
+const tooltip = modifier<TooltipSignature>(
   function tooltip(element, positional, named) {
     const [title] = positional;
     const { onShow, onShown, onHide, onHidden, ...options } = named;
