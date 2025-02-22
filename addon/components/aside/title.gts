@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface AsideTitleSignature {
   Args: {
@@ -7,13 +7,13 @@ export interface AsideTitleSignature {
   Element: HTMLDivElement;
 }
 
-export default class AsideTitle extends Component<AsideTitleSignature> {
-  <template>
-    <div class="text-secondary fw-semibold small mt-3 ps-2 pb-2" ...attributes>
-      {{@label}}
-    </div>
-  </template>
-}
+const AsideTitle: TOC<AsideTitleSignature> = <template>
+  <div class="text-secondary fw-semibold small mt-3 ps-2 pb-2" ...attributes>
+    {{@label}}
+  </div>
+</template>;
+
+export default AsideTitle;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

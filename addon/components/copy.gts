@@ -1,5 +1,6 @@
-import Component from '@glimmer/component';
 import CopyButtonClipboard from './copy-button-clipboard';
+
+import type { TOC } from '@ember/component/template-only';
 
 export interface CopySignature {
   Args: {
@@ -15,20 +16,20 @@ export interface CopySignature {
   Element: HTMLButtonElement;
 }
 
-export default class Copy extends Component<CopySignature> {
-  <template>
-    <CopyButtonClipboard
-      @text={{@label}}
-      @container={{@container}}
-      @delegateClickEvent={{@delegateClickEvent}}
-      class="{{if @isButton 'btn btn-secondary'}} {{if @isFullWidth 'w-100'}}"
-      data-test-copy
-      ...attributes
-    >
-      {{yield}}
-    </CopyButtonClipboard>
-  </template>
-}
+const Copy: TOC<CopySignature> = <template>
+  <CopyButtonClipboard
+    @text={{@label}}
+    @container={{@container}}
+    @delegateClickEvent={{@delegateClickEvent}}
+    class="{{if @isButton 'btn btn-secondary'}} {{if @isFullWidth 'w-100'}}"
+    data-test-copy
+    ...attributes
+  >
+    {{yield}}
+  </CopyButtonClipboard>
+</template>;
+
+export default Copy;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

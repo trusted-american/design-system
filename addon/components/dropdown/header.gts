@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface DropdownHeaderSignature {
   Args: {
@@ -7,11 +7,11 @@ export interface DropdownHeaderSignature {
   Element: HTMLHeadingElement;
 }
 
-export default class DropdownHeader extends Component<DropdownHeaderSignature> {
-  <template>
-    <h6 class="dropdown-header" ...attributes>{{@label}}</h6>
-  </template>
-}
+const DropdownHeader: TOC<DropdownHeaderSignature> = <template>
+  <h6 class="dropdown-header" ...attributes>{{@label}}</h6>
+</template>;
+
+export default DropdownHeader;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

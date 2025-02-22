@@ -1,6 +1,6 @@
-import Component from '@glimmer/component';
 import collapse from '../../modifiers/collapse';
 
+import type { TOC } from '@ember/component/template-only';
 import type AccordionItem from './item';
 
 export interface AccordionButtonSignature {
@@ -14,18 +14,18 @@ export interface AccordionButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class AccordionButton extends Component<AccordionButtonSignature> {
-  <template>
-    <button
-      type="button"
-      class="accordion-button {{unless @isOpen 'collapsed'}}"
-      {{collapse @item.id}}
-      ...attributes
-    >
-      {{yield}}
-    </button>
-  </template>
-}
+const AccordionButton: TOC<AccordionButtonSignature> = <template>
+  <button
+    type="button"
+    class="accordion-button {{unless @isOpen 'collapsed'}}"
+    {{collapse @item.id}}
+    ...attributes
+  >
+    {{yield}}
+  </button>
+</template>;
+
+export default AccordionButton;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

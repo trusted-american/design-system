@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface FormRadioInputSignature {
   Args: {
@@ -10,19 +10,19 @@ export interface FormRadioInputSignature {
   Element: HTMLInputElement;
 }
 
-export default class FormRadioInput extends Component<FormRadioInputSignature> {
-  <template>
-    <input
-      type="radio"
-      class="form-check-input"
-      name={{@name}}
-      id={{@identifier}}
-      checked={{@checked}}
-      required={{@isRequired}}
-      ...attributes
-    />
-  </template>
-}
+const FormRadioInput: TOC<FormRadioInputSignature> = <template>
+  <input
+    type="radio"
+    class="form-check-input"
+    name={{@name}}
+    id={{@identifier}}
+    checked={{@checked}}
+    required={{@isRequired}}
+    ...attributes
+  />
+</template>;
+
+export default FormRadioInput;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

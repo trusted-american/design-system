@@ -1,14 +1,12 @@
-import Component from '@glimmer/component';
+const PaginationEllipsis = <template>
+  <li class="page-item">
+    <div class="page-link" disabled>
+      …
+    </div>
+  </li>
+</template>;
 
-export default class PaginationEllipsis extends Component {
-  <template>
-    <li class="page-item">
-      <div class="page-link" disabled>
-        …
-      </div>
-    </li>
-  </template>
-}
+export default PaginationEllipsis;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

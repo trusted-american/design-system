@@ -1,7 +1,8 @@
-import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { inc } from '@nullvoxpopuli/ember-composable-helpers';
 import { eq } from 'ember-truth-helpers';
+
+import type { TOC } from '@ember/component/template-only';
 
 export interface PaginationItemSignature {
   Args: {
@@ -11,15 +12,15 @@ export interface PaginationItemSignature {
   };
 }
 
-export default class PaginationItem extends Component<PaginationItemSignature> {
-  <template>
-    <li class="page-item {{if (eq @page @index) 'active'}}">
-      <a class="page-link" href="#" {{on "click" @onClick}}>
-        {{inc @index}}
-      </a>
-    </li>
-  </template>
-}
+const PaginationItem: TOC<PaginationItemSignature> = <template>
+  <li class="page-item {{if (eq @page @index) 'active'}}">
+    <a class="page-link" href="#" {{on "click" @onClick}}>
+      {{inc @index}}
+    </a>
+  </li>
+</template>;
+
+export default PaginationItem;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

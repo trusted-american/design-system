@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface AccordionBodySignature {
   Blocks: {
@@ -7,13 +7,13 @@ export interface AccordionBodySignature {
   Element: HTMLDivElement;
 }
 
-export default class AccordionBody extends Component<AccordionBodySignature> {
-  <template>
-    <div class="accordion-body" ...attributes>
-      {{yield}}
-    </div>
-  </template>
-}
+const AccordionBody: TOC<AccordionBodySignature> = <template>
+  <div class="accordion-body" ...attributes>
+    {{yield}}
+  </div>
+</template>;
+
+export default AccordionBody;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

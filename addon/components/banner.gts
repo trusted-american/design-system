@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface BannerSignature {
   Args: {
@@ -10,17 +10,17 @@ export interface BannerSignature {
   Element: HTMLElement;
 }
 
-export default class Banner extends Component<BannerSignature> {
-  <template>
-    <section
-      class="text-bg-{{@color}} text-center fw-semibold p-2"
-      data-test-banner
-      ...attributes
-    >
-      {{yield}}
-    </section>
-  </template>
-}
+const Banner: TOC<BannerSignature> = <template>
+  <section
+    class="text-bg-{{@color}} text-center fw-semibold p-2"
+    data-test-banner
+    ...attributes
+  >
+    {{yield}}
+  </section>
+</template>;
+
+export default Banner;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

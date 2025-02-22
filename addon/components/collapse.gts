@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface CollapseSignature {
   Args: {
@@ -10,17 +10,17 @@ export interface CollapseSignature {
   Element: HTMLDivElement;
 }
 
-export default class Collapse extends Component<CollapseSignature> {
-  <template>
-    <div
-      class="collapse {{if @isHorizontal 'collapse-horizontal'}}"
-      data-test-collapse
-      ...attributes
-    >
-      {{yield}}
-    </div>
-  </template>
-}
+const Collapse: TOC<CollapseSignature> = <template>
+  <div
+    class="collapse {{if @isHorizontal 'collapse-horizontal'}}"
+    data-test-collapse
+    ...attributes
+  >
+    {{yield}}
+  </div>
+</template>;
+
+export default Collapse;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

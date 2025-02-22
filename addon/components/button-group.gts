@@ -1,5 +1,6 @@
-import Component from '@glimmer/component';
 import { concat } from '@ember/helper';
+
+import type { TOC } from '@ember/component/template-only';
 
 export interface ButtonGroupSignature {
   Args: {
@@ -11,18 +12,18 @@ export interface ButtonGroupSignature {
   Element: HTMLDivElement;
 }
 
-export default class ButtonGroup extends Component<ButtonGroupSignature> {
-  <template>
-    <div
-      class="btn-group {{if @size (concat 'btn-group-' @size)}}"
-      role="group"
-      data-test-button-group
-      ...attributes
-    >
-      {{yield}}
-    </div>
-  </template>
-}
+const ButtonGroup: TOC<ButtonGroupSignature> = <template>
+  <div
+    class="btn-group {{if @size (concat 'btn-group-' @size)}}"
+    role="group"
+    data-test-button-group
+    ...attributes
+  >
+    {{yield}}
+  </div>
+</template>;
+
+export default ButtonGroup;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

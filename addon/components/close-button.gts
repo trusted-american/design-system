@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface CloseButtonSignature {
   Args: {
@@ -7,17 +7,17 @@ export interface CloseButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class CloseButton extends Component<CloseButtonSignature> {
-  <template>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label={{@label}}
-      data-test-close-button
-      ...attributes
-    ></button>
-  </template>
-}
+const CloseButton: TOC<CloseButtonSignature> = <template>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label={{@label}}
+    data-test-close-button
+    ...attributes
+  ></button>
+</template>;
+
+export default CloseButton;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

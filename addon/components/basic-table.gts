@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface BasicTableSignature {
   Args: {
@@ -11,19 +11,17 @@ export interface BasicTableSignature {
   Element: HTMLTableElement;
 }
 
-export default class BasicTable extends Component<BasicTableSignature> {
-  <template>
-    <table
-      class="table
-        {{if @isSmall 'table-sm'}}
-        {{if @isBordered 'table-bordered'}}"
-      data-test-basic-table
-      ...attributes
-    >
-      {{yield}}
-    </table>
-  </template>
-}
+const BasicTable: TOC<BasicTableSignature> = <template>
+  <table
+    class="table {{if @isSmall 'table-sm'}} {{if @isBordered 'table-bordered'}}"
+    data-test-basic-table
+    ...attributes
+  >
+    {{yield}}
+  </table>
+</template>;
+
+export default BasicTable;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

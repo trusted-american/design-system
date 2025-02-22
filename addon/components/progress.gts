@@ -1,7 +1,7 @@
-import Component from '@glimmer/component';
 import ProgressBar from './progress/bar';
 import { hash } from '@ember/helper';
 
+import type { TOC } from '@ember/component/template-only';
 import type { WithBoundArgs } from '@glint/template';
 
 export interface ProgressSignature {
@@ -15,13 +15,13 @@ export interface ProgressSignature {
   Element: HTMLElement;
 }
 
-export default class Progress extends Component<ProgressSignature> {
-  <template>
-    <div class="progress" data-test-progress ...attributes>
-      {{yield (hash bar=ProgressBar)}}
-    </div>
-  </template>
-}
+const Progress: TOC<ProgressSignature> = <template>
+  <div class="progress" data-test-progress ...attributes>
+    {{yield (hash bar=ProgressBar)}}
+  </div>
+</template>;
+
+export default Progress;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

@@ -1,7 +1,7 @@
-import Component from '@glimmer/component';
-import { hash } from '@ember/helper';
 import PropertyListItem from './property-list/item';
+import { hash } from '@ember/helper';
 
+import type { TOC } from '@ember/component/template-only';
 import type { WithBoundArgs } from '@glint/template';
 
 export interface PropertyListSignature {
@@ -19,22 +19,22 @@ export interface PropertyListSignature {
   Element: HTMLDivElement;
 }
 
-export default class PropertyList extends Component<PropertyListSignature> {
-  <template>
-    <div data-test-property-list ...attributes>
-      {{#if @title}}
-        <p class="text-uppercase">
-          {{@title}}
-        </p>
-      {{/if}}
-      <dl class="row {{if @isHorizontal 'gx-5'}} mb-0">
-        {{yield
-          (hash item=(component PropertyListItem isHorizontal=@isHorizontal))
-        }}
-      </dl>
-    </div>
-  </template>
-}
+const PropertyList: TOC<PropertyListSignature> = <template>
+  <div data-test-property-list ...attributes>
+    {{#if @title}}
+      <p class="text-uppercase">
+        {{@title}}
+      </p>
+    {{/if}}
+    <dl class="row {{if @isHorizontal 'gx-5'}} mb-0">
+      {{yield
+        (hash item=(component PropertyListItem isHorizontal=@isHorizontal))
+      }}
+    </dl>
+  </div>
+</template>;
+
+export default PropertyList;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

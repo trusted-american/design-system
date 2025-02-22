@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface FormHelpSignature {
   Args: {
@@ -7,15 +7,15 @@ export interface FormHelpSignature {
   Element: HTMLDivElement;
 }
 
-export default class FormHelp extends Component<FormHelpSignature> {
-  <template>
-    {{#if @label}}
-      <div class="form-text" data-test-form-help ...attributes>
-        {{@label}}
-      </div>
-    {{/if}}
-  </template>
-}
+const FormHelp: TOC<FormHelpSignature> = <template>
+  {{#if @label}}
+    <div class="form-text" data-test-form-help ...attributes>
+      {{@label}}
+    </div>
+  {{/if}}
+</template>;
+
+export default FormHelp;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

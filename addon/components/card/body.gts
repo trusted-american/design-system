@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 export interface CardBodySignature {
   Blocks: {
@@ -7,13 +7,13 @@ export interface CardBodySignature {
   Element: HTMLDivElement;
 }
 
-export default class CardBody extends Component<CardBodySignature> {
-  <template>
-    <div class="card-body" ...attributes>
-      {{yield}}
-    </div>
-  </template>
-}
+const CardBody: TOC<CardBodySignature> = <template>
+  <div class="card-body" ...attributes>
+    {{yield}}
+  </div>
+</template>;
+
+export default CardBody;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

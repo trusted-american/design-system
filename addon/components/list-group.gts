@@ -1,5 +1,6 @@
-import Component from '@glimmer/component';
 import { concat } from '@ember/helper';
+
+import type { TOC } from '@ember/component/template-only';
 
 export interface ListGroupSignature {
   Args: {
@@ -14,21 +15,21 @@ export interface ListGroupSignature {
   Element: HTMLUListElement;
 }
 
-export default class ListGroup extends Component<ListGroupSignature> {
-  <template>
-    <ul
-      class="list-group
-        {{if @isFlush 'list-group-flush'}}
-        {{if @isNumbered 'list-group-numbered'}}
-        {{if @isHorizontal 'list-group-horizontal'}}
-        {{if @color (concat 'list-group-item-' @color)}}"
-      data-test-list-group
-      ...attributes
-    >
-      {{yield}}
-    </ul>
-  </template>
-}
+const ListGroup: TOC<ListGroupSignature> = <template>
+  <ul
+    class="list-group
+      {{if @isFlush 'list-group-flush'}}
+      {{if @isNumbered 'list-group-numbered'}}
+      {{if @isHorizontal 'list-group-horizontal'}}
+      {{if @color (concat 'list-group-item-' @color)}}"
+    data-test-list-group
+    ...attributes
+  >
+    {{yield}}
+  </ul>
+</template>;
+
+export default ListGroup;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

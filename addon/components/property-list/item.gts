@@ -1,6 +1,7 @@
-import Component from '@glimmer/component';
 import PropertyListItemKey from './item/key';
 import PropertyListItemValue from './item/value';
+
+import type { TOC } from '@ember/component/template-only';
 
 export interface PropertyListItemSignature {
   Args: {
@@ -17,35 +18,14 @@ export interface PropertyListItemSignature {
   Element: HTMLElement;
 }
 
-export default class PropertyListItem extends Component<PropertyListItemSignature> {
-  <template>
-    {{#if @isHorizontal}}
-      <div class="col-auto border-end">
-        <PropertyListItemKey @label={{@label}} @help={{@help}} />
-        <PropertyListItemValue
-          @value={{@value}}
-          @label={{@label}}
-          @isStatic={{@isStatic}}
-          ...attributes
-        >
-          <:default>
-            {{#if (has-block)}}
-              {{yield}}
-            {{else}}
-              {{! @glint-expect-error }}
-              {{@value}}
-            {{/if}}
-          </:default>
-          <:side>{{yield to="side"}}</:side>
-        </PropertyListItemValue>
-      </div>
-    {{else}}
-      <PropertyListItemKey @label={{@label}} @help={{@help}} class="col-5" />
+const PropertyListItem: TOC<PropertyListItemSignature> = <template>
+  {{#if @isHorizontal}}
+    <div class="col-auto border-end">
+      <PropertyListItemKey @label={{@label}} @help={{@help}} />
       <PropertyListItemValue
         @value={{@value}}
         @label={{@label}}
         @isStatic={{@isStatic}}
-        class="col-7 overflow-hidden"
         ...attributes
       >
         <:default>
@@ -58,9 +38,30 @@ export default class PropertyListItem extends Component<PropertyListItemSignatur
         </:default>
         <:side>{{yield to="side"}}</:side>
       </PropertyListItemValue>
-    {{/if}}
-  </template>
-}
+    </div>
+  {{else}}
+    <PropertyListItemKey @label={{@label}} @help={{@help}} class="col-5" />
+    <PropertyListItemValue
+      @value={{@value}}
+      @label={{@label}}
+      @isStatic={{@isStatic}}
+      class="col-7 overflow-hidden"
+      ...attributes
+    >
+      <:default>
+        {{#if (has-block)}}
+          {{yield}}
+        {{else}}
+          {{! @glint-expect-error }}
+          {{@value}}
+        {{/if}}
+      </:default>
+      <:side>{{yield to="side"}}</:side>
+    </PropertyListItemValue>
+  {{/if}}
+</template>;
+
+export default PropertyListItem;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
