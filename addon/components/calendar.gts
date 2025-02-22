@@ -16,12 +16,14 @@ export interface Event {
   backgroundColor?: string;
 }
 
-const setup = modifier<{
+interface SetupSignature {
   Element: HTMLElement;
   Args: {
     Positional: [Event[], ((event: Event, index: EventClickArg) => void)?];
   };
-}>((element, [events, onSelect]) => {
+}
+
+const setup = modifier<SetupSignature>((element, [events, onSelect]) => {
   const calendar = new FullCalendar(element, {
     plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
     headerToolbar: {
