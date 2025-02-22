@@ -1,25 +1,17 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { Flyout } from '@trusted-american/design-system';
-
-import type { FlyoutSignature } from '@trusted-american/design-system/components/flyout';
-
-type Context = FlyoutSignature['Args'] & TestContext;
 
 module('Integration | Component | flyout', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.onClose = () => {};
+  test('it renders', async function (assert) {
+    const onClose = () => {};
 
-    await render<Context>(
+    await render(
       <template>
-        <Flyout
-          @title="Title"
-          @closeButtonLabel="Close"
-          @onClose={{this.onClose}}
-        >
+        <Flyout @title="Title" @closeButtonLabel="Close" @onClose={{onClose}}>
           Body
         </Flyout>
       </template>,

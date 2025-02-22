@@ -1,34 +1,30 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { FormRadioButton } from '@trusted-american/design-system';
-
-import type { FormRadioButtonSignature } from '@trusted-american/design-system/components/form/radio-button';
-
-type Context = FormRadioButtonSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | form/radio-button', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.options = [
+  test('it renders', async function (assert) {
+    const options = [
       { value: 'one', label: 'One', color: 'success' },
       { value: 'two', label: 'Two' },
     ];
-    this.selected = undefined;
-    this.onChange = (selected) => {
+    const selected = undefined;
+    const onChange = (selected: unknown) => {
       assert.ok(selected);
     };
 
-    await render<Context>(
+    await render(
       <template>
         <FormRadioButton
-          @options={{this.options}}
-          @selected={{this.selected}}
+          @options={{options}}
+          @selected={{selected}}
           @label="Label"
           @identifier="identifier"
           @size="sm"
-          @onChange={{this.onChange}}
+          @onChange={{onChange}}
         />
       </template>,
     );

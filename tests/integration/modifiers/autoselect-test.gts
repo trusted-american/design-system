@@ -1,14 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { autoselect } from '@trusted-american/design-system';
 
-module('Integration | Modifier | collapse', function (hooks) {
+module('Integration | Modifier | autoselect', function (hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
   test('it renders', async function (assert) {
-    await render(hbs`<div {{collapse "test"}}></div>`);
+    await render(<template><input aria-label="" {{autoselect}} /></template>);
 
     assert.ok(true);
   });

@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { LinkTo } from '@ember/routing';
 import Icon from '../icon';
 import { concat } from '@ember/helper';
+import { and } from 'ember-truth-helpers';
 
 import type { LinkToArgs } from '../button';
 

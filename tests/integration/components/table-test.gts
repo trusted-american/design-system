@@ -1,19 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { click, render, type TestContext } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { Table } from '@trusted-american/design-system';
 import { noop } from '@nullvoxpopuli/ember-composable-helpers';
-
-import type { TableSignature } from '@trusted-american/design-system/components/table';
-import type { User } from 'dummy/tests/dummy/app/routes/comps/table';
-
-type Context = TableSignature<User>['Args'] & TestContext;
 
 module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.data = [
+  test('it renders', async function (assert) {
+    const data = [
       { firstName: 'A', lastName: 'a', email: 'a@example.com' },
       { firstName: 'B', lastName: 'b', email: 'b@example.com' },
       { firstName: 'C', lastName: 'c', email: 'c@example.com' },
@@ -21,10 +16,10 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'E', lastName: 'e', email: 'e@example.com' },
     ];
 
-    await render<Context>(
+    await render(
       <template>
         <Table
-          @data={{this.data}}
+          @data={{data}}
           @nextButtonLabel="Next"
           @previousButtonLabel="Previous"
           @viewingLabel="Viewing"
@@ -85,8 +80,8 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('tbody tr:nth-of-type(6)').doesNotExist();
   });
 
-  test('it renders sortable', async function (this: Context, assert) {
-    this.data = [
+  test('it renders sortable', async function (assert) {
+    const data = [
       { firstName: 'A', lastName: 'a', email: 'a@example.com' },
       { firstName: 'B', lastName: 'b', email: 'b@example.com' },
       { firstName: 'C', lastName: 'c', email: 'c@example.com' },
@@ -94,10 +89,10 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'E', lastName: 'e', email: 'e@example.com' },
     ];
 
-    await render<Context>(
+    await render(
       <template>
         <Table
-          @data={{this.data}}
+          @data={{data}}
           @isSortable={{true}}
           @nextButtonLabel="Next"
           @previousButtonLabel="Previous"
@@ -162,8 +157,8 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('tbody tr:nth-of-type(6)').doesNotExist();
   });
 
-  test('it renders local pagination', async function (this: Context, assert) {
-    this.data = [
+  test('it renders local pagination', async function (assert) {
+    const data = [
       { firstName: 'A', lastName: 'a', email: 'a@example.com' },
       { firstName: 'B', lastName: 'b', email: 'b@example.com' },
       { firstName: 'C', lastName: 'c', email: 'c@example.com' },
@@ -192,10 +187,10 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
     ];
 
-    await render<Context>(
+    await render(
       <template>
         <Table
-          @data={{this.data}}
+          @data={{data}}
           @pagination="local"
           @nextButtonLabel="Next"
           @previousButtonLabel="Previous"
@@ -249,8 +244,8 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('[data-test-pagination]').exists();
   });
 
-  test('it renders cursor pagination', async function (this: Context, assert) {
-    this.data = [
+  test('it renders cursor pagination', async function (assert) {
+    const data = [
       { firstName: 'A', lastName: 'a', email: 'a@example.com' },
       { firstName: 'B', lastName: 'b', email: 'b@example.com' },
       { firstName: 'C', lastName: 'c', email: 'c@example.com' },
@@ -279,10 +274,10 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
     ];
 
-    await render<Context>(
+    await render(
       <template>
         <Table
-          @data={{this.data}}
+          @data={{data}}
           @pagination="cursor"
           @canNext={{false}}
           @canPrevious={{false}}
@@ -329,7 +324,7 @@ module('Integration | Component | table', function (hooks) {
     assert.dom('[data-test-pagination]').exists();
   });
 
-  test('it renders offset pagination', async function (this: Context, assert) {
+  test('it renders offset pagination', async function (assert) {
     const getData = () => {
       const users = [
         { firstName: 'A', lastName: 'a', email: 'a@example.com' },
@@ -391,7 +386,7 @@ module('Integration | Component | table', function (hooks) {
       const end = start + pageSize;
       return users.slice(start, end);
     };
-    this.data = getData();
+    const data = getData();
     this.page = 0;
     this.totalItems = 52;
 
@@ -400,10 +395,10 @@ module('Integration | Component | table', function (hooks) {
       this.set('data', getData());
     };
 
-    await render<Context>(
+    await render(
       <template>
         <Table
-          @data={{this.data}}
+          @data={{data}}
           @pagination="offset"
           @page={{this.page}}
           @totalItems={{this.totalItems}}

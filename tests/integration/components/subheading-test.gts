@@ -1,27 +1,21 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { Subheading } from '@trusted-american/design-system';
-
-import type { SubheadingSignature } from '@trusted-american/design-system/components/subheading';
-
-type Context = SubheadingSignature['Args'] & TestContext;
 
 module('Integration | Component | subheading', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.title = 'Title';
+  test('it renders', async function (assert) {
+    const title = 'Title';
 
-    await render<Context>(
-      <template><Subheading @title={{this.title}} /></template>,
-    );
+    await render(<template><Subheading @title={{title}} /></template>);
 
     assert.dom().hasText('Title');
 
-    await render<Context>(
+    await render(
       <template>
-        <Subheading @title={{this.title}}>
+        <Subheading @title={{title}}>
           template block text
         </Subheading>
       </template>,

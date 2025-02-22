@@ -1,14 +1,18 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { tooltip } from '@trusted-american/design-system';
 
-module('Integration | Modifier | tds-did-insert', function (hooks) {
+module('Integration | Modifier | tooltip', function (hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
   test('it renders', async function (assert) {
-    await render(hbs`<div {{tds-did-insert (noop)}}></div>`);
+    await render(
+      <template>
+        <div {{tooltip "Test"}}></div>
+      </template>,
+    );
 
     assert.ok(true);
   });

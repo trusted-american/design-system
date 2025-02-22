@@ -1,24 +1,19 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { Calendar } from '@trusted-american/design-system';
-
-import type { CalendarSignature } from '@trusted-american/design-system/components/calendar';
-
-type Context = CalendarSignature['Args'] & TestContext;
 
 module('Integration | Component | calendar', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.events = [
+  test('it renders', async function (assert) {
+    const events = [
       { title: 'Test1', start: new Date() },
       { title: 'Test2', start: new Date() },
     ];
 
-    await render<Context>(
-      <template><Calendar @events={{this.events}} /></template>,
-    );
+    await render(<template><Calendar @events={{events}} /></template>);
+
     assert.dom('.fc').exists();
     assert.dom('.fc-daygrid').exists();
     assert.dom().containsText('Test1');

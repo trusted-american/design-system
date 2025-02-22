@@ -4,7 +4,7 @@ import PaginationItem from './pagination/item';
 import PaginationEllipsis from './pagination/ellipsis';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { gt, lt } from 'ember-truth-helpers';
+import { eq, gt, lt } from 'ember-truth-helpers';
 
 interface Args {
   nextButtonLabel: string;

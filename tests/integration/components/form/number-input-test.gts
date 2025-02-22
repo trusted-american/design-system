@@ -1,27 +1,26 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { fillIn, render, type TestContext } from '@ember/test-helpers';
+import { fillIn, render } from '@ember/test-helpers';
 import { FormNumberInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-
-import type { FormNumberInputSignature } from '@trusted-american/design-system/components/form/number-input';
-
-type Context = FormNumberInputSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/number-input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    await render<Context>(
+  test('it renders', async function (assert) {
+    const state = tracked({ value: 0 as number | null });
+
+    await render(
       <template>
         <FormNumberInput
-          @value={{this.value}}
+          @value={{state.value}}
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
           placeholder="Placeholder"
         />
       </template>,
@@ -32,10 +31,10 @@ module('Integration | Component | form/number-input', function (hooks) {
 
     await fillIn('[data-test-form-input]', '1');
 
-    assert.strictEqual(this.value, 1);
+    assert.strictEqual(state.value, 1);
 
     await fillIn('[data-test-form-input]', '1.01');
 
-    assert.strictEqual(this.value, 1.01);
+    assert.strictEqual(state.value, 1.01);
   });
 });

@@ -1,22 +1,19 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import ListAttributes from '@trusted-american/design-system/components/list-attributes';
-import { array, hash } from '@ember/helper';
-
-import type { ListAttributesSignature } from '@trusted-american/design-system/components/list-attributes';
-
-type Context = ListAttributesSignature<unknown>['Args'] & TestContext;
+import { array, fn, hash } from '@ember/helper';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | list-attributes', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (assert) {
     assert.expect(8);
 
-    this.selected = [];
+    const state = tracked({ selected: [] as (string | number)[] });
 
-    await render<Context>(
+    await render(
       <template>
         <ListAttributes
           @presets={{array
@@ -35,10 +32,9 @@ module('Integration | Component | list-attributes', function (hooks) {
             (hash value="status" label="Status")
             (hash value="createdAt" label="Created date")
           }}
-          @selected={{this.selected}}
+          @selected={{state.selected}}
           @label="Edit columns"
-          {{! @glint-expect-error }}
-          @onChange={{fn (mut this.selected)}}
+          @onChange={{fn (mut state.selected)}}
         />
       </template>,
     );
@@ -50,13 +46,13 @@ module('Integration | Component | list-attributes', function (hooks) {
 
     assert.dom(preset1).doesNotHaveClass('invisible-icon');
     assert.dom(preset2).hasClass('invisible-icon');
-    assert.deepEqual(this.selected, ['firstName', 'middleName', 'lastName']);
+    assert.deepEqual(state.selected, ['firstName', 'middleName', 'lastName']);
 
     await click(preset2);
 
     assert.dom(preset1).hasClass('invisible-icon');
     assert.dom(preset2).doesNotHaveClass('invisible-icon');
-    assert.deepEqual(this.selected, ['nickname', 'status', 'createdAt']);
+    assert.deepEqual(state.selected, ['nickname', 'status', 'createdAt']);
 
     await click('[data-test-option]');
 

@@ -1,29 +1,26 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
-import FormCheck from '@trusted-american/design-system/components/form/check';
+import { render, click } from '@ember/test-helpers';
+import { FormCheck } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-
-import type { FormCheckSignature } from '@trusted-american/design-system/components/form/check';
-
-type Context = FormCheckSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/check', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.value = false;
+  test('it renders', async function (assert) {
+    const state = tracked({ value: false });
 
-    await render<Context>(
+    await render(
       <template>
         <FormCheck
-          @value={{this.value}}
+          @value={{state.value}}
           @label="Label"
           @identifier="identifier"
           @isInline={{false}}
           @isSwitch={{false}}
           @help="Help"
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
@@ -33,6 +30,6 @@ module('Integration | Component | form/check', function (hooks) {
 
     await click('input');
 
-    assert.true(this.value);
+    assert.true(state.value);
   });
 });

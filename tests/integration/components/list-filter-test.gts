@@ -1,20 +1,11 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import {
-  render,
-  click,
-  fillIn,
-  select,
-  type TestContext,
-} from '@ember/test-helpers';
+import { render, click, fillIn, select } from '@ember/test-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
 import { ListFilter } from '@trusted-american/design-system';
 
-import type {
-  ListFilterSignature,
-  DateRangeQueryParam,
-} from '@trusted-american/design-system/components/list-filter';
+import type { DateRangeQueryParam } from '@trusted-american/design-system/components/list-filter';
 
 interface Props {
   status?: string;
@@ -24,12 +15,10 @@ interface Props {
   createdAt: DateRangeQueryParam;
 }
 
-type Context = ListFilterSignature<unknown>['Args'] & TestContext & Props;
-
 module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (assert) {
     this.status = undefined;
     this.isArchived = undefined;
     this.state = [];
@@ -87,7 +76,7 @@ module('Integration | Component | list-filter', function (hooks) {
       this[key] = value;
     };
 
-    await render<Context>(
+    await render(
       <template>
         <ListFilter
           @predicates={{this.predicates}}
@@ -175,7 +164,7 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.deepEqual(this.createdAt, []);
   });
 
-  test('it works with date predicates', async function (this: Context, assert) {
+  test('it works with date predicates', async function (assert) {
     this.predicates = [
       {
         type: 'date',
@@ -190,7 +179,7 @@ module('Integration | Component | list-filter', function (hooks) {
       this[key] = value;
     };
 
-    await render<Context>(
+    await render(
       <template>
         <ListFilter
           @predicates={{this.predicates}}

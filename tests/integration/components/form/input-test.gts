@@ -1,34 +1,28 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, fillIn, type TestContext, click } from '@ember/test-helpers';
+import { render, fillIn, click } from '@ember/test-helpers';
 import { FormInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-
-import type { FormInputSignature } from '@trusted-american/design-system/components/form/input';
-
-type Context = FormInputSignature['Args'] &
-  TestContext & {
-    submit: (event: Event) => void;
-  };
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.value = '';
+  test('it renders', async function (assert) {
+    const state = tracked({ value: '' });
 
-    await render<Context>(
+    await render(
       <template>
         <FormInput
-          @value={{this.value}}
+          @value={{state.value}}
           @type="text"
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
@@ -40,16 +34,16 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('[data-test-form-error]').exists();
   });
 
-  test('it defaults to text type', async function (this: Context, assert) {
-    this.value = '';
+  test('it defaults to text type', async function (assert) {
+    const state = tracked({ value: '' });
 
-    await render<Context>(
+    await render(
       <template>
         <FormInput
-          @value={{this.value}}
+          @value={{state.value}}
           @label=""
           @identifier=""
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
@@ -57,16 +51,16 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('[data-test-form-input]').hasAttribute('type', 'text');
   });
 
-  test('it loads initial value', async function (this: Context, assert) {
-    this.value = 'Value';
+  test('it loads initial value', async function (assert) {
+    const state = tracked({ value: 'Value' });
 
-    await render<Context>(
+    await render(
       <template>
         <FormInput
-          @value={{this.value}}
+          @value={{state.value}}
           @label=""
           @identifier=""
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
@@ -74,28 +68,29 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('[data-test-form-input]').hasValue('Value');
   });
 
-  test('it updates value', async function (this: Context, assert) {
-    this.value = '';
+  test('it updates value', async function (assert) {
+    const state = tracked({ value: '' });
 
-    await render<Context>(
+    await render(
       <template>
         <FormInput
-          @value={{this.value}}
+          @value={{state.value}}
           @label=""
           @identifier=""
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
 
     await fillIn('[data-test-form-input]', 'test');
 
-    assert.strictEqual(this.value, 'test');
+    assert.strictEqual(state.value, 'test');
   });
 
-  test('invalidFeedback works', async function (this: Context, assert) {
-    this.value = '';
-    this.submit = (event: Event) => {
+  test('invalidFeedback works', async function (assert) {
+    const state = tracked({ value: '' });
+
+    const submit = (event: Event) => {
       event.preventDefault();
 
       const { target } = event;
@@ -111,15 +106,15 @@ module('Integration | Component | form/input', function (hooks) {
       }
     };
 
-    await render<Context>(
+    await render(
       <template>
-        <form novalidate {{on "submit" this.submit}}>
+        <form novalidate {{on "submit" submit}}>
           <FormInput
-            @value={{this.value}}
+            @value={{state.value}}
             @label=""
             @identifier=""
             @isRequired={{true}}
-            @onChange={{fn (mut this.value)}}
+            @onChange={{fn (mut state.value)}}
             @invalidFeedback="Wrong"
           />
           <button type="submit" data-test-submit>Submit</button>

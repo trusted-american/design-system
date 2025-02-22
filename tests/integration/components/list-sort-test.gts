@@ -1,25 +1,21 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { ListSort } from '@trusted-american/design-system';
 import { array, hash } from '@ember/helper';
-
-import type { ListSortSignature } from '@trusted-american/design-system/components/list-sort';
-
-type Context = ListSortSignature<unknown>['Args'] & TestContext;
 
 module('Integration | Component | list-sort', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (assert) {
     assert.expect(5);
 
-    this.onChange = (sortBy: unknown, sortAscending: boolean) => {
+    const onChange = (sortBy: unknown, sortAscending: boolean) => {
       assert.strictEqual(sortBy, 'createdAt');
       assert.true(sortAscending);
     };
 
-    await render<Context>(
+    await render(
       <template>
         <ListSort
           @sortBy="createdAt"
@@ -28,8 +24,7 @@ module('Integration | Component | list-sort', function (hooks) {
           @label="Sort"
           @highToLowLabel="High to low"
           @lowToHighLabel="Low to high"
-          {{! @glint-expect-error }}
-          @onChange={{this.onChange}}
+          @onChange={{onChange}}
         />
       </template>,
     );

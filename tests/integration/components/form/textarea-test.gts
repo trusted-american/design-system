@@ -1,30 +1,29 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, fillIn, type TestContext } from '@ember/test-helpers';
+import { render, rerender, fillIn } from '@ember/test-helpers';
 import { FormTextarea } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-
-import type { FormTextareaSignature } from '@trusted-american/design-system/components/form/textarea';
-
-type Context = FormTextareaSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/textarea', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.value = 'Value';
-    this.isRequired = true;
+  test('it renders', async function (assert) {
+    const state = tracked({
+      value: 'Value',
+      isRequired: true,
+    });
 
-    await render<Context>(
+    await render(
       <template>
         <FormTextarea
-          @value={{this.value}}
+          @value={{state.value}}
           @label="Label"
           @identifier="identifier"
-          @isRequired={{this.isRequired}}
+          @isRequired={{state.isRequired}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
@@ -35,12 +34,13 @@ module('Integration | Component | form/textarea', function (hooks) {
     assert.dom('[data-test-form-help]').exists();
     assert.dom('[data-test-form-error]').exists();
 
-    this.set('isRequired', false);
+    state.isRequired = false;
+    await rerender();
 
     assert.dom('[data-test-form-textarea]').isNotRequired();
 
     await fillIn('[data-test-form-textarea]', 'test');
 
-    assert.strictEqual(this.value, 'test');
+    assert.strictEqual(state.value, 'test');
   });
 });

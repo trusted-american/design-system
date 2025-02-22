@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { MainBody } from '@trusted-american/design-system';
 
 type Context = TestContext;
@@ -8,7 +8,7 @@ type Context = TestContext;
 module('Integration | Component | main/body', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (assert) {
     await render(
       <template>
         <MainBody>

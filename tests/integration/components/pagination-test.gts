@@ -1,24 +1,20 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { Pagination } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-
-import type { PaginationSignature } from '@trusted-american/design-system/components/pagination';
-
-type Context = PaginationSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | pagination', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.page = 0;
+  test('it renders', async function (assert) {
+    const state = tracked({ page: 0 });
 
-    await render<Context>(
+    await render(
       <template>
         <Pagination
-          @page={{this.page}}
-          {{! @glint-expect-error }}
+          @page={{state.page}}
           @pageSize={{3}}
           @totalItems={{9}}
           @nextButtonLabel="Next"
@@ -26,7 +22,7 @@ module('Integration | Component | pagination', function (hooks) {
           @viewingLabel="Viewing"
           @ofLabel="of"
           @resultsLabel="results"
-          @onChange={{fn (mut this.page)}}
+          @onChange={{fn (mut state.page)}}
         />
       </template>,
     );
@@ -45,34 +41,32 @@ module('Integration | Component | pagination', function (hooks) {
     // assert.dom('[data-test-next]').doesNotHaveClass('disabled');
 
     await click('[data-test-next]');
-    assert.strictEqual(this.page, 1);
+    assert.strictEqual(state.page, 1);
 
     await click('[data-test-previous]');
-    assert.strictEqual(this.page, 0);
+    assert.strictEqual(state.page, 0);
 
     await click('ul li:nth-of-type(3) a');
-    assert.strictEqual(this.page, 1);
+    assert.strictEqual(state.page, 1);
 
     await click('ul li:nth-of-type(5) a');
-    assert.strictEqual(this.page, 2);
+    assert.strictEqual(state.page, 2);
 
     await click('ul li:nth-of-type(1) a');
-    assert.strictEqual(this.page, 1);
+    assert.strictEqual(state.page, 1);
   });
 
-  test('it renders cursor', async function (this: Context, assert) {
+  test('it renders cursor', async function (assert) {
     assert.expect(3);
 
-    // @ts-expect-error should exist
-    this.onNext = () => {
+    const onNext = () => {
       assert.true(true);
     };
-    // @ts-expect-error should exist
-    this.onPrevious = () => {
+    const onPrevious = () => {
       assert.true(true);
     };
 
-    await render<Context>(
+    await render(
       <template>
         <Pagination
           @canNext={{false}}
@@ -82,10 +76,8 @@ module('Integration | Component | pagination', function (hooks) {
           @viewingLabel="Viewing"
           @ofLabel="of"
           @resultsLabel="results"
-          {{! @glint-expect-error }}
-          @onNext={{this.onNext}}
-          {{! @glint-expect-error }}
-          @onPrevious={{this.onPrevious}}
+          @onNext={{onNext}}
+          @onPrevious={{onPrevious}}
         />
       </template>,
     );

@@ -1,36 +1,32 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { FormPowerSelectMultiple } from '@trusted-american/design-system';
 import { selectChoose } from 'ember-power-select/test-support';
-
-import type { FormPowerSelectMultipleSignature } from '@trusted-american/design-system/components/form/power-select-multiple';
-
-type Context = FormPowerSelectMultipleSignature<string>['Args'] & TestContext;
 
 module(
   'Integration | Component | form/power-select-multiple',
   function (hooks) {
     setupRenderingTest(hooks);
 
-    test('it renders', async function (this: Context, assert) {
-      this.options = ['a', 'c', 'b'];
-      this.selected = [];
-      this.onChange = (selected: string[]) => {
+    test('it renders', async function (assert) {
+      const options = ['a', 'c', 'b'];
+      const selected = [];
+      const onChange = (selected: string[]) => {
         assert.deepEqual(selected, ['a']);
       };
-      this.onCreate = () => {};
+      const onCreate = () => {};
 
-      await render<Context>(
+      await render(
         <template>
           <FormPowerSelectMultiple
-            @options={{this.options}}
-            @selected={{this.selected}}
+            @options={{options}}
+            @selected={{selected}}
             @label="Label"
             @identifier="identifier"
             @chooseLabel="Choose…"
-            @onChange={{this.onChange}}
-            @onCreate={{this.onCreate}}
+            @onChange={{onChange}}
+            @onCreate={{onCreate}}
             as |option|
           >
             {{option}}

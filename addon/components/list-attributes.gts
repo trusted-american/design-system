@@ -5,7 +5,7 @@ import Dropdown from './dropdown';
 import DropdownItem from './dropdown/item';
 import DropdownDivider from './dropdown/divider';
 import dropdown from '../modifiers/dropdown';
-import { not } from 'ember-truth-helpers';
+import { not, notEq } from 'ember-truth-helpers';
 import { includes } from '@nullvoxpopuli/ember-composable-helpers';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';

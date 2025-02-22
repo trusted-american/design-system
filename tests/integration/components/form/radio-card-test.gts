@@ -1,28 +1,27 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { FormRadioCard } from '@trusted-american/design-system';
 import { array, fn, hash } from '@ember/helper';
-
-import type { FormRadioCardSignature } from '@trusted-american/design-system/components/form/radio-card';
-
-type Context = FormRadioCardSignature<unknown>['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/radio-card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render<Context>(
+    const state = tracked({ selected: false });
+
+    await render(
       <template>
         <FormRadioCard
           @options={{array
             (hash value=true label="Yes" icon="check" help="Help")
             (hash value=false label="No" icon="xmark" help="Help")
           }}
-          @selected={{this.selected}}
+          @selected={{state.selected}}
           @label="Label"
           @identifier="identifier"
-          @onChange={{fn (mut this.selected)}}
+          @onChange={{fn (mut state.selected)}}
         />
       </template>,
     );

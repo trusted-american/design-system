@@ -7,10 +7,10 @@ import {
   DropdownDivider,
   DropdownHeader,
   DropdownItem,
+  dropdown,
 } from '@trusted-american/design-system';
 import { on } from '@ember/modifier';
 import { noop } from '@nullvoxpopuli/ember-composable-helpers';
-import dropdown from '@trusted-american/design-system/modifiers/dropdown';
 
 module('Integration | Component | dropdown', function (hooks) {
   setupRenderingTest(hooks);

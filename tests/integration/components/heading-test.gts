@@ -1,50 +1,52 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { Heading } from '@trusted-american/design-system';
-
-import type { HeadingSignature } from '@trusted-american/design-system/components/heading';
-
-type Context = HeadingSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
+import { rerender } from '@ember/test-helpers';
 
 module('Integration | Component | heading', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.title = 'Title';
-    this.subtitle = undefined;
-    this.type = undefined;
-    this.identifier = undefined;
+  test('it renders', async function (assert) {
+    const state = tracked({
+      title: 'Title',
+      subtitle: undefined as string | undefined,
+      type: undefined as string | undefined,
+      identifier: undefined as string | undefined,
+    });
 
-    await render<Context>(
+    await render(
       <template>
         <Heading
-          @title={{this.title}}
-          @subtitle={{this.subtitle}}
-          @type={{this.type}}
-          @identifier={{this.identifier}}
+          @title={{state.title}}
+          @subtitle={{state.subtitle}}
+          @type={{state.type}}
+          @identifier={{state.identifier}}
         />
       </template>,
     );
 
     assert.dom().hasText('Title');
 
-    this.set('subtitle', 'Subtitle');
+    state.subtitle = 'Subtitle';
+    await rerender();
 
     assert.dom().hasText('Title Subtitle');
 
-    this.set('type', 'Agent');
-    this.set('identifier', '1');
+    state.type = 'Agent';
+    state.identifier = '1';
+    await rerender();
 
     assert.dom().hasText('Agent 1 Title Subtitle');
 
-    await render<Context>(
+    await render(
       <template>
         <Heading
-          @title={{this.title}}
-          @subtitle={{this.subtitle}}
-          @type={{this.type}}
-          @identifier={{this.identifier}}
+          @title={{state.title}}
+          @subtitle={{state.subtitle}}
+          @type={{state.type}}
+          @identifier={{state.identifier}}
         >
           template block text
         </Heading>

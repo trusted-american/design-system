@@ -1,28 +1,27 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render, rerender } from '@ember/test-helpers';
 import { FileType } from '@trusted-american/design-system';
+import { tracked } from 'tracked-built-ins';
 
-import type { FileTypeSignature } from '@trusted-american/design-system/components/file-type';
-
-type Context = FileTypeSignature['Args'] & TestContext;
+import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 module('Integration | Component | file-type', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.name = 'file.pdf';
-    this.size = undefined;
+  test('it renders', async function (assert) {
+    const state = tracked<{ size: SizeProp | undefined }>({ size: undefined });
 
-    await render<Context>(
-      <template><FileType @name={{this.name}} @size={{this.size}} /></template>,
+    await render(
+      <template><FileType @name="file.pdf" @size={{state.size}} /></template>,
     );
 
     assert.dom('svg').hasClass('fa-file-pdf');
     assert.dom('svg').hasClass('text-danger');
     assert.dom('svg').doesNotHaveClass('fa-lg');
 
-    this.set('size', 'lg');
+    state.size = 'lg';
+    await rerender();
 
     assert.dom('svg').hasClass('fa-lg');
   });

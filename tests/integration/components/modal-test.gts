@@ -1,21 +1,17 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { Modal } from '@trusted-american/design-system';
-
-import type { ModalSignature } from '@trusted-american/design-system/components/modal';
-
-type Context = ModalSignature['Args'] & TestContext;
 
 module('Integration | Component | modal', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (assert) {
     this.onClose = () => {
       // assert.true(true);
     };
 
-    await render<Context>(
+    await render(
       <template>
         <Modal
           @title="Title"

@@ -1,27 +1,26 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { FormTimeInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-
-import type { FormTimeInputSignature } from '@trusted-american/design-system/components/form/time-input';
-
-type Context = FormTimeInputSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/time-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render<Context>(
+    const state = tracked<{ value: Date | null }>({ value: null });
+
+    await render(
       <template>
         <FormTimeInput
-          @value={{null}}
+          @value={{state.value}}
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );

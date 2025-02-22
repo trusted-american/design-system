@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import fileType, { type Type } from '../utils/file-type';
 import Icon from './icon';
+import { eq } from 'ember-truth-helpers';
 
 import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
 

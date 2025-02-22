@@ -3,6 +3,7 @@ import Icon from './icon';
 import Button from './button';
 import htmlSafe from '../helpers/html-safe';
 import { on } from '@ember/modifier';
+import { and } from 'ember-truth-helpers';
 
 export interface PlaceholderSignature {
   Args: {

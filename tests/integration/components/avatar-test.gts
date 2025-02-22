@@ -1,47 +1,46 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, find, type TestContext } from '@ember/test-helpers';
+import { render, rerender, find } from '@ember/test-helpers';
 import { Avatar } from '@trusted-american/design-system';
-
-import type { AvatarSignature } from '@trusted-american/design-system/components/avatar';
-
-type Context = AvatarSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | avatar', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.id = '012345678901234';
-    this.url = undefined;
-    this.alt = 'Name';
-    this.size = undefined;
+  test('it renders', async function (assert) {
+    const state = tracked<{
+      url: string | undefined;
+      size: number | undefined;
+    }>({ url: undefined, size: undefined });
 
-    await render<Context>(
+    await render(
       <template>
         <Avatar
-          @id={{this.id}}
-          @url={{this.url}}
-          @alt={{this.alt}}
-          @size={{this.size}}
+          @id="012345678901234"
+          @url={{state.url}}
+          @alt="Name"
+          @size={{state.size}}
         />
       </template>,
     );
 
     const img = find('[data-test-avatar]') as HTMLImageElement | null;
     assert.true(img?.src.includes('data:image/png'));
-    assert.dom('[data-test-avatar]').hasAttribute('alt', this.alt);
+    assert.dom('[data-test-avatar]').hasAttribute('alt', 'Name');
     assert.dom('[data-test-avatar]').hasStyle({
       width: '64px',
       height: '64px',
     });
 
-    this.set('url', 'https://via.placeholder.com/350x150');
+    state.url = 'https://via.placeholder.com/350x150';
+    await rerender();
 
     assert
       .dom('[data-test-avatar]')
-      .hasAttribute('src', this.url as unknown as string);
+      .hasAttribute('src', 'https://via.placeholder.com/350x150');
 
-    this.set('size', 2);
+    state.size = 2;
+    await rerender();
 
     assert.dom('[data-test-avatar]').hasStyle({
       width: '32px',
