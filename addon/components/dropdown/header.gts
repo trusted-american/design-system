@@ -1,0 +1,20 @@
+import Component from '@glimmer/component';
+
+export interface DropdownHeaderSignature {
+  Args: {
+    label: string;
+  };
+  Element: HTMLHeadingElement;
+}
+
+export default class DropdownHeader extends Component<DropdownHeaderSignature> {
+  <template>
+    <h6 class="dropdown-header" ...attributes>{{@label}}</h6>
+  </template>
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Dropdown::Header': typeof DropdownHeader;
+  }
+}
