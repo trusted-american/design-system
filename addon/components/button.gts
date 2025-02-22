@@ -5,7 +5,7 @@ import { concat } from '@ember/helper';
 import { and } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
-import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 export interface LinkToArgs {
   route?: string;
@@ -16,7 +16,7 @@ export interface LinkToArgs {
 interface Args extends LinkToArgs {
   isSubmit?: true;
   label: string;
-  icon?: string;
+  icon?: IconName;
   iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;

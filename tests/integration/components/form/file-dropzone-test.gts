@@ -8,7 +8,9 @@ module('Integration | Component | form/file-dropzone', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const onCreate = () => {};
+    const onCreate = () => {
+      assert.ok(true);
+    };
 
     await render(
       <template>

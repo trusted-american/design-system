@@ -1,13 +1,13 @@
 import Icon from './icon';
 
 import type { TOC } from '@ember/component/template-only';
-import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 export interface ExternalLinkSignature {
   Args: {
     href: string;
     label?: string;
-    icon?: string;
+    icon?: IconName;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;

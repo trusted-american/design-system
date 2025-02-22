@@ -2,13 +2,14 @@ import Badge from '../../badge';
 import Icon from '../../icon';
 
 import type { TOC } from '@ember/component/template-only';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 export interface NavItemInternalSignature {
   Args: {
     label?: string;
-    icon?: string;
+    icon?: IconName;
     count?: number;
-    trailingIcon?: string;
+    trailingIcon?: IconName;
   };
   Blocks: {
     default: [];

@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { Table } from '@trusted-american/design-system';
-import { noop } from '@nullvoxpopuli/ember-composable-helpers';
 import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | table', function (hooks) {
@@ -275,6 +274,13 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
     ];
 
+    const onNext = () => {
+      assert.ok(true);
+    };
+    const onPrevious = () => {
+      assert.ok(true);
+    };
+
     await render(
       <template>
         <Table
@@ -287,8 +293,8 @@ module('Integration | Component | table', function (hooks) {
           @viewingLabel="Viewing"
           @ofLabel="of"
           @resultsLabel="results"
-          @onNext={{(noop)}}
-          @onPrevious={{(noop)}}
+          @onNext={{onNext}}
+          @onPrevious={{onPrevious}}
           as |table|
         >
           <table.header as |header|>

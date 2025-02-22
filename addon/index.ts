@@ -97,7 +97,6 @@ export { default as htmlSafe } from './helpers/html-safe';
 export { default as theme } from './helpers/theme';
 export { default as timestamp } from './helpers/timestamp';
 
-export { default as autoselect } from './modifiers/autoselect';
 export { default as collapse } from './modifiers/collapse';
 export { default as dropdown } from './modifiers/dropdown';
 export { default as tooltip } from './modifiers/tooltip';

@@ -8,13 +8,18 @@ interface Options extends Partial<Dropdown.Options> {
   onHidden?: () => void;
 }
 
-const dropdown = modifier(function dropdown(
+interface CollapseSignature {
+  Element: Element;
+  Args: {
+    Named: Options;
+  };
+}
+
+const dropdown = modifier<CollapseSignature>(function dropdown(
   element,
   _positional,
-  named: Options,
+  { onShow, onShown, onHide, onHidden, ...options },
 ) {
-  const { onShow, onShown, onHide, onHidden, ...options } = named;
-
   element.classList.add('dropdown-toggle');
   element.setAttribute('data-bs-toggle', 'dropdown');
 

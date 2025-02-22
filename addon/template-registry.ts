@@ -97,7 +97,6 @@ import type htmlSafe from './helpers/html-safe';
 import type theme from './helpers/theme';
 import type timestamp from './helpers/timestamp';
 
-import type autoselect from './modifiers/autoselect';
 import type collapse from './modifiers/collapse';
 import type dropdown from './modifiers/dropdown';
 import type tooltip from './modifiers/tooltip';
@@ -202,7 +201,6 @@ export default interface Registry {
   theme: typeof theme;
   timestamp: typeof timestamp;
 
-  autoselect: typeof autoselect;
   collapse: typeof collapse;
   dropdown: typeof dropdown;
   tooltip: typeof tooltip;

@@ -20,9 +20,13 @@ import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, not } from 'ember-truth-helpers';
 import { findBy, includes } from '@nullvoxpopuli/ember-composable-helpers';
-import autoselect from '../modifiers/autoselect';
+import { modifier } from 'ember-modifier';
 
 import type { Option } from './form/select';
+
+const autoselect = modifier(function autoselect(element: HTMLInputElement) {
+  element.select();
+});
 
 export type DateRangeQueryParam =
   | {
@@ -248,13 +252,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     checked: boolean,
   ): void {
     if (checked) {
-      // @ts-expect-error fix later todo
-      // eslint-disable-next-line @typescript-eslint/no-misused-spread
-      predicate._value = [...predicate._value, value];
+      predicate._value = [...(predicate._value as []), value];
     } else {
-      // @ts-expect-error fix later todo
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-      predicate._value = predicate._value.filter((v) => v !== value);
+      predicate._value = (predicate._value as []).filter((v) => v !== value);
     }
   }
 
@@ -401,26 +401,24 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
                 {{else}}
 
-                  <FormPowerSelect
-                    @options={{predicate._predicate.options}}
-                    {{! @glint-nocheck }}
-                    @selected={{findBy
-                      "value"
-                      predicate._value
-                      predicate._predicate.options
-                    }}
-                    @searchField="label"
-                    @label={{@valueLabel}}
-                    @identifier="value{{index}}"
-                    {{!-- @isRequired={{true}} --}}
-                    @isInputOnly={{true}}
-                    @chooseLabel={{@chooseLabel}}
-                    @searchLabel={{@searchLabel}}
-                    @onChange={{fn this.setValue predicate}}
-                    as |option|
-                  >
-                    {{option.label}}
-                  </FormPowerSelect>
+                  {{#let predicate._predicate.options as |o|}}
+                    <FormPowerSelect
+                      @options={{o}}
+                      {{! @glint-expect-error }}
+                      @selected={{findBy "value" predicate._value o}}
+                      @searchField="label"
+                      @label={{@valueLabel}}
+                      @identifier="value{{index}}"
+                      {{!-- @isRequired={{true}} --}}
+                      @isInputOnly={{true}}
+                      @chooseLabel={{@chooseLabel}}
+                      @searchLabel={{@searchLabel}}
+                      @onChange={{fn this.setValue predicate}}
+                      as |option|
+                    >
+                      {{option.label}}
+                    </FormPowerSelect>
+                  {{/let}}
 
                 {{/if}}
               </ListGroupItem>

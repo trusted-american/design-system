@@ -3,12 +3,13 @@ import Icon from '../icon';
 
 import type { TOC } from '@ember/component/template-only';
 import type { LinkToArgs } from '../button';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface Args extends LinkToArgs {
   label: string;
-  icon?: string;
+  icon?: IconName;
   count?: number;
-  trailingIcon?: string;
+  trailingIcon?: IconName;
   isDisabled?: boolean;
 }
 

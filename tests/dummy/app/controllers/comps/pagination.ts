@@ -5,8 +5,12 @@ export default class CompsPaginationController extends Controller {
   page = 5;
 
   @action
-  next() {}
+  next() {
+    alert('Action');
+  }
 
   @action
-  previous() {}
+  previous() {
+    alert('Action');
+  }
 }

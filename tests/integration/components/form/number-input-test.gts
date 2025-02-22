@@ -9,7 +9,7 @@ module('Integration | Component | form/number-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ value: 0 as number | null });
+    const state = tracked<{ value: number | null }>({ value: 0 });
 
     await render(
       <template>

@@ -4,20 +4,6 @@
 <Main::Body>
   <Heading @title="Modifiers" />
 
-  <Subheading @title="Autoselect" />
-
-  <Snippet @name="autoselect.hbs">
-    {{! BEGIN-SNIPPET autoselect }}
-    <Form::Input
-      @value={{this.value}}
-      @label="Label"
-      @identifier="identifier"
-      @onChange={{fn (mut this.value)}}
-      {{autoselect}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-
   <Subheading @title="Collapse" />
 
   <p><LinkTo @route="comps.collapse">See collapse component</LinkTo></p>

@@ -9,8 +9,6 @@ import {
   DropdownItem,
   dropdown,
 } from '@trusted-american/design-system';
-import { on } from '@ember/modifier';
-import { noop } from '@nullvoxpopuli/ember-composable-helpers';
 
 module('Integration | Component | dropdown', function (hooks) {
   setupRenderingTest(hooks);
@@ -26,21 +24,18 @@ module('Integration | Component | dropdown', function (hooks) {
             @icon="copy"
             @shortcut="⌘C"
             data-test-copy
-            {{on "click" (noop)}}
           />
           <DropdownItem
             @label="Quote reply"
             @icon="quote-left"
             @shortcut="⌘Q"
             data-test-quote
-            {{on "click" (noop)}}
           />
           <DropdownItem
             @label="Edit comment"
             @icon="pen"
             @shortcut="⌘E"
             data-test-comment
-            {{on "click" (noop)}}
           />
           <DropdownDivider data-test-divider />
           <DropdownItem
@@ -49,7 +44,6 @@ module('Integration | Component | dropdown', function (hooks) {
             @shortcut="⌘D"
             @color="danger"
             data-test-delete
-            {{on "click" (noop)}}
           />
           <DropdownDivider />
           <DropdownItem

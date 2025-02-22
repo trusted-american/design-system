@@ -1,5 +1,4 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 import {
   Calendar as FullCalendar,
   type EventClickArg,
@@ -7,7 +6,8 @@ import {
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-import tdsDidInsert from '../modifiers/tds-did-insert';
+
+import type { TOC } from '@ember/component/template-only';
 
 export interface Event {
   id?: string;
@@ -15,6 +15,39 @@ export interface Event {
   start: Date;
   backgroundColor?: string;
 }
+
+interface SetupSignature {
+  Element: HTMLElement;
+  Args: {
+    Positional: [Event[], ((event: Event, index: EventClickArg) => void)?];
+  };
+}
+
+const setup = modifier<SetupSignature>((element, [events, onSelect]) => {
+  const calendar = new FullCalendar(element, {
+    plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+    },
+    buttonText: {
+      today: 'Today',
+      month: 'Month',
+      week: 'Week',
+      day: 'Day',
+      list: 'List',
+    },
+    events,
+    eventClick: (arg) => {
+      if (onSelect) {
+        onSelect(arg.event as Event, arg);
+      }
+    },
+  });
+
+  calendar.render();
+});
 
 export interface CalendarSignature {
   Args: {
@@ -24,41 +57,11 @@ export interface CalendarSignature {
   Element: HTMLDivElement;
 }
 
-export default class Calendar extends Component<CalendarSignature> {
-  calendar?: FullCalendar;
+const Calendar: TOC<CalendarSignature> = <template>
+  <div data-test-calendar {{setup @events @onSelect}} ...attributes></div>
+</template>;
 
-  @action
-  didInsert(element: HTMLElement): void {
-    const { events } = this.args;
-
-    this.calendar = new FullCalendar(element, {
-      plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
-      },
-      buttonText: {
-        today: 'Today',
-        month: 'Month',
-        week: 'Week',
-        day: 'Day',
-        list: 'List',
-      },
-      events,
-      eventClick: (arg) => {
-        if (this.args.onSelect) {
-          this.args.onSelect(arg.event as Event, arg);
-        }
-      },
-    });
-    this.calendar.render();
-  }
-
-  <template>
-    <div data-test-calendar {{tdsDidInsert this.didInsert}} ...attributes></div>
-  </template>
-}
+export default Calendar;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

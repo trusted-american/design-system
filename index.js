@@ -10,6 +10,7 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
+    app.import('node_modules/bootstrap/dist/css/bootstrap.css');
     app.import('node_modules/ember-power-select/vendor/ember-power-select.css');
   },
 };

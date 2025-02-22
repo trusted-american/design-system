@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { Alert } from '@trusted-american/design-system';
-import { noop } from '@nullvoxpopuli/ember-composable-helpers';
 
 module('Integration | Component | alert', function (hooks) {
   setupRenderingTest(hooks);
@@ -32,9 +31,13 @@ module('Integration | Component | alert', function (hooks) {
   });
 
   test('close works', async function (assert) {
+    const onClose = () => {
+      assert.ok(true);
+    };
+
     await render(
       <template>
-        <Alert @closeButtonLabel="Close" @onClose={{(noop)}}>
+        <Alert @closeButtonLabel="Close" @onClose={{onClose}}>
           <:title>Title here</:title>
           <:default>Body here</:default>
         </Alert>

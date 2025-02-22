@@ -8,7 +8,9 @@ export default class UtilsController extends Controller {
   // BEGIN-SNIPPET util-check-validity
   @action
   @checkValidity
-  submit() {}
+  submit() {
+    alert('Action');
+  }
   // END-SNIPPET
 
   // BEGIN-SNIPPET util-file-type

@@ -3,8 +3,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class ModifiersController extends Controller {
-  value = 'test';
-
   timeout?: number;
 
   @tracked isClicked = false;

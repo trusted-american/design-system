@@ -5,11 +5,12 @@ import { and } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
 import type { LinkToArgs } from '../button';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface Args extends LinkToArgs {
   label?: string;
   subtitle?: string;
-  icon?: string;
+  icon?: IconName;
   shortcut?: string;
   color?: string;
   href?: string;
