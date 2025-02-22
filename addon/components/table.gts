@@ -168,18 +168,21 @@ export default class Table<T> extends Component<TableSignature<T>> {
           <table.tfoot as |foot|>
             <foot.row as |row|>
               <row.cell colspan={{table.columns.length}}>
-                <Pagination
-                  @page={{dec table.paginationData.pageNumber}}
-                  {{! @glint-expect-error }}
-                  @pageSize={{10}}
-                  @totalItems={{@data.length}}
-                  @nextButtonLabel={{@nextButtonLabel}}
-                  @previousButtonLabel={{@previousButtonLabel}}
-                  @viewingLabel={{@viewingLabel}}
-                  @ofLabel={{@ofLabel}}
-                  @resultsLabel={{@resultsLabel}}
-                  @onChange={{fn this.goToPage table.actions}}
-                />
+                {{#let (dec table.paginationData.pageNumber) as |page|}}
+                  {{#if (notEq undefined page)}}
+                    <Pagination
+                      @page={{page}}
+                      @pageSize={{10}}
+                      @totalItems={{@data.length}}
+                      @nextButtonLabel={{@nextButtonLabel}}
+                      @previousButtonLabel={{@previousButtonLabel}}
+                      @viewingLabel={{@viewingLabel}}
+                      @ofLabel={{@ofLabel}}
+                      @resultsLabel={{@resultsLabel}}
+                      @onChange={{fn this.goToPage table.actions}}
+                    />
+                  {{/if}}
+                {{/let}}
               </row.cell>
             </foot.row>
           </table.tfoot>
