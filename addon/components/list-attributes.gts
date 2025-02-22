@@ -1,5 +1,14 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import Button from './button';
+import Dropdown from './dropdown';
+import DropdownItem from './dropdown/item';
+import DropdownDivider from './dropdown/divider';
+import dropdown from '../modifiers/dropdown';
+import { not } from 'ember-truth-helpers';
+import { includes } from '@nullvoxpopuli/ember-composable-helpers';
+import { on } from '@ember/modifier';
+import { fn } from '@ember/helper';
 
 import type { Option } from '@trusted-american/design-system/components/form/select';
 
@@ -48,6 +57,42 @@ export default class ListAttributes<T> extends Component<
 
     this.args.onChange(selected);
   }
+
+  <template>
+    <Button
+      @label={{@label}}
+      @icon="table-columns"
+      {{dropdown autoClose="outside"}}
+      ...attributes
+    />
+    <Dropdown>
+      {{#each @presets as |preset|}}
+        <DropdownItem
+          @label={{preset.label}}
+          @icon="check"
+          class={{if
+            (notEq preset.label this.activePreset.label)
+            "invisible-icon"
+          }}
+          data-test-preset
+          {{on "click" (fn @onChange preset.values)}}
+        />
+      {{/each}}
+      <DropdownDivider />
+      {{#each @options as |attribute|}}
+        <DropdownItem
+          @label={{attribute.label}}
+          @icon="check"
+          class={{if
+            (not (includes attribute.value @selected))
+            "invisible-icon"
+          }}
+          data-test-option
+          {{on "click" (fn this.toggleAttribute attribute)}}
+        />
+      {{/each}}
+    </Dropdown>
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

@@ -7,7 +7,17 @@ export interface CloseButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class CloseButton extends Component<CloseButtonSignature> {}
+export default class CloseButton extends Component<CloseButtonSignature> {
+  <template>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label={{@label}}
+      data-test-close-button
+      ...attributes
+    ></button>
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

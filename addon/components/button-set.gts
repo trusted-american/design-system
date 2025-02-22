@@ -7,7 +7,13 @@ export interface ButtonSetSignature {
   Element: HTMLDivElement;
 }
 
-export default class ButtonSet extends Component<ButtonSetSignature> {}
+export default class ButtonSet extends Component<ButtonSetSignature> {
+  <template>
+    <div class="d-flex gap-2" data-test-button-set ...attributes>
+      {{yield}}
+    </div>
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

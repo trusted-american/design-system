@@ -1,5 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import Pagination from './pagination';
+import YetiTable from 'ember-yeti-table/components/yeti-table';
+import { dec } from '@nullvoxpopuli/ember-composable-helpers';
+import { fn } from '@ember/helper';
+import { and, eq, notEq, or } from 'ember-truth-helpers';
 
 import type { ComponentLike } from '@glint/template';
 
@@ -146,6 +151,82 @@ export default class Table<T> extends Component<TableSignature<T>> {
   goToPage(actions: Actions, page: number): void {
     actions.goToPage(page + 1);
   }
+
+  <template>
+    <div class="table-responsive" ...attributes>
+      <YetiTable
+        @data={{@data}}
+        @sortable={{@isSortable}}
+        @pagination={{eq "local" @pagination}}
+        @pageSize={{10}}
+        class="table table-hover"
+        data-test-table
+        as |table|
+      >
+        {{yield table}}
+        {{#if (eq "local" @pagination)}}
+          <table.tfoot as |foot|>
+            <foot.row as |row|>
+              <row.cell colspan={{table.columns.length}}>
+                <Pagination
+                  @page={{dec table.paginationData.pageNumber}}
+                  {{! @glint-expect-error }}
+                  @pageSize={{10}}
+                  @totalItems={{@data.length}}
+                  @nextButtonLabel={{@nextButtonLabel}}
+                  @previousButtonLabel={{@previousButtonLabel}}
+                  @viewingLabel={{@viewingLabel}}
+                  @ofLabel={{@ofLabel}}
+                  @resultsLabel={{@resultsLabel}}
+                  @onChange={{fn this.goToPage table.actions}}
+                />
+              </row.cell>
+            </foot.row>
+          </table.tfoot>
+        {{/if}}
+      </YetiTable>
+    </div>
+
+    {{#if (eq "cursor" @pagination)}}
+      {{#if
+        (and
+          (notEq undefined @canNext)
+          (notEq undefined @canPrevious)
+          @onNext
+          @onPrevious
+        )
+      }}
+        <div class="d-flex justify-content-end mt-3 mb-0">
+          <Pagination
+            @canNext={{@canNext}}
+            @canPrevious={{@canPrevious}}
+            @nextButtonLabel={{@nextButtonLabel}}
+            @previousButtonLabel={{@previousButtonLabel}}
+            @viewingLabel={{@viewingLabel}}
+            @ofLabel={{@ofLabel}}
+            @resultsLabel={{@resultsLabel}}
+            @onNext={{@onNext}}
+            @onPrevious={{@onPrevious}}
+          />
+        </div>
+      {{/if}}
+    {{else if (eq "offset" @pagination)}}
+      {{#if (and (or @page (eq 0 @page)) @totalItems @onChangePage)}}
+        <Pagination
+          @page={{@page}}
+          @pageSize={{20}}
+          @totalItems={{@totalItems}}
+          @nextButtonLabel={{@nextButtonLabel}}
+          @previousButtonLabel={{@previousButtonLabel}}
+          @viewingLabel={{@viewingLabel}}
+          @ofLabel={{@ofLabel}}
+          @resultsLabel={{@resultsLabel}}
+          @onChange={{@onChangePage}}
+          class="mt-3"
+        />
+      {{/if}}
+    {{/if}}
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

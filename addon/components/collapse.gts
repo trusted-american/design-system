@@ -10,7 +10,17 @@ export interface CollapseSignature {
   Element: HTMLDivElement;
 }
 
-export default class Collapse extends Component<CollapseSignature> {}
+export default class Collapse extends Component<CollapseSignature> {
+  <template>
+    <div
+      class="collapse {{if @isHorizontal 'collapse-horizontal'}}"
+      data-test-collapse
+      ...attributes
+    >
+      {{yield}}
+    </div>
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
