@@ -5,6 +5,7 @@ import { concat } from '@ember/helper';
 import tdsDidInsert from '../modifiers/tds-did-insert';
 import CloseButton from './close-button';
 import { on } from '@ember/modifier';
+import { eq } from 'ember-truth-helpers';
 
 export interface ToastSignature {
   Args: {

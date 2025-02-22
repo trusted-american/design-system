@@ -1,8 +1,9 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import { hash } from '@ember/helper';
+import AccordionItem from './accordion/item';
 
 import type { WithBoundArgs } from '@glint/template';
-import type AccordionItem from './accordion/item';
 
 export interface AccordionSignature {
   Args: {
@@ -21,6 +22,17 @@ export default class Accordion extends Component<AccordionSignature> {
   get isAlwaysOpen(): boolean | undefined {
     return this.args.isAlwaysOpen;
   }
+
+  <template>
+    <div
+      class="accordion {{if @isFlush 'accordion-flush'}}"
+      id={{this.id}}
+      data-test-accordion
+      ...attributes
+    >
+      {{yield (hash item=(component AccordionItem accordion=this))}}
+    </div>
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

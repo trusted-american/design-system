@@ -1,8 +1,9 @@
 import Component from '@glimmer/component';
+import CardHeader from './card/header';
+import CardBody from './card/body';
+import CardFooter from './card/footer';
+import { hash } from '@ember/helper';
 
-import type CardHeader from './card/header';
-import type CardBody from './card/body';
-import type CardFooter from './card/footer';
 import type { WithBoundArgs } from '@glint/template';
 
 export interface CardSignature {
@@ -18,7 +19,13 @@ export interface CardSignature {
   Element: HTMLDivElement;
 }
 
-export default class Card extends Component<CardSignature> {}
+export default class Card extends Component<CardSignature> {
+  <template>
+    <div class="card" data-test-card ...attributes>
+      {{yield (hash header=CardHeader body=CardBody footer=CardFooter)}}
+    </div>
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { LinkTo } from '@ember/routing';
 import NavItemInternal from './item/internal';
+import { and } from 'ember-truth-helpers';
 
 import type { LinkToArgs } from '../button';
 

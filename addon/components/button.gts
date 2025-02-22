@@ -3,6 +3,7 @@ import ButtonInternal from './button/internal';
 import ExternalLink from './external-link';
 import { LinkTo } from '@ember/routing';
 import { concat } from '@ember/helper';
+import { and } from 'ember-truth-helpers';
 
 import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
 

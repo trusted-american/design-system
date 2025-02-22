@@ -5,6 +5,7 @@ import FormLabel from './label';
 import FormHelp from './help';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { eq } from 'ember-truth-helpers';
 
 import type { BaseArgs } from './input';
 import type { Option } from './select';

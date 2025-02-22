@@ -10,6 +10,7 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import { on } from '@ember/modifier';
 import PellEditor from 'ember-pell/components/pell-editor';
+import { eq } from 'ember-truth-helpers';
 
 import type { BaseArgs } from './input';
 

@@ -1,27 +1,24 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, type TestContext } from '@ember/test-helpers';
-import Aside, {
-  type AsideSignature,
-} from '@trusted-american/design-system/components/aside';
+import { render, click } from '@ember/test-helpers';
+import Aside from '@trusted-american/design-system/components/aside';
 import { fn } from '@ember/helper';
-
-type Context = AsideSignature['Args'] & TestContext;
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | aside', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.isCollapsed = false;
+  test('it renders', async function (assert) {
+    const state = tracked({ isCollapsed: false });
 
-    await render<Context>(
+    await render(
       <template>
         <Aside
           @title="Title"
           @logo=""
           @route=""
-          @isCollapsed={{this.isCollapsed}}
-          @onChange={{fn (mut this.isCollapsed)}}
+          @isCollapsed={{state.isCollapsed}}
+          @onChange={{fn (mut state.isCollapsed)}}
         >
           <:default>
             Default

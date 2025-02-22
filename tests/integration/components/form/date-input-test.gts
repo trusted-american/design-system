@@ -3,17 +3,18 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, fillIn } from '@ember/test-helpers';
 import { FormDateInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/date-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    this.value = new Date();
+    const state = tracked({ value: new Date() as Date | null });
 
     await render(
       <template>
         <FormDateInput
-          @value={{this.value}}
+          @value={{state.value}}
           @min={{undefined}}
           @max={{undefined}}
           @label="Label"
@@ -21,7 +22,7 @@ module('Integration | Component | form/date-input', function (hooks) {
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
-          @onChange={{fn (mut this.value)}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
@@ -32,7 +33,7 @@ module('Integration | Component | form/date-input', function (hooks) {
     await fillIn('[data-test-form-input]', '2014-09-13');
 
     assert.strictEqual(
-      this.value.toISOString(),
+      state.value?.toISOString(),
       new Date(Date.UTC(2014, 8, 13)).toISOString(),
     );
   });

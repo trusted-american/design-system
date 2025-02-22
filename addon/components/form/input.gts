@@ -5,6 +5,7 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { eq, or } from 'ember-truth-helpers';
 
 export interface BaseArgs {
   label: string;

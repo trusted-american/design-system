@@ -12,6 +12,7 @@ import tooltip from '../../modifiers/tooltip';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
+import { eq } from 'ember-truth-helpers';
 
 import type { BaseArgs } from './input';
 
