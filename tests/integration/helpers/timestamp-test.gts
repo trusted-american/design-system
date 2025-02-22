@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, rerender } from '@ember/test-helpers';
 import { timestamp } from '@trusted-american/design-system';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Helper | timestamp', function (hooks) {
   setupRenderingTest(hooks);
@@ -55,21 +56,23 @@ module('Integration | Helper | timestamp', function (hooks) {
   });
 
   test('it renders relative time', async function (assert) {
-    const date = new Date();
+    const state = tracked({ date: new Date() });
 
-    await render(<template>{{timestamp date}}</template>);
+    await render(<template>{{timestamp state.date}}</template>);
 
     assert.dom().includesText('Today');
 
-    const _date = new Date();
-    _date.setDate(_date.getDate() - 1);
-    this.set('date', _date);
+    const date = new Date();
+    date.setDate(date.getDate() - 1);
+    state.date = date;
+    await rerender();
 
     assert.dom().includesText('Yesterday');
 
     const date1 = new Date();
     date1.setDate(date1.getDate() + 1);
-    this.set('date', date1);
+    state.date = date1;
+    await rerender();
 
     assert.dom().includesText('Tomorrow');
   });
