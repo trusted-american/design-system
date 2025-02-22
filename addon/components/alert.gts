@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import Icon from './icon';
 import CloseButton from './close-button';
 import { on } from '@ember/modifier';
+import { and } from 'ember-truth-helpers';
 
 interface Args {
   color?: string;
