@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { inc } from '@nullvoxpopuli/ember-composable-helpers';
+import { eq } from 'ember-truth-helpers';
 
 export interface PaginationItemSignature {
   Args: {

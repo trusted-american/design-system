@@ -11,7 +11,7 @@ module(
 
     test('it renders', async function (assert) {
       const options = ['a', 'c', 'b'];
-      const selected = [];
+      const selected: string[] = [];
       const onChange = (selected: string[]) => {
         assert.deepEqual(selected, ['a']);
       };

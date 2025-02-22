@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { FormRadio } from '@trusted-american/design-system';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | form/radio', function (hooks) {
   setupRenderingTest(hooks);
@@ -11,9 +12,9 @@ module('Integration | Component | form/radio', function (hooks) {
       { value: 'one', label: 'One' },
       { value: 'two', label: 'Two' },
     ];
-    this.selected = undefined;
-    const onChange = (selected) => {
-      this.selected = selected;
+    const state = tracked({ selected: undefined as unknown });
+    const onChange = (selected: unknown) => {
+      state.selected = selected;
       assert.ok(selected);
     };
 
@@ -21,7 +22,7 @@ module('Integration | Component | form/radio', function (hooks) {
       <template>
         <FormRadio
           @options={{options}}
-          @selected={{this.selected}}
+          @selected={{state.selected}}
           @label="Label"
           @identifier="identifier"
           @isRequired={{undefined}}

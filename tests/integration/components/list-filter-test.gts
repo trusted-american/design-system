@@ -4,8 +4,12 @@ import { render, click, fillIn, select } from '@ember/test-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
 import { ListFilter } from '@trusted-american/design-system';
+import { tracked } from 'tracked-built-ins';
 
-import type { DateRangeQueryParam } from '@trusted-american/design-system/components/list-filter';
+import type {
+  DateRangeQueryParam,
+  Predicate,
+} from '@trusted-american/design-system/components/list-filter';
 
 interface Props {
   status?: string;
@@ -19,18 +23,20 @@ module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    this.status = undefined;
-    this.isArchived = undefined;
-    this.state = [];
-    this.city = undefined;
-    this.createdAt = [];
+    const state = tracked<Props>({
+      status: undefined,
+      isArchived: undefined,
+      state: [],
+      city: undefined,
+      createdAt: [],
+    });
 
-    this.predicates = [
+    const predicates: Predicate[] = [
       {
         type: 'single',
         label: 'Status',
         key: 'status',
-        value: this.status,
+        value: state.status,
         options: [
           { value: 'one', label: 'One' },
           { value: 'two', label: 'Two' },
@@ -41,7 +47,7 @@ module('Integration | Component | list-filter', function (hooks) {
         type: 'single',
         label: 'Archived',
         key: 'isArchived',
-        value: this.isArchived,
+        value: state.isArchived,
         options: [
           { value: true, label: 'True' },
           { value: false, label: 'False' },
@@ -51,7 +57,7 @@ module('Integration | Component | list-filter', function (hooks) {
         type: 'multi',
         label: 'State',
         key: 'state',
-        value: this.state,
+        value: state.state,
         options: [
           { value: 'az', label: 'AZ' },
           { value: 'ca', label: 'CA' },
@@ -61,25 +67,25 @@ module('Integration | Component | list-filter', function (hooks) {
         type: 'string',
         label: 'City',
         key: 'city',
-        value: this.city,
+        value: state.city,
       },
       {
         type: 'date',
         label: 'Created date',
         key: 'createdAt',
-        value: this.createdAt,
+        value: state.createdAt,
       },
     ];
 
-    this.onChange = (key: string, value: unknown) => {
+    const onChange = (key: string, value: unknown) => {
       // @ts-expect-error keyof this doesn't work here
-      this[key] = value;
+      state[key] = value;
     };
 
     await render(
       <template>
         <ListFilter
-          @predicates={{this.predicates}}
+          @predicates={{predicates}}
           @label="Filter"
           @clearLabel="Clear"
           @doneLabel="Done"
@@ -99,7 +105,7 @@ module('Integration | Component | list-filter', function (hooks) {
           @monthsLabel="Months"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
-          @onChange={{this.onChange}}
+          @onChange={{onChange}}
         />
       </template>,
     );
@@ -149,40 +155,48 @@ module('Integration | Component | list-filter', function (hooks) {
 
     await click('[data-test-done]');
 
-    assert.strictEqual(this.status, 'two');
-    assert.false(this.isArchived);
-    assert.deepEqual(this.state, ['az', 'ca']);
-    assert.strictEqual(this.city, 'Test');
-    assert.strictEqual(Object.keys(this.createdAt).length, 4);
+    assert.strictEqual(state.status, 'two');
+    assert.false(state.isArchived);
+    assert.deepEqual(state.state, ['az', 'ca']);
+    assert.strictEqual(state.city, 'Test');
+    assert.strictEqual(Object.keys(state.createdAt).length, 4);
 
     await click('[data-test-clear]');
 
-    assert.strictEqual(this.status, undefined);
-    assert.strictEqual(this.isArchived, undefined);
-    assert.deepEqual(this.state, []);
-    assert.strictEqual(this.city, undefined);
-    assert.deepEqual(this.createdAt, []);
+    assert.strictEqual(state.status, undefined);
+    assert.strictEqual(state.isArchived, undefined);
+    assert.deepEqual(state.state, []);
+    assert.strictEqual(state.city, undefined);
+    assert.deepEqual(state.createdAt, []);
   });
 
   test('it works with date predicates', async function (assert) {
-    this.predicates = [
+    const state = tracked<Props>({
+      status: undefined,
+      isArchived: undefined,
+      state: [],
+      city: undefined,
+      createdAt: [],
+    });
+
+    const predicates = [
       {
-        type: 'date',
+        type: 'date' as const,
         label: 'Created date',
         key: 'createdAt',
-        value: [],
+        value: state.createdAt,
       },
     ];
 
-    this.onChange = (key: string, value: unknown) => {
+    const onChange = (key: string, value: unknown) => {
       // @ts-expect-error keyof this doesn't work here
-      this[key] = value;
+      state[key] = value;
     };
 
     await render(
       <template>
         <ListFilter
-          @predicates={{this.predicates}}
+          @predicates={{predicates}}
           @label="Filter"
           @clearLabel="Clear"
           @doneLabel="Done"
@@ -202,7 +216,7 @@ module('Integration | Component | list-filter', function (hooks) {
           @monthsLabel="Months"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
-          @onChange={{this.onChange}}
+          @onChange={{onChange}}
         />
       </template>,
     );
@@ -219,17 +233,17 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueA0', '1');
     await select('#valueB0', '2');
     await click('[data-test-done]');
-    if (Array.isArray(this.createdAt)) {
+    if (Array.isArray(state.createdAt)) {
       throw new Error();
     }
-    assert.strictEqual(this.createdAt.gt, null);
-    assert.strictEqual(this.createdAt.lt, null);
+    assert.strictEqual(state.createdAt.gt, null);
+    assert.strictEqual(state.createdAt.lt, null);
     assert.strictEqual(
-      dayjs(this.createdAt.lte).endOf('day').toDate().toISOString(),
+      dayjs(state.createdAt.lte).endOf('day').toDate().toISOString(),
       dayjs(today).endOf('day').toDate().toISOString(),
     );
     assert.strictEqual(
-      dayjs(this.createdAt.gte).startOf('day').toDate().toISOString(),
+      dayjs(state.createdAt.gte).startOf('day').toDate().toISOString(),
       dayjs(yesterday).startOf('day').toDate().toISOString(),
     );
 
@@ -239,20 +253,20 @@ module('Integration | Component | list-filter', function (hooks) {
     await select('[data-test-mode]', '1');
     await fillIn('#valueA0', '2025-01-01');
     await click('[data-test-done]');
-    if (Array.isArray(this.createdAt)) {
+    if (Array.isArray(state.createdAt)) {
       throw new Error();
     }
-    assert.strictEqual(this.createdAt.lt, null);
-    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(state.createdAt.lt, null);
+    assert.strictEqual(state.createdAt.gt, null);
     assert.strictEqual(
-      dayjs(this.createdAt.lte).startOf('day').toDate().toISOString(),
+      dayjs(state.createdAt.lte).startOf('day').toDate().toISOString(),
       dayjs(new Date(2025, 0, 1))
         .startOf('day')
         .toDate()
         .toISOString(),
     );
     assert.strictEqual(
-      dayjs(this.createdAt.gte).endOf('day').toDate().toISOString(),
+      dayjs(state.createdAt.gte).endOf('day').toDate().toISOString(),
       dayjs(new Date(2025, 0, 1))
         .endOf('day')
         .toDate()
@@ -267,21 +281,21 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueB0', '2025-01-02');
     await click('[data-test-done]');
 
-    if (Array.isArray(this.createdAt)) {
+    if (Array.isArray(state.createdAt)) {
       throw new Error();
     }
 
-    assert.strictEqual(this.createdAt.lt, null);
-    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(state.createdAt.lt, null);
+    assert.strictEqual(state.createdAt.gt, null);
     assert.strictEqual(
-      this.createdAt.lte?.toISOString(),
+      state.createdAt.lte?.toISOString(),
       dayjs(new Date(2025, 0, 2))
         .endOf('day')
         .toDate()
         .toISOString(),
     );
     assert.strictEqual(
-      this.createdAt.gte?.toISOString(),
+      state.createdAt.gte?.toISOString(),
       new Date(2025, 0, 1).toISOString(),
     );
 
@@ -292,16 +306,16 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueA0', '2025-01-01');
     await click('[data-test-done]');
 
-    if (Array.isArray(this.createdAt)) {
+    if (Array.isArray(state.createdAt)) {
       throw new Error();
     }
-    assert.strictEqual(this.createdAt.lt, null);
+    assert.strictEqual(state.createdAt.lt, null);
     assert.strictEqual(
-      this.createdAt.gt?.toISOString(),
+      state.createdAt.gt?.toISOString(),
       new Date(2025, 0, 1).toISOString(),
     );
-    assert.strictEqual(this.createdAt.lte, null);
-    assert.strictEqual(this.createdAt.gte, null);
+    assert.strictEqual(state.createdAt.lte, null);
+    assert.strictEqual(state.createdAt.gte, null);
 
     /*
      * Is On Or After
@@ -310,14 +324,14 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueA0', '2025-01-01');
     await click('[data-test-done]');
 
-    if (Array.isArray(this.createdAt)) {
+    if (Array.isArray(state.createdAt)) {
       throw new Error();
     }
-    assert.strictEqual(this.createdAt.lt, null);
-    assert.strictEqual(this.createdAt.gt, null);
-    assert.strictEqual(this.createdAt.lte, null);
+    assert.strictEqual(state.createdAt.lt, null);
+    assert.strictEqual(state.createdAt.gt, null);
+    assert.strictEqual(state.createdAt.lte, null);
     assert.strictEqual(
-      this.createdAt.gte?.toISOString(),
+      state.createdAt.gte?.toISOString(),
       new Date(2025, 0, 1).toISOString(),
     );
 
@@ -328,16 +342,16 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueA0', '2025-01-01');
     await click('[data-test-done]');
 
-    if (Array.isArray(this.createdAt)) {
+    if (Array.isArray(state.createdAt)) {
       throw new Error();
     }
     assert.strictEqual(
-      this.createdAt.lt?.toISOString(),
+      state.createdAt.lt?.toISOString(),
       new Date(2025, 0, 1).toISOString(),
     );
-    assert.strictEqual(this.createdAt.gt, null);
-    assert.strictEqual(this.createdAt.lte, null);
-    assert.strictEqual(this.createdAt.gte, null);
+    assert.strictEqual(state.createdAt.gt, null);
+    assert.strictEqual(state.createdAt.lte, null);
+    assert.strictEqual(state.createdAt.gte, null);
 
     /*
      * Is On orBefore
@@ -346,15 +360,15 @@ module('Integration | Component | list-filter', function (hooks) {
     await fillIn('#valueA0', '2025-01-01');
     await click('[data-test-done]');
 
-    if (Array.isArray(this.createdAt)) {
+    if (Array.isArray(state.createdAt)) {
       throw new Error();
     }
-    assert.strictEqual(this.createdAt.lt, null);
-    assert.strictEqual(this.createdAt.gt, null);
+    assert.strictEqual(state.createdAt.lt, null);
+    assert.strictEqual(state.createdAt.gt, null);
     assert.strictEqual(
-      this.createdAt.lte?.toISOString(),
+      state.createdAt.lte?.toISOString(),
       new Date(2025, 0, 1).toISOString(),
     );
-    assert.strictEqual(this.createdAt.gte, null);
+    assert.strictEqual(state.createdAt.gte, null);
   });
 });

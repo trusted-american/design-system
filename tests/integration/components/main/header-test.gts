@@ -3,8 +3,6 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { MainHeader } from '@trusted-american/design-system';
 
-type Context = TestContext;
-
 module('Integration | Component | main/header', function (hooks) {
   setupRenderingTest(hooks);
 

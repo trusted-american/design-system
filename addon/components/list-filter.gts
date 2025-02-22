@@ -18,7 +18,7 @@ import dropdown from '../modifiers/dropdown';
 import FormCheckInput from './form/check/input';
 import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { not } from 'ember-truth-helpers';
+import { eq, not } from 'ember-truth-helpers';
 import { findBy, includes } from '@nullvoxpopuli/ember-composable-helpers';
 import autoselect from '../modifiers/autoselect';
 

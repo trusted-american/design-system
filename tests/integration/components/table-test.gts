@@ -3,6 +3,7 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { Table } from '@trusted-american/design-system';
 import { noop } from '@nullvoxpopuli/ember-composable-helpers';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
@@ -325,6 +326,8 @@ module('Integration | Component | table', function (hooks) {
   });
 
   test('it renders offset pagination', async function (assert) {
+    const state = tracked({ page: 0 });
+
     const getData = () => {
       const users = [
         { firstName: 'A', lastName: 'a', email: 'a@example.com' },
@@ -381,17 +384,16 @@ module('Integration | Component | table', function (hooks) {
         { firstName: 'ZZ', lastName: 'zz', email: 'zz@example.com' },
       ];
       const pageSize = 20;
-      const page = this.page ? this.page : 0;
+      const page = state.page ? state.page : 0;
       const start = page * pageSize;
       const end = start + pageSize;
       return users.slice(start, end);
     };
     const data = getData();
-    this.page = 0;
-    this.totalItems = 52;
+    const totalItems = 52;
 
-    this.onChangePage = (page: number) => {
-      this.set('page', page);
+    const onChangePage = (page: number) => {
+      state.page = page;
       this.set('data', getData());
     };
 
@@ -400,14 +402,14 @@ module('Integration | Component | table', function (hooks) {
         <Table
           @data={{data}}
           @pagination="offset"
-          @page={{this.page}}
-          @totalItems={{this.totalItems}}
+          @page={{state.page}}
+          @totalItems={{totalItems}}
           @nextButtonLabel="Next"
           @previousButtonLabel="Previous"
           @viewingLabel="Viewing"
           @ofLabel="of"
           @resultsLabel="results"
-          @onChangePage={{this.onChangePage}}
+          @onChangePage={{onChangePage}}
           as |table|
         >
           <table.header as |header|>
