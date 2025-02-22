@@ -8,9 +8,9 @@ export interface FormFileDropzoneSignature {
   Args: {
     accept?: string;
     multiple?: boolean;
-    titleText: string;
-    subtitleText: string;
-    titleActiveText: string;
+    titleLabel: string;
+    subtitleLabel: string;
+    activeTitleLabel: string;
     onCreate: (file: File) => void;
   };
   Element: HTMLElement;

@@ -7,12 +7,12 @@
   >
     {{#if dropzone.active}}
       <h5 class="text-success"><Icon @icon="cloud-arrow-up" /></h5>
-      <h5 class="text-success">{{@titleActiveText}}</h5>
+      <h5 class="text-success">{{@activeTitleLabel}}</h5>
     {{else}}
       <h5><Icon @icon="cloud-arrow-up" /></h5>
-      <h5>{{@titleText}}</h5>
+      <h5>{{@titleLabel}}</h5>
       <label class="text-reset">
-        {{@subtitleText}}
+        {{@subtitleLabel}}
         <input
           type="file"
           id="files"
