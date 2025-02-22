@@ -14,7 +14,7 @@ export interface FormPhoneInputSignature {
 
 export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
   get value(): string {
-    const value = this.args.value ? this.args.value : '';
+    const value = this.args.value ?? '';
     const arr = /(\d{0,3})(\d{0,3})(\d{0,4})/.exec(
       value.replace('+1', '').replace(/\D/g, ''),
     ) as RegExpMatchArray;

@@ -15,7 +15,9 @@ module(
       const onChange = (selected: string[]) => {
         assert.deepEqual(selected, ['a']);
       };
-      const onCreate = () => {};
+      const onCreate = () => {
+        assert.ok(true);
+      };
 
       await render(
         <template>

@@ -7,7 +7,9 @@ module('Integration | Component | form/html-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const onChange = () => {};
+    const onChange = () => {
+      assert.ok(true);
+    };
 
     await render(
       <template>

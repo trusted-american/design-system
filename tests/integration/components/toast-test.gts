@@ -7,7 +7,9 @@ module('Integration | Component | toast', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const onClose = () => {};
+    const onClose = () => {
+      assert.ok(true);
+    };
 
     await render(
       <template>

@@ -46,6 +46,7 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     if (target.value.includes('-')) {
       const [optIndex, subOptIndex] = target.value.split('-');
       if (optIndex && subOptIndex) {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
         selected = (options as Group<T>[])[parseInt(optIndex)]?.options[
           parseInt(subOptIndex)
         ]!;

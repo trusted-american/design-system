@@ -31,7 +31,9 @@ module('Integration | Component | alert', function (hooks) {
   });
 
   test('close works', async function (assert) {
-    const onClose = () => {};
+    const onClose = () => {
+      assert.ok(true);
+    };
 
     await render(
       <template>

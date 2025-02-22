@@ -95,9 +95,6 @@ export default ts.config(
       ember.configs.gts,
     ],
     rules: {
-      '@typescript-eslint/no-empty-function': 'off',
-      '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-      '@typescript-eslint/prefer-nullish-coalescing': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
       'ember/no-empty-glimmer-component-classes': 'off',
     },

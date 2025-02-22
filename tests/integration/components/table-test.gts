@@ -274,8 +274,12 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
     ];
 
-    const onNext = () => {};
-    const onPrevious = () => {};
+    const onNext = () => {
+      assert.ok(true);
+    };
+    const onPrevious = () => {
+      assert.ok(true);
+    };
 
     await render(
       <template>

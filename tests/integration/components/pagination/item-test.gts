@@ -7,7 +7,9 @@ module('Integration | Component | pagination/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const onClick = () => {};
+    const onClick = () => {
+      assert.ok(true);
+    };
 
     await render(
       <template>
