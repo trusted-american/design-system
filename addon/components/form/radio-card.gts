@@ -10,10 +10,11 @@ import { eq } from 'ember-truth-helpers';
 
 import type { BaseArgs } from './input';
 import type { RadioOption } from './radio';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface RadioCardOption<T> extends RadioOption<T> {
   imgUrl?: string;
-  icon?: string;
+  icon?: IconName;
 }
 
 interface Args<T> extends BaseArgs {

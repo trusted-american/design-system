@@ -4,11 +4,12 @@ import { LinkTo } from '@ember/routing';
 
 import type { TOC } from '@ember/component/template-only';
 import type { LinkToArgs } from './button';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface Args extends LinkToArgs {
   label: string;
   value?: string | number | null;
-  icon?: string;
+  icon?: IconName;
 }
 
 export interface StatCardSignature {

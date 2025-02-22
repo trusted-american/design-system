@@ -4,12 +4,12 @@ import SpinnerInternal from '../spinner/internal';
 import { and, not } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
-import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 export interface ButtonInternalSignature {
   Args: {
     label: string;
-    icon?: string;
+    icon?: IconName;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;

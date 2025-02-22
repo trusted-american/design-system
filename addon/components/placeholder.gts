@@ -5,10 +5,11 @@ import { on } from '@ember/modifier';
 import { and } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 export interface PlaceholderSignature {
   Args: {
-    icon: string;
+    icon: IconName;
     title: string;
     subtitle?: string;
     buttonLabel?: string;
