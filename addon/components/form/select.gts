@@ -50,12 +50,13 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     let selected = options[index] ?? null;
 
     if (target.value.includes('-')) {
-      const [optIndex, subOptIndex] = target.value.split('-');
-      if (optIndex && subOptIndex) {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-        selected = (options as Group<T>[])[parseInt(optIndex)]?.options[
-          parseInt(subOptIndex)
-        ]!;
+      const [groupIndex, optionIndex] = target.value.split('-').map(parseInt);
+      if (groupIndex && optionIndex) {
+        const group = (options as Group<T>[])[groupIndex];
+        const option = group?.options[optionIndex];
+        if (option) {
+          selected = option;
+        }
       }
     }
 
