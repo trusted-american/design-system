@@ -38,28 +38,24 @@ const Placeholder: TOC<PlaceholderSignature> = <template>
           {{@subtitle}}
         </p>
       {{/if}}
-      {{#if @onClick}}
-        {{#if @buttonLabel}}
-          <Button
-            @label={{@buttonLabel}}
-            @color="success"
-            class="mt-3"
-            {{on "click" @onClick}}
-          />
-        {{/if}}
+      {{#if (and @buttonLabel @onClick)}}
+        <Button
+          @label={{@buttonLabel}}
+          @color="success"
+          class="mt-3"
+          {{on "click" @onClick}}
+        />
       {{/if}}
       {{#if (and @onClick @onSecondaryClick)}}
         <br />
       {{/if}}
-      {{#if @onSecondaryClick}}
-        {{#if @secondaryButtonLabel}}
-          <Button
-            @label={{@secondaryButtonLabel}}
-            @color="link"
-            class="mt-3"
-            {{on "click" @onSecondaryClick}}
-          />
-        {{/if}}
+      {{#if (and @secondaryButtonLabel @onSecondaryClick)}}
+        <Button
+          @label={{@secondaryButtonLabel}}
+          @color="link"
+          class="mt-3"
+          {{on "click" @onSecondaryClick}}
+        />
       {{/if}}
     </div>
   </div>

@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import Pagination from './pagination';
 import YetiTable from 'ember-yeti-table/components/yeti-table';
 import { dec } from '@nullvoxpopuli/ember-composable-helpers';
@@ -113,6 +112,10 @@ export interface Actions {
   reloadData: () => void;
 }
 
+const goToPage = (actions: Actions, page: number): void => {
+  actions.goToPage(page + 1);
+};
+
 export interface TableSignature<T> {
   Args: {
     data: T[];
@@ -147,11 +150,6 @@ export interface TableSignature<T> {
 }
 
 export default class Table<T> extends Component<TableSignature<T>> {
-  @action
-  goToPage(actions: Actions, page: number): void {
-    actions.goToPage(page + 1);
-  }
-
   <template>
     <div class="table-responsive" ...attributes>
       <YetiTable
@@ -179,7 +177,7 @@ export default class Table<T> extends Component<TableSignature<T>> {
                       @viewingLabel={{@viewingLabel}}
                       @ofLabel={{@ofLabel}}
                       @resultsLabel={{@resultsLabel}}
-                      @onChange={{fn this.goToPage table.actions}}
+                      @onChange={{fn goToPage table.actions}}
                     />
                   {{/if}}
                 {{/let}}
