@@ -9,6 +9,12 @@ import { eq, not, or } from 'ember-truth-helpers';
 
 import type { BaseArgs } from './input';
 
+const isOption = <T,>(option: T | Option<T> | Group<T>): option is Option<T> =>
+  option && typeof option === 'object' && 'label' in option;
+
+const isGroup = <T,>(option: T | Option<T> | Group<T>): option is Group<T> =>
+  option && typeof option === 'object' && 'groupLabel' in option;
+
 export interface Option<T> {
   value: T;
   label: string;
@@ -92,11 +98,8 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
         </option>
       {{/if}}
       {{#each @options as |opt index|}}
-        {{! @glint-expect-error }}
-        {{#if opt.groupLabel}}
-          {{! @glint-expect-error }}
+        {{#if (isGroup opt)}}
           <optgroup label={{opt.groupLabel}}>
-            {{! @glint-expect-error }}
             {{#each opt.options as |subOpt subIndex|}}
               <option
                 value="{{index}}-{{if
@@ -110,15 +113,11 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
               </option>
             {{/each}}
           </optgroup>
-          {{! @glint-expect-error }}
-        {{else if opt.label}}
+        {{else if (isOption opt)}}
           <option
-            {{! @glint-expect-error }}
             value={{if (or opt.value (eq false opt.value)) index ""}}
-            {{! @glint-expect-error }}
             selected={{eq @selected opt.value}}
           >
-            {{! @glint-expect-error }}
             {{opt.label}}
           </option>
         {{else}}
