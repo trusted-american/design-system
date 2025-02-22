@@ -78,8 +78,7 @@ module('Integration | Component | list-filter', function (hooks) {
     ];
 
     const onChange = (key: string, value: unknown) => {
-      // @ts-expect-error keyof this doesn't work here
-      state[key] = value;
+      state[key as keyof Props] = value as never;
     };
 
     await render(
@@ -189,8 +188,7 @@ module('Integration | Component | list-filter', function (hooks) {
     ];
 
     const onChange = (key: string, value: unknown) => {
-      // @ts-expect-error keyof this doesn't work here
-      state[key] = value;
+      state[key as keyof Props] = value as never;
     };
 
     await render(

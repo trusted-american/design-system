@@ -248,13 +248,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     checked: boolean,
   ): void {
     if (checked) {
-      // @ts-expect-error fix later todo
-      // eslint-disable-next-line @typescript-eslint/no-misused-spread
-      predicate._value = [...predicate._value, value];
+      predicate._value = [...(predicate._value as []), value];
     } else {
-      // @ts-expect-error fix later todo
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-      predicate._value = predicate._value.filter((v) => v !== value);
+      predicate._value = (predicate._value as []).filter((v) => v !== value);
     }
   }
 
