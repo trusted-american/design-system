@@ -11,7 +11,7 @@ module('Integration | Component | list-attributes', function (hooks) {
   test('it renders', async function (assert) {
     assert.expect(8);
 
-    const state = tracked({ selected: [] as (string | number)[] });
+    const state = tracked<{ selected: (string | number)[] }>({ selected: [] });
 
     await render(
       <template>

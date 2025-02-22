@@ -9,11 +9,16 @@ module('Integration | Component | heading', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({
+    const state = tracked<{
+      title: string;
+      subtitle: string | undefined;
+      type: string | undefined;
+      identifier: string | undefined;
+    }>({
       title: 'Title',
-      subtitle: undefined as string | undefined,
-      type: undefined as string | undefined,
-      identifier: undefined as string | undefined,
+      subtitle: undefined,
+      type: undefined,
+      identifier: undefined,
     });
 
     await render(

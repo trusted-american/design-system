@@ -9,7 +9,7 @@ module('Integration | Component | form/date-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ value: new Date() as Date | null });
+    const state = tracked<{ value: Date | null }>({ value: new Date() });
 
     await render(
       <template>

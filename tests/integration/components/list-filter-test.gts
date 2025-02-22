@@ -179,9 +179,9 @@ module('Integration | Component | list-filter', function (hooks) {
       createdAt: [],
     });
 
-    const predicates = [
+    const predicates: Predicate[] = [
       {
-        type: 'date' as const,
+        type: 'date',
         label: 'Created date',
         key: 'createdAt',
         value: state.createdAt,
