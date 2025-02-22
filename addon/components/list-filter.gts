@@ -401,26 +401,24 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
                 {{else}}
 
-                  <FormPowerSelect
-                    @options={{predicate._predicate.options}}
-                    {{! @glint-nocheck }}
-                    @selected={{findBy
-                      "value"
-                      predicate._value
-                      predicate._predicate.options
-                    }}
-                    @searchField="label"
-                    @label={{@valueLabel}}
-                    @identifier="value{{index}}"
-                    {{!-- @isRequired={{true}} --}}
-                    @isInputOnly={{true}}
-                    @chooseLabel={{@chooseLabel}}
-                    @searchLabel={{@searchLabel}}
-                    @onChange={{fn this.setValue predicate}}
-                    as |option|
-                  >
-                    {{option.label}}
-                  </FormPowerSelect>
+                  {{#let predicate._predicate.options as |o|}}
+                    <FormPowerSelect
+                      @options={{o}}
+                      {{! @glint-expect-error }}
+                      @selected={{findBy "value" predicate._value o}}
+                      @searchField="label"
+                      @label={{@valueLabel}}
+                      @identifier="value{{index}}"
+                      {{!-- @isRequired={{true}} --}}
+                      @isInputOnly={{true}}
+                      @chooseLabel={{@chooseLabel}}
+                      @searchLabel={{@searchLabel}}
+                      @onChange={{fn this.setValue predicate}}
+                      as |option|
+                    >
+                      {{option.label}}
+                    </FormPowerSelect>
+                  {{/let}}
 
                 {{/if}}
               </ListGroupItem>
