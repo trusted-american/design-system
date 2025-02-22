@@ -1,7 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, fillIn, type TestContext, click } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormInput } from '@trusted-american/design-system';
+import { fn } from '@ember/helper';
+import { on } from '@ember/modifier';
 
 import type { FormInputSignature } from '@trusted-american/design-system/components/form/input';
 
@@ -18,7 +20,7 @@ module('Integration | Component | form/input', function (hooks) {
 
     await render<Context>(
       <template>
-        <Form::Input
+        <FormInput
           @value={{this.value}}
           @type="text"
           @label="Label"
@@ -43,7 +45,7 @@ module('Integration | Component | form/input', function (hooks) {
 
     await render<Context>(
       <template>
-        <Form::Input
+        <FormInput
           @value={{this.value}}
           @label=""
           @identifier=""
@@ -60,7 +62,7 @@ module('Integration | Component | form/input', function (hooks) {
 
     await render<Context>(
       <template>
-        <Form::Input
+        <FormInput
           @value={{this.value}}
           @label=""
           @identifier=""
@@ -77,7 +79,7 @@ module('Integration | Component | form/input', function (hooks) {
 
     await render<Context>(
       <template>
-        <Form::Input
+        <FormInput
           @value={{this.value}}
           @label=""
           @identifier=""
@@ -112,7 +114,7 @@ module('Integration | Component | form/input', function (hooks) {
     await render<Context>(
       <template>
         <form novalidate {{on "submit" this.submit}}>
-          <Form::Input
+          <FormInput
             @value={{this.value}}
             @label=""
             @identifier=""

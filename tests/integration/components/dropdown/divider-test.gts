@@ -1,13 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { DropdownDivider } from '@trusted-american/design-system';
 
 module('Integration | Component | dropdown/divider', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Dropdown::Divider /></template>);
+    await render(<template><DropdownDivider /></template>);
 
     assert.dom().hasText('');
   });

@@ -1,17 +1,19 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { ListGroupItem } from '@trusted-american/design-system';
 
-module('Integration | Component | accordion/body', function (hooks) {
+module('Integration | Component | list-group/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template>
-      <Accordion::Body>
-        template block text
-      </Accordion::Body>
-    </template>);
+    await render(
+      <template>
+        <ListGroupItem>
+          template block text
+        </ListGroupItem>
+      </template>,
+    );
 
     assert.dom().hasText('template block text');
   });

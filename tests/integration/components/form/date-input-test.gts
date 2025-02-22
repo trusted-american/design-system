@@ -1,26 +1,21 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, fillIn, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
-
-import type { FormDateInputSignature } from '@trusted-american/design-system/components/form/date-input';
-
-type Context = FormDateInputSignature['Args'] & TestContext;
+import { render, fillIn } from '@ember/test-helpers';
+import { FormDateInput } from '@trusted-american/design-system';
+import { fn } from '@ember/helper';
 
 module('Integration | Component | form/date-input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
+  test('it renders', async function (assert) {
     this.value = new Date();
-    this.min = undefined;
-    this.max = undefined;
 
-    await render<Context>(
+    await render(
       <template>
-        <Form::DateInput
+        <FormDateInput
           @value={{this.value}}
-          @min={{this.min}}
-          @max={{this.max}}
+          @min={{undefined}}
+          @max={{undefined}}
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}

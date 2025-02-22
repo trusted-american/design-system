@@ -1,29 +1,25 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
-
-import type { FormFileInputSignature } from '@trusted-american/design-system/components/form/file-input';
-
-type Context = FormFileInputSignature['Args'] & TestContext;
+import { render } from '@ember/test-helpers';
+import { FormFileInput } from '@trusted-american/design-system';
 
 module('Integration | Component | form/file-input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.onChange = () => {
+  test('it renders', async function (assert) {
+    const onChange = () => {
       assert.true(true);
     };
 
-    await render<Context>(
+    await render(
       <template>
-        <Form::FileInput
+        <FormFileInput
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
-          @onChange={{this.onChange}}
+          @onChange={{onChange}}
         />
       </template>,
     );

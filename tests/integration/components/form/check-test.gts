@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import FormCheck from '@trusted-american/design-system/components/form/check';
+import { fn } from '@ember/helper';
 
 import type { FormCheckSignature } from '@trusted-american/design-system/components/form/check';
 
@@ -15,7 +16,7 @@ module('Integration | Component | form/check', function (hooks) {
 
     await render<Context>(
       <template>
-        <Form::Check
+        <FormCheck
           @value={{this.value}}
           @label="Label"
           @identifier="identifier"

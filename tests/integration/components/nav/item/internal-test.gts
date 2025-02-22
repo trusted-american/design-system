@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import NavItemInternal from '@trusted-american/design-system/components/nav/item/internal';
 
 module('Integration | Component | nav/item/internal', function (hooks) {
   setupRenderingTest(hooks);
@@ -10,16 +10,18 @@ module('Integration | Component | nav/item/internal', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(<template><Nav::Item::Internal /></template>);
+    await render(<template><NavItemInternal /></template>);
 
     assert.dom().hasText('');
 
     // Template block usage:
-    await render(<template>
-      <Nav::Item::Internal>
-        template block text
-      </Nav::Item::Internal>
-    </template>);
+    await render(
+      <template>
+        <NavItemInternal>
+          template block text
+        </NavItemInternal>
+      </template>,
+    );
 
     assert.dom().hasText('template block text');
   });

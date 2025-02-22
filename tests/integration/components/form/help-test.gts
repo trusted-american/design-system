@@ -1,14 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormHelp } from '@trusted-american/design-system';
 
 module('Integration | Component | form/help', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Form::Help @label="Text" /></template>);
+    await render(<template><FormHelp @label="Label" /></template>);
 
-    assert.dom('.form-text').hasText('Text');
+    assert.dom('.form-text').hasText('Label');
   });
 });

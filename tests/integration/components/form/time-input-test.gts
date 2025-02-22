@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormTimeInput } from '@trusted-american/design-system';
+import { fn } from '@ember/helper';
 
 import type { FormTimeInputSignature } from '@trusted-american/design-system/components/form/time-input';
 
@@ -13,7 +14,7 @@ module('Integration | Component | form/time-input', function (hooks) {
   test('it renders', async function (assert) {
     await render<Context>(
       <template>
-        <Form::TimeInput
+        <FormTimeInput
           @value={{null}}
           @label="Label"
           @identifier="identifier"

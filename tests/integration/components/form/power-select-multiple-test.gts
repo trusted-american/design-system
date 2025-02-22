@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormPowerSelectMultiple } from '@trusted-american/design-system';
 import { selectChoose } from 'ember-power-select/test-support';
 
 import type { FormPowerSelectMultipleSignature } from '@trusted-american/design-system/components/form/power-select-multiple';
@@ -23,7 +23,7 @@ module(
 
       await render<Context>(
         <template>
-          <Form::PowerSelectMultiple
+          <FormPowerSelectMultiple
             @options={{this.options}}
             @selected={{this.selected}}
             @label="Label"
@@ -34,7 +34,7 @@ module(
             as |option|
           >
             {{option}}
-          </Form::PowerSelectMultiple>
+          </FormPowerSelectMultiple>
         </template>,
       );
 

@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, fillIn, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormPhoneInput } from '@trusted-american/design-system';
+import { fn } from '@ember/helper';
 
 import type { FormPhoneInputSignature } from '@trusted-american/design-system/components/form/phone-input';
 
@@ -13,7 +14,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     await render<Context>(
       <template>
-        <Form::PhoneInput
+        <FormPhoneInput
           @value={{this.value}}
           @label="Label"
           @identifier="identifier"

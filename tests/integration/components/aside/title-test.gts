@@ -1,15 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { AsideTitle } from '@trusted-american/design-system';
 
-module('Integration | Component | aside/item', function (hooks) {
+module('Integration | Component | aside/title', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(
-      <template><Aside::Item @label="Label" @icon="boxes-stacked" @route="index" />`,
-    );
+    await render(<template><AsideTitle @label="Label" /></template>);
 
     assert.dom().hasText('Label');
   });

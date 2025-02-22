@@ -1,13 +1,17 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { AsideItem } from '@trusted-american/design-system';
 
-module('Integration | Component | dropdown/header', function (hooks) {
+module('Integration | Component | aside/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Dropdown::Header @label="Label" /></template>);
+    await render(
+      <template>
+        <AsideItem @label="Label" @icon="boxes-stacked" @route="index" />
+      </template>,
+    );
 
     assert.dom().hasText('Label');
   });

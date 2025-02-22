@@ -1,26 +1,22 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { render } from '@ember/test-helpers';
+import { FormFileDropzone } from '@trusted-american/design-system';
 import { selectFiles } from 'ember-file-upload/test-support';
-
-import type { FormFileDropzoneSignature } from '@trusted-american/design-system/components/form/file-dropzone';
-
-type Context = FormFileDropzoneSignature['Args'] & TestContext;
 
 module('Integration | Component | form/file-dropzone', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (this: Context, assert) {
-    this.onCreate = () => {};
+  test('it renders', async function (assert) {
+    const onCreate = () => {};
 
-    await render<Context>(
+    await render(
       <template>
-        <Form::FileDropzone
+        <FormFileDropzone
           @titleLabel=""
           @subtitleLabel=""
           @activeTitleLabel=""
-          @onCreate={{this.onCreate}}
+          @onCreate={{onCreate}}
         />
       </template>,
     );

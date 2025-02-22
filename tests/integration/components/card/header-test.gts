@@ -1,17 +1,19 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { CardHeader } from '@trusted-american/design-system';
 
-module('Integration | Component | card/footer', function (hooks) {
+module('Integration | Component | card/header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template>
-      <Card::Footer>
-        template block text
-      </Card::Footer>
-    </template>);
+    await render(
+      <template>
+        <CardHeader>
+          template block text
+        </CardHeader>
+      </template>,
+    );
 
     assert.dom().hasText('template block text');
   });

@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, fillIn, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormTextarea } from '@trusted-american/design-system';
+import { fn } from '@ember/helper';
 
 import type { FormTextareaSignature } from '@trusted-american/design-system/components/form/textarea';
 
@@ -16,7 +17,7 @@ module('Integration | Component | form/textarea', function (hooks) {
 
     await render<Context>(
       <template>
-        <Form::Textarea
+        <FormTextarea
           @value={{this.value}}
           @label="Label"
           @identifier="identifier"

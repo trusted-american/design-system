@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormRadioCard } from '@trusted-american/design-system';
+import { array, fn, hash } from '@ember/helper';
 
 import type { FormRadioCardSignature } from '@trusted-american/design-system/components/form/radio-card';
 
@@ -13,7 +14,7 @@ module('Integration | Component | form/radio-card', function (hooks) {
   test('it renders', async function (assert) {
     await render<Context>(
       <template>
-        <Form::RadioCard
+        <FormRadioCard
           @options={{array
             (hash value=true label="Yes" icon="check" help="Help")
             (hash value=false label="No" icon="xmark" help="Help")

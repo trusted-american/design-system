@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext, fillIn } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormMarkdownInput } from '@trusted-american/design-system';
+import { fn } from '@ember/helper';
 
 import type { FormMarkdownInputSignature } from '@trusted-american/design-system/components/form/markdown-input';
 
@@ -13,7 +14,7 @@ module('Integration | Component | form/markdown-input', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     await render<Context>(
       <template>
-        <Form::MarkdownInput
+        <FormMarkdownInput
           @value={{this.value}}
           @label="Label"
           @identifier="identifier"

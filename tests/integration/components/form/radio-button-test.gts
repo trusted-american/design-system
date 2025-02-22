@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormRadioButton } from '@trusted-american/design-system';
 
 import type { FormRadioButtonSignature } from '@trusted-american/design-system/components/form/radio-button';
 
@@ -22,7 +22,7 @@ module('Integration | Component | form/radio-button', function (hooks) {
 
     await render<Context>(
       <template>
-        <Form::RadioButton
+        <FormRadioButton
           @options={{this.options}}
           @selected={{this.selected}}
           @label="Label"

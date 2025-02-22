@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, select, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FormSelect } from '@trusted-american/design-system';
+import { array, fn, hash } from '@ember/helper';
 
 import type { FormSelectSignature } from '@trusted-american/design-system/components/form/select';
 
@@ -13,7 +14,7 @@ module('Integration | Component | form/select', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     await render<Context>(
       <template>
-        <Form::Select
+        <FormSelect
           @options={{array
             (hash value="a" label="A")
             (hash value="b" label="B")
@@ -44,7 +45,7 @@ module('Integration | Component | form/select', function (hooks) {
   test('it works with heterogeneous options', async function (this: Context, assert) {
     await render<Context>(
       <template>
-        <Form::Select
+        <FormSelect
           @options={{array
             "a"
             (hash value="b" label="B")
