@@ -384,23 +384,24 @@ module('Integration | Component | table', function (hooks) {
         { firstName: 'ZZ', lastName: 'zz', email: 'zz@example.com' },
       ];
       const pageSize = 20;
-      const page = state.page ? state.page : 0;
+      const page = state.page;
       const start = page * pageSize;
       const end = start + pageSize;
       return users.slice(start, end);
     };
-    const data = getData();
+    const _state = tracked({ data: getData() });
+
     const totalItems = 52;
 
     const onChangePage = (page: number) => {
       state.page = page;
-      this.set('data', getData());
+      _state.data = getData();
     };
 
     await render(
       <template>
         <Table
-          @data={{data}}
+          @data={{_state.data}}
           @pagination="offset"
           @page={{state.page}}
           @totalItems={{totalItems}}
