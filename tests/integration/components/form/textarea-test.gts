@@ -14,17 +14,19 @@ module('Integration | Component | form/textarea', function (hooks) {
     this.value = 'Value';
     this.isRequired = true;
 
-    await render<Context>(hbs`
-      <Form::Textarea
-        @value={{this.value}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{this.isRequired}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Textarea
+          @value={{this.value}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{this.isRequired}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-label]').exists();
     assert.dom('[data-test-form-textarea]').hasAttribute('id', 'identifier');

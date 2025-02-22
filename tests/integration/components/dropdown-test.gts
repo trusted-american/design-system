@@ -1,52 +1,73 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import {
+  Button,
+  Dropdown,
+  DropdownDivider,
+  DropdownHeader,
+  DropdownItem,
+} from '@trusted-american/design-system';
+import { on } from '@ember/modifier';
+import { noop } from '@nullvoxpopuli/ember-composable-helpers';
+import dropdown from '@trusted-american/design-system/modifiers/dropdown';
 
 module('Integration | Component | dropdown', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
-      <Button @label="Open dropdown" {{dropdown}}/>
-      <Dropdown>
-        <Dropdown::Item
-          @label="Copy link"
-          @subtitle="Due by December 31, 2021"
-          @icon="copy"
-          @shortcut="⌘C"
-          data-test-copy
-          {{on "click" (noop)}}
-        />
-        <Dropdown::Item
-          @label="Quote reply"
-          @icon="quote-left"
-          @shortcut="⌘Q"
-          data-test-quote
-          {{on "click" (noop)}}
-        />
-        <Dropdown::Item
-          @label="Edit comment"
-          @icon="pen"
-          @shortcut="⌘E"
-          data-test-comment
-          {{on "click" (noop)}}
-        />
-        <Dropdown::Divider data-test-divider/>
-        <Dropdown::Item
-          @label="Delete file"
-          @icon="trash"
-          @shortcut="⌘D"
-          @color="danger"
-          data-test-delete
-          {{on "click" (noop)}}
-        />
-        <Dropdown::Divider />
-        <Dropdown::Item @label="Route" @icon="plus" @route="index" data-test-route/>
-        <Dropdown::Header @label="Header" data-test-header/>
-        <Dropdown::Item @label="Href" @icon="plus" @href="https://www.google.com/" data-test-href/>
-      </Dropdown>
-    `);
+    await render(
+      <template>
+        <Button @label="Open dropdown" {{dropdown}} />
+        <Dropdown>
+          <DropdownItem
+            @label="Copy link"
+            @subtitle="Due by December 31, 2021"
+            @icon="copy"
+            @shortcut="⌘C"
+            data-test-copy
+            {{on "click" (noop)}}
+          />
+          <DropdownItem
+            @label="Quote reply"
+            @icon="quote-left"
+            @shortcut="⌘Q"
+            data-test-quote
+            {{on "click" (noop)}}
+          />
+          <DropdownItem
+            @label="Edit comment"
+            @icon="pen"
+            @shortcut="⌘E"
+            data-test-comment
+            {{on "click" (noop)}}
+          />
+          <DropdownDivider data-test-divider />
+          <DropdownItem
+            @label="Delete file"
+            @icon="trash"
+            @shortcut="⌘D"
+            @color="danger"
+            data-test-delete
+            {{on "click" (noop)}}
+          />
+          <DropdownDivider />
+          <DropdownItem
+            @label="Route"
+            @icon="plus"
+            @route="index"
+            data-test-route
+          />
+          <DropdownHeader @label="Header" data-test-header />
+          <DropdownItem
+            @label="Href"
+            @icon="plus"
+            @href="https://www.google.com/"
+            data-test-href
+          />
+        </Dropdown>
+      </template>,
+    );
 
     await click('[data-bs-toggle]');
     assert.dom('[data-test-copy]').exists();

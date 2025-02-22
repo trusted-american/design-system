@@ -7,14 +7,14 @@ module('Integration | Component | form/radio/input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <Form::Radio::Input
         @checked={{true}}
         @name="name"
         @identifier="identifier"
         @isRequired={{true}}
       />
-    `);
+    </template>);
 
     assert.dom().hasText('');
   });

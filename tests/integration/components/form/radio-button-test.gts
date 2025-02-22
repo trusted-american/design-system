@@ -20,16 +20,18 @@ module('Integration | Component | form/radio-button', function (hooks) {
       assert.ok(selected);
     };
 
-    await render<Context>(hbs`
-      <Form::RadioButton
-        @options={{this.options}}
-        @selected={{this.selected}}
-        @label="Label"
-        @identifier="identifier"
-        @size="sm"
-        @onChange={{this.onChange}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::RadioButton
+          @options={{this.options}}
+          @selected={{this.selected}}
+          @label="Label"
+          @identifier="identifier"
+          @size="sm"
+          @onChange={{this.onChange}}
+        />
+      </template>,
+    );
 
     assert.dom('div').hasText('One Two');
   });

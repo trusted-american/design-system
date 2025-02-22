@@ -11,28 +11,20 @@ module('Integration | Component | form/radio-card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render<Context>(hbs`
-      <Form::RadioCard
-        @options={{array
-          (hash
-            value=true
-            label="Yes"
-            icon="check"
-            help="Help"
-          )
-          (hash
-            value=false
-            label="No"
-            icon="xmark"
-            help="Help"
-          )
-        }}
-        @selected={{this.selected}}
-        @label="Label"
-        @identifier="identifier"
-        @onChange={{fn (mut this.selected)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::RadioCard
+          @options={{array
+            (hash value=true label="Yes" icon="check" help="Help")
+            (hash value=false label="No" icon="xmark" help="Help")
+          }}
+          @selected={{this.selected}}
+          @label="Label"
+          @identifier="identifier"
+          @onChange={{fn (mut this.selected)}}
+        />
+      </template>,
+    );
 
     assert.dom().hasText('Label Yes Help No Help');
   });

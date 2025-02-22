@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import ListAttributes from '@trusted-american/design-system/components/list-attributes';
+import { array, hash } from '@ember/helper';
 
 import type { ListAttributesSignature } from '@trusted-american/design-system/components/list-attributes';
 
@@ -15,26 +16,32 @@ module('Integration | Component | list-attributes', function (hooks) {
 
     this.selected = [];
 
-    await render<Context>(hbs`
-      <ListAttributes
-        @presets={{array
-          (hash label="Primary" values=(array "firstName" "middleName" "lastName"))
-          (hash label="Secondary" values=(array "nickname" "status" "createdAt"))
-        }}
-        @options={{array
-          (hash value="firstName" label="First name")
-          (hash value="middleName" label="Middle name")
-          (hash value="lastName" label="Last name")
-          (hash value="nickname" label="Nickname")
-          (hash value="status" label="Status")
-          (hash value="createdAt" label="Created date")
-        }}
-        @selected={{this.selected}}
-        @label="Edit columns"
-        {{! @glint-expect-error }}
-        @onChange={{fn (mut this.selected)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <ListAttributes
+          @presets={{array
+            (hash
+              label="Primary" values=(array "firstName" "middleName" "lastName")
+            )
+            (hash
+              label="Secondary" values=(array "nickname" "status" "createdAt")
+            )
+          }}
+          @options={{array
+            (hash value="firstName" label="First name")
+            (hash value="middleName" label="Middle name")
+            (hash value="lastName" label="Last name")
+            (hash value="nickname" label="Nickname")
+            (hash value="status" label="Status")
+            (hash value="createdAt" label="Created date")
+          }}
+          @selected={{this.selected}}
+          @label="Edit columns"
+          {{! @glint-expect-error }}
+          @onChange={{fn (mut this.selected)}}
+        />
+      </template>,
+    );
 
     const preset1 = '[data-test-preset]:nth-child(1)';
     const preset2 = '[data-test-preset]:nth-child(2)';

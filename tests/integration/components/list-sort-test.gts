@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { ListSort } from '@trusted-american/design-system';
+import { array, hash } from '@ember/helper';
 
 import type { ListSortSignature } from '@trusted-american/design-system/components/list-sort';
 
@@ -18,18 +19,20 @@ module('Integration | Component | list-sort', function (hooks) {
       assert.true(sortAscending);
     };
 
-    await render<Context>(hbs`
-      <ListSort
-        @sortBy="createdAt"
-        @sortAscending={{false}}
-        @options={{array (hash value="createdAt" label="Created date")}}
-        @label="Sort"
-        @highToLowLabel="High to low"
-        @lowToHighLabel="Low to high"
-        {{! @glint-expect-error }}
-        @onChange={{this.onChange}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <ListSort
+          @sortBy="createdAt"
+          @sortAscending={{false}}
+          @options={{array (hash value="createdAt" label="Created date")}}
+          @label="Sort"
+          @highToLowLabel="High to low"
+          @lowToHighLabel="Low to high"
+          {{! @glint-expect-error }}
+          @onChange={{this.onChange}}
+        />
+      </template>,
+    );
 
     assert.dom().hasText('Sort Created date High to low Low to high');
     assert

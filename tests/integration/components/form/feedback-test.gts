@@ -7,7 +7,7 @@ module('Integration | Component | form/feedback', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Form::Feedback @label="Text" />`);
+    await render(<template><Form::Feedback @label="Text" /></template>);
 
     assert.dom('.invalid-feedback').hasText('Text');
   });

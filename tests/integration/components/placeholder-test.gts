@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Placeholder } from '@trusted-american/design-system';
 
 module('Integration | Component | placeholder', function (hooks) {
   setupRenderingTest(hooks);
@@ -9,13 +9,11 @@ module('Integration | Component | placeholder', function (hooks) {
   test('it renders', async function (assert) {
     assert.true(true);
 
-    await render(hbs`
-      <Placeholder
-        @icon="xmark"
-        @title="Title"
-        @subtitle="Subtitle"
-      />
-    `);
+    await render(
+      <template>
+        <Placeholder @icon="xmark" @title="Title" @subtitle="Subtitle" />
+      </template>,
+    );
 
     assert.dom('[data-test-icon]').hasClass('fa-xmark');
     assert.dom('[data-test-title]').hasText('Title');

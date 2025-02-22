@@ -7,11 +7,11 @@ module('Integration | Component | nav/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <Nav::Item @route="index">
         template block text
       </Nav::Item>
-    `);
+    </template>);
 
     assert.dom().hasText('template block text');
   });

@@ -11,22 +11,24 @@ module('Integration | Component | form/select', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    await render<Context>(hbs`
-      <Form::Select
-        @options={{array
-          (hash value="a" label="A")
-          (hash value="b" label="B")
-          (hash value="c" label="C")
-        }}
-        @selected={{this.selected}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{fn (mut this.selected)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Select
+          @options={{array
+            (hash value="a" label="A")
+            (hash value="b" label="B")
+            (hash value="c" label="C")
+          }}
+          @selected={{this.selected}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{fn (mut this.selected)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-label]').exists();
     assert.dom('select').hasAttribute('id', 'identifier');
@@ -40,21 +42,23 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('it works with heterogeneous options', async function (this: Context, assert) {
-    await render<Context>(hbs`
-      <Form::Select
-        @options={{array
-          "a"
-          (hash value="b" label="B")
-          (hash groupLabel="Label" options=(array (hash value="c" label="C")))
-        }}
-        @selected={{this.selected}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @chooseLabel="Choose…"
-        @onChange={{fn (mut this.selected)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Select
+          @options={{array
+            "a"
+            (hash value="b" label="B")
+            (hash groupLabel="Label" options=(array (hash value="c" label="C")))
+          }}
+          @selected={{this.selected}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @chooseLabel="Choose…"
+          @onChange={{fn (mut this.selected)}}
+        />
+      </template>,
+    );
 
     await select('[data-test-form-select]', '0');
 

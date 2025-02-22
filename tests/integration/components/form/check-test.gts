@@ -13,17 +13,19 @@ module('Integration | Component | form/check', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.value = false;
 
-    await render<Context>(hbs`
-      <Form::Check
-        @value={{this.value}}
-        @label="Label"
-        @identifier="identifier"
-        @isInline={{false}}
-        @isSwitch={{false}}
-        @help="Help"
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Check
+          @value={{this.value}}
+          @label="Label"
+          @identifier="identifier"
+          @isInline={{false}}
+          @isSwitch={{false}}
+          @help="Help"
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('label').hasText('Label');
     assert.dom('[data-test-form-help]').exists();

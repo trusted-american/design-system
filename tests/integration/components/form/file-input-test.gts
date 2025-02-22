@@ -15,16 +15,18 @@ module('Integration | Component | form/file-input', function (hooks) {
       assert.true(true);
     };
 
-    await render<Context>(hbs`
-      <Form::FileInput
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{this.onChange}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::FileInput
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{this.onChange}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-label]').exists();
     assert.dom('input').hasAttribute('id', 'identifier');

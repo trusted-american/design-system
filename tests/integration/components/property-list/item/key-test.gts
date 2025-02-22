@@ -7,7 +7,7 @@ module('Integration | Component | property-list/item/key', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<PropertyList::Item::Key @label="Label" @help="Help" />`);
+    await render(<template><PropertyList::Item::Key @label="Label" @help="Help" /></template>);
 
     assert.dom('dt').hasText('Label');
   });

@@ -9,11 +9,11 @@ module('Integration | Component | main/body', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    await render(hbs`
+    await render(<template>
       <Main::Body>
         template block text
       </Main::Body>
-    `);
+    </template>);
 
     assert.dom('article').hasText('template block text');
     assert.dom('article').hasClass('container-fluid');

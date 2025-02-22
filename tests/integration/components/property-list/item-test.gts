@@ -7,11 +7,11 @@ module('Integration | Component | property-list/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <PropertyList::Item @label="Label" @value="Value">
         template block text
       </PropertyList::Item>
-    `);
+    </template>);
 
     assert.dom('dd').hasText('template block text');
   });

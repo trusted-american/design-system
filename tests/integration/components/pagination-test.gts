@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Pagination } from '@trusted-american/design-system';
+import { fn } from '@ember/helper';
 
 import type { PaginationSignature } from '@trusted-american/design-system/components/pagination';
 
@@ -13,20 +14,22 @@ module('Integration | Component | pagination', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.page = 0;
 
-    await render<Context>(hbs`
-      <Pagination
-        @page={{this.page}}
-        {{! @glint-expect-error }}
-        @pageSize={{3}}
-        @totalItems={{9}}
-        @nextButtonLabel="Next"
-        @previousButtonLabel="Previous"
-        @viewingLabel="Viewing"
-        @ofLabel="of"
-        @resultsLabel="results"
-        @onChange={{fn (mut this.page)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Pagination
+          @page={{this.page}}
+          {{! @glint-expect-error }}
+          @pageSize={{3}}
+          @totalItems={{9}}
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          @onChange={{fn (mut this.page)}}
+        />
+      </template>,
+    );
 
     assert.dom().hasText('Viewing 1-3 of 9 results Previous 1 2 3 Next');
     assert.dom('ul li:nth-of-type(1)').hasText('Previous');
@@ -69,21 +72,23 @@ module('Integration | Component | pagination', function (hooks) {
       assert.true(true);
     };
 
-    await render<Context>(hbs`
-      <Pagination
-        @canNext={{false}}
-        @canPrevious={{false}}
-        @nextButtonLabel="Next"
-        @previousButtonLabel="Previous"
-        @viewingLabel="Viewing"
-        @ofLabel="of"
-        @resultsLabel="results"
-        {{! @glint-expect-error }}
-        @onNext={{this.onNext}}
-        {{! @glint-expect-error }}
-        @onPrevious={{this.onPrevious}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Pagination
+          @canNext={{false}}
+          @canPrevious={{false}}
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          {{! @glint-expect-error }}
+          @onNext={{this.onNext}}
+          {{! @glint-expect-error }}
+          @onPrevious={{this.onPrevious}}
+        />
+      </template>,
+    );
 
     assert.dom().hasText('Previous Next');
 

@@ -7,11 +7,11 @@ module('Integration | Component | accordion/body', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <Accordion::Body>
         template block text
       </Accordion::Body>
-    `);
+    </template>);
 
     assert.dom().hasText('template block text');
   });

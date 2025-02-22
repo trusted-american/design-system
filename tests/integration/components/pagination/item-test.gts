@@ -8,7 +8,7 @@ module('Integration | Component | pagination/item', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(
-      hbs`<Pagination::Item @index={{0}} @page={{0}} @onClick={{(noop)}}/>`,
+      <template><Pagination::Item @index={{0}} @page={{0}} @onClick={{(noop)}}/>`,
     );
 
     assert.dom().hasText('1');

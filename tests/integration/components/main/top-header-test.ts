@@ -7,11 +7,11 @@ module('Integration | Component | main/top-header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <Main::TopHeader>
         template block text
       </Main::TopHeader>
-    `);
+    </template>);
 
     assert.dom('header').hasText('template block text');
   });

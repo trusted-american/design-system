@@ -7,11 +7,11 @@ module('Integration | Component | list-group/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <ListGroup::Item>
         template block text
       </ListGroup::Item>
-    `);
+    </template>);
 
     assert.dom().hasText('template block text');
   });

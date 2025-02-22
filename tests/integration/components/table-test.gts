@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Table } from '@trusted-american/design-system';
+import { noop } from '@nullvoxpopuli/ember-composable-helpers';
 
 import type { TableSignature } from '@trusted-american/design-system/components/table';
 import type { User } from 'dummy/tests/dummy/app/routes/comps/table';
@@ -20,30 +21,32 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'E', lastName: 'e', email: 'e@example.com' },
     ];
 
-    await render<Context>(hbs`
-      <Table
-        @data={{this.data}}
-        @nextButtonLabel="Next"
-        @previousButtonLabel="Previous"
-        @viewingLabel="Viewing"
-        @ofLabel="of"
-        @resultsLabel="results"
-        as |table|
-      >
-        <table.header as |header|>
-          <header.column @prop="email">
-            Email
-          </header.column>
-          <header.column @prop="firstName">
-            First Name
-          </header.column>
-          <header.column @prop="lastName">
-            Last Name
-          </header.column>
-        </table.header>
-        <table.body />
-      </Table>
-    `);
+    await render<Context>(
+      <template>
+        <Table
+          @data={{this.data}}
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          as |table|
+        >
+          <table.header as |header|>
+            <header.column @prop="email">
+              Email
+            </header.column>
+            <header.column @prop="firstName">
+              First Name
+            </header.column>
+            <header.column @prop="lastName">
+              Last Name
+            </header.column>
+          </table.header>
+          <table.body />
+        </Table>
+      </template>,
+    );
 
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
     assert.dom('thead tr th:nth-of-type(2)').hasText('First Name');
@@ -91,31 +94,33 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'E', lastName: 'e', email: 'e@example.com' },
     ];
 
-    await render<Context>(hbs`
-     <Table
-      @data={{this.data}}
-      @isSortable={{true}}
-      @nextButtonLabel="Next"
-      @previousButtonLabel="Previous"
-      @viewingLabel="Viewing"
-      @ofLabel="of"
-      @resultsLabel="results"
-      as |table|
-    >
-      <table.header as |header|>
-        <header.column @prop="email">
-          Email
-        </header.column>
-        <header.column @prop="firstName">
-          First Name
-        </header.column>
-        <header.column @prop="lastName">
-          Last Name
-        </header.column>
-      </table.header>
-      <table.body />
-    </Table>
-    `);
+    await render<Context>(
+      <template>
+        <Table
+          @data={{this.data}}
+          @isSortable={{true}}
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          as |table|
+        >
+          <table.header as |header|>
+            <header.column @prop="email">
+              Email
+            </header.column>
+            <header.column @prop="firstName">
+              First Name
+            </header.column>
+            <header.column @prop="lastName">
+              Last Name
+            </header.column>
+          </table.header>
+          <table.body />
+        </Table>
+      </template>,
+    );
 
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
     assert.dom('thead tr th:nth-of-type(2)').hasText('First Name');
@@ -187,31 +192,33 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
     ];
 
-    await render<Context>(hbs`
-      <Table
-        @data={{this.data}}
-        @pagination="local"
-        @nextButtonLabel="Next"
-        @previousButtonLabel="Previous"
-        @viewingLabel="Viewing"
-        @ofLabel="of"
-        @resultsLabel="results"
-        as |table|
-      >
-        <table.header as |header|>
-          <header.column @prop="email">
-            Email
-          </header.column>
-          <header.column @prop="firstName">
-            First Name
-          </header.column>
-          <header.column @prop="lastName">
-            Last Name
-          </header.column>
-        </table.header>
-        <table.body />
-      </Table>
-    `);
+    await render<Context>(
+      <template>
+        <Table
+          @data={{this.data}}
+          @pagination="local"
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          as |table|
+        >
+          <table.header as |header|>
+            <header.column @prop="email">
+              Email
+            </header.column>
+            <header.column @prop="firstName">
+              First Name
+            </header.column>
+            <header.column @prop="lastName">
+              Last Name
+            </header.column>
+          </table.header>
+          <table.body />
+        </Table>
+      </template>,
+    );
 
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
     assert.dom('thead tr th:nth-of-type(2)').hasText('First Name');
@@ -272,35 +279,37 @@ module('Integration | Component | table', function (hooks) {
       { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
     ];
 
-    await render<Context>(hbs`
-      <Table
-        @data={{this.data}}
-        @pagination="cursor"
-        @canNext={{false}}
-        @canPrevious={{false}}
-        @nextButtonLabel="Next"
-        @previousButtonLabel="Previous"
-        @viewingLabel="Viewing"
-        @ofLabel="of"
-        @resultsLabel="results"
-        @onNext={{(noop)}}
-        @onPrevious={{(noop)}}
-        as |table|
-      >
-        <table.header as |header|>
-          <header.column @prop="email">
-            Email
-          </header.column>
-          <header.column @prop="firstName">
-            First Name
-          </header.column>
-          <header.column @prop="lastName">
-            Last Name
-          </header.column>
-        </table.header>
-        <table.body />
-      </Table>
-    `);
+    await render<Context>(
+      <template>
+        <Table
+          @data={{this.data}}
+          @pagination="cursor"
+          @canNext={{false}}
+          @canPrevious={{false}}
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          @onNext={{(noop)}}
+          @onPrevious={{(noop)}}
+          as |table|
+        >
+          <table.header as |header|>
+            <header.column @prop="email">
+              Email
+            </header.column>
+            <header.column @prop="firstName">
+              First Name
+            </header.column>
+            <header.column @prop="lastName">
+              Last Name
+            </header.column>
+          </table.header>
+          <table.body />
+        </Table>
+      </template>,
+    );
 
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
     assert.dom('thead tr th:nth-of-type(2)').hasText('First Name');
@@ -391,34 +400,36 @@ module('Integration | Component | table', function (hooks) {
       this.set('data', getData());
     };
 
-    await render<Context>(hbs`
-      <Table
-        @data={{this.data}}
-        @pagination="offset"
-        @page={{this.page}}
-        @totalItems={{this.totalItems}}
-        @nextButtonLabel="Next"
-        @previousButtonLabel="Previous"
-        @viewingLabel="Viewing"
-        @ofLabel="of"
-        @resultsLabel="results"
-        @onChangePage={{this.onChangePage}}
-        as |table|
-      >
-        <table.header as |header|>
-          <header.column @prop="email">
-            Email
-          </header.column>
-          <header.column @prop="firstName">
-            First Name
-          </header.column>
-          <header.column @prop="lastName">
-            Last Name
-          </header.column>
-        </table.header>
-        <table.body />
-      </Table>
-    `);
+    await render<Context>(
+      <template>
+        <Table
+          @data={{this.data}}
+          @pagination="offset"
+          @page={{this.page}}
+          @totalItems={{this.totalItems}}
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          @onChangePage={{this.onChangePage}}
+          as |table|
+        >
+          <table.header as |header|>
+            <header.column @prop="email">
+              Email
+            </header.column>
+            <header.column @prop="firstName">
+              First Name
+            </header.column>
+            <header.column @prop="lastName">
+              Last Name
+            </header.column>
+          </table.header>
+          <table.body />
+        </Table>
+      </template>,
+    );
 
     assert.dom('thead tr th:nth-of-type(1)').hasText('Email');
     assert.dom('thead tr th:nth-of-type(2)').hasText('First Name');

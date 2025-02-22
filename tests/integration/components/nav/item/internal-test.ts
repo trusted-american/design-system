@@ -10,16 +10,16 @@ module('Integration | Component | nav/item/internal', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Nav::Item::Internal />`);
+    await render(<template><Nav::Item::Internal /></template>);
 
     assert.dom().hasText('');
 
     // Template block usage:
-    await render(hbs`
+    await render(<template>
       <Nav::Item::Internal>
         template block text
       </Nav::Item::Internal>
-    `);
+    </template>);
 
     assert.dom().hasText('template block text');
   });

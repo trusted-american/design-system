@@ -15,19 +15,21 @@ module('Integration | Component | form/date-input', function (hooks) {
     this.min = undefined;
     this.max = undefined;
 
-    await render<Context>(hbs`
-      <Form::DateInput
-        @value={{this.value}}
-        @min={{this.min}}
-        @max={{this.max}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::DateInput
+          @value={{this.value}}
+          @min={{this.min}}
+          @max={{this.max}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-input]').exists();
     assert.dom('[data-test-form-input]').hasAttribute('type', 'date');

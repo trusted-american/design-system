@@ -11,18 +11,20 @@ module('Integration | Component | form/number-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    await render<Context>(hbs`
-      <Form::NumberInput
-        @value={{this.value}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{fn (mut this.value)}}
-        placeholder="Placeholder"
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::NumberInput
+          @value={{this.value}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{fn (mut this.value)}}
+          placeholder="Placeholder"
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-input]').exists();
     assert.dom('[data-test-form-input]').hasAttribute('type', 'number');

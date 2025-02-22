@@ -7,11 +7,11 @@ module('Integration | Component | aside/group', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <Aside::Group @label="Label" @icon="boxes-stacked" @route="index">
         template block text
       </Aside::Group>
-    `);
+    </template>);
 
     assert.dom().hasText('Label template block text');
   });

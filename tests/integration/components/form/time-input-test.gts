@@ -11,17 +11,19 @@ module('Integration | Component | form/time-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render<Context>(hbs`
-      <Form::TimeInput
-        @value={{null}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::TimeInput
+          @value={{null}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-label]').exists();
     assert.dom('input').exists();

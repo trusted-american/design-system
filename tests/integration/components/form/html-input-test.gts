@@ -13,17 +13,19 @@ module('Integration | Component | form/html-input', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.onChange = () => {};
 
-    await render<Context>(hbs`
-      <Form::HtmlInput
-        @value="value"
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @editorLabel="Editor"
-        @codeLabel="Code"
-        @onChange={{this.onChange}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::HtmlInput
+          @value="value"
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @editorLabel="Editor"
+          @codeLabel="Code"
+          @onChange={{this.onChange}}
+        />
+      </template>,
+    );
 
     assert.dom().includesText('Label Required');
 

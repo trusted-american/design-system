@@ -21,17 +21,19 @@ module('Integration | Component | form/radio', function (hooks) {
       assert.ok(selected);
     };
 
-    await render<Context>(hbs`
-      <Form::Radio
-        @options={{this.options}}
-        @selected={{this.selected}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{undefined}}
-        @isInline={{undefined}}
-        @onChange={{this.onChange}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Radio
+          @options={{this.options}}
+          @selected={{this.selected}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{undefined}}
+          @isInline={{undefined}}
+          @onChange={{this.onChange}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-label]').exists();
     assert.dom('.form-check').hasText('One');

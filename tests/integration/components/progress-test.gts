@@ -1,19 +1,21 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, find } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Progress } from '@trusted-american/design-system';
 
 module('Integration | Component | progress', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
-      <Progress as |progress|>
-        <progress.bar @value={{0.3}} @color="danger" />
-        <progress.bar @value={{0.3}} @color="warning" />
-        <progress.bar @value={{0.3}} @color="success" />
-      </Progress>
-    `);
+    await render(
+      <template>
+        <Progress as |progress|>
+          <progress.bar @value={{0.3}} @color="danger" />
+          <progress.bar @value={{0.3}} @color="warning" />
+          <progress.bar @value={{0.3}} @color="success" />
+        </Progress>
+      </template>,
+    );
 
     const element1 = find('.bg-danger');
     assert.ok(element1, '.bg-danger exists');

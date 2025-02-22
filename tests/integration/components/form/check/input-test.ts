@@ -13,7 +13,7 @@ module('Integration | Component | form/check/input', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.value = false;
 
-    await render<Context>(hbs`
+    await render<Context>(<template>
       <Form::Check::Input
         @value={{this.value}}
         @label="Label"
@@ -21,7 +21,7 @@ module('Integration | Component | form/check/input', function (hooks) {
         @isRequired={{true}}
         @onChange={{fn (mut this.value)}}
       />
-    `);
+    </template>);
 
     assert.dom().hasText('');
   });

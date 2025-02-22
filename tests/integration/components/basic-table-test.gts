@@ -1,33 +1,39 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { BasicTable } from '@trusted-american/design-system';
 
 module('Integration | Component | basic-table', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
-      <BasicTable>
-        template block text
-      </BasicTable>
-    `);
+    await render(
+      <template>
+        <BasicTable>
+          template block text
+        </BasicTable>
+      </template>,
+    );
 
     assert.dom().hasText('template block text');
 
-    await render(hbs`
-      <BasicTable @isSmall={{true}}>
-        template block text
-      </BasicTable>
-    `);
+    await render(
+      <template>
+        <BasicTable @isSmall={{true}}>
+          template block text
+        </BasicTable>
+      </template>,
+    );
 
     assert.dom().hasText('template block text');
 
-    await render(hbs`
-      <BasicTable @isBordered={{true}}>
-        template block text
-      </BasicTable>
-    `);
+    await render(
+      <template>
+        <BasicTable @isBordered={{true}}>
+          template block text
+        </BasicTable>
+      </template>,
+    );
 
     assert.dom().hasText('template block text');
   });

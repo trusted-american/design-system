@@ -1,24 +1,26 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Button, ButtonSet } from '@trusted-american/design-system';
 
 module('Integration | Component | button-set', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
-      <ButtonSet>
-        <Button @label="Hi" />
-        <Button @label="Actually" />
-        <Button @label="Bye" />
-        <Button
-          @label="This Shouldnt Show Up"
-          @icon="house"
-          @isIconOnly={{true}}
-        />
-      </ButtonSet>
-    `);
+    await render(
+      <template>
+        <ButtonSet>
+          <Button @label="Hi" />
+          <Button @label="Actually" />
+          <Button @label="Bye" />
+          <Button
+            @label="This Shouldnt Show Up"
+            @icon="house"
+            @isIconOnly={{true}}
+          />
+        </ButtonSet>
+      </template>,
+    );
 
     assert.dom('button:nth-of-type(1)').hasText('Hi');
     assert.dom('button:nth-of-type(2)').hasText('Actually');

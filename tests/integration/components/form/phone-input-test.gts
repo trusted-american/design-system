@@ -11,17 +11,19 @@ module('Integration | Component | form/phone-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    await render<Context>(hbs`
-      <Form::PhoneInput
-        @value={{this.value}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::PhoneInput
+          @value={{this.value}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-input]').exists();
 

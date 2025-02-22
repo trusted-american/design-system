@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Calendar } from '@trusted-american/design-system';
 
 import type { CalendarSignature } from '@trusted-american/design-system/components/calendar';
 
@@ -16,7 +16,9 @@ module('Integration | Component | calendar', function (hooks) {
       { title: 'Test2', start: new Date() },
     ];
 
-    await render<Context>(hbs`<Calendar @events={{this.events}} />`);
+    await render<Context>(
+      <template><Calendar @events={{this.events}} /></template>,
+    );
     assert.dom('.fc').exists();
     assert.dom('.fc-daygrid').exists();
     assert.dom().containsText('Test1');

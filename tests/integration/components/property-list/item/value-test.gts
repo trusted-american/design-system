@@ -7,7 +7,7 @@ module('Integration | Component | property-list/item/value', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <PropertyList::Item::Value
         @value=""
         @label="Label"
@@ -15,7 +15,7 @@ module('Integration | Component | property-list/item/value', function (hooks) {
         <:default>Default</:default>
         <:side>Side</:side>
       </PropertyList::Item::Value>
-    `);
+    </template>);
 
     assert.dom('dd').hasText('No Label');
   });

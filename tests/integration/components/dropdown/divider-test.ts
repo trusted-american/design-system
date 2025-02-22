@@ -7,7 +7,7 @@ module('Integration | Component | dropdown/divider', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Dropdown::Divider />`);
+    await render(<template><Dropdown::Divider /></template>);
 
     assert.dom().hasText('');
   });

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, find, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Avatar } from '@trusted-american/design-system';
 
 import type { AvatarSignature } from '@trusted-american/design-system/components/avatar';
 
@@ -16,14 +16,16 @@ module('Integration | Component | avatar', function (hooks) {
     this.alt = 'Name';
     this.size = undefined;
 
-    await render<Context>(hbs`
-      <Avatar
-        @id={{this.id}}
-        @url={{this.url}}
-        @alt={{this.alt}}
-        @size={{this.size}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Avatar
+          @id={{this.id}}
+          @url={{this.url}}
+          @alt={{this.alt}}
+          @size={{this.size}}
+        />
+      </template>,
+    );
 
     const img = find('[data-test-avatar]') as HTMLImageElement | null;
     assert.true(img?.src.includes('data:image/png'));

@@ -7,7 +7,7 @@ module('Integration | Component | button/internal', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <Button::Internal
         @label=""
         @icon="check"
@@ -15,7 +15,7 @@ module('Integration | Component | button/internal', function (hooks) {
         @isIconOnly={{false}}
         @isLoading={{false}}
       />
-    `);
+    </template>);
 
     assert.dom().hasText('');
   });

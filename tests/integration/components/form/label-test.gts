@@ -7,13 +7,15 @@ module('Integration | Component | form/label', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
-      <Form::Label
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-      />
-    `);
+    await render(
+      <template>
+        <Form::Label
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+        />
+      </template>,
+    );
 
     assert.dom('label').exists();
     assert.dom('label').hasText('Label Required');

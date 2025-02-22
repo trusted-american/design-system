@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { FileType } from '@trusted-american/design-system';
 
 import type { FileTypeSignature } from '@trusted-american/design-system/components/file-type';
 
@@ -15,7 +15,7 @@ module('Integration | Component | file-type', function (hooks) {
     this.size = undefined;
 
     await render<Context>(
-      hbs`<FileType @name={{this.name}} @size={{this.size}} />`,
+      <template><FileType @name={{this.name}} @size={{this.size}} /></template>,
     );
 
     assert.dom('svg').hasClass('fa-file-pdf');

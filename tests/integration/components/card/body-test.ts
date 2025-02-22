@@ -7,11 +7,11 @@ module('Integration | Component | card/body', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
+    await render(<template>
       <Card::Body>
         template block text
       </Card::Body>
-    `);
+    </template>);
 
     assert.dom().hasText('template block text');
   });

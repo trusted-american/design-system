@@ -16,18 +16,20 @@ module('Integration | Component | form/input', function (hooks) {
   test('it renders', async function (this: Context, assert) {
     this.value = '';
 
-    await render<Context>(hbs`
-      <Form::Input
-        @value={{this.value}}
-        @type="text"
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @help="Help"
-        @invalidFeedback="Invalid feedback"
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Input
+          @value={{this.value}}
+          @type="text"
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @help="Help"
+          @invalidFeedback="Invalid feedback"
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-label]').exists();
     assert.dom('[data-test-form-input]').hasAttribute('id', 'identifier');
@@ -39,14 +41,16 @@ module('Integration | Component | form/input', function (hooks) {
   test('it defaults to text type', async function (this: Context, assert) {
     this.value = '';
 
-    await render<Context>(hbs`
-      <Form::Input
-        @value={{this.value}}
-        @label=""
-        @identifier=""
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Input
+          @value={{this.value}}
+          @label=""
+          @identifier=""
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-input]').hasAttribute('type', 'text');
   });
@@ -54,14 +58,16 @@ module('Integration | Component | form/input', function (hooks) {
   test('it loads initial value', async function (this: Context, assert) {
     this.value = 'Value';
 
-    await render<Context>(hbs`
-      <Form::Input
-        @value={{this.value}}
-        @label=""
-        @identifier=""
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Input
+          @value={{this.value}}
+          @label=""
+          @identifier=""
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-form-input]').hasValue('Value');
   });
@@ -69,14 +75,16 @@ module('Integration | Component | form/input', function (hooks) {
   test('it updates value', async function (this: Context, assert) {
     this.value = '';
 
-    await render<Context>(hbs`
-      <Form::Input
-        @value={{this.value}}
-        @label=""
-        @identifier=""
-        @onChange={{fn (mut this.value)}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Form::Input
+          @value={{this.value}}
+          @label=""
+          @identifier=""
+          @onChange={{fn (mut this.value)}}
+        />
+      </template>,
+    );
 
     await fillIn('[data-test-form-input]', 'test');
 
@@ -101,20 +109,21 @@ module('Integration | Component | form/input', function (hooks) {
       }
     };
 
-    await render<Context>(hbs`
-      <form novalidate {{on "submit" this.submit}}>
-       <Form::Input
-        @value={{this.value}}
-        @label=""
-        @identifier=""
-        @isRequired={{true}}
-        @onChange={{fn (mut this.value)}}
-        @invalidFeedback="Wrong"
-      >
-      </Form::Input>
-        <button type="submit" data-test-submit>Submit</button>
-      </form>
-    `);
+    await render<Context>(
+      <template>
+        <form novalidate {{on "submit" this.submit}}>
+          <Form::Input
+            @value={{this.value}}
+            @label=""
+            @identifier=""
+            @isRequired={{true}}
+            @onChange={{fn (mut this.value)}}
+            @invalidFeedback="Wrong"
+          />
+          <button type="submit" data-test-submit>Submit</button>
+        </form>
+      </template>,
+    );
 
     assert.dom('form div').hasStyle({ height: '38px' });
     assert.dom('form').doesNotHaveClass('was-validated');

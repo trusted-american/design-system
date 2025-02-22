@@ -7,7 +7,7 @@ module('Integration | Component | aside/title', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Aside::Title @label="Label" />`);
+    await render(<template><Aside::Title @label="Label" /></template>);
 
     assert.dom().hasText('Label');
   });

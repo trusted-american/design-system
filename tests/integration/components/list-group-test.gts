@@ -1,20 +1,25 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { ListGroup, ListGroupItem } from '@trusted-american/design-system';
 
 module('Integration | Component | list-group', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`
-      <ListGroup>
-        <ListGroup::Item class="active" data-test-active>An active item</ListGroup::Item>
-        <ListGroup::Item class="disabled" data-test-disabled>A second item</ListGroup::Item>
-        <ListGroup::Item @route="index" data-test-index>Route</ListGroup::Item>
-        <ListGroup::Item @href="https://www.google.com/" data-test-href>Href</ListGroup::Item>
-      </ListGroup>
-    `);
+    await render(
+      <template>
+        <ListGroup>
+          <ListGroupItem class="active" data-test-active>An active item</ListGroupItem>
+          <ListGroupItem class="disabled" data-test-disabled>A second item</ListGroupItem>
+          <ListGroupItem @route="index" data-test-index>Route</ListGroupItem>
+          <ListGroupItem
+            @href="https://www.google.com/"
+            data-test-href
+          >Href</ListGroupItem>
+        </ListGroup>
+      </template>,
+    );
 
     assert.dom('ul').exists();
 

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Heading } from '@trusted-american/design-system';
 
 import type { HeadingSignature } from '@trusted-american/design-system/components/heading';
 
@@ -16,14 +16,16 @@ module('Integration | Component | heading', function (hooks) {
     this.type = undefined;
     this.identifier = undefined;
 
-    await render<Context>(hbs`
-      <Heading
-        @title={{this.title}}
-        @subtitle={{this.subtitle}}
-        @type={{this.type}}
-        @identifier={{this.identifier}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <Heading
+          @title={{this.title}}
+          @subtitle={{this.subtitle}}
+          @type={{this.type}}
+          @identifier={{this.identifier}}
+        />
+      </template>,
+    );
 
     assert.dom().hasText('Title');
 
@@ -36,16 +38,18 @@ module('Integration | Component | heading', function (hooks) {
 
     assert.dom().hasText('Agent 1 Title Subtitle');
 
-    await render<Context>(hbs`
-      <Heading
-        @title={{this.title}}
-        @subtitle={{this.subtitle}}
-        @type={{this.type}}
-        @identifier={{this.identifier}}
-      >
-        template block text
-      </Heading>
-    `);
+    await render<Context>(
+      <template>
+        <Heading
+          @title={{this.title}}
+          @subtitle={{this.subtitle}}
+          @type={{this.type}}
+          @identifier={{this.identifier}}
+        >
+          template block text
+        </Heading>
+      </template>,
+    );
 
     assert.dom().hasText('Agent 1 Title template block text Subtitle');
   });

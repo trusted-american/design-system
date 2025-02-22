@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, click, type TestContext } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { Modal } from '@trusted-american/design-system';
 
 import type { ModalSignature } from '@trusted-american/design-system/components/modal';
 
@@ -15,11 +15,17 @@ module('Integration | Component | modal', function (hooks) {
       // assert.true(true);
     };
 
-    await render<Context>(hbs`
-      <Modal @title="Title" @closeButtonLabel="Close" @onClose={{this.onClose}}>
-        template block text
-      </Modal>
-    `);
+    await render<Context>(
+      <template>
+        <Modal
+          @title="Title"
+          @closeButtonLabel="Close"
+          @onClose={{this.onClose}}
+        >
+          template block text
+        </Modal>
+      </template>,
+    );
 
     assert.dom('[data-test-modal]').exists();
     assert.dom().hasText('Title template block text');

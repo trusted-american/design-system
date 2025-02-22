@@ -9,11 +9,11 @@ module('Integration | Component | main/header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (this: Context, assert) {
-    await render(hbs`
+    await render(<template>
       <Main::Header>
         template block text
       </Main::Header>
-    `);
+    </template>);
 
     assert.dom('header').hasText('template block text');
     assert.dom('header').hasClass('container-fluid');

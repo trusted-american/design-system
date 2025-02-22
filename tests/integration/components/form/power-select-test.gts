@@ -18,20 +18,22 @@ module('Integration | Component | form/power-select', function (hooks) {
       assert.strictEqual(selected, 'a');
     };
 
-    await render<Context>(hbs`
-      <Form::PowerSelect
-        @options={{this.options}}
-        @selected={{this.selected}}
-        @label="Label"
-        @identifier="identifier"
-        @chooseLabel="Choose…"
-        @searchLabel="Search…"
-        @onChange={{this.onChange}}
-        as |option|
-      >
-        {{option}}
-      </Form::PowerSelect>
-    `);
+    await render<Context>(
+      <template>
+        <Form::PowerSelect
+          @options={{this.options}}
+          @selected={{this.selected}}
+          @label="Label"
+          @identifier="identifier"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @onChange={{this.onChange}}
+          as |option|
+        >
+          {{option}}
+        </Form::PowerSelect>
+      </template>,
+    );
 
     assert.dom().hasText('Label Choose…');
 

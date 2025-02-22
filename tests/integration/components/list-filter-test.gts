@@ -7,9 +7,9 @@ import {
   select,
   type TestContext,
 } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 import { selectChoose } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
+import { ListFilter } from '@trusted-american/design-system';
 
 import type {
   ListFilterSignature,
@@ -87,31 +87,33 @@ module('Integration | Component | list-filter', function (hooks) {
       this[key] = value;
     };
 
-    await render<Context>(hbs`
-      <ListFilter
-        @predicates={{this.predicates}}
-        @label="Filter"
-        @clearLabel="Clear"
-        @doneLabel="Done"
-        @modeLabel="Mode"
-        @inTheLastLabel="is in the last"
-        @equalsLabel="is equal to"
-        @betweenLabel="is between"
-        @isAfterLabel="is after"
-        @isAfterOrOnLabel="is on or after"
-        @isBeforeLabel="is before"
-        @isBeforeOrOnLabel="is before or on"
-        @valueLabel="Value"
-        @valueALabel="Value A"
-        @valueBLabel="Value B"
-        @andLabel="and"
-        @daysLabel="Days"
-        @monthsLabel="Months"
-        @chooseLabel="Choose…"
-        @searchLabel="Search…"
-        @onChange={{this.onChange}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <ListFilter
+          @predicates={{this.predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @onChange={{this.onChange}}
+        />
+      </template>,
+    );
 
     assert.dom('[data-test-list-filter]').hasText('Filter');
     assert.dom('[data-test-predicate-toggle]').exists({ count: 5 });
@@ -188,31 +190,33 @@ module('Integration | Component | list-filter', function (hooks) {
       this[key] = value;
     };
 
-    await render<Context>(hbs`
-      <ListFilter
-        @predicates={{this.predicates}}
-        @label="Filter"
-        @clearLabel="Clear"
-        @doneLabel="Done"
-        @modeLabel="Mode"
-        @inTheLastLabel="is in the last"
-        @equalsLabel="is equal to"
-        @betweenLabel="is between"
-        @isAfterLabel="is after"
-        @isAfterOrOnLabel="is on or after"
-        @isBeforeLabel="is before"
-        @isBeforeOrOnLabel="is before or on"
-        @valueLabel="Value"
-        @valueALabel="Value A"
-        @valueBLabel="Value B"
-        @andLabel="and"
-        @daysLabel="Days"
-        @monthsLabel="Months"
-        @chooseLabel="Choose…"
-        @searchLabel="Search…"
-        @onChange={{this.onChange}}
-      />
-    `);
+    await render<Context>(
+      <template>
+        <ListFilter
+          @predicates={{this.predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @onChange={{this.onChange}}
+        />
+      </template>,
+    );
 
     const today = new Date();
     const yesterday = new Date();

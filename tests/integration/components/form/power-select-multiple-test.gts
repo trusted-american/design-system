@@ -21,20 +21,22 @@ module(
       };
       this.onCreate = () => {};
 
-      await render<Context>(hbs`
-        <Form::PowerSelectMultiple
-          @options={{this.options}}
-          @selected={{this.selected}}
-          @label="Label"
-          @identifier="identifier"
-          @chooseLabel="Choose…"
-          @onChange={{this.onChange}}
-          @onCreate={{this.onCreate}}
-          as |option|
-        >
-          {{option}}
-        </Form::PowerSelectMultiple>
-      `);
+      await render<Context>(
+        <template>
+          <Form::PowerSelectMultiple
+            @options={{this.options}}
+            @selected={{this.selected}}
+            @label="Label"
+            @identifier="identifier"
+            @chooseLabel="Choose…"
+            @onChange={{this.onChange}}
+            @onCreate={{this.onCreate}}
+            as |option|
+          >
+            {{option}}
+          </Form::PowerSelectMultiple>
+        </template>,
+      );
 
       assert.dom().hasText('Label');
 
