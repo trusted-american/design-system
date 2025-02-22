@@ -1,8 +1,9 @@
-import Component from '@glimmer/component';
 import Icon from './icon';
 import CloseButton from './close-button';
 import { on } from '@ember/modifier';
 import { and } from 'ember-truth-helpers';
+
+import type { TOC } from '@ember/component/template-only';
 
 interface Args {
   color?: string;
@@ -28,37 +29,37 @@ export interface AlertSignature {
   Element: HTMLDivElement;
 }
 
-export default class Alert extends Component<AlertSignature> {
-  <template>
-    <div
-      class="alert alert-{{if @color @color 'secondary'}}
-        {{if @onClose 'alert-dismissible'}}
-        d-flex gap-3"
-      role="alert"
-      data-test-alert
-      ...attributes
-    >
-      {{#if @icon}}
-        <div>
-          <Icon @icon={{@icon}} />
-        </div>
-      {{/if}}
+const Alert: TOC<AlertSignature> = <template>
+  <div
+    class="alert alert-{{if @color @color 'secondary'}}
+      {{if @onClose 'alert-dismissible'}}
+      d-flex gap-3"
+    role="alert"
+    data-test-alert
+    ...attributes
+  >
+    {{#if @icon}}
       <div>
-        {{#if (has-block "title")}}
-          <h6 class="alert-heading">{{yield to="title"}}</h6>
-        {{/if}}
-        {{yield}}
+        <Icon @icon={{@icon}} />
       </div>
-      {{#if (and @closeButtonLabel @onClose)}}
-        <CloseButton
-          @label={{@closeButtonLabel}}
-          data-bs-dismiss="alert"
-          {{on "click" @onClose}}
-        />
+    {{/if}}
+    <div>
+      {{#if (has-block "title")}}
+        <h6 class="alert-heading">{{yield to="title"}}</h6>
       {{/if}}
+      {{yield}}
     </div>
-  </template>
-}
+    {{#if (and @closeButtonLabel @onClose)}}
+      <CloseButton
+        @label={{@closeButtonLabel}}
+        data-bs-dismiss="alert"
+        {{on "click" @onClose}}
+      />
+    {{/if}}
+  </div>
+</template>;
+
+export default Alert;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
