@@ -7,8 +7,8 @@ module('Integration | Component | form/feedback', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><FormFeedback @label="Text" /></template>);
+    await render(<template><FormFeedback @label="Label" /></template>);
 
-    assert.dom('.invalid-feedback').hasText('Text');
+    assert.dom('.invalid-feedback').hasText('Label');
   });
 });
