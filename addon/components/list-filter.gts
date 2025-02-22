@@ -22,7 +22,7 @@ import { not } from 'ember-truth-helpers';
 import { findBy, includes } from '@nullvoxpopuli/ember-composable-helpers';
 import autoselect from '../modifiers/autoselect';
 
-import type { Option } from '@trusted-american/design-system/components/form/select';
+import type { Option } from './form/select';
 
 export type DateRangeQueryParam =
   | {

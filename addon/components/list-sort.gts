@@ -8,7 +8,7 @@ import { on } from '@ember/modifier';
 import dropdown from '../modifiers/dropdown';
 import { notEq } from 'ember-truth-helpers';
 
-import type { Option } from '@trusted-american/design-system/components/form/select';
+import type { Option } from './form/select';
 
 export interface ListSortSignature<T> {
   Args: {

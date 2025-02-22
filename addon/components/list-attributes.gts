@@ -10,7 +10,7 @@ import { includes } from '@nullvoxpopuli/ember-composable-helpers';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
 
-import type { Option } from '@trusted-american/design-system/components/form/select';
+import type { Option } from './form/select';
 
 export type ListAttributesKey<T> = keyof T | `${keyof T & string}.${string}`;
 
