@@ -30,7 +30,7 @@ module('Integration | Component | list-attributes', function (hooks) {
           (hash value="createdAt" label="Created date")
         }}
         @selected={{this.selected}}
-        @text="Edit columns"
+        @label="Edit columns"
         {{! @glint-expect-error }}
         @onChange={{fn (mut this.selected)}}
       />

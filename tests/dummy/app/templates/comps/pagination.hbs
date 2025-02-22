@@ -13,11 +13,11 @@
     @page={{this.page}}
     @pageSize={{1}}
     @totalItems={{10}}
-    @nextText="Next"
-    @previousText="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
+    @nextButtonLabel="Next"
+    @previousButtonLabel="Previous"
+    @viewingLabel="Viewing"
+    @ofLabel="of"
+    @resultsLabel="results"
     @onChange={{fn (mut this.page)}}
   />
   {{! END-SNIPPET }}
@@ -30,11 +30,11 @@
   <Pagination
     @canNext={{false}}
     @canPrevious={{false}}
-    @nextText="Next"
-    @previousText="Previous"
-    @viewingText="Viewing"
-    @ofText="of"
-    @resultsText="results"
+    @nextButtonLabel="Next"
+    @previousButtonLabel="Previous"
+    @viewingLabel="Viewing"
+    @ofLabel="of"
+    @resultsLabel="results"
     @onNext={{this.next}}
     @onPrevious={{this.previous}}
   />

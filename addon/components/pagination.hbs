@@ -4,11 +4,11 @@
 >
   {{#if @onChange}}
     <span>
-      {{@viewingText}}
+      {{@viewingLabel}}
       <strong>{{this.pageStart}}-{{this.pageEnd}}</strong>
-      {{@ofText}}
+      {{@ofLabel}}
       <strong>{{@totalItems}}</strong>
-      {{@resultsText}}
+      {{@resultsLabel}}
     </span>
   {{/if}}
   <nav data-test-pagination>
@@ -19,7 +19,7 @@
           href="#"
           data-test-previous
           {{on "click" this.previous}}
-        >{{@previousText}}</a>
+        >{{@previousButtonLabel}}</a>
       </li>
       {{#if (lt this.length 6)}}
         {{#each this.pages as |_ index|}}
@@ -109,7 +109,7 @@
           href="#"
           data-test-next
           {{on "click" this.next}}
-        >{{@nextText}}</a>
+        >{{@nextButtonLabel}}</a>
       </li>
     </ul>
   </nav>

@@ -6,12 +6,12 @@ interface Args {
 }
 
 interface Args1 extends Args {
-  closeText?: never;
+  closeButtonLabel?: never;
   onClose?: never;
 }
 
 interface Args2 extends Args {
-  closeText: string;
+  closeButtonLabel: string;
   onClose: () => void;
 }
 

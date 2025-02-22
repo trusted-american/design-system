@@ -12,7 +12,7 @@
     ...attributes
   >
     <Button::Internal
-      @text={{@text}}
+      @label={{@label}}
       @icon={{@icon}}
       @iconPrefix={{@iconPrefix}}
       @isIconTrailing={{@isIconTrailing}}
@@ -36,7 +36,7 @@
     ...attributes
   >
     <Button::Internal
-      @text={{@text}}
+      @label={{@label}}
       @icon={{@icon}}
       @iconPrefix={{@iconPrefix}}
       @isIconTrailing={{@isIconTrailing}}
@@ -60,7 +60,7 @@
     ...attributes
   >
     <Button::Internal
-      @text={{@text}}
+      @label={{@label}}
       @icon={{@icon}}
       @iconPrefix={{@iconPrefix}}
       @isIconTrailing={{@isIconTrailing}}
@@ -85,7 +85,7 @@
       ...attributes
     >
       <Button::Internal
-        @text={{@text}}
+        @label={{@label}}
         @icon={{@icon}}
         @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
@@ -99,7 +99,7 @@
   {{else}}
     <ExternalLink
       @href={{@href}}
-      @text={{@text}}
+      @label={{@label}}
       @icon={{@icon}}
       @iconPrefix={{@iconPrefix}}
       @isIconTrailing={{@isIconTrailing}}
@@ -125,7 +125,7 @@
     ...attributes
   >
     <Button::Internal
-      @text={{@text}}
+      @label={{@label}}
       @icon={{@icon}}
       @iconPrefix={{@iconPrefix}}
       @isIconTrailing={{@isIconTrailing}}
@@ -146,12 +146,12 @@
       {{if @isFullWidth 'w-100'}}
       text-nowrap"
     disabled={{if @isLoading true}}
-    aria-label={{if @isIconOnly @text}}
+    aria-label={{if @isIconOnly @label}}
     data-test-button
     ...attributes
   >
     <Button::Internal
-      @text={{@text}}
+      @label={{@label}}
       @icon={{@icon}}
       @iconPrefix={{@iconPrefix}}
       @isIconTrailing={{@isIconTrailing}}

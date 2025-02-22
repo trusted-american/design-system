@@ -16,8 +16,8 @@ interface Args<T> extends BaseArgs {
   isClearable?: boolean;
   isDisabled?: boolean;
   verticalPosition?: 'auto' | 'above' | 'below';
-  chooseText: string;
-  searchText: string;
+  chooseLabel: string;
+  searchLabel: string;
   onChange: (selected: T) => void;
   onCreate?: (query: string) => void;
 }

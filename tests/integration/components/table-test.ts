@@ -23,11 +23,11 @@ module('Integration | Component | table', function (hooks) {
     await render<Context>(hbs`
       <Table
         @data={{this.data}}
-        @nextText="Next"
-        @previousText="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         as |table|
       >
         <table.header as |header|>
@@ -95,11 +95,11 @@ module('Integration | Component | table', function (hooks) {
      <Table
       @data={{this.data}}
       @isSortable={{true}}
-      @nextText="Next"
-      @previousText="Previous"
-      @viewingText="Viewing"
-      @ofText="of"
-      @resultsText="results"
+      @nextButtonLabel="Next"
+      @previousButtonLabel="Previous"
+      @viewingLabel="Viewing"
+      @ofLabel="of"
+      @resultsLabel="results"
       as |table|
     >
       <table.header as |header|>
@@ -191,11 +191,11 @@ module('Integration | Component | table', function (hooks) {
       <Table
         @data={{this.data}}
         @pagination="local"
-        @nextText="Next"
-        @previousText="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         as |table|
       >
         <table.header as |header|>
@@ -278,11 +278,11 @@ module('Integration | Component | table', function (hooks) {
         @pagination="cursor"
         @canNext={{false}}
         @canPrevious={{false}}
-        @nextText="Next"
-        @previousText="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         @onNext={{(noop)}}
         @onPrevious={{(noop)}}
         as |table|
@@ -397,11 +397,11 @@ module('Integration | Component | table', function (hooks) {
         @pagination="offset"
         @page={{this.page}}
         @totalItems={{this.totalItems}}
-        @nextText="Next"
-        @previousText="Previous"
-        @viewingText="Viewing"
-        @ofText="of"
-        @resultsText="results"
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
         @onChangePage={{this.onChangePage}}
         as |table|
       >

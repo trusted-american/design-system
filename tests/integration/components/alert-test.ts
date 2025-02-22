@@ -28,7 +28,7 @@ module('Integration | Component | alert', function (hooks) {
 
   test('close works', async function (assert) {
     await render(hbs`
-      <Alert @closeText="Close" @onClose={{(noop)}}>
+      <Alert @closeButtonLabel="Close" @onClose={{(noop)}}>
         <:title>Title here</:title>
         <:default>Body here</:default>
       </Alert>

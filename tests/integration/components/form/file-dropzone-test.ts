@@ -16,9 +16,9 @@ module('Integration | Component | form/file-dropzone', function (hooks) {
 
     await render<Context>(hbs`
       <Form::FileDropzone
-        @titleText=""
-        @subtitleText=""
-        @titleActiveText=""
+        @titleLabel=""
+        @subtitleLabel=""
+        @activeTitleLabel=""
         @onCreate={{this.onCreate}}
       />
     `);

@@ -51,7 +51,7 @@ module('Integration | Component | form/select', function (hooks) {
         @label="Label"
         @identifier="identifier"
         @isRequired={{true}}
-        @chooseText="Choose…"
+        @chooseLabel="Choose…"
         @onChange={{fn (mut this.selected)}}
       />
     `);

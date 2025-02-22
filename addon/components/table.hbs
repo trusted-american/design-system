@@ -18,11 +18,11 @@
               {{! @glint-expect-error }}
               @pageSize={{10}}
               @totalItems={{@data.length}}
-              @nextText={{@nextText}}
-              @previousText={{@previousText}}
-              @viewingText={{@viewingText}}
-              @ofText={{@ofText}}
-              @resultsText={{@resultsText}}
+              @nextButtonLabel={{@nextButtonLabel}}
+              @previousButtonLabel={{@previousButtonLabel}}
+              @viewingLabel={{@viewingLabel}}
+              @ofLabel={{@ofLabel}}
+              @resultsLabel={{@resultsLabel}}
               @onChange={{fn this.goToPage table.actions}}
             />
           </row.cell>
@@ -45,11 +45,11 @@
       <Pagination
         @canNext={{@canNext}}
         @canPrevious={{@canPrevious}}
-        @nextText={{@nextText}}
-        @previousText={{@previousText}}
-        @viewingText={{@viewingText}}
-        @ofText={{@ofText}}
-        @resultsText={{@resultsText}}
+        @nextButtonLabel={{@nextButtonLabel}}
+        @previousButtonLabel={{@previousButtonLabel}}
+        @viewingLabel={{@viewingLabel}}
+        @ofLabel={{@ofLabel}}
+        @resultsLabel={{@resultsLabel}}
         @onNext={{@onNext}}
         @onPrevious={{@onPrevious}}
       />
@@ -61,11 +61,11 @@
       @page={{@page}}
       @pageSize={{20}}
       @totalItems={{@totalItems}}
-      @nextText={{@nextText}}
-      @previousText={{@previousText}}
-      @viewingText={{@viewingText}}
-      @ofText={{@ofText}}
-      @resultsText={{@resultsText}}
+      @nextButtonLabel={{@nextButtonLabel}}
+      @previousButtonLabel={{@previousButtonLabel}}
+      @viewingLabel={{@viewingLabel}}
+      @ofLabel={{@ofLabel}}
+      @resultsLabel={{@resultsLabel}}
       @onChange={{@onChangePage}}
       class="mt-3"
     />

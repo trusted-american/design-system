@@ -5,17 +5,17 @@
 
 <Snippet @name="modal.hbs">
   {{! BEGIN-SNIPPET modal }}
-  <Button @text="Open modal" {{on "click" (fn (mut this.showModal) true)}} />
+  <Button @label="Open modal" {{on "click" (fn (mut this.showModal) true)}} />
 
   {{#if this.showModal}}
     <Modal
       @title="Title"
-      @closeText="Close"
+      @closeButtonLabel="Close"
       @onClose={{this.close}}
       as |onClose|
     >
       <p>Body</p>
-      <Button @text="Close" {{on "click" onClose}} />
+      <Button @label="Close" {{on "click" onClose}} />
     </Modal>
   {{/if}}
   {{! END-SNIPPET }}

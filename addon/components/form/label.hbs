@@ -1,13 +1,13 @@
-{{#if @text}}
+{{#if @label}}
   <label
     for={{@identifier}}
     class={{if @isCheck "form-check-label" "form-label"}}
     data-test-form-label
     ...attributes
   >
-    {{@text}}
+    {{@label}}
     {{#if @isRequired}}
-      <Badge @text="Required" @color="light" class="ms-1" />
+      <Badge @label="Required" @color="light" class="ms-1" />
     {{/if}}
   </label>
 {{/if}}

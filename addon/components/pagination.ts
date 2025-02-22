@@ -2,11 +2,11 @@ import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 interface Args {
-  nextText: string;
-  previousText: string;
-  viewingText: string;
-  ofText: string;
-  resultsText: string;
+  nextButtonLabel: string;
+  previousButtonLabel: string;
+  viewingLabel: string;
+  ofLabel: string;
+  resultsLabel: string;
 }
 
 interface Args1 extends Args {

@@ -8,11 +8,11 @@ module('Integration | Component | aside/group', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Aside::Group @text="Text" @icon="boxes-stacked" @route="index">
+      <Aside::Group @label="Label" @icon="boxes-stacked" @route="index">
         template block text
       </Aside::Group>
     `);
 
-    assert.dom().hasText('Text template block text');
+    assert.dom().hasText('Label template block text');
   });
 });

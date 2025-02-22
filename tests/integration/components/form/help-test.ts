@@ -7,7 +7,7 @@ module('Integration | Component | form/help', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Form::Help @text="Text" />`);
+    await render(hbs`<Form::Help @label="Text" />`);
 
     assert.dom('.form-text').hasText('Text');
   });

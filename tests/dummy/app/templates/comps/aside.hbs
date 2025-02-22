@@ -13,16 +13,16 @@
     @onChange={{(noop)}}
   >
     <:default>
-      <Aside::Item @route="index" @text="Home" @icon="house" />
+      <Aside::Item @route="index" @label="Home" @icon="house" />
       <Aside::Item
         @route="index"
-        @text='With a "count"'
+        @label='With a "count"'
         @icon="users"
         @count={{12}}
       />
       <Aside::Item
         @route="index"
-        @text="Disabled"
+        @label="Disabled"
         @icon="house"
         @isDisabled={{true}}
       />
@@ -37,8 +37,8 @@
 
 <Snippet @name="aside2.hbs">
   {{! BEGIN-SNIPPET aside2 }}
-  <Aside::Group @route="comps.aside" @text="Text" @icon="box">
-    <Aside::Item @route="index" @text="Text" @icon="box" />
+  <Aside::Group @route="comps.aside" @label="Label" @icon="box">
+    <Aside::Item @route="index" @label="Label" @icon="box" />
   </Aside::Group>
   {{! END-SNIPPET }}
 </Snippet>
@@ -47,7 +47,7 @@
 
 <Snippet @name="aside3.hbs">
   {{! BEGIN-SNIPPET aside3 }}
-  <Aside::Item @route="index" @text="Text" @icon="box" />
+  <Aside::Item @route="index" @label="Label" @icon="box" />
   {{! END-SNIPPET }}
 </Snippet>
 
@@ -55,6 +55,6 @@
 
 <Snippet @name="aside4.hbs">
   {{! BEGIN-SNIPPET aside4 }}
-  <Aside::Title @text="Text" />
+  <Aside::Title @label="Label" />
   {{! END-SNIPPET }}
 </Snippet>

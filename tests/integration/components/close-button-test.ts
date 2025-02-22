@@ -7,7 +7,7 @@ module('Integration | Component | close-button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<CloseButton @closeText="Close" />`);
+    await render(hbs`<CloseButton @label="Close" />`);
 
     assert.dom().hasText('');
   });

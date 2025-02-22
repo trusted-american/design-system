@@ -1,11 +1,11 @@
 {{#if @icon}}
   <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
 {{/if}}
-{{#if @text}}{{@text}}{{/if}}
+{{#if @label}}{{@label}}{{/if}}
 {{yield}}
 <div class="d-inline float-end">
   {{#if @count}}
-    <Badge @text="{{@count}}" @isPill={{true}} class="ms-2" />
+    <Badge @label="{{@count}}" @isPill={{true}} class="ms-2" />
   {{/if}}
   {{#if @trailingIcon}}
     <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />

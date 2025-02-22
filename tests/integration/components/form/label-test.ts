@@ -9,13 +9,13 @@ module('Integration | Component | form/label', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`
       <Form::Label
-        @text="Text"
+        @label="Label"
         @identifier="identifier"
         @isRequired={{true}}
       />
     `);
 
     assert.dom('label').exists();
-    assert.dom('label').hasText('Text Required');
+    assert.dom('label').hasText('Label Required');
   });
 });

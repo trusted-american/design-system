@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @isInputOnly @label}}
+  @label={{unless @isInputOnly @label}}
   @identifier="{{@identifier}}0"
   @isRequired={{@isRequired}}
 />
@@ -47,4 +47,4 @@
   {{/each}}
 </div>
 
-<Form::Help @text={{@help}} />
+<Form::Help @label={{@help}} />

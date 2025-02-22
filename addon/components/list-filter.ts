@@ -162,25 +162,25 @@ class InternalPredicate<T> {
 export interface ListFilterSignature<T> {
   Args: {
     predicates: Predicate<T>[];
-    text: string;
-    clearText: string;
-    doneText: string;
-    modeText: string;
-    inTheLastText: string;
-    equalsText: string;
-    betweenText: string;
-    isAfterText: string;
-    isAfterOrOnText: string;
-    isBeforeText: string;
-    isBeforeOrOnText: string;
-    valueText: string;
-    valueAText: string;
-    valueBText: string;
-    andText: string;
-    daysText: string;
-    monthsText: string;
-    chooseText: string;
-    searchText: string;
+    label: string;
+    clearLabel: string;
+    doneLabel: string;
+    modeLabel: string;
+    inTheLastLabel: string;
+    equalsLabel: string;
+    betweenLabel: string;
+    isAfterLabel: string;
+    isAfterOrOnLabel: string;
+    isBeforeLabel: string;
+    isBeforeOrOnLabel: string;
+    valueLabel: string;
+    valueALabel: string;
+    valueBLabel: string;
+    andLabel: string;
+    daysLabel: string;
+    monthsLabel: string;
+    chooseLabel: string;
+    searchLabel: string;
     onChange: (key: string, value: unknown) => void;
   };
 }

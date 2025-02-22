@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @isInputOnly @label}}
+  @label={{unless @isInputOnly @label}}
   @identifier={{@identifier}}
   @isRequired={{@isRequired}}
 />
@@ -19,11 +19,11 @@
     @search={{@search}}
     @selected={{@selected}}
     @disabled={{@isDisabled}}
-    @placeholder={{@chooseText}}
+    @placeholder={{@chooseLabel}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
     @searchField={{@searchField}}
-    @searchPlaceholder={{@searchText}}
+    @searchPlaceholder={{@searchLabel}}
     @matcher={{@matcher}}
     @allowClear={{@isClearable}}
     @verticalPosition={{@verticalPosition}}
@@ -43,11 +43,11 @@
     @search={{@search}}
     @selected={{@selected}}
     @disabled={{@isDisabled}}
-    @placeholder={{@chooseText}}
+    @placeholder={{@chooseLabel}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
     @searchField={{@searchField}}
-    @searchPlaceholder={{@searchText}}
+    @searchPlaceholder={{@searchLabel}}
     @matcher={{@matcher}}
     @allowClear={{@isClearable}}
     @verticalPosition={{@verticalPosition}}
@@ -61,10 +61,10 @@
   </PowerSelect>
 {{/if}}
 
-<Form::Feedback @text={{@invalidFeedback}} />
+<Form::Feedback @label={{@invalidFeedback}} />
 
 {{#each @errors as |error|}}
-  <Form::Feedback @text={{error.message}} />
+  <Form::Feedback @label={{error.message}} />
 {{/each}}
 
-<Form::Help @text={{@help}} />
+<Form::Help @label={{@help}} />

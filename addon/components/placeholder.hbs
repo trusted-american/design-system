@@ -12,9 +12,9 @@
       </p>
     {{/if}}
     {{#if @onClick}}
-      {{#if @buttonText}}
+      {{#if @buttonLabel}}
         <Button
-          @text={{@buttonText}}
+          @label={{@buttonLabel}}
           @color="success"
           class="mt-3"
           {{on "click" @onClick}}
@@ -25,9 +25,9 @@
       <br />
     {{/if}}
     {{#if @onSecondaryClick}}
-      {{#if @secondaryButtonText}}
+      {{#if @secondaryButtonLabel}}
         <Button
-          @text={{@secondaryButtonText}}
+          @label={{@secondaryButtonLabel}}
           @color="link"
           class="mt-3"
           {{on "click" @onSecondaryClick}}

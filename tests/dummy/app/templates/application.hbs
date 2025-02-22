@@ -11,68 +11,72 @@
   @onChange={{fn (mut this.isCollapsed)}}
 >
   <:default>
-    <Aside::Item @text="Home" @route="index" @icon="house" />
-    <Aside::Group @text="Components" @icon="boxes-stacked" @route="comps.index">
-      <Aside::Item @text="Accordion" @route="comps.accordion" />
-      <Aside::Item @text="Alert" @route="comps.alert" />
-      <Aside::Item @text="Aside" @route="comps.aside" />
-      <Aside::Item @text="Avatar" @route="comps.avatar" />
-      <Aside::Item @text="Badge" @route="comps.badge" />
-      <Aside::Item @text="Banner" @route="comps.banner" />
-      <Aside::Item @text="Basic table" @route="comps.basic-table" />
-      <Aside::Item @text="Breadcrumb trail" @route="comps.breadcrumb-trail" />
-      <Aside::Item @text="Button" @route="comps.button" />
-      <Aside::Item @text="Button group" @route="comps.button-group" />
-      <Aside::Item @text="Button set" @route="comps.button-set" />
-      <Aside::Item @text="Calendar" @route="comps.calendar" />
-      <Aside::Item @text="Card" @route="comps.card" />
-      <Aside::Item @text="Close button" @route="comps.close-button" />
-      <Aside::Item @text="Collapse" @route="comps.collapse" />
-      <Aside::Item @text="Copy" @route="comps.copy" />
-      <Aside::Item @text="Dropdown" @route="comps.dropdown" />
-      <Aside::Item @text="External link" @route="comps.external-link" />
-      <Aside::Item @text="File type" @route="comps.file-type" />
-      <Aside::Item @text="Flyout" @route="comps.flyout" />
-      <Aside::Item @text="Form" @route="comps.form" />
-      <Aside::Item @text="Heading" @route="comps.heading" />
-      <Aside::Item @text="Icon" @route="comps.icon" />
-      <Aside::Item @text="List attributes" @route="comps.list-attributes" />
-      <Aside::Item @text="List filter" @route="comps.list-filter" />
-      <Aside::Item @text="List group" @route="comps.list-group" />
-      <Aside::Item @text="List sort" @route="comps.list-sort" />
-      <Aside::Item @text="Main" @route="comps.main" />
-      <Aside::Item @text="Modal" @route="comps.modal" />
-      <Aside::Item @text="Nav" @route="comps.nav" />
-      <Aside::Item @text="Pagination" @route="comps.pagination" />
-      <Aside::Item @text="Placeholder" @route="comps.placeholder" />
-      <Aside::Item @text="Progress" @route="comps.progress" />
-      <Aside::Item @text="Property list" @route="comps.property-list" />
-      <Aside::Item @text="Ratio" @route="comps.ratio" />
-      <Aside::Item @text="Skeleton" @route="comps.skeleton" />
-      <Aside::Item @text="Spinner" @route="comps.spinner" />
-      <Aside::Item @text="Stat card" @route="comps.stat-card" />
-      <Aside::Item @text="Subheading" @route="comps.subheading" />
-      <Aside::Item @text="Table" @route="comps.table" />
-      <Aside::Item @text="Toast" @route="comps.toast" />
+    <Aside::Item @label="Home" @route="index" @icon="house" />
+    <Aside::Group
+      @label="Components"
+      @icon="boxes-stacked"
+      @route="comps.index"
+    >
+      <Aside::Item @label="Accordion" @route="comps.accordion" />
+      <Aside::Item @label="Alert" @route="comps.alert" />
+      <Aside::Item @label="Aside" @route="comps.aside" />
+      <Aside::Item @label="Avatar" @route="comps.avatar" />
+      <Aside::Item @label="Badge" @route="comps.badge" />
+      <Aside::Item @label="Banner" @route="comps.banner" />
+      <Aside::Item @label="Basic table" @route="comps.basic-table" />
+      <Aside::Item @label="Breadcrumb trail" @route="comps.breadcrumb-trail" />
+      <Aside::Item @label="Button" @route="comps.button" />
+      <Aside::Item @label="Button group" @route="comps.button-group" />
+      <Aside::Item @label="Button set" @route="comps.button-set" />
+      <Aside::Item @label="Calendar" @route="comps.calendar" />
+      <Aside::Item @label="Card" @route="comps.card" />
+      <Aside::Item @label="Close button" @route="comps.close-button" />
+      <Aside::Item @label="Collapse" @route="comps.collapse" />
+      <Aside::Item @label="Copy" @route="comps.copy" />
+      <Aside::Item @label="Dropdown" @route="comps.dropdown" />
+      <Aside::Item @label="External link" @route="comps.external-link" />
+      <Aside::Item @label="File type" @route="comps.file-type" />
+      <Aside::Item @label="Flyout" @route="comps.flyout" />
+      <Aside::Item @label="Form" @route="comps.form" />
+      <Aside::Item @label="Heading" @route="comps.heading" />
+      <Aside::Item @label="Icon" @route="comps.icon" />
+      <Aside::Item @label="List attributes" @route="comps.list-attributes" />
+      <Aside::Item @label="List filter" @route="comps.list-filter" />
+      <Aside::Item @label="List group" @route="comps.list-group" />
+      <Aside::Item @label="List sort" @route="comps.list-sort" />
+      <Aside::Item @label="Main" @route="comps.main" />
+      <Aside::Item @label="Modal" @route="comps.modal" />
+      <Aside::Item @label="Nav" @route="comps.nav" />
+      <Aside::Item @label="Pagination" @route="comps.pagination" />
+      <Aside::Item @label="Placeholder" @route="comps.placeholder" />
+      <Aside::Item @label="Progress" @route="comps.progress" />
+      <Aside::Item @label="Property list" @route="comps.property-list" />
+      <Aside::Item @label="Ratio" @route="comps.ratio" />
+      <Aside::Item @label="Skeleton" @route="comps.skeleton" />
+      <Aside::Item @label="Spinner" @route="comps.spinner" />
+      <Aside::Item @label="Stat card" @route="comps.stat-card" />
+      <Aside::Item @label="Subheading" @route="comps.subheading" />
+      <Aside::Item @label="Table" @route="comps.table" />
+      <Aside::Item @label="Toast" @route="comps.toast" />
     </Aside::Group>
 
-    <Aside::Item @text="Helpers" @icon="font" @route="helpers" />
-    <Aside::Item @text="Modifiers" @icon="code" @route="modifiers" />
-    <Aside::Item @text="Utils" @icon="screwdriver-wrench" @route="utils" />
+    <Aside::Item @label="Helpers" @icon="font" @route="helpers" />
+    <Aside::Item @label="Modifiers" @icon="code" @route="modifiers" />
+    <Aside::Item @label="Utils" @icon="screwdriver-wrench" @route="utils" />
 
-    <Aside::Title @text="Guides" />
+    <Aside::Title @label="Guides" />
     <Aside::Item
-      @text="Introduction"
+      @label="Introduction"
       @icon="book"
       @route="guides.introduction"
     />
 
-    <Aside::Title @text="Examples" />
-    <Aside::Item @text="List" @icon="list" @route="list" />
-    <Aside::Item @text="Detail" @icon="box" @route="detail" />
-    <Aside::Item @text="Form" @icon="table-list" @route="form" />
+    <Aside::Title @label="Examples" />
+    <Aside::Item @label="List" @icon="list" @route="list" />
+    <Aside::Item @label="Detail" @icon="box" @route="detail" />
+    <Aside::Item @label="Form" @icon="table-list" @route="form" />
     <Aside::Item
-      @text="Disabled"
+      @label="Disabled"
       @icon="crop-simple"
       @route="detail"
       class="disabled"
@@ -94,7 +98,7 @@
     <div class="d-flex align-items-center gap-3">
       {{#if this.isCollapsed}}
         <Button
-          @text="Expand menu"
+          @label="Expand menu"
           @icon="angles-right"
           @color="none"
           @isIconOnly={{true}}

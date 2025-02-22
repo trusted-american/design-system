@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface CloseButtonSignature {
   Args: {
-    closeText: string;
+    label: string;
   };
   Element: HTMLButtonElement;
 }

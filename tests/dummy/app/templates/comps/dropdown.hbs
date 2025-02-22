@@ -5,39 +5,43 @@
 
 <Snippet @name="dropdown.hbs">
   {{! BEGIN-SNIPPET dropdown }}
-  <Button @text="Open dropdown" {{dropdown}} />
+  <Button @label="Open dropdown" {{dropdown}} />
   <Dropdown>
     <Dropdown::Item
-      @text="Copy link"
+      @label="Copy link"
       @subtitle="Due by December 31, 2021"
       @icon="copy"
       @shortcut="⌘C"
       {{on "click" this.click}}
     />
     <Dropdown::Item
-      @text="Quote reply"
+      @label="Quote reply"
       @icon="quote-left"
       @shortcut="⌘Q"
       {{on "click" this.click}}
     />
     <Dropdown::Item
-      @text="Edit comment"
+      @label="Edit comment"
       @icon="pen"
       @shortcut="⌘E"
       {{on "click" this.click}}
     />
     <Dropdown::Divider />
     <Dropdown::Item
-      @text="Delete file"
+      @label="Delete file"
       @icon="trash"
       @shortcut="⌘D"
       @color="danger"
       {{on "click" this.click}}
     />
     <Dropdown::Divider />
-    <Dropdown::Item @text="Route" @icon="plus" @route="index" />
-    <Dropdown::Header @text="Header" />
-    <Dropdown::Item @text="Href" @icon="plus" @href="https://www.google.com/" />
+    <Dropdown::Item @label="Route" @icon="plus" @route="index" />
+    <Dropdown::Header @label="Header" />
+    <Dropdown::Item
+      @label="Href"
+      @icon="plus"
+      @href="https://www.google.com/"
+    />
   </Dropdown>
   {{! END-SNIPPET }}
 </Snippet>

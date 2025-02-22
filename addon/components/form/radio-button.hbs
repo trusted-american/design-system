@@ -1,5 +1,5 @@
 <Form::Label
-  @text={{unless @isInputOnly @label}}
+  @label={{unless @isInputOnly @label}}
   @identifier="{{@identifier}}0"
   @isRequired={{@isRequired}}
 />
@@ -17,7 +17,7 @@
         {{on "change" (fn @onChange option.value)}}
       />
       <Button
-        @text={{option.label}}
+        @label={{option.label}}
         @color={{option.color}}
         @isLabel={{true}}
         for="{{@identifier}}{{index}}"
@@ -26,4 +26,4 @@
   </ButtonGroup>
 </div>
 
-<Form::Help @text={{@help}} />
+<Form::Help @label={{@help}} />

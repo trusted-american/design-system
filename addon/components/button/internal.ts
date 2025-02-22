@@ -4,7 +4,7 @@ import type { IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 export interface ButtonInternalSignature {
   Args: {
-    text: string;
+    label: string;
     icon?: string;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;

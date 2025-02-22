@@ -4,8 +4,8 @@ import { action } from '@ember/object';
 
 export interface ToastSignature {
   Args: {
-    closeText: string;
     color?: string;
+    closeButtonLabel: string;
     onClose?: () => void;
   };
   Blocks: {

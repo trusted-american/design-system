@@ -27,7 +27,7 @@ module(
           @selected={{this.selected}}
           @label="Label"
           @identifier="identifier"
-          @chooseText="Choose…"
+          @chooseLabel="Choose…"
           @onChange={{this.onChange}}
           @onCreate={{this.onCreate}}
           as |option|

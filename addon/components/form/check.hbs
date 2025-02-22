@@ -16,12 +16,12 @@
   />
 
   <Form::Label
-    @text={{unless @isInputOnly @label}}
+    @label={{unless @isInputOnly @label}}
     @identifier={{@identifier}}
     @isRequired={{@isRequired}}
     @isCheck={{true}}
   />
 
-  <Form::Feedback @text={{@invalidFeedback}} />
-  <Form::Help @text={{@help}} />
+  <Form::Feedback @label={{@invalidFeedback}} />
+  <Form::Help @label={{@help}} />
 </div>

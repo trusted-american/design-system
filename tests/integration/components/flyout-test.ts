@@ -16,7 +16,7 @@ module('Integration | Component | flyout', function (hooks) {
     await render<Context>(hbs`
       <Flyout
         @title="Title"
-        @closeText="Close"
+        @closeButtonLabel="Close"
         @onClose={{this.onClose}}
       >
         Body

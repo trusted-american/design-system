@@ -5,8 +5,8 @@ export interface PlaceholderSignature {
     icon: string;
     title: string;
     subtitle?: string;
-    buttonText?: string;
-    secondaryButtonText?: string;
+    buttonLabel?: string;
+    secondaryButtonLabel?: string;
     onClick?: () => void;
     onSecondaryClick?: () => void;
   };

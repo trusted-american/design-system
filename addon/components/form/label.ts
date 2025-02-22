@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface FormLabelSignature {
   Args: {
-    text?: string;
+    label?: string;
     identifier: string;
     isRequired?: boolean;
     isCheck?: boolean;

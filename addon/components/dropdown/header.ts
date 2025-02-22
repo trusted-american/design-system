@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export interface DropdownHeaderSignature {
   Args: {
-    text: string;
+    label: string;
   };
   Element: HTMLHeadingElement;
 }
