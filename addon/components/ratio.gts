@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { concat } from '@ember/helper';
 
 export interface RatioSignature {
   Args: {
@@ -10,7 +11,17 @@ export interface RatioSignature {
   Element: HTMLDivElement;
 }
 
-export default class Ratio extends Component<RatioSignature> {}
+export default class Ratio extends Component<RatioSignature> {
+  <template>
+    <div
+      class="ratio {{if @ratio (concat 'ratio-' @ratio)}}"
+      data-test-ratio
+      ...attributes
+    >
+      {{yield}}
+    </div>
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
