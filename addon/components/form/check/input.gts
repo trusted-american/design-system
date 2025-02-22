@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { on } from '@ember/modifier';
 
 export interface FormCheckInputSignature {
   Args: {
@@ -21,6 +22,19 @@ export default class FormCheckInput extends Component<FormCheckInputSignature> {
     }
     this.args.onChange(target.checked);
   }
+
+  <template>
+    <input
+      type="checkbox"
+      id={{@identifier}}
+      checked={{@value}}
+      class="form-check-input"
+      required={{@isRequired}}
+      aria-label={{if @isInputOnly @label}}
+      {{on "input" this.change}}
+      ...attributes
+    />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

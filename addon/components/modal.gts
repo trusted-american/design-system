@@ -1,6 +1,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { Modal as BootstrapModal } from 'bootstrap';
+import CloseButton from './close-button';
+import tdsDidInsert from '../modifiers/tds-did-insert';
+import { concat } from '@ember/helper';
 
 export interface ModalSignature {
   Args: {
@@ -69,6 +72,44 @@ export default class Modal extends Component<ModalSignature> {
     this.modal.hide();
     // this.modal.dispose();
   }
+
+  <template>
+    <div
+      class="modal fade"
+      tabindex="-1"
+      data-test-modal
+      ...attributes
+      {{tdsDidInsert this.didInsert}}
+    >
+      <div
+        class="modal-dialog modal-dialog-scrollable
+          {{if @size (concat 'modal-' @size)}}
+          {{if @isFullscreen 'modal-fullscreen'}}"
+      >
+        <div class="modal-content">
+          {{#if @title}}
+            <div class="modal-header">
+              <h6 class="modal-title">{{@title}}</h6>
+              {{#unless @hideClose}}
+                <CloseButton
+                  @label={{@closeButtonLabel}}
+                  data-bs-dismiss="modal"
+                />
+              {{/unless}}
+            </div>
+          {{/if}}
+          <div class="modal-body">
+            {{yield this.close}}
+          </div>
+          {{#if (has-block "footer")}}
+            <div class="modal-footer">
+              {{yield this.close to="footer"}}
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

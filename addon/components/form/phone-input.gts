@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
-
-import type { BaseArgs } from './input';
+import FormInput, { type BaseArgs } from './input';
+import { fn } from '@ember/helper';
 
 interface Args extends BaseArgs {
   value: string | null | undefined;
@@ -34,6 +34,28 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
       this.args.onChange(null);
     }
   }
+
+  <template>
+    <FormInput
+      @type="tel"
+      @value={{this.value}}
+      @label={{@label}}
+      @identifier={{@identifier}}
+      @isRequired={{@isRequired}}
+      @help={{@help}}
+      @invalidFeedback={{@invalidFeedback}}
+      @size={{@size}}
+      @isInputOnly={{@isInputOnly}}
+      @errors={{@errors}}
+      @onChange={{fn (mut this.value)}}
+      maxlength="14"
+      pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+      autocomplete="tel-national"
+      ...attributes
+    >
+      +1
+    </FormInput>
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

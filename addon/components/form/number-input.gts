@@ -1,7 +1,6 @@
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
-
-import type { BaseArgs } from './input';
+import { action } from '@ember/object';
+import FormInput, { type BaseArgs } from './input';
 
 interface Args extends BaseArgs {
   value: number | null | undefined;
@@ -27,6 +26,23 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
         : parseFloat(value);
     this.args.onChange(number);
   }
+
+  <template>
+    <FormInput
+      @type={{if @type @type "number"}}
+      @value={{this.value}}
+      @label={{@label}}
+      @identifier={{@identifier}}
+      @isRequired={{@isRequired}}
+      @help={{@help}}
+      @invalidFeedback={{@invalidFeedback}}
+      @size={{@size}}
+      @isInputOnly={{@isInputOnly}}
+      @errors={{@errors}}
+      @onChange={{this.change}}
+      ...attributes
+    />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

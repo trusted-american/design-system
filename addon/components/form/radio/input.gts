@@ -10,7 +10,19 @@ export interface FormRadioInputSignature {
   Element: HTMLInputElement;
 }
 
-export default class FormRadioInput extends Component<FormRadioInputSignature> {}
+export default class FormRadioInput extends Component<FormRadioInputSignature> {
+  <template>
+    <input
+      type="radio"
+      class="form-check-input"
+      name={{@name}}
+      id={{@identifier}}
+      checked={{@checked}}
+      required={{@isRequired}}
+      ...attributes
+    />
+  </template>
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

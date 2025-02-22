@@ -1,5 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import FormLabel from './label';
+import FormFeedback from './feedback';
+import FormHelp from './help';
+import { concat } from '@ember/helper';
+import { on } from '@ember/modifier';
 
 import type { BaseArgs } from './input';
 
@@ -26,6 +31,32 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
       target.value = '';
     }
   }
+
+  <template>
+    <FormLabel
+      @label={{unless @isInputOnly @label}}
+      @identifier={{@identifier}}
+      @isRequired={{@isRequired}}
+    />
+
+    <input
+      type="file"
+      id={{@identifier}}
+      class="form-control {{if @size (concat 'form-control-' @size)}}"
+      required={{@isRequired}}
+      aria-label={{if @isInputOnly @label}}
+      {{on "change" this.change}}
+      ...attributes
+    />
+
+    <FormFeedback @label={{@invalidFeedback}} />
+
+    {{#each @errors as |error|}}
+      <FormFeedback @label={{error.message}} />
+    {{/each}}
+
+    <FormHelp @label={{@help}} />
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

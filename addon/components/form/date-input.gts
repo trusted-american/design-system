@@ -3,8 +3,7 @@ import { action } from '@ember/object';
 import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-
-import type { BaseArgs } from './input';
+import FormInput, { type BaseArgs } from './input';
 
 dayjs.extend(utc);
 
@@ -92,6 +91,46 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
 
     this.args.onChange(value);
   }
+
+  <template>
+    {{#if (eq "month" @type)}}
+      <FormInput
+        @type={{if @type @type "date"}}
+        @value={{this.value}}
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @help={{@help}}
+        @invalidFeedback={{@invalidFeedback}}
+        @size={{@size}}
+        @isInputOnly={{@isInputOnly}}
+        @errors={{@errors}}
+        @onChange={{this.change}}
+        min={{this.min}}
+        max={{this.max}}
+        ...attributes
+      >
+        1st of
+      </FormInput>
+    {{else}}
+      <FormInput
+        @type={{if @type @type "date"}}
+        @value={{this.value}}
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @help={{@help}}
+        @invalidFeedback={{@invalidFeedback}}
+        @size={{@size}}
+        @isInputOnly={{@isInputOnly}}
+        @errors={{@errors}}
+        @onChange={{this.change}}
+        min={{this.min}}
+        max={{this.max}}
+        ...attributes
+      />
+    {{/if}}
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {
