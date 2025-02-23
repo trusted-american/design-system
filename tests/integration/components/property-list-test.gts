@@ -20,9 +20,9 @@ module('Integration | Component | property-list', function (hooks) {
             <:default>
               Value 3
             </:default>
-            <:side>
-              Side
-            </:side>
+            <:trailing>
+              Trailing
+            </:trailing>
           </list.item>
         </PropertyList>
       </template>,
@@ -35,7 +35,7 @@ module('Integration | Component | property-list', function (hooks) {
     assert.dom('dl dd:nth-of-type(2)').hasText('Value 2');
 
     assert.dom('dl dt:nth-of-type(3)').hasText('Key 3');
-    assert.dom('dl dd:nth-of-type(3)').hasText('Value 3 Side');
+    assert.dom('dl dd:nth-of-type(3)').hasText('Value 3 Trailing');
   });
 
   test('it renders horizontal', async function (assert) {
@@ -52,9 +52,9 @@ module('Integration | Component | property-list', function (hooks) {
             <:default>
               Value 3
             </:default>
-            <:side>
-              Side
-            </:side>
+            <:trailing>
+              Trailing
+            </:trailing>
           </list.item>
         </PropertyList>
       </template>,
@@ -67,7 +67,7 @@ module('Integration | Component | property-list', function (hooks) {
     assert.dom('dl div:nth-of-type(2) dd').hasText('Value 2');
 
     assert.dom('dl div:nth-of-type(3) dt').hasText('Key 3');
-    assert.dom('dl div:nth-of-type(3) dd').hasText('Value 3 Side');
+    assert.dom('dl div:nth-of-type(3) dd').hasText('Value 3 Trailing');
   });
 
   test('it renders with title', async function (assert) {

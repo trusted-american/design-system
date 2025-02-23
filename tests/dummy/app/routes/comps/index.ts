@@ -7,6 +7,6 @@ export default class CompsIndexRoute extends Route {
   @service declare router: RouterService;
 
   beforeModel() {
-    void this.router.transitionTo('comps.accordion');
+    this.router.transitionTo('comps.accordion');
   }
 }

@@ -8,6 +8,11 @@
   --bs-gutter-x: 3rem;
 }
 
-.shiki {
-  border-radius: 0 !important;
+.card .shiki {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+:root {
+  --ember-shiki-border-radius: var(--bs-border-radius) !important;
 }

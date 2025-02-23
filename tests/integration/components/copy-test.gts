@@ -9,7 +9,7 @@ module('Integration | Component | copy', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <Copy @label="Label">
+        <Copy @value="Value">
           template block text
         </Copy>
       </template>,

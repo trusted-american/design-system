@@ -3,7 +3,21 @@
 
 <Heading @title="Introduction" />
 
-<p><code>ember install @trusted-american/design-system</code></p>
+<p>First install the addon:</p>
+
+<p>
+  <CodeBlock @code="ember install @trusted-american/design-system" />
+</p>
+
+<p>Then include Bootstrap's CSS in <code>ember-cli-build.js</code>:</p>
+
+<p>
+  <CodeBlock
+    @code="app.import('node_modules/bootstrap/dist/css/bootstrap.css');"
+  />
+</p>
+
+<p>Finally, add the base components to <code>application.hbs</code>:</p>
 
 <Snippet @name="introduction.hbs">
   {{! BEGIN-SNIPPET introduction }}

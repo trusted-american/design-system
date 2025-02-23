@@ -5,7 +5,7 @@ import type { TOC } from '@ember/component/template-only';
 
 export interface PropertyListItemSignature {
   Args: {
-    value: unknown; // string | number | boolean | Date | null | undefined
+    value: string | number | boolean | null | undefined;
     label: string;
     help?: string;
     isStatic?: boolean;
@@ -13,7 +13,7 @@ export interface PropertyListItemSignature {
   };
   Blocks: {
     default: [];
-    side: [];
+    trailing: [];
   };
   Element: HTMLElement;
 }
@@ -32,11 +32,10 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
           {{#if (has-block)}}
             {{yield}}
           {{else}}
-            {{! @glint-expect-error }}
             {{@value}}
           {{/if}}
         </:default>
-        <:side>{{yield to="side"}}</:side>
+        <:trailing>{{yield to="trailing"}}</:trailing>
       </PropertyListItemValue>
     </div>
   {{else}}
@@ -52,11 +51,10 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
         {{#if (has-block)}}
           {{yield}}
         {{else}}
-          {{! @glint-expect-error }}
           {{@value}}
         {{/if}}
       </:default>
-      <:side>{{yield to="side"}}</:side>
+      <:trailing>{{yield to="trailing"}}</:trailing>
     </PropertyListItemValue>
   {{/if}}
 </template>;

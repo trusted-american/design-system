@@ -13,7 +13,7 @@ export interface PropertyListItemValueSignature {
   };
   Blocks: {
     default: [];
-    side: [];
+    trailing: [];
   };
   Element: HTMLElement;
 }
@@ -24,12 +24,12 @@ const PropertyListItemValue: TOC<PropertyListItemValueSignature> = <template>
       {{#if @isStatic}}
         {{yield}}
       {{else}}
-        <Copy @label="{{@value}}" {{tooltip (concat "Copy " @label)}}>
+        <Copy @value="{{@value}}" {{tooltip (concat "Copy " @label)}}>
           {{yield}}
         </Copy>
       {{/if}}
-      {{#if (has-block "side")}}
-        <div>{{yield to="side"}}</div>
+      {{#if (has-block "trailing")}}
+        <div>{{yield to="trailing"}}</div>
       {{/if}}
     {{else}}
       {{! TODO: class dne }}

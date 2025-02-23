@@ -1,10 +1,17 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import PaginationItem from './pagination/item';
-import PaginationEllipsis from './pagination/ellipsis';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { and, eq, gt, lt } from 'ember-truth-helpers';
+
+const Ellipsis = <template>
+  <li class="page-item">
+    <div class="page-link" disabled>
+      …
+    </div>
+  </li>
+</template>;
 
 interface Args {
   nextButtonLabel: string;
@@ -173,7 +180,7 @@ export default class Pagination extends Component<PaginationSignature> {
                     @index={{1}}
                     @onClick={{fn this.change 1}}
                   />
-                  <PaginationEllipsis />
+                  <Ellipsis />
                   <PaginationItem
                     @page={{@page}}
                     @index={{this.twoAway}}
@@ -187,7 +194,7 @@ export default class Pagination extends Component<PaginationSignature> {
                 )
               }}
                 {{#if (gt index 1)}}
-                  <PaginationEllipsis />
+                  <Ellipsis />
                 {{/if}}
                 <PaginationItem
                   @page={{@page}}
@@ -201,7 +208,7 @@ export default class Pagination extends Component<PaginationSignature> {
                     @index={{1}}
                     @onClick={{fn this.change 1}}
                   />
-                  <PaginationEllipsis />
+                  <Ellipsis />
                   <PaginationItem
                     @page={{@page}}
                     @index={{this.twoAway}}
@@ -222,7 +229,7 @@ export default class Pagination extends Component<PaginationSignature> {
                   @onClick={{fn this.change index}}
                 />
                 {{#if (lt index this.twoAway)}}
-                  <PaginationEllipsis />
+                  <Ellipsis />
                 {{/if}}
               {{else if (eq index this.length)}}
                 <PaginationItem
