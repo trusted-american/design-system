@@ -44,6 +44,5 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "rootDir": "."
-  },
-  "types": ["ember-source/types"]
+  }
 }
