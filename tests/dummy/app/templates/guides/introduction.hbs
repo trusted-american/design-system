@@ -19,44 +19,43 @@
 
 <p>Finally, add the base components to <code>application.hbs</code>:</p>
 
-<Snippet @name="introduction.hbs">
-  {{! BEGIN-SNIPPET introduction }}
-  {{page-title "Title"}}
-  {{breadcrumb "Title" route="application"}}
-  {{theme "light"}}
+<CodeBlock
+  @language="hbs"
+  @code='&lcub;&lcub;page-title "Title"&rcub;&rcub;
+&lcub;&lcub;breadcrumb "Title" route="application"&rcub;&rcub;
+&lcub;&lcub;theme "light"&rcub;&rcub;
 
-  <Aside
-    @title="Title"
-    @logo="/logo.svg"
-    @route="application"
-    @isCollapsed={{false}}
-    @onChange={{(noop)}}
-  >
-    <:header>
-      Header
-    </:header>
-    <:default>
-      <Aside::Item @label="First" @route="index" @icon="house" />
-      <Aside::Item @label="Second" @route="index" @icon="house" />
-      <Aside::Item @label="Third" @route="index" @icon="house" />
-    </:default>
-    <:footer>
-      Footer
-    </:footer>
-  </Aside>
-  <Main>
-    <Main::TopHeader>
-      Top header
-    </Main::TopHeader>
-    <Main::Header>
-      Header
-    </Main::Header>
-    <Main::Body>
-      Body
-    </Main::Body>
-    <Main::Footer>
-      Footer
-    </Main::Footer>
-  </Main>
-  {{! END-SNIPPET }}
-</Snippet>
+<Aside
+  @title="Title"
+  @logo="/logo.svg"
+  @route="application"
+  @isCollapsed=&lcub;&lcub;false&rcub;&rcub;
+  @onChange=&lcub;&lcub;(noop)&rcub;&rcub;
+>
+  <:header>
+    Header
+  </:header>
+  <:default>
+    <Aside::Item @label="First" @route="index" @icon="house" />
+    <Aside::Item @label="Second" @route="index" @icon="house" />
+    <Aside::Item @label="Third" @route="index" @icon="house" />
+  </:default>
+  <:footer>
+    Footer
+  </:footer>
+</Aside>
+<Main>
+  <Main::TopHeader>
+    Top header
+  </Main::TopHeader>
+  <Main::Header>
+    Header
+  </Main::Header>
+  <Main::Body>
+    Body
+  </Main::Body>
+  <Main::Footer>
+    Footer
+  </Main::Footer>
+</Main>'
+/>
