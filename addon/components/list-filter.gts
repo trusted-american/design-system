@@ -19,10 +19,13 @@ import FormCheckInput from './form/check/input';
 import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, not } from 'ember-truth-helpers';
-import { findBy } from '@nullvoxpopuli/ember-composable-helpers';
 import { modifier } from 'ember-modifier';
+import { get } from '@ember/object';
 
 import type { Option } from './form/select';
+
+const findBy = <T,>(byPath: keyof T, value: T[keyof T], arr: T[]) =>
+  arr.find((item) => get(item, String(byPath)) === value);
 
 const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 
