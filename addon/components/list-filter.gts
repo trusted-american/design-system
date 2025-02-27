@@ -19,10 +19,12 @@ import FormCheckInput from './form/check/input';
 import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, not } from 'ember-truth-helpers';
-import { findBy, includes } from '@nullvoxpopuli/ember-composable-helpers';
+import { findBy } from '@nullvoxpopuli/ember-composable-helpers';
 import { modifier } from 'ember-modifier';
 
 import type { Option } from './form/select';
+
+const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 
 const autoselect = modifier(function autoselect(element: HTMLInputElement) {
   element.select();
