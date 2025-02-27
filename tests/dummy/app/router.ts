@@ -28,7 +28,10 @@ Router.map(function () {
     this.route('external-link');
     this.route('file-type');
     this.route('flyout');
-    this.route('form');
+    this.route('form', function () {
+      this.route('check');
+      this.route('date-input');
+    });
     this.route('heading');
     this.route('icon');
     this.route('list-attributes');
