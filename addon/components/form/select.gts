@@ -43,17 +43,18 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     if (!(target instanceof HTMLSelectElement)) {
       throw new Error();
     }
+    const { value } = target;
 
     const options = this.args.options;
 
-    const index = parseInt(target.value);
+    const index = parseInt(value);
     let selected = options[index] ?? null;
 
-    if (target.value.includes('-')) {
-      const [groupIndex, optionIndex] = target.value.split('-').map(parseInt);
+    if (value.includes('-')) {
+      const [groupIndex, optionIndex] = value.split('-');
       if (groupIndex && optionIndex) {
-        const group = (options as Group<T>[])[groupIndex];
-        const option = group?.options[optionIndex];
+        const group = (options as Group<T>[])[parseInt(groupIndex)];
+        const option = group?.options[parseInt(optionIndex)];
         if (option) {
           selected = option;
         }

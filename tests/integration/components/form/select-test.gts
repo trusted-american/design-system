@@ -50,7 +50,12 @@ module('Integration | Component | form/select', function (hooks) {
           @options={{array
             "a"
             (hash value="b" label="B")
-            (hash groupLabel="Label" options=(array (hash value="c" label="C")))
+            (hash
+              groupLabel="Label"
+              options=(array
+                (hash value="c" label="C") (hash value="d" label="D")
+              )
+            )
           }}
           @selected={{state.selected}}
           @label="Label"
@@ -73,6 +78,10 @@ module('Integration | Component | form/select', function (hooks) {
     await select('[data-test-form-select]', '2-0');
 
     assert.strictEqual(state.selected, 'c');
+
+    await select('[data-test-form-select]', '2-1');
+
+    assert.strictEqual(state.selected, 'd');
 
     await select('[data-test-form-select]', '');
 
