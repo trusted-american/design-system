@@ -59,6 +59,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
           <markdown-toolbar for={{@identifier}}>
             <md-header>
               <Button
+                {{! TODO: string }}
                 @label="Heading"
                 @icon="heading"
                 @size="sm"
