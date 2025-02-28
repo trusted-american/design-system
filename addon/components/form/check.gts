@@ -45,7 +45,10 @@ const FormCheck: TOC<FormCheckSignature> = <template>
       />
     {{/unless}}
 
-    <FormFeedback @label={{@invalidFeedback}} />
+    {{#if @invalidFeedback}}
+      <FormFeedback @label={{@invalidFeedback}} />
+    {{/if}}
+
     <FormHelp @label={{@help}} />
   </div>
 </template>;
