@@ -42,6 +42,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
       <card.header class="d-flex justify-content-between align-items-center">
         <Nav class="card-header-tabs">
           <NavItem
+            {{! TODO: string }}
             @label="Write"
             class={{if (eq false this.isPreview) "active"}}
             data-test-write
@@ -59,7 +60,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
           <markdown-toolbar for={{@identifier}}>
             <md-header>
               <Button
-                {{! TODO: string }}
                 @label="Heading"
                 @icon="heading"
                 @size="sm"

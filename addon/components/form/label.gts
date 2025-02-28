@@ -22,6 +22,7 @@ const FormLabel: TOC<FormLabelSignature> = <template>
     >
       {{@label}}
       {{#if @isRequired}}
+        {{! TODO: string }}
         <Badge @label="Required" @color="light" class="ms-1" />
       {{/if}}
     </label>

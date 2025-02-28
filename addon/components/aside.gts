@@ -38,6 +38,7 @@ const Aside: TOC<AsideSignature> = <template>
         <h5 class="tds-aside-title mb-0">{{@title}}</h5>
       </LinkTo>
       <Button
+        {{! TODO: string }}
         @label="Collapse menu"
         @icon="angles-left"
         @color="none"
