@@ -18,6 +18,25 @@ import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 
 import type { BaseArgs } from './input';
+import type { TOC } from '@ember/component/template-only';
+
+const EditorButton: TOC<{
+  Args: {
+    label: string;
+    icon: string;
+  };
+  Element: HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement;
+}> = <template>
+  <Button
+    @label={{@label}}
+    @icon={{@icon}}
+    @size="sm"
+    @color="light"
+    @isIconOnly={{true}}
+    {{tooltip @label placement="bottom"}}
+    ...attributes
+  />
+</template>;
 
 interface Args extends BaseArgs {
   value: string | null;
@@ -41,7 +60,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       return;
     }
 
-    this.editor = new Editor({
+    const editor = new Editor({
       element,
       extensions: [StarterKit],
       content: this.args.value,
@@ -50,6 +69,13 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         this.args.onChange(value);
       },
     });
+
+    this.editor = editor;
+
+    return () => {
+      // editor.destroy();
+      // this.editor = undefined;
+    };
   });
 
   @action
@@ -120,58 +146,34 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
 
         {{#unless this.isCode}}
           <div>
-            <Button
+            <EditorButton
               @label="Bold"
               @icon="bold"
-              @size="sm"
-              @color="light"
-              @isIconOnly={{true}}
-              {{tooltip "Bold" placement="bottom"}}
               {{on "click" this.toggleBold}}
             />
-            <Button
+            <EditorButton
               @label="Italic"
               @icon="italic"
-              @size="sm"
-              @color="light"
-              @isIconOnly={{true}}
-              {{tooltip "Italic" placement="bottom"}}
               {{on "click" this.toggleItalic}}
             />
-            <Button
+            <EditorButton
               @label="Strike"
               @icon="strikethrough"
-              @size="sm"
-              @color="light"
-              @isIconOnly={{true}}
-              {{tooltip "Strike" placement="bottom"}}
               {{on "click" this.toggleStrike}}
             />
-            <Button
+            <EditorButton
               @label="Paragraph"
               @icon="paragraph"
-              @size="sm"
-              @color="light"
-              @isIconOnly={{true}}
-              {{tooltip "Paragraph" placement="bottom"}}
               {{on "click" this.setParagraph}}
             />
-            <Button
+            <EditorButton
               @label="Numbered list"
               @icon="list-ol"
-              @size="sm"
-              @color="light"
-              @isIconOnly={{true}}
-              {{tooltip "Numbered list" placement="bottom"}}
               {{on "click" this.toggleNumberedList}}
             />
-            <Button
+            <EditorButton
               @label="Unordered list"
               @icon="list-ul"
-              @size="sm"
-              @color="light"
-              @isIconOnly={{true}}
-              {{tooltip "Unordered list" placement="bottom"}}
               {{on "click" this.toggleUnorderedList}}
             />
           </div>
