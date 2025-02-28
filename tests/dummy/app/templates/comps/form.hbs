@@ -11,32 +11,14 @@
     <Nav @isPills={{true}} @isVertical={{true}}>
       <Nav::Item @route="comps.form.check" @label="Form check" />
       <Nav::Item @route="comps.form.date-input" @label="Form date input" />
+      <Nav::Item
+        @route="comps.form.file-dropzone"
+        @label="Form file dropzone"
+      />
     </Nav>
   </div>
   <div class="col-12 col-md-10">
     {{outlet}}
-
-    <Subheading @title="Form file dropzone" />
-
-    <p>
-      Value:
-      <ul>
-        {{#each this.files as |file|}}
-          <li>{{file.name}}</li>
-        {{/each}}
-      </ul>
-    </p>
-
-    <Snippet @name="form-file-dropzone.hbs">
-      {{! BEGIN-SNIPPET form-file-dropzone }}
-      <Form::FileDropzone
-        @titleLabel="Drag and Drop Your Files Here"
-        @subtitleLabel="Or select a file from your computer…"
-        @activeTitleLabel="Drop to Upload"
-        @onCreate={{this.create}}
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
 
     <Subheading @title="Form file input" />
 

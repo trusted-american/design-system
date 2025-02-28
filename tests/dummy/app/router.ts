@@ -31,6 +31,7 @@ Router.map(function () {
     this.route('form', function () {
       this.route('check');
       this.route('date-input');
+      this.route('file-dropzone');
     });
     this.route('heading');
     this.route('icon');
