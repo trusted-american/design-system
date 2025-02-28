@@ -26,6 +26,7 @@ module('Integration | Component | form/radio', function (hooks) {
           @label="Label"
           @identifier="identifier"
           @isRequired={{undefined}}
+          @requiredLabel="Required"
           @isInline={{undefined}}
           @onChange={{onChange}}
         />

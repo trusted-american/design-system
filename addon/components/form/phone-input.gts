@@ -44,6 +44,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
       @isRequired={{@isRequired}}
       @help={{@help}}
       @invalidFeedback={{@invalidFeedback}}
+      @requiredLabel={{@requiredLabel}}
       @size={{@size}}
       @isInputOnly={{@isInputOnly}}
       @errors={{@errors}}

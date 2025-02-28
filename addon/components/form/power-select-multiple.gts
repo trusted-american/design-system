@@ -37,6 +37,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 

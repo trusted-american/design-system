@@ -25,6 +25,7 @@ module('Integration | Component | form/select', function (hooks) {
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
+          @requiredLabel="Required"
           @onChange={{fn (mut state.selected)}}
         />
       </template>,
@@ -61,6 +62,7 @@ module('Integration | Component | form/select', function (hooks) {
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}
+          @requiredLabel="Required"
           @chooseLabel="Choose…"
           @onChange={{fn (mut state.selected)}}
         />

@@ -87,6 +87,7 @@
       @value={{this.isDarkTheme}}
       @label="Dark theme"
       @identifier="isDarkTheme"
+      @requiredLabel="Required"
       @isSwitch={{true}}
       @onChange={{fn (mut this.isDarkTheme)}}
     />
@@ -111,6 +112,7 @@
         @type="search"
         @label="Search"
         @identifier="search"
+        @requiredLabel="Required"
         @isInputOnly={{true}}
         @onChange={{fn (mut this.query)}}
         placeholder="Search"

@@ -37,6 +37,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 
@@ -149,6 +150,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
             @identifier={{@identifier}}
             @isRequired={{@isRequired}}
             @invalidFeedback={{@invalidFeedback}}
+            @requiredLabel={{@requiredLabel}}
             @isInputOnly={{true}}
             @onChange={{@onChange}}
             rows="4"

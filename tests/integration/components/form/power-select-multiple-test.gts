@@ -26,6 +26,7 @@ module(
             @selected={{selected}}
             @label="Label"
             @identifier="identifier"
+            @requiredLabel="Required"
             @chooseLabel="Choose…"
             @onChange={{onChange}}
             @onCreate={{onCreate}}

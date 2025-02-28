@@ -58,6 +58,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 
@@ -85,6 +86,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             @label={{@label}}
             @identifier={{@identifier}}
             @isRequired={{@isRequired}}
+            @requiredLabel={{@requiredLabel}}
             @isInputOnly={{true}}
             @onChange={{@onChange}}
             class="border-0"

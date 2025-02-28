@@ -83,6 +83,7 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 

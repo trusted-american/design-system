@@ -21,6 +21,7 @@ module('Integration | Component | form/power-select', function (hooks) {
           @selected={{selected}}
           @label="Label"
           @identifier="identifier"
+          @requiredLabel="Required"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
           @onChange={{onChange}}

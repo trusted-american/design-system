@@ -35,6 +35,7 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
         @label={{@label}}
         @identifier="{{@identifier}}0"
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 
@@ -53,6 +54,7 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
           <FormLabel
             @label={{option.label}}
             @identifier="{{@identifier}}{{index}}"
+            @requiredLabel={{@requiredLabel}}
             @isCheck={{true}}
           />
 

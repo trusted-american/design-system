@@ -38,6 +38,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 

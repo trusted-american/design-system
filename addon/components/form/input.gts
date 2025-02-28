@@ -13,6 +13,7 @@ export interface BaseArgs {
   isRequired?: boolean;
   help?: string;
   invalidFeedback?: string;
+  requiredLabel: string;
   size?: 'sm' | 'lg';
   isInputOnly?: boolean;
   errors?: { message: string }[];
@@ -48,6 +49,7 @@ export default class FormInput extends Component<FormInputSignature> {
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 

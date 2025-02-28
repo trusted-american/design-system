@@ -37,6 +37,7 @@ export default class FormRadioCard<T> extends Component<
         @label={{@label}}
         @identifier="{{@identifier}}0"
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 

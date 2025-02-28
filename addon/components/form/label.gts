@@ -7,6 +7,7 @@ export interface FormLabelSignature {
     label: string;
     identifier: string;
     isRequired?: boolean;
+    requiredLabel: string;
     isCheck?: boolean;
   };
   Element: HTMLLabelElement;
@@ -21,8 +22,7 @@ const FormLabel: TOC<FormLabelSignature> = <template>
   >
     {{@label}}
     {{#if @isRequired}}
-      {{! TODO: string }}
-      <Badge @label="Required" @color="light" class="ms-1" />
+      <Badge @label={{@requiredLabel}} @color="light" class="ms-1" />
     {{/if}}
   </label>
 </template>;

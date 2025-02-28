@@ -33,6 +33,7 @@ export default class FormTextarea extends Component<FormTextareaSignature> {
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 

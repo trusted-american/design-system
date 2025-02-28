@@ -41,6 +41,7 @@ const FormCheck: TOC<FormCheckSignature> = <template>
         @label={{@label}}
         @identifier={{@identifier}}
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
         @isCheck={{true}}
       />
     {{/unless}}

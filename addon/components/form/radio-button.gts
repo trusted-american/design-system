@@ -34,6 +34,7 @@ export default class FormRadioButton<T> extends Component<
         @label={{@label}}
         @identifier="{{@identifier}}0"
         @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 
