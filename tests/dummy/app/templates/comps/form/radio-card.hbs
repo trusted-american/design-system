@@ -1,0 +1,28 @@
+{{page-title "Form radio card"}}
+{{breadcrumb "Form radio card" route="comps.form.radio-card"}}
+
+<Subheading @title="Form radio card" />
+
+<p>Value: {{this.radio}}</p>
+
+<Snippet @name="form-radio-card.hbs">
+  {{! BEGIN-SNIPPET form-radio-card }}
+  <Form::RadioCard
+    @options={{array
+      (hash
+        value=true label="Yes" icon="check" help="This is an example of help."
+      )
+      (hash
+        value=false label="No" icon="xmark" help="This is an example of help."
+      )
+    }}
+    @selected={{this.radio}}
+    @label="Label"
+    @identifier="radioCard"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.radio)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

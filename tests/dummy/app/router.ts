@@ -38,6 +38,14 @@ Router.map(function () {
       this.route('markdown-input');
       this.route('number-input');
       this.route('phone-input');
+      this.route('power-select');
+      this.route('power-select-multiple');
+      this.route('radio');
+      this.route('radio-button');
+      this.route('radio-card');
+      this.route('select');
+      this.route('textarea');
+      this.route('time-input');
     });
     this.route('heading');
     this.route('icon');

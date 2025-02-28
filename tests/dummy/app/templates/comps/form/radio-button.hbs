@@ -1,0 +1,24 @@
+{{page-title "Form radio button"}}
+{{breadcrumb "Form radio button" route="comps.form.radio-button"}}
+
+<Subheading @title="Form radio button" />
+
+<p>Value: {{this.radio}}</p>
+
+<Snippet @name="form-radio-button.hbs">
+  {{! BEGIN-SNIPPET form-radio-button }}
+  <Form::RadioButton
+    @options={{array
+      (hash value=true label="Yes")
+      (hash value=false label="No")
+    }}
+    @selected={{this.radio}}
+    @label="Label"
+    @identifier="radioButton"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.radio)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

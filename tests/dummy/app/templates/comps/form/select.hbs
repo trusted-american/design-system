@@ -1,0 +1,29 @@
+{{page-title "Form select"}}
+{{breadcrumb "Form select" route="comps.form.select"}}
+
+<Subheading @title="Form select" />
+
+<p>Value: {{this.status}}</p>
+
+<Snippet @name="form-select.hbs">
+  {{! BEGIN-SNIPPET form-select }}
+  <Form::Select
+    @options={{array
+      (hash value=undefined label="Choose…")
+      (hash value="active" label="Active")
+      (hash value="inactive" label="Inactive")
+      (hash
+        groupLabel="Label" options=(array (hash value="third" label="Third"))
+      )
+      "fourth"
+    }}
+    @selected={{this.status}}
+    @label="Label"
+    @identifier="select"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.status)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

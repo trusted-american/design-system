@@ -1,0 +1,30 @@
+{{page-title "Form power select multiple"}}
+{{breadcrumb
+  "Form power select multiple"
+  route="comps.form.power-select-multiple"
+}}
+
+<Subheading @title="Form power select multiple" />
+
+<p>Value: {{this.objectValue.subject}}</p>
+
+<Snippet @name="form-power-select-multiple.hbs">
+  {{! BEGIN-SNIPPET form-power-select-multiple }}
+  <Form::PowerSelectMultiple
+    @options={{(array)}}
+    @selected={{this.arrayValue}}
+    @label="Label"
+    @identifier="powerSelectMultiple"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @chooseLabel="Choose…"
+    @onChange={{fn (mut this.arrayValue)}}
+    @onCreate={{(noop)}}
+    data-test-state-writing-numbers
+    as |post|
+  >
+    {{post.subject}}
+  </Form::PowerSelectMultiple>
+  {{! END-SNIPPET }}
+</Snippet>
