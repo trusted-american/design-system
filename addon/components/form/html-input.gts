@@ -13,7 +13,6 @@ import tooltip from '../../modifiers/tooltip';
 import { on } from '@ember/modifier';
 import PellEditor from 'ember-pell/components/pell-editor';
 import { eq } from 'ember-truth-helpers';
-
 import { modifier } from 'ember-modifier';
 import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
@@ -63,15 +62,14 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     this.editor?.chain().focus().toggleItalic().run();
   }
 
-  // TODO: debt https://github.com/PoslinskiNet/ember-pell/pull/130
-  get value(): string | null {
-    if (!this.args.value) {
-      const element = document.querySelector('.pell-content');
-      if (element) {
-        element.innerHTML = '';
-      }
-    }
-    return this.args.value;
+  @action
+  toggleStrike() {
+    this.editor?.chain().focus().toggleStrike().run();
+  }
+
+  @action
+  setParagraph() {
+    this.editor?.chain().focus().setParagraph().run();
   }
 
   @action
@@ -130,6 +128,24 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
               {{tooltip "Italic" placement="bottom"}}
               {{on "click" this.toggleItalic}}
             />
+            <Button
+              @label="Strike"
+              @icon="strikethrough"
+              @size="sm"
+              @color="light"
+              @isIconOnly={{true}}
+              {{tooltip "Strike" placement="bottom"}}
+              {{on "click" this.toggleStrike}}
+            />
+            <Button
+              @label="Paragraph"
+              @icon="paragraph"
+              @size="sm"
+              @color="light"
+              @isIconOnly={{true}}
+              {{tooltip "Paragraph" placement="bottom"}}
+              {{on "click" this.setParagraph}}
+            />
           </div>
         {{/unless}}
       </card.header>
@@ -149,7 +165,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
           <div data-test-value-editor {{this.setup}} ...attributes></div>
 
           <PellEditor
-            @value={{this.value}}
+            @value={{@value}}
             @onChange={{@onChange}}
             data-test-value-editor
             ...attributes
@@ -160,7 +176,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
 
     {{! hidden input for validation }}
     <input
-      value="{{this.value}}"
+      value="{{@value}}"
       type="text"
       required={{@isRequired}}
       class="d-none"

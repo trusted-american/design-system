@@ -110,28 +110,6 @@ aside.collapsed nav .fa-fw {
   cursor: pointer;
 }
 
-/* form/html-input */
-
-.pell-actionbar {
-  white-space: nowrap;
-  overflow: hidden;
-  background-color: var(--bs-body-bg);
-}
-
-.pell-actionbar .pell-button-selected {
-  background-color: var(--bs-tertiary-bg);
-  color: var(--bs-primary);
-}
-
-.pell-content {
-  height: 16rem;
-}
-
-.pell-content:hover,
-.pell-content:focus {
-  border-color: var(--bs-primary);
-}
-
 /* form/markdown-input */
 
 .markdown-input-preview {
