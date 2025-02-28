@@ -19,6 +19,7 @@ module('Integration | Component | form/file-input', function (hooks) {
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
+          @requiredLabel="Required"
           @onChange={{onChange}}
         />
       </template>,

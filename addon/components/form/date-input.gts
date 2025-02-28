@@ -103,6 +103,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
         @isRequired={{@isRequired}}
         @help={{@help}}
         @invalidFeedback={{@invalidFeedback}}
+        @requiredLabel={{@requiredLabel}}
         @size={{@size}}
         @isInputOnly={{@isInputOnly}}
         @errors={{@errors}}
@@ -122,6 +123,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
         @isRequired={{@isRequired}}
         @help={{@help}}
         @invalidFeedback={{@invalidFeedback}}
+        @requiredLabel={{@requiredLabel}}
         @size={{@size}}
         @isInputOnly={{@isInputOnly}}
         @errors={{@errors}}

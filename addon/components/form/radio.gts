@@ -30,11 +30,14 @@ export interface FormRadioSignature<T> {
 
 export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier="{{@identifier}}0"
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier="{{@identifier}}0"
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <div>
       {{#each @options as |option index|}}
@@ -51,10 +54,13 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
           <FormLabel
             @label={{option.label}}
             @identifier="{{@identifier}}{{index}}"
+            @requiredLabel={{@requiredLabel}}
             @isCheck={{true}}
           />
 
-          <FormHelp @label={{option.help}} class="mt-0" />
+          {{#if option.help}}
+            <FormHelp @label={{option.help}} class="mt-0" />
+          {{/if}}
 
           {{#if (and @invalidFeedback (eq (decrement @options.length) index))}}
             <FormFeedback @label={{@invalidFeedback}} />
@@ -63,7 +69,9 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
       {{/each}}
     </div>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

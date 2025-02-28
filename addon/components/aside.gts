@@ -13,6 +13,7 @@ export interface AsideSignature {
     logo: string;
     route: string;
     isCollapsed: boolean;
+    collapseLabel: string;
     onChange: (isCollapsed: boolean) => void;
   };
   Blocks: {
@@ -38,11 +39,11 @@ const Aside: TOC<AsideSignature> = <template>
         <h5 class="tds-aside-title mb-0">{{@title}}</h5>
       </LinkTo>
       <Button
-        @label="Collapse menu"
+        @label={{@collapseLabel}}
         @icon="angles-left"
         @color="none"
         @isIconOnly={{true}}
-        {{tooltip "Collapse menu" trigger="hover"}}
+        {{tooltip @collapseLabel trigger="hover"}}
         {{on "click" (fn @onChange true)}}
       />
     </div>

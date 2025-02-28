@@ -22,6 +22,7 @@ module('Integration | Component | form/input', function (hooks) {
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
+          @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
       </template>,
@@ -43,6 +44,7 @@ module('Integration | Component | form/input', function (hooks) {
           @value={{state.value}}
           @label=""
           @identifier=""
+          @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
       </template>,
@@ -60,6 +62,7 @@ module('Integration | Component | form/input', function (hooks) {
           @value={{state.value}}
           @label=""
           @identifier=""
+          @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
       </template>,
@@ -77,6 +80,7 @@ module('Integration | Component | form/input', function (hooks) {
           @value={{state.value}}
           @label=""
           @identifier=""
+          @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
       </template>,
@@ -114,8 +118,9 @@ module('Integration | Component | form/input', function (hooks) {
             @label=""
             @identifier=""
             @isRequired={{true}}
-            @onChange={{fn (mut state.value)}}
             @invalidFeedback="Wrong"
+            @requiredLabel="Required"
+            @onChange={{fn (mut state.value)}}
           />
           <button type="submit" data-test-submit>Submit</button>
         </form>

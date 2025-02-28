@@ -122,11 +122,14 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <Card as |card|>
       <card.header class="d-flex justify-content-between align-items-center">
@@ -187,6 +190,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             @label={{@label}}
             @identifier={{@identifier}}
             @isRequired={{@isRequired}}
+            @requiredLabel={{@requiredLabel}}
             @isInputOnly={{true}}
             @onChange={{@onChange}}
             class="border-0"
@@ -219,13 +223,17 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       aria-label={{@label}}
     />
 
-    <FormFeedback @label={{@invalidFeedback}} />
+    {{#if @invalidFeedback}}
+      <FormFeedback @label={{@invalidFeedback}} />
+    {{/if}}
 
     {{#each @errors as |error|}}
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

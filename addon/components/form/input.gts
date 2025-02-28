@@ -13,6 +13,7 @@ export interface BaseArgs {
   isRequired?: boolean;
   help?: string;
   invalidFeedback?: string;
+  requiredLabel: string;
   size?: 'sm' | 'lg';
   isInputOnly?: boolean;
   errors?: { message: string }[];
@@ -43,11 +44,14 @@ export default class FormInput extends Component<FormInputSignature> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     {{#if (or (has-block) (has-block "actions"))}}
       <div
@@ -83,7 +87,9 @@ export default class FormInput extends Component<FormInputSignature> {
         />
         {{yield to="actions"}}
 
-        <FormFeedback @label={{@invalidFeedback}} />
+        {{#if @invalidFeedback}}
+          <FormFeedback @label={{@invalidFeedback}} />
+        {{/if}}
 
         {{#each @errors as |error|}}
           <FormFeedback @label={{error.message}} />
@@ -110,14 +116,18 @@ export default class FormInput extends Component<FormInputSignature> {
         ...attributes
       />
 
-      <FormFeedback @label={{@invalidFeedback}} />
+      {{#if @invalidFeedback}}
+        <FormFeedback @label={{@invalidFeedback}} />
+      {{/if}}
 
       {{#each @errors as |error|}}
         <FormFeedback @label={{error.message}} />
       {{/each}}
     {{/if}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 
