@@ -3,7 +3,7 @@
 
 <Subheading @title="Form radio button" />
 
-<p>Value: {{this.radio}}</p>
+<p>Value: {{this.value}}</p>
 
 <Snippet @name="form-radio-button.hbs">
   {{! BEGIN-SNIPPET form-radio-button }}
@@ -12,13 +12,13 @@
       (hash value=true label="Yes")
       (hash value=false label="No")
     }}
-    @selected={{this.radio}}
+    @selected={{this.value}}
     @label="Label"
-    @identifier="radioButton"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.radio)}}
+    @onChange={{fn (mut this.value)}}
   />
   {{! END-SNIPPET }}
 </Snippet>

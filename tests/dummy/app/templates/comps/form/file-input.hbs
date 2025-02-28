@@ -3,17 +3,17 @@
 
 <Subheading @title="Form file input" />
 
-<p>Value: {{this.file.name}}</p>
+<p>Value: {{this.value.name}}</p>
 
 <Snippet @name="form-file-input.hbs">
   {{! BEGIN-SNIPPET form-file-input }}
   <Form::FileInput
     @label="Label"
-    @identifier="file"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.file)}}
+    @onChange={{fn (mut this.value)}}
   />
   {{! END-SNIPPET }}
 </Snippet>

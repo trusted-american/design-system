@@ -3,18 +3,18 @@
 
 <Subheading @title="Form Markdown input" />
 
-<p>Value: {{this.markdownValue}}</p>
+<p>Value: {{this.value}}</p>
 
 <Snippet @name="form-markdown-input.hbs">
   {{! BEGIN-SNIPPET form-markdown-input }}
   <Form::MarkdownInput
-    @value={{this.markdownValue}}
+    @value={{this.value}}
     @label="Label"
-    @identifier="markdownInput"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.markdownValue)}}
+    @onChange={{fn (mut this.value)}}
     placeholder="Add your comment here…"
   />
   {{! END-SNIPPET }}

@@ -3,7 +3,7 @@
 
 <Subheading @title="Form select" />
 
-<p>Value: {{this.status}}</p>
+<p>Value: {{this.value}}</p>
 
 <Snippet @name="form-select.hbs">
   {{! BEGIN-SNIPPET form-select }}
@@ -17,13 +17,13 @@
       )
       "fourth"
     }}
-    @selected={{this.status}}
+    @selected={{this.value}}
     @label="Label"
-    @identifier="select"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.status)}}
+    @onChange={{fn (mut this.value)}}
   />
   {{! END-SNIPPET }}
 </Snippet>

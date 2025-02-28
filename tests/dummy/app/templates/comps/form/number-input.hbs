@@ -3,30 +3,30 @@
 
 <Subheading @title="Form number input" />
 
-<p>Value: {{this.numberValue}}</p>
+<p>Value: {{this.value}}</p>
 
 <Snippet @name="form-number-input.hbs">
   {{! BEGIN-SNIPPET form-number-input }}
   <Form::NumberInput
-    @value={{this.numberValue}}
+    @value={{this.value}}
     @label="Label"
-    @identifier="numberInput"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.numberValue)}}
+    @onChange={{fn (mut this.value)}}
     placeholder="Placeholder"
   />
   <hr />
   <Form::NumberInput
-    @value={{this.numberValue}}
+    @value={{this.value}}
     @type="range"
     @label="Label"
-    @identifier="numberInput"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.numberValue)}}
+    @onChange={{fn (mut this.value)}}
     placeholder="Placeholder"
   />
   {{! END-SNIPPET }}

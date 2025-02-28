@@ -3,18 +3,18 @@
 
 <Subheading @title="Form phone input" />
 
-<p>Value: {{this.phone}}</p>
+<p>Value: {{this.value}}</p>
 
 <Snippet @name="form-phone-input.hbs">
   {{! BEGIN-SNIPPET form-phone-input }}
   <Form::PhoneInput
-    @value={{this.phone}}
+    @value={{this.value}}
     @label="Label"
-    @identifier="phoneInput"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.phone)}}
+    @onChange={{fn (mut this.value)}}
     placeholder="Placeholder"
   />
   {{! END-SNIPPET }}

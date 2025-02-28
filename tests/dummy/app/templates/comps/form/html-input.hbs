@@ -3,20 +3,20 @@
 
 <Subheading @title="Form HTML input" />
 
-<p>Value: {{this.htmlValue}}</p>
+<p>Value: {{this.value}}</p>
 
 <Snippet @name="form-html-input.hbs">
   {{! BEGIN-SNIPPET form-html-input }}
   <Form::HtmlInput
-    @value={{this.htmlValue}}
+    @value={{this.value}}
     @label="Label"
-    @identifier="htmlInput"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
     @editorLabel="Editor"
     @codeLabel="Code"
-    @onChange={{fn (mut this.htmlValue)}}
+    @onChange={{fn (mut this.value)}}
   />
   {{! END-SNIPPET }}
 </Snippet>

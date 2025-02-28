@@ -3,18 +3,18 @@
 
 <Subheading @title="Form check" />
 
-<p>Value: {{if this.check "True" " False"}}</p>
+<p>Value: {{if this.value "True" " False"}}</p>
 
 <Snippet @name="form-check.hbs">
   {{! BEGIN-SNIPPET form-check }}
   <Form::Check
-    @value={{this.check}}
+    @value={{this.value}}
     @label="Label"
-    @identifier="check"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.check)}}
+    @onChange={{fn (mut this.value)}}
   />
   {{! END-SNIPPET }}
 </Snippet>

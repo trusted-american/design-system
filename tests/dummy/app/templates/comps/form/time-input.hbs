@@ -3,18 +3,18 @@
 
 <Subheading @title="Form time input" />
 
-<p>Value: {{timestamp this.date format="time"}}</p>
+<p>Value: {{timestamp this.value format="time"}}</p>
 
 <Snippet @name="form-time-input.hbs">
   {{! BEGIN-SNIPPET form-time-input }}
   <Form::TimeInput
-    @value={{this.date}}
+    @value={{this.value}}
     @label="Label"
-    @identifier="timeInput"
+    @identifier="identifier"
     @isRequired={{true}}
     @help="This is an example of help."
     @invalidFeedback="This is an example of invalid feedback."
-    @onChange={{fn (mut this.date)}}
+    @onChange={{fn (mut this.value)}}
   />
   {{! END-SNIPPET }}
 </Snippet>
