@@ -11,7 +11,6 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import tooltip from '../../modifiers/tooltip';
 import { on } from '@ember/modifier';
-import PellEditor from 'ember-pell/components/pell-editor';
 import { eq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
 import { Editor } from '@tiptap/core';
@@ -233,13 +232,6 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             {{this.setup}}
             ...attributes
           ></div>
-
-          <PellEditor
-            @value={{@value}}
-            @onChange={{@onChange}}
-            data-test-value-editor
-            ...attributes
-          />
         {{/if}}
       </card.body>
     </Card>
