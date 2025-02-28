@@ -7,8 +7,9 @@ import type { TOC } from '@ember/component/template-only';
 
 export interface PropertyListItemValueSignature {
   Args: {
-    value: unknown;
+    value: string | number | boolean | null | undefined;
     label: string;
+    noLabel: string;
     isStatic?: boolean;
   };
   Blocks: {
@@ -34,8 +35,7 @@ const PropertyListItemValue: TOC<PropertyListItemValueSignature> = <template>
     {{else}}
       {{! TODO: class dne }}
       <span class="text-disabled">
-        {{! TODO: string }}
-        No
+        {{@noLabel}}
         {{@label}}
       </span>
     {{/if}}

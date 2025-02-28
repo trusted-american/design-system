@@ -9,7 +9,7 @@ module('Integration | Component | property-list', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <PropertyList as |list|>
+        <PropertyList @noLabel="No" as |list|>
           <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip.">
             Value 1
           </list.item>
@@ -41,7 +41,7 @@ module('Integration | Component | property-list', function (hooks) {
   test('it renders horizontal', async function (assert) {
     await render(
       <template>
-        <PropertyList @isHorizontal={{true}} as |list|>
+        <PropertyList @noLabel="No" @isHorizontal={{true}} as |list|>
           <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip.">
             Value 1
           </list.item>
@@ -71,7 +71,9 @@ module('Integration | Component | property-list', function (hooks) {
   });
 
   test('it renders with title', async function (assert) {
-    await render(<template><PropertyList @title="Test" /></template>);
+    await render(
+      <template><PropertyList @noLabel="No" @title="Test" /></template>,
+    );
 
     assert.dom().hasText('Test');
   });
