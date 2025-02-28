@@ -28,11 +28,13 @@ export default class FormTextarea extends Component<FormTextareaSignature> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+      />
+    {{/unless}}
 
     <textarea
       id={{@identifier}}

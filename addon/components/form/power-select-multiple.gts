@@ -32,11 +32,13 @@ export default class FormPowerSelectMultiple<T> extends Component<
   FormPowerSelectMultipleSignature<T>
 > {
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+      />
+    {{/unless}}
 
     {{#if @onCreate}}
       <PowerSelectMultipleWithCreate

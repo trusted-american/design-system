@@ -53,11 +53,13 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+      />
+    {{/unless}}
 
     <Card as |card|>
       <card.header>

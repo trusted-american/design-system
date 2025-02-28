@@ -43,11 +43,13 @@ export default class FormInput extends Component<FormInputSignature> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+      />
+    {{/unless}}
 
     {{#if (or (has-block) (has-block "actions"))}}
       <div

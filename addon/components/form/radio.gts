@@ -30,11 +30,13 @@ export interface FormRadioSignature<T> {
 
 export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier="{{@identifier}}0"
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier="{{@identifier}}0"
+        @isRequired={{@isRequired}}
+      />
+    {{/unless}}
 
     <div>
       {{#each @options as |option index|}}

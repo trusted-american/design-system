@@ -32,11 +32,13 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
   @tracked isPreview = false;
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+      />
+    {{/unless}}
 
     <Card as |card|>
       <card.header class="d-flex justify-content-between align-items-center">
