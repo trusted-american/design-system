@@ -32,6 +32,12 @@ Router.map(function () {
       this.route('check');
       this.route('date-input');
       this.route('file-dropzone');
+      this.route('file-input');
+      this.route('html-input');
+      this.route('input');
+      this.route('markdown-input');
+      this.route('number-input');
+      this.route('phone-input');
     });
     this.route('heading');
     this.route('icon');

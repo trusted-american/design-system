@@ -1,0 +1,21 @@
+{{page-title "Form Markdown input"}}
+{{breadcrumb "Form Markdown input" route="comps.form.markdown-input"}}
+
+<Subheading @title="Form Markdown input" />
+
+<p>Value: {{this.markdownValue}}</p>
+
+<Snippet @name="form-markdown-input.hbs">
+  {{! BEGIN-SNIPPET form-markdown-input }}
+  <Form::MarkdownInput
+    @value={{this.markdownValue}}
+    @label="Label"
+    @identifier="markdownInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.markdownValue)}}
+    placeholder="Add your comment here…"
+  />
+  {{! END-SNIPPET }}
+</Snippet>

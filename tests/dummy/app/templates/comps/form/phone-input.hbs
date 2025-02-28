@@ -1,0 +1,21 @@
+{{page-title "Form phone input"}}
+{{breadcrumb "Form phone input" route="comps.form.phone-input"}}
+
+<Subheading @title="Form phone input" />
+
+<p>Value: {{this.phone}}</p>
+
+<Snippet @name="form-phone-input.hbs">
+  {{! BEGIN-SNIPPET form-phone-input }}
+  <Form::PhoneInput
+    @value={{this.phone}}
+    @label="Label"
+    @identifier="phoneInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.phone)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>

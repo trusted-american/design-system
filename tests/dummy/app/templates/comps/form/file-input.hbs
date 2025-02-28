@@ -1,0 +1,19 @@
+{{page-title "Form file input"}}
+{{breadcrumb "Form file input" route="comps.form.file-input"}}
+
+<Subheading @title="Form file input" />
+
+<p>Value: {{this.file.name}}</p>
+
+<Snippet @name="form-file-input.hbs">
+  {{! BEGIN-SNIPPET form-file-input }}
+  <Form::FileInput
+    @label="Label"
+    @identifier="file"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.file)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

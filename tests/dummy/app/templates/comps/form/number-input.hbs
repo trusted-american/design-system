@@ -1,0 +1,33 @@
+{{page-title "Form number input"}}
+{{breadcrumb "Form number input" route="comps.form.number-input"}}
+
+<Subheading @title="Form number input" />
+
+<p>Value: {{this.numberValue}}</p>
+
+<Snippet @name="form-number-input.hbs">
+  {{! BEGIN-SNIPPET form-number-input }}
+  <Form::NumberInput
+    @value={{this.numberValue}}
+    @label="Label"
+    @identifier="numberInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.numberValue)}}
+    placeholder="Placeholder"
+  />
+  <hr />
+  <Form::NumberInput
+    @value={{this.numberValue}}
+    @type="range"
+    @label="Label"
+    @identifier="numberInput"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.numberValue)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>
