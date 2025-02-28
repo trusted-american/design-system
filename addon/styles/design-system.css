@@ -116,6 +116,10 @@ aside.collapsed nav .fa-fw {
   padding: 0.375rem 0.75rem;
 }
 
+.form-html-input div {
+  outline: none;
+}
+
 /* form/markdown-input */
 
 .markdown-input-preview {

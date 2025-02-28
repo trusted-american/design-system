@@ -105,6 +105,11 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   }
 
   @action
+  toggleQuote() {
+    this.editor?.chain().focus().toggleBlockquote().run();
+  }
+
+  @action
   toggleNumberedList() {
     this.editor?.chain().focus().toggleOrderedList().run();
   }
@@ -184,6 +189,11 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
               @label="Paragraph"
               @icon="paragraph"
               {{on "click" this.setParagraph}}
+            />
+            <EditorButton
+              @label="Quote"
+              @icon="quote-right"
+              {{on "click" this.toggleQuote}}
             />
             <EditorButton
               @label="Numbered list"
