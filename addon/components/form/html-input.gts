@@ -95,6 +95,11 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   }
 
   @action
+  toggleHeading() {
+    this.editor?.chain().focus().toggleHeading({ level: 3 }).run();
+  }
+
+  @action
   setParagraph() {
     this.editor?.chain().focus().setParagraph().run();
   }
@@ -107,6 +112,11 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   @action
   toggleUnorderedList() {
     this.editor?.commands.toggleBulletList();
+  }
+
+  @action
+  toggleCode() {
+    this.editor?.chain().focus().toggleCode().run();
   }
 
   @action
@@ -166,6 +176,11 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
               {{on "click" this.toggleStrike}}
             />
             <EditorButton
+              @label="Heading"
+              @icon="heading"
+              {{on "click" this.toggleHeading}}
+            />
+            <EditorButton
               @label="Paragraph"
               @icon="paragraph"
               {{on "click" this.setParagraph}}
@@ -179,6 +194,11 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
               @label="Unordered list"
               @icon="list-ul"
               {{on "click" this.toggleUnorderedList}}
+            />
+            <EditorButton
+              @label="Code"
+              @icon="code"
+              {{on "click" this.toggleCode}}
             />
           </div>
         {{/unless}}
