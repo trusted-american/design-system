@@ -1,0 +1,20 @@
+{{page-title "Form date input"}}
+{{breadcrumb "Form date input" route="comps.form.date-input"}}
+
+<Subheading @title="Form date input" />
+
+<p>Value: {{timestamp this.value}}</p>
+
+<Snippet @name="form-date-input.hbs">
+  {{! BEGIN-SNIPPET form-date-input }}
+  <Form::DateInput
+    @value={{this.value}}
+    @label="Label"
+    @identifier="identifier"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.value)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

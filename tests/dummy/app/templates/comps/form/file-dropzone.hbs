@@ -1,0 +1,24 @@
+{{page-title "Form file dropzone"}}
+{{breadcrumb "Form file dropzone" route="comps.form.file-dropzone"}}
+
+<Subheading @title="Form file dropzone" />
+
+<p>
+  Value:
+  <ul>
+    {{#each this.value as |file|}}
+      <li>{{file.name}}</li>
+    {{/each}}
+  </ul>
+</p>
+
+<Snippet @name="form-file-dropzone.hbs">
+  {{! BEGIN-SNIPPET form-file-dropzone }}
+  <Form::FileDropzone
+    @titleLabel="Drag and Drop Your Files Here"
+    @subtitleLabel="Or select a file from your computer…"
+    @activeTitleLabel="Drop to Upload"
+    @onCreate={{this.create}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>

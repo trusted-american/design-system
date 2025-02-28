@@ -1,0 +1,21 @@
+{{page-title "Form input"}}
+{{breadcrumb "Form input" route="comps.form.input"}}
+
+<Subheading @title="Form input" />
+
+<p>Value: {{this.value}}</p>
+
+<Snippet @name="form-input.hbs">
+  {{! BEGIN-SNIPPET form-input }}
+  <Form::Input
+    @value={{this.value}}
+    @label="Label"
+    @identifier="identifier"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.value)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>

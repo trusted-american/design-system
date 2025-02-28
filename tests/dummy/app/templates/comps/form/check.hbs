@@ -1,0 +1,20 @@
+{{page-title "Form check"}}
+{{breadcrumb "Form check" route="comps.form.check"}}
+
+<Subheading @title="Form check" />
+
+<p>Value: {{if this.value "True" " False"}}</p>
+
+<Snippet @name="form-check.hbs">
+  {{! BEGIN-SNIPPET form-check }}
+  <Form::Check
+    @value={{this.value}}
+    @label="Label"
+    @identifier="identifier"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @onChange={{fn (mut this.value)}}
+  />
+  {{! END-SNIPPET }}
+</Snippet>
