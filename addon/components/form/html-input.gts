@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import Button from '../button';
 import Card from '../card';
 import Nav from '../nav';
 import NavItem from '../nav/item';
@@ -8,9 +9,14 @@ import FormLabel from './label';
 import FormTextarea from './textarea';
 import FormFeedback from './feedback';
 import FormHelp from './help';
+import tooltip from '../../modifiers/tooltip';
 import { on } from '@ember/modifier';
 import PellEditor from 'ember-pell/components/pell-editor';
 import { eq } from 'ember-truth-helpers';
+
+import { modifier } from 'ember-modifier';
+import { Editor } from '@tiptap/core';
+import StarterKit from '@tiptap/starter-kit';
 
 import type { BaseArgs } from './input';
 
@@ -28,6 +34,34 @@ export interface FormHtmlInputSignature {
 
 export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   @tracked isCode = false;
+
+  editor?: Editor;
+
+  setup = modifier((element) => {
+    if (this.editor) {
+      return;
+    }
+
+    this.editor = new Editor({
+      element,
+      extensions: [StarterKit],
+      content: this.args.value,
+      onUpdate: ({ editor }) => {
+        const value = editor.getHTML();
+        this.args.onChange(value);
+      },
+    });
+  });
+
+  @action
+  toggleBold() {
+    this.editor?.chain().focus().toggleBold().run();
+  }
+
+  @action
+  toggleItalic() {
+    this.editor?.chain().focus().toggleItalic().run();
+  }
 
   // TODO: debt https://github.com/PoslinskiNet/ember-pell/pull/130
   get value(): string | null {
@@ -60,7 +94,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     />
 
     <Card as |card|>
-      <card.header>
+      <card.header class="d-flex justify-content-between align-items-center">
         <Nav class="card-header-tabs">
           <NavItem
             @label={{@editorLabel}}
@@ -75,6 +109,29 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             {{on "click" this.setCode}}
           />
         </Nav>
+
+        {{#unless this.isCode}}
+          <div>
+            <Button
+              @label="Bold"
+              @icon="bold"
+              @size="sm"
+              @color="light"
+              @isIconOnly={{true}}
+              {{tooltip "Bold" placement="bottom"}}
+              {{on "click" this.toggleBold}}
+            />
+            <Button
+              @label="Italic"
+              @icon="italic"
+              @size="sm"
+              @color="light"
+              @isIconOnly={{true}}
+              {{tooltip "Italic" placement="bottom"}}
+              {{on "click" this.toggleItalic}}
+            />
+          </div>
+        {{/unless}}
       </card.header>
       <card.body class="p-0">
         {{#if this.isCode}}
@@ -89,6 +146,8 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             ...attributes
           />
         {{else}}
+          <div data-test-value-editor {{this.setup}} ...attributes></div>
+
           <PellEditor
             @value={{this.value}}
             @onChange={{@onChange}}
