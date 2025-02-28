@@ -19,11 +19,12 @@ import StarterKit from '@tiptap/starter-kit';
 
 import type { BaseArgs } from './input';
 import type { TOC } from '@ember/component/template-only';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 const EditorButton: TOC<{
   Args: {
     label: string;
-    icon: string;
+    icon: IconName;
   };
   Element: HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement;
 }> = <template>
