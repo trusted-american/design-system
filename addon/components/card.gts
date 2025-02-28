@@ -4,15 +4,14 @@ import CardFooter from './card/footer';
 import { hash } from '@ember/helper';
 
 import type { TOC } from '@ember/component/template-only';
-import type { WithBoundArgs } from '@glint/template';
 
 export interface CardSignature {
   Blocks: {
     default: [
       {
-        header: WithBoundArgs<typeof CardHeader, never>;
-        body: WithBoundArgs<typeof CardBody, never>;
-        footer: WithBoundArgs<typeof CardFooter, never>;
+        header: typeof CardHeader;
+        body: typeof CardBody;
+        footer: typeof CardFooter;
       },
     ];
   };

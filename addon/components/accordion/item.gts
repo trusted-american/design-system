@@ -16,7 +16,7 @@ export interface AccordionItemSignature {
     default: [
       {
         button?: WithBoundArgs<typeof AccordionButton, 'item' | 'isOpen'>;
-        body?: WithBoundArgs<typeof AccordionBody, never>;
+        body?: typeof AccordionBody;
       },
     ];
   };
