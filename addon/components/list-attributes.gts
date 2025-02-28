@@ -6,11 +6,12 @@ import DropdownItem from './dropdown/item';
 import DropdownDivider from './dropdown/divider';
 import dropdown from '../modifiers/dropdown';
 import { not, notEq } from 'ember-truth-helpers';
-import { includes } from '@nullvoxpopuli/ember-composable-helpers';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
 
 import type { Option } from './form/select';
+
+const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 
 export type ListAttributesKey<T> = keyof T | `${keyof T & string}.${string}`;
 
