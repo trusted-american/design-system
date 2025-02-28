@@ -4,6 +4,9 @@
 
 Components for building robust user interfaces. Built on top of Bootstrap.
 
+- ✅ TypeScript and Glint ready
+- 🌐 Full i18n support
+
 ## Compatibility
 
 - Ember.js v4.12 or above
