@@ -110,6 +110,12 @@ aside.collapsed nav .fa-fw {
   cursor: pointer;
 }
 
+/* form/html-input */
+
+.form-html-input {
+  padding: 0.375rem 0.75rem;
+}
+
 /* form/markdown-input */
 
 .markdown-input-preview {

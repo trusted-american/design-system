@@ -73,6 +73,16 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   }
 
   @action
+  toggleNumberedList() {
+    this.editor?.chain().focus().toggleOrderedList().run();
+  }
+
+  @action
+  toggleUnorderedList() {
+    this.editor?.commands.toggleBulletList();
+  }
+
+  @action
   setEditor(event: Event) {
     event.preventDefault();
     this.isCode = false;
@@ -146,6 +156,24 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
               {{tooltip "Paragraph" placement="bottom"}}
               {{on "click" this.setParagraph}}
             />
+            <Button
+              @label="Numbered list"
+              @icon="list-ol"
+              @size="sm"
+              @color="light"
+              @isIconOnly={{true}}
+              {{tooltip "Numbered list" placement="bottom"}}
+              {{on "click" this.toggleNumberedList}}
+            />
+            <Button
+              @label="Unordered list"
+              @icon="list-ul"
+              @size="sm"
+              @color="light"
+              @isIconOnly={{true}}
+              {{tooltip "Unordered list" placement="bottom"}}
+              {{on "click" this.toggleUnorderedList}}
+            />
           </div>
         {{/unless}}
       </card.header>
@@ -162,7 +190,12 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             ...attributes
           />
         {{else}}
-          <div data-test-value-editor {{this.setup}} ...attributes></div>
+          <div
+            class="form-html-input"
+            data-test-value-editor
+            {{this.setup}}
+            ...attributes
+          ></div>
 
           <PellEditor
             @value={{@value}}
