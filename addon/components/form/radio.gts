@@ -56,7 +56,9 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
             @isCheck={{true}}
           />
 
-          <FormHelp @label={{option.help}} class="mt-0" />
+          {{#if option.help}}
+            <FormHelp @label={{option.help}} class="mt-0" />
+          {{/if}}
 
           {{#if (and @invalidFeedback (eq (decrement @options.length) index))}}
             <FormFeedback @label={{@invalidFeedback}} />
@@ -65,7 +67,9 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
       {{/each}}
     </div>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

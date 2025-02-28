@@ -59,7 +59,9 @@ export default class FormRadioButton<T> extends Component<
       </ButtonGroup>
     </div>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

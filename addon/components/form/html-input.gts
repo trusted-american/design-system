@@ -118,7 +118,9 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

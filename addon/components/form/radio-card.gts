@@ -83,7 +83,9 @@ export default class FormRadioCard<T> extends Component<
       {{/each}}
     </div>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

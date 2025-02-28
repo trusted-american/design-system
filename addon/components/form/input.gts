@@ -123,7 +123,9 @@ export default class FormInput extends Component<FormInputSignature> {
       {{/each}}
     {{/if}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

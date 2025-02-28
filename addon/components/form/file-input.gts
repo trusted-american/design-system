@@ -59,7 +59,9 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

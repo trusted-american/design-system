@@ -112,7 +112,9 @@ export default class FormPowerSelect<T> extends Component<
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

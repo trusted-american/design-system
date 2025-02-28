@@ -162,7 +162,9 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
       </card.body>
     </Card>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

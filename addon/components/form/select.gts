@@ -144,7 +144,9 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 
