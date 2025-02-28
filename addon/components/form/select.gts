@@ -78,11 +78,14 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <select
       id={{@identifier}}
@@ -134,13 +137,17 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
       {{/each}}
     </select>
 
-    <FormFeedback @label={{@invalidFeedback}} />
+    {{#if @invalidFeedback}}
+      <FormFeedback @label={{@invalidFeedback}} />
+    {{/if}}
 
     {{#each @errors as |error|}}
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

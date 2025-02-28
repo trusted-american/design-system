@@ -18,6 +18,7 @@ module('Integration | Component | aside', function (hooks) {
           @logo=""
           @route=""
           @isCollapsed={{state.isCollapsed}}
+          @collapseLabel="Collapse menu"
           @onChange={{fn (mut state.isCollapsed)}}
         >
           <:default>

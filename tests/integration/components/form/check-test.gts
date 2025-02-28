@@ -20,6 +20,7 @@ module('Integration | Component | form/check', function (hooks) {
           @isInline={{false}}
           @isSwitch={{false}}
           @help="Help"
+          @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
       </template>,

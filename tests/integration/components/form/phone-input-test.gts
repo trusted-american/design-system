@@ -20,6 +20,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
+          @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
       </template>,

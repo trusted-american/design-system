@@ -23,6 +23,7 @@ module('Integration | Component | form/textarea', function (hooks) {
           @isRequired={{state.isRequired}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
+          @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
       </template>,
