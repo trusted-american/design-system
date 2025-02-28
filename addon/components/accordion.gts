@@ -19,10 +19,6 @@ export interface AccordionSignature {
 export default class Accordion extends Component<AccordionSignature> {
   id = guidFor(this);
 
-  get isAlwaysOpen(): boolean | undefined {
-    return this.args.isAlwaysOpen;
-  }
-
   <template>
     <div
       class="accordion {{if @isFlush 'accordion-flush'}}"

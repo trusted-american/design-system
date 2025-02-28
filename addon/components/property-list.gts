@@ -6,13 +6,17 @@ import type { WithBoundArgs } from '@glint/template';
 
 export interface PropertyListSignature {
   Args: {
+    noLabel: string;
     title?: string;
     isHorizontal?: boolean;
   };
   Blocks: {
     default: [
       {
-        item: WithBoundArgs<typeof PropertyListItem, 'isHorizontal'>;
+        item: WithBoundArgs<
+          typeof PropertyListItem,
+          'noLabel' | 'isHorizontal'
+        >;
       },
     ];
   };
@@ -28,7 +32,11 @@ const PropertyList: TOC<PropertyListSignature> = <template>
     {{/if}}
     <dl class="row {{if @isHorizontal 'gx-5'}} mb-0">
       {{yield
-        (hash item=(component PropertyListItem isHorizontal=@isHorizontal))
+        (hash
+          item=(component
+            PropertyListItem noLabel=@noLabel isHorizontal=@isHorizontal
+          )
+        )
       }}
     </dl>
   </div>
