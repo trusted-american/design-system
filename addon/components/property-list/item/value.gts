@@ -33,7 +33,6 @@ const PropertyListItemValue: TOC<PropertyListItemValueSignature> = <template>
         <div>{{yield to="trailing"}}</div>
       {{/if}}
     {{else}}
-      {{! TODO: class dne }}
       <span class="text-disabled">
         {{@noLabel}}
         {{@label}}

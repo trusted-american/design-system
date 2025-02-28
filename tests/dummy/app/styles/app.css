@@ -16,3 +16,7 @@
 :root {
   --ember-shiki-border-radius: var(--bs-border-radius) !important;
 }
+
+.text-disabled {
+  color: #a3acb9;
+}
