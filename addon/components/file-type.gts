@@ -18,59 +18,54 @@ const FileType: TOC<FileTypeSignature> = <template>
     {{#if (eq "image" (fileType @name))}}
       <Icon
         @icon="file-image"
+        @color="warning"
         @size={{@size}}
         @isFixedWidth={{true}}
-        class="text-warning"
       />
     {{else if (eq "audio" (fileType @name))}}
       <Icon
         @icon="file-audio"
+        @color="warning"
         @size={{@size}}
         @isFixedWidth={{true}}
-        class="text-warning"
       />
     {{else if (eq "pdf" (fileType @name))}}
       <Icon
         @icon="file-pdf"
+        @color="danger"
         @size={{@size}}
         @isFixedWidth={{true}}
-        class="text-danger"
       />
     {{else if (eq "csv" (fileType @name))}}
       <Icon
         @icon="file-csv"
+        @color="success"
         @size={{@size}}
         @isFixedWidth={{true}}
-        class="text-success"
       />
     {{else if (eq "zip" (fileType @name))}}
       <Icon
         @icon="file-zipper"
+        @color="primary"
         @size={{@size}}
         @isFixedWidth={{true}}
-        class="text-primary"
       />
     {{else if (eq "word" (fileType @name))}}
       <Icon
         @icon="file-word"
+        @color="primary"
         @size={{@size}}
         @isFixedWidth={{true}}
-        class="text-primary"
       />
     {{else if (eq "excel" (fileType @name))}}
       <Icon
         @icon="file-excel"
+        @color="success"
         @size={{@size}}
         @isFixedWidth={{true}}
-        class="text-success"
       />
     {{else}}
-      <Icon
-        @icon="file"
-        @size={{@size}}
-        @isFixedWidth={{true}}
-        class="text-body"
-      />
+      <Icon @icon="file" @color="body" @size={{@size}} @isFixedWidth={{true}} />
     {{/if}}
   </div>
 </template>;
