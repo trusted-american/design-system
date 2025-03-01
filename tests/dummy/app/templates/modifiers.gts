@@ -32,7 +32,7 @@ export default RouteTemplate<{
 
       <Subheading @title="Collapse" />
 
-      <p><LinkTo @route="comps.collapse">See collapse component</LinkTo></p>
+      <p><LinkTo @route="components.collapse">See collapse component</LinkTo></p>
 
       <Subheading @title="Dropdown" />
 

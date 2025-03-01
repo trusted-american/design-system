@@ -7,7 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('comps', { path: '/components' }, function () {
+  this.route('components', function () {
     this.route('accordion');
     this.route('alert');
     this.route('aside');
