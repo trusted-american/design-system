@@ -24,9 +24,9 @@ export default class AsideGroup extends Component<AsideGroupSignature> {
 
   <template>
     <AsideItem
+      @route={{@route}}
       @label={{@label}}
       @icon={{@icon}}
-      @route={{@route}}
       @trailingIcon="angle-down"
       {{collapse this.id}}
       ...attributes

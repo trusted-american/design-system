@@ -9,7 +9,7 @@ module('Integration | Component | aside/item', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <AsideItem @label="Label" @icon="boxes-stacked" @route="index" />
+        <AsideItem @route="index" @label="Label" @icon="boxes-stacked" />
       </template>,
     );
 
