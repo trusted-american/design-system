@@ -1,6 +1,11 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
-import { Alert, Heading, Subheading } from '@trusted-american/design-system';
+import {
+  Alert,
+  AlertLinkTo,
+  Heading,
+  Subheading,
+} from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
@@ -28,7 +33,7 @@ export default RouteTemplate<{
       <Alert @color="danger" @icon="triangle-exclamation">
         One of your domains is unverified. Please verify your domain to prevent
         others from claiming it.
-        <a href="#" class="alert-link">Learn more</a>
+        <AlertLinkTo @route="index">Learn more</AlertLinkTo>
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>
@@ -41,7 +46,7 @@ export default RouteTemplate<{
         @closeButtonLabel="Close"
         @onClose={{@controller.close}}
       >
-        <a href="#" class="alert-link">Prebuilds</a>
+        <AlertLinkTo @route="index">Prebuilds</AlertLinkTo>
         consume storage space that will incur a billable charge.
       </Alert>
       {{! END-SNIPPET }}
@@ -56,7 +61,7 @@ export default RouteTemplate<{
         @onClose={{@controller.close}}
       >
         Payment information added successfully. Change it any time in
-        <a href="#" class="alert-link">your profile</a>.
+        <AlertLinkTo @route="index">your profile</AlertLinkTo>.
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>
@@ -70,7 +75,7 @@ export default RouteTemplate<{
         @onClose={{@controller.close}}
       >
         Ignoring revisions in
-        <a href="#" class="alert-link">.git-blame-ignore-revs</a>.
+        <AlertLinkTo @route="index">.git-blame-ignore-revs</AlertLinkTo>.
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>
