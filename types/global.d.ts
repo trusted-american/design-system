@@ -37,6 +37,8 @@ declare module '@glint/environment-ember-loose/registry' {
   }
 }
 
+// TODO: remove
+
 import type Owner from '@ember/owner';
 
 interface TemplateOk {
