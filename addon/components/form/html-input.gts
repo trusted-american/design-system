@@ -73,8 +73,11 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     this.editor = editor;
 
     return () => {
-      // editor.destroy();
-      // this.editor = undefined;
+      const element = document.querySelector('.tiptap');
+      if (!element) {
+        editor.destroy();
+        this.editor = undefined;
+      }
     };
   });
 
