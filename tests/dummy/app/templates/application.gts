@@ -119,7 +119,7 @@ export default RouteTemplate<{
           @route="detail"
           @label="Disabled"
           @icon="crop-simple"
-          class="disabled"
+          @isDisabled={{true}}
         />
       </:default>
       <:footer>
