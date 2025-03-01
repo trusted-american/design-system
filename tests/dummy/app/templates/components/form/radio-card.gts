@@ -28,14 +28,14 @@ export default RouteTemplate<{
           (hash
             value=true
             label="Yes"
-            icon="check"
             help="This is an example of help."
+            icon="check"
           )
           (hash
             value=false
             label="No"
-            icon="xmark"
             help="This is an example of help."
+            icon="xmark"
           )
         }}
         @selected={{@controller.value}}
