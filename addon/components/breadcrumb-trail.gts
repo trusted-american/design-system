@@ -1,7 +1,7 @@
 import { get } from '@ember/helper';
-import { LinkTo } from '@ember/routing';
 import { breadcrumbs } from 'ember-breadcrumb-trail';
 import { hasNext } from '@nullvoxpopuli/ember-composable-helpers';
+import Link from './link';
 
 const BreadcrumbTrail = <template>
   <nav aria-label="Breadcrumb" data-test-breadcrumb-trail>
@@ -9,18 +9,12 @@ const BreadcrumbTrail = <template>
       {{#each (breadcrumbs) as |breadcrumb|}}
         {{#if (hasNext breadcrumb (breadcrumbs))}}
           <li class="breadcrumb-item">
-            {{#if (get breadcrumb.data "model")}}
-              <LinkTo
-                @route="{{get breadcrumb.data 'route'}}"
-                @model={{get breadcrumb.data "model"}}
-              >
-                {{breadcrumb.title}}
-              </LinkTo>
-            {{else}}
-              <LinkTo @route="{{get breadcrumb.data 'route'}}">
-                {{breadcrumb.title}}
-              </LinkTo>
-            {{/if}}
+            <Link
+              @route="{{get breadcrumb.data 'route'}}"
+              @model={{get breadcrumb.data "model"}}
+            >
+              {{breadcrumb.title}}
+            </Link>
           </li>
         {{else}}
           <li class="breadcrumb-item active" aria-current="page">

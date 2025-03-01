@@ -4,7 +4,6 @@ import Icon from './icon';
 
 import type { TOC } from '@ember/component/template-only';
 import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
-import type { LinkToArgs } from './button';
 
 const Internal: TOC<{
   Args: {
@@ -32,6 +31,12 @@ const Internal: TOC<{
     {{#unless @isIconTrailing}}
       {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}{{/unless}}{{/unless}}
 </template>;
+
+export interface LinkToArgs {
+  route?: string;
+  model?: unknown;
+  query?: Record<string, unknown>;
+}
 
 interface Args extends LinkToArgs {
   href?: string;
@@ -81,6 +86,14 @@ const Link: TOC<LinkSignature> = <template>
       >{{yield}}</Internal></LinkTo>
   {{else if @route}}
     <LinkTo @route={{@route}} data-test-link ...attributes><Internal
+        @label={{@label}}
+        @icon={{@icon}}
+        @iconPrefix={{@iconPrefix}}
+        @isIconTrailing={{@isIconTrailing}}
+        @isIconOnly={{@isIconOnly}}
+      >{{yield}}</Internal></LinkTo>
+  {{else if @model}}
+    <LinkTo @model={{@model}} data-test-link ...attributes><Internal
         @label={{@label}}
         @icon={{@icon}}
         @iconPrefix={{@iconPrefix}}

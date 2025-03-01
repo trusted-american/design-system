@@ -1,19 +1,43 @@
-import { LinkTo } from '@ember/routing';
+import Link, { type LinkToArgs } from '../link';
 import Icon from '../icon';
 import { concat } from '@ember/helper';
-import { and } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
-import type { LinkToArgs } from '../button';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
+const Internal: TOC<{
+  Args: {
+    label?: string;
+    subtitle?: string;
+    icon?: IconName;
+    shortcut?: string;
+  };
+  Blocks: {
+    default: [];
+  };
+}> = <template>
+  {{#if @icon}}
+    <Icon @icon={{@icon}} @isFixedWidth={{true}} />
+  {{/if}}
+  <div>
+    {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
+    {{#if @subtitle}}
+      <br />
+      <span class="small">{{@subtitle}}</span>
+    {{/if}}
+  </div>
+  {{#if @shortcut}}
+    <span class="text-secondary ms-auto">{{@shortcut}}</span>
+  {{/if}}
+</template>;
+
 interface Args extends LinkToArgs {
+  href?: string;
+  color?: string;
   label?: string;
   subtitle?: string;
   icon?: IconName;
   shortcut?: string;
-  color?: string;
-  href?: string;
 }
 
 export interface DropdownItemSignature {
@@ -25,49 +49,21 @@ export interface DropdownItemSignature {
 }
 
 const DropdownItem: TOC<DropdownItemSignature> = <template>
-  {{#if (and @route @model)}}
-    <LinkTo
+  {{#if @route}}
+    <Link
       @route={{@route}}
       @model={{@model}}
       class="dropdown-item d-flex align-items-center gap-2
         {{if @color (concat 'text-' @color)}}"
       ...attributes
     >
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} />
-      {{/if}}
-      <div>
-        {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
-        {{#if @subtitle}}
-          <br />
-          <span class="small">{{@subtitle}}</span>
-        {{/if}}
-      </div>
-      {{#if @shortcut}}
-        <span class="text-secondary ms-auto">{{@shortcut}}</span>
-      {{/if}}
-    </LinkTo>
-  {{else if @route}}
-    <LinkTo
-      @route={{@route}}
-      class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
-      ...attributes
-    >
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} />
-      {{/if}}
-      <div>
-        {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
-        {{#if @subtitle}}
-          <br />
-          <span class="small">{{@subtitle}}</span>
-        {{/if}}
-      </div>
-      {{#if @shortcut}}
-        <span class="text-secondary ms-auto">{{@shortcut}}</span>
-      {{/if}}
-    </LinkTo>
+      <Internal
+        @label={{@label}}
+        @subtitle={{@subtitle}}
+        @icon={{@icon}}
+        @shortcut={{@shortcut}}
+      />
+    </Link>
   {{else if @href}}
     <a
       href={{@href}}
@@ -77,19 +73,12 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
         {{if @color (concat 'text-' @color)}}"
       ...attributes
     >
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} />
-      {{/if}}
-      <div>
-        {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
-        {{#if @subtitle}}
-          <br />
-          <span class="small">{{@subtitle}}</span>
-        {{/if}}
-      </div>
-      {{#if @shortcut}}
-        <span class="text-secondary ms-auto">{{@shortcut}}</span>
-      {{/if}}
+      <Internal
+        @label={{@label}}
+        @subtitle={{@subtitle}}
+        @icon={{@icon}}
+        @shortcut={{@shortcut}}
+      />
     </a>
   {{else}}
     <button
@@ -98,19 +87,12 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
         {{if @color (concat 'text-' @color)}}"
       ...attributes
     >
-      {{#if @icon}}
-        <Icon @icon={{@icon}} @isFixedWidth={{true}} />
-      {{/if}}
-      <div>
-        {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
-        {{#if @subtitle}}
-          <br />
-          <span class="small">{{@subtitle}}</span>
-        {{/if}}
-      </div>
-      {{#if @shortcut}}
-        <span class="text-secondary ms-auto">{{@shortcut}}</span>
-      {{/if}}
+      <Internal
+        @label={{@label}}
+        @subtitle={{@subtitle}}
+        @icon={{@icon}}
+        @shortcut={{@shortcut}}
+      />
     </button>
   {{/if}}
 </template>;

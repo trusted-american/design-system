@@ -1,17 +1,9 @@
 import ButtonInternal from './button/internal';
-import Link from './link';
-import { LinkTo } from '@ember/routing';
+import Link, { type LinkToArgs } from './link';
 import { concat } from '@ember/helper';
-import { and } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
 import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
-
-export interface LinkToArgs {
-  route?: string;
-  model?: unknown;
-  query?: Record<string, unknown>;
-}
 
 interface Args extends LinkToArgs {
   isSubmit?: true;
@@ -41,9 +33,10 @@ export interface ButtonSignature {
 }
 
 const Button: TOC<ButtonSignature> = <template>
-  {{#if (and @route @query)}}
-    <LinkTo
+  {{#if @route}}
+    <Link
       @route={{@route}}
+      @model={{@model}}
       @query={{@query}}
       class="btn
         {{if @size (concat 'btn-' @size)}}
@@ -65,55 +58,7 @@ const Button: TOC<ButtonSignature> = <template>
         @shortcut={{@shortcut}}
         role="presentation"
       />
-    </LinkTo>
-  {{else if @route}}
-    <LinkTo
-      @route={{@route}}
-      class="btn
-        {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
-        text-nowrap"
-      role="button"
-      data-test-button
-      ...attributes
-    >
-      <ButtonInternal
-        @label={{@label}}
-        @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
-        @isIconTrailing={{@isIconTrailing}}
-        @isIconOnly={{@isIconOnly}}
-        @isLoading={{@isLoading}}
-        @count={{@count}}
-        @shortcut={{@shortcut}}
-        role="presentation"
-      />
-    </LinkTo>
-  {{else if @query}}
-    <LinkTo
-      @query={{@query}}
-      class="btn
-        {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
-        text-nowrap"
-      role="button"
-      data-test-button
-      ...attributes
-    >
-      <ButtonInternal
-        @label={{@label}}
-        @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
-        @isIconTrailing={{@isIconTrailing}}
-        @isIconOnly={{@isIconOnly}}
-        @isLoading={{@isLoading}}
-        @count={{@count}}
-        @shortcut={{@shortcut}}
-        role="presentation"
-      />
-    </LinkTo>
+    </Link>
   {{else if @href}}
     {{#if @isLocalHref}}
       <a

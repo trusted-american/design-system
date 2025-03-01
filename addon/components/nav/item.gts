@@ -1,11 +1,10 @@
 import Badge from '../badge';
 import Icon from '../icon';
-import { LinkTo } from '@ember/routing';
-import { and } from 'ember-truth-helpers';
+import Link from '../link';
 
 import type { TOC } from '@ember/component/template-only';
-import type { LinkToArgs } from '../button';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type { LinkToArgs } from '../link';
 
 const Item: TOC<{
   Args: {
@@ -50,8 +49,8 @@ export interface NavItemSignature {
 }
 
 const NavItem: TOC<NavItemSignature> = <template>
-  {{#if (and @route @model @query)}}
-    <LinkTo
+  {{#if @route}}
+    <Link
       @route={{@route}}
       @model={{@model}}
       @query={{@query}}
@@ -67,56 +66,7 @@ const NavItem: TOC<NavItemSignature> = <template>
       >
         {{yield}}
       </Item>
-    </LinkTo>
-  {{else if (and @route @model)}}
-    <LinkTo
-      @route={{@route}}
-      @model={{@model}}
-      class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
-      data-test-nav-item
-      ...attributes
-    >
-      <Item
-        @label={{@label}}
-        @icon={{@icon}}
-        @count={{@count}}
-        @trailingIcon={{@trailingIcon}}
-      >
-        {{yield}}
-      </Item>
-    </LinkTo>
-  {{else if @route}}
-    <LinkTo
-      @route={{@route}}
-      class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
-      data-test-nav-item
-      ...attributes
-    >
-      <Item
-        @label={{@label}}
-        @icon={{@icon}}
-        @count={{@count}}
-        @trailingIcon={{@trailingIcon}}
-      >
-        {{yield}}
-      </Item>
-    </LinkTo>
-  {{else if @query}}
-    <LinkTo
-      @query={{@query}}
-      class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
-      data-test-nav-item
-      ...attributes
-    >
-      <Item
-        @label={{@label}}
-        @icon={{@icon}}
-        @count={{@count}}
-        @trailingIcon={{@trailingIcon}}
-      >
-        {{yield}}
-      </Item>
-    </LinkTo>
+    </Link>
   {{else}}
     <a
       href="#"

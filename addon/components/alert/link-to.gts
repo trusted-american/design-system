@@ -1,8 +1,6 @@
-import { LinkTo } from '@ember/routing';
-import { and } from 'ember-truth-helpers';
+import Link, { type LinkToArgs } from '../link';
 
 import type { TOC } from '@ember/component/template-only';
-import type { LinkToArgs } from '../button';
 
 export interface AlertLinkToSignature {
   Args: LinkToArgs;
@@ -13,20 +11,13 @@ export interface AlertLinkToSignature {
 }
 
 const AlertLinkTo: TOC<AlertLinkToSignature> = <template>
-  {{#if (and @route @model)}}
-    <LinkTo
-      @route={{@route}}
-      @model={{@model}}
-      class="alert-link"
-      ...attributes
-    >{{yield}}</LinkTo>
-  {{else if @route}}
-    <LinkTo
-      @route={{@route}}
-      class="alert-link"
-      ...attributes
-    >{{yield}}</LinkTo>
-  {{/if}}
+  <Link
+    @route={{@route}}
+    @model={{@model}}
+    @query={{@query}}
+    class="alert-link"
+    ...attributes
+  >{{yield}}</Link>
 </template>;
 
 export default AlertLinkTo;

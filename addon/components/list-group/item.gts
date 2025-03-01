@@ -1,9 +1,7 @@
-import { LinkTo } from '@ember/routing';
-import Link from '../link';
-import { and } from 'ember-truth-helpers';
+import Link, { type LinkToArgs } from '../link';
+import { or } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
-import type { LinkToArgs } from '../button';
 
 interface Args extends LinkToArgs {
   href?: string;
@@ -19,33 +17,11 @@ export interface ListGroupItemSignature {
 }
 
 const ListGroupItem: TOC<ListGroupItemSignature> = <template>
-  {{#if (and @route @model)}}
-    <LinkTo
+  {{#if (or @route @href)}}
+    <Link
       @route={{@route}}
       @model={{@model}}
-      class="list-group-item list-group-item-action"
-      ...attributes
-    >
-      {{yield}}
-    </LinkTo>
-  {{else if @route}}
-    <LinkTo
-      @route={{@route}}
-      class="list-group-item list-group-item-action"
-      ...attributes
-    >
-      {{yield}}
-    </LinkTo>
-  {{else if @query}}
-    <LinkTo
       @query={{@query}}
-      class="list-group-item list-group-item-action"
-      ...attributes
-    >
-      {{yield}}
-    </LinkTo>
-  {{else if @href}}
-    <Link
       @href={{@href}}
       class="list-group-item list-group-item-action"
       ...attributes
