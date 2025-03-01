@@ -20,7 +20,7 @@ export default RouteTemplate(
             @label="Get started"
             @color="primary"
             @size="lg"
-            @route="components"
+            @route="guides.introduction"
           />
         </div>
       </div>

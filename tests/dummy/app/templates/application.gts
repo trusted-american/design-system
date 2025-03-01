@@ -29,10 +29,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
+    {{theme @controller.theme}}
+
     {{pageTitle "Design System"}}
     {{breadcrumb "Design System" route="application"}}
-
-    {{theme @controller.theme}}
 
     <Aside
       @title="Design System"
@@ -44,6 +44,8 @@ export default RouteTemplate<{
     >
       <:default>
         <AsideItem @label="Home" @route="index" @icon="house" />
+
+        <AsideTitle @label="Assets" />
         <AsideGroup
           @label="Components"
           @icon="boxes-stacked"
