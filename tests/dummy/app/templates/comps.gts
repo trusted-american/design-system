@@ -1,7 +1,9 @@
 import RouteTemplate from 'ember-route-template';
 import { MainBody } from '@trusted-american/design-system';
-import { pageTitle } from 'ember-page-title';
 import { breadcrumb } from 'ember-breadcrumb-trail';
+import { pageTitle } from 'ember-page-title';
+
+import type { TemplateFactory } from 'global';
 
 export default RouteTemplate(
   <template>
@@ -12,4 +14,4 @@ export default RouteTemplate(
       {{outlet}}
     </MainBody>
   </template>,
-);
+) as TemplateFactory;
