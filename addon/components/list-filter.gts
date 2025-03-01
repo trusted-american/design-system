@@ -19,10 +19,15 @@ import FormCheckInput from './form/check/input';
 import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, not } from 'ember-truth-helpers';
-import { findBy, includes } from '@nullvoxpopuli/ember-composable-helpers';
 import { modifier } from 'ember-modifier';
+import { get } from '@ember/object';
 
 import type { Option } from './form/select';
+
+const findBy = <T,>(byPath: keyof T, value: T[keyof T], arr: T[]) =>
+  arr.find((item) => get(item, String(byPath)) === value);
+
+const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 
 const autoselect = modifier(function autoselect(element: HTMLInputElement) {
   element.select();
@@ -201,6 +206,7 @@ export interface ListFilterSignature<T> {
     andLabel: string;
     daysLabel: string;
     monthsLabel: string;
+    requiredLabel: string;
     chooseLabel: string;
     searchLabel: string;
     onChange: (key: string, value: unknown) => void;
@@ -321,6 +327,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                     @selected={{predicate.mode}}
                     @label={{@modeLabel}}
                     @identifier="mode{{index}}"
+                    @requiredLabel={{@requiredLabel}}
                     @isInputOnly={{true}}
                     @onChange={{fn (mut predicate.mode)}}
                     class="mb-2"
@@ -334,6 +341,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                         @label={{@valueALabel}}
                         @identifier="valueA{{index}}"
                         @isRequired={{true}}
+                        @requiredLabel={{@requiredLabel}}
                         @isInputOnly={{true}}
                         @onChange={{fn (mut predicate.offsetCount)}}
                         min="1"
@@ -346,6 +354,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                         @selected={{predicate.offsetMode}}
                         @label={{@valueBLabel}}
                         @identifier="valueB{{index}}"
+                        @requiredLabel={{@requiredLabel}}
                         @isInputOnly={{true}}
                         @onChange={{fn (mut predicate.offsetMode)}}
                       />
@@ -355,6 +364,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                         @label={{@valueALabel}}
                         @identifier="valueA{{index}}"
                         @isRequired={{true}}
+                        @requiredLabel={{@requiredLabel}}
                         @isInputOnly={{true}}
                         @isLocalTimeZone={{true}}
                         @onChange={{fn (mut predicate.startAt)}}
@@ -366,6 +376,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                           @label={{@valueBLabel}}
                           @identifier="valueB{{index}}"
                           @isRequired={{true}}
+                          @requiredLabel={{@requiredLabel}}
                           @isInputOnly={{true}}
                           @isLocalTimeZone={{true}}
                           @onChange={{fn this.setEndAt predicate}}
@@ -381,6 +392,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       @value={{includes opt.value predicate._predicate.value}}
                       @label={{opt.label}}
                       @identifier="value{{index}}{{opt.value}}"
+                      @requiredLabel={{@requiredLabel}}
                       @onChange={{fn this.toggleMulti predicate opt.value}}
                     />
                   {{/each}}
@@ -410,6 +422,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       @label={{@valueLabel}}
                       @identifier="value{{index}}"
                       {{!-- @isRequired={{true}} --}}
+                      @requiredLabel={{@requiredLabel}}
                       @isInputOnly={{true}}
                       @chooseLabel={{@chooseLabel}}
                       @searchLabel={{@searchLabel}}

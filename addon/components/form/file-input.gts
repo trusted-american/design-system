@@ -33,11 +33,14 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <input
       type="file"
@@ -49,13 +52,17 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
       ...attributes
     />
 
-    <FormFeedback @label={{@invalidFeedback}} />
+    {{#if @invalidFeedback}}
+      <FormFeedback @label={{@invalidFeedback}} />
+    {{/if}}
 
     {{#each @errors as |error|}}
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

@@ -43,17 +43,18 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     if (!(target instanceof HTMLSelectElement)) {
       throw new Error();
     }
+    const { value } = target;
 
     const options = this.args.options;
 
-    const index = parseInt(target.value);
+    const index = parseInt(value);
     let selected = options[index] ?? null;
 
-    if (target.value.includes('-')) {
-      const [groupIndex, optionIndex] = target.value.split('-').map(parseInt);
+    if (value.includes('-')) {
+      const [groupIndex, optionIndex] = value.split('-');
       if (groupIndex && optionIndex) {
-        const group = (options as Group<T>[])[groupIndex];
-        const option = group?.options[optionIndex];
+        const group = (options as Group<T>[])[parseInt(groupIndex)];
+        const option = group?.options[parseInt(optionIndex)];
         if (option) {
           selected = option;
         }
@@ -77,11 +78,14 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
   }
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <select
       id={{@identifier}}
@@ -133,13 +137,17 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
       {{/each}}
     </select>
 
-    <FormFeedback @label={{@invalidFeedback}} />
+    {{#if @invalidFeedback}}
+      <FormFeedback @label={{@invalidFeedback}} />
+    {{/if}}
 
     {{#each @errors as |error|}}
       <FormFeedback @label={{error.message}} />
     {{/each}}
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

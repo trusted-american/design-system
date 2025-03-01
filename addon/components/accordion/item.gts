@@ -16,7 +16,7 @@ export interface AccordionItemSignature {
     default: [
       {
         button?: WithBoundArgs<typeof AccordionButton, 'item' | 'isOpen'>;
-        body?: WithBoundArgs<typeof AccordionBody, never>;
+        body?: typeof AccordionBody;
       },
     ];
   };
@@ -37,7 +37,7 @@ export default class AccordionItem extends Component<AccordionItemSignature> {
         class="accordion-collapse collapse {{if @isOpen 'show'}}"
         id={{this.id}}
         data-bs-parent={{unless
-          @accordion.isAlwaysOpen
+          @accordion.args.isAlwaysOpen
           (concat "#" @accordion.id)
         }}
       >

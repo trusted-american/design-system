@@ -13,6 +13,7 @@ module('Integration | Component | form/label', function (hooks) {
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}
+          @requiredLabel="Required"
         />
       </template>,
     );

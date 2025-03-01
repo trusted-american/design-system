@@ -20,6 +20,15 @@ import '@github/markdown-toolbar-element';
 
 interface Args extends BaseArgs {
   value: string | null;
+  writeLabel: string;
+  previewLabel: string;
+  headingLabel: string;
+  boldLabel: string;
+  italicLabel: string;
+  codeLabel: string;
+  linkLabel: string;
+  numberedListLabel: string;
+  unorderedListLabel: string;
   onChange: (value: string) => void;
 }
 
@@ -32,23 +41,26 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
   @tracked isPreview = false;
 
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <Card as |card|>
       <card.header class="d-flex justify-content-between align-items-center">
         <Nav class="card-header-tabs">
           <NavItem
-            @label="Write"
+            @label={{@writeLabel}}
             class={{if (eq false this.isPreview) "active"}}
             data-test-write
             {{on "click" (fn (mut this.isPreview) false)}}
           />
           <NavItem
-            @label="Preview"
+            @label={{@previewLabel}}
             class={{if (eq true this.isPreview) "active"}}
             data-test-preview
             {{on "click" (fn (mut this.isPreview) true)}}
@@ -59,72 +71,72 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
           <markdown-toolbar for={{@identifier}}>
             <md-header>
               <Button
-                @label="Heading"
+                @label={{@headingLabel}}
                 @icon="heading"
                 @size="sm"
                 @color="light"
                 @isIconOnly={{true}}
-                {{tooltip "Heading" placement="bottom"}}
+                {{tooltip @headingLabel placement="bottom"}}
               />
             </md-header>
             <md-bold>
               <Button
-                @label="Bold"
+                @label={{@boldLabel}}
                 @icon="bold"
                 @size="sm"
                 @color="light"
                 @isIconOnly={{true}}
-                {{tooltip "Bold" placement="bottom"}}
+                {{tooltip @boldLabel placement="bottom"}}
               />
             </md-bold>
             <md-italic>
               <Button
-                @label="Italic"
+                @label={{@italicLabel}}
                 @icon="italic"
                 @size="sm"
                 @color="light"
                 @isIconOnly={{true}}
-                {{tooltip "Italic" placement="bottom"}}
+                {{tooltip @italicLabel placement="bottom"}}
               />
             </md-italic>
             <md-code>
               <Button
-                @label="Code"
+                @label={{@codeLabel}}
                 @icon="code"
                 @size="sm"
                 @color="light"
                 @isIconOnly={{true}}
-                {{tooltip "Code" placement="bottom"}}
+                {{tooltip @codeLabel placement="bottom"}}
               />
             </md-code>
             <md-link>
               <Button
-                @label="Link"
+                @label={{@linkLabel}}
                 @icon="link"
                 @size="sm"
                 @color="light"
                 @isIconOnly={{true}}
-                {{tooltip "Link" placement="bottom"}}
+                {{tooltip @linkLabel placement="bottom"}}
               />
             </md-link>
             <md-ordered-list>
               <Button
-                @label="Numbered list"
+                @label={{@numberedListLabel}}
                 @icon="list-ol"
                 @size="sm"
                 @color="light"
                 @isIconOnly={{true}}
-                {{tooltip "Numbered list" placement="bottom"}}
+                {{tooltip @numberedListLabel placement="bottom"}}
               />
             </md-ordered-list>
             <md-unordered-list>
               <Button
-                @label="Unordered list"
+                @label={{@unorderedListLabel}}
                 @icon="list-ul"
                 @size="sm"
                 @color="light"
                 @isIconOnly={{true}}
-                {{tooltip "Unordered list" placement="bottom"}}
+                {{tooltip @unorderedListLabel placement="bottom"}}
               />
             </md-unordered-list>
           </markdown-toolbar>
@@ -146,6 +158,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
             @identifier={{@identifier}}
             @isRequired={{@isRequired}}
             @invalidFeedback={{@invalidFeedback}}
+            @requiredLabel={{@requiredLabel}}
             @isInputOnly={{true}}
             @onChange={{@onChange}}
             rows="4"
@@ -159,7 +172,9 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
       </card.body>
     </Card>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

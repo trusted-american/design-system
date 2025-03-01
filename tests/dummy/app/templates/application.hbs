@@ -8,6 +8,7 @@
   @logo="/logo.svg"
   @route="application"
   @isCollapsed={{this.isCollapsed}}
+  @collapseLabel="Collapse menu"
   @onChange={{fn (mut this.isCollapsed)}}
 >
   <:default>
@@ -87,6 +88,7 @@
       @value={{this.isDarkTheme}}
       @label="Dark theme"
       @identifier="isDarkTheme"
+      @requiredLabel="Required"
       @isSwitch={{true}}
       @onChange={{fn (mut this.isDarkTheme)}}
     />
@@ -111,6 +113,7 @@
         @type="search"
         @label="Search"
         @identifier="search"
+        @requiredLabel="Required"
         @isInputOnly={{true}}
         @onChange={{fn (mut this.query)}}
         placeholder="Search"

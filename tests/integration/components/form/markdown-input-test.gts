@@ -20,6 +20,16 @@ module('Integration | Component | form/markdown-input', function (hooks) {
           @isRequired={{true}}
           @help="Help"
           @invalidFeedback="Invalid feedback"
+          @requiredLabel="Required"
+          @writeLabel="Write"
+          @previewLabel="Preview"
+          @headingLabel="Heading"
+          @boldLabel="Bold"
+          @italicLabel="Italic"
+          @codeLabel="Code"
+          @linkLabel="Link"
+          @numberedListLabel="Numbered list"
+          @unorderedListLabel="Unordered list"
           @onChange={{fn (mut state.value)}}
         />
       </template>,

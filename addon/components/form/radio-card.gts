@@ -32,11 +32,14 @@ export default class FormRadioCard<T> extends Component<
   FormRadioCardSignature<T>
 > {
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier="{{@identifier}}0"
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier="{{@identifier}}0"
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <div class="row g-3" ...attributes>
 
@@ -81,7 +84,9 @@ export default class FormRadioCard<T> extends Component<
       {{/each}}
     </div>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

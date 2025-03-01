@@ -2,13 +2,12 @@ import ProgressBar from './progress/bar';
 import { hash } from '@ember/helper';
 
 import type { TOC } from '@ember/component/template-only';
-import type { WithBoundArgs } from '@glint/template';
 
 export interface ProgressSignature {
   Blocks: {
     default: [
       {
-        bar: WithBoundArgs<typeof ProgressBar, never>;
+        bar: typeof ProgressBar;
       },
     ];
   };

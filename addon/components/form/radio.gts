@@ -5,11 +5,12 @@ import FormFeedback from './feedback';
 import FormRadioInput from './radio/input';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { dec } from '@nullvoxpopuli/ember-composable-helpers';
 import { and, eq } from 'ember-truth-helpers';
 
 import type { BaseArgs } from './input';
 import type { Option } from './select';
+
+const decrement = (value: number) => value - 1;
 
 export interface RadioOption<T> extends Option<T> {
   help?: string;
@@ -29,11 +30,14 @@ export interface FormRadioSignature<T> {
 
 export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier="{{@identifier}}0"
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier="{{@identifier}}0"
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <div>
       {{#each @options as |option index|}}
@@ -50,19 +54,24 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
           <FormLabel
             @label={{option.label}}
             @identifier="{{@identifier}}{{index}}"
+            @requiredLabel={{@requiredLabel}}
             @isCheck={{true}}
           />
 
-          <FormHelp @label={{option.help}} class="mt-0" />
+          {{#if option.help}}
+            <FormHelp @label={{option.help}} class="mt-0" />
+          {{/if}}
 
-          {{#if (and @invalidFeedback (eq (dec @options.length) index))}}
+          {{#if (and @invalidFeedback (eq (decrement @options.length) index))}}
             <FormFeedback @label={{@invalidFeedback}} />
           {{/if}}
         </div>
       {{/each}}
     </div>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

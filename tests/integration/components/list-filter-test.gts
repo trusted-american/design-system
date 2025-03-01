@@ -102,6 +102,7 @@ module('Integration | Component | list-filter', function (hooks) {
           @andLabel="and"
           @daysLabel="Days"
           @monthsLabel="Months"
+          @requiredLabel="Required"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
           @onChange={{onChange}}
@@ -212,6 +213,7 @@ module('Integration | Component | list-filter', function (hooks) {
           @andLabel="and"
           @daysLabel="Days"
           @monthsLabel="Months"
+          @requiredLabel="Required"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
           @onChange={{onChange}}

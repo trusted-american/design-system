@@ -1,5 +1,5 @@
 {{page-title "Form"}}
-{{breadcrumb "Form"}}
+{{breadcrumb "Form" route="form"}}
 
 <Main::Body>
   <Heading @title="Form" />
@@ -13,6 +13,7 @@
         @isRequired={{true}}
         @help="This is an example of help."
         @invalidFeedback="This is an example of invalid feedback."
+        @requiredLabel="Required"
         @onChange={{fn (mut this.value)}}
         placeholder="Placeholder"
       />
@@ -25,6 +26,7 @@
         @isRequired={{true}}
         @help="This is an example of help."
         @invalidFeedback="This is an example of invalid feedback."
+        @requiredLabel="Required"
         @onChange={{fn (mut this.value)}}
         placeholder="Placeholder"
       />
@@ -37,6 +39,7 @@
         @isRequired={{true}}
         @help="This is an example of help."
         @invalidFeedback="This is an example of invalid feedback."
+        @requiredLabel="Required"
         @onChange={{fn (mut this.check)}}
       />
     </div>
@@ -49,6 +52,7 @@
         @isRequired={{true}}
         @help="This is an example of help."
         @invalidFeedback="This is an example of invalid feedback."
+        @requiredLabel="Required"
         @chooseLabel="Choose…"
         @searchLabel="Search…"
         @onChange={{fn (mut this.value)}}
@@ -65,6 +69,7 @@
         @isRequired={{true}}
         @help="This is an example of help."
         @invalidFeedback="This is an example of invalid feedback."
+        @requiredLabel="Required"
         @onChange={{fn (mut this.value)}}
         placeholder="Placeholder"
       >

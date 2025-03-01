@@ -1,0 +1,38 @@
+{{page-title "Form power select multiple"}}
+{{breadcrumb
+  "Form power select multiple"
+  route="comps.form.power-select-multiple"
+}}
+
+<Subheading @title="Form power select multiple" />
+
+<p>
+  Value:
+  <ul>
+    {{#each this.value as |post|}}
+      <li>{{post.subject}}</li>
+    {{/each}}
+  </ul>
+</p>
+
+<Snippet @name="form-power-select-multiple.hbs">
+  {{! BEGIN-SNIPPET form-power-select-multiple }}
+  <Form::PowerSelectMultiple
+    @options={{(array)}}
+    @selected={{this.value}}
+    @label="Label"
+    @identifier="identifier"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @requiredLabel="Required"
+    @chooseLabel="Choose…"
+    @onChange={{fn (mut this.value)}}
+    @onCreate={{(noop)}}
+    data-test-state-writing-numbers
+    as |post|
+  >
+    {{post.subject}}
+  </Form::PowerSelectMultiple>
+  {{! END-SNIPPET }}
+</Snippet>

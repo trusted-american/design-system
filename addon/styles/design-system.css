@@ -112,24 +112,18 @@ aside.collapsed nav .fa-fw {
 
 /* form/html-input */
 
-.pell-actionbar {
-  white-space: nowrap;
-  overflow: hidden;
-  background-color: var(--bs-body-bg);
-}
-
-.pell-actionbar .pell-button-selected {
-  background-color: var(--bs-tertiary-bg);
-  color: var(--bs-primary);
-}
-
-.pell-content {
+.form-html-input .tiptap {
   height: 16rem;
+  padding: 0.375rem 0.75rem;
+  outline: none;
+  border-radius: var(--bs-border-radius);
+  resize: vertical;
+  overflow: auto;
 }
 
-.pell-content:hover,
-.pell-content:focus {
-  border-color: var(--bs-primary);
+.form-html-input .tiptap:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
 /* form/markdown-input */

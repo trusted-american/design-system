@@ -1,0 +1,22 @@
+{{page-title "Form textarea"}}
+{{breadcrumb "Form textarea" route="comps.form.textarea"}}
+
+<Subheading @title="Form textarea" />
+
+<p>Value: {{this.value}}</p>
+
+<Snippet @name="form-textarea.hbs">
+  {{! BEGIN-SNIPPET form-textarea }}
+  <Form::Textarea
+    @value={{this.value}}
+    @label="Label"
+    @identifier="identifier"
+    @isRequired={{true}}
+    @help="This is an example of help."
+    @invalidFeedback="This is an example of invalid feedback."
+    @requiredLabel="Required"
+    @onChange={{fn (mut this.value)}}
+    placeholder="Placeholder"
+  />
+  {{! END-SNIPPET }}
+</Snippet>

@@ -7,6 +7,7 @@ export interface PropertyListItemSignature {
   Args: {
     value: string | number | boolean | null | undefined;
     label: string;
+    noLabel: string;
     help?: string;
     isStatic?: boolean;
     isHorizontal?: boolean;
@@ -25,6 +26,7 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
       <PropertyListItemValue
         @value={{@value}}
         @label={{@label}}
+        @noLabel={{@noLabel}}
         @isStatic={{@isStatic}}
         ...attributes
       >
@@ -43,6 +45,7 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
     <PropertyListItemValue
       @value={{@value}}
       @label={{@label}}
+      @noLabel={{@noLabel}}
       @isStatic={{@isStatic}}
       class="col-7 overflow-hidden"
       ...attributes

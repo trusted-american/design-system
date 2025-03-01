@@ -29,11 +29,14 @@ export default class FormRadioButton<T> extends Component<
   FormRadioButtonSignature<T>
 > {
   <template>
-    <FormLabel
-      @label={{unless @isInputOnly @label}}
-      @identifier="{{@identifier}}0"
-      @isRequired={{@isRequired}}
-    />
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier="{{@identifier}}0"
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
 
     <div>
       <ButtonGroup @size={{@size}} ...attributes>
@@ -57,7 +60,9 @@ export default class FormRadioButton<T> extends Component<
       </ButtonGroup>
     </div>
 
-    <FormHelp @label={{@help}} />
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }
 

@@ -1,5 +1,5 @@
 {{page-title "Property list"}}
-{{breadcrumb "Property list"}}
+{{breadcrumb "Property list" route="comps.property-list"}}
 
 <Heading @title="Property list" />
 
@@ -7,7 +7,7 @@
 
 <Snippet @name="property-list.hbs">
   {{! BEGIN-SNIPPET property-list }}
-  <PropertyList as |list|>
+  <PropertyList @noLabel="No" as |list|>
     <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip." />
     <list.item @value="Value 2" @label="Key 2">
       Value 2
@@ -31,7 +31,7 @@
 
 <Snippet @name="property-list2.hbs">
   {{! BEGIN-SNIPPET property-list2 }}
-  <PropertyList @isHorizontal={{true}} as |list|>
+  <PropertyList @noLabel="No" @isHorizontal={{true}} as |list|>
     <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip." />
     <list.item @value="Value 2" @label="Key 2">
       Value 2
