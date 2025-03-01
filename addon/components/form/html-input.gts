@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import Button from '../button';
 import Card from '../card';
 import Nav from '../nav';
 import NavItem from '../nav/item';
@@ -8,11 +9,34 @@ import FormLabel from './label';
 import FormTextarea from './textarea';
 import FormFeedback from './feedback';
 import FormHelp from './help';
+import tooltip from '../../modifiers/tooltip';
 import { on } from '@ember/modifier';
-import PellEditor from 'ember-pell/components/pell-editor';
 import { eq } from 'ember-truth-helpers';
+import { modifier } from 'ember-modifier';
+import { Editor } from '@tiptap/core';
+import StarterKit from '@tiptap/starter-kit';
 
 import type { BaseArgs } from './input';
+import type { TOC } from '@ember/component/template-only';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
+
+const EditorButton: TOC<{
+  Args: {
+    label: string;
+    icon: IconName;
+  };
+  Element: HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement;
+}> = <template>
+  <Button
+    @label={{@label}}
+    @icon={{@icon}}
+    @size="sm"
+    @color="light"
+    @isIconOnly={{true}}
+    {{tooltip @label placement="bottom"}}
+    ...attributes
+  />
+</template>;
 
 interface Args extends BaseArgs {
   value: string | null;
@@ -29,15 +53,77 @@ export interface FormHtmlInputSignature {
 export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   @tracked isCode = false;
 
-  // TODO: debt https://github.com/PoslinskiNet/ember-pell/pull/130
-  get value(): string | null {
-    if (!this.args.value) {
-      const element = document.querySelector('.pell-content');
-      if (element) {
-        element.innerHTML = '';
-      }
+  editor?: Editor;
+
+  setup = modifier((element) => {
+    if (this.editor) {
+      return;
     }
-    return this.args.value;
+
+    const editor = new Editor({
+      element,
+      extensions: [StarterKit],
+      content: this.args.value,
+      onUpdate: ({ editor }) => {
+        const value = editor.getHTML();
+        this.args.onChange(value);
+      },
+    });
+
+    this.editor = editor;
+
+    return () => {
+      const element = document.querySelector('.tiptap');
+      if (!element) {
+        editor.destroy();
+        this.editor = undefined;
+      }
+    };
+  });
+
+  @action
+  toggleBold() {
+    this.editor?.chain().focus().toggleBold().run();
+  }
+
+  @action
+  toggleItalic() {
+    this.editor?.chain().focus().toggleItalic().run();
+  }
+
+  @action
+  toggleStrike() {
+    this.editor?.chain().focus().toggleStrike().run();
+  }
+
+  @action
+  toggleHeading() {
+    this.editor?.chain().focus().toggleHeading({ level: 3 }).run();
+  }
+
+  @action
+  setParagraph() {
+    this.editor?.chain().focus().setParagraph().run();
+  }
+
+  @action
+  toggleQuote() {
+    this.editor?.chain().focus().toggleBlockquote().run();
+  }
+
+  @action
+  toggleNumberedList() {
+    this.editor?.chain().focus().toggleOrderedList().run();
+  }
+
+  @action
+  toggleUnorderedList() {
+    this.editor?.commands.toggleBulletList();
+  }
+
+  @action
+  toggleCode() {
+    this.editor?.chain().focus().toggleCode().run();
   }
 
   @action
@@ -63,7 +149,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     {{/unless}}
 
     <Card as |card|>
-      <card.header>
+      <card.header class="d-flex justify-content-between align-items-center">
         <Nav class="card-header-tabs">
           <NavItem
             @label={{@editorLabel}}
@@ -78,6 +164,56 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             {{on "click" this.setCode}}
           />
         </Nav>
+
+        {{#unless this.isCode}}
+          <div>
+            <EditorButton
+              @label="Bold"
+              @icon="bold"
+              {{on "click" this.toggleBold}}
+            />
+            <EditorButton
+              @label="Italic"
+              @icon="italic"
+              {{on "click" this.toggleItalic}}
+            />
+            <EditorButton
+              @label="Strike"
+              @icon="strikethrough"
+              {{on "click" this.toggleStrike}}
+            />
+            <EditorButton
+              @label="Heading"
+              @icon="heading"
+              {{on "click" this.toggleHeading}}
+            />
+            <EditorButton
+              @label="Paragraph"
+              @icon="paragraph"
+              {{on "click" this.setParagraph}}
+            />
+            <EditorButton
+              @label="Quote"
+              @icon="quote-right"
+              {{on "click" this.toggleQuote}}
+            />
+            <EditorButton
+              @label="Numbered list"
+              @icon="list-ol"
+              {{on "click" this.toggleNumberedList}}
+            />
+            <EditorButton
+              @label="Unordered list"
+              @icon="list-ul"
+              {{on "click" this.toggleUnorderedList}}
+            />
+            <EditorButton
+              @label="Code"
+              @icon="code"
+              {{on "click" this.toggleCode}}
+            />
+          </div>
+        {{/unless}}
       </card.header>
       <card.body class="p-0">
         {{#if this.isCode}}
@@ -93,19 +229,19 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             ...attributes
           />
         {{else}}
-          <PellEditor
-            @value={{this.value}}
-            @onChange={{@onChange}}
+          <div
+            class="form-html-input"
             data-test-value-editor
+            {{this.setup}}
             ...attributes
-          />
+          ></div>
         {{/if}}
       </card.body>
     </Card>
 
     {{! hidden input for validation }}
     <input
-      value="{{this.value}}"
+      value="{{@value}}"
       type="text"
       required={{@isRequired}}
       class="d-none"
