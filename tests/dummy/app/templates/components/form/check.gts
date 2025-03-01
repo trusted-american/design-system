@@ -14,10 +14,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form check"}}
-    {{breadcrumb "Form check" route="components.form.check"}}
+    {{pageTitle "Check"}}
+    {{breadcrumb "Check" route="components.form.check"}}
 
-    <Subheading @title="Form check" />
+    <Subheading @title="Check" />
 
     <p>Value: {{if @controller.value "True" " False"}}</p>
 

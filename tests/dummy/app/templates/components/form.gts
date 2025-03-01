@@ -18,59 +18,41 @@ export default RouteTemplate(
     <div class="row g-4">
       <div class="col-12 col-md-3">
         <Nav @isPills={{true}} @isVertical={{true}}>
-          <NavItem @route="components.form.check" @label="Form check" />
-          <NavItem
-            @route="components.form.date-input"
-            @label="Form date input"
-          />
+          <NavItem @route="components.form.check" @label="Check" />
+          <NavItem @route="components.form.date-input" @label="Date input" />
           <NavItem
             @route="components.form.file-dropzone"
-            @label="Form file dropzone"
+            @label="File dropzone"
           />
-          <NavItem
-            @route="components.form.file-input"
-            @label="Form file input"
-          />
-          <NavItem
-            @route="components.form.html-input"
-            @label="Form HTML input"
-          />
-          <NavItem @route="components.form.input" @label="Form input" />
+          <NavItem @route="components.form.file-input" @label="File input" />
+          <NavItem @route="components.form.html-input" @label="HTML input" />
+          <NavItem @route="components.form.input" @label="Input" />
           <NavItem
             @route="components.form.markdown-input"
-            @label="Form Markdown input"
+            @label="Markdown input"
           />
           <NavItem
             @route="components.form.number-input"
-            @label="Form number input"
+            @label="Number input"
           />
-          <NavItem
-            @route="components.form.phone-input"
-            @label="Form phone input"
-          />
+          <NavItem @route="components.form.phone-input" @label="Phone input" />
           <NavItem
             @route="components.form.power-select"
-            @label="Form power select"
+            @label="Power select"
           />
           <NavItem
             @route="components.form.power-select-multiple"
-            @label="Form power select multiple"
+            @label="Power select multiple"
           />
-          <NavItem @route="components.form.radio" @label="Form radio" />
+          <NavItem @route="components.form.radio" @label="Radio" />
           <NavItem
             @route="components.form.radio-button"
-            @label="Form radio button"
+            @label="Radio button"
           />
-          <NavItem
-            @route="components.form.radio-card"
-            @label="Form radio card"
-          />
-          <NavItem @route="components.form.select" @label="Form select" />
-          <NavItem @route="components.form.textarea" @label="Form textarea" />
-          <NavItem
-            @route="components.form.time-input"
-            @label="Form time input"
-          />
+          <NavItem @route="components.form.radio-card" @label="Radio card" />
+          <NavItem @route="components.form.select" @label="Select" />
+          <NavItem @route="components.form.textarea" @label="Textarea" />
+          <NavItem @route="components.form.time-input" @label="Time input" />
         </Nav>
       </div>
       <div class="col-12 col-md-9">

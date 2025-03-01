@@ -14,10 +14,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form radio button"}}
-    {{breadcrumb "Form radio button" route="components.form.radio-button"}}
+    {{pageTitle "Radio button"}}
+    {{breadcrumb "Radio button" route="components.form.radio-button"}}
 
-    <Subheading @title="Form radio button" />
+    <Subheading @title="Radio button" />
 
     <p>Value: {{@controller.value}}</p>
 

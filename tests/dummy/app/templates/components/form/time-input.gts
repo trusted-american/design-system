@@ -18,10 +18,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form time input"}}
-    {{breadcrumb "Form time input" route="components.form.time-input"}}
+    {{pageTitle "Time input"}}
+    {{breadcrumb "Time input" route="components.form.time-input"}}
 
-    <Subheading @title="Form time input" />
+    <Subheading @title="Time input" />
 
     <p>Value: {{timestamp @controller.value format="time"}}</p>
 

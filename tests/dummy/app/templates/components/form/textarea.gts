@@ -14,10 +14,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form textarea"}}
-    {{breadcrumb "Form textarea" route="components.form.textarea"}}
+    {{pageTitle "Textarea"}}
+    {{breadcrumb "Textarea" route="components.form.textarea"}}
 
-    <Subheading @title="Form textarea" />
+    <Subheading @title="Textarea" />
 
     <p>Value: {{@controller.value}}</p>
 

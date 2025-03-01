@@ -14,10 +14,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form file input"}}
-    {{breadcrumb "Form file input" route="components.form.file-input"}}
+    {{pageTitle "File input"}}
+    {{breadcrumb "File input" route="components.form.file-input"}}
 
-    <Subheading @title="Form file input" />
+    <Subheading @title="File input" />
 
     <p>Value: {{@controller.value.name}}</p>
 
