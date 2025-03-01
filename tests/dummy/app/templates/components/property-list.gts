@@ -43,8 +43,8 @@ export default RouteTemplate(
 
     <Subheading @title="Horizontal" />
 
-    <Snippet @name="property-list2.gts">
-      {{! BEGIN-SNIPPET property-list2 }}
+    <Snippet @name="property-list1.gts">
+      {{! BEGIN-SNIPPET property-list1 }}
       <PropertyList @noLabel="No" @isHorizontal={{true}} as |list|>
         <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip." />
         <list.item @value="Value 2" @label="Key 2">

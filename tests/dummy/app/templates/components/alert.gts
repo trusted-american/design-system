@@ -28,8 +28,8 @@ export default RouteTemplate<{
 
     <Subheading @title="Examples" />
 
-    <Snippet @name="alert1.gts">
-      {{! BEGIN-SNIPPET alert1 }}
+    <Snippet @name="alert.gts">
+      {{! BEGIN-SNIPPET alert }}
       <Alert @color="danger" @icon="triangle-exclamation">
         One of your domains is unverified. Please verify your domain to prevent
         others from claiming it.
@@ -38,8 +38,8 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
 
-    <Snippet @name="alert2.gts">
-      {{! BEGIN-SNIPPET alert2 }}
+    <Snippet @name="alert1.gts">
+      {{! BEGIN-SNIPPET alert1 }}
       <Alert
         @color="warning"
         @icon="circle-exclamation"
@@ -52,8 +52,8 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
 
-    <Snippet @name="alert3.gts">
-      {{! BEGIN-SNIPPET alert3 }}
+    <Snippet @name="alert2.gts">
+      {{! BEGIN-SNIPPET alert2 }}
       <Alert
         @color="success"
         @icon="check"
@@ -66,8 +66,8 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
 
-    <Snippet @name="alert4.gts">
-      {{! BEGIN-SNIPPET alert4 }}
+    <Snippet @name="alert3.gts">
+      {{! BEGIN-SNIPPET alert3 }}
       <Alert
         @color="info"
         @icon="circle-info"
@@ -80,17 +80,26 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
 
-    <Snippet @name="alert5.gts">
-      {{! BEGIN-SNIPPET alert5 }}
+    <Snippet @name="alert4.gts">
+      {{! BEGIN-SNIPPET alert4 }}
       <Alert>
         Body here
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>
 
+    <Snippet @name="alert5.gts">
+      {{! BEGIN-SNIPPET alert5 }}
+      <Alert>
+        <:title>Title here</:title>
+        <:default>Body here</:default>
+      </Alert>
+      {{! END-SNIPPET }}
+    </Snippet>
+
     <Snippet @name="alert6.gts">
       {{! BEGIN-SNIPPET alert6 }}
-      <Alert>
+      <Alert @color="success">
         <:title>Title here</:title>
         <:default>Body here</:default>
       </Alert>
@@ -99,7 +108,7 @@ export default RouteTemplate<{
 
     <Snippet @name="alert7.gts">
       {{! BEGIN-SNIPPET alert7 }}
-      <Alert @color="success">
+      <Alert @color="success" @icon="info-circle">
         <:title>Title here</:title>
         <:default>Body here</:default>
       </Alert>
@@ -108,15 +117,6 @@ export default RouteTemplate<{
 
     <Snippet @name="alert8.gts">
       {{! BEGIN-SNIPPET alert8 }}
-      <Alert @color="success" @icon="info-circle">
-        <:title>Title here</:title>
-        <:default>Body here</:default>
-      </Alert>
-      {{! END-SNIPPET }}
-    </Snippet>
-
-    <Snippet @name="alert9.gts">
-      {{! BEGIN-SNIPPET alert9 }}
       <Alert
         @color="success"
         @icon="info-circle"

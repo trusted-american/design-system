@@ -33,8 +33,8 @@ export default RouteTemplate(
 
     <Subheading @title="Disabled" />
 
-    <Snippet @name="list-group2.gts">
-      {{! BEGIN-SNIPPET list-group2 }}
+    <Snippet @name="list-group1.gts">
+      {{! BEGIN-SNIPPET list-group1 }}
       <ListGroup>
         <ListGroupItem class="disabled">A disabled item</ListGroupItem>
         <ListGroupItem>A second item</ListGroupItem>
@@ -44,8 +44,8 @@ export default RouteTemplate(
 
     <Subheading @title="Flush" />
 
-    <Snippet @name="list-group3.gts">
-      {{! BEGIN-SNIPPET list-group3 }}
+    <Snippet @name="list-group2.gts">
+      {{! BEGIN-SNIPPET list-group2 }}
       <ListGroup @isFlush={{true}}>
         <ListGroupItem>An item</ListGroupItem>
       </ListGroup>
