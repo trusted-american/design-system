@@ -13,7 +13,7 @@ export default RouteTemplate(
 
     <Heading @title="Icon" />
 
-    <Snippet @name="icon.hbs">
+    <Snippet @name="icon.gts">
       {{! BEGIN-SNIPPET icon }}
       <Icon @icon="flag" />
       <Icon @icon="flag" @color="danger" />
