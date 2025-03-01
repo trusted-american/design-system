@@ -10,7 +10,12 @@ module('Integration | Component | nav', function (hooks) {
     await render(
       <template>
         <Nav>
-          <NavItem @route="comps" @label="First" @icon="house" @count={{12}} />
+          <NavItem
+            @route="components"
+            @label="First"
+            @icon="house"
+            @count={{12}}
+          />
           <NavItem @route="index" @label="Second" />
           <NavItem @route="index" @label="Third" />
           <NavItem @route="index" @label="Custom">

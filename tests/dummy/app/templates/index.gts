@@ -20,7 +20,7 @@ export default RouteTemplate(
             @label="Get started"
             @color="primary"
             @size="lg"
-            @route="comps"
+            @route="components"
           />
         </div>
       </div>
@@ -39,7 +39,7 @@ export default RouteTemplate(
             <p>Paragraph of text beneath the heading to explain the heading.
               We'll add onto it with another sentence and probably just keep
               going until we run out of words.</p>
-            <Button @label="Explore" @color="primary" @route="comps" />
+            <Button @label="Explore" @color="primary" @route="components" />
           </div>
         </div>
         <div class="col d-flex align-items-start">
@@ -55,7 +55,7 @@ export default RouteTemplate(
             <p>Paragraph of text beneath the heading to explain the heading.
               We'll add onto it with another sentence and probably just keep
               going until we run out of words.</p>
-            <Button @label="Explore" @color="primary" @route="comps" />
+            <Button @label="Explore" @color="primary" @route="components" />
           </div>
         </div>
         <div class="col d-flex align-items-start">
@@ -71,7 +71,7 @@ export default RouteTemplate(
             <p>Paragraph of text beneath the heading to explain the heading.
               We'll add onto it with another sentence and probably just keep
               going until we run out of words.</p>
-            <Button @label="Explore" @color="primary" @route="comps" />
+            <Button @label="Explore" @color="primary" @route="components" />
           </div>
         </div>
       </div>
