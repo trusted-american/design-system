@@ -36,7 +36,7 @@ export default RouteTemplate<{
 
       <Subheading @title="Dropdown" />
 
-      <Snippet @name="dropdown.hbs">
+      <Snippet @name="dropdown.gts">
         {{! BEGIN-SNIPPET dropdown }}
         <Button @label="Open dropdown" {{dropdown}} />
         <Dropdown>
@@ -47,7 +47,7 @@ export default RouteTemplate<{
 
       <Subheading @title="Tooltip" />
 
-      <Snippet @name="tooltip.hbs">
+      <Snippet @name="tooltip.gts">
         {{! BEGIN-SNIPPET tooltip }}
         <Button
           @label="Tooltip on top"

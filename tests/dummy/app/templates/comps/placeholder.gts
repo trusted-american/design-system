@@ -18,7 +18,7 @@ export default RouteTemplate<{
 
     <Heading @title="Placeholder" />
 
-    <Snippet @name="placeholder.hbs">
+    <Snippet @name="placeholder.gts">
       {{! BEGIN-SNIPPET placeholder }}
       <Placeholder
         @icon="book"

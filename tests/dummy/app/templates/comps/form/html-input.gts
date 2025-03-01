@@ -1,29 +1,29 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
-import { FormCheck, Subheading } from '@trusted-american/design-system';
+import { FormHtmlInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
 import type { TemplateFactory } from 'global';
-import type CompsFormCheckController from '../../../controllers/comps/form/check';
+import type CompsFormHtmlInputController from '../../../controllers/comps/form/html-input';
 
 export default RouteTemplate<{
   Args: {
-    controller: CompsFormCheckController;
+    controller: CompsFormHtmlInputController;
   };
 }>(
   <template>
-    {{pageTitle "Form check"}}
-    {{breadcrumb "Form check" route="comps.form.check"}}
+    {{pageTitle "Form HTML input"}}
+    {{breadcrumb "Form HTML input" route="comps.form.html-input"}}
 
-    <Subheading @title="Form check" />
+    <Subheading @title="Form HTML input" />
 
-    <p>Value: {{if @controller.value "True" " False"}}</p>
+    <p>Value: {{@controller.value}}</p>
 
-    <Snippet @name="form-check.gts">
-      {{! BEGIN-SNIPPET form-check }}
-      <FormCheck
+    <Snippet @name="form-html-input.gts">
+      {{! BEGIN-SNIPPET form-html-input }}
+      <FormHtmlInput
         @value={{@controller.value}}
         @label="Label"
         @identifier="identifier"
@@ -31,6 +31,8 @@ export default RouteTemplate<{
         @help="This is an example of help."
         @invalidFeedback="This is an example of invalid feedback."
         @requiredLabel="Required"
+        @editorLabel="Editor"
+        @codeLabel="Code"
         @onChange={{fn (mut @controller.value)}}
       />
       {{! END-SNIPPET }}

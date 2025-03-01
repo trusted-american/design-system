@@ -1,29 +1,29 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
-import { FormCheck, Subheading } from '@trusted-american/design-system';
+import { FormInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
 import type { TemplateFactory } from 'global';
-import type CompsFormCheckController from '../../../controllers/comps/form/check';
+import type CompsFormInputController from '../../../controllers/comps/form/input';
 
 export default RouteTemplate<{
   Args: {
-    controller: CompsFormCheckController;
+    controller: CompsFormInputController;
   };
 }>(
   <template>
-    {{pageTitle "Form check"}}
-    {{breadcrumb "Form check" route="comps.form.check"}}
+    {{pageTitle "Form input"}}
+    {{breadcrumb "Form input" route="comps.form.input"}}
 
-    <Subheading @title="Form check" />
+    <Subheading @title="Form input" />
 
-    <p>Value: {{if @controller.value "True" " False"}}</p>
+    <p>Value: {{@controller.value}}</p>
 
-    <Snippet @name="form-check.gts">
-      {{! BEGIN-SNIPPET form-check }}
-      <FormCheck
+    <Snippet @name="form-input.gts">
+      {{! BEGIN-SNIPPET form-input }}
+      <FormInput
         @value={{@controller.value}}
         @label="Label"
         @identifier="identifier"
@@ -32,6 +32,7 @@ export default RouteTemplate<{
         @invalidFeedback="This is an example of invalid feedback."
         @requiredLabel="Required"
         @onChange={{fn (mut @controller.value)}}
+        placeholder="Placeholder"
       />
       {{! END-SNIPPET }}
     </Snippet>

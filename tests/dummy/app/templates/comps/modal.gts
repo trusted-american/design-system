@@ -20,7 +20,7 @@ export default RouteTemplate<{
 
     <Heading @title="Modal" />
 
-    <Snippet @name="modal.hbs">
+    <Snippet @name="modal.gts">
       {{! BEGIN-SNIPPET modal }}
       <Button
         @label="Open modal"

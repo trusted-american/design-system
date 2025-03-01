@@ -13,7 +13,7 @@ export default RouteTemplate(
 
     <Heading @title="Avatar" />
 
-    <Snippet @name="avatar.hbs">
+    <Snippet @name="avatar.gts">
       {{! BEGIN-SNIPPET avatar }}
       <Avatar @id="62f76a6f5a1162f76a6f5a11" @alt="Avatar" />
       <Avatar

@@ -20,7 +20,7 @@ export default RouteTemplate<{
 
     <Heading @title="Flyout" />
 
-    <Snippet @name="flyout.hbs">
+    <Snippet @name="flyout.gts">
       {{! BEGIN-SNIPPET flyout }}
       <Button
         @label="Open flyout"

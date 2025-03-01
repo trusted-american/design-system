@@ -1,30 +1,29 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
-import { FormCheck, Subheading } from '@trusted-american/design-system';
+import { FormFileInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
 import type { TemplateFactory } from 'global';
-import type CompsFormCheckController from '../../../controllers/comps/form/check';
+import type CompsFormFileInputController from '../../../controllers/comps/form/file-input';
 
 export default RouteTemplate<{
   Args: {
-    controller: CompsFormCheckController;
+    controller: CompsFormFileInputController;
   };
 }>(
   <template>
-    {{pageTitle "Form check"}}
-    {{breadcrumb "Form check" route="comps.form.check"}}
+    {{pageTitle "Form file input"}}
+    {{breadcrumb "Form file input" route="comps.form.file-input"}}
 
-    <Subheading @title="Form check" />
+    <Subheading @title="Form file input" />
 
-    <p>Value: {{if @controller.value "True" " False"}}</p>
+    <p>Value: {{@controller.value.name}}</p>
 
-    <Snippet @name="form-check.gts">
-      {{! BEGIN-SNIPPET form-check }}
-      <FormCheck
-        @value={{@controller.value}}
+    <Snippet @name="form-file-input.gts">
+      {{! BEGIN-SNIPPET form-file-input }}
+      <FormFileInput
         @label="Label"
         @identifier="identifier"
         @isRequired={{true}}

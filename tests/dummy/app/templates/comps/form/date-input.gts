@@ -1,29 +1,33 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
-import { FormCheck, Subheading } from '@trusted-american/design-system';
+import {
+  FormDateInput,
+  Subheading,
+  timestamp,
+} from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
 import type { TemplateFactory } from 'global';
-import type CompsFormCheckController from '../../../controllers/comps/form/check';
+import type CompsFormDateInputController from '../../../controllers/comps/form/date-input';
 
 export default RouteTemplate<{
   Args: {
-    controller: CompsFormCheckController;
+    controller: CompsFormDateInputController;
   };
 }>(
   <template>
-    {{pageTitle "Form check"}}
-    {{breadcrumb "Form check" route="comps.form.check"}}
+    {{pageTitle "Form date input"}}
+    {{breadcrumb "Form date input" route="comps.form.date-input"}}
 
-    <Subheading @title="Form check" />
+    <Subheading @title="Form date input" />
 
-    <p>Value: {{if @controller.value "True" " False"}}</p>
+    <p>Value: {{timestamp @controller.value}}</p>
 
-    <Snippet @name="form-check.gts">
-      {{! BEGIN-SNIPPET form-check }}
-      <FormCheck
+    <Snippet @name="form-date-input.gts">
+      {{! BEGIN-SNIPPET form-date-input }}
+      <FormDateInput
         @value={{@controller.value}}
         @label="Label"
         @identifier="identifier"
