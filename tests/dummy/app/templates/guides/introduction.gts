@@ -28,7 +28,8 @@ export default RouteTemplate(
       />
     </p>
 
-    <p>Finally, add the base components to <code>application.hbs</code>:</p>
+    <p>Finally, add the base components to
+      <code>app/templates/application.gts</code>:</p>
 
     <CodeBlock
       @language="gts"
