@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, rerender, find } from '@ember/test-helpers';
+import { find, render, rerender } from '@ember/test-helpers';
 import { Avatar } from '@trusted-american/design-system';
 import { tracked } from 'tracked-built-ins';
 

@@ -3,12 +3,12 @@ import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import {
   Button,
-  dropdown,
   Dropdown,
   DropdownItem,
   Heading,
   MainBody,
   Subheading,
+  dropdown,
   tooltip,
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';

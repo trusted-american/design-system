@@ -1,6 +1,6 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
-import { array, hash, fn } from '@ember/helper';
+import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import {
   Button,

@@ -1,7 +1,7 @@
 import { modifier } from 'ember-modifier';
 import {
-  Calendar as FullCalendar,
   type EventClickArg,
+  Calendar as FullCalendar,
 } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';

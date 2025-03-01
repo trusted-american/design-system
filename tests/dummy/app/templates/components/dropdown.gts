@@ -4,11 +4,11 @@ import { on } from '@ember/modifier';
 import {
   Button,
   Dropdown,
-  dropdown,
   DropdownDivider,
   DropdownHeader,
   DropdownItem,
   Heading,
+  dropdown,
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
