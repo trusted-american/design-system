@@ -14,10 +14,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form power select"}}
-    {{breadcrumb "Form power select" route="components.form.power-select"}}
+    {{pageTitle "Power select"}}
+    {{breadcrumb "Power select" route="components.form.power-select"}}
 
-    <Subheading @title="Form power select" />
+    <Subheading @title="Power select" />
 
     <p>Value: {{@controller.value.subject}}</p>
 

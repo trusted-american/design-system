@@ -60,7 +60,6 @@ export default class FormInput extends Component<FormInputSignature> {
             ' has-validation'
           }}"
       >
-
         {{#if (has-block)}}
           <span class="input-group-text">
             {{yield}}
@@ -94,7 +93,6 @@ export default class FormInput extends Component<FormInputSignature> {
         {{#each @errors as |error|}}
           <FormFeedback @label={{error.message}} />
         {{/each}}
-
       </div>
     {{else}}
       <input

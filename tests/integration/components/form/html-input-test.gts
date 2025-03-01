@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { FormHtmlInput } from '@trusted-american/design-system';
 
 module('Integration | Component | form/html-input', function (hooks) {

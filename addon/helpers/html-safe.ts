@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-import { htmlSafe as _htmlSafe, type SafeString } from '@ember/template';
+import { type SafeString, htmlSafe as _htmlSafe } from '@ember/template';
 
 const htmlSafe = helper(function htmlSafe([value]: [
   string | null,

@@ -1,7 +1,7 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
 import { array } from '@ember/helper';
-import { hash, fn } from '@ember/helper';
+import { fn, hash } from '@ember/helper';
 import { Heading, ListAttributes } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';

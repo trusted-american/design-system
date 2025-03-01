@@ -28,13 +28,15 @@ export default RouteTemplate(
       />
     </p>
 
-    <p>Finally, add the base components to <code>application.hbs</code>:</p>
+    <p>Finally, add the base components to
+      <code>app/templates/application.gts</code>:</p>
 
     <CodeBlock
-      @language="hbs"
-      @code='&lcub;&lcub;page-title "Title"&rcub;&rcub;
+      @language="gts"
+      @code='&lcub;&lcub;theme "light"&rcub;&rcub;
+
+&lcub;&lcub;pageTitle "Title"&rcub;&rcub;
 &lcub;&lcub;breadcrumb "Title" route="application"&rcub;&rcub;
-&lcub;&lcub;theme "light"&rcub;&rcub;
 
 <Aside
   @title="Title"
@@ -47,27 +49,25 @@ export default RouteTemplate(
     Header
   </:header>
   <:default>
-    <Aside::Item @label="First" @route="index" @icon="house" />
-    <Aside::Item @label="Second" @route="index" @icon="house" />
-    <Aside::Item @label="Third" @route="index" @icon="house" />
+    <AsideItem @route="application.index" @label="Home" @icon="house" />
   </:default>
   <:footer>
     Footer
   </:footer>
 </Aside>
 <Main>
-  <Main::TopHeader>
+  <MainTopHeader>
     Top header
-  </Main::TopHeader>
-  <Main::Header>
+  </MainTopHeader>
+  <MainHeader>
     Header
-  </Main::Header>
-  <Main::Body>
+  </MainHeader>
+  <MainBody>
     Body
-  </Main::Body>
-  <Main::Footer>
+  </MainBody>
+  <MainFooter>
     Footer
-  </Main::Footer>
+  </MainFooter>
 </Main>'
     />
   </template>,

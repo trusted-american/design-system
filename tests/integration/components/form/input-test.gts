@@ -1,6 +1,6 @@
-import { module, test, skip } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, fillIn, click } from '@ember/test-helpers';
+import { click, fillIn, render } from '@ember/test-helpers';
 import { FormInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';

@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, fillIn } from '@ember/test-helpers';
+import { fillIn, render } from '@ember/test-helpers';
 import { FormDateInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { tracked } from 'tracked-built-ins';

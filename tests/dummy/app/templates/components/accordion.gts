@@ -16,8 +16,8 @@ export default RouteTemplate(
       @subtitle="Build vertically collapsing accordions in combination with our Collapse JavaScript plugin."
     />
 
-    <Snippet @name="accordion1.gts">
-      {{! BEGIN-SNIPPET accordion1 }}
+    <Snippet @name="accordion.gts">
+      {{! BEGIN-SNIPPET accordion }}
       <Accordion as |accordion|>
         <accordion.item as |item|>
           <item.button>Accordion Item #1</item.button>
@@ -35,8 +35,8 @@ export default RouteTemplate(
       {{! END-SNIPPET }}
     </Snippet>
 
-    <Snippet @name="accordion2.gts">
-      {{! BEGIN-SNIPPET accordion2 }}
+    <Snippet @name="accordion1.gts">
+      {{! BEGIN-SNIPPET accordion1 }}
       <Accordion @isAlwaysOpen={{true}} as |accordion|>
         <accordion.item as |item|>
           <item.button>Accordion Item #1</item.button>

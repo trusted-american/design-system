@@ -1,6 +1,6 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
-import { Icon, Heading } from '@trusted-american/design-system';
+import { Heading, Icon } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 

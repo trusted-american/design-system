@@ -62,8 +62,8 @@ export default RouteTemplate<{
 
     <Subheading @title="Sortable" />
 
-    <Snippet @name="table2.gts">
-      {{! BEGIN-SNIPPET table2 }}
+    <Snippet @name="table1.gts">
+      {{! BEGIN-SNIPPET table1 }}
       <Table
         @data={{@controller.model}}
         @isSortable={{true}}
@@ -92,8 +92,8 @@ export default RouteTemplate<{
 
     <Subheading @title="Local pagination" />
 
-    <Snippet @name="table3.gts">
-      {{! BEGIN-SNIPPET table3 }}
+    <Snippet @name="table2.gts">
+      {{! BEGIN-SNIPPET table2 }}
       <Table
         @data={{@controller.model}}
         @isSortable={{true}}
@@ -123,8 +123,8 @@ export default RouteTemplate<{
 
     <Subheading @title="Cursor pagination" />
 
-    <Snippet @name="table4.gts">
-      {{! BEGIN-SNIPPET table4 }}
+    <Snippet @name="table3.gts">
+      {{! BEGIN-SNIPPET table3 }}
       <Table
         @data={{@controller.model}}
         @isSortable={{true}}
@@ -158,8 +158,8 @@ export default RouteTemplate<{
 
     <Subheading @title="Offset pagination" />
 
-    <Snippet @name="table5.gts">
-      {{! BEGIN-SNIPPET table5 }}
+    <Snippet @name="table4.gts">
+      {{! BEGIN-SNIPPET table4 }}
       <Table
         @data={{@controller._page}}
         @isSortable={{true}}

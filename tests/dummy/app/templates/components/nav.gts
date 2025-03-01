@@ -36,8 +36,8 @@ export default RouteTemplate(
 
     <Subheading @title="Pills" />
 
-    <Snippet @name="nav2.gts">
-      {{! BEGIN-SNIPPET nav2 }}
+    <Snippet @name="nav1.gts">
+      {{! BEGIN-SNIPPET nav1 }}
       <Nav @isPills={{true}}>
         <NavItem @route="components" @label="First" />
         <NavItem @route="index" @label="Second" @icon="house" />
@@ -60,8 +60,8 @@ export default RouteTemplate(
 
     <Subheading @title="Vertical" />
 
-    <Snippet @name="nav3.gts">
-      {{! BEGIN-SNIPPET nav3 }}
+    <Snippet @name="nav2.gts">
+      {{! BEGIN-SNIPPET nav2 }}
       <Nav @isPills={{true}} @isVertical={{true}}>
         <NavItem @route="components" @label="First" />
         <NavItem @route="index" @label="Second" @icon="house" />

@@ -2,13 +2,13 @@ import RouteTemplate from 'ember-route-template';
 import Snippet from '../components/snippet';
 import { fn } from '@ember/helper';
 import {
-  fileSize,
   FormCheck,
-  fromNow,
   Heading,
-  htmlSafe,
   MainBody,
   Subheading,
+  fileSize,
+  fromNow,
+  htmlSafe,
   theme,
   timestamp,
 } from '@trusted-american/design-system';

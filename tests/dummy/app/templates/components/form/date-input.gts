@@ -18,10 +18,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form date input"}}
-    {{breadcrumb "Form date input" route="components.form.date-input"}}
+    {{pageTitle "Date input"}}
+    {{breadcrumb "Date input" route="components.form.date-input"}}
 
-    <Subheading @title="Form date input" />
+    <Subheading @title="Date input" />
 
     <p>Value: {{timestamp @controller.value}}</p>
 

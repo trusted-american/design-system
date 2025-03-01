@@ -13,10 +13,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form file dropzone"}}
-    {{breadcrumb "Form file dropzone" route="components.form.file-dropzone"}}
+    {{pageTitle "File dropzone"}}
+    {{breadcrumb "File dropzone" route="components.form.file-dropzone"}}
 
-    <Subheading @title="Form file dropzone" />
+    <Subheading @title="File dropzone" />
 
     <p>
       Value:

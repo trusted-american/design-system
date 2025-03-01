@@ -15,8 +15,8 @@ module('Integration | Component | form/radio-card', function (hooks) {
       <template>
         <FormRadioCard
           @options={{array
-            (hash value=true label="Yes" icon="check" help="Help")
-            (hash value=false label="No" icon="xmark" help="Help")
+            (hash value=true label="Yes" help="Help" icon="check")
+            (hash value=false label="No" help="Help" icon="xmark")
           }}
           @selected={{state.selected}}
           @label="Label"

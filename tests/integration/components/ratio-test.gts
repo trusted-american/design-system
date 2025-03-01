@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, find } from '@ember/test-helpers';
+import { find, render } from '@ember/test-helpers';
 import { Ratio } from '@trusted-american/design-system';
 
 module('Integration | Component | ratio', function (hooks) {

@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, rerender, fillIn } from '@ember/test-helpers';
+import { fillIn, render, rerender } from '@ember/test-helpers';
 import { FormTextarea } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { tracked } from 'tracked-built-ins';

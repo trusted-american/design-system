@@ -54,8 +54,8 @@ export default RouteTemplate(
 
     <Subheading @title="Aside group" />
 
-    <Snippet @name="aside2.gts">
-      {{! BEGIN-SNIPPET aside2 }}
+    <Snippet @name="aside1.gts">
+      {{! BEGIN-SNIPPET aside1 }}
       <AsideGroup @route="components.aside" @label="Label" @icon="box">
         <AsideItem @route="index" @label="Label" @icon="box" />
       </AsideGroup>
@@ -64,16 +64,16 @@ export default RouteTemplate(
 
     <Subheading @title="Aside item" />
 
-    <Snippet @name="aside3.gts">
-      {{! BEGIN-SNIPPET aside3 }}
+    <Snippet @name="aside2.gts">
+      {{! BEGIN-SNIPPET aside2 }}
       <AsideItem @route="index" @label="Label" @icon="box" />
       {{! END-SNIPPET }}
     </Snippet>
 
     <Subheading @title="Aside title" />
 
-    <Snippet @name="aside4.gts">
-      {{! BEGIN-SNIPPET aside4 }}
+    <Snippet @name="aside3.gts">
+      {{! BEGIN-SNIPPET aside3 }}
       <AsideTitle @label="Label" />
       {{! END-SNIPPET }}
     </Snippet>

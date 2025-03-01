@@ -23,12 +23,12 @@ export default RouteTemplate<{
 
     <Heading @title="Pagination" />
 
-    <Subheading @title="Pagination 1" />
+    <Subheading @title="Offset" />
 
     <p>Page: {{@controller.page}}</p>
 
-    <Snippet @name="pagination1.gts">
-      {{! BEGIN-SNIPPET pagination1 }}
+    <Snippet @name="pagination.gts">
+      {{! BEGIN-SNIPPET pagination }}
       <Pagination
         @page={{@controller.page}}
         @pageSize={{1}}
@@ -43,10 +43,10 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
 
-    <Subheading @title="Pagination 2" />
+    <Subheading @title="Cursor" />
 
-    <Snippet @name="pagination2.gts">
-      {{! BEGIN-SNIPPET pagination2 }}
+    <Snippet @name="pagination1.gts">
+      {{! BEGIN-SNIPPET pagination1 }}
       <Pagination
         @canNext={{false}}
         @canPrevious={{false}}

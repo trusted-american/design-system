@@ -73,8 +73,8 @@ export default RouteTemplate<{
 
     <Subheading @title="Route" />
 
-    <Snippet @name="button2.gts">
-      {{! BEGIN-SNIPPET button2 }}
+    <Snippet @name="button1.gts">
+      {{! BEGIN-SNIPPET button1 }}
       <Button @label="Route button" @route="index" />
       <Button
         @label="Route button with query"
@@ -86,8 +86,8 @@ export default RouteTemplate<{
 
     <Subheading @title="Link" />
 
-    <Snippet @name="button3.gts">
-      {{! BEGIN-SNIPPET button3 }}
+    <Snippet @name="button2.gts">
+      {{! BEGIN-SNIPPET button2 }}
       <Button
         @label="Link button"
         @icon="up-right-from-square"

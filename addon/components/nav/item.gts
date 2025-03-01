@@ -1,10 +1,37 @@
-import NavItemInternal from './item/internal';
+import Badge from '../badge';
+import Icon from '../icon';
 import { LinkTo } from '@ember/routing';
 import { and } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
 import type { LinkToArgs } from '../button';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
+
+const Item: TOC<{
+  Args: {
+    label?: string;
+    icon?: IconName;
+    count?: number;
+    trailingIcon?: IconName;
+  };
+  Blocks: {
+    default: [];
+  };
+}> = <template>
+  {{#if @icon}}
+    <Icon @icon={{@icon}} @isFixedWidth={{true}} class="me-1" />
+  {{/if}}
+  {{#if @label}}{{@label}}{{/if}}
+  {{yield}}
+  <div class="d-inline float-end">
+    {{#if @count}}
+      <Badge @label="{{@count}}" @isPill={{true}} class="ms-2" />
+    {{/if}}
+    {{#if @trailingIcon}}
+      <Icon @icon={{@trailingIcon}} @isFixedWidth={{true}} class="ms-2" />
+    {{/if}}
+  </div>
+</template>;
 
 interface Args extends LinkToArgs {
   label?: string;
@@ -32,14 +59,14 @@ const NavItem: TOC<NavItemSignature> = <template>
       data-test-nav-item
       ...attributes
     >
-      <NavItemInternal
+      <Item
         @label={{@label}}
         @icon={{@icon}}
         @count={{@count}}
         @trailingIcon={{@trailingIcon}}
       >
         {{yield}}
-      </NavItemInternal>
+      </Item>
     </LinkTo>
   {{else if (and @route @model)}}
     <LinkTo
@@ -49,14 +76,14 @@ const NavItem: TOC<NavItemSignature> = <template>
       data-test-nav-item
       ...attributes
     >
-      <NavItemInternal
+      <Item
         @label={{@label}}
         @icon={{@icon}}
         @count={{@count}}
         @trailingIcon={{@trailingIcon}}
       >
         {{yield}}
-      </NavItemInternal>
+      </Item>
     </LinkTo>
   {{else if @route}}
     <LinkTo
@@ -65,14 +92,14 @@ const NavItem: TOC<NavItemSignature> = <template>
       data-test-nav-item
       ...attributes
     >
-      <NavItemInternal
+      <Item
         @label={{@label}}
         @icon={{@icon}}
         @count={{@count}}
         @trailingIcon={{@trailingIcon}}
       >
         {{yield}}
-      </NavItemInternal>
+      </Item>
     </LinkTo>
   {{else if @query}}
     <LinkTo
@@ -81,14 +108,14 @@ const NavItem: TOC<NavItemSignature> = <template>
       data-test-nav-item
       ...attributes
     >
-      <NavItemInternal
+      <Item
         @label={{@label}}
         @icon={{@icon}}
         @count={{@count}}
         @trailingIcon={{@trailingIcon}}
       >
         {{yield}}
-      </NavItemInternal>
+      </Item>
     </LinkTo>
   {{else}}
     <a
@@ -97,14 +124,14 @@ const NavItem: TOC<NavItemSignature> = <template>
       data-test-nav-item
       ...attributes
     >
-      <NavItemInternal
+      <Item
         @label={{@label}}
         @icon={{@icon}}
         @count={{@count}}
         @trailingIcon={{@trailingIcon}}
       >
         {{yield}}
-      </NavItemInternal>
+      </Item>
     </a>
   {{/if}}
 </template>;

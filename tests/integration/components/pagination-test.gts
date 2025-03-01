@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { Pagination } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { tracked } from 'tracked-built-ins';

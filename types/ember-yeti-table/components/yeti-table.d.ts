@@ -1,12 +1,12 @@
 import Component from '@glimmer/component';
 
 import type {
-  YetiTableHeader,
+  Actions,
+  PaginationData,
   YetiTableBody,
   YetiTableFooter,
+  YetiTableHeader,
   YetiTableTfoot,
-  PaginationData,
-  Actions,
 } from '@trusted-american/design-system/components/table';
 import type { ComponentLike } from '@glint/template';
 

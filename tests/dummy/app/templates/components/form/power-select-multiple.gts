@@ -18,13 +18,13 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form power select multiple"}}
+    {{pageTitle "Power select multiple"}}
     {{breadcrumb
-      "Form power select multiple"
+      "Power select multiple"
       route="components.form.power-select-multiple"
     }}
 
-    <Subheading @title="Form power select multiple" />
+    <Subheading @title="Power select multiple" />
 
     <p>
       Value:

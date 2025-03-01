@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render, click, fillIn, select } from '@ember/test-helpers';
+import { click, fillIn, render, select } from '@ember/test-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
 import { ListFilter } from '@trusted-american/design-system';

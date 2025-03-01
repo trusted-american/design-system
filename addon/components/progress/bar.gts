@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { htmlSafe, type SafeString } from '@ember/template';
+import { type SafeString, htmlSafe } from '@ember/template';
 import { concat } from '@ember/helper';
 
 export interface ProgressBarSignature {

@@ -14,10 +14,10 @@ export default RouteTemplate<{
   };
 }>(
   <template>
-    {{pageTitle "Form Markdown input"}}
-    {{breadcrumb "Form Markdown input" route="components.form.markdown-input"}}
+    {{pageTitle "Markdown input"}}
+    {{breadcrumb "Markdown input" route="components.form.markdown-input"}}
 
-    <Subheading @title="Form Markdown input" />
+    <Subheading @title="Markdown input" />
 
     <p>Value: {{@controller.value}}</p>
 

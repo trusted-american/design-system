@@ -43,6 +43,8 @@ import type AccordionBody from './components/accordion/body';
 import type AccordionButton from './components/accordion/button';
 import type AccordionItem from './components/accordion/item';
 
+import type AlertLinkTo from './components/alert/link-to';
+
 import type AsideGroup from './components/aside/group';
 import type AsideItem from './components/aside/item';
 import type AsideTitle from './components/aside/title';
@@ -146,6 +148,8 @@ export default interface Registry {
   'Accordion::Body': typeof AccordionBody;
   'Accordion::Button': typeof AccordionButton;
   'Accordion::Item': typeof AccordionItem;
+
+  'Alert::LinkTo': typeof AlertLinkTo;
 
   'Aside::Group': typeof AsideGroup;
   'Aside::Item': typeof AsideItem;
