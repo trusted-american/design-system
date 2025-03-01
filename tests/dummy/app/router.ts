@@ -25,7 +25,6 @@ Router.map(function () {
     this.route('collapse');
     this.route('copy');
     this.route('dropdown');
-    this.route('external-link');
     this.route('file-type');
     this.route('flyout');
     this.route('form', function () {
@@ -49,6 +48,7 @@ Router.map(function () {
     });
     this.route('heading');
     this.route('icon');
+    this.route('link');
     this.route('list-attributes');
     this.route('list-filter');
     this.route('list-group');

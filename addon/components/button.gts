@@ -1,5 +1,5 @@
 import ButtonInternal from './button/internal';
-import ExternalLink from './external-link';
+import Link from './link';
 import { LinkTo } from '@ember/routing';
 import { concat } from '@ember/helper';
 import { and } from 'ember-truth-helpers';
@@ -140,7 +140,7 @@ const Button: TOC<ButtonSignature> = <template>
         />
       </a>
     {{else}}
-      <ExternalLink
+      <Link
         @href={{@href}}
         @label={{@label}}
         @icon={{@icon}}

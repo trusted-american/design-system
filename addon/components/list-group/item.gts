@@ -1,5 +1,5 @@
 import { LinkTo } from '@ember/routing';
-import ExternalLink from '../external-link';
+import Link from '../link';
 import { and } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
@@ -45,13 +45,13 @@ const ListGroupItem: TOC<ListGroupItemSignature> = <template>
       {{yield}}
     </LinkTo>
   {{else if @href}}
-    <ExternalLink
+    <Link
       @href={{@href}}
       class="list-group-item list-group-item-action"
       ...attributes
     >
       {{yield}}
-    </ExternalLink>
+    </Link>
   {{else if @isAction}}
     <a href="#" class="list-group-item list-group-item-action" ...attributes>
       {{yield}}
