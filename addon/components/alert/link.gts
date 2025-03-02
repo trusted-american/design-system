@@ -8,6 +8,7 @@ const AlertLink: TOC<LinkSignature> = <template>
     @model={{@model}}
     @query={{@query}}
     @href={{@href}}
+    @isLocalHref={{@isLocalHref}}
     @label={{@label}}
     @icon={{@icon}}
     @iconPrefix={{@iconPrefix}}

@@ -54,10 +54,8 @@ interface Args extends LinkToArgs {
   isFullWidth?: boolean;
   color?: string;
   isLoading?: boolean;
-  href?: string;
   count?: number;
   isLabel?: boolean;
-  isLocalHref?: boolean;
   shortcut?: string;
 }
 

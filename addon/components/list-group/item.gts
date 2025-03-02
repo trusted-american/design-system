@@ -4,7 +4,6 @@ import { or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
 
 interface Args extends LinkToArgs {
-  href?: string;
   isAction?: boolean;
 }
 
@@ -23,6 +22,7 @@ const ListGroupItem: TOC<ListGroupItemSignature> = <template>
       @model={{@model}}
       @query={{@query}}
       @href={{@href}}
+      @isLocalHref={{@isLocalHref}}
       class="list-group-item list-group-item-action"
       ...attributes
     >

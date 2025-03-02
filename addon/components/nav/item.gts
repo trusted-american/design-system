@@ -49,11 +49,13 @@ export interface NavItemSignature {
 }
 
 const NavItem: TOC<NavItemSignature> = <template>
-  {{#if (or @route @model @query)}}
+  {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
       @model={{@model}}
       @query={{@query}}
+      @href={{@href}}
+      @isLocalHref={{@isLocalHref}}
       class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
       data-test-nav-item
       ...attributes

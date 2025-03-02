@@ -53,6 +53,8 @@ const StatCard: TOC<StatCardSignature> = <template>
           @route={{@route}}
           @model={{@model}}
           @query={{@query}}
+          @href={{@href}}
+          @isLocalHref={{@isLocalHref}}
           class="stretched-link"
           aria-label={{@label}}
         />

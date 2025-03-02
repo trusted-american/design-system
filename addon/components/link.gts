@@ -36,11 +36,11 @@ export interface LinkToArgs {
   route?: string;
   model?: unknown;
   query?: Record<string, unknown>;
+  href?: string;
+  isLocalHref?: boolean;
 }
 
 interface Args extends LinkToArgs {
-  href?: string;
-  isLocalHref?: boolean;
   label?: string;
   icon?: IconName;
   iconPrefix?: IconPrefix;

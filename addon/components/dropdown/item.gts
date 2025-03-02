@@ -33,7 +33,6 @@ const Internal: TOC<{
 </template>;
 
 interface Args extends LinkToArgs {
-  href?: string;
   color?: string;
   label?: string;
   subtitle?: string;
@@ -56,6 +55,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       @model={{@model}}
       @query={{@query}}
       @href={{@href}}
+      @isLocalHref={{@isLocalHref}}
       class="dropdown-item d-flex align-items-center gap-2
         {{if @color (concat 'text-' @color)}}"
       ...attributes

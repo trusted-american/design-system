@@ -26,6 +26,7 @@ const AsideItem: TOC<AsideItemSignature> = <template>
     @route={{@route}}
     @model={{@model}}
     @query={{@query}}
+    @href={{@href}}
     @icon={{@icon}}
     @count={{@count}}
     @trailingIcon={{@trailingIcon}}
