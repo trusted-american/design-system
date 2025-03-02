@@ -1,9 +1,46 @@
-import ButtonInternal from './button/internal';
+import Badge from './badge';
+import Icon from './icon';
 import Link, { type LinkToArgs } from './link';
+import SpinnerInternal from './spinner/internal';
 import { concat } from '@ember/helper';
+import { and, not } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
 import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+
+const Internal: TOC<{
+  Args: {
+    label: string;
+    icon?: IconName;
+    iconPrefix?: IconPrefix;
+    isIconTrailing?: boolean;
+    isIconOnly?: boolean;
+    isLoading?: boolean;
+    count?: number;
+    shortcut?: string;
+  };
+  Element: SVGElement;
+}> = <template>
+  {{#if @isLoading}}
+    <SpinnerInternal />
+  {{/if}}
+  {{if (and (not @isIconOnly) @isIconTrailing) @label}}
+  {{#if @icon}}
+    <Icon
+      @icon={{@icon}}
+      @prefix={{@iconPrefix}}
+      class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
+      ...attributes
+    />
+  {{/if}}
+  {{if (and (not @isIconOnly) (not @isIconTrailing)) @label}}
+  {{#if @count}}
+    <Badge @label="{{@count}}" @isPill={{true}} class="ms-1" />
+  {{/if}}
+  {{#if @shortcut}}
+    <kbd>{{@shortcut}}</kbd>
+  {{/if}}
+</template>;
 
 interface Args extends LinkToArgs {
   isSubmit?: true;
@@ -47,7 +84,7 @@ const Button: TOC<ButtonSignature> = <template>
       data-test-button
       ...attributes
     >
-      <ButtonInternal
+      <Internal
         @label={{@label}}
         @icon={{@icon}}
         @iconPrefix={{@iconPrefix}}
@@ -72,7 +109,7 @@ const Button: TOC<ButtonSignature> = <template>
         data-test-button
         ...attributes
       >
-        <ButtonInternal
+        <Internal
           @label={{@label}}
           @icon={{@icon}}
           @iconPrefix={{@iconPrefix}}
@@ -112,7 +149,7 @@ const Button: TOC<ButtonSignature> = <template>
       data-test-button
       ...attributes
     >
-      <ButtonInternal
+      <Internal
         @label={{@label}}
         @icon={{@icon}}
         @iconPrefix={{@iconPrefix}}
@@ -138,7 +175,7 @@ const Button: TOC<ButtonSignature> = <template>
       data-test-button
       ...attributes
     >
-      <ButtonInternal
+      <Internal
         @label={{@label}}
         @icon={{@icon}}
         @iconPrefix={{@iconPrefix}}
