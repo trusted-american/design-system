@@ -29,7 +29,7 @@ export default RouteTemplate(
         @href="https://www.google.com/"
         @icon="up-right-from-square"
         @isIconTrailing={{true}}
-      >https://www.google.com</Link>
+      >Visit</Link>
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
