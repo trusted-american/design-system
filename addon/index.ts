@@ -15,11 +15,11 @@ export { default as CloseButton } from './components/close-button';
 export { default as Collapse } from './components/collapse';
 export { default as Copy } from './components/copy';
 export { default as Dropdown } from './components/dropdown';
-export { default as ExternalLink } from './components/external-link';
 export { default as FileType } from './components/file-type';
 export { default as Flyout } from './components/flyout';
 export { default as Heading } from './components/heading';
 export { default as Icon } from './components/icon';
+export { default as Link } from './components/link';
 export { default as ListAttributes } from './components/list-attributes';
 export { default as ListFilter } from './components/list-filter';
 export { default as ListGroup } from './components/list-group';
@@ -43,7 +43,7 @@ export { default as AccordionBody } from './components/accordion/body';
 export { default as AccordionButton } from './components/accordion/button';
 export { default as AccordionItem } from './components/accordion/item';
 
-export { default as AlertLinkTo } from './components/alert/link-to';
+export { default as AlertLink } from './components/alert/link';
 
 export { default as AsideGroup } from './components/aside/group';
 export { default as AsideItem } from './components/aside/item';

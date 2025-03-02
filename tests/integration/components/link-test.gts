@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { ExternalLink } from '@trusted-american/design-system';
+import { Link } from '@trusted-american/design-system';
 
-module('Integration | Component | external-link', function (hooks) {
+module('Integration | Component | link', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
@@ -11,9 +11,9 @@ module('Integration | Component | external-link', function (hooks) {
 
     await render(
       <template>
-        <ExternalLink @href={{href}}>
+        <Link @href={{href}}>
           template block text
-        </ExternalLink>
+        </Link>
       </template>,
     );
 

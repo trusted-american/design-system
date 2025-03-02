@@ -1,12 +1,11 @@
 import Card from './card';
 import Icon from './icon';
-import { LinkTo } from '@ember/routing';
+import Link, { type LinkArgs } from './link';
 
 import type { TOC } from '@ember/component/template-only';
-import type { LinkToArgs } from './button';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
-interface Args extends LinkToArgs {
+interface Args extends LinkArgs {
   label: string;
   value?: string | number | null;
   icon?: IconName;
@@ -50,8 +49,12 @@ const StatCard: TOC<StatCardSignature> = <template>
         {{/if}}
       </div>
       {{#if @route}}
-        <LinkTo
+        <Link
           @route={{@route}}
+          @model={{@model}}
+          @query={{@query}}
+          @href={{@href}}
+          @isLocalHref={{@isLocalHref}}
           class="stretched-link"
           aria-label={{@label}}
         />

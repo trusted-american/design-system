@@ -2,7 +2,7 @@ import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
 import {
   Alert,
-  AlertLinkTo,
+  AlertLink,
   Heading,
   Subheading,
 } from '@trusted-american/design-system';
@@ -33,7 +33,7 @@ export default RouteTemplate<{
       <Alert @color="danger" @icon="triangle-exclamation">
         One of your domains is unverified. Please verify your domain to prevent
         others from claiming it.
-        <AlertLinkTo @route="index">Learn more</AlertLinkTo>
+        <AlertLink @route="index">Learn more</AlertLink>
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>
@@ -46,7 +46,7 @@ export default RouteTemplate<{
         @closeButtonLabel="Close"
         @onClose={{@controller.close}}
       >
-        <AlertLinkTo @route="index">Prebuilds</AlertLinkTo>
+        <AlertLink @route="index">Prebuilds</AlertLink>
         consume storage space that will incur a billable charge.
       </Alert>
       {{! END-SNIPPET }}
@@ -61,7 +61,7 @@ export default RouteTemplate<{
         @onClose={{@controller.close}}
       >
         Payment information added successfully. Change it any time in
-        <AlertLinkTo @route="index">your profile</AlertLinkTo>.
+        <AlertLink @route="index">your profile</AlertLink>.
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>
@@ -75,7 +75,7 @@ export default RouteTemplate<{
         @onClose={{@controller.close}}
       >
         Ignoring revisions in
-        <AlertLinkTo @route="index">.git-blame-ignore-revs</AlertLinkTo>.
+        <AlertLink @route="index">.git-blame-ignore-revs</AlertLink>.
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>

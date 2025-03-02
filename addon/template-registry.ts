@@ -15,11 +15,11 @@ import type CloseButton from './components/close-button';
 import type Collapse from './components/collapse';
 import type Copy from './components/copy';
 import type Dropdown from './components/dropdown';
-import type ExternalLink from './components/external-link';
 import type FileType from './components/file-type';
 import type Flyout from './components/flyout';
 import type Heading from './components/heading';
 import type Icon from './components/icon';
+import type Link from './components/link';
 import type ListAttributes from './components/list-attributes';
 import type ListFilter from './components/list-filter';
 import type ListGroup from './components/list-group';
@@ -43,7 +43,7 @@ import type AccordionBody from './components/accordion/body';
 import type AccordionButton from './components/accordion/button';
 import type AccordionItem from './components/accordion/item';
 
-import type AlertLinkTo from './components/alert/link-to';
+import type AlertLink from './components/alert/link';
 
 import type AsideGroup from './components/aside/group';
 import type AsideItem from './components/aside/item';
@@ -121,11 +121,11 @@ export default interface Registry {
   Collapse: typeof Collapse;
   Copy: typeof Copy;
   Dropdown: typeof Dropdown;
-  ExternalLink: typeof ExternalLink;
   FileType: typeof FileType;
   Flyout: typeof Flyout;
   Heading: typeof Heading;
   Icon: typeof Icon;
+  Link: typeof Link;
   ListAttributes: typeof ListAttributes;
   ListFilter: typeof ListFilter;
   ListGroup: typeof ListGroup;
@@ -149,7 +149,7 @@ export default interface Registry {
   'Accordion::Button': typeof AccordionButton;
   'Accordion::Item': typeof AccordionItem;
 
-  'Alert::LinkTo': typeof AlertLinkTo;
+  'Alert::Link': typeof AlertLink;
 
   'Aside::Group': typeof AsideGroup;
   'Aside::Item': typeof AsideItem;
