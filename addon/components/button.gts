@@ -3,7 +3,7 @@ import Icon from './icon';
 import Link, { type LinkToArgs } from './link';
 import SpinnerInternal from './spinner/internal';
 import { concat } from '@ember/helper';
-import { and, not } from 'ember-truth-helpers';
+import { and, not, or } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
 import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
@@ -70,7 +70,7 @@ export interface ButtonSignature {
 }
 
 const Button: TOC<ButtonSignature> = <template>
-  {{#if @route}}
+  {{#if (or @route @model @query)}}
     <Link
       @route={{@route}}
       @model={{@model}}
