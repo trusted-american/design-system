@@ -40,6 +40,7 @@ export interface LinkToArgs {
 
 interface Args extends LinkToArgs {
   href?: string;
+  isLocalHref?: boolean;
   label?: string;
   icon?: IconName;
   iconPrefix?: IconPrefix;
@@ -111,8 +112,8 @@ const Link: TOC<LinkSignature> = <template>
   {{else}}
     <a
       href={{@href}}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={{unless @isLocalHref "_blank"}}
+      rel={{unless @isLocalHref "noopener noreferrer"}}
       data-test-link
       ...attributes
     ><Internal

@@ -70,11 +70,13 @@ export interface ButtonSignature {
 }
 
 const Button: TOC<ButtonSignature> = <template>
-  {{#if (or @route @model @query)}}
+  {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
       @model={{@model}}
       @query={{@query}}
+      @href={{@href}}
+      @isLocalHref={{@isLocalHref}}
       class="btn
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
@@ -96,49 +98,6 @@ const Button: TOC<ButtonSignature> = <template>
         role="presentation"
       />
     </Link>
-  {{else if @href}}
-    {{#if @isLocalHref}}
-      <a
-        href={{@href}}
-        class="btn
-          {{if @size (concat 'btn-' @size)}}
-          btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-          {{if @isFullWidth 'w-100'}}
-          text-nowrap"
-        role="button"
-        data-test-button
-        ...attributes
-      >
-        <Internal
-          @label={{@label}}
-          @icon={{@icon}}
-          @iconPrefix={{@iconPrefix}}
-          @isIconTrailing={{@isIconTrailing}}
-          @isIconOnly={{@isIconOnly}}
-          @isLoading={{@isLoading}}
-          @count={{@count}}
-          @shortcut={{@shortcut}}
-          role="presentation"
-        />
-      </a>
-    {{else}}
-      <Link
-        @href={{@href}}
-        @label={{@label}}
-        @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
-        @isIconTrailing={{@isIconTrailing}}
-        @isIconOnly={{@isIconOnly}}
-        class="btn
-          {{if @size (concat 'btn-' @size)}}
-          btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-          {{if @isFullWidth 'w-100'}}
-          text-nowrap"
-        role="button"
-        data-test-button
-        ...attributes
-      />
-    {{/if}}
   {{else if @isLabel}}
     <label
       class="btn

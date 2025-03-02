@@ -17,7 +17,7 @@ export interface ListGroupItemSignature {
 }
 
 const ListGroupItem: TOC<ListGroupItemSignature> = <template>
-  {{#if (or @route @href)}}
+  {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
       @model={{@model}}

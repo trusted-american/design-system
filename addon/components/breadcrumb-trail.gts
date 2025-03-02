@@ -12,9 +12,8 @@ const BreadcrumbTrail = <template>
             <Link
               @route="{{get breadcrumb.data 'route'}}"
               @model={{get breadcrumb.data "model"}}
-            >
-              {{breadcrumb.title}}
-            </Link>
+              @label={{breadcrumb.title}}
+            />
           </li>
         {{else}}
           <li class="breadcrumb-item active" aria-current="page">

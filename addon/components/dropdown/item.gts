@@ -1,6 +1,7 @@
 import Link, { type LinkToArgs } from '../link';
 import Icon from '../icon';
 import { concat } from '@ember/helper';
+import { or } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
@@ -49,10 +50,12 @@ export interface DropdownItemSignature {
 }
 
 const DropdownItem: TOC<DropdownItemSignature> = <template>
-  {{#if @route}}
+  {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
       @model={{@model}}
+      @query={{@query}}
+      @href={{@href}}
       class="dropdown-item d-flex align-items-center gap-2
         {{if @color (concat 'text-' @color)}}"
       ...attributes
@@ -64,22 +67,6 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
         @shortcut={{@shortcut}}
       />
     </Link>
-  {{else if @href}}
-    <a
-      href={{@href}}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
-      ...attributes
-    >
-      <Internal
-        @label={{@label}}
-        @subtitle={{@subtitle}}
-        @icon={{@icon}}
-        @shortcut={{@shortcut}}
-      />
-    </a>
   {{else}}
     <button
       type="button"

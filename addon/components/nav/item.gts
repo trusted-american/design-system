@@ -6,7 +6,7 @@ import type { TOC } from '@ember/component/template-only';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
 import type { LinkToArgs } from '../link';
 
-const Item: TOC<{
+const Internal: TOC<{
   Args: {
     label?: string;
     icon?: IconName;
@@ -49,7 +49,7 @@ export interface NavItemSignature {
 }
 
 const NavItem: TOC<NavItemSignature> = <template>
-  {{#if @route}}
+  {{#if (or @route @model @query)}}
     <Link
       @route={{@route}}
       @model={{@model}}
@@ -58,14 +58,14 @@ const NavItem: TOC<NavItemSignature> = <template>
       data-test-nav-item
       ...attributes
     >
-      <Item
+      <Internal
         @label={{@label}}
         @icon={{@icon}}
         @count={{@count}}
         @trailingIcon={{@trailingIcon}}
       >
         {{yield}}
-      </Item>
+      </Internal>
     </Link>
   {{else}}
     <a
@@ -74,14 +74,14 @@ const NavItem: TOC<NavItemSignature> = <template>
       data-test-nav-item
       ...attributes
     >
-      <Item
+      <Internal
         @label={{@label}}
         @icon={{@icon}}
         @count={{@count}}
         @trailingIcon={{@trailingIcon}}
       >
         {{yield}}
-      </Item>
+      </Internal>
     </a>
   {{/if}}
 </template>;
