@@ -1,7 +1,7 @@
 import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, fillIn, render } from '@ember/test-helpers';
-import { FormInput } from '@trusted-american/design-system';
+import { Button, FormInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { tracked } from 'tracked-built-ins';
@@ -122,7 +122,7 @@ module('Integration | Component | form/input', function (hooks) {
             @requiredLabel="Required"
             @onChange={{fn (mut state.value)}}
           />
-          <button type="submit" data-test-submit>Submit</button>
+          <Button @label="Submit" @isSubmit={{true}} data-test-submit />
         </form>
       </template>,
     );
