@@ -32,7 +32,7 @@ const Internal: TOC<{
       {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}{{/unless}}{{/unless}}
 </template>;
 
-export interface LinkToArgs {
+export interface LinkArgs {
   route?: string;
   model?: unknown;
   query?: Record<string, unknown>;
@@ -40,7 +40,7 @@ export interface LinkToArgs {
   isLocalHref?: boolean;
 }
 
-interface Args extends LinkToArgs {
+interface Args extends LinkArgs {
   label?: string;
   icon?: IconName;
   iconPrefix?: IconPrefix;

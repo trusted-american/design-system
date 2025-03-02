@@ -1,9 +1,9 @@
-import Link, { type LinkToArgs } from '../link';
+import Link, { type LinkArgs } from '../link';
 import { or } from 'ember-truth-helpers';
 
 import type { TOC } from '@ember/component/template-only';
 
-interface Args extends LinkToArgs {
+interface Args extends LinkArgs {
   isAction?: boolean;
 }
 

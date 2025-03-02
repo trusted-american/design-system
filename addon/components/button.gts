@@ -1,6 +1,6 @@
 import Badge from './badge';
 import Icon from './icon';
-import Link, { type LinkToArgs } from './link';
+import Link, { type LinkArgs } from './link';
 import SpinnerInternal from './spinner/internal';
 import { concat } from '@ember/helper';
 import { and, not, or } from 'ember-truth-helpers';
@@ -42,7 +42,7 @@ const Internal: TOC<{
   {{/if}}
 </template>;
 
-interface Args extends LinkToArgs {
+interface Args extends LinkArgs {
   isSubmit?: true;
   label: string;
   icon?: IconName;

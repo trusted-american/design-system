@@ -3,9 +3,9 @@ import Icon from '../icon';
 
 import type { TOC } from '@ember/component/template-only';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
-import type { LinkToArgs } from '../link';
+import type { LinkArgs } from '../link';
 
-interface Args extends LinkToArgs {
+interface Args extends LinkArgs {
   label: string;
   icon?: IconName;
   count?: number;
