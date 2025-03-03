@@ -1,11 +1,11 @@
 import RouteTemplate from 'ember-route-template';
 import { on } from '@ember/modifier';
-import { LinkTo } from '@ember/routing';
 import {
   Button,
   Dropdown,
   DropdownItem,
   Heading,
+  Link,
   MainBody,
   Subheading,
   dropdown,
@@ -32,7 +32,11 @@ export default RouteTemplate<{
 
       <Subheading @title="Collapse" />
 
-      <p><LinkTo @route="components.collapse">See collapse component</LinkTo></p>
+      <p><Link
+          @route="components.collapse"
+          @icon="arrow-right"
+          @isIconTrailing={{true}}
+        >See collapse component</Link></p>
 
       <Subheading @title="Dropdown" />
 

@@ -8,9 +8,9 @@ import {
   AsideTitle,
   BreadcrumbTrail,
   Button,
-  ExternalLink,
   FormCheck,
   FormInput,
+  Link,
   Main,
   MainFooter,
   MainTopHeader,
@@ -71,12 +71,12 @@ export default RouteTemplate<{
           <AsideItem @route="components.collapse" @label="Collapse" />
           <AsideItem @route="components.copy" @label="Copy button" />
           <AsideItem @route="components.dropdown" @label="Dropdown" />
-          <AsideItem @route="components.external-link" @label="External link" />
           <AsideItem @route="components.file-type" @label="File type" />
           <AsideItem @route="components.flyout" @label="Flyout" />
           <AsideItem @route="components.form" @label="Form" />
           <AsideItem @route="components.heading" @label="Heading" />
           <AsideItem @route="components.icon" @label="Icon" />
+          <AsideItem @route="components.link" @label="Link" />
           <AsideItem
             @route="components.list-attributes"
             @label="List attributes"
@@ -119,7 +119,7 @@ export default RouteTemplate<{
           @route="detail"
           @label="Disabled"
           @icon="crop-simple"
-          class="disabled"
+          @isDisabled={{true}}
         />
       </:default>
       <:footer>
@@ -166,9 +166,9 @@ export default RouteTemplate<{
       {{outlet}}
 
       <MainFooter>
-        <ExternalLink @href="https://github.com/trusted-american/design-system">
+        <Link @href="https://github.com/trusted-american/design-system">
           GitHub
-        </ExternalLink>
+        </Link>
       </MainFooter>
     </Main>
   </template>,

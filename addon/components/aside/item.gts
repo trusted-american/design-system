@@ -2,10 +2,10 @@ import NavItem from '../nav/item';
 import Icon from '../icon';
 
 import type { TOC } from '@ember/component/template-only';
-import type { LinkToArgs } from '../button';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type { LinkArgs } from '../link';
 
-interface Args extends LinkToArgs {
+interface Args extends LinkArgs {
   label: string;
   icon?: IconName;
   count?: number;
@@ -26,6 +26,7 @@ const AsideItem: TOC<AsideItemSignature> = <template>
     @route={{@route}}
     @model={{@model}}
     @query={{@query}}
+    @href={{@href}}
     @icon={{@icon}}
     @count={{@count}}
     @trailingIcon={{@trailingIcon}}
