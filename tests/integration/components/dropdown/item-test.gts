@@ -11,4 +11,14 @@ module('Integration | Component | dropdown/item', function (hooks) {
 
     assert.dom().hasText('Label');
   });
+
+  test('it yields', async function (assert) {
+    await render(
+      <template>
+        <DropdownItem>Label</DropdownItem>
+      </template>,
+    );
+
+    assert.dom().hasText('Label');
+  });
 });

@@ -65,7 +65,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
         @subtitle={{@subtitle}}
         @icon={{@icon}}
         @shortcut={{@shortcut}}
-      />
+      >{{yield}}</Internal>
     </Link>
   {{else}}
     <button
@@ -79,7 +79,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
         @subtitle={{@subtitle}}
         @icon={{@icon}}
         @shortcut={{@shortcut}}
-      />
+      >{{yield}}</Internal>
     </button>
   {{/if}}
 </template>;
