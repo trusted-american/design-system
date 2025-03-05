@@ -197,3 +197,8 @@ dl dd:last-child {
 .yeti-table thead tr th.yeti-table-sorted-desc::after {
   content: "↓";
 }
+
+.nav-tabs,
+.card-header-tabs {
+  background-color: var(--bs-light-bg);
+}

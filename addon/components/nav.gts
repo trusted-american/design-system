@@ -14,10 +14,10 @@ export interface NavSignature {
 }
 
 const Nav: TOC<NavSignature> = <template>
-  <div class="overflow-x-auto" ...attributes>
+  <div class="card-header" ...attributes>
     <nav
       class="nav flex-nowrap
-        {{unless @isPills 'nav-tabs'}}
+        {{unless @isPills 'nav-tabs card-header-tabs'}}
         {{if @isPills 'nav-pills'}}
         {{if @isFill 'nav-fill'}}
         {{if @isVertical 'flex-column'}}"
