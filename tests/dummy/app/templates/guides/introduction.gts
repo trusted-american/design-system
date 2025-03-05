@@ -43,6 +43,7 @@ export default RouteTemplate(
   @logo="/logo.svg"
   @route="application"
   @isCollapsed=&lcub;&lcub;false&rcub;&rcub;
+  @collapseLabel="Collapse menu"
   @onChange=&lcub;&lcub;(noop)&rcub;&rcub;
 >
   <:header>
