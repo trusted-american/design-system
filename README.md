@@ -6,6 +6,7 @@ Components for building robust user interfaces. Built on top of Bootstrap.
 
 - ✅ TypeScript and Glint ready
 - 🌐 Full i18n support
+- ♿ Full a11y support
 
 ## Compatibility
 
