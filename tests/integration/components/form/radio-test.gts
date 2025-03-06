@@ -12,8 +12,10 @@ module('Integration | Component | form/radio', function (hooks) {
       { value: 'one', label: 'One' },
       { value: 'two', label: 'Two' },
     ];
-    const state = tracked<{ selected: unknown }>({ selected: undefined });
-    const onChange = (selected: unknown) => {
+    const state = tracked<{ selected: string | undefined }>({
+      selected: undefined,
+    });
+    const onChange = (selected: string) => {
       state.selected = selected;
       assert.ok(selected);
     };
