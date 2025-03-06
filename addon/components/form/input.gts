@@ -7,7 +7,7 @@ import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, or } from 'ember-truth-helpers';
 
-export interface BaseArgs {
+export interface FormInputArgs {
   label: string;
   identifier: string;
   isRequired?: boolean;
@@ -19,7 +19,7 @@ export interface BaseArgs {
   errors?: { message: string }[];
 }
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: string | null | undefined;
   type?: string;
   onChange: (value: string) => void;

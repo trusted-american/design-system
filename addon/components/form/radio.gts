@@ -7,7 +7,7 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { and, eq } from 'ember-truth-helpers';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 import type { Option } from './select';
 
 const decrement = (value: number) => value - 1;
@@ -16,7 +16,7 @@ export interface RadioOption<T> extends Option<T> {
   help?: string;
 }
 
-interface Args<T> extends BaseArgs {
+interface Args<T> extends FormInputArgs {
   options: RadioOption<T>[];
   selected: T | null | undefined;
   isInline?: boolean;

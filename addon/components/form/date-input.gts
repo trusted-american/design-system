@@ -3,12 +3,12 @@ import { action } from '@ember/object';
 import isValidDate from '../../utils/is-valid-date';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import FormInput, { type BaseArgs } from './input';
+import FormInput, { type FormInputArgs } from './input';
 import { eq } from 'ember-truth-helpers';
 
 dayjs.extend(utc);
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: Date | null | undefined;
   type?: 'date' | 'month';
   min?: Date | null;

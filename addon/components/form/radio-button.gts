@@ -7,14 +7,14 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 import type { Option } from './select';
 
 interface RadioOption<T> extends Option<T> {
   color?: string;
 }
 
-interface Args<T> extends BaseArgs {
+interface Args<T> extends FormInputArgs {
   options: RadioOption<T>[];
   selected: T;
   onChange: (selected: T) => void;

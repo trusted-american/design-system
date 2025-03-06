@@ -4,9 +4,9 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 
 import type { TOC } from '@ember/component/template-only';
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: boolean | null | undefined;
   isInline?: boolean;
   isSwitch?: boolean;

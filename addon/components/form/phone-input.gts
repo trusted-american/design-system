@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
-import FormInput, { type BaseArgs } from './input';
+import FormInput, { type FormInputArgs } from './input';
 import { fn } from '@ember/helper';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: string | null | undefined;
   onChange: (value: string | null) => void;
 }

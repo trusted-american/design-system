@@ -14,11 +14,11 @@ import { on } from '@ember/modifier';
 import MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
 import { eq } from 'ember-truth-helpers';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 
 import '@github/markdown-toolbar-element';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: string | null;
   writeLabel: string;
   previewLabel: string;
