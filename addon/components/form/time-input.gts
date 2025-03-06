@@ -25,8 +25,8 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
     const minutes = value.getMinutes();
 
     return [
-      hours < 10 ? '0' + (hours as unknown as string) : hours,
-      minutes < 10 ? '0' + (minutes as unknown as string) : minutes,
+      hours < 10 ? '0' + hours.toString() : hours,
+      minutes < 10 ? '0' + minutes.toString() : minutes,
     ].join(':');
   }
 
