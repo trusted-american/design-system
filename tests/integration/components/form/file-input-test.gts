@@ -1,15 +1,15 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, triggerEvent } from '@ember/test-helpers';
 import { FormFileInput } from '@trusted-american/design-system';
+import { tracked } from 'tracked-built-ins';
+import { fn } from '@ember/helper';
 
 module('Integration | Component | form/file-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const onChange = () => {
-      assert.true(true);
-    };
+    const state = tracked<{ file?: File }>({});
 
     await render(
       <template>
@@ -20,7 +20,7 @@ module('Integration | Component | form/file-input', function (hooks) {
           @help="Help"
           @invalidFeedback="Invalid feedback"
           @requiredLabel="Required"
-          @onChange={{onChange}}
+          @onChange={{fn (mut state.file)}}
         />
       </template>,
     );
@@ -30,5 +30,11 @@ module('Integration | Component | form/file-input', function (hooks) {
     assert.dom('input').isRequired();
     assert.dom('[data-test-form-help]').exists();
     assert.dom('[data-test-form-error]').exists();
+
+    await triggerEvent('input', 'change', {
+      files: [new File(['Ember Rules!'], 'ember-rules.txt')],
+    });
+
+    assert.true(state.file instanceof File);
   });
 });
