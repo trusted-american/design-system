@@ -137,7 +137,6 @@ export default RouteTemplate<{
           />
         </:footer>
       </Aside>
-
       <Main>
         <MainTopHeader>
           <div class="d-flex align-items-center gap-3">

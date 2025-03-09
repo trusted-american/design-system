@@ -9,7 +9,7 @@ module('Integration | Component | form/html-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{ value: string }>({ value: '' });
+    const state = tracked({ value: '' });
 
     await render(
       <template>

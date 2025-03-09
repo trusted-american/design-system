@@ -27,10 +27,10 @@ module('Integration | Component | alert', function (hooks) {
       </template>,
     );
 
-    assert.dom('svg').exists();
+    assert.dom('[data-test-icon]').exists();
   });
 
-  test('close works', async function (assert) {
+  test('it supports close button', async function (assert) {
     const onClose = () => {
       assert.ok(true);
     };

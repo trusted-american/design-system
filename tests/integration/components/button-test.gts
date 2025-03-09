@@ -10,12 +10,12 @@ module('Integration | Component | button', function (hooks) {
     //Text Only
     await render(<template><Button @label="Test" /></template>);
     assert.dom().hasText('Test');
-    assert.dom('svg').doesNotExist(); //No Icon
+    assert.dom('[data-test-icon]').doesNotExist(); //No Icon
     assert.dom('button div').doesNotExist(); // No Loading
 
     //Text with Icon
     await render(<template><Button @label="Test" @icon="house" /></template>);
-    assert.dom('svg').exists();
+    assert.dom('[data-test-icon]').exists();
     assert.dom().hasText('Test');
 
     //Icon Only
@@ -24,7 +24,7 @@ module('Integration | Component | button', function (hooks) {
         <Button @label="Test" @icon="house" @isIconOnly={{true}} />
       </template>,
     );
-    assert.dom('svg').exists();
+    assert.dom('[data-test-icon]').exists();
     assert.dom().doesNotIncludeText('Test');
 
     //Small
