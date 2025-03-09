@@ -31,11 +31,16 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
   }
 
   @action
-  change(v: string): void {
+  change(_value: string): void {
     const value = this.args.value ? new Date(this.args.value) : new Date();
-    const [hours, minutes] = v.split(':').map(Number);
-    if (hours) value.setHours(hours);
-    if (minutes || minutes === 0) value.setMinutes(minutes);
+    const [hours, minutes] = _value.split(':').map(Number);
+
+    if (hours) {
+      value.setHours(hours);
+    }
+    if (minutes || minutes === 0) {
+      value.setMinutes(minutes);
+    }
 
     this.args.onChange(value);
   }
@@ -54,6 +59,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
       @isInputOnly={{@isInputOnly}}
       @errors={{@errors}}
       @onChange={{this.change}}
+      data-test-form-time-input
       ...attributes
     />
   </template>

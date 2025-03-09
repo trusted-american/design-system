@@ -39,6 +39,7 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
       @isInputOnly={{@isInputOnly}}
       @errors={{@errors}}
       @onChange={{this.change}}
+      data-test-form-number-input
       ...attributes
     />
   </template>
