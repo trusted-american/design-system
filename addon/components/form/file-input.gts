@@ -48,6 +48,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
       class="form-control {{if @size (concat 'form-control-' @size)}}"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}
+      data-test-form-file-input
       {{on "change" this.change}}
       ...attributes
     />

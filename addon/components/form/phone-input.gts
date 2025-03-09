@@ -52,6 +52,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
       maxlength="14"
       pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
       autocomplete="tel-national"
+      data-test-form-phone-input
       ...attributes
     >
       +1

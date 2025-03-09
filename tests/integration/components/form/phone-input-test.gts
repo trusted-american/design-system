@@ -28,7 +28,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
 
     assert.dom('[data-test-form-input]').exists();
 
-    await fillIn('[data-test-form-input]', '2223334444');
+    await fillIn('[data-test-form-phone-input]', '2223334444');
 
     assert.strictEqual(state.value, '+12223334444');
   });
