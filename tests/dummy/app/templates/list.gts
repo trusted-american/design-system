@@ -12,7 +12,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type ListController from '../controllers/list';
 
 export default RouteTemplate<{
@@ -72,4 +71,4 @@ export default RouteTemplate<{
       </Table>
     </MainBody>
   </template>,
-) as TemplateFactory;
+);

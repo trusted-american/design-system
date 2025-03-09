@@ -4,8 +4,6 @@ import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import { CodeBlock } from 'ember-shiki';
 
-import type { TemplateFactory } from 'global';
-
 export default RouteTemplate(
   <template>
     {{pageTitle "Introduction"}}
@@ -74,4 +72,4 @@ export default RouteTemplate(
 </Frame>'
     />
   </template>,
-) as TemplateFactory;
+);

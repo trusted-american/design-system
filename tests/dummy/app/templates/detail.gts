@@ -12,8 +12,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
-
 export default RouteTemplate(
   <template>
     {{pageTitle "Detail"}}
@@ -61,4 +59,4 @@ export default RouteTemplate(
       </Card>
     </MainBody>
   </template>,
-) as TemplateFactory;
+);

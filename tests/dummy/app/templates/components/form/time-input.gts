@@ -9,7 +9,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type ComponentsFormTimeInputController from '../../../controllers/components/form/time-input';
 
 export default RouteTemplate<{
@@ -40,4 +39,4 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
-) as TemplateFactory;
+);

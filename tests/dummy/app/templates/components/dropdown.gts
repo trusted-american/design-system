@@ -13,7 +13,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type ComponentsDropdownController from '../../controllers/components/dropdown';
 
 export default RouteTemplate<{
@@ -70,4 +69,4 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
-) as TemplateFactory;
+);
