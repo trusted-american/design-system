@@ -33,10 +33,8 @@ module('Integration | Component | aside', function (hooks) {
 
     assert.dom('aside').hasText('Title Default Bottom');
 
-    assert.dom('aside').doesNotHaveClass('collapsed');
-
     await click('button');
 
-    assert.dom('aside').hasClass('collapsed');
+    assert.dom('aside').doesNotExist();
   });
 });
