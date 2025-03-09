@@ -2,16 +2,6 @@
   "extends": "@tsconfig/ember/tsconfig.json",
   "glint": {
     "environment": {
-      "ember-loose": {
-        "additionalSpecialForms": {
-          "globals": {
-            "eq": "===",
-            "not-eq": "!==",
-            "and": "&&",
-            "or": "||"
-          }
-        }
-      },
       "ember-template-imports": {
         "additionalSpecialForms": {
           "globals": {
@@ -45,5 +35,7 @@
     "noEmit": false,
     "rootDir": "."
   },
-  "types": ["ember-source/types"]
+  "types": [
+    "ember-source/types"
+  ]
 }
