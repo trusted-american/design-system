@@ -18,9 +18,3 @@ const MainBody: TOC<MainBodySignature> = <template>
 </template>;
 
 export default MainBody;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Main::Body': typeof MainBody;
-  }
-}

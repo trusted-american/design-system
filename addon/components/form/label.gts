@@ -28,9 +28,3 @@ const FormLabel: TOC<FormLabelSignature> = <template>
 </template>;
 
 export default FormLabel;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Label': typeof FormLabel;
-  }
-}

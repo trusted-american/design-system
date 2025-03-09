@@ -29,9 +29,3 @@ const Nav: TOC<NavSignature> = <template>
 </template>;
 
 export default Nav;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Nav: typeof Nav;
-  }
-}

@@ -26,9 +26,3 @@ const BreadcrumbTrail = <template>
 </template>;
 
 export default BreadcrumbTrail;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    BreadcrumbTrail: typeof BreadcrumbTrail;
-  }
-}

@@ -14,9 +14,3 @@ const CardBody: TOC<CardBodySignature> = <template>
 </template>;
 
 export default CardBody;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Card::Body': typeof CardBody;
-  }
-}

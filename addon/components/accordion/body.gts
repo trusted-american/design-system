@@ -14,9 +14,3 @@ const AccordionBody: TOC<AccordionBodySignature> = <template>
 </template>;
 
 export default AccordionBody;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Accordion::Body': typeof AccordionBody;
-  }
-}

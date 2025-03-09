@@ -38,9 +38,3 @@ export default class AsideGroup extends Component<AsideGroupSignature> {
     </Collapse>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Aside::Group': typeof AsideGroup;
-  }
-}

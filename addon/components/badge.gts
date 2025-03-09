@@ -33,9 +33,3 @@ const Badge: TOC<BadgeSignature> = <template>
 </template>;
 
 export default Badge;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Badge: typeof Badge;
-  }
-}

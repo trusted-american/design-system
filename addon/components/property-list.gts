@@ -43,9 +43,3 @@ const PropertyList: TOC<PropertyListSignature> = <template>
 </template>;
 
 export default PropertyList;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    PropertyList: typeof PropertyList;
-  }
-}

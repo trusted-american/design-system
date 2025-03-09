@@ -21,9 +21,3 @@ const AlertLink: TOC<LinkSignature> = <template>
 </template>;
 
 export default AlertLink;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Alert::Link': typeof AlertLink;
-  }
-}

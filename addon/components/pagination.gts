@@ -253,9 +253,3 @@ export default class Pagination extends Component<PaginationSignature> {
     </div>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Pagination: typeof Pagination;
-  }
-}

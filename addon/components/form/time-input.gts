@@ -58,9 +58,3 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
     />
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::TimeInput': typeof FormTimeInput;
-  }
-}

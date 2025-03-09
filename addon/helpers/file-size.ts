@@ -23,9 +23,3 @@ const fileSize = helper(function fileSize([bytes]): string {
 });
 
 export default fileSize;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'file-size': typeof fileSize;
-  }
-}

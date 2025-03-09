@@ -26,9 +26,3 @@ const AccordionButton: TOC<AccordionButtonSignature> = <template>
 </template>;
 
 export default AccordionButton;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Accordion::Button': typeof AccordionButton;
-  }
-}

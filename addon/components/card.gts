@@ -25,9 +25,3 @@ const Card: TOC<CardSignature> = <template>
 </template>;
 
 export default Card;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Card: typeof Card;
-  }
-}

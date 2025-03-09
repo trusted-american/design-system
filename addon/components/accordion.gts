@@ -30,9 +30,3 @@ export default class Accordion extends Component<AccordionSignature> {
     </div>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Accordion: typeof Accordion;
-  }
-}

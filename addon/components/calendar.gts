@@ -62,9 +62,3 @@ const Calendar: TOC<CalendarSignature> = <template>
 </template>;
 
 export default Calendar;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Calendar: typeof Calendar;
-  }
-}

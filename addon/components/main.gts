@@ -18,9 +18,3 @@ const Main: TOC<MainSignature> = <template>
 </template>;
 
 export default Main;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Main: typeof Main;
-  }
-}

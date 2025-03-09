@@ -66,9 +66,3 @@ export const timestamp = (
 const _helper = helper(timestamp);
 
 export default _helper;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    timestamp: typeof _helper;
-  }
-}

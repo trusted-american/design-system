@@ -89,9 +89,3 @@ const NavItem: TOC<NavItemSignature> = <template>
 </template>;
 
 export default NavItem;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Nav::Item': typeof NavItem;
-  }
-}

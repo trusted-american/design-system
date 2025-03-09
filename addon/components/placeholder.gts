@@ -62,9 +62,3 @@ const Placeholder: TOC<PlaceholderSignature> = <template>
 </template>;
 
 export default Placeholder;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Placeholder: typeof Placeholder;
-  }
-}

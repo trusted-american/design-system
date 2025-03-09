@@ -61,9 +61,3 @@ const Alert: TOC<AlertSignature> = <template>
 </template>;
 
 export default Alert;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Alert: typeof Alert;
-  }
-}

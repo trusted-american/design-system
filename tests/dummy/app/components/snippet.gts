@@ -25,9 +25,3 @@ const Snippet: TOC<SnippetSignature> = <template>
 </template>;
 
 export default Snippet;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Snippet: typeof Snippet;
-  }
-}

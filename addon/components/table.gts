@@ -230,9 +230,3 @@ export default class Table<T> extends Component<TableSignature<T>> {
     {{/if}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Table: typeof Table;
-  }
-}

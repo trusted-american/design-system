@@ -89,9 +89,3 @@ export default class FormPowerSelectMultiple<T> extends Component<
     {{/if}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::PowerSelectMultiple': typeof FormPowerSelectMultiple;
-  }
-}
