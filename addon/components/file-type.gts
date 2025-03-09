@@ -71,9 +71,3 @@ const FileType: TOC<FileTypeSignature> = <template>
 </template>;
 
 export default FileType;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    FileType: typeof FileType;
-  }
-}

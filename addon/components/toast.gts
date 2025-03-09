@@ -90,9 +90,3 @@ export default class Toast extends Component<ToastSignature> {
     </div>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Toast: typeof Toast;
-  }
-}

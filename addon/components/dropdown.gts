@@ -14,9 +14,3 @@ const Dropdown: TOC<DropdownSignature> = <template>
 </template>;
 
 export default Dropdown;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Dropdown: typeof Dropdown;
-  }
-}

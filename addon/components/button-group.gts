@@ -24,9 +24,3 @@ const ButtonGroup: TOC<ButtonGroupSignature> = <template>
 </template>;
 
 export default ButtonGroup;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ButtonGroup: typeof ButtonGroup;
-  }
-}

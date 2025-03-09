@@ -36,9 +36,3 @@ export default class FormCheckInput extends Component<FormCheckInputSignature> {
     />
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Check::Input': typeof FormCheckInput;
-  }
-}

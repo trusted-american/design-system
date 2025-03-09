@@ -34,9 +34,3 @@ const Icon: TOC<IconSignature> = <template>
 </template>;
 
 export default Icon;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Icon: typeof Icon;
-  }
-}

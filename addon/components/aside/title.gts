@@ -14,9 +14,3 @@ const AsideTitle: TOC<AsideTitleSignature> = <template>
 </template>;
 
 export default AsideTitle;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Aside::Title': typeof AsideTitle;
-  }
-}

@@ -61,9 +61,3 @@ const tooltip = modifier<TooltipSignature>(
 );
 
 export default tooltip;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    tooltip: typeof tooltip;
-  }
-}

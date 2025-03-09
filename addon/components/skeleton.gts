@@ -11,9 +11,3 @@ const Skeleton: TOC<SkeletonSignature> = <template>
 </template>;
 
 export default Skeleton;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Skeleton: typeof Skeleton;
-  }
-}

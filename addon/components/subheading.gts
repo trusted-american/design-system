@@ -24,9 +24,3 @@ const Subheading: TOC<SubheadingSignature> = <template>
 </template>;
 
 export default Subheading;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Subheading: typeof Subheading;
-  }
-}

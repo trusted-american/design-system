@@ -43,9 +43,3 @@ const AsideItem: TOC<AsideItemSignature> = <template>
 </template>;
 
 export default AsideItem;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Aside::Item': typeof AsideItem;
-  }
-}

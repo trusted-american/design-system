@@ -57,9 +57,3 @@ export default class FormFileDropzone extends Component<FormFileDropzoneSignatur
     {{/let}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::FileDropzone': typeof FormFileDropzone;
-  }
-}

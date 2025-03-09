@@ -58,9 +58,3 @@ export default class ListSort<T> extends Component<ListSortSignature<T>> {
     </Dropdown>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ListSort: typeof ListSort;
-  }
-}

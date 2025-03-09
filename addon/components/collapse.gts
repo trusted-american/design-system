@@ -21,9 +21,3 @@ const Collapse: TOC<CollapseSignature> = <template>
 </template>;
 
 export default Collapse;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Collapse: typeof Collapse;
-  }
-}

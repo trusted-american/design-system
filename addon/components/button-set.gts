@@ -14,9 +14,3 @@ const ButtonSet: TOC<ButtonSetSignature> = <template>
 </template>;
 
 export default ButtonSet;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ButtonSet: typeof ButtonSet;
-  }
-}

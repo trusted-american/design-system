@@ -40,9 +40,3 @@ const ListGroupItem: TOC<ListGroupItemSignature> = <template>
 </template>;
 
 export default ListGroupItem;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'ListGroup::Item': typeof ListGroupItem;
-  }
-}

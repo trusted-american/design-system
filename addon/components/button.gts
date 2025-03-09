@@ -148,9 +148,3 @@ const Button: TOC<ButtonSignature> = <template>
 </template>;
 
 export default Button;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Button: typeof Button;
-  }
-}

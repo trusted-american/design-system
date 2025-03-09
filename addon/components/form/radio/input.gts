@@ -23,9 +23,3 @@ const FormRadioInput: TOC<FormRadioInputSignature> = <template>
 </template>;
 
 export default FormRadioInput;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Radio::Input': typeof FormRadioInput;
-  }
-}

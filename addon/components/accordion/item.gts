@@ -46,9 +46,3 @@ export default class AccordionItem extends Component<AccordionItemSignature> {
     </div>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Accordion::Item': typeof AccordionItem;
-  }
-}

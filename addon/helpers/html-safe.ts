@@ -8,9 +8,3 @@ const htmlSafe = helper(function htmlSafe([value]: [
 });
 
 export default htmlSafe;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'html-safe': typeof htmlSafe;
-  }
-}

@@ -9,9 +9,3 @@ const DropdownDivider: TOC<DropdownDividerSignature> = <template>
 </template>;
 
 export default DropdownDivider;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Dropdown::Divider': typeof DropdownDivider;
-  }
-}

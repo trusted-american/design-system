@@ -64,9 +64,3 @@ const StatCard: TOC<StatCardSignature> = <template>
 </template>;
 
 export default StatCard;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    StatCard: typeof StatCard;
-  }
-}

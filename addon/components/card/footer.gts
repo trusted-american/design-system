@@ -14,9 +14,3 @@ const CardFooter: TOC<CardFooterSignature> = <template>
 </template>;
 
 export default CardFooter;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Card::Footer': typeof CardFooter;
-  }
-}

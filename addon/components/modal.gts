@@ -110,9 +110,3 @@ export default class Modal extends Component<ModalSignature> {
     </div>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Modal: typeof Modal;
-  }
-}

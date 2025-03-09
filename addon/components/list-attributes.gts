@@ -98,9 +98,3 @@ export default class ListAttributes<T> extends Component<
     </Dropdown>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ListAttributes: typeof ListAttributes;
-  }
-}

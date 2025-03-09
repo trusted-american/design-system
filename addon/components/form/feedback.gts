@@ -21,9 +21,3 @@ const FormFeedback: TOC<FormFeedbackSignature> = <template>
 </template>;
 
 export default FormFeedback;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Feedback': typeof FormFeedback;
-  }
-}

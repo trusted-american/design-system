@@ -128,9 +128,3 @@ export default class FormInput extends Component<FormInputSignature> {
     {{/if}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Input': typeof FormInput;
-  }
-}

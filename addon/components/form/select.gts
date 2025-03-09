@@ -150,9 +150,3 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     {{/if}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Select': typeof FormSelect;
-  }
-}
