@@ -75,24 +75,6 @@ body > main {
   grid-area: main;
 }
 
-/* collapsed */
-
-aside.collapsed {
-  width: 0;
-  padding: 0 !important;
-}
-
-aside.collapsed .tds-aside-title,
-aside.collapsed .nav-link span,
-aside.collapsed div button {
-  display: none;
-}
-
-aside.collapsed .tds-aside-logo,
-aside.collapsed nav .fa-fw {
-  margin-right: 0 !important;
-}
-
 /* components */
 
 /* form/file-dropzone */
