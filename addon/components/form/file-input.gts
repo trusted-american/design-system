@@ -6,9 +6,9 @@ import FormHelp from './help';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   onChange: (file: File) => void;
 }
 
@@ -48,6 +48,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
       class="form-control {{if @size (concat 'form-control-' @size)}}"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}
+      data-test-form-file-input
       {{on "change" this.change}}
       ...attributes
     />

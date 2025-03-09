@@ -17,6 +17,7 @@ export { default as Copy } from './components/copy';
 export { default as Dropdown } from './components/dropdown';
 export { default as FileType } from './components/file-type';
 export { default as Flyout } from './components/flyout';
+export { default as Frame } from './components/frame';
 export { default as Heading } from './components/heading';
 export { default as Icon } from './components/icon';
 export { default as Link } from './components/link';

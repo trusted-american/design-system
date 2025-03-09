@@ -6,9 +6,9 @@ import FormHelp from './help';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: string | null | undefined;
   onChange: (value: string) => void;
 }

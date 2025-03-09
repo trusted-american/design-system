@@ -32,5 +32,9 @@ module('Integration | Component | form/check', function (hooks) {
     await click('input');
 
     assert.true(state.value);
+
+    await click('input');
+
+    assert.false(state.value);
   });
 });

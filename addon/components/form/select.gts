@@ -7,7 +7,7 @@ import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, not, or } from 'ember-truth-helpers';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 
 const isOption = <T,>(option: T | Option<T> | Group<T>): option is Option<T> =>
   option && typeof option === 'object' && 'label' in option;
@@ -25,7 +25,7 @@ interface Group<T> {
   options: Option<T>[];
 }
 
-interface Args<T> extends BaseArgs {
+interface Args<T> extends FormInputArgs {
   options: (T | Option<T> | Group<T>)[];
   selected: T;
   chooseLabel?: string;

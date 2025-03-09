@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
-import FormInput, { type BaseArgs } from './input';
+import FormInput, { type FormInputArgs } from './input';
 import { fn } from '@ember/helper';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: string | null | undefined;
   onChange: (value: string | null) => void;
 }
@@ -52,6 +52,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
       maxlength="14"
       pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
       autocomplete="tel-national"
+      data-test-form-phone-input
       ...attributes
     >
       +1

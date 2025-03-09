@@ -1,27 +1,27 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { click, render } from '@ember/test-helpers';
+import { click, fillIn, render } from '@ember/test-helpers';
 import { FormHtmlInput } from '@trusted-american/design-system';
+import { tracked } from 'tracked-built-ins';
+import { fn } from '@ember/helper';
 
 module('Integration | Component | form/html-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const onChange = () => {
-      assert.ok(true);
-    };
+    const state = tracked({ value: '' });
 
     await render(
       <template>
         <FormHtmlInput
-          @value="value"
+          @value={{state.value}}
           @label="Label"
           @identifier="identifier"
           @isRequired={{true}}
           @requiredLabel="Required"
           @editorLabel="Editor"
           @codeLabel="Code"
-          @onChange={{onChange}}
+          @onChange={{fn (mut state.value)}}
         />
       </template>,
     );
@@ -35,5 +35,11 @@ module('Integration | Component | form/html-input', function (hooks) {
 
     assert.dom('[data-test-value-editor]').doesNotExist();
     assert.dom('[data-test-form-textarea]').exists();
+
+    await click('[data-test-editor]');
+
+    await fillIn('[data-test-value-editor] div', 'Value');
+
+    assert.strictEqual(state.value, '<p>Value</p>');
   });
 });

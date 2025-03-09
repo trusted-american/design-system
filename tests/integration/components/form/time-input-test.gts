@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { fillIn, render } from '@ember/test-helpers';
 import { FormTimeInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { tracked } from 'tracked-built-ins';
@@ -26,9 +26,11 @@ module('Integration | Component | form/time-input', function (hooks) {
       </template>,
     );
 
-    assert.dom('[data-test-form-label]').exists();
-    assert.dom('input').exists();
-    assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-input]').exists();
+
+    await fillIn('[data-test-form-time-input]', '01:23');
+
+    assert.strictEqual(state.value?.getHours(), 1);
+    assert.strictEqual(state.value?.getMinutes(), 23);
   });
 });

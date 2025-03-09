@@ -13,7 +13,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type FormController from '../controllers/form';
 
 export default RouteTemplate<{
@@ -106,4 +105,4 @@ export default RouteTemplate<{
       </form>
     </MainBody>
   </template>,
-) as TemplateFactory;
+);

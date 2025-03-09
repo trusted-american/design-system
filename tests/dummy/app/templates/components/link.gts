@@ -4,8 +4,6 @@ import { Heading, Link, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
-
 export default RouteTemplate(
   <template>
     {{pageTitle "Link"}}
@@ -33,4 +31,4 @@ export default RouteTemplate(
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
-) as TemplateFactory;
+);

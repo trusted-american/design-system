@@ -15,7 +15,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type HelpersController from '../controllers/helpers';
 
 export default RouteTemplate<{
@@ -88,4 +87,4 @@ export default RouteTemplate<{
       </Snippet>
     </MainBody>
   </template>,
-) as TemplateFactory;
+);

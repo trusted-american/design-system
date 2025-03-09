@@ -20,7 +20,7 @@ module('Integration | Component | stat-card', function (hooks) {
     );
     assert.dom('p').hasText('Key');
     assert.dom('h1').hasText('Value');
-    assert.dom('svg').exists();
+    assert.dom('[data-test-icon]').exists();
   });
 
   test('path works', async function (assert) {
@@ -31,7 +31,7 @@ module('Integration | Component | stat-card', function (hooks) {
     );
     assert.dom('p').hasText('Key');
     assert.dom('h1').hasText('Value');
-    assert.dom('svg').exists();
+    assert.dom('[data-test-icon]').exists();
 
     await waitFor('a', { timeout: 5000 });
     await click('a');

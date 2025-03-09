@@ -16,7 +16,7 @@ import { modifier } from 'ember-modifier';
 import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 import type { TOC } from '@ember/component/template-only';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
@@ -38,7 +38,7 @@ const EditorButton: TOC<{
   />
 </template>;
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: string | null;
   editorLabel: string;
   codeLabel: string;

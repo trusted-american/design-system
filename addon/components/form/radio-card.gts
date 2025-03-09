@@ -8,7 +8,7 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 
-import type { BaseArgs } from './input';
+import type { FormInputArgs } from './input';
 import type { RadioOption } from './radio';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
@@ -17,7 +17,7 @@ interface RadioCardOption<T> extends RadioOption<T> {
   icon?: IconName;
 }
 
-interface Args<T> extends BaseArgs {
+interface Args<T> extends FormInputArgs {
   options: RadioCardOption<T>[];
   selected: T | null | undefined;
   onChange: (selected: T) => void;

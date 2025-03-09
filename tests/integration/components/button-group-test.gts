@@ -10,16 +10,6 @@ module('Integration | Component | button-group', function (hooks) {
     await render(
       <template>
         <ButtonGroup>
-          template block text
-        </ButtonGroup>
-      </template>,
-    );
-
-    assert.dom().hasText('template block text');
-
-    await render(
-      <template>
-        <ButtonGroup>
           <Button @label="Hi" />
           <Button @label="Actually" />
           <Button @label="Bye" />

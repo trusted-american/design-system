@@ -3,8 +3,6 @@ import { Button, MainBody } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
-
 export default RouteTemplate(
   <template>
     {{pageTitle "Home"}}
@@ -77,4 +75,4 @@ export default RouteTemplate(
       </div>
     </MainBody>
   </template>,
-) as TemplateFactory;
+);

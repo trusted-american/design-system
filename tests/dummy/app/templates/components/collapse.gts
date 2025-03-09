@@ -9,8 +9,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
-
 export default RouteTemplate(
   <template>
     {{pageTitle "Collapse"}}
@@ -27,4 +25,4 @@ export default RouteTemplate(
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
-) as TemplateFactory;
+);

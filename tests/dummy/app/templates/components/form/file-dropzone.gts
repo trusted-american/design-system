@@ -4,7 +4,6 @@ import { FormFileDropzone, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type ComponentsFormFileDropzoneController from '../../../controllers/components/form/file-dropzone';
 
 export default RouteTemplate<{
@@ -38,4 +37,4 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
-) as TemplateFactory;
+);

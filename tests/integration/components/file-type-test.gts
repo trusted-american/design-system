@@ -16,13 +16,13 @@ module('Integration | Component | file-type', function (hooks) {
       <template><FileType @name="file.pdf" @size={{state.size}} /></template>,
     );
 
-    assert.dom('svg').hasClass('fa-file-pdf');
-    assert.dom('svg').hasClass('text-danger');
-    assert.dom('svg').doesNotHaveClass('fa-lg');
+    assert.dom('[data-test-icon]').hasClass('fa-file-pdf');
+    assert.dom('[data-test-icon]').hasClass('text-danger');
+    assert.dom('[data-test-icon]').doesNotHaveClass('fa-lg');
 
     state.size = 'lg';
     await rerender();
 
-    assert.dom('svg').hasClass('fa-lg');
+    assert.dom('[data-test-icon]').hasClass('fa-lg');
   });
 });

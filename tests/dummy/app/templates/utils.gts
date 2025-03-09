@@ -4,7 +4,6 @@ import { Heading, MainBody, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type UtilsController from '../controllers/utils';
 
 export default RouteTemplate<{
@@ -36,4 +35,4 @@ export default RouteTemplate<{
       </Snippet>
     </MainBody>
   </template>,
-) as TemplateFactory;
+);

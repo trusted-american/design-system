@@ -7,8 +7,9 @@ module('Integration | Component | close-button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><CloseButton @label="Close" /></template>);
+    await render(<template><CloseButton @label="Label" /></template>);
 
-    assert.dom().hasText('');
+    assert.dom('[data-test-close-button]').exists();
+    assert.dom('[data-test-close-button]').hasAttribute('aria-label', 'Label');
   });
 });

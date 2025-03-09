@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import FormInput, { type BaseArgs } from './input';
+import FormInput, { type FormInputArgs } from './input';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: number | null | undefined;
   type?: 'number' | 'range';
   onChange: (value: number | null) => void;
@@ -21,9 +21,7 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
   @action
   change(value: string): void {
     const number =
-      value === '' || isNaN(value as unknown as number)
-        ? null
-        : parseFloat(value);
+      value === '' || isNaN(Number(value)) ? null : parseFloat(value);
     this.args.onChange(number);
   }
 
@@ -41,6 +39,7 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
       @isInputOnly={{@isInputOnly}}
       @errors={{@errors}}
       @onChange={{this.change}}
+      data-test-form-number-input
       ...attributes
     />
   </template>

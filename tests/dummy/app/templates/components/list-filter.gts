@@ -11,7 +11,6 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type ComponentsListFilterController from '../../controllers/components/list-filter';
 
 export default RouteTemplate<{
@@ -129,4 +128,4 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
-) as TemplateFactory;
+);

@@ -5,7 +5,6 @@ import { FormCheck, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-import type { TemplateFactory } from 'global';
 import type ComponentsFormCheckController from '../../../controllers/components/form/check';
 
 export default RouteTemplate<{
@@ -36,4 +35,4 @@ export default RouteTemplate<{
       {{! END-SNIPPET }}
     </Snippet>
   </template>,
-) as TemplateFactory;
+);

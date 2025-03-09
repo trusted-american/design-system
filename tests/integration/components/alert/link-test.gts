@@ -7,11 +7,8 @@ module('Integration | Component | alert/link', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    await render(<template><AlertLink @label="Label" /></template>);
 
-    await render(<template><AlertLink /></template>);
-
-    assert.dom().hasText('');
+    assert.dom('[data-test-alert-link]').hasText('Label');
   });
 });

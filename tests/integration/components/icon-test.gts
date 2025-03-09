@@ -7,16 +7,14 @@ module('Integration | Component | icon', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Icon @icon="book" /></template>);
-
-    assert.dom('svg').exists();
-
     await render(
       <template>
         <Icon @icon="book" @color="danger" @isFixedWidth={{true}} @size="lg" />
       </template>,
     );
 
-    assert.dom('svg').exists();
+    assert.dom('[data-test-icon]').hasClass('text-danger');
+    assert.dom('[data-test-icon]').hasClass('fa-fw');
+    assert.dom('[data-test-icon]').hasClass('fa-lg');
   });
 });

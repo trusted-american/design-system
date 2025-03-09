@@ -1,9 +1,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import isValidDate from '../../utils/is-valid-date';
-import FormInput, { type BaseArgs } from './input';
+import FormInput, { type FormInputArgs } from './input';
 
-interface Args extends BaseArgs {
+interface Args extends FormInputArgs {
   value: Date | null;
   onChange: (value: Date | null) => void;
 }
@@ -21,21 +21,22 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
       return '';
     }
 
-    const hours = value.getHours();
-    const minutes = value.getMinutes();
-
-    return [
-      hours < 10 ? '0' + (hours as unknown as string) : hours,
-      minutes < 10 ? '0' + (minutes as unknown as string) : minutes,
-    ].join(':');
+    return [value.getHours(), value.getMinutes()]
+      .map((value) => value.toString().padStart(2, '0'))
+      .join(':');
   }
 
   @action
-  change(v: string): void {
+  change(_value: string): void {
     const value = this.args.value ? new Date(this.args.value) : new Date();
-    const [hours, minutes] = v.split(':').map(Number);
-    if (hours) value.setHours(hours);
-    if (minutes || minutes === 0) value.setMinutes(minutes);
+    const [hours, minutes] = _value.split(':').map(Number);
+
+    if (hours) {
+      value.setHours(hours);
+    }
+    if (minutes || minutes === 0) {
+      value.setMinutes(minutes);
+    }
 
     this.args.onChange(value);
   }
@@ -54,6 +55,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
       @isInputOnly={{@isInputOnly}}
       @errors={{@errors}}
       @onChange={{this.change}}
+      data-test-form-time-input
       ...attributes
     />
   </template>
