@@ -22,9 +22,3 @@ const BasicTable: TOC<BasicTableSignature> = <template>
 </template>;
 
 export default BasicTable;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    BasicTable: typeof BasicTable;
-  }
-}

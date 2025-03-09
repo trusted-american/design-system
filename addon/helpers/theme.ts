@@ -11,9 +11,3 @@ const theme = helper(function theme([theme]: [Theme]): void {
 });
 
 export default theme;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    theme: typeof theme;
-  }
-}

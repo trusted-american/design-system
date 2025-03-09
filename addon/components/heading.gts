@@ -48,9 +48,3 @@ const Heading: TOC<HeadingSignature> = <template>
 </template>;
 
 export default Heading;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Heading: typeof Heading;
-  }
-}

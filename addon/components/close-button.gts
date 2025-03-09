@@ -18,9 +18,3 @@ const CloseButton: TOC<CloseButtonSignature> = <template>
 </template>;
 
 export default CloseButton;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    CloseButton: typeof CloseButton;
-  }
-}

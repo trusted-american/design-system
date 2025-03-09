@@ -64,9 +64,3 @@ export default class Flyout extends Component<FlyoutSignature> {
     </div>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Flyout: typeof Flyout;
-  }
-}

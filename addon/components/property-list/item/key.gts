@@ -23,9 +23,3 @@ const PropertyListItemKey: TOC<PropertyListItemKeySignature> = <template>
 </template>;
 
 export default PropertyListItemKey;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'PropertyList::Item::Key': typeof PropertyListItemKey;
-  }
-}

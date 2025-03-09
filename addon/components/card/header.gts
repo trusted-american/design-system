@@ -14,9 +14,3 @@ const CardHeader: TOC<CardHeaderSignature> = <template>
 </template>;
 
 export default CardHeader;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Card::Header': typeof CardHeader;
-  }
-}

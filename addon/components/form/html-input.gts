@@ -261,9 +261,3 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     {{/if}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::HtmlInput': typeof FormHtmlInput;
-  }
-}

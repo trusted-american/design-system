@@ -57,9 +57,3 @@ const FormCheck: TOC<FormCheckSignature> = <template>
 </template>;
 
 export default FormCheck;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Check': typeof FormCheck;
-  }
-}

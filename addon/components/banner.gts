@@ -21,9 +21,3 @@ const Banner: TOC<BannerSignature> = <template>
 </template>;
 
 export default Banner;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Banner: typeof Banner;
-  }
-}

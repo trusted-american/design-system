@@ -60,9 +60,3 @@ const dropdown = modifier<CollapseSignature>(function dropdown(
 });
 
 export default dropdown;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    dropdown: typeof dropdown;
-  }
-}

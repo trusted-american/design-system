@@ -18,9 +18,3 @@ const MainTopHeader: TOC<MainTopHeaderSignature> = <template>
 </template>;
 
 export default MainTopHeader;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Main::TopHeader': typeof MainTopHeader;
-  }
-}

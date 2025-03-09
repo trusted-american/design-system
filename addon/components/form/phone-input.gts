@@ -58,9 +58,3 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
     </FormInput>
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::PhoneInput': typeof FormPhoneInput;
-  }
-}

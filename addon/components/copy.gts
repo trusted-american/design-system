@@ -30,9 +30,3 @@ const Copy: TOC<CopySignature> = <template>
 </template>;
 
 export default Copy;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Copy: typeof Copy;
-  }
-}

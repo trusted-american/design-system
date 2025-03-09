@@ -23,9 +23,3 @@ const Ratio: TOC<RatioSignature> = <template>
 </template>;
 
 export default Ratio;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Ratio: typeof Ratio;
-  }
-}

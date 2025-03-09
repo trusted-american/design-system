@@ -21,9 +21,3 @@ const collapse = modifier<CollapseSignature>(function collapse(
 });
 
 export default collapse;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    collapse: typeof collapse;
-  }
-}

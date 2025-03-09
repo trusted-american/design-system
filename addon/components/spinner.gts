@@ -17,9 +17,3 @@ const Spinner: TOC<SpinnerSignature> = <template>
 </template>;
 
 export default Spinner;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Spinner: typeof Spinner;
-  }
-}

@@ -42,9 +42,3 @@ const PropertyListItemValue: TOC<PropertyListItemValueSignature> = <template>
 </template>;
 
 export default PropertyListItemValue;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'PropertyList::Item::Value': typeof PropertyListItemValue;
-  }
-}

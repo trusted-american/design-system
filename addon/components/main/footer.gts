@@ -18,9 +18,3 @@ const MainFooter: TOC<MainFooterSignature> = <template>
 </template>;
 
 export default MainFooter;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Main::Footer': typeof MainFooter;
-  }
-}

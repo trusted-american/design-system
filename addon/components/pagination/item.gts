@@ -22,9 +22,3 @@ const PaginationItem: TOC<PaginationItemSignature> = <template>
 </template>;
 
 export default PaginationItem;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Pagination::Item': typeof PaginationItem;
-  }
-}

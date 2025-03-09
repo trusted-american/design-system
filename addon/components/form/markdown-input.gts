@@ -177,9 +177,3 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
     {{/if}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::MarkdownInput': typeof FormMarkdownInput;
-  }
-}

@@ -127,9 +127,3 @@ const Link: TOC<LinkSignature> = <template>
 </template>;
 
 export default Link;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Link: typeof Link;
-  }
-}

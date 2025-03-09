@@ -43,9 +43,3 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
     />
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::NumberInput': typeof FormNumberInput;
-  }
-}

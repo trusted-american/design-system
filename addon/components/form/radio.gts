@@ -74,9 +74,3 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
     {{/if}}
   </template>
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Radio': typeof FormRadio;
-  }
-}

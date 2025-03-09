@@ -21,9 +21,3 @@ const Progress: TOC<ProgressSignature> = <template>
 </template>;
 
 export default Progress;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Progress: typeof Progress;
-  }
-}

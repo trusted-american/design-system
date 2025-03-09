@@ -14,9 +14,3 @@ const FormHelp: TOC<FormHelpSignature> = <template>
 </template>;
 
 export default FormHelp;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Form::Help': typeof FormHelp;
-  }
-}

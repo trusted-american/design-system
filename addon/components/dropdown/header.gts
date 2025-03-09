@@ -12,9 +12,3 @@ const DropdownHeader: TOC<DropdownHeaderSignature> = <template>
 </template>;
 
 export default DropdownHeader;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Dropdown::Header': typeof DropdownHeader;
-  }
-}
