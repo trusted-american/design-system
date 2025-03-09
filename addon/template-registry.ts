@@ -17,6 +17,7 @@ import type Copy from './components/copy';
 import type Dropdown from './components/dropdown';
 import type FileType from './components/file-type';
 import type Flyout from './components/flyout';
+import type Frame from './components/frame';
 import type Heading from './components/heading';
 import type Icon from './components/icon';
 import type Link from './components/link';
@@ -123,6 +124,7 @@ export default interface Registry {
   Dropdown: typeof Dropdown;
   FileType: typeof FileType;
   Flyout: typeof Flyout;
+  Frame: typeof Frame;
   Heading: typeof Heading;
   Icon: typeof Icon;
   Link: typeof Link;

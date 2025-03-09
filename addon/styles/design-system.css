@@ -23,13 +23,13 @@ h1,
   transition: height 0.1s cubic-bezier(0.19, 0.91, 0.38, 1) !important;
 }
 
-body {
+.tds-frame {
   display: grid;
   grid-template: "section section" min-content "aside main" 1fr / min-content 1fr;
   height: 100vh;
 }
 
-body > section {
+.tds-frame > section {
   grid-area: section;
 }
 
@@ -63,7 +63,7 @@ aside .nav-link:hover {
   background-color: var(--bs-secondary-bg);
 }
 
-body aside .tds-aside-logo {
+.tds-frame aside .tds-aside-logo {
   height: 2rem;
 }
 
@@ -71,7 +71,7 @@ body aside .tds-aside-logo {
   filter: invert(1);
 }
 
-body > main {
+.tds-frame > main {
   grid-area: main;
 }
 
