@@ -1,8 +1,9 @@
+import AsideItem from './aside/item';
 import Button from './button';
 import Nav from './nav';
 import tooltip from '../modifiers/tooltip';
 import { on } from '@ember/modifier';
-import { fn } from '@ember/helper';
+import { fn, hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 
 import type { TOC } from '@ember/component/template-only';
@@ -18,7 +19,7 @@ export interface AsideSignature {
   };
   Blocks: {
     header: [];
-    default: [];
+    default: [{ item: typeof AsideItem }];
     footerNav: [];
     footer: [];
   };
@@ -56,7 +57,7 @@ const Aside: TOC<AsideSignature> = <template>
 
       <div class="flex-grow-1 overflow-y-auto pe-3">
         <Nav @isPills={{true}} @isVertical={{true}} aria-label="Main nav">
-          {{yield}}
+          {{yield (hash item=AsideItem)}}
         </Nav>
       </div>
 

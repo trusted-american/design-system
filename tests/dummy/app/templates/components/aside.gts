@@ -32,15 +32,15 @@ export default RouteTemplate(
         @collapseLabel="Collapse menu"
         @onChange={{change}}
       >
-        <:default>
-          <AsideItem @route="index" @label="Home" @icon="house" />
-          <AsideItem
+        <:default as |aside|>
+          <aside.item @route="index" @label="Home" @icon="house" />
+          <aside.item
             @route="index"
             @label='With a "count"'
             @icon="users"
             @count={{12}}
           />
-          <AsideItem
+          <aside.item
             @route="index"
             @label="Disabled"
             @icon="house"

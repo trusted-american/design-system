@@ -4,7 +4,6 @@ import { on } from '@ember/modifier';
 import {
   Aside,
   AsideGroup,
-  AsideItem,
   AsideTitle,
   BreadcrumbTrail,
   Button,
@@ -43,8 +42,8 @@ export default RouteTemplate<{
         @collapseLabel="Collapse menu"
         @onChange={{fn (mut @controller.isCollapsed)}}
       >
-        <:default>
-          <AsideItem @route="index" @label="Home" @icon="house" />
+        <:default as |aside|>
+          <aside.item @route="index" @label="Home" @icon="house" />
 
           <AsideTitle @label="Assets" />
           <AsideGroup
@@ -52,74 +51,84 @@ export default RouteTemplate<{
             @label="Components"
             @icon="boxes-stacked"
           >
-            <AsideItem @route="components.accordion" @label="Accordion" />
-            <AsideItem @route="components.alert" @label="Alert" />
-            <AsideItem @route="components.aside" @label="Aside" />
-            <AsideItem @route="components.avatar" @label="Avatar" />
-            <AsideItem @route="components.badge" @label="Badge" />
-            <AsideItem @route="components.banner" @label="Banner" />
-            <AsideItem @route="components.basic-table" @label="Basic table" />
-            <AsideItem
+            <aside.item @route="components.accordion" @label="Accordion" />
+            <aside.item @route="components.alert" @label="Alert" />
+            <aside.item @route="components.aside" @label="Aside" />
+            <aside.item @route="components.avatar" @label="Avatar" />
+            <aside.item @route="components.badge" @label="Badge" />
+            <aside.item @route="components.banner" @label="Banner" />
+            <aside.item @route="components.basic-table" @label="Basic table" />
+            <aside.item
               @route="components.breadcrumb-trail"
               @label="Breadcrumb trail"
             />
-            <AsideItem @route="components.button" @label="Button" />
-            <AsideItem @route="components.button-group" @label="Button group" />
-            <AsideItem @route="components.button-set" @label="Button set" />
-            <AsideItem @route="components.calendar" @label="Calendar" />
-            <AsideItem @route="components.card" @label="Card" />
-            <AsideItem @route="components.close-button" @label="Close button" />
-            <AsideItem @route="components.collapse" @label="Collapse" />
-            <AsideItem @route="components.copy" @label="Copy button" />
-            <AsideItem @route="components.dropdown" @label="Dropdown" />
-            <AsideItem @route="components.file-type" @label="File type" />
-            <AsideItem @route="components.flyout" @label="Flyout" />
-            <AsideItem @route="components.form" @label="Form" />
-            <AsideItem @route="components.heading" @label="Heading" />
-            <AsideItem @route="components.icon" @label="Icon" />
-            <AsideItem @route="components.link" @label="Link" />
-            <AsideItem
+            <aside.item @route="components.button" @label="Button" />
+            <aside.item
+              @route="components.button-group"
+              @label="Button group"
+            />
+            <aside.item @route="components.button-set" @label="Button set" />
+            <aside.item @route="components.calendar" @label="Calendar" />
+            <aside.item @route="components.card" @label="Card" />
+            <aside.item
+              @route="components.close-button"
+              @label="Close button"
+            />
+            <aside.item @route="components.collapse" @label="Collapse" />
+            <aside.item @route="components.copy" @label="Copy button" />
+            <aside.item @route="components.dropdown" @label="Dropdown" />
+            <aside.item @route="components.file-type" @label="File type" />
+            <aside.item @route="components.flyout" @label="Flyout" />
+            <aside.item @route="components.form" @label="Form" />
+            <aside.item @route="components.heading" @label="Heading" />
+            <aside.item @route="components.icon" @label="Icon" />
+            <aside.item @route="components.link" @label="Link" />
+            <aside.item
               @route="components.list-attributes"
               @label="List attributes"
             />
-            <AsideItem @route="components.list-filter" @label="List filter" />
-            <AsideItem @route="components.list-group" @label="List group" />
-            <AsideItem @route="components.list-sort" @label="List sort" />
-            <AsideItem @route="components.main" @label="Main" />
-            <AsideItem @route="components.modal" @label="Modal" />
-            <AsideItem @route="components.nav" @label="Nav" />
-            <AsideItem @route="components.pagination" @label="Pagination" />
-            <AsideItem @route="components.placeholder" @label="Placeholder" />
-            <AsideItem @route="components.progress" @label="Progress" />
-            <AsideItem
+            <aside.item @route="components.list-filter" @label="List filter" />
+            <aside.item @route="components.list-group" @label="List group" />
+            <aside.item @route="components.list-sort" @label="List sort" />
+            <aside.item @route="components.main" @label="Main" />
+            <aside.item @route="components.modal" @label="Modal" />
+            <aside.item @route="components.nav" @label="Nav" />
+            <aside.item @route="components.pagination" @label="Pagination" />
+            <aside.item @route="components.placeholder" @label="Placeholder" />
+            <aside.item @route="components.progress" @label="Progress" />
+            <aside.item
               @route="components.property-list"
               @label="Property list"
             />
-            <AsideItem @route="components.ratio" @label="Ratio" />
-            <AsideItem @route="components.skeleton" @label="Skeleton" />
-            <AsideItem @route="components.spinner" @label="Spinner" />
-            <AsideItem @route="components.stat-card" @label="Stat card" />
-            <AsideItem @route="components.subheading" @label="Subheading" />
-            <AsideItem @route="components.table" @label="Table" />
-            <AsideItem @route="components.toast" @label="Toast" />
+            <aside.item @route="components.ratio" @label="Ratio" />
+            <aside.item @route="components.skeleton" @label="Skeleton" />
+            <aside.item @route="components.spinner" @label="Spinner" />
+            <aside.item @route="components.stat-card" @label="Stat card" />
+            <aside.item @route="components.subheading" @label="Subheading" />
+            <aside.item @route="components.table" @label="Table" />
+            <aside.item @route="components.toast" @label="Toast" />
           </AsideGroup>
 
-          <AsideItem @route="helpers" @icon="font" @label="Helpers" />
-          <AsideItem @route="modifiers" @icon="code" @label="Modifiers" />
-          <AsideItem @route="utils" @icon="screwdriver-wrench" @label="Utils" />
+          <aside.item @route="helpers" @icon="font" @label="Helpers" />
+          <aside.item @route="modifiers" @icon="code" @label="Modifiers" />
+          <aside.item
+            @route="utils"
+            @icon="screwdriver-wrench"
+            @label="Utils"
+          />
 
           <AsideTitle @label="Guides" />
-          <AsideItem
+          <aside.item
             @route="guides.introduction"
             @label="Introduction"
             @icon="book"
           />
 
           <AsideTitle @label="Examples" />
-          <AsideItem @route="list" @label="List" @icon="list" />
-          <AsideItem @route="detail" @label="Detail" @icon="box" />
-          <AsideItem @route="form" @label="Form" @icon="table-list" />
-          <AsideItem
+          <aside.item @route="list" @label="List" @icon="list" />
+          <aside.item @route="detail" @label="Detail" @icon="box" />
+          <aside.item @route="form" @label="Form" @icon="table-list" />
+          <aside.item
             @route="detail"
             @label="Disabled"
             @icon="crop-simple"

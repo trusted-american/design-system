@@ -48,8 +48,8 @@ export default RouteTemplate(
     <:header>
       Header
     </:header>
-    <:default>
-      <AsideItem @route="index" @label="Home" @icon="house" />
+    <:default as |aside|>
+      <aside.item @route="index" @label="Home" @icon="house" />
     </:default>
     <:footer>
       Footer
