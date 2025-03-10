@@ -11,7 +11,9 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
-const noop = () => {};
+const change = () => {
+  //
+};
 
 export default RouteTemplate(
   <template>
@@ -28,7 +30,7 @@ export default RouteTemplate(
         @route="index"
         @isCollapsed={{false}}
         @collapseLabel="Collapse menu"
-        @onChange={{noop}}
+        @onChange={{change}}
       >
         <:default>
           <AsideItem @route="index" @label="Home" @icon="house" />

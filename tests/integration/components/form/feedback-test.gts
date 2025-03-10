@@ -9,7 +9,7 @@ module('Integration | Component | form/feedback', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <FormFeedback @label="Label" @validLabel="Looks good!" />
+        <FormFeedback @invalidLabel="Label" @validLabel="Looks good!" />
       </template>,
     );
 
