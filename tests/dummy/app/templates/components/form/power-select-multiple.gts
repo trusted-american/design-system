@@ -1,6 +1,5 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../../components/snippet';
-import { noop } from '@nullvoxpopuli/ember-composable-helpers';
 import { array, fn } from '@ember/helper';
 import {
   FormPowerSelectMultiple,
@@ -47,7 +46,7 @@ export default RouteTemplate<{
         @requiredLabel="Required"
         @chooseLabel="Choose…"
         @onChange={{fn (mut @controller.value)}}
-        @onCreate={{(noop)}}
+        @onCreate={{@controller.create}}
         data-test-state-writing-numbers
         as |post|
       >
