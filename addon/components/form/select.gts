@@ -140,11 +140,11 @@ export default class FormSelect<T extends Value> extends Component<
     </select>
 
     {{#if @invalidFeedback}}
-      <FormFeedback @label={{@invalidFeedback}} />
+      <FormFeedback @label={{@invalidFeedback}} @validLabel={{@validLabel}} />
     {{/if}}
 
     {{#each @errors as |error|}}
-      <FormFeedback @label={{error.message}} />
+      <FormFeedback @label={{error.message}} @validLabel={{@validLabel}} />
     {{/each}}
 
     {{#if @help}}

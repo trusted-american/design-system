@@ -5,6 +5,7 @@ import type { TOC } from '@ember/component/template-only';
 export interface FormFeedbackSignature {
   Args: {
     label: string;
+    validLabel: string | undefined;
   };
   Element: HTMLDivElement;
 }
@@ -16,6 +17,7 @@ const FormFeedback: TOC<FormFeedbackSignature> = <template>
   </div>
   <div class="valid-feedback">
     <Icon @icon="check" class="me-1" />
+    {{@validLabel}}
     {{! TODO: string }}
     Looks good!
   </div>
