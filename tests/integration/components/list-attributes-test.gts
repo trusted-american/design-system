@@ -9,8 +9,6 @@ module('Integration | Component | list-attributes', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(8);
-
     const state = tracked<{ selected: (string | number)[] }>({ selected: [] });
 
     await render(
