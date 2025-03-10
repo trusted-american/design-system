@@ -9,10 +9,7 @@ module('Integration | Component | form/textarea', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({
-      value: 'Value',
-      isRequired: true,
-    });
+    const state = tracked({ value: 'Value', isRequired: true });
 
     await render(
       <template>

@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { click, fillIn, render } from '@ember/test-helpers';
+import { fillIn, render } from '@ember/test-helpers';
 import { FormMarkdownInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { tracked } from 'tracked-built-ins';
@@ -34,8 +34,6 @@ module('Integration | Component | form/markdown-input', function (hooks) {
         />
       </template>,
     );
-
-    await click('[data-test-button]');
 
     await fillIn('[data-test-form-textarea]', 'test');
 

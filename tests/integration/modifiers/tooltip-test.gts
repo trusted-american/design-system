@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { find, render } from '@ember/test-helpers';
 import { tooltip } from '@trusted-american/design-system';
+import { Tooltip } from 'bootstrap';
 
 module('Integration | Modifier | tooltip', function (hooks) {
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
   test('it renders', async function (assert) {
     await render(
       <template>
@@ -14,6 +14,6 @@ module('Integration | Modifier | tooltip', function (hooks) {
       </template>,
     );
 
-    assert.ok(true);
+    assert.ok(Tooltip.getInstance(find('div')!));
   });
 });
