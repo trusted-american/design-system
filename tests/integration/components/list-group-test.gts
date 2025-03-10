@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { ListGroup, ListGroupItem } from '@trusted-american/design-system';
+import { ListGroup } from '@trusted-american/design-system';
 
 module('Integration | Component | list-group', function (hooks) {
   setupRenderingTest(hooks);
@@ -9,14 +9,14 @@ module('Integration | Component | list-group', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <ListGroup>
-          <ListGroupItem class="active" data-test-active>An active item</ListGroupItem>
-          <ListGroupItem class="disabled" data-test-disabled>A second item</ListGroupItem>
-          <ListGroupItem @route="index" data-test-index>Route</ListGroupItem>
-          <ListGroupItem
+        <ListGroup as |listGroup|>
+          <listGroup.item class="active" data-test-active>An active item</listGroup.item>
+          <listGroup.item class="disabled" data-test-disabled>A second item</listGroup.item>
+          <listGroup.item @route="index" data-test-index>Route</listGroup.item>
+          <listGroup.item
             @href="https://www.google.com/"
             data-test-href
-          >Href</ListGroupItem>
+          >Href</listGroup.item>
         </ListGroup>
       </template>,
     );
