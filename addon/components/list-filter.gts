@@ -405,6 +405,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                     @label={{@valueLabel}}
                     @identifier="value{{index}}"
                     @isRequired={{true}}
+                    @requiredLabel={{@requiredLabel}}
                     @isInputOnly={{true}}
                     @onChange={{fn (mut predicate._value)}}
                     placeholder={{@valueLabel}}
