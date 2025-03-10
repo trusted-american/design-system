@@ -4,48 +4,30 @@ import { breadcrumbs } from 'ember-breadcrumb-trail';
 import Link from './link';
 
 // TODO: simplify code from ember-composable-helpers
+const hasNext = <T,>(currentValue: T, array: T[]) => {
+  const getIndex = <T,>(array: T[], currentValue: T) => {
+    const needle = currentValue;
+    const index = array.indexOf(needle);
+    return index >= 0 ? index : null;
+  };
 
-function getIndex<T>(array: T[], currentValue: T, useDeepEqual: boolean) {
-  let needle = currentValue;
-
-  if (useDeepEqual) {
-    needle = array.find((object) => {
-      return _isEqual(object, currentValue, useDeepEqual);
-    }) as T;
-  }
-
-  const index = array.indexOf(needle);
-
-  return index >= 0 ? index : null;
-}
-
-const _isEqual = (
-  firstValue: unknown,
-  secondValue: unknown,
-  useDeepEqual = false,
-) => {
-  if (useDeepEqual) {
-    return JSON.stringify(firstValue) === JSON.stringify(secondValue);
-  } else {
+  const _isEqual = (firstValue: unknown, secondValue: unknown) => {
     return isEqual(firstValue, secondValue) || isEqual(secondValue, firstValue);
-  }
-};
+  };
 
-const next = <T,>(currentValue: T, array: T[], useDeepEqual = false) => {
-  const currentIndex = getIndex(array, currentValue, useDeepEqual);
-  const lastIndex = array.length - 1;
+  const next = <T,>(currentValue: T, array: T[]) => {
+    const currentIndex = getIndex(array, currentValue);
+    const lastIndex = array.length - 1;
+    if (null === currentIndex || isEmpty(currentIndex)) {
+      return;
+    }
+    return currentIndex === lastIndex
+      ? currentValue
+      : array.at(currentIndex + 1);
+  };
 
-  if (null === currentIndex || isEmpty(currentIndex)) {
-    return;
-  }
-
-  return currentIndex === lastIndex ? currentValue : array.at(currentIndex + 1);
-};
-
-const hasNext = <T,>(currentValue: T, array: T[], useDeepEqual = false) => {
-  const nextValue = next(currentValue, array, useDeepEqual);
-  const isNotSameValue = !_isEqual(nextValue, currentValue, useDeepEqual);
-
+  const nextValue = next(currentValue, array);
+  const isNotSameValue = !_isEqual(nextValue, currentValue);
   return isNotSameValue && isPresent(nextValue);
 };
 
