@@ -10,11 +10,7 @@ export interface NavSignature {
     isVertical?: boolean;
   };
   Blocks: {
-    default: [
-      {
-        item: typeof NavItem;
-      },
-    ];
+    default: [{ item: typeof NavItem }];
   };
   Element: HTMLElement;
 }

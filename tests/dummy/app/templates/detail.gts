@@ -7,7 +7,6 @@ import {
   MainBody,
   MainHeader,
   Nav,
-  NavItem,
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';

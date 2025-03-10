@@ -5,11 +5,7 @@ import type { TOC } from '@ember/component/template-only';
 
 export interface ProgressSignature {
   Blocks: {
-    default: [
-      {
-        bar: typeof ProgressBar;
-      },
-    ];
+    default: [{ bar: typeof ProgressBar }];
   };
   Element: HTMLElement;
 }

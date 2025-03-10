@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import Button from '../button';
 import Card from '../card';
 import Nav from '../nav';
-import NavItem from '../nav/item';
 import FormLabel from './label';
 import FormTextarea from './textarea';
 import FormFeedback from './feedback';

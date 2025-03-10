@@ -4,7 +4,6 @@ import Button from '../button';
 import Card from '../card';
 import Icon from '../icon';
 import Nav from '../nav';
-import NavItem from '../nav/item';
 import FormLabel from './label';
 import FormTextarea from './textarea';
 import FormHelp from './help';
