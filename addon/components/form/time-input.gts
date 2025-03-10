@@ -3,6 +3,16 @@ import { action } from '@ember/object';
 import isValidDate from '../../utils/is-valid-date';
 import FormInput, { type FormInputArgs } from './input';
 
+const format = (value: Date | null): string => {
+  if (!value || !isValidDate(value)) {
+    return '';
+  }
+
+  return [value.getHours(), value.getMinutes()]
+    .map((value) => value.toString().padStart(2, '0'))
+    .join(':');
+};
+
 interface Args extends FormInputArgs {
   value: Date | null;
   onChange: (value: Date | null) => void;
@@ -14,18 +24,6 @@ export interface FormTimeInputSignature {
 }
 
 export default class FormTimeInput extends Component<FormTimeInputSignature> {
-  get value(): string {
-    const { value } = this.args;
-
-    if (!value || !isValidDate(value)) {
-      return '';
-    }
-
-    return [value.getHours(), value.getMinutes()]
-      .map((value) => value.toString().padStart(2, '0'))
-      .join(':');
-  }
-
   @action
   change(_value: string): void {
     const value = this.args.value ? new Date(this.args.value) : new Date();
@@ -44,7 +42,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
   <template>
     <FormInput
       @type="time"
-      @value={{this.value}}
+      @value={{format @value}}
       @label={{@label}}
       @identifier={{@identifier}}
       @isRequired={{@isRequired}}

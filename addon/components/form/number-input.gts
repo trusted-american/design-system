@@ -2,6 +2,10 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import FormInput, { type FormInputArgs } from './input';
 
+const format = (value: number | null | undefined): string | undefined => {
+  return value?.toString();
+};
+
 interface Args extends FormInputArgs {
   value: number | null | undefined;
   type?: 'number' | 'range';
@@ -14,10 +18,6 @@ export interface FormNumberInputSignature {
 }
 
 export default class FormNumberInput extends Component<FormNumberInputSignature> {
-  get value(): string | undefined {
-    return this.args.value?.toString();
-  }
-
   @action
   change(value: string): void {
     const number =
@@ -28,7 +28,7 @@ export default class FormNumberInput extends Component<FormNumberInputSignature>
   <template>
     <FormInput
       @type={{if @type @type "number"}}
-      @value={{this.value}}
+      @value={{format @value}}
       @label={{@label}}
       @identifier={{@identifier}}
       @isRequired={{@isRequired}}

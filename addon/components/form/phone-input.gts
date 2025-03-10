@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import FormInput, { type FormInputArgs } from './input';
-import { fn } from '@ember/helper';
+import { action } from '@ember/object';
 
 interface Args extends FormInputArgs {
   value: string | null | undefined;
@@ -25,8 +25,9 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
     );
   }
 
-  set value(value: string) {
-    value = value.replace(/\D/g, '');
+  @action
+  change(_value: string): void {
+    let value = _value.replace(/\D/g, '');
     if (value) {
       value = '+1' + value;
       this.args.onChange(value);
@@ -48,7 +49,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
       @size={{@size}}
       @isInputOnly={{@isInputOnly}}
       @errors={{@errors}}
-      @onChange={{fn (mut this.value)}}
+      @onChange={{this.change}}
       maxlength="14"
       pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
       autocomplete="tel-national"
