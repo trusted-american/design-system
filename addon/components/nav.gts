@@ -8,6 +8,7 @@ export interface NavSignature {
     isPills?: boolean;
     isFill?: boolean;
     isVertical?: boolean;
+    isStatic?: boolean;
   };
   Blocks: {
     default: [{ item: typeof NavItem }];
@@ -16,7 +17,7 @@ export interface NavSignature {
 }
 
 const Nav: TOC<NavSignature> = <template>
-  <div class="overflow-x-auto" ...attributes>
+  {{#if @isStatic}}
     <nav
       class="nav flex-nowrap
         {{unless @isPills 'nav-tabs'}}
@@ -24,10 +25,25 @@ const Nav: TOC<NavSignature> = <template>
         {{if @isFill 'nav-fill'}}
         {{if @isVertical 'flex-column'}}"
       data-test-nav
+      ...attributes
     >
       {{yield (hash item=NavItem)}}
     </nav>
-  </div>
+  {{else}}
+    <div class="overflow-x-auto" ...attributes>
+      {{! template-lint-disable no-duplicate-landmark-elements }}
+      <nav
+        class="nav flex-nowrap
+          {{unless @isPills 'nav-tabs'}}
+          {{if @isPills 'nav-pills'}}
+          {{if @isFill 'nav-fill'}}
+          {{if @isVertical 'flex-column'}}"
+        data-test-nav
+      >
+        {{yield (hash item=NavItem)}}
+      </nav>
+    </div>
+  {{/if}}
 </template>;
 
 export default Nav;
