@@ -400,8 +400,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                 {{else if (eq "string" predicate._predicate.type)}}
 
                   <FormInput
-                    {{! @glint-expect-error }}
-                    @value={{predicate._value}}
+                    @value={{predicate._predicate.value}}
                     @label={{@valueLabel}}
                     @identifier="value{{index}}"
                     @isRequired={{true}}
