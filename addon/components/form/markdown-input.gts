@@ -51,7 +51,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
 
     <Card as |card|>
       <card.header class="d-flex justify-content-between align-items-center">
-        <Nav class="card-header-tabs" as |nav|>
+        <Nav @isStatic={{true}} class="card-header-tabs" as |nav|>
           <nav.item
             @label={{@writeLabel}}
             class={{if (eq false this.isPreview) "active"}}
