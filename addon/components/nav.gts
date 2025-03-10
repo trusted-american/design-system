@@ -1,3 +1,6 @@
+import NavItem from './nav/item';
+import { hash } from '@ember/helper';
+
 import type { TOC } from '@ember/component/template-only';
 
 export interface NavSignature {
@@ -7,8 +10,11 @@ export interface NavSignature {
     isVertical?: boolean;
   };
   Blocks: {
-    default: [];
-    footer: [];
+    default: [
+      {
+        item: typeof NavItem;
+      },
+    ];
   };
   Element: HTMLElement;
 }
@@ -23,7 +29,7 @@ const Nav: TOC<NavSignature> = <template>
         {{if @isVertical 'flex-column'}}"
       data-test-nav
     >
-      {{yield}}
+      {{yield (hash item=NavItem)}}
     </nav>
   </div>
 </template>;

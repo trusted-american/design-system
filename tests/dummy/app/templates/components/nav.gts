@@ -4,7 +4,6 @@ import {
   Badge,
   Heading,
   Nav,
-  NavItem,
   Subheading,
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
@@ -21,13 +20,13 @@ export default RouteTemplate(
 
     <Snippet @name="nav.gts">
       {{! BEGIN-SNIPPET nav }}
-      <Nav>
-        <NavItem @route="components" @label="First" />
-        <NavItem @route="index" @label="Second" @icon="house" />
-        <NavItem @route="index" @label="Third" @count={{12}} />
-        <NavItem @route="index" @label="Fourth">
+      <Nav as |nav|>
+        <nav.item @route="components" @label="First" />
+        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Third" @count={{12}} />
+        <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />
-        </NavItem>
+        </nav.item>
       </Nav>
       {{! END-SNIPPET }}
     </Snippet>
@@ -36,22 +35,22 @@ export default RouteTemplate(
 
     <Snippet @name="nav1.gts">
       {{! BEGIN-SNIPPET nav1 }}
-      <Nav @isPills={{true}}>
-        <NavItem @route="components" @label="First" />
-        <NavItem @route="index" @label="Second" @icon="house" />
-        <NavItem @route="index" @label="Third" @count={{12}} />
-        <NavItem @route="index" @label="Fourth">
+      <Nav @isPills={{true}} as |nav|>
+        <nav.item @route="components" @label="First" />
+        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Third" @count={{12}} />
+        <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />
-        </NavItem>
+        </nav.item>
       </Nav>
       <hr />
-      <Nav @isPills={{true}} @isFill={{true}}>
-        <NavItem @route="components" @label="First" />
-        <NavItem @route="index" @label="Second" @icon="house" />
-        <NavItem @route="index" @label="Third" @count={{12}} />
-        <NavItem @route="index" @label="Fourth">
+      <Nav @isPills={{true}} @isFill={{true}} as |nav|>
+        <nav.item @route="components" @label="First" />
+        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Third" @count={{12}} />
+        <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />
-        </NavItem>
+        </nav.item>
       </Nav>
       {{! END-SNIPPET }}
     </Snippet>
@@ -60,13 +59,13 @@ export default RouteTemplate(
 
     <Snippet @name="nav2.gts">
       {{! BEGIN-SNIPPET nav2 }}
-      <Nav @isPills={{true}} @isVertical={{true}}>
-        <NavItem @route="components" @label="First" />
-        <NavItem @route="index" @label="Second" @icon="house" />
-        <NavItem @route="index" @label="Third" @count={{12}} />
-        <NavItem @route="index" @label="Fourth">
+      <Nav @isPills={{true}} @isVertical={{true}} as |nav|>
+        <nav.item @route="components" @label="First" />
+        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Third" @count={{12}} />
+        <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />
-        </NavItem>
+        </nav.item>
       </Nav>
       {{! END-SNIPPET }}
     </Snippet>

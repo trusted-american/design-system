@@ -150,14 +150,14 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
 
     <Card as |card|>
       <card.header class="d-flex justify-content-between align-items-center">
-        <Nav class="card-header-tabs">
-          <NavItem
+        <Nav class="card-header-tabs" as |nav|>
+          <nav.item
             @label={{@editorLabel}}
             class={{if (eq false this.isCode) "active"}}
             data-test-editor
             {{on "click" this.setEditor}}
           />
-          <NavItem
+          <nav.item
             @label={{@codeLabel}}
             class={{if (eq true this.isCode) "active"}}
             data-test-code

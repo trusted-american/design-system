@@ -52,14 +52,14 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
 
     <Card as |card|>
       <card.header class="d-flex justify-content-between align-items-center">
-        <Nav class="card-header-tabs">
-          <NavItem
+        <Nav class="card-header-tabs" as |nav|>
+          <nav.item
             @label={{@writeLabel}}
             class={{if (eq false this.isPreview) "active"}}
             data-test-write
             {{on "click" (fn (mut this.isPreview) false)}}
           />
-          <NavItem
+          <nav.item
             @label={{@previewLabel}}
             class={{if (eq true this.isPreview) "active"}}
             data-test-preview
