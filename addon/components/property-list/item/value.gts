@@ -11,6 +11,8 @@ export interface PropertyListItemValueSignature {
     value: string | number | boolean | null | undefined;
     label: string;
     noLabel: string;
+    copyLabel: string;
+    copiedLabel: string;
     isStatic?: boolean;
   };
   Blocks: {
@@ -45,8 +47,9 @@ export default class PropertyListItemValue extends Component<PropertyListItemVal
           <Copy
             @value="{{@value}}"
             @onSuccess={{this.copy}}
-            {{! TODO: string }}
-            {{tooltip (if this.isCopied "Copied!" (concat "Copy " @label))}}
+            {{tooltip
+              (if this.isCopied @copiedLabel (concat @copyLabel " " @label))
+            }}
           >
             {{yield}}
           </Copy>

@@ -8,6 +8,8 @@ export interface PropertyListItemSignature {
     value: string | number | boolean | null | undefined;
     label: string;
     noLabel: string;
+    copyLabel: string;
+    copiedLabel: string;
     help?: string;
     isStatic?: boolean;
     isHorizontal?: boolean;
@@ -27,6 +29,8 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
         @value={{@value}}
         @label={{@label}}
         @noLabel={{@noLabel}}
+        @copyLabel={{@copyLabel}}
+        @copiedLabel={{@copiedLabel}}
         @isStatic={{@isStatic}}
         ...attributes
       >
@@ -46,6 +50,8 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
       @value={{@value}}
       @label={{@label}}
       @noLabel={{@noLabel}}
+      @copyLabel={{@copyLabel}}
+      @copiedLabel={{@copiedLabel}}
       @isStatic={{@isStatic}}
       class="col-7 overflow-hidden"
       ...attributes
