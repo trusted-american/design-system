@@ -8,7 +8,7 @@ const BreadcrumbTrail = <template>
     <ol class="breadcrumb">
       {{#each (breadcrumbs) as |breadcrumb|}}
         {{#if (hasNext breadcrumb (breadcrumbs))}}
-          <li class="breadcrumb-item">
+          <li class="breadcrumb-item" data-test-breadcrumb-trail-item>
             <Link
               @route="{{get breadcrumb.data 'route'}}"
               @model={{get breadcrumb.data "model"}}
@@ -16,7 +16,11 @@ const BreadcrumbTrail = <template>
             />
           </li>
         {{else}}
-          <li class="breadcrumb-item active" aria-current="page">
+          <li
+            class="breadcrumb-item active"
+            aria-current="page"
+            data-test-breadcrumb-trail-item
+          >
             {{breadcrumb.title}}
           </li>
         {{/if}}
