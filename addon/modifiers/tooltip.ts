@@ -26,6 +26,11 @@ const tooltip = modifier<TooltipSignature>(
       title,
     });
 
+    // fixes tooltip closing when arg updates
+    if (element.matches(':hover')) {
+      tooltip.show();
+    }
+
     if (onShow) {
       element.addEventListener('show.bs.tooltip', onShow);
     }
