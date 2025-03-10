@@ -7,6 +7,8 @@ export interface CopySignature {
     value: string;
     container?: string | Element;
     delegateClickEvent?: boolean;
+    onSuccess?: () => void;
+    onError?: () => void;
     isButton?: boolean;
     isFullWidth?: boolean;
   };
@@ -21,6 +23,8 @@ const Copy: TOC<CopySignature> = <template>
     @text={{@value}}
     @container={{@container}}
     @delegateClickEvent={{@delegateClickEvent}}
+    @onSuccess={{@onSuccess}}
+    @onError={{@onError}}
     class="{{if @isButton 'btn btn-secondary'}} {{if @isFullWidth 'w-100'}}"
     data-test-copy
     ...attributes
