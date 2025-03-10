@@ -16,6 +16,7 @@ const FormFeedback: TOC<FormFeedbackSignature> = <template>
   </div>
   <div class="valid-feedback">
     <Icon @icon="check" class="me-1" />
+    {{! TODO: string }}
     Looks good!
   </div>
 </template>;
