@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 
 export interface BannerSignature {
   Args: {
-    color: string;
+    color?: string;
   };
   Blocks: {
     default: [];
@@ -12,7 +12,7 @@ export interface BannerSignature {
 
 const Banner: TOC<BannerSignature> = <template>
   <section
-    class="text-bg-{{@color}} text-center fw-semibold p-2"
+    class="text-bg-{{if @color @color 'primary'}} text-center fw-semibold p-2"
     data-test-banner
     ...attributes
   >
