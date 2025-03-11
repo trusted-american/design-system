@@ -35,7 +35,7 @@ export default RouteTemplate<{
             @identifier="input"
             @isRequired={{true}}
             @help="This is an example of help."
-            @invalidFeedback="This is an example of invalid feedback."
+            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
             @onChange={{fn (mut @controller.value)}}
             placeholder="Placeholder"
@@ -48,7 +48,7 @@ export default RouteTemplate<{
             @identifier="textarea"
             @isRequired={{true}}
             @help="This is an example of help."
-            @invalidFeedback="This is an example of invalid feedback."
+            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
             @onChange={{fn (mut @controller.value)}}
             placeholder="Placeholder"
@@ -61,7 +61,7 @@ export default RouteTemplate<{
             @identifier="check"
             @isRequired={{true}}
             @help="This is an example of help."
-            @invalidFeedback="This is an example of invalid feedback."
+            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
             @onChange={{fn (mut @controller.check)}}
           />
@@ -74,7 +74,7 @@ export default RouteTemplate<{
             @identifier="powerSelect"
             @isRequired={{true}}
             @help="This is an example of help."
-            @invalidFeedback="This is an example of invalid feedback."
+            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
             @chooseLabel="Choose…"
             @searchLabel="Search…"
@@ -91,7 +91,7 @@ export default RouteTemplate<{
             @identifier="input"
             @isRequired={{true}}
             @help="This is an example of help."
-            @invalidFeedback="This is an example of invalid feedback."
+            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
             @onChange={{fn (mut @controller.value)}}
             placeholder="Placeholder"

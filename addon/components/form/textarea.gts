@@ -48,12 +48,7 @@ export default class FormTextarea extends Component<FormTextareaSignature> {
       ...attributes
     />
 
-    {{#if @invalidFeedback}}
-      <FormFeedback
-        @validLabel={{@validLabel}}
-        @invalidLabel={{@invalidFeedback}}
-      />
-    {{/if}}
+    <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
 
     {{#each @errors as |error|}}
       <FormFeedback

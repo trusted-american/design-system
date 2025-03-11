@@ -105,12 +105,7 @@ export default class FormPowerSelect<T> extends Component<
       </PowerSelect>
     {{/if}}
 
-    {{#if @invalidFeedback}}
-      <FormFeedback
-        @validLabel={{@validLabel}}
-        @invalidLabel={{@invalidFeedback}}
-      />
-    {{/if}}
+    <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
 
     {{#each @errors as |error|}}
       <FormFeedback

@@ -28,7 +28,7 @@ export default RouteTemplate<{
         @identifier="identifier"
         @isRequired={{true}}
         @help="This is an example of help."
-        @invalidFeedback="This is an example of invalid feedback."
+        @invalidLabel="This is an example of invalid feedback."
         @requiredLabel="Required"
         @onChange={{fn (mut @controller.value)}}
         placeholder="Placeholder"

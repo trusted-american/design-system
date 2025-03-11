@@ -53,12 +53,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
       ...attributes
     />
 
-    {{#if @invalidFeedback}}
-      <FormFeedback
-        @validLabel={{@validLabel}}
-        @invalidLabel={{@invalidFeedback}}
-      />
-    {{/if}}
+    <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
 
     {{#each @errors as |error|}}
       <FormFeedback

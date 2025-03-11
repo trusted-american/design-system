@@ -21,7 +21,7 @@ module('Integration | Component | form/input', function (hooks) {
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
-          @invalidFeedback="Invalid feedback"
+          @invalidLabel="Invalid feedback"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -91,7 +91,7 @@ module('Integration | Component | form/input', function (hooks) {
     assert.strictEqual(state.value, 'test');
   });
 
-  skip('invalidFeedback works', async function (assert) {
+  skip('invalidLabel works', async function (assert) {
     const state = tracked({ value: '' });
 
     const submit = (event: Event) => {
@@ -118,7 +118,7 @@ module('Integration | Component | form/input', function (hooks) {
             @label="Label"
             @identifier="identifier"
             @isRequired={{true}}
-            @invalidFeedback="Wrong"
+            @invalidLabel="Wrong"
             @requiredLabel="Required"
             @onChange={{fn (mut state.value)}}
           />

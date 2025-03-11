@@ -47,7 +47,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
       @identifier={{@identifier}}
       @isRequired={{@isRequired}}
       @help={{@help}}
-      @invalidFeedback={{@invalidFeedback}}
+      @invalidLabel={{@invalidLabel}}
       @requiredLabel={{@requiredLabel}}
       @size={{@size}}
       @isInputOnly={{@isInputOnly}}

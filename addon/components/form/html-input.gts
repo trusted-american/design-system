@@ -247,12 +247,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       aria-label={{@label}}
     />
 
-    {{#if @invalidFeedback}}
-      <FormFeedback
-        @validLabel={{@validLabel}}
-        @invalidLabel={{@invalidFeedback}}
-      />
-    {{/if}}
+    <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
 
     {{#each @errors as |error|}}
       <FormFeedback
