@@ -23,7 +23,7 @@ module('Integration | Component | modal', function (hooks) {
     assert.dom().hasText('Title template block text');
     assert.dom('[data-test-close-button]').exists();
 
-    //Removing Backdrop so button is clickable
+    // removing Backdrop so button is clickable
     const backdrop = document.getElementsByClassName(
       'modal-backdrop fade show',
     );

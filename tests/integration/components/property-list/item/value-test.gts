@@ -9,7 +9,13 @@ module('Integration | Component | property-list/item/value', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <PropertyListItemValue @value="" @label="Label" @noLabel="No">
+        <PropertyListItemValue
+          @value=""
+          @label="Label"
+          @noLabel="No"
+          @copyLabel="Copy"
+          @copiedLabel="Copied!"
+        >
           <:default>Default</:default>
           <:trailing>Trailing</:trailing>
         </PropertyListItemValue>

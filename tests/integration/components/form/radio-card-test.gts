@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { FormRadioCard } from '@trusted-american/design-system';
 import { array, fn, hash } from '@ember/helper';
 import { tracked } from 'tracked-built-ins';
@@ -28,5 +28,9 @@ module('Integration | Component | form/radio-card', function (hooks) {
     );
 
     assert.dom().hasText('Label Yes Help No Help');
+
+    await click('#identifier0');
+
+    assert.strictEqual(state.selected, true);
   });
 });

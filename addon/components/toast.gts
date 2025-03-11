@@ -4,7 +4,6 @@ import { modifier } from 'ember-modifier';
 import { concat } from '@ember/helper';
 import CloseButton from './close-button';
 import { on } from '@ember/modifier';
-import { eq } from 'ember-truth-helpers';
 
 export interface ToastSignature {
   Args: {
@@ -55,15 +54,6 @@ export default class Toast extends Component<ToastSignature> {
     >
       {{#if (has-block "title")}}
         <div class="toast-header">
-          {{#if (eq "success" @color)}}
-            {{!-- <Icon @icon="check" @fixedWidth={{true}} class="me-1" /> --}}
-          {{else if (eq "warning" @color)}}
-            {{!-- <Icon @icon="triangle-exclamation" @fixedWidth={{true}} class="me-1" /> --}}
-          {{else if (eq "danger" @color)}}
-            {{!-- <Icon @icon="xmark" @fixedWidth={{true}} class="me-1" /> --}}
-          {{else}}
-            {{!-- <Icon @icon="info" @fixedWidth={{true}} class="me-1" /> --}}
-          {{/if}}
           <span class="fw-semibold">
             {{yield to="title"}}
           </span>

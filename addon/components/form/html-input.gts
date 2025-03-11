@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import Button from '../button';
 import Card from '../card';
 import Nav from '../nav';
-import NavItem from '../nav/item';
 import FormLabel from './label';
 import FormTextarea from './textarea';
 import FormFeedback from './feedback';
@@ -150,14 +149,14 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
 
     <Card as |card|>
       <card.header class="d-flex justify-content-between align-items-center">
-        <Nav class="card-header-tabs">
-          <NavItem
+        <Nav @isStatic={{true}} class="card-header-tabs" as |nav|>
+          <nav.item
             @label={{@editorLabel}}
             class={{if (eq false this.isCode) "active"}}
             data-test-editor
             {{on "click" this.setEditor}}
           />
-          <NavItem
+          <nav.item
             @label={{@codeLabel}}
             class={{if (eq true this.isCode) "active"}}
             data-test-code
@@ -249,11 +248,17 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     />
 
     {{#if @invalidFeedback}}
-      <FormFeedback @label={{@invalidFeedback}} />
+      <FormFeedback
+        @invalidLabel={{@invalidFeedback}}
+        @validLabel={{@validLabel}}
+      />
     {{/if}}
 
     {{#each @errors as |error|}}
-      <FormFeedback @label={{error.message}} />
+      <FormFeedback
+        @invalidLabel={{error.message}}
+        @validLabel={{@validLabel}}
+      />
     {{/each}}
 
     {{#if @help}}

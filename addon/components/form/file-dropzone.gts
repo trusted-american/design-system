@@ -49,6 +49,7 @@ export default class FormFileDropzone extends Component<FormFileDropzoneSignatur
               accept={{@accept}}
               multiple={{if @multiple @multiple true}}
               hidden
+              data-test-form-file-dropzone
               {{queue.selectFile}}
             />
           </label>

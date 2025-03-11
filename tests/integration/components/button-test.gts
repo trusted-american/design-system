@@ -10,8 +10,8 @@ module('Integration | Component | button', function (hooks) {
     //Text Only
     await render(<template><Button @label="Test" /></template>);
     assert.dom().hasText('Test');
-    assert.dom('[data-test-icon]').doesNotExist(); //No Icon
-    assert.dom('button div').doesNotExist(); // No Loading
+    assert.dom('[data-test-icon]').doesNotExist(); // no icon
+    assert.dom('button div').doesNotExist(); // no loading
 
     //Text with Icon
     await render(<template><Button @label="Test" @icon="house" /></template>);

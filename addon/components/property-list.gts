@@ -7,6 +7,8 @@ import type { WithBoundArgs } from '@glint/template';
 export interface PropertyListSignature {
   Args: {
     noLabel: string;
+    copyLabel: string;
+    copiedLabel: string;
     title?: string;
     isHorizontal?: boolean;
   };
@@ -15,7 +17,7 @@ export interface PropertyListSignature {
       {
         item: WithBoundArgs<
           typeof PropertyListItem,
-          'noLabel' | 'isHorizontal'
+          'noLabel' | 'copyLabel' | 'copiedLabel' | 'isHorizontal'
         >;
       },
     ];
@@ -34,7 +36,11 @@ const PropertyList: TOC<PropertyListSignature> = <template>
       {{yield
         (hash
           item=(component
-            PropertyListItem noLabel=@noLabel isHorizontal=@isHorizontal
+            PropertyListItem
+            noLabel=@noLabel
+            copyLabel=@copyLabel
+            copiedLabel=@copiedLabel
+            isHorizontal=@isHorizontal
           )
         )
       }}

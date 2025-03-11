@@ -7,7 +7,6 @@ import {
   MainBody,
   MainHeader,
   Nav,
-  NavItem,
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
@@ -39,15 +38,15 @@ export default RouteTemplate(
         />
       </Heading>
 
-      <Nav>
-        <NavItem @route="detail" @label="First" />
-        <NavItem @route="index" @label="Second" />
-        <NavItem @route="index" @label="Third" />
-        <NavItem @route="index" @label="Fourth" />
-        <NavItem @route="index" @label="Fifth" />
-        <NavItem @route="index" @label="Sixth" />
-        <NavItem @route="index" @label="Seventh" />
-        <NavItem @route="index" @label="Eighth" />
+      <Nav as |nav|>
+        <nav.item @route="detail" @label="First" />
+        <nav.item @route="index" @label="Second" />
+        <nav.item @route="index" @label="Third" />
+        <nav.item @route="index" @label="Fourth" />
+        <nav.item @route="index" @label="Fifth" />
+        <nav.item @route="index" @label="Sixth" />
+        <nav.item @route="index" @label="Seventh" />
+        <nav.item @route="index" @label="Eighth" />
       </Nav>
     </MainHeader>
 

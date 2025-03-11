@@ -14,6 +14,7 @@ export interface FormInputArgs {
   help?: string;
   invalidFeedback?: string;
   requiredLabel: string;
+  validLabel?: string;
   size?: 'sm' | 'lg';
   isInputOnly?: boolean;
   errors?: { message: string }[];
@@ -87,11 +88,17 @@ export default class FormInput extends Component<FormInputSignature> {
         {{yield to="actions"}}
 
         {{#if @invalidFeedback}}
-          <FormFeedback @label={{@invalidFeedback}} />
+          <FormFeedback
+            @invalidLabel={{@invalidFeedback}}
+            @validLabel={{@validLabel}}
+          />
         {{/if}}
 
         {{#each @errors as |error|}}
-          <FormFeedback @label={{error.message}} />
+          <FormFeedback
+            @invalidLabel={{error.message}}
+            @validLabel={{@validLabel}}
+          />
         {{/each}}
       </div>
     {{else}}
@@ -115,11 +122,17 @@ export default class FormInput extends Component<FormInputSignature> {
       />
 
       {{#if @invalidFeedback}}
-        <FormFeedback @label={{@invalidFeedback}} />
+        <FormFeedback
+          @invalidLabel={{@invalidFeedback}}
+          @validLabel={{@validLabel}}
+        />
       {{/if}}
 
       {{#each @errors as |error|}}
-        <FormFeedback @label={{error.message}} />
+        <FormFeedback
+          @invalidLabel={{error.message}}
+          @validLabel={{@validLabel}}
+        />
       {{/each}}
     {{/if}}
 

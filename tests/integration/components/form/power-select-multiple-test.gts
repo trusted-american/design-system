@@ -4,7 +4,7 @@ import { render } from '@ember/test-helpers';
 import { FormPowerSelectMultiple } from '@trusted-american/design-system';
 import { selectChoose } from 'ember-power-select/test-support';
 import { tracked } from 'tracked-built-ins';
-import { fn } from '@ember/helper';
+import { array, fn } from '@ember/helper';
 
 module(
   'Integration | Component | form/power-select-multiple',
@@ -12,7 +12,6 @@ module(
     setupRenderingTest(hooks);
 
     test('it renders', async function (assert) {
-      const options = ['a', 'c', 'b'];
       const onCreate = () => {
         assert.ok(true);
       };
@@ -22,7 +21,7 @@ module(
       await render(
         <template>
           <FormPowerSelectMultiple
-            @options={{options}}
+            @options={{array "a" "b" "c"}}
             @selected={{state.selected}}
             @label="Label"
             @identifier="identifier"

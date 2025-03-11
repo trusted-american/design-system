@@ -1,4 +1,5 @@
-import { concat } from '@ember/helper';
+import ListGroupItem from './list-group/item';
+import { concat, hash } from '@ember/helper';
 
 import type { TOC } from '@ember/component/template-only';
 
@@ -10,7 +11,7 @@ export interface ListGroupSignature {
     color?: string;
   };
   Blocks: {
-    default: [];
+    default: [{ item: typeof ListGroupItem }];
   };
   Element: HTMLUListElement;
 }
@@ -25,7 +26,7 @@ const ListGroup: TOC<ListGroupSignature> = <template>
     data-test-list-group
     ...attributes
   >
-    {{yield}}
+    {{yield (hash item=ListGroupItem)}}
   </ul>
 </template>;
 

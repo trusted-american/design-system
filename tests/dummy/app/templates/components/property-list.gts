@@ -19,7 +19,12 @@ export default RouteTemplate(
 
     <Snippet @name="property-list.gts">
       {{! BEGIN-SNIPPET property-list }}
-      <PropertyList @noLabel="No" as |list|>
+      <PropertyList
+        @noLabel="No"
+        @copyLabel="Copy"
+        @copiedLabel="Copied!"
+        as |list|
+      >
         <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip." />
         <list.item @value="Value 2" @label="Key 2">
           Value 2
@@ -43,7 +48,13 @@ export default RouteTemplate(
 
     <Snippet @name="property-list1.gts">
       {{! BEGIN-SNIPPET property-list1 }}
-      <PropertyList @noLabel="No" @isHorizontal={{true}} as |list|>
+      <PropertyList
+        @noLabel="No"
+        @copyLabel="Copy"
+        @copiedLabel="Copied!"
+        @isHorizontal={{true}}
+        as |list|
+      >
         <list.item @value="Value 1" @label="Key 1" @help="This is a tooltip." />
         <list.item @value="Value 2" @label="Key 2">
           Value 2

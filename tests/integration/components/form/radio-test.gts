@@ -3,16 +3,12 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { FormRadio } from '@trusted-american/design-system';
 import { tracked } from 'tracked-built-ins';
-import { fn } from '@ember/helper';
+import { array, fn, hash } from '@ember/helper';
 
 module('Integration | Component | form/radio', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const options = [
-      { value: 'one', label: 'One' },
-      { value: 'two', label: 'Two' },
-    ];
     const state = tracked<{ selected: string | undefined }>({
       selected: undefined,
     });
@@ -20,7 +16,10 @@ module('Integration | Component | form/radio', function (hooks) {
     await render(
       <template>
         <FormRadio
-          @options={{options}}
+          @options={{array
+            (hash value="one" label="One")
+            (hash value="two" label="Two")
+          }}
           @selected={{state.selected}}
           @label="Label"
           @identifier="identifier"

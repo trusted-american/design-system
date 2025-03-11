@@ -8,6 +8,22 @@ import { eq } from 'ember-truth-helpers';
 
 dayjs.extend(utc);
 
+const dateToString = (
+  date: Date,
+  isLocalTimeZone: boolean | undefined,
+): string | null => {
+  if (isValidDate(date)) {
+    let djs = dayjs(date);
+    if (!isLocalTimeZone) {
+      djs = djs.utc(false);
+    }
+
+    const value = djs.format('YYYY-MM-DD');
+    return value;
+  }
+  return null;
+};
+
 interface Args extends FormInputArgs {
   value: Date | null | undefined;
   type?: 'date' | 'month';
@@ -29,36 +45,23 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
         const djs = dayjs(this.args.value).utc(false);
         return djs.format('YYYY-MM');
       }
-      return this.dateToString(this.args.value);
+      return dateToString(this.args.value, this.args.isLocalTimeZone);
     }
     return '';
   }
 
   get min(): string | null {
     if (this.args.min) {
-      return this.dateToString(this.args.min);
+      return dateToString(this.args.min, this.args.isLocalTimeZone);
     }
     return '';
   }
 
   get max(): string | null {
     if (this.args.max) {
-      return this.dateToString(this.args.max);
+      return dateToString(this.args.max, this.args.isLocalTimeZone);
     }
     return '';
-  }
-
-  private dateToString(date: Date): string | null {
-    if (isValidDate(date)) {
-      let djs = dayjs(date);
-      if (!this.args.isLocalTimeZone) {
-        djs = djs.utc(false);
-      }
-
-      const value = djs.format('YYYY-MM-DD');
-      return value;
-    }
-    return null;
   }
 
   @action

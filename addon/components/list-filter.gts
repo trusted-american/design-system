@@ -7,7 +7,6 @@ import Button from './button';
 import ButtonSet from './button-set';
 import Dropdown from './dropdown';
 import ListGroup from './list-group';
-import ListGroupItem from './list-group/item';
 import FormNumberInput from './form/number-input';
 import FormDateInput from './form/date-input';
 import FormCheck from './form/check';
@@ -275,9 +274,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
     <Dropdown class="p-0" data-test-list-filter-dropdown>
       <form novalidate {{on "submit" this.done}}>
-        <ListGroup @isFlush={{true}}>
+        <ListGroup @isFlush={{true}} as |listGroup|>
 
-          <ListGroupItem class="bg-body-tertiary px-2">
+          <listGroup.item class="bg-body-tertiary px-2">
             <ButtonSet class="justify-content-between">
               <Button
                 @label={{@clearLabel}}
@@ -291,7 +290,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                 data-test-done
               />
             </ButtonSet>
-          </ListGroupItem>
+          </listGroup.item>
 
           {{#each this.predicates as |predicate index|}}
             <label class="list-group-item px-2" data-test-predicate-toggle>
@@ -309,7 +308,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
             </label>
 
             {{#if predicate.isEnabled}}
-              <ListGroupItem
+              <listGroup.item
                 class="bg-body-tertiary px-2"
                 data-test-predicate-value
               >
@@ -400,11 +399,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                 {{else if (eq "string" predicate._predicate.type)}}
 
                   <FormInput
-                    {{! @glint-expect-error }}
-                    @value={{predicate._value}}
+                    @value={{predicate._predicate.value}}
                     @label={{@valueLabel}}
                     @identifier="value{{index}}"
                     @isRequired={{true}}
+                    @requiredLabel={{@requiredLabel}}
                     @isInputOnly={{true}}
                     @onChange={{fn (mut predicate._value)}}
                     placeholder={{@valueLabel}}
@@ -434,7 +433,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                   {{/let}}
 
                 {{/if}}
-              </ListGroupItem>
+              </listGroup.item>
             {{/if}}
           {{/each}}
         </ListGroup>

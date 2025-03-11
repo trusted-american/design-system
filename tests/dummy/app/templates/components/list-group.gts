@@ -3,7 +3,6 @@ import Snippet from '../../components/snippet';
 import {
   Heading,
   ListGroup,
-  ListGroupItem,
   Subheading,
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
@@ -20,11 +19,11 @@ export default RouteTemplate(
 
     <Snippet @name="list-group.gts">
       {{! BEGIN-SNIPPET list-group }}
-      <ListGroup>
-        <ListGroupItem class="active">An active item</ListGroupItem>
-        <ListGroupItem>A second item</ListGroupItem>
-        <ListGroupItem @route="index">Route</ListGroupItem>
-        <ListGroupItem @href="https://www.google.com/">Href</ListGroupItem>
+      <ListGroup as |listGroup|>
+        <listGroup.item class="active">An active item</listGroup.item>
+        <listGroup.item>A second item</listGroup.item>
+        <listGroup.item @route="index">Route</listGroup.item>
+        <listGroup.item @href="https://www.google.com/">Href</listGroup.item>
       </ListGroup>
       {{! END-SNIPPET }}
     </Snippet>
@@ -33,9 +32,9 @@ export default RouteTemplate(
 
     <Snippet @name="list-group1.gts">
       {{! BEGIN-SNIPPET list-group1 }}
-      <ListGroup>
-        <ListGroupItem class="disabled">A disabled item</ListGroupItem>
-        <ListGroupItem>A second item</ListGroupItem>
+      <ListGroup as |listGroup|>
+        <listGroup.item class="disabled">A disabled item</listGroup.item>
+        <listGroup.item>A second item</listGroup.item>
       </ListGroup>
       {{! END-SNIPPET }}
     </Snippet>
@@ -44,8 +43,8 @@ export default RouteTemplate(
 
     <Snippet @name="list-group2.gts">
       {{! BEGIN-SNIPPET list-group2 }}
-      <ListGroup @isFlush={{true}}>
-        <ListGroupItem>An item</ListGroupItem>
+      <ListGroup @isFlush={{true}} as |listGroup|>
+        <listGroup.item>An item</listGroup.item>
       </ListGroup>
       {{! END-SNIPPET }}
     </Snippet>

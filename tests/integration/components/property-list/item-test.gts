@@ -9,7 +9,13 @@ module('Integration | Component | property-list/item', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <PropertyListItem @label="Label" @value="Value" @noLabel="No">
+        <PropertyListItem
+          @label="Label"
+          @value="Value"
+          @noLabel="No"
+          @copyLabel="Copy"
+          @copiedLabel="Copied!"
+        >
           template block text
         </PropertyListItem>
       </template>,

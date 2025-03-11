@@ -1,6 +1,5 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
-import { noop } from '@nullvoxpopuli/ember-composable-helpers';
 import {
   Aside,
   AsideGroup,
@@ -11,6 +10,10 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+
+const change = () => {
+  //
+};
 
 export default RouteTemplate(
   <template>
@@ -27,17 +30,17 @@ export default RouteTemplate(
         @route="index"
         @isCollapsed={{false}}
         @collapseLabel="Collapse menu"
-        @onChange={{(noop)}}
+        @onChange={{change}}
       >
-        <:default>
-          <AsideItem @route="index" @label="Home" @icon="house" />
-          <AsideItem
+        <:default as |aside|>
+          <aside.item @route="index" @label="Home" @icon="house" />
+          <aside.item
             @route="index"
             @label='With a "count"'
             @icon="users"
             @count={{12}}
           />
-          <AsideItem
+          <aside.item
             @route="index"
             @label="Disabled"
             @icon="house"

@@ -1,7 +1,35 @@
 import { get } from '@ember/helper';
+import { isEqual, isEmpty, isPresent } from '@ember/utils';
 import { breadcrumbs } from 'ember-breadcrumb-trail';
-import { hasNext } from '@nullvoxpopuli/ember-composable-helpers';
 import Link from './link';
+
+// TODO: simplify code from ember-composable-helpers
+const hasNext = <T,>(currentValue: T, array: T[]) => {
+  const getIndex = <T,>(array: T[], currentValue: T) => {
+    const needle = currentValue;
+    const index = array.indexOf(needle);
+    return index >= 0 ? index : null;
+  };
+
+  const _isEqual = (firstValue: unknown, secondValue: unknown) => {
+    return isEqual(firstValue, secondValue) || isEqual(secondValue, firstValue);
+  };
+
+  const next = <T,>(currentValue: T, array: T[]) => {
+    const currentIndex = getIndex(array, currentValue);
+    const lastIndex = array.length - 1;
+    if (null === currentIndex || isEmpty(currentIndex)) {
+      return;
+    }
+    return currentIndex === lastIndex
+      ? currentValue
+      : array.at(currentIndex + 1);
+  };
+
+  const nextValue = next(currentValue, array);
+  const isNotSameValue = !_isEqual(nextValue, currentValue);
+  return isNotSameValue && isPresent(nextValue);
+};
 
 const BreadcrumbTrail = <template>
   <nav aria-label="Breadcrumb" data-test-breadcrumb-trail>

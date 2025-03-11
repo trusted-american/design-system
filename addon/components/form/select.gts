@@ -15,6 +15,8 @@ const isOption = <T,>(option: T | Option<T> | Group<T>): option is Option<T> =>
 const isGroup = <T,>(option: T | Option<T> | Group<T>): option is Group<T> =>
   option && typeof option === 'object' && 'groupLabel' in option;
 
+type Value = string | number | boolean | null | undefined;
+
 export interface Option<T> {
   value: T;
   label: string;
@@ -37,7 +39,9 @@ export interface FormSelectSignature<T> {
   Element: HTMLSelectElement;
 }
 
-export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
+export default class FormSelect<T extends Value> extends Component<
+  FormSelectSignature<T>
+> {
   @action
   change({ target }: Event): void {
     if (!(target instanceof HTMLSelectElement)) {
@@ -97,7 +101,6 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
       ...attributes
     >
       {{#if @chooseLabel}}
-        {{! @glint-expect-error }}
         <option value="" selected={{not @selected}}>
           {{@chooseLabel}}
         </option>
@@ -130,7 +133,6 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
             value={{if (or opt (eq false opt)) index ""}}
             selected={{eq @selected opt}}
           >
-            {{! @glint-expect-error }}
             {{opt}}
           </option>
         {{/if}}
@@ -138,11 +140,17 @@ export default class FormSelect<T> extends Component<FormSelectSignature<T>> {
     </select>
 
     {{#if @invalidFeedback}}
-      <FormFeedback @label={{@invalidFeedback}} />
+      <FormFeedback
+        @invalidLabel={{@invalidFeedback}}
+        @validLabel={{@validLabel}}
+      />
     {{/if}}
 
     {{#each @errors as |error|}}
-      <FormFeedback @label={{error.message}} />
+      <FormFeedback
+        @invalidLabel={{error.message}}
+        @validLabel={{@validLabel}}
+      />
     {{/each}}
 
     {{#if @help}}

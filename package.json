@@ -56,7 +56,6 @@
     "@fullcalendar/list": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
     "@github/markdown-toolbar-element": "^2.2.3",
-    "@nullvoxpopuli/ember-composable-helpers": "^5.2.10",
     "@tiptap/core": "^2.11.5",
     "@tiptap/pm": "^2.11.5",
     "@tiptap/starter-kit": "^2.11.5",
@@ -138,7 +137,7 @@
     "stylelint-config-standard": "^37.0.0",
     "stylelint-prettier": "^5.0.3",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.0",
+    "typescript-eslint": "^8.26.1",
     "webpack": "^5.98.0"
   },
   "peerDependencies": {
