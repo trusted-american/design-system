@@ -69,7 +69,6 @@ export default class Modal extends Component<ModalSignature> {
     }
 
     this.modal.hide();
-    // this.modal.dispose();
   }
 
   <template>

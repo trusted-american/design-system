@@ -101,7 +101,7 @@ export default RouteTemplate<{
             </:actions>
           </FormInput>
         </div>
-        <Button @label="Submit" @isSubmit={{true}} @color="primary" />
+        <Button @type="submit" @label="Submit" @color="primary" />
       </form>
     </MainBody>
   </template>,

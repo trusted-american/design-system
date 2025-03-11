@@ -122,7 +122,7 @@ module('Integration | Component | form/input', function (hooks) {
             @requiredLabel="Required"
             @onChange={{fn (mut state.value)}}
           />
-          <Button @label="Submit" @isSubmit={{true}} data-test-submit />
+          <Button @type="submit" @label="Submit" data-test-submit />
         </form>
       </template>,
     );

@@ -13,6 +13,13 @@ import type { Option } from './form/select';
 
 const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 
+const compare = <T,>(
+  a: ListAttributesKey<T>[],
+  b: ListAttributesKey<T>[],
+): boolean => {
+  return [...a].sort().join(',') === [...b].sort().join(',');
+};
+
 export type ListAttributesKey<T> = keyof T | `${keyof T & string}.${string}`;
 
 export interface ListAttributesPreset<T> {
@@ -53,13 +60,6 @@ export default class ListAttributes<T> extends Component<
     }
 
     this.args.onChange(selected);
-  }
-
-  private compare(
-    a: ListAttributesKey<T>[],
-    b: ListAttributesKey<T>[],
-  ): boolean {
-    return [...a].sort().join(',') === [...b].sort().join(',');
   }
 
   <template>

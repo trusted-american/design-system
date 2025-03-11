@@ -284,7 +284,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                 {{on "click" this.clear}}
               />
               <Button
-                @isSubmit={{true}}
+                @type="submit"
                 @label={{@doneLabel}}
                 @color="primary"
                 data-test-done
