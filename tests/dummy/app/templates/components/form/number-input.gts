@@ -27,9 +27,9 @@ export default RouteTemplate<{
         @label="Label"
         @identifier="identifier"
         @isRequired={{true}}
+        @requiredLabel="Required"
         @help="This is an example of help."
         @invalidLabel="This is an example of invalid feedback."
-        @requiredLabel="Required"
         @onChange={{fn (mut @controller.value)}}
         placeholder="Placeholder"
       />
@@ -40,9 +40,9 @@ export default RouteTemplate<{
         @label="Label"
         @identifier="identifier"
         @isRequired={{true}}
+        @requiredLabel="Required"
         @help="This is an example of help."
         @invalidLabel="This is an example of invalid feedback."
-        @requiredLabel="Required"
         @onChange={{fn (mut @controller.value)}}
         placeholder="Placeholder"
       />

@@ -41,9 +41,9 @@ export default RouteTemplate<{
         @label="Label"
         @identifier="identifier"
         @isRequired={{true}}
+        @requiredLabel="Required"
         @help="This is an example of help."
         @invalidLabel="This is an example of invalid feedback."
-        @requiredLabel="Required"
         @chooseLabel="Choose…"
         @onChange={{fn (mut @controller.value)}}
         @onCreate={{@controller.create}}
