@@ -1,7 +1,7 @@
 import Badge from './badge';
 import Icon from './icon';
 import Link, { type LinkArgs } from './link';
-import SpinnerInternal from './spinner/internal';
+import Spinner from './spinner';
 import { concat } from '@ember/helper';
 import { and, not, or } from 'ember-truth-helpers';
 
@@ -22,7 +22,7 @@ const Internal: TOC<{
   Element: SVGElement;
 }> = <template>
   {{#if @isLoading}}
-    <SpinnerInternal />
+    <Spinner />
   {{/if}}
   {{if (and (not @isIconOnly) @isIconTrailing) @label}}
   {{#if @icon}}
