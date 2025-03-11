@@ -59,7 +59,6 @@ const tooltip = modifier<TooltipSignature>(
       }
 
       // TODO: https://github.com/twbs/bootstrap/issues/37474
-      // tooltip.hide();
       tooltip.dispose();
     };
   },
