@@ -20,6 +20,8 @@ import { on } from '@ember/modifier';
 import { eq, not } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
 import { get } from '@ember/object';
+import { Dropdown as BootstrapDropdown } from 'bootstrap';
+import { guidFor } from '@ember/object/internals';
 
 import type { Option } from './form/select';
 
@@ -27,6 +29,14 @@ const findBy = <T,>(byPath: keyof T, value: T[keyof T], arr: T[]) =>
   arr.find((item) => get(item, String(byPath)) === value);
 
 const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
+
+const hideDropdown = (id: string) => {
+  const dropdownEl = document.getElementById(id);
+  if (dropdownEl) {
+    const dropdown = BootstrapDropdown.getInstance(dropdownEl);
+    dropdown?.hide();
+  }
+};
 
 const autoselect = modifier(function autoselect(element: HTMLInputElement) {
   element.select();
@@ -213,6 +223,8 @@ export interface ListFilterSignature<T> {
 }
 
 export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
+  id = guidFor(this);
+
   @cached
   get predicates(): InternalPredicate<T>[] {
     return this.args.predicates.map(
@@ -230,6 +242,8 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     for (const predicate of this.predicates) {
       this.args.onChange(predicate._predicate.key, predicate.value);
     }
+
+    hideDropdown(this.id);
   }
 
   @action
@@ -238,6 +252,8 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       predicate.isEnabled = false;
       this.args.onChange(predicate._predicate.key, predicate.value);
     }
+
+    hideDropdown(this.id);
   }
 
   @action
@@ -268,6 +284,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       @label={{@label}}
       @icon="filter"
       @count={{this.selections.length}}
+      id={{this.id}}
       data-test-list-filter
       {{dropdown autoClose="outside"}}
     />
