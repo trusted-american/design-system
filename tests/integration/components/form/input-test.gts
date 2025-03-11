@@ -32,7 +32,7 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('[data-test-form-input]').hasAttribute('id', 'identifier');
     assert.dom('[data-test-form-input]').isRequired();
     assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-feedback]').exists();
   });
 
   test('it defaults to text type', async function (assert) {
@@ -131,7 +131,7 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('form').doesNotHaveClass('was-validated');
     await click('[data-test-submit]');
     assert.dom('form').hasClass('was-validated');
-    assert.dom('[data-test-form-error]').hasText('Wrong');
+    assert.dom('[data-test-form-feedback]').hasText('Wrong');
     assert.dom('form div').hasStyle({ height: '63px' });
   });
 });

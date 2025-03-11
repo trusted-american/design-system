@@ -48,8 +48,8 @@ const FormCheck: TOC<FormCheckSignature> = <template>
 
     {{#if @invalidFeedback}}
       <FormFeedback
-        @invalidLabel={{@invalidFeedback}}
         @validLabel={{@validLabel}}
+        @invalidLabel={{@invalidFeedback}}
       />
     {{/if}}
 

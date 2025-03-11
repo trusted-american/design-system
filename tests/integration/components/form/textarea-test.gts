@@ -30,7 +30,7 @@ module('Integration | Component | form/textarea', function (hooks) {
     assert.dom('[data-test-form-textarea]').hasAttribute('id', 'identifier');
     assert.dom('[data-test-form-textarea]').isRequired();
     assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-feedback]').exists();
 
     state.isRequired = false;
     await rerender();

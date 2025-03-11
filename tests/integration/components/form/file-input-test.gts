@@ -29,7 +29,7 @@ module('Integration | Component | form/file-input', function (hooks) {
     assert.dom('[data-test-form-file-input]').hasAttribute('id', 'identifier');
     assert.dom('[data-test-form-file-input]').isRequired();
     assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-feedback]').exists();
 
     await triggerEvent('[data-test-form-file-input]', 'change', {
       files: [new File(['Ember Rules!'], 'ember-rules.txt')],

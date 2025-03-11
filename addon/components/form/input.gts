@@ -89,15 +89,15 @@ export default class FormInput extends Component<FormInputSignature> {
 
         {{#if @invalidFeedback}}
           <FormFeedback
-            @invalidLabel={{@invalidFeedback}}
             @validLabel={{@validLabel}}
+            @invalidLabel={{@invalidFeedback}}
           />
         {{/if}}
 
         {{#each @errors as |error|}}
           <FormFeedback
-            @invalidLabel={{error.message}}
             @validLabel={{@validLabel}}
+            @invalidLabel={{error.message}}
           />
         {{/each}}
       </div>
@@ -123,15 +123,15 @@ export default class FormInput extends Component<FormInputSignature> {
 
       {{#if @invalidFeedback}}
         <FormFeedback
-          @invalidLabel={{@invalidFeedback}}
           @validLabel={{@validLabel}}
+          @invalidLabel={{@invalidFeedback}}
         />
       {{/if}}
 
       {{#each @errors as |error|}}
         <FormFeedback
-          @invalidLabel={{error.message}}
           @validLabel={{@validLabel}}
+          @invalidLabel={{error.message}}
         />
       {{/each}}
     {{/if}}

@@ -4,14 +4,14 @@ import type { TOC } from '@ember/component/template-only';
 
 export interface FormFeedbackSignature {
   Args: {
-    invalidLabel: string;
     validLabel: string | undefined;
+    invalidLabel: string | undefined;
   };
   Element: HTMLDivElement;
 }
 
 const FormFeedback: TOC<FormFeedbackSignature> = <template>
-  <div class="invalid-feedback" data-test-form-error ...attributes>
+  <div class="invalid-feedback" data-test-form-feedback ...attributes>
     <Icon @icon="triangle-exclamation" class="me-1" />
     {{@invalidLabel}}
   </div>
