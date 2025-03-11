@@ -46,6 +46,7 @@ Router.map(function () {
       this.route('textarea');
       this.route('time-input');
     });
+    this.route('frame');
     this.route('heading');
     this.route('icon');
     this.route('link');
