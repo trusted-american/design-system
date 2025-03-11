@@ -34,9 +34,10 @@ export default RouteTemplate<{
             @label="Label"
             @identifier="input"
             @isRequired={{true}}
-            @help="This is an example of help."
-            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
+            @help="This is an example of help."
+            @validLabel="Looks good!"
+            @invalidLabel="This is an example of invalid feedback."
             @onChange={{fn (mut @controller.value)}}
             placeholder="Placeholder"
           />
@@ -47,9 +48,10 @@ export default RouteTemplate<{
             @label="Label"
             @identifier="textarea"
             @isRequired={{true}}
-            @help="This is an example of help."
-            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
+            @help="This is an example of help."
+            @validLabel="Looks good!"
+            @invalidLabel="This is an example of invalid feedback."
             @onChange={{fn (mut @controller.value)}}
             placeholder="Placeholder"
           />
@@ -60,9 +62,10 @@ export default RouteTemplate<{
             @label="Label"
             @identifier="check"
             @isRequired={{true}}
-            @help="This is an example of help."
-            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
+            @help="This is an example of help."
+            @validLabel="Looks good!"
+            @invalidLabel="This is an example of invalid feedback."
             @onChange={{fn (mut @controller.check)}}
           />
         </div>
@@ -73,9 +76,10 @@ export default RouteTemplate<{
             @label="Label"
             @identifier="powerSelect"
             @isRequired={{true}}
-            @help="This is an example of help."
-            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
+            @help="This is an example of help."
+            @validLabel="Looks good!"
+            @invalidLabel="This is an example of invalid feedback."
             @chooseLabel="Choose…"
             @searchLabel="Search…"
             @onChange={{fn (mut @controller.value)}}
@@ -90,9 +94,10 @@ export default RouteTemplate<{
             @label="Label"
             @identifier="input"
             @isRequired={{true}}
-            @help="This is an example of help."
-            @invalidLabel="This is an example of invalid feedback."
             @requiredLabel="Required"
+            @help="This is an example of help."
+            @validLabel="Looks good!"
+            @invalidLabel="This is an example of invalid feedback."
             @onChange={{fn (mut @controller.value)}}
             placeholder="Placeholder"
           >
