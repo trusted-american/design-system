@@ -7,6 +7,8 @@ import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, or } from 'ember-truth-helpers';
 
+import type { TOC } from '@ember/component/template-only';
+
 export interface FormInputArgs {
   label: string;
   identifier: string;
@@ -19,6 +21,40 @@ export interface FormInputArgs {
   size?: 'sm' | 'lg';
   errors?: { message: string }[];
 }
+
+const Internal: TOC<{
+  Args: {
+    value: string | null | undefined;
+    type: string | undefined;
+    label: string;
+    identifier: string;
+    isRequired: boolean | undefined;
+    isInputOnly: boolean | undefined;
+    size: 'sm' | 'lg' | undefined;
+    errors: { message: string }[] | undefined;
+    onChange: (event: Event) => void;
+  };
+  Element: HTMLInputElement;
+}> = <template>
+  <input
+    type={{if @type @type "text"}}
+    id={{@identifier}}
+    value={{@value}}
+    class="{{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
+        @size
+        (concat ' form-control-' @size)
+      }}{{if (eq 'color' @type) ' form-control-color'}}{{if
+        @errors
+        ' is-invalid'
+      }}
+      flex-nowrap"
+    required={{@isRequired}}
+    aria-label={{if @isInputOnly @label}}
+    data-test-form-input
+    {{on "input" @onChange}}
+    ...attributes
+  />
+</template>;
 
 interface Args extends FormInputArgs {
   value: string | null | undefined;
@@ -67,22 +103,16 @@ export default class FormInput extends Component<FormInputSignature> {
           </span>
         {{/if}}
 
-        <input
-          type={{if @type @type "text"}}
-          id={{@identifier}}
-          value={{@value}}
-          class="{{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
-              @size
-              (concat ' form-control-' @size)
-            }}{{if (eq 'color' @type) ' form-control-color'}}{{if
-              @errors
-              ' is-invalid'
-            }}
-            flex-nowrap"
-          required={{@isRequired}}
-          aria-label={{if @isInputOnly @label}}
-          data-test-form-input
-          {{on "input" this.change}}
+        <Internal
+          @value={{@value}}
+          @type={{@type}}
+          @label={{@label}}
+          @identifier={{@identifier}}
+          @isRequired={{@isRequired}}
+          @isInputOnly={{@isInputOnly}}
+          @size={{@size}}
+          @errors={{@errors}}
+          @onChange={{this.change}}
           ...attributes
         />
         {{yield to="actions"}}
@@ -100,22 +130,16 @@ export default class FormInput extends Component<FormInputSignature> {
         {{/each}}
       </div>
     {{else}}
-      <input
-        type={{if @type @type "text"}}
-        id={{@identifier}}
-        value={{@value}}
-        class="{{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
-            @size
-            (concat ' form-control-' @size)
-          }}{{if (eq 'color' @type) ' form-control-color'}}{{if
-            @errors
-            ' is-invalid'
-          }}
-          flex-nowrap"
-        required={{@isRequired}}
-        aria-label={{if @isInputOnly @label}}
-        data-test-form-input
-        {{on "input" this.change}}
+      <Internal
+        @value={{@value}}
+        @type={{@type}}
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @isInputOnly={{@isInputOnly}}
+        @size={{@size}}
+        @errors={{@errors}}
+        @onChange={{this.change}}
         ...attributes
       />
 
