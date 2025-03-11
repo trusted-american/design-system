@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { uniqueId } from '@ember/helper';
+import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import Icon from '../icon';
 import fileQueue from 'ember-file-upload/helpers/file-queue';
@@ -20,13 +20,15 @@ export interface FormFileDropzoneSignature {
 }
 
 export default class FormFileDropzone extends Component<FormFileDropzoneSignature> {
+  id = guidFor(this);
+
   @action
   create({ file }: UploadFile): void {
     this.args.onCreate(file);
   }
 
   <template>
-    {{#let (fileQueue name=(uniqueId) onFileAdded=this.create) as |queue|}}
+    {{#let (fileQueue name=this.id onFileAdded=this.create) as |queue|}}
       <FileDropzone
         @queue={{queue}}
         class="form-file-dropzone"
