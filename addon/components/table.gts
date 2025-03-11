@@ -17,7 +17,7 @@ export type YetiTableHeader = ComponentLike<{
             prop?: string;
             sortable?: boolean;
             sort?: 'asc' | 'desc' | null;
-            visible?: unknown;
+            visible?: boolean;
           };
           Blocks: {
             default: [];

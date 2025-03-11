@@ -42,8 +42,8 @@ module('Integration | Component | form/input', function (hooks) {
       <template>
         <FormInput
           @value={{state.value}}
-          @label=""
-          @identifier=""
+          @label="Label"
+          @identifier="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -60,8 +60,8 @@ module('Integration | Component | form/input', function (hooks) {
       <template>
         <FormInput
           @value={{state.value}}
-          @label=""
-          @identifier=""
+          @label="Label"
+          @identifier="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -78,8 +78,8 @@ module('Integration | Component | form/input', function (hooks) {
       <template>
         <FormInput
           @value={{state.value}}
-          @label=""
-          @identifier=""
+          @label="Label"
+          @identifier="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -115,8 +115,8 @@ module('Integration | Component | form/input', function (hooks) {
         <form novalidate {{on "submit" submit}}>
           <FormInput
             @value={{state.value}}
-            @label=""
-            @identifier=""
+            @label="Label"
+            @identifier="identifier"
             @isRequired={{true}}
             @invalidFeedback="Wrong"
             @requiredLabel="Required"
@@ -133,5 +133,25 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('form').hasClass('was-validated');
     assert.dom('[data-test-form-feedback]').hasText('Wrong');
     assert.dom('form div').hasStyle({ height: '63px' });
+  });
+
+  test('it adds aria-label attribute', async function (assert) {
+    const state = tracked({ value: '' });
+
+    await render(
+      <template>
+        <FormInput
+          @value={{state.value}}
+          @label="Label"
+          @identifier="identifier"
+          @requiredLabel="Required"
+          @isInputOnly={{true}}
+          @onChange={{fn (mut state.value)}}
+        />
+      </template>,
+    );
+
+    assert.dom('[data-test-form-label]').doesNotExist();
+    assert.dom('[data-test-form-input]').hasAttribute('aria-label', 'Label');
   });
 });
