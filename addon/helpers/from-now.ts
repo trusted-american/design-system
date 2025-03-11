@@ -20,6 +20,7 @@ const fromNow = helper(
 
     const relativeTime = isCompact
       ? {
+          // TODO: string
           future: 'in %s',
           past: '%s',
           s: '1s',

@@ -46,7 +46,7 @@ export default class ListAttributes<T> extends Component<
 > {
   get activePreset(): ListAttributesPreset<T> | undefined {
     const { presets, selected } = this.args;
-    return presets.find(({ values }) => this.compare(values, selected));
+    return presets.find(({ values }) => compare(values, selected));
   }
 
   @action
