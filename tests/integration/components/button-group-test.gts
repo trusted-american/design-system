@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Button, ButtonGroup } from '@trusted-american/design-system';
+import { ButtonGroup } from '@trusted-american/design-system';
 
 module('Integration | Component | button-group', function (hooks) {
   setupRenderingTest(hooks);
@@ -9,11 +9,11 @@ module('Integration | Component | button-group', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <ButtonGroup>
-          <Button @label="Hi" />
-          <Button @label="Actually" />
-          <Button @label="Bye" />
-          <Button
+        <ButtonGroup as |buttonGroup|>
+          <buttonGroup.button @label="Hi" />
+          <buttonGroup.button @label="Actually" />
+          <buttonGroup.button @label="Bye" />
+          <buttonGroup.button
             @label="This Shouldnt Show Up"
             @icon="house"
             @isIconOnly={{true}}

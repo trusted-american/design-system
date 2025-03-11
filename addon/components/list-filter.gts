@@ -294,13 +294,13 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         <ListGroup @isFlush={{true}} as |listGroup|>
 
           <listGroup.item class="bg-body-tertiary px-2">
-            <ButtonSet class="justify-content-between">
-              <Button
+            <ButtonSet class="justify-content-between" as |buttonSet|>
+              <buttonSet.button
                 @label={{@clearLabel}}
                 data-test-clear
                 {{on "click" this.clear}}
               />
-              <Button
+              <buttonSet.button
                 @type="submit"
                 @label={{@doneLabel}}
                 @color="primary"

@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import Button from '../button';
 import ButtonGroup from '../button-group';
 import FormLabel from './label';
 import FormHelp from './help';
@@ -39,7 +38,7 @@ export default class FormRadioButton<T> extends Component<
     {{/unless}}
 
     <div>
-      <ButtonGroup @size={{@size}} ...attributes>
+      <ButtonGroup @size={{@size}} ...attributes as |buttonGroup|>
         {{#each @options as |option index|}}
           <input
             type="radio"
@@ -50,7 +49,7 @@ export default class FormRadioButton<T> extends Component<
             checked={{eq @selected option.value}}
             {{on "change" (fn @onChange option.value)}}
           />
-          <Button
+          <buttonGroup.button
             @label={{option.label}}
             @color={{option.color}}
             @isLabel={{true}}

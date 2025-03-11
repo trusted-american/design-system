@@ -2,7 +2,6 @@ import RouteTemplate from 'ember-route-template';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import {
-  Button,
   ButtonSet,
   FormInput,
   Heading,
@@ -25,7 +24,7 @@ export default RouteTemplate<{
 
     <MainBody>
       <Heading @title="List">
-        <ButtonSet>
+        <ButtonSet as |buttonSet|>
           <FormInput
             @value={{@controller.search}}
             @type="search"
@@ -36,10 +35,10 @@ export default RouteTemplate<{
             @onChange={{fn (mut @controller.search)}}
             placeholder="Search…"
           />
-          <Button @label="Filter" {{on "click" @controller.click}} />
-          <Button @label="Sort" {{on "click" @controller.click}} />
-          <Button @label="Export" {{on "click" @controller.click}} />
-          <Button
+          <buttonSet.button @label="Filter" {{on "click" @controller.click}} />
+          <buttonSet.button @label="Sort" {{on "click" @controller.click}} />
+          <buttonSet.button @label="Export" {{on "click" @controller.click}} />
+          <buttonSet.button
             @label="Create"
             @color="primary"
             {{on "click" @controller.click}}
