@@ -14,6 +14,8 @@ export default RouteTemplate(
     <Snippet @name="spinner.gts">
       {{! BEGIN-SNIPPET spinner }}
       <Spinner />
+      <Spinner @color="secondary" />
+      <Spinner @isLarge={{true}} />
       {{! END-SNIPPET }}
     </Snippet>
   </template>,

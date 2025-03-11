@@ -8,8 +8,8 @@ export default RouteTemplate(
     {{pageTitle "…"}}
     {{breadcrumb "…"}}
 
-    <MainBody>
-      <Spinner />
+    <MainBody class="d-flex align-items-center justify-content-center">
+      <Spinner @isLarge={{true}} />
     </MainBody>
   </template>,
 );
