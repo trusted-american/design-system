@@ -1,18 +1,26 @@
-import SpinnerInternal from './spinner/internal';
+import { concat } from '@ember/helper';
 
 import type { TOC } from '@ember/component/template-only';
 
 export interface SpinnerSignature {
+  Args: {
+    color?: string;
+    isLarge?: boolean;
+  };
   Element: HTMLDivElement;
 }
 
 const Spinner: TOC<SpinnerSignature> = <template>
   <div
-    class="d-flex align-items-center justify-content-center"
+    class="spinner-border
+      {{unless @isLarge 'spinner-border-sm'}}
+      {{if @color (concat 'text-' @color) 'text-primary'}}"
+    role="status"
     data-test-spinner
     ...attributes
   >
-    <SpinnerInternal class="text-primary" />
+    {{! TODO: string }}
+    <span class="visually-hidden">Loading…</span>
   </div>
 </template>;
 

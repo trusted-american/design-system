@@ -1,5 +1,5 @@
 import Icon from './icon';
-import SpinnerInternal from './spinner/internal';
+import Spinner from './spinner';
 
 import type { TOC } from '@ember/component/template-only';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
@@ -23,7 +23,7 @@ const Badge: TOC<BadgeSignature> = <template>
     ...attributes
   >
     {{#if @isLoading}}
-      <SpinnerInternal />
+      <Spinner />
     {{/if}}
     {{#if @icon}}
       <Icon @icon={{@icon}} class={{if @label "me-1"}} />
