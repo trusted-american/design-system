@@ -3,7 +3,6 @@ import Snippet from '../../components/snippet';
 import {
   Button,
   Dropdown,
-  DropdownItem,
   Heading,
   Main,
   MainBody,
@@ -69,10 +68,10 @@ export default RouteTemplate(
       <MainHeader>
         <Heading @title="Title" @type="Type" @identifier="identifier">
           <Button @label="Actions" @color="primary" {{dropdown}} />
-          <Dropdown>
-            <DropdownItem @label="Action 1" />
-            <DropdownItem @label="Action 2" />
-            <DropdownItem @label="Action 3" />
+          <Dropdown as |dropdown|>
+            <dropdown.item @label="Action 1" />
+            <dropdown.item @label="Action 2" />
+            <dropdown.item @label="Action 3" />
           </Dropdown>
         </Heading>
       </MainHeader>

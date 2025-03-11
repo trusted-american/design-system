@@ -2,8 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import Button from './button';
 import Dropdown from './dropdown';
-import DropdownItem from './dropdown/item';
-import DropdownDivider from './dropdown/divider';
 import dropdown from '../modifiers/dropdown';
 import { not, notEq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
@@ -69,9 +67,9 @@ export default class ListAttributes<T> extends Component<
       {{dropdown autoClose="outside"}}
       ...attributes
     />
-    <Dropdown>
+    <Dropdown as |dropdown|>
       {{#each @presets as |preset|}}
-        <DropdownItem
+        <dropdown.item
           @label={{preset.label}}
           @icon="check"
           class={{if
@@ -82,9 +80,9 @@ export default class ListAttributes<T> extends Component<
           {{on "click" (fn @onChange preset.values)}}
         />
       {{/each}}
-      <DropdownDivider />
+      <dropdown.divider />
       {{#each @options as |attribute|}}
-        <DropdownItem
+        <dropdown.item
           @label={{attribute.label}}
           @icon="check"
           class={{if
