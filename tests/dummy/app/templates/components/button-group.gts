@@ -1,6 +1,6 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
-import { Button, ButtonGroup, Heading } from '@trusted-american/design-system';
+import { ButtonGroup, Heading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
@@ -13,9 +13,9 @@ export default RouteTemplate(
 
     <Snippet @name="button-group.gts">
       {{! BEGIN-SNIPPET button-group }}
-      <ButtonGroup>
-        <Button @label="First" />
-        <Button @label="Second" />
+      <ButtonGroup as |buttonGroup|>
+        <buttonGroup.button @label="First" />
+        <buttonGroup.button @label="Second" />
       </ButtonGroup>
       {{! END-SNIPPET }}
     </Snippet>

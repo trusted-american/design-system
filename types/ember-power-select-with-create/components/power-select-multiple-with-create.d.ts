@@ -4,7 +4,7 @@ export default class PowerSelectMultipleWithCreate<T> extends Component<{
   Args: {
     options: T[];
     selected: T[];
-    disabled?: unknown;
+    disabled?: boolean;
     placeholder?: string;
     renderInPlace?: boolean;
     searchEnabled?: boolean;

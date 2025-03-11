@@ -156,7 +156,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
             @label={{@label}}
             @identifier={{@identifier}}
             @isRequired={{@isRequired}}
-            @invalidFeedback={{@invalidFeedback}}
+            @invalidLabel={{@invalidLabel}}
             @requiredLabel={{@requiredLabel}}
             @isInputOnly={{true}}
             @onChange={{@onChange}}

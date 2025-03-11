@@ -6,7 +6,7 @@ export default class PowerSelectWithCreate<T> extends Component<{
   Args: {
     options?: (T | Group)[];
     selected: T | null | undefined;
-    disabled?: unknown;
+    disabled?: boolean;
     placeholder?: string;
     renderInPlace?: boolean;
     searchEnabled?: boolean;
@@ -16,7 +16,7 @@ export default class PowerSelectWithCreate<T> extends Component<{
     allowClear?: boolean;
     verticalPosition?: 'auto' | 'above' | 'below';
     showCreatePosition?: string;
-    matcher?: unknown;
+    matcher?: (option: T, query: string) => number;
     onChange: (selected: T) => void;
     onCreate?: (query: string) => void;
   };

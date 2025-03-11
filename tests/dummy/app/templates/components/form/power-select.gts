@@ -31,9 +31,9 @@ export default RouteTemplate<{
         @label="Label"
         @identifier="identifier"
         @isRequired={{true}}
-        @help="This is an example of help."
-        @invalidFeedback="This is an example of invalid feedback."
         @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
         @searchField="subject"
         @chooseLabel="Choose…"
         @searchLabel="Search…"

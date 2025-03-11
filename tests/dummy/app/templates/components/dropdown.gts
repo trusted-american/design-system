@@ -4,9 +4,7 @@ import { on } from '@ember/modifier';
 import {
   Button,
   Dropdown,
-  DropdownDivider,
   DropdownHeader,
-  DropdownItem,
   Heading,
   dropdown,
 } from '@trusted-american/design-system';
@@ -29,38 +27,38 @@ export default RouteTemplate<{
     <Snippet @name="dropdown.gts">
       {{! BEGIN-SNIPPET dropdown }}
       <Button @label="Open dropdown" {{dropdown}} />
-      <Dropdown>
-        <DropdownItem
+      <Dropdown as |dropdown|>
+        <dropdown.item
           @label="Copy link"
           @subtitle="Due by December 31, 2021"
           @icon="copy"
           @shortcut="⌘C"
           {{on "click" @controller.click}}
         />
-        <DropdownItem
+        <dropdown.item
           @label="Quote reply"
           @icon="quote-left"
           @shortcut="⌘Q"
           {{on "click" @controller.click}}
         />
-        <DropdownItem
+        <dropdown.item
           @label="Edit comment"
           @icon="pen"
           @shortcut="⌘E"
           {{on "click" @controller.click}}
         />
-        <DropdownDivider />
-        <DropdownItem
+        <dropdown.divider />
+        <dropdown.item
           @label="Delete file"
           @icon="trash"
           @shortcut="⌘D"
           @color="danger"
           {{on "click" @controller.click}}
         />
-        <DropdownDivider />
-        <DropdownItem @label="Route" @icon="plus" @route="index" />
+        <dropdown.divider />
+        <dropdown.item @label="Route" @icon="plus" @route="index" />
         <DropdownHeader @label="Header" />
-        <DropdownItem
+        <dropdown.item
           @label="Href"
           @icon="plus"
           @href="https://www.google.com/"

@@ -3,7 +3,6 @@ import Snippet from '../../components/snippet';
 import {
   Button,
   Dropdown,
-  DropdownItem,
   Heading,
   Main,
   MainBody,
@@ -25,19 +24,19 @@ export default RouteTemplate(
 
     <Snippet @name="main.gts">
       {{! BEGIN-SNIPPET main }}
-      <Main>
-        <MainTopHeader>
+      <Main as |main|>
+        <main.topHeader>
           Top header
-        </MainTopHeader>
+        </main.topHeader>
         <MainHeader>
           Header
         </MainHeader>
-        <MainBody>
+        <main.body>
           Body
-        </MainBody>
-        <MainFooter>
+        </main.body>
+        <main.footer>
           Footer
-        </MainFooter>
+        </main.footer>
       </Main>
       {{! END-SNIPPET }}
     </Snippet>
@@ -69,10 +68,10 @@ export default RouteTemplate(
       <MainHeader>
         <Heading @title="Title" @type="Type" @identifier="identifier">
           <Button @label="Actions" @color="primary" {{dropdown}} />
-          <Dropdown>
-            <DropdownItem @label="Action 1" />
-            <DropdownItem @label="Action 2" />
-            <DropdownItem @label="Action 3" />
+          <Dropdown as |dropdown|>
+            <dropdown.item @label="Action 1" />
+            <dropdown.item @label="Action 2" />
+            <dropdown.item @label="Action 3" />
           </Dropdown>
         </Heading>
       </MainHeader>

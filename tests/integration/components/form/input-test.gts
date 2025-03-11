@@ -21,7 +21,7 @@ module('Integration | Component | form/input', function (hooks) {
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
-          @invalidFeedback="Invalid feedback"
+          @invalidLabel="Invalid feedback"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -32,7 +32,7 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('[data-test-form-input]').hasAttribute('id', 'identifier');
     assert.dom('[data-test-form-input]').isRequired();
     assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-feedback]').exists();
   });
 
   test('it defaults to text type', async function (assert) {
@@ -42,8 +42,8 @@ module('Integration | Component | form/input', function (hooks) {
       <template>
         <FormInput
           @value={{state.value}}
-          @label=""
-          @identifier=""
+          @label="Label"
+          @identifier="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -60,8 +60,8 @@ module('Integration | Component | form/input', function (hooks) {
       <template>
         <FormInput
           @value={{state.value}}
-          @label=""
-          @identifier=""
+          @label="Label"
+          @identifier="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -78,8 +78,8 @@ module('Integration | Component | form/input', function (hooks) {
       <template>
         <FormInput
           @value={{state.value}}
-          @label=""
-          @identifier=""
+          @label="Label"
+          @identifier="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -91,7 +91,7 @@ module('Integration | Component | form/input', function (hooks) {
     assert.strictEqual(state.value, 'test');
   });
 
-  skip('invalidFeedback works', async function (assert) {
+  skip('invalidLabel works', async function (assert) {
     const state = tracked({ value: '' });
 
     const submit = (event: Event) => {
@@ -115,14 +115,14 @@ module('Integration | Component | form/input', function (hooks) {
         <form novalidate {{on "submit" submit}}>
           <FormInput
             @value={{state.value}}
-            @label=""
-            @identifier=""
+            @label="Label"
+            @identifier="identifier"
             @isRequired={{true}}
-            @invalidFeedback="Wrong"
+            @invalidLabel="Wrong"
             @requiredLabel="Required"
             @onChange={{fn (mut state.value)}}
           />
-          <Button @label="Submit" @isSubmit={{true}} data-test-submit />
+          <Button @type="submit" @label="Submit" data-test-submit />
         </form>
       </template>,
     );
@@ -131,7 +131,27 @@ module('Integration | Component | form/input', function (hooks) {
     assert.dom('form').doesNotHaveClass('was-validated');
     await click('[data-test-submit]');
     assert.dom('form').hasClass('was-validated');
-    assert.dom('[data-test-form-error]').hasText('Wrong');
+    assert.dom('[data-test-form-feedback]').hasText('Wrong');
     assert.dom('form div').hasStyle({ height: '63px' });
+  });
+
+  test('it adds aria-label attribute', async function (assert) {
+    const state = tracked({ value: '' });
+
+    await render(
+      <template>
+        <FormInput
+          @value={{state.value}}
+          @label="Label"
+          @identifier="identifier"
+          @requiredLabel="Required"
+          @isInputOnly={{true}}
+          @onChange={{fn (mut state.value)}}
+        />
+      </template>,
+    );
+
+    assert.dom('[data-test-form-label]').doesNotExist();
+    assert.dom('[data-test-form-input]').hasAttribute('aria-label', 'Label');
   });
 });

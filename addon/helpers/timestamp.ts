@@ -51,6 +51,7 @@ export const timestamp = (
     return djs.format(YEAR_FORMAT);
   } else if (format !== 'full') {
     if (djs.isYesterday()) {
+      // TODO: string
       return djs.format(`[Yesterday at] ${TIME_FORMAT}`);
     }
     if (djs.isToday()) {

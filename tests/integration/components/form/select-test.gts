@@ -24,7 +24,7 @@ module('Integration | Component | form/select', function (hooks) {
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
-          @invalidFeedback="Invalid feedback"
+          @invalidLabel="Invalid feedback"
           @requiredLabel="Required"
           @onChange={{fn (mut state.selected)}}
         />
@@ -35,7 +35,7 @@ module('Integration | Component | form/select', function (hooks) {
     assert.dom('select').hasAttribute('id', 'identifier');
     assert.dom('select').isRequired();
     assert.dom('[data-test-form-help]').exists();
-    assert.dom('[data-test-form-error]').exists();
+    assert.dom('[data-test-form-feedback]').exists();
 
     await select('[data-test-form-select]', '2');
 

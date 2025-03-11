@@ -19,7 +19,7 @@ module('Integration | Component | form/markdown-input', function (hooks) {
           @identifier="identifier"
           @isRequired={{true}}
           @help="Help"
-          @invalidFeedback="Invalid feedback"
+          @invalidLabel="Invalid feedback"
           @requiredLabel="Required"
           @writeLabel="Write"
           @previewLabel="Preview"

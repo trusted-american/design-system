@@ -1,9 +1,15 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import FormInput, { type FormInputArgs } from './input';
+import { fn } from '@ember/helper';
 
-const format = (value: number | null | undefined): string | undefined => {
-  return value?.toString();
+import type { TOC } from '@ember/component/template-only';
+
+const format = (value: number | null | undefined): string | undefined =>
+  value?.toString();
+
+const toNumber = (fn: (value: number | null) => void, value: string) => {
+  const number =
+    value === '' || isNaN(Number(value)) ? null : parseFloat(value);
+  fn(number);
 };
 
 interface Args extends FormInputArgs {
@@ -17,30 +23,23 @@ export interface FormNumberInputSignature {
   Element: HTMLInputElement;
 }
 
-export default class FormNumberInput extends Component<FormNumberInputSignature> {
-  @action
-  change(value: string): void {
-    const number =
-      value === '' || isNaN(Number(value)) ? null : parseFloat(value);
-    this.args.onChange(number);
-  }
+const FormNumberInput: TOC<FormNumberInputSignature> = <template>
+  <FormInput
+    @type={{if @type @type "number"}}
+    @value={{format @value}}
+    @label={{@label}}
+    @identifier={{@identifier}}
+    @isRequired={{@isRequired}}
+    @help={{@help}}
+    @invalidLabel={{@invalidLabel}}
+    @requiredLabel={{@requiredLabel}}
+    @size={{@size}}
+    @isInputOnly={{@isInputOnly}}
+    @errors={{@errors}}
+    @onChange={{fn toNumber @onChange}}
+    data-test-form-number-input
+    ...attributes
+  />
+</template>;
 
-  <template>
-    <FormInput
-      @type={{if @type @type "number"}}
-      @value={{format @value}}
-      @label={{@label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-      @help={{@help}}
-      @invalidFeedback={{@invalidFeedback}}
-      @requiredLabel={{@requiredLabel}}
-      @size={{@size}}
-      @isInputOnly={{@isInputOnly}}
-      @errors={{@errors}}
-      @onChange={{this.change}}
-      data-test-form-number-input
-      ...attributes
-    />
-  </template>
-}
+export default FormNumberInput;

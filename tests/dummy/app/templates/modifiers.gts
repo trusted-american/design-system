@@ -3,7 +3,6 @@ import { on } from '@ember/modifier';
 import {
   Button,
   Dropdown,
-  DropdownItem,
   Heading,
   Link,
   MainBody,
@@ -42,8 +41,8 @@ export default RouteTemplate<{
       <Snippet @name="dropdown.gts">
         {{! BEGIN-SNIPPET dropdown }}
         <Button @label="Open dropdown" {{dropdown}} />
-        <Dropdown>
-          <DropdownItem @label="Item" />
+        <Dropdown as |dropdown|>
+          <dropdown.item @label="Item" />
         </Dropdown>
         {{! END-SNIPPET }}
       </Snippet>

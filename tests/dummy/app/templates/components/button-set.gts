@@ -1,7 +1,7 @@
 import RouteTemplate from 'ember-route-template';
 import Snippet from '../../components/snippet';
 import { on } from '@ember/modifier';
-import { Button, ButtonSet, Heading } from '@trusted-american/design-system';
+import { ButtonSet, Heading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
@@ -20,9 +20,9 @@ export default RouteTemplate<{
 
     <Snippet @name="button-set.gts">
       {{! BEGIN-SNIPPET button-set }}
-      <ButtonSet>
-        <Button @label="Button 1" {{on "click" @controller.click}} />
-        <Button @label="Button 2" {{on "click" @controller.click}} />
+      <ButtonSet as |buttonSet|>
+        <buttonSet.button @label="Button 1" {{on "click" @controller.click}} />
+        <buttonSet.button @label="Button 2" {{on "click" @controller.click}} />
       </ButtonSet>
       {{! END-SNIPPET }}
     </Snippet>

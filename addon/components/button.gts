@@ -43,7 +43,7 @@ const Internal: TOC<{
 </template>;
 
 interface Args extends LinkArgs {
-  isSubmit?: true;
+  type?: string;
   label: string;
   icon?: IconName;
   iconPrefix?: IconPrefix;
@@ -121,7 +121,7 @@ const Button: TOC<ButtonSignature> = <template>
     </label>
   {{else}}
     <button
-      type={{if @isSubmit "submit" "button"}}
+      type={{if @type @type "button"}}
       class="btn
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}

@@ -1,4 +1,5 @@
-import { concat } from '@ember/helper';
+import { concat, hash } from '@ember/helper';
+import Button from './button';
 
 import type { TOC } from '@ember/component/template-only';
 
@@ -7,7 +8,7 @@ export interface ButtonGroupSignature {
     size?: 'sm' | 'lg';
   };
   Blocks: {
-    default: [];
+    default: [{ button: typeof Button }];
   };
   Element: HTMLDivElement;
 }
@@ -19,7 +20,7 @@ const ButtonGroup: TOC<ButtonGroupSignature> = <template>
     data-test-button-group
     ...attributes
   >
-    {{yield}}
+    {{yield (hash button=Button)}}
   </div>
 </template>;
 

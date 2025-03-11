@@ -2,8 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import Button from './button';
 import Dropdown from './dropdown';
-import DropdownItem from './dropdown/item';
-import DropdownDivider from './dropdown/divider';
 import dropdown from '../modifiers/dropdown';
 import { not, notEq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
@@ -12,6 +10,13 @@ import { fn } from '@ember/helper';
 import type { Option } from './form/select';
 
 const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
+
+const compare = <T,>(
+  a: ListAttributesKey<T>[],
+  b: ListAttributesKey<T>[],
+): boolean => {
+  return [...a].sort().join(',') === [...b].sort().join(',');
+};
 
 export type ListAttributesKey<T> = keyof T | `${keyof T & string}.${string}`;
 
@@ -39,7 +44,7 @@ export default class ListAttributes<T> extends Component<
 > {
   get activePreset(): ListAttributesPreset<T> | undefined {
     const { presets, selected } = this.args;
-    return presets.find(({ values }) => this.compare(values, selected));
+    return presets.find(({ values }) => compare(values, selected));
   }
 
   @action
@@ -55,13 +60,6 @@ export default class ListAttributes<T> extends Component<
     this.args.onChange(selected);
   }
 
-  private compare(
-    a: ListAttributesKey<T>[],
-    b: ListAttributesKey<T>[],
-  ): boolean {
-    return [...a].sort().join(',') === [...b].sort().join(',');
-  }
-
   <template>
     <Button
       @label={{@label}}
@@ -69,9 +67,9 @@ export default class ListAttributes<T> extends Component<
       {{dropdown autoClose="outside"}}
       ...attributes
     />
-    <Dropdown>
+    <Dropdown as |dropdown|>
       {{#each @presets as |preset|}}
-        <DropdownItem
+        <dropdown.item
           @label={{preset.label}}
           @icon="check"
           class={{if
@@ -82,9 +80,9 @@ export default class ListAttributes<T> extends Component<
           {{on "click" (fn @onChange preset.values)}}
         />
       {{/each}}
-      <DropdownDivider />
+      <dropdown.divider />
       {{#each @options as |attribute|}}
-        <DropdownItem
+        <dropdown.item
           @label={{attribute.label}}
           @icon="check"
           class={{if

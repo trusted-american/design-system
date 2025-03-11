@@ -10,13 +10,17 @@ dayjs.extend(relativeTime);
  * Returns time relative to now.
  */
 const fromNow = helper(
-  ([date]: [unknown], { isCompact }: { isCompact?: boolean }): string => {
+  (
+    [date]: [Date | number | null | undefined],
+    { isCompact }: { isCompact?: boolean },
+  ): string => {
     if (!date) {
-      return date as string;
+      return date?.toString() ?? '';
     }
 
     const relativeTime = isCompact
       ? {
+          // TODO: string
           future: 'in %s',
           past: '%s',
           s: '1s',
@@ -52,8 +56,7 @@ const fromNow = helper(
       relativeTime,
     });
 
-    const djs =
-      typeof date === 'number' ? dayjs.unix(date) : dayjs(date as Date);
+    const djs = typeof date === 'number' ? dayjs.unix(date) : dayjs(date);
     return djs.fromNow();
   },
 );

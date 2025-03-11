@@ -1,12 +1,18 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import FormLabel from './label';
 import FormFeedback from './feedback';
 import FormHelp from './help';
-import { concat } from '@ember/helper';
+import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 
+import type { TOC } from '@ember/component/template-only';
 import type { FormInputArgs } from './input';
+
+const getEventValue = (fn: (value: string) => void, { target }: Event) => {
+  if (!(target instanceof HTMLTextAreaElement)) {
+    throw new Error();
+  }
+  fn(target.value);
+};
 
 interface Args extends FormInputArgs {
   value: string | null | undefined;
@@ -18,52 +24,36 @@ export interface FormTextareaSignature {
   Element: HTMLTextAreaElement;
 }
 
-export default class FormTextarea extends Component<FormTextareaSignature> {
-  @action
-  change({ target }: Event): void {
-    if (!(target instanceof HTMLTextAreaElement)) {
-      throw new Error();
-    }
-    this.args.onChange(target.value);
-  }
-
-  <template>
-    {{#unless @isInputOnly}}
-      <FormLabel
-        @label={{@label}}
-        @identifier={{@identifier}}
-        @isRequired={{@isRequired}}
-        @requiredLabel={{@requiredLabel}}
-      />
-    {{/unless}}
-
-    <textarea
-      id={{@identifier}}
-      value={{@value}}
-      class="form-control {{if @size (concat 'form-control-' @size)}}"
-      required={{@isRequired}}
-      aria-label={{if @isInputOnly @label}}
-      data-test-form-textarea
-      {{on "input" this.change}}
-      ...attributes
+const FormTextarea: TOC<FormTextareaSignature> = <template>
+  {{#unless @isInputOnly}}
+    <FormLabel
+      @label={{@label}}
+      @identifier={{@identifier}}
+      @isRequired={{@isRequired}}
+      @requiredLabel={{@requiredLabel}}
     />
+  {{/unless}}
 
-    {{#if @invalidFeedback}}
-      <FormFeedback
-        @invalidLabel={{@invalidFeedback}}
-        @validLabel={{@validLabel}}
-      />
-    {{/if}}
+  <textarea
+    id={{@identifier}}
+    value={{@value}}
+    class="form-control {{if @size (concat 'form-control-' @size)}}"
+    required={{@isRequired}}
+    aria-label={{if @isInputOnly @label}}
+    data-test-form-textarea
+    {{on "input" (fn getEventValue @onChange)}}
+    ...attributes
+  />
 
-    {{#each @errors as |error|}}
-      <FormFeedback
-        @invalidLabel={{error.message}}
-        @validLabel={{@validLabel}}
-      />
-    {{/each}}
+  <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
 
-    {{#if @help}}
-      <FormHelp @label={{@help}} />
-    {{/if}}
-  </template>
-}
+  {{#each @errors as |error|}}
+    <FormFeedback @validLabel={{undefined}} @invalidLabel={{error.message}} />
+  {{/each}}
+
+  {{#if @help}}
+    <FormHelp @label={{@help}} />
+  {{/if}}
+</template>;
+
+export default FormTextarea;

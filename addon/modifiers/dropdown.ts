@@ -8,14 +8,14 @@ interface Options extends Partial<Dropdown.Options> {
   onHidden?: () => void;
 }
 
-interface CollapseSignature {
+interface DropdownSignature {
   Element: Element;
   Args: {
     Named: Options;
   };
 }
 
-const dropdown = modifier<CollapseSignature>(function dropdown(
+const dropdown = modifier<DropdownSignature>(function dropdown(
   element,
   _positional,
   { onShow, onShown, onHide, onHidden, ...options },

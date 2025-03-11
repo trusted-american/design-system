@@ -46,7 +46,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "@babel/core": "^7.26.9",
+    "@babel/core": "^7.26.10",
     "@fortawesome/ember-fontawesome": "^3.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
@@ -82,7 +82,7 @@
     "tracked-built-ins": "^4.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.26.8",
+    "@babel/eslint-parser": "^7.26.10",
     "@babel/plugin-proposal-decorators": "^7.25.9",
     "@ember/optional-features": "^2.2.0",
     "@ember/test-helpers": "4.0.4",

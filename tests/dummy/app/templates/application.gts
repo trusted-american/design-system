@@ -12,8 +12,6 @@ import {
   Frame,
   Link,
   Main,
-  MainFooter,
-  MainTopHeader,
   theme,
   tooltip,
 } from '@trusted-american/design-system';
@@ -80,6 +78,7 @@ export default RouteTemplate<{
             <aside.item @route="components.file-type" @label="File type" />
             <aside.item @route="components.flyout" @label="Flyout" />
             <aside.item @route="components.form" @label="Form" />
+            <aside.item @route="components.frame" @label="Frame" />
             <aside.item @route="components.heading" @label="Heading" />
             <aside.item @route="components.icon" @label="Icon" />
             <aside.item @route="components.link" @label="Link" />
@@ -146,8 +145,8 @@ export default RouteTemplate<{
           />
         </:footer>
       </Aside>
-      <Main>
-        <MainTopHeader>
+      <Main as |main|>
+        <main.topHeader>
           <div class="d-flex align-items-center gap-3">
             {{#if @controller.isCollapsed}}
               <Button
@@ -170,18 +169,18 @@ export default RouteTemplate<{
               placeholder="Search"
             />
           </div>
-        </MainTopHeader>
-        <MainTopHeader>
+        </main.topHeader>
+        <main.topHeader>
           <BreadcrumbTrail />
-        </MainTopHeader>
+        </main.topHeader>
 
         {{outlet}}
 
-        <MainFooter>
+        <main.footer>
           <Link @href="https://github.com/trusted-american/design-system">
             GitHub
           </Link>
-        </MainFooter>
+        </main.footer>
       </Main>
     </Frame>
   </template>,
