@@ -94,7 +94,7 @@ export default class FormInput extends Component<FormInputSignature> {
 
         {{#each @errors as |error|}}
           <FormFeedback
-            @validLabel={{@validLabel}}
+            @validLabel={{undefined}}
             @invalidLabel={{error.message}}
           />
         {{/each}}
@@ -126,7 +126,7 @@ export default class FormInput extends Component<FormInputSignature> {
 
       {{#each @errors as |error|}}
         <FormFeedback
-          @validLabel={{@validLabel}}
+          @validLabel={{undefined}}
           @invalidLabel={{error.message}}
         />
       {{/each}}

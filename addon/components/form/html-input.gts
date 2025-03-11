@@ -250,10 +250,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
 
     {{#each @errors as |error|}}
-      <FormFeedback
-        @validLabel={{@validLabel}}
-        @invalidLabel={{error.message}}
-      />
+      <FormFeedback @validLabel={{undefined}} @invalidLabel={{error.message}} />
     {{/each}}
 
     {{#if @help}}

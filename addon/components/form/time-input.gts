@@ -26,7 +26,7 @@ export interface FormTimeInputSignature {
 export default class FormTimeInput extends Component<FormTimeInputSignature> {
   @action
   change(_value: string): void {
-    const value = this.args.value ? new Date(this.args.value) : new Date();
+    const value = this.args.value ?? new Date();
     const [hours, minutes] = _value.split(':').map(Number);
 
     if (hours) {
