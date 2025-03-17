@@ -28,6 +28,8 @@
       "@trusted-american/design-system/test-support/*": ["addon-test-support/*"],
       "*": ["types/*"]
     },
+    // TODO: should not be needed
+    "types": ["./node_modules/ember-cli-clipboard"],
 
     // TODO: copied from the tsconfig.declarations.json file since glint doesn't support different configs yet
     "declarationDir": "declarations",
