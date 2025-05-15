@@ -22,7 +22,7 @@ const Internal: TOC<{
   Element: SVGElement;
 }> = <template>
   {{#if @isLoading}}
-    <Spinner />
+    <Spinner @color="white" />
   {{/if}}
   {{if (and (not @isIconOnly) @isIconTrailing) @label}}
   {{#if @icon}}
