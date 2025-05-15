@@ -9,6 +9,7 @@ export default class PowerSelectMultipleWithCreate<T> extends Component<{
     renderInPlace?: boolean;
     searchEnabled?: boolean;
     searchField?: string;
+    matcher?: (option: T, query: string) => number;
     onChange: (selected: never) => void;
     onCreate: (query: string) => void;
   };
