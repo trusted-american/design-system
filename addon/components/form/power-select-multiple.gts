@@ -15,6 +15,7 @@ interface Args<T> extends FormInputArgs {
   renderInPlace?: boolean;
   searchEnabled?: boolean;
   searchField?: string;
+  matcher?: (value: T, query: string) => number;
   chooseLabel: string;
   onChange: (selected: T[]) => void;
   onCreate?: (query: string) => void;
@@ -50,6 +51,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @renderInPlace={{true}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
+        @matcher={{@matcher}}
         @onChange={{@onChange}}
         @onCreate={{@onCreate}}
         id={{@identifier}}
@@ -67,6 +69,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @renderInPlace={{true}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
+        @matcher={{@matcher}}
         @onChange={{@onChange}}
         id={{@identifier}}
         ...attributes
