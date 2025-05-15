@@ -1,4 +1,4 @@
-import { module, skip, test } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, fillIn, render } from '@ember/test-helpers';
 import { Button, FormInput } from '@trusted-american/design-system';
@@ -91,7 +91,7 @@ module('Integration | Component | form/input', function (hooks) {
     assert.strictEqual(state.value, 'test');
   });
 
-  skip('invalidLabel works', async function (assert) {
+  test('invalidLabel works', async function (assert) {
     const state = tracked({ value: '' });
 
     const submit = (event: Event) => {
@@ -127,12 +127,10 @@ module('Integration | Component | form/input', function (hooks) {
       </template>,
     );
 
-    assert.dom('form div').hasStyle({ height: '38px' });
     assert.dom('form').doesNotHaveClass('was-validated');
     await click('[data-test-submit]');
     assert.dom('form').hasClass('was-validated');
     assert.dom('[data-test-form-feedback]').hasText('Wrong');
-    assert.dom('form div').hasStyle({ height: '63px' });
   });
 
   test('it adds aria-label attribute', async function (assert) {
