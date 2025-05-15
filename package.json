@@ -71,13 +71,13 @@
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-showdown": "^9.0.1",
     "ember-concurrency": "^4.0.3",
-    "ember-file-upload": "^9.3.0",
+    "ember-file-upload": "^9.4.1",
     "ember-modifier": "^4.2.0",
     "ember-power-select": "^8.7.0",
     "ember-power-select-with-create": "^3.0.0",
     "ember-template-imports": "^4.3.0",
     "ember-truth-helpers": "^4.0.3",
-    "ember-yeti-table": "^2.0.1",
+    "ember-yeti-table": "^2.0.2",
     "identicon.js": "^2.3.3",
     "tracked-built-ins": "^4.0.0"
   },
@@ -85,7 +85,7 @@
     "@babel/eslint-parser": "^7.26.10",
     "@babel/plugin-proposal-decorators": "^7.25.9",
     "@ember/optional-features": "^2.2.0",
-    "@ember/test-helpers": "4.0.4",
+    "@ember/test-helpers": "^5.2.2",
     "@embroider/test-setup": "^4.0.0",
     "@eslint/js": "^9.21.0",
     "@glimmer/component": "^1.1.2",
@@ -142,6 +142,9 @@
   },
   "peerDependencies": {
     "ember-source": ">= 4.0.0"
+  },
+  "overrides": {
+    "ember-cli-babel": "^8.2.0"
   },
   "engines": {
     "node": ">= 18"
