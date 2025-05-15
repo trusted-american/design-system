@@ -6,8 +6,8 @@ import dropdown from '../modifiers/dropdown';
 import { not, notEq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
-
 import type { Option } from './form/select';
+import { faCheck, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 
 const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 
@@ -63,7 +63,7 @@ export default class ListAttributes<T> extends Component<
   <template>
     <Button
       @label={{@label}}
-      @icon="table-columns"
+      @icon={{faTableColumns}}
       {{dropdown autoClose="outside"}}
       ...attributes
     />
@@ -71,7 +71,7 @@ export default class ListAttributes<T> extends Component<
       {{#each @presets as |preset|}}
         <dropdown.item
           @label={{preset.label}}
-          @icon="check"
+          @icon={{faCheck}}
           class={{if
             (notEq preset.label this.activePreset.label)
             "invisible-icon"
@@ -84,7 +84,7 @@ export default class ListAttributes<T> extends Component<
       {{#each @options as |attribute|}}
         <dropdown.item
           @label={{attribute.label}}
-          @icon="check"
+          @icon={{faCheck}}
           class={{if
             (not (includes attribute.value @selected))
             "invisible-icon"

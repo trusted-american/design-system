@@ -3,6 +3,7 @@ import Snippet from '../../components/snippet';
 import { Heading, StatCard } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate(
   <template>
@@ -24,10 +25,15 @@ export default RouteTemplate(
           <StatCard @label="Key 3" @value="123" />
         </div>
         <div class="col">
-          <StatCard @label="Key 4" @value="1,234" @icon="user" @route="index" />
+          <StatCard
+            @label="Key 4"
+            @value="1,234"
+            @icon={{faUser}}
+            @route="index"
+          />
         </div>
         <div class="col">
-          <StatCard @label="Key 5" @icon="user" @route="index">
+          <StatCard @label="Key 5" @icon={{faUser}} @route="index">
             Block
           </StatCard>
         </div>

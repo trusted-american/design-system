@@ -13,8 +13,8 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';
-
 import type ModifiersController from '../controllers/modifiers';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate<{
   Args: {
@@ -32,7 +32,7 @@ export default RouteTemplate<{
 
       <p><Link
           @route="components.collapse"
-          @icon="arrow-right"
+          @icon={{faArrowRight}}
           @isIconTrailing={{true}}
         >See collapse component</Link></p>
 

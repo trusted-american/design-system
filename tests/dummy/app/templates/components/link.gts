@@ -3,6 +3,10 @@ import Snippet from '../../components/snippet';
 import { Heading, Link, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import {
+  faHouse,
+  faUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate(
   <template>
@@ -15,7 +19,7 @@ export default RouteTemplate(
 
     <Snippet @name="link.gts">
       {{! BEGIN-SNIPPET link }}
-      <Link @route="index" @icon="house">Home</Link>
+      <Link @route="index" @icon={{faHouse}}>Home</Link>
       {{! END-SNIPPET }}
     </Snippet>
 
@@ -25,7 +29,7 @@ export default RouteTemplate(
       {{! BEGIN-SNIPPET link1 }}
       <Link
         @href="https://www.google.com/"
-        @icon="up-right-from-square"
+        @icon={{faUpRightFromSquare}}
         @isIconTrailing={{true}}
       >Visit</Link>
       {{! END-SNIPPET }}

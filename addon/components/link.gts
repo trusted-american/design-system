@@ -1,14 +1,17 @@
 import { LinkTo } from '@ember/routing';
 import { and } from 'ember-truth-helpers';
 import Icon from './icon';
-
 import type { TOC } from '@ember/component/template-only';
-import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+  IconPrefix,
+} from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label?: string;
-    icon?: IconName;
+    icon?: IconName | IconDefinition;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
@@ -42,7 +45,7 @@ export interface LinkArgs {
 
 interface Args extends LinkArgs {
   label?: string;
-  icon?: IconName;
+  icon?: IconName | IconDefinition;
   iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;

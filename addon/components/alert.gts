@@ -2,13 +2,15 @@ import Icon from './icon';
 import CloseButton from './close-button';
 import { on } from '@ember/modifier';
 import { and } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+} from '@fortawesome/fontawesome-svg-core';
 
 interface Args {
   color?: string;
-  icon?: IconName;
+  icon?: IconName | IconDefinition;
 }
 
 interface Args1 extends Args {

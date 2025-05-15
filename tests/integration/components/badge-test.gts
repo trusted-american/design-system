@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { Badge } from '@trusted-american/design-system';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | badge', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,7 +16,7 @@ module('Integration | Component | badge', function (hooks) {
 
     await render(
       <template>
-        <Badge @label="Label" @icon="check" @isLoading={{true}} />
+        <Badge @label="Label" @icon={{faCheck}} @isLoading={{true}} />
       </template>,
     );
     assert.dom('[data-test-badge] div').exists();

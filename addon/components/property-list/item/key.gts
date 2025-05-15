@@ -1,5 +1,6 @@
 import Icon from '../../icon';
 import tooltip from '../../../modifiers/tooltip';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 import type { TOC } from '@ember/component/template-only';
 
@@ -16,7 +17,7 @@ const PropertyListItemKey: TOC<PropertyListItemKeySignature> = <template>
     {{@label}}
     {{#if @help}}
       <a href="#" class="text-secondary ms-1">
-        <Icon @icon="info-circle" {{tooltip @help}} />
+        <Icon @icon={{faInfoCircle}} {{tooltip @help}} />
       </a>
     {{/if}}
   </dt>

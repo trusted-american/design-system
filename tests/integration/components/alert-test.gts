@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { Alert } from '@trusted-american/design-system';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | alert', function (hooks) {
   setupRenderingTest(hooks);
@@ -20,7 +21,7 @@ module('Integration | Component | alert', function (hooks) {
 
     await render(
       <template>
-        <Alert @icon="house" @color="danger">
+        <Alert @icon={{faHouse}} @color="danger">
           <:title>Title here</:title>
           <:default>Body here</:default>
         </Alert>

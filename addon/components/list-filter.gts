@@ -22,8 +22,8 @@ import { modifier } from 'ember-modifier';
 import { get } from '@ember/object';
 import { Dropdown as BootstrapDropdown } from 'bootstrap';
 import { guidFor } from '@ember/object/internals';
-
 import type { Option } from './form/select';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 const findBy = <T,>(byPath: keyof T, value: T[keyof T], arr: T[]) =>
   arr.find((item) => get(item, String(byPath)) === value);
@@ -282,7 +282,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
   <template>
     <Button
       @label={{@label}}
-      @icon="filter"
+      @icon={{faFilter}}
       @count={{this.selections.length}}
       id={{this.id}}
       data-test-list-filter

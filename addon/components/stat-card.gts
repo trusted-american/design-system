@@ -1,14 +1,16 @@
 import Card from './card';
 import Icon from './icon';
 import Link, { type LinkArgs } from './link';
-
 import type { TOC } from '@ember/component/template-only';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+} from '@fortawesome/fontawesome-svg-core';
 
 interface Args extends LinkArgs {
   label: string;
   value?: string | number | null;
-  icon?: IconName;
+  icon?: IconName | IconDefinition;
 }
 
 export interface StatCardSignature {

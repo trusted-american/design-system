@@ -5,12 +5,15 @@ import Collapse from '../collapse';
 import Nav from '../nav';
 import collapse from '../../modifiers/collapse';
 
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+} from '@fortawesome/fontawesome-svg-core';
 
 export interface AsideGroupSignature {
   Args: {
     label: string;
-    icon?: IconName;
+    icon?: IconName | IconDefinition;
     route: string;
   };
   Blocks: {

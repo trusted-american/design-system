@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { Badge, Nav } from '@trusted-american/design-system';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | nav', function (hooks) {
   setupRenderingTest(hooks);
@@ -13,7 +14,7 @@ module('Integration | Component | nav', function (hooks) {
           <nav.item
             @route="components"
             @label="First"
-            @icon="house"
+            @icon={{faHouse}}
             @count={{12}}
           />
           <nav.item @route="index" @label="Second" />

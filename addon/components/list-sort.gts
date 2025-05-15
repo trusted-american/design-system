@@ -7,6 +7,7 @@ import dropdown from '../modifiers/dropdown';
 import { notEq } from 'ember-truth-helpers';
 
 import type { Option } from './form/select';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export interface ListSortSignature<T> {
   Args: {
@@ -32,7 +33,7 @@ export default class ListSort<T> extends Component<ListSortSignature<T>> {
       {{#each @options as |opt|}}
         <dropdown.item
           @label={{opt.label}}
-          @icon="check"
+          @icon={{faCheck}}
           class={{if (notEq opt.value @sortBy) "invisible-icon"}}
           data-test-sort-by
           {{on "click" (fn @onChange opt.value @sortAscending)}}
@@ -41,14 +42,14 @@ export default class ListSort<T> extends Component<ListSortSignature<T>> {
       <dropdown.divider />
       <dropdown.item
         @label={{@highToLowLabel}}
-        @icon="check"
+        @icon={{faCheck}}
         class={{if (notEq false @sortAscending) "invisible-icon"}}
         data-test-sort-ascending-false
         {{on "click" (fn @onChange @sortBy false)}}
       />
       <dropdown.item
         @label={{@lowToHighLabel}}
-        @icon="check"
+        @icon={{faCheck}}
         class={{if (notEq true @sortAscending) "invisible-icon"}}
         data-test-sort-ascending-true
         {{on "click" (fn @onChange @sortBy true)}}

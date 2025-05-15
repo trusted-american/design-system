@@ -10,8 +10,14 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsDropdownController from '../../controllers/components/dropdown';
+import {
+  faCopy,
+  faPen,
+  faPlus,
+  faQuoteLeft,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate<{
   Args: {
@@ -31,36 +37,36 @@ export default RouteTemplate<{
         <dropdown.item
           @label="Copy link"
           @subtitle="Due by December 31, 2021"
-          @icon="copy"
+          @icon={{faCopy}}
           @shortcut="⌘C"
           {{on "click" @controller.click}}
         />
         <dropdown.item
           @label="Quote reply"
-          @icon="quote-left"
+          @icon={{faQuoteLeft}}
           @shortcut="⌘Q"
           {{on "click" @controller.click}}
         />
         <dropdown.item
           @label="Edit comment"
-          @icon="pen"
+          @icon={{faPen}}
           @shortcut="⌘E"
           {{on "click" @controller.click}}
         />
         <dropdown.divider />
         <dropdown.item
           @label="Delete file"
-          @icon="trash"
+          @icon={{faTrash}}
           @shortcut="⌘D"
           @color="danger"
           {{on "click" @controller.click}}
         />
         <dropdown.divider />
-        <dropdown.item @label="Route" @icon="plus" @route="index" />
+        <dropdown.item @label="Route" @icon={{faPlus}} @route="index" />
         <DropdownHeader @label="Header" />
         <dropdown.item
           @label="Href"
-          @icon="plus"
+          @icon={{faPlus}}
           @href="https://www.google.com/"
         />
       </Dropdown>

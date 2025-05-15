@@ -7,6 +7,7 @@ import { fn, hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 
 import type { TOC } from '@ember/component/template-only';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 export interface AsideSignature {
   Args: {
@@ -41,7 +42,7 @@ const Aside: TOC<AsideSignature> = <template>
         </LinkTo>
         <Button
           @label={{@collapseLabel}}
-          @icon="angles-left"
+          @icon={{faAnglesLeft}}
           @color="none"
           @isIconOnly={{true}}
           {{tooltip @collapseLabel trigger="hover"}}

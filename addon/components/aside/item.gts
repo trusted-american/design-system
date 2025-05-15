@@ -1,15 +1,19 @@
 import NavItem from '../nav/item';
 import Icon from '../icon';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 import type { TOC } from '@ember/component/template-only';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+} from '@fortawesome/fontawesome-svg-core';
 import type { LinkArgs } from '../link';
 
 interface Args extends LinkArgs {
   label: string;
-  icon?: IconName;
+  icon?: IconName | IconDefinition;
   count?: number;
-  trailingIcon?: IconName;
+  trailingIcon?: IconName | IconDefinition;
   isDisabled?: boolean;
 }
 
@@ -35,7 +39,7 @@ const AsideItem: TOC<AsideItemSignature> = <template>
     ...attributes
   >
     {{#unless @icon}}
-      <Icon @icon="circle" @isFixedWidth={{true}} class="me-1 invisible" />
+      <Icon @icon={{faCircle}} @isFixedWidth={{true}} class="me-1 invisible" />
     {{/unless}}
     <span>{{@label}}</span>
     {{yield}}

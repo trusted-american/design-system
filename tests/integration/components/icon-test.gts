@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { Icon } from '@trusted-american/design-system';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | icon', function (hooks) {
   setupRenderingTest(hooks);
@@ -9,7 +10,12 @@ module('Integration | Component | icon', function (hooks) {
   test('it renders', async function (assert) {
     await render(
       <template>
-        <Icon @icon="book" @color="danger" @isFixedWidth={{true}} @size="lg" />
+        <Icon
+          @icon={{faBook}}
+          @color="danger"
+          @isFixedWidth={{true}}
+          @size="lg"
+        />
       </template>,
     );
 

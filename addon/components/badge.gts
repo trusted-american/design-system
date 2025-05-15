@@ -1,14 +1,16 @@
 import Icon from './icon';
 import Spinner from './spinner';
-
 import type { TOC } from '@ember/component/template-only';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+} from '@fortawesome/fontawesome-svg-core';
 
 export interface BadgeSignature {
   Args: {
     label?: string;
     color?: string;
-    icon?: IconName;
+    icon?: IconName | IconDefinition;
     isPill?: boolean;
     isLoading?: boolean;
   };
