@@ -2,7 +2,6 @@ import Link, { type LinkArgs } from '../link';
 import Icon from '../icon';
 import { concat } from '@ember/helper';
 import { or } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,

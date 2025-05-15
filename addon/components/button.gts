@@ -4,7 +4,6 @@ import Link, { type LinkArgs } from './link';
 import Spinner from './spinner';
 import { concat } from '@ember/helper';
 import { and, not, or } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,

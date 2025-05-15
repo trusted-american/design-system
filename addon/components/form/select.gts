@@ -6,7 +6,6 @@ import FormLabel from './label';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, not, or } from 'ember-truth-helpers';
-
 import type { FormInputArgs } from './input';
 
 const isOption = <T,>(option: T | Option<T> | Group<T>): option is Option<T> =>

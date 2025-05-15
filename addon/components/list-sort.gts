@@ -5,7 +5,6 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import dropdown from '../modifiers/dropdown';
 import { notEq } from 'ember-truth-helpers';
-
 import type { Option } from './form/select';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 

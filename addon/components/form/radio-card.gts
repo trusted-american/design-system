@@ -7,7 +7,6 @@ import FormHelp from './help';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
-
 import type { FormInputArgs } from './input';
 import type { RadioOption } from './radio';
 import type { IconName } from '@fortawesome/fontawesome-svg-core';

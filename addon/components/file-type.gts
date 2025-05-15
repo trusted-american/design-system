@@ -11,7 +11,6 @@ import {
   faFileWord,
   faFileZipper,
 } from '@fortawesome/free-solid-svg-icons';
-
 import type { TOC } from '@ember/component/template-only';
 import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
 

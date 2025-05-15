@@ -5,7 +5,6 @@ import tooltip from '../modifiers/tooltip';
 import { on } from '@ember/modifier';
 import { fn, hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
-
 import type { TOC } from '@ember/component/template-only';
 import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 

@@ -1,7 +1,6 @@
 import NavItem from '../nav/item';
 import Icon from '../icon';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-
 import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,

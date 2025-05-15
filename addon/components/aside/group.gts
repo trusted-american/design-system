@@ -4,7 +4,6 @@ import AsideItem from './item';
 import Collapse from '../collapse';
 import Nav from '../nav';
 import collapse from '../../modifiers/collapse';
-
 import type {
   IconDefinition,
   IconName,

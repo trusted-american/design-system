@@ -1,5 +1,4 @@
 import CopyButtonClipboard from './copy-button-clipboard';
-
 import type { TOC } from '@ember/component/template-only';
 
 export interface CopySignature {

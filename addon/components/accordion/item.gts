@@ -3,7 +3,6 @@ import { guidFor } from '@ember/object/internals';
 import AccordionButton from './button';
 import AccordionBody from './body';
 import { concat, hash } from '@ember/helper';
-
 import type Accordion from '../accordion';
 import type { WithBoundArgs } from '@glint/template';
 

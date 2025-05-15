@@ -1,6 +1,5 @@
 import PropertyListItemKey from './item/key';
 import PropertyListItemValue from './item/value';
-
 import type { TOC } from '@ember/component/template-only';
 
 export interface PropertyListItemSignature {

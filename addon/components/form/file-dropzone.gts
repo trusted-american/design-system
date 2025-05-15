@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import Icon from '../icon';
 import fileQueue from 'ember-file-upload/helpers/file-queue';
 import FileDropzone from 'ember-file-upload/components/file-dropzone';
-
 import type { UploadFile } from 'ember-file-upload';
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
 

@@ -2,7 +2,6 @@ import { concat } from '@ember/helper';
 import { htmlSafe } from '@ember/template';
 import Identicon from 'identicon.js';
 import { or } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
 
 const DEFAULT_SIZE = 4; // rem

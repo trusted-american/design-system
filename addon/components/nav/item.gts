@@ -2,7 +2,6 @@ import Badge from '../badge';
 import Icon from '../icon';
 import Link, { type LinkArgs } from '../link';
 import { or } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,

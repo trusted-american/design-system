@@ -1,6 +1,5 @@
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
 
 const increment = (value: number) => value + 1;
