@@ -23,7 +23,7 @@ const Badge: TOC<BadgeSignature> = <template>
     ...attributes
   >
     {{#if @isLoading}}
-      <Spinner />
+      <Spinner @color="white" />
     {{/if}}
     {{#if @icon}}
       <Icon @icon={{@icon}} class={{if @label "me-1"}} />
