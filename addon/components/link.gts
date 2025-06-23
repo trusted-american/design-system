@@ -70,8 +70,20 @@ const Link: TOC<LinkSignature> = <template>
         @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
-      >{{yield}}</Internal>
-    </LinkTo>
+      >{{yield}}</Internal></LinkTo>
+  {{else if (and @route @query)}}
+    <LinkTo
+      @route={{@route}}
+      @query={{@query}}
+      data-test-link
+      ...attributes
+    ><Internal
+        @label={{@label}}
+        @icon={{@icon}}
+        @iconPrefix={{@iconPrefix}}
+        @isIconTrailing={{@isIconTrailing}}
+        @isIconOnly={{@isIconOnly}}
+      >{{yield}}</Internal></LinkTo>
   {{else if (and @route @model)}}
     <LinkTo
       @route={{@route}}
