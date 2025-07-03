@@ -10,7 +10,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export interface ListSortSignature<T> {
   Args: {
-    sortBy: keyof T;
+    sortBy: keyof T & string;
     sortAscending: boolean;
     options: Option<keyof T>[];
     label: string;
