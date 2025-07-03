@@ -12,11 +12,11 @@ export interface ListSortSignature<T> {
   Args: {
     sortBy: keyof T & string;
     sortAscending: boolean;
-    options: Option<keyof T>[];
+    options: Option<keyof T & string>[];
     label: string;
     highToLowLabel: string;
     lowToHighLabel: string;
-    onChange: (sortBy: keyof T, sortAscending: boolean) => void;
+    onChange: (sortBy: keyof T & string, sortAscending: boolean) => void;
   };
 }
 
