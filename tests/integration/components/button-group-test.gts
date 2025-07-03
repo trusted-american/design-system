@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { ButtonGroup } from '@trusted-american/design-system';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | button-group', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,7 +16,7 @@ module('Integration | Component | button-group', function (hooks) {
           <buttonGroup.button @label="Bye" />
           <buttonGroup.button
             @label="This Shouldnt Show Up"
-            @icon="house"
+            @icon={{faHouse}}
             @isIconOnly={{true}}
           />
         </ButtonGroup>

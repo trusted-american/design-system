@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { Button } from '@trusted-american/design-system';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | button', function (hooks) {
   setupRenderingTest(hooks);
@@ -14,14 +15,16 @@ module('Integration | Component | button', function (hooks) {
     assert.dom('button div').doesNotExist(); // no loading
 
     //Text with Icon
-    await render(<template><Button @label="Test" @icon="house" /></template>);
+    await render(
+      <template><Button @label="Test" @icon={{faHouse}} /></template>,
+    );
     assert.dom('[data-test-icon]').exists();
     assert.dom().hasText('Test');
 
     //Icon Only
     await render(
       <template>
-        <Button @label="Test" @icon="house" @isIconOnly={{true}} />
+        <Button @label="Test" @icon={{faHouse}} @isIconOnly={{true}} />
       </template>,
     );
     assert.dom('[data-test-icon]').exists();

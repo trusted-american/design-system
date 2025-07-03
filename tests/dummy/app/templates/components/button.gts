@@ -5,8 +5,12 @@ import { on } from '@ember/modifier';
 import { Button, Heading, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsButtonController from '../../controllers/components/button';
+import {
+  faArrowRight,
+  faPlus,
+  faUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate<{
   Args: {
@@ -30,19 +34,19 @@ export default RouteTemplate<{
       <Button
         @label="Success button with icon"
         @color="success"
-        @icon="plus"
+        @icon={{faPlus}}
         {{on "click" @controller.click}}
       />
       <Button
         @label="Success button with trailing icon"
         @color="success"
-        @icon="plus"
+        @icon={{faPlus}}
         @isIconTrailing={{true}}
         {{on "click" @controller.click}}
       />
       <Button
         @label="Success button with only icon"
-        @icon="plus"
+        @icon={{faPlus}}
         @isIconOnly={{true}}
         @color="success"
         {{on "click" @controller.click}}
@@ -89,13 +93,13 @@ export default RouteTemplate<{
       {{! BEGIN-SNIPPET button2 }}
       <Button
         @label="Link button"
-        @icon="up-right-from-square"
+        @icon={{faUpRightFromSquare}}
         @href="https://www.google.com/"
       />
 
       <Button
         @label="Link button with trailing icon"
-        @icon="arrow-right"
+        @icon={{faArrowRight}}
         @isIconTrailing={{true}}
         @href="https://www.google.com/"
       />

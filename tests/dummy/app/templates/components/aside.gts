@@ -10,6 +10,7 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import { faBox, faHouse, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const change = () => {
   //
@@ -33,17 +34,17 @@ export default RouteTemplate(
         @onChange={{change}}
       >
         <:default as |aside|>
-          <aside.item @route="index" @label="Home" @icon="house" />
+          <aside.item @route="index" @label="Home" @icon={{faHouse}} />
           <aside.item
             @route="index"
             @label='With a "count"'
-            @icon="users"
+            @icon={{faUsers}}
             @count={{12}}
           />
           <aside.item
             @route="index"
             @label="Disabled"
-            @icon="house"
+            @icon={{faHouse}}
             @isDisabled={{true}}
           />
         </:default>
@@ -57,8 +58,8 @@ export default RouteTemplate(
 
     <Snippet @name="aside1.gts">
       {{! BEGIN-SNIPPET aside1 }}
-      <AsideGroup @route="components.aside" @label="Label" @icon="box">
-        <AsideItem @route="index" @label="Label" @icon="box" />
+      <AsideGroup @route="components.aside" @label="Label" @icon={{faBox}}>
+        <AsideItem @route="index" @label="Label" @icon={{faBox}} />
       </AsideGroup>
       {{! END-SNIPPET }}
     </Snippet>
@@ -67,7 +68,7 @@ export default RouteTemplate(
 
     <Snippet @name="aside2.gts">
       {{! BEGIN-SNIPPET aside2 }}
-      <AsideItem @route="index" @label="Label" @icon="box" />
+      <AsideItem @route="index" @label="Label" @icon={{faBox}} />
       {{! END-SNIPPET }}
     </Snippet>
 

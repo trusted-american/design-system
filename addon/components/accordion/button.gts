@@ -1,5 +1,4 @@
 import collapse from '../../modifiers/collapse';
-
 import type { TOC } from '@ember/component/template-only';
 import type AccordionItem from './item';
 

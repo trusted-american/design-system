@@ -6,7 +6,6 @@ import FormHelp from './help';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, or } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
 
 export interface FormInputArgs {

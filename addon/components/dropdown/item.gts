@@ -2,15 +2,17 @@ import Link, { type LinkArgs } from '../link';
 import Icon from '../icon';
 import { concat } from '@ember/helper';
 import { or } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+} from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label?: string;
     subtitle?: string;
-    icon?: IconName;
+    icon?: IconName | IconDefinition;
     shortcut?: string;
   };
   Blocks: {
@@ -36,7 +38,7 @@ interface Args extends LinkArgs {
   color?: string;
   label?: string;
   subtitle?: string;
-  icon?: IconName;
+  icon?: IconName | IconDefinition;
   shortcut?: string;
 }
 

@@ -1,5 +1,4 @@
 import { concat } from '@ember/helper';
-
 import type { TOC } from '@ember/component/template-only';
 
 export interface SpinnerSignature {

@@ -49,7 +49,7 @@ export default RouteTemplate(
       Header
     </:header>
     <:default as |aside|>
-      <aside.item @route="index" @label="Home" @icon="house" />
+      <aside.item @route="index" @label="Home" @icon=&lcub;&lcub;faHouse&rcub;&rcub; />
     </:default>
     <:footer>
       Footer

@@ -2,7 +2,6 @@ import CardHeader from './card/header';
 import CardBody from './card/body';
 import CardFooter from './card/footer';
 import { hash } from '@ember/helper';
-
 import type { TOC } from '@ember/component/template-only';
 
 export interface CardSignature {

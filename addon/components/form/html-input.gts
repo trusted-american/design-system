@@ -14,15 +14,25 @@ import { eq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
 import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
-
 import type { FormInputArgs } from './input';
 import type { TOC } from '@ember/component/template-only';
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import {
+  faBold,
+  faCode,
+  faHeading,
+  faItalic,
+  faListOl,
+  faListUl,
+  faParagraph,
+  faQuoteLeft,
+  faStrikethrough,
+} from '@fortawesome/free-solid-svg-icons';
 
 const EditorButton: TOC<{
   Args: {
     label: string;
-    icon: IconName;
+    icon: IconDefinition;
   };
   Element: HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement;
 }> = <template>
@@ -168,47 +178,47 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
           <div>
             <EditorButton
               @label="Bold"
-              @icon="bold"
+              @icon={{faBold}}
               {{on "click" this.toggleBold}}
             />
             <EditorButton
               @label="Italic"
-              @icon="italic"
+              @icon={{faItalic}}
               {{on "click" this.toggleItalic}}
             />
             <EditorButton
               @label="Strike"
-              @icon="strikethrough"
+              @icon={{faStrikethrough}}
               {{on "click" this.toggleStrike}}
             />
             <EditorButton
               @label="Heading"
-              @icon="heading"
+              @icon={{faHeading}}
               {{on "click" this.toggleHeading}}
             />
             <EditorButton
               @label="Paragraph"
-              @icon="paragraph"
+              @icon={{faParagraph}}
               {{on "click" this.setParagraph}}
             />
             <EditorButton
               @label="Quote"
-              @icon="quote-right"
+              @icon={{faQuoteLeft}}
               {{on "click" this.toggleQuote}}
             />
             <EditorButton
               @label="Numbered list"
-              @icon="list-ol"
+              @icon={{faListOl}}
               {{on "click" this.toggleNumberedList}}
             />
             <EditorButton
               @label="Unordered list"
-              @icon="list-ul"
+              @icon={{faListUl}}
               {{on "click" this.toggleUnorderedList}}
             />
             <EditorButton
               @label="Code"
-              @icon="code"
+              @icon={{faCode}}
               {{on "click" this.toggleCode}}
             />
           </div>

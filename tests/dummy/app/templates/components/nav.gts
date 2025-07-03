@@ -8,6 +8,7 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate(
   <template>
@@ -22,7 +23,7 @@ export default RouteTemplate(
       {{! BEGIN-SNIPPET nav }}
       <Nav as |nav|>
         <nav.item @route="components" @label="First" />
-        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Second" @icon={{faHouse}} />
         <nav.item @route="index" @label="Third" @count={{12}} />
         <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />
@@ -37,7 +38,7 @@ export default RouteTemplate(
       {{! BEGIN-SNIPPET nav1 }}
       <Nav @isPills={{true}} as |nav|>
         <nav.item @route="components" @label="First" />
-        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Second" @icon={{faHouse}} />
         <nav.item @route="index" @label="Third" @count={{12}} />
         <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />
@@ -46,7 +47,7 @@ export default RouteTemplate(
       <hr />
       <Nav @isPills={{true}} @isFill={{true}} as |nav|>
         <nav.item @route="components" @label="First" />
-        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Second" @icon={{faHouse}} />
         <nav.item @route="index" @label="Third" @count={{12}} />
         <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />
@@ -61,7 +62,7 @@ export default RouteTemplate(
       {{! BEGIN-SNIPPET nav2 }}
       <Nav @isPills={{true}} @isVertical={{true}} as |nav|>
         <nav.item @route="components" @label="First" />
-        <nav.item @route="index" @label="Second" @icon="house" />
+        <nav.item @route="index" @label="Second" @icon={{faHouse}} />
         <nav.item @route="index" @label="Third" @count={{12}} />
         <nav.item @route="index" @label="Fourth">
           <Badge @label="New" />

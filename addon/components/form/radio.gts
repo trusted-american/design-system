@@ -6,7 +6,6 @@ import FormRadioInput from './radio/input';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { and, eq } from 'ember-truth-helpers';
-
 import type { FormInputArgs } from './input';
 import type { Option } from './select';
 

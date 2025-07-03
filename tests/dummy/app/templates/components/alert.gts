@@ -8,8 +8,14 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsAlertController from '../../controllers/components/alert';
+import {
+  faCheck,
+  faCircleExclamation,
+  faCircleInfo,
+  faInfoCircle,
+  faTriangleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate<{
   Args: {
@@ -29,7 +35,7 @@ export default RouteTemplate<{
 
     <Snippet @name="alert.gts">
       {{! BEGIN-SNIPPET alert }}
-      <Alert @color="danger" @icon="triangle-exclamation">
+      <Alert @color="danger" @icon={{faTriangleExclamation}}>
         One of your domains is unverified. Please verify your domain to prevent
         others from claiming it.
         <AlertLink @route="index">Learn more</AlertLink>
@@ -41,7 +47,7 @@ export default RouteTemplate<{
       {{! BEGIN-SNIPPET alert1 }}
       <Alert
         @color="warning"
-        @icon="circle-exclamation"
+        @icon={{faCircleExclamation}}
         @closeButtonLabel="Close"
         @onClose={{@controller.close}}
       >
@@ -55,7 +61,7 @@ export default RouteTemplate<{
       {{! BEGIN-SNIPPET alert2 }}
       <Alert
         @color="success"
-        @icon="check"
+        @icon={{faCheck}}
         @closeButtonLabel="Close"
         @onClose={{@controller.close}}
       >
@@ -69,7 +75,7 @@ export default RouteTemplate<{
       {{! BEGIN-SNIPPET alert3 }}
       <Alert
         @color="info"
-        @icon="circle-info"
+        @icon={{faCircleInfo}}
         @closeButtonLabel="Close"
         @onClose={{@controller.close}}
       >
@@ -107,7 +113,7 @@ export default RouteTemplate<{
 
     <Snippet @name="alert7.gts">
       {{! BEGIN-SNIPPET alert7 }}
-      <Alert @color="success" @icon="info-circle">
+      <Alert @color="success" @icon={{faInfoCircle}}>
         <:title>Title here</:title>
         <:default>Body here</:default>
       </Alert>
@@ -118,7 +124,7 @@ export default RouteTemplate<{
       {{! BEGIN-SNIPPET alert8 }}
       <Alert
         @color="success"
-        @icon="info-circle"
+        @icon={{faInfoCircle}}
         @closeButtonLabel="Close"
         @onClose={{@controller.close}}
       >

@@ -3,8 +3,8 @@ import Snippet from '../../components/snippet';
 import { Heading, Placeholder } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsPlaceholderController from '../../controllers/components/placeholder';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate<{
   Args: {
@@ -20,7 +20,7 @@ export default RouteTemplate<{
     <Snippet @name="placeholder.gts">
       {{! BEGIN-SNIPPET placeholder }}
       <Placeholder
-        @icon="book"
+        @icon={{faBook}}
         @title="Placeholder heading"
         @subtitle="Use it to provide information when no dynamic content exists."
         @buttonLabel="Create the first page"

@@ -3,7 +3,6 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-
 import type { TOC } from '@ember/component/template-only';
 import type { FormInputArgs } from './input';
 

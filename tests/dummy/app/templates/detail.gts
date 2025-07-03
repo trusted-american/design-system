@@ -10,6 +10,11 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import {
+  faAngleDown,
+  faBoxArchive,
+  faCircleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate(
   <template>
@@ -17,11 +22,11 @@ export default RouteTemplate(
     {{breadcrumb "Detail" route="detail"}}
 
     <MainHeader>
-      <Alert @icon="box-archive">
+      <Alert @icon={{faBoxArchive}}>
         Test
       </Alert>
 
-      <Alert @color="warning" @icon="circle-exclamation">
+      <Alert @color="warning" @icon={{faCircleExclamation}}>
         Test
       </Alert>
 
@@ -32,7 +37,7 @@ export default RouteTemplate(
       >
         <Button
           @label="Actions"
-          @icon="angle-down"
+          @icon={{faAngleDown}}
           @isIconTrailing={{true}}
           @color="primary"
         />

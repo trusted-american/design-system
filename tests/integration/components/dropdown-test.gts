@@ -7,6 +7,13 @@ import {
   DropdownHeader,
   dropdown,
 } from '@trusted-american/design-system';
+import {
+  faCopy,
+  faPen,
+  faPlus,
+  faQuoteLeft,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | dropdown', function (hooks) {
   setupRenderingTest(hooks);
@@ -19,26 +26,26 @@ module('Integration | Component | dropdown', function (hooks) {
           <dropdown.item
             @label="Copy link"
             @subtitle="Due by December 31, 2021"
-            @icon="copy"
+            @icon={{faCopy}}
             @shortcut="⌘C"
             data-test-copy
           />
           <dropdown.item
             @label="Quote reply"
-            @icon="quote-left"
+            @icon={{faQuoteLeft}}
             @shortcut="⌘Q"
             data-test-quote
           />
           <dropdown.item
             @label="Edit comment"
-            @icon="pen"
+            @icon={{faPen}}
             @shortcut="⌘E"
             data-test-comment
           />
           <dropdown.divider />
           <dropdown.item
             @label="Delete file"
-            @icon="trash"
+            @icon={{faTrash}}
             @shortcut="⌘D"
             @color="danger"
             data-test-delete
@@ -46,14 +53,14 @@ module('Integration | Component | dropdown', function (hooks) {
           <dropdown.divider />
           <dropdown.item
             @label="Route"
-            @icon="plus"
+            @icon={{faPlus}}
             @route="index"
             data-test-route
           />
           <DropdownHeader @label="Header" data-test-header />
           <dropdown.item
             @label="Href"
-            @icon="plus"
+            @icon={{faPlus}}
             @href="https://www.google.com/"
             data-test-href
           />

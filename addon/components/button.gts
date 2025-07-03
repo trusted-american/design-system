@@ -4,14 +4,17 @@ import Link, { type LinkArgs } from './link';
 import Spinner from './spinner';
 import { concat } from '@ember/helper';
 import { and, not, or } from 'ember-truth-helpers';
-
 import type { TOC } from '@ember/component/template-only';
-import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import type {
+  IconDefinition,
+  IconName,
+  IconPrefix,
+} from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label: string;
-    icon?: IconName;
+    icon?: IconName | IconDefinition;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
@@ -45,7 +48,7 @@ const Internal: TOC<{
 interface Args extends LinkArgs {
   type?: string;
   label: string;
-  icon?: IconName;
+  icon?: IconName | IconDefinition;
   iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;

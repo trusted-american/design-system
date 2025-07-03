@@ -5,7 +5,6 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
-
 import type { FormInputArgs } from './input';
 
 interface Args extends FormInputArgs {

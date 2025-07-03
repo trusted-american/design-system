@@ -1,6 +1,5 @@
 import FormInput, { type FormInputArgs } from './input';
 import { fn } from '@ember/helper';
-
 import type { TOC } from '@ember/component/template-only';
 
 const format = (value: number | null | undefined): string | undefined =>

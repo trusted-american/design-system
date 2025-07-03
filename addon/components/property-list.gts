@@ -1,6 +1,5 @@
 import PropertyListItem from './property-list/item';
 import { hash } from '@ember/helper';
-
 import type { TOC } from '@ember/component/template-only';
 import type { WithBoundArgs } from '@glint/template';
 

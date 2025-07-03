@@ -1,5 +1,8 @@
+import {
+  faCheck,
+  faTriangleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 import Icon from '../icon';
-
 import type { TOC } from '@ember/component/template-only';
 
 export interface FormFeedbackSignature {
@@ -13,13 +16,13 @@ export interface FormFeedbackSignature {
 const FormFeedback: TOC<FormFeedbackSignature> = <template>
   {{#if @invalidLabel}}
     <div class="invalid-feedback" data-test-form-feedback ...attributes>
-      <Icon @icon="triangle-exclamation" class="me-1" />
+      <Icon @icon={{faTriangleExclamation}} class="me-1" />
       {{@invalidLabel}}
     </div>
   {{/if}}
   {{#if @validLabel}}
     <div class="valid-feedback">
-      <Icon @icon="check" class="me-1" />
+      <Icon @icon={{faCheck}} class="me-1" />
       {{@validLabel}}
     </div>
   {{/if}}

@@ -17,8 +17,20 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ApplicationController from '../controllers/application';
+import {
+  faAnglesRight,
+  faBook,
+  faBox,
+  faBoxesStacked,
+  faCode,
+  faCropSimple,
+  faFont,
+  faHouse,
+  faList,
+  faScrewdriverWrench,
+  faTableList,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate<{
   Args: {
@@ -41,13 +53,13 @@ export default RouteTemplate<{
         @onChange={{fn (mut @controller.isCollapsed)}}
       >
         <:default as |aside|>
-          <aside.item @route="index" @label="Home" @icon="house" />
+          <aside.item @route="index" @label="Home" @icon={{faHouse}} />
 
           <AsideTitle @label="Assets" />
           <AsideGroup
             @route="components.index"
             @label="Components"
-            @icon="boxes-stacked"
+            @icon={{faBoxesStacked}}
           >
             <aside.item @route="components.accordion" @label="Accordion" />
             <aside.item @route="components.alert" @label="Alert" />
@@ -108,11 +120,11 @@ export default RouteTemplate<{
             <aside.item @route="components.toast" @label="Toast" />
           </AsideGroup>
 
-          <aside.item @route="helpers" @icon="font" @label="Helpers" />
-          <aside.item @route="modifiers" @icon="code" @label="Modifiers" />
+          <aside.item @route="helpers" @icon={{faFont}} @label="Helpers" />
+          <aside.item @route="modifiers" @icon={{faCode}} @label="Modifiers" />
           <aside.item
             @route="utils"
-            @icon="screwdriver-wrench"
+            @icon={{faScrewdriverWrench}}
             @label="Utils"
           />
 
@@ -120,17 +132,17 @@ export default RouteTemplate<{
           <aside.item
             @route="guides.introduction"
             @label="Introduction"
-            @icon="book"
+            @icon={{faBook}}
           />
 
           <AsideTitle @label="Examples" />
-          <aside.item @route="list" @label="List" @icon="list" />
-          <aside.item @route="detail" @label="Detail" @icon="box" />
-          <aside.item @route="form" @label="Form" @icon="table-list" />
+          <aside.item @route="list" @label="List" @icon={{faList}} />
+          <aside.item @route="detail" @label="Detail" @icon={{faBox}} />
+          <aside.item @route="form" @label="Form" @icon={{faTableList}} />
           <aside.item
             @route="detail"
             @label="Disabled"
-            @icon="crop-simple"
+            @icon={{faCropSimple}}
             @isDisabled={{true}}
           />
         </:default>
@@ -151,7 +163,7 @@ export default RouteTemplate<{
             {{#if @controller.isCollapsed}}
               <Button
                 @label="Expand menu"
-                @icon="angles-right"
+                @icon={{faAnglesRight}}
                 @color="none"
                 @isIconOnly={{true}}
                 {{tooltip "Expand menu" trigger="hover"}}

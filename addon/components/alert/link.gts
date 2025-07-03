@@ -1,5 +1,4 @@
 import Link, { type LinkSignature } from '../link';
-
 import type { TOC } from '@ember/component/template-only';
 
 const AlertLink: TOC<LinkSignature> = <template>

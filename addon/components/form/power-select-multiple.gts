@@ -4,7 +4,6 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import PowerSelectMultiple from 'ember-power-select/components/power-select-multiple';
 import PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
-
 import type { FormInputArgs } from './input';
 
 interface Args<T> extends FormInputArgs {
