@@ -114,7 +114,7 @@ aside .tds-aside-logo {
 
 /* copy */
 
-.copy-btn {
+.tds-copy {
   padding: 0;
   background: none;
   color: var(--bs-body-color);

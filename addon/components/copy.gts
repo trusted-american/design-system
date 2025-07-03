@@ -1,5 +1,19 @@
-import CopyButtonClipboard from './copy-button-clipboard';
 import type { TOC } from '@ember/component/template-only';
+import { fn } from '@ember/helper';
+import { on } from '@ember/modifier';
+
+const copy = async (
+  value: string,
+  onSuccess?: () => void,
+  onError?: () => void,
+) => {
+  try {
+    await navigator.clipboard.writeText(value);
+    if (onSuccess) onSuccess();
+  } catch {
+    if (onError) onError();
+  }
+};
 
 export interface CopySignature {
   Args: {
@@ -18,18 +32,20 @@ export interface CopySignature {
 }
 
 const Copy: TOC<CopySignature> = <template>
-  <CopyButtonClipboard
-    @text={{@value}}
+  <button
+    type="button"
+    {{!-- TODO: args unused after ember-cli-clipboard removal
     @container={{@container}}
-    @delegateClickEvent={{@delegateClickEvent}}
-    @onSuccess={{@onSuccess}}
-    @onError={{@onError}}
-    class="{{if @isButton 'btn btn-secondary'}} {{if @isFullWidth 'w-100'}}"
+    @delegateClickEvent={{@delegateClickEvent}} --}}
+    class="tds-copy
+      {{if @isButton 'btn btn-secondary'}}
+      {{if @isFullWidth 'w-100'}}"
     data-test-copy
+    {{on "click" (fn copy @value @onSuccess @onError)}}
     ...attributes
   >
     {{yield}}
-  </CopyButtonClipboard>
+  </button>
 </template>;
 
 export default Copy;

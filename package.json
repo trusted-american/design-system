@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/design-system",
-  "version": "0.0.267",
+  "version": "0.0.268",
   "description": "Components for building robust user interfaces.",
   "keywords": [
     "ember-addon"
@@ -67,7 +67,6 @@
     "ember-basic-dropdown": "^8.6.2",
     "ember-breadcrumb-trail": "^1.0.0",
     "ember-cli-babel": "^8.2.0",
-    "ember-cli-clipboard": "^1.3.0",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-showdown": "^9.0.1",
     "ember-concurrency": "^4.0.4",
