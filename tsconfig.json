@@ -25,7 +25,9 @@
       "@trusted-american/design-system": ["addon"],
       "@trusted-american/design-system/*": ["addon/*"],
       "@trusted-american/design-system/test-support": ["addon-test-support"],
-      "@trusted-american/design-system/test-support/*": ["addon-test-support/*"],
+      "@trusted-american/design-system/test-support/*": [
+        "addon-test-support/*"
+      ],
       "*": ["types/*"]
     },
 
