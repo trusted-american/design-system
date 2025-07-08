@@ -76,6 +76,7 @@
 
 .ember-power-select-options {
   padding: 0.5rem 0;
+  max-height: 20rem !important;
 }
 
 .ember-power-select-option {
