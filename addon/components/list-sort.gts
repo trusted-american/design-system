@@ -11,16 +11,17 @@ import {
   faArrowUpWideShort,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+import type { ListAttributesKey } from './list-attributes';
 
 export interface ListSortSignature<T> {
   Args: {
-    sortBy: keyof T & string;
+    sortBy: ListAttributesKey<T>;
     sortAscending: boolean;
-    options: Option<keyof T & string>[];
+    options: Option<ListAttributesKey<T>>[];
     label: string;
     highToLowLabel: string;
     lowToHighLabel: string;
-    onChange: (sortBy: keyof T & string, sortAscending: boolean) => void;
+    onChange: (sortBy: ListAttributesKey<T>, sortAscending: boolean) => void;
   };
 }
 
