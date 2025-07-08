@@ -6,7 +6,11 @@ import { on } from '@ember/modifier';
 import dropdown from '../modifiers/dropdown';
 import { notEq } from 'ember-truth-helpers';
 import type { Option } from './form/select';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowDownWideShort,
+  faArrowUpWideShort,
+  faCheck,
+} from '@fortawesome/free-solid-svg-icons';
 
 export interface ListSortSignature<T> {
   Args: {
@@ -24,7 +28,7 @@ export default class ListSort<T> extends Component<ListSortSignature<T>> {
   <template>
     <Button
       @label={{@label}}
-      @icon={{if @sortAscending "arrow-up-wide-short" "arrow-down-wide-short"}}
+      @icon={{if @sortAscending faArrowUpWideShort faArrowDownWideShort}}
       data-test-list-sort
       {{dropdown autoClose="outside"}}
     />

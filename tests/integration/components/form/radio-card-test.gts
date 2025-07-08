@@ -4,6 +4,7 @@ import { click, render } from '@ember/test-helpers';
 import { FormRadioCard } from '@trusted-american/design-system';
 import { array, fn, hash } from '@ember/helper';
 import { tracked } from 'tracked-built-ins';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | form/radio-card', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,8 +16,8 @@ module('Integration | Component | form/radio-card', function (hooks) {
       <template>
         <FormRadioCard
           @options={{array
-            (hash value=true label="Yes" help="Help" icon="check")
-            (hash value=false label="No" help="Help" icon="xmark")
+            (hash value=true label="Yes" help="Help" icon=faCheck)
+            (hash value=false label="No" help="Help" icon=faXmark)
           }}
           @selected={{state.selected}}
           @label="Label"
