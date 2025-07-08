@@ -2,17 +2,14 @@ import NavItem from '../nav/item';
 import Icon from '../icon';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import type { TOC } from '@ember/component/template-only';
-import type {
-  IconDefinition,
-  IconName,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { LinkArgs } from '../link';
 
 interface Args extends LinkArgs {
   label: string;
-  icon?: IconName | IconDefinition;
+  icon?: IconDefinition;
   count?: number;
-  trailingIcon?: IconName | IconDefinition;
+  trailingIcon?: IconDefinition;
   isDisabled?: boolean;
 }
 

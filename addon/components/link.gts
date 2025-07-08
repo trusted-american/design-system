@@ -4,14 +4,13 @@ import Icon from './icon';
 import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,
-  IconName,
   IconPrefix,
 } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label?: string;
-    icon?: IconName | IconDefinition;
+    icon?: IconDefinition;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
@@ -45,7 +44,7 @@ export interface LinkArgs {
 
 interface Args extends LinkArgs {
   label?: string;
-  icon?: IconName | IconDefinition;
+  icon?: IconDefinition;
   iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;

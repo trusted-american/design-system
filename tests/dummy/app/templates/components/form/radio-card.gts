@@ -6,6 +6,7 @@ import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
 import type ComponentsFormRadioCardController from '../../../controllers/components/form/radio-card';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default RouteTemplate<{
   Args: {
@@ -28,13 +29,13 @@ export default RouteTemplate<{
             value=true
             label="Yes"
             help="This is an example of help."
-            icon="check"
+            icon=faCheck
           )
           (hash
             value=false
             label="No"
             help="This is an example of help."
-            icon="xmark"
+            icon=faXmark
           )
         }}
         @selected={{@controller.value}}

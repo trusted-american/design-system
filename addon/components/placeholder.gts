@@ -4,14 +4,11 @@ import htmlSafe from '../helpers/html-safe';
 import { on } from '@ember/modifier';
 import { and } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
-import type {
-  IconDefinition,
-  IconName,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface PlaceholderSignature {
   Args: {
-    icon: IconName | IconDefinition;
+    icon: IconDefinition;
     title: string;
     subtitle?: string;
     buttonLabel?: string;

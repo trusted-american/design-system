@@ -9,14 +9,11 @@ import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 import type { FormInputArgs } from './input';
 import type { RadioOption } from './radio';
-import type {
-  IconDefinition,
-  IconName,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 interface RadioCardOption<T> extends RadioOption<T> {
   imgUrl?: string;
-  icon?: IconName | IconDefinition;
+  icon?: IconDefinition;
 }
 
 interface Args<T> extends FormInputArgs {

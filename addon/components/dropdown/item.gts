@@ -3,16 +3,13 @@ import Icon from '../icon';
 import { concat } from '@ember/helper';
 import { or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
-import type {
-  IconDefinition,
-  IconName,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label?: string;
     subtitle?: string;
-    icon?: IconName | IconDefinition;
+    icon?: IconDefinition;
     shortcut?: string;
   };
   Blocks: {
@@ -38,7 +35,7 @@ interface Args extends LinkArgs {
   color?: string;
   label?: string;
   subtitle?: string;
-  icon?: IconName | IconDefinition;
+  icon?: IconDefinition;
   shortcut?: string;
 }
 

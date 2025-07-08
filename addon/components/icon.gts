@@ -3,14 +3,13 @@ import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,
-  IconName,
   IconPrefix,
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core';
 
 export interface IconSignature {
   Args: {
-    icon: IconName | IconDefinition;
+    icon: IconDefinition;
     color?: string;
     isFixedWidth?: boolean;
     size?: SizeProp;

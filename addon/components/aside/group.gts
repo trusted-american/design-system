@@ -4,15 +4,13 @@ import AsideItem from './item';
 import Collapse from '../collapse';
 import Nav from '../nav';
 import collapse from '../../modifiers/collapse';
-import type {
-  IconDefinition,
-  IconName,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 export interface AsideGroupSignature {
   Args: {
     label: string;
-    icon?: IconName | IconDefinition;
+    icon?: IconDefinition;
     route: string;
   };
   Blocks: {
@@ -29,7 +27,7 @@ export default class AsideGroup extends Component<AsideGroupSignature> {
       @route={{@route}}
       @label={{@label}}
       @icon={{@icon}}
-      @trailingIcon="angle-down"
+      @trailingIcon={{faAngleDown}}
       {{collapse this.id}}
       ...attributes
     />
