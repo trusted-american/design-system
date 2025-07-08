@@ -10,7 +10,6 @@ const AlertLink: TOC<LinkSignature> = <template>
     @isLocalHref={{@isLocalHref}}
     @label={{@label}}
     @icon={{@icon}}
-    @iconPrefix={{@iconPrefix}}
     @isIconTrailing={{@isIconTrailing}}
     @isIconOnly={{@isIconOnly}}
     class="alert-link"

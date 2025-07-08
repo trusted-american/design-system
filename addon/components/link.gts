@@ -2,16 +2,12 @@ import { LinkTo } from '@ember/routing';
 import { and } from 'ember-truth-helpers';
 import Icon from './icon';
 import type { TOC } from '@ember/component/template-only';
-import type {
-  IconDefinition,
-  IconPrefix,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label?: string;
     icon?: IconDefinition;
-    iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
   };
@@ -25,7 +21,6 @@ const Internal: TOC<{
   {{#if @icon}}
     <Icon
       @icon={{@icon}}
-      @prefix={{@iconPrefix}}
       class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
     />
   {{/if}}
@@ -45,7 +40,6 @@ export interface LinkArgs {
 interface Args extends LinkArgs {
   label?: string;
   icon?: IconDefinition;
-  iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;
 }
@@ -69,7 +63,6 @@ const Link: TOC<LinkSignature> = <template>
     ><Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
@@ -82,7 +75,6 @@ const Link: TOC<LinkSignature> = <template>
     ><Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
@@ -95,7 +87,6 @@ const Link: TOC<LinkSignature> = <template>
     ><Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
@@ -103,7 +94,6 @@ const Link: TOC<LinkSignature> = <template>
     <LinkTo @route={{@route}} data-test-link ...attributes><Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
@@ -111,7 +101,6 @@ const Link: TOC<LinkSignature> = <template>
     <LinkTo @model={{@model}} data-test-link ...attributes><Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
@@ -119,7 +108,6 @@ const Link: TOC<LinkSignature> = <template>
     <LinkTo @query={{@query}} data-test-link ...attributes><Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
@@ -133,7 +121,6 @@ const Link: TOC<LinkSignature> = <template>
     ><Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></a>
