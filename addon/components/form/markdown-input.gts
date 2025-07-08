@@ -172,7 +172,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
             ...attributes
           />
           <p class="small text-secondary mt-2 mb-0">
-            <Icon @icon={{faMarkdown}} @prefix="fab" />
+            <Icon @icon={{faMarkdown}} />
             Markdown is supported
           </p>
         {{/if}}
