@@ -49,7 +49,9 @@ module('Integration | Component | list-sort', function (hooks) {
       </template>,
     );
 
-    assert.dom().hasText('Sort Created date Name High to low Low to high');
+    assert
+      .dom()
+      .hasText('Sort Created date Name Obj prop High to low Low to high');
     assert
       .dom('[data-test-list-sort-dropdown] button')
       .doesNotHaveClass('invisible-icon');
