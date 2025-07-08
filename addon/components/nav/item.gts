@@ -3,17 +3,14 @@ import Icon from '../icon';
 import Link, { type LinkArgs } from '../link';
 import { or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
-import type {
-  IconDefinition,
-  IconName,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label?: string;
-    icon?: IconName | IconDefinition;
+    icon?: IconDefinition;
     count?: number;
-    trailingIcon?: IconName | IconDefinition;
+    trailingIcon?: IconDefinition;
   };
   Blocks: {
     default: [];
@@ -36,9 +33,9 @@ const Internal: TOC<{
 
 interface Args extends LinkArgs {
   label?: string;
-  icon?: IconName | IconDefinition;
+  icon?: IconDefinition;
   count?: number;
-  trailingIcon?: IconName | IconDefinition;
+  trailingIcon?: IconDefinition;
   isDisabled?: boolean;
 }
 

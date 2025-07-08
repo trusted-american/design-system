@@ -7,14 +7,13 @@ import { and, not, or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,
-  IconName,
   IconPrefix,
 } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label: string;
-    icon?: IconName | IconDefinition;
+    icon?: IconDefinition;
     iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
@@ -48,7 +47,7 @@ const Internal: TOC<{
 interface Args extends LinkArgs {
   type?: string;
   label: string;
-  icon?: IconName | IconDefinition;
+  icon?: IconDefinition;
   iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;
