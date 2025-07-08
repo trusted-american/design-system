@@ -5,16 +5,12 @@ import Spinner from './spinner';
 import { concat } from '@ember/helper';
 import { and, not, or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
-import type {
-  IconDefinition,
-  IconPrefix,
-} from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
     label: string;
     icon?: IconDefinition;
-    iconPrefix?: IconPrefix;
     isIconTrailing?: boolean;
     isIconOnly?: boolean;
     isLoading?: boolean;
@@ -30,7 +26,6 @@ const Internal: TOC<{
   {{#if @icon}}
     <Icon
       @icon={{@icon}}
-      @prefix={{@iconPrefix}}
       class={{unless @isIconOnly (if @isIconTrailing "ms-1" "me-1")}}
       ...attributes
     />
@@ -48,7 +43,6 @@ interface Args extends LinkArgs {
   type?: string;
   label: string;
   icon?: IconDefinition;
-  iconPrefix?: IconPrefix;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;
   size?: 'sm' | 'lg';
@@ -89,7 +83,6 @@ const Button: TOC<ButtonSignature> = <template>
       <Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
         @isLoading={{@isLoading}}
@@ -111,7 +104,6 @@ const Button: TOC<ButtonSignature> = <template>
       <Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
         @isLoading={{@isLoading}}
@@ -137,7 +129,6 @@ const Button: TOC<ButtonSignature> = <template>
       <Internal
         @label={{@label}}
         @icon={{@icon}}
-        @iconPrefix={{@iconPrefix}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
         @isLoading={{@isLoading}}
