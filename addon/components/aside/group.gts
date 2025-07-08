@@ -8,6 +8,7 @@ import type {
   IconDefinition,
   IconName,
 } from '@fortawesome/fontawesome-svg-core';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 export interface AsideGroupSignature {
   Args: {
@@ -29,7 +30,7 @@ export default class AsideGroup extends Component<AsideGroupSignature> {
       @route={{@route}}
       @label={{@label}}
       @icon={{@icon}}
-      @trailingIcon="angle-down"
+      @trailingIcon={{faAngleDown}}
       {{collapse this.id}}
       ...attributes
     />
