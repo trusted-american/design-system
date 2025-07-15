@@ -38,12 +38,18 @@ const BreadcrumbTrail = <template>
         {{#if (hasNext breadcrumb (breadcrumbs))}}
           <li class="breadcrumb-item" data-test-breadcrumb-trail-item>
             {{! using <Link /> here causes missing url param errors when transitioning }}
-            <LinkTo
-              @route="{{get breadcrumb.data 'route'}}"
-              @model={{get breadcrumb.data "model"}}
-            >
-              {{breadcrumb.title}}
-            </LinkTo>
+            {{#if (get breadcrumb.data "model")}}
+              <LinkTo
+                @route="{{get breadcrumb.data 'route'}}"
+                @model={{get breadcrumb.data "model"}}
+              >
+                {{breadcrumb.title}}
+              </LinkTo>
+            {{else}}
+              <LinkTo @route="{{get breadcrumb.data 'route'}}">
+                {{breadcrumb.title}}
+              </LinkTo>
+            {{/if}}
           </li>
         {{else}}
           <li
