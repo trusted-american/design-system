@@ -1,7 +1,7 @@
 import { get } from '@ember/helper';
 import { isEqual, isEmpty, isPresent } from '@ember/utils';
 import { breadcrumbs } from 'ember-breadcrumb-trail';
-import Link from './link';
+import { LinkTo } from '@ember/routing';
 
 // TODO: simplify code from ember-composable-helpers
 const hasNext = <T,>(currentValue: T, array: T[]) => {
@@ -37,11 +37,13 @@ const BreadcrumbTrail = <template>
       {{#each (breadcrumbs) as |breadcrumb|}}
         {{#if (hasNext breadcrumb (breadcrumbs))}}
           <li class="breadcrumb-item" data-test-breadcrumb-trail-item>
-            <Link
+            {{! using <Link /> here causes missing url param errors when transitioning }}
+            <LinkTo
               @route="{{get breadcrumb.data 'route'}}"
               @model={{get breadcrumb.data "model"}}
-              @label={{breadcrumb.title}}
-            />
+            >
+              {{breadcrumb.title}}
+            </LinkTo>
           </li>
         {{else}}
           <li
