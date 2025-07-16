@@ -33,9 +33,8 @@
     "declarationDir": "declarations",
     "emitDeclarationOnly": true,
     "noEmit": false,
-    "rootDir": "."
-  },
-  "types": [
-    "ember-source/types"
-  ]
+    "rootDir": ".",
+
+    "types": ["ember-source/types"]
+  }
 }
