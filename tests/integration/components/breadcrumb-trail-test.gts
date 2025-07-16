@@ -20,8 +20,6 @@ module('Integration | Component | breadcrumb-trail', function (hooks) {
 
     assert.dom('[data-test-breadcrumb-trail]').hasText('First Second Third');
     assert.dom('[data-test-breadcrumb-trail-item]').exists({ count: 3 });
-    assert
-      .dom('[data-test-breadcrumb-trail-item] [data-test-link]')
-      .exists({ count: 2 });
+    assert.dom('[data-test-breadcrumb-trail-item] a').exists({ count: 2 });
   });
 });
