@@ -3,7 +3,7 @@ import { modifier } from 'ember-modifier';
 interface CollapseSignature {
   Element: Element;
   Args: {
-    Positional: [string];
+    Positional: [string?];
   };
 }
 
@@ -12,7 +12,7 @@ const collapse = modifier<CollapseSignature>(function collapse(
   [target],
 ) {
   element.setAttribute('data-bs-toggle', 'collapse');
-  element.setAttribute('data-bs-target', `#${target}`);
+  element.setAttribute('data-bs-target', target ? `#${target}` : '');
 
   return () => {
     element.removeAttribute('data-bs-target');
