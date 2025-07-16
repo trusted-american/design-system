@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../components/snippet';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
@@ -8,36 +8,36 @@ import { pageTitle } from 'ember-page-title';
 
 import type ComponentsModalController from '../../controllers/components/modal';
 
-export default RouteTemplate<{
+interface ComponentsModalSignature {
   Args: {
     controller: ComponentsModalController;
   };
-}>(
-  <template>
-    {{pageTitle "Modal"}}
-    {{breadcrumb "Modal" route="components.modal"}}
+}
 
-    <Heading @title="Modal" />
+<template>
+  {{pageTitle "Modal"}}
+  {{breadcrumb "Modal" route="components.modal"}}
 
-    <Snippet @name="modal.gts">
-      {{! BEGIN-SNIPPET modal }}
-      <Button
-        @label="Open modal"
-        {{on "click" (fn (mut @controller.showModal) true)}}
-      />
+  <Heading @title="Modal" />
 
-      {{#if @controller.showModal}}
-        <Modal
-          @title="Title"
-          @closeButtonLabel="Close"
-          @onClose={{@controller.close}}
-          as |onClose|
-        >
-          <p>Body</p>
-          <Button @label="Close" {{on "click" onClose}} />
-        </Modal>
-      {{/if}}
-      {{! END-SNIPPET }}
-    </Snippet>
-  </template>,
-);
+  <Snippet @name="modal.gts">
+    {{! BEGIN-SNIPPET modal }}
+    <Button
+      @label="Open modal"
+      {{on "click" (fn (mut @controller.showModal) true)}}
+    />
+
+    {{#if @controller.showModal}}
+      <Modal
+        @title="Title"
+        @closeButtonLabel="Close"
+        @onClose={{@controller.close}}
+        as |onClose|
+      >
+        <p>Body</p>
+        <Button @label="Close" {{on "click" onClose}} />
+      </Modal>
+    {{/if}}
+    {{! END-SNIPPET }}
+  </Snippet>
+</template> satisfies TOC<ComponentsModalSignature>;

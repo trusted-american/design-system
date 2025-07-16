@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../components/snippet';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
@@ -12,98 +12,94 @@ import {
   faUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default RouteTemplate<{
+interface ComponentsButtonSignature {
   Args: {
     controller: ComponentsButtonController;
   };
-}>(
-  <template>
-    {{pageTitle "Button"}}
-    {{breadcrumb "Button" route="components.button"}}
+}
 
-    <Heading @title="Button" />
+<template>
+  {{pageTitle "Button"}}
+  {{breadcrumb "Button" route="components.button"}}
 
-    <Snippet @name="button.gts">
-      {{! BEGIN-SNIPPET button }}
-      <Button @label="Default button" {{on "click" @controller.click}} />
-      <Button
-        @label="Success button"
-        @color="success"
-        {{on "click" @controller.click}}
-      />
-      <Button
-        @label="Success button with icon"
-        @color="success"
-        @icon={{faPlus}}
-        {{on "click" @controller.click}}
-      />
-      <Button
-        @label="Success button with trailing icon"
-        @color="success"
-        @icon={{faPlus}}
-        @isIconTrailing={{true}}
-        {{on "click" @controller.click}}
-      />
-      <Button
-        @label="Success button with only icon"
-        @icon={{faPlus}}
-        @isIconOnly={{true}}
-        @color="success"
-        {{on "click" @controller.click}}
-      />
-      <Button
-        @label="Loading button"
-        @isLoading={{true}}
-        {{on "click" @controller.click}}
-      />
-      <Button
-        @label="Disabled button"
-        disabled
-        {{on "click" @controller.click}}
-      />
-      <Button
-        @label="Count button"
-        @count={{3}}
-        {{on "click" @controller.click}}
-      />
-      <Button
-        @label="Default button"
-        @shortcut="n"
-        {{on "click" @controller.click}}
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
+  <Heading @title="Button" />
 
-    <Subheading @title="Route" />
+  <Snippet @name="button.gts">
+    {{! BEGIN-SNIPPET button }}
+    <Button @label="Default button" {{on "click" @controller.click}} />
+    <Button
+      @label="Success button"
+      @color="success"
+      {{on "click" @controller.click}}
+    />
+    <Button
+      @label="Success button with icon"
+      @color="success"
+      @icon={{faPlus}}
+      {{on "click" @controller.click}}
+    />
+    <Button
+      @label="Success button with trailing icon"
+      @color="success"
+      @icon={{faPlus}}
+      @isIconTrailing={{true}}
+      {{on "click" @controller.click}}
+    />
+    <Button
+      @label="Success button with only icon"
+      @icon={{faPlus}}
+      @isIconOnly={{true}}
+      @color="success"
+      {{on "click" @controller.click}}
+    />
+    <Button
+      @label="Loading button"
+      @isLoading={{true}}
+      {{on "click" @controller.click}}
+    />
+    <Button
+      @label="Disabled button"
+      disabled
+      {{on "click" @controller.click}}
+    />
+    <Button
+      @label="Count button"
+      @count={{3}}
+      {{on "click" @controller.click}}
+    />
+    <Button
+      @label="Default button"
+      @shortcut="n"
+      {{on "click" @controller.click}}
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
 
-    <Snippet @name="button1.gts">
-      {{! BEGIN-SNIPPET button1 }}
-      <Button @label="Route button" @route="index" />
-      <Button
-        @label="Route button with query"
-        @route="index"
-        @query={{(hash)}}
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
+  <Subheading @title="Route" />
 
-    <Subheading @title="Link" />
+  <Snippet @name="button1.gts">
+    {{! BEGIN-SNIPPET button1 }}
+    <Button @label="Route button" @route="index" />
+    <Button @label="Route button with query" @route="index" @query={{(hash)}} />
+    {{! END-SNIPPET }}
+  </Snippet>
 
-    <Snippet @name="button2.gts">
-      {{! BEGIN-SNIPPET button2 }}
-      <Button
-        @label="Link button"
-        @icon={{faUpRightFromSquare}}
-        @href="https://www.google.com/"
-      />
+  <Subheading @title="Link" />
 
-      <Button
-        @label="Link button with trailing icon"
-        @icon={{faArrowRight}}
-        @isIconTrailing={{true}}
-        @href="https://www.google.com/"
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
-  </template>,
-);
+  <Snippet @name="button2.gts">
+    {{! BEGIN-SNIPPET button2 }}
+    <Button
+      @label="Link button"
+      @icon={{faUpRightFromSquare}}
+      @href="https://www.google.com/"
+    />
+
+    <Button
+      @label="Link button with trailing icon"
+      @icon={{faArrowRight}}
+      @isIconTrailing={{true}}
+      @href="https://www.google.com/"
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
+</template> satisfies TOC<ComponentsButtonSignature>;

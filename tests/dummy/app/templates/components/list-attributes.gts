@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../components/snippet';
 import { array } from '@ember/helper';
 import { fn, hash } from '@ember/helper';
@@ -8,38 +8,38 @@ import { pageTitle } from 'ember-page-title';
 
 import type ComponentsListAttributesController from '../../controllers/components/list-attributes';
 
-export default RouteTemplate<{
+interface ComponentsListAttributesSignature {
   Args: {
     controller: ComponentsListAttributesController;
   };
-}>(
-  <template>
-    {{pageTitle "List attributes"}}
-    {{breadcrumb "List attributes" route="components.list-attributes"}}
+}
 
-    <Heading @title="List attributes" />
+<template>
+  {{pageTitle "List attributes"}}
+  {{breadcrumb "List attributes" route="components.list-attributes"}}
 
-    <p>
-      Value:
-      {{#each @controller.selected as |item|}}
-        {{item}}
-      {{/each}}
-    </p>
+  <Heading @title="List attributes" />
 
-    <Snippet @name="list-attributes.gts">
-      {{! BEGIN-SNIPPET list-attributes }}
-      <ListAttributes
-        @presets={{array (hash values=(array "a") label="Default")}}
-        @options={{array
-          (hash value="a" label="A")
-          (hash value="b" label="B")
-          (hash value="c" label="C")
-        }}
-        @selected={{@controller.selected}}
-        @label="Edit columns"
-        @onChange={{fn (mut @controller.selected)}}
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
-  </template>,
-);
+  <p>
+    Value:
+    {{#each @controller.selected as |item|}}
+      {{item}}
+    {{/each}}
+  </p>
+
+  <Snippet @name="list-attributes.gts">
+    {{! BEGIN-SNIPPET list-attributes }}
+    <ListAttributes
+      @presets={{array (hash values=(array "a") label="Default")}}
+      @options={{array
+        (hash value="a" label="A")
+        (hash value="b" label="B")
+        (hash value="c" label="C")
+      }}
+      @selected={{@controller.selected}}
+      @label="Edit columns"
+      @onChange={{fn (mut @controller.selected)}}
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
+</template> satisfies TOC<ComponentsListAttributesSignature>;

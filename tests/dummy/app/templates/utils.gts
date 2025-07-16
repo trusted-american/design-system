@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../components/snippet';
 import { Heading, MainBody, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
@@ -6,33 +6,33 @@ import { pageTitle } from 'ember-page-title';
 
 import type UtilsController from '../controllers/utils';
 
-export default RouteTemplate<{
+interface UtilsSignature {
   Args: {
     controller: UtilsController;
   };
-}>(
-  <template>
-    {{pageTitle "Utils"}}
-    {{breadcrumb "Utils" route="utils"}}
+}
 
-    <MainBody>
-      <Heading @title="Utils" />
+<template>
+  {{pageTitle "Utils"}}
+  {{breadcrumb "Utils" route="utils"}}
 
-      <Subheading @title="Check validity" />
+  <MainBody>
+    <Heading @title="Utils" />
 
-      <Snippet @name="util-check-validity.ts" />
+    <Subheading @title="Check validity" />
 
-      <Subheading @title="File type" />
+    <Snippet @name="util-check-validity.ts" />
 
-      <Snippet @name="util-file-type.ts">
-        {{@controller.type}}
-      </Snippet>
+    <Subheading @title="File type" />
 
-      <Subheading @title="Is valid date" />
+    <Snippet @name="util-file-type.ts">
+      {{@controller.type}}
+    </Snippet>
 
-      <Snippet @name="util-is-valid-date.ts">
-        {{@controller.isValid}}
-      </Snippet>
-    </MainBody>
-  </template>,
-);
+    <Subheading @title="Is valid date" />
+
+    <Snippet @name="util-is-valid-date.ts">
+      {{@controller.isValid}}
+    </Snippet>
+  </MainBody>
+</template> satisfies TOC<UtilsSignature>;
