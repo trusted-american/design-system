@@ -1,4 +1,3 @@
-import { helper } from '@ember/component/helper';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import isYesterday from 'dayjs/plugin/isYesterday';
@@ -25,10 +24,10 @@ interface Options {
  * @param param1
  * @returns
  */
-export const timestamp = (
-  [date]: [Date | string | number | null | undefined],
-  opts: Options,
-): string => {
+export default function timestamp(
+  date: Date | string | number | null | undefined,
+  opts: Options = {},
+): string {
   const { format, utc } = opts;
 
   if (!date) {
@@ -62,8 +61,4 @@ export const timestamp = (
     }
   }
   return djs.format(`${DATE_FORMAT} [at] ${TIME_FORMAT}`);
-};
-
-const _helper = helper(timestamp);
-
-export default _helper;
+}
