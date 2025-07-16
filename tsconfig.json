@@ -25,7 +25,9 @@
       "@trusted-american/design-system": ["addon"],
       "@trusted-american/design-system/*": ["addon/*"],
       "@trusted-american/design-system/test-support": ["addon-test-support"],
-      "@trusted-american/design-system/test-support/*": ["addon-test-support/*"],
+      "@trusted-american/design-system/test-support/*": [
+        "addon-test-support/*"
+      ],
       "*": ["types/*"]
     },
 
@@ -33,9 +35,8 @@
     "declarationDir": "declarations",
     "emitDeclarationOnly": true,
     "noEmit": false,
-    "rootDir": "."
-  },
-  "types": [
-    "ember-source/types"
-  ]
+    "rootDir": ".",
+
+    "types": ["ember-source/types"]
+  }
 }
