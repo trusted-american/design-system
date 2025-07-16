@@ -45,6 +45,13 @@ export default class Modal extends Component<ModalSignature> {
       }
     });
 
+    // https://github.com/twbs/bootstrap/issues/41005
+    element.addEventListener('hide.bs.modal', () => {
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    });
+
     element.addEventListener('hidden.bs.modal', () => {
       this.args.onClose();
     });
