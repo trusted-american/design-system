@@ -19,55 +19,56 @@ interface ListSignature {
   };
 }
 
-  <template>
-    {{pageTitle "List"}}
-    {{breadcrumb "List" route="list"}}
+<template>
+  {{pageTitle "List"}}
+  {{breadcrumb "List" route="list"}}
 
-    <MainBody>
-      <Heading @title="List">
-        <ButtonSet as |buttonSet|>
-          <FormInput
-            @value={{@controller.search}}
-            @type="search"
-            @label="Search"
-            @identifier="search"
-            @requiredLabel="Required"
-            @isInputOnly={{true}}
-            @onChange={{fn (mut @controller.search)}}
-            placeholder="Search…"
-          />
-          <buttonSet.button @label="Filter" {{on "click" @controller.click}} />
-          <buttonSet.button @label="Sort" {{on "click" @controller.click}} />
-          <buttonSet.button @label="Export" {{on "click" @controller.click}} />
-          <buttonSet.button
-            @label="Create"
-            @color="primary"
-            {{on "click" @controller.click}}
-          />
-        </ButtonSet>
-      </Heading>
+  <MainBody>
+    <Heading @title="List">
+      <ButtonSet as |buttonSet|>
+        <FormInput
+          @value={{@controller.search}}
+          @type="search"
+          @label="Search"
+          @identifier="search"
+          @requiredLabel="Required"
+          @isInputOnly={{true}}
+          @onChange={{fn (mut @controller.search)}}
+          {{! TODO: ellipsis }}
+          placeholder="Search..."
+        />
+        <buttonSet.button @label="Filter" {{on "click" @controller.click}} />
+        <buttonSet.button @label="Sort" {{on "click" @controller.click}} />
+        <buttonSet.button @label="Export" {{on "click" @controller.click}} />
+        <buttonSet.button
+          @label="Create"
+          @color="primary"
+          {{on "click" @controller.click}}
+        />
+      </ButtonSet>
+    </Heading>
 
-      <Table
-        @data={{@controller.users}}
-        @nextButtonLabel="Next"
-        @previousButtonLabel="Previous"
-        @viewingLabel="Viewing"
-        @ofLabel="of"
-        @resultsLabel="results"
-        as |table|
-      >
-        <table.header as |header|>
-          <header.column @prop="email">
-            Email
-          </header.column>
-          <header.column @prop="firstName">
-            First Name
-          </header.column>
-          <header.column @prop="lastName">
-            Last Name
-          </header.column>
-        </table.header>
-        <table.body />
-      </Table>
-    </MainBody>
-  </template> satisfies TOC<ListSignature>;
+    <Table
+      @data={{@controller.users}}
+      @nextButtonLabel="Next"
+      @previousButtonLabel="Previous"
+      @viewingLabel="Viewing"
+      @ofLabel="of"
+      @resultsLabel="results"
+      as |table|
+    >
+      <table.header as |header|>
+        <header.column @prop="email">
+          Email
+        </header.column>
+        <header.column @prop="firstName">
+          First Name
+        </header.column>
+        <header.column @prop="lastName">
+          Last Name
+        </header.column>
+      </table.header>
+      <table.body />
+    </Table>
+  </MainBody>
+</template> satisfies TOC<ListSignature>;

@@ -13,36 +13,37 @@ interface ComponentsFormMarkdownInputSignature {
   };
 }
 
-  <template>
-    {{pageTitle "Markdown input"}}
-    {{breadcrumb "Markdown input" route="components.form.markdown-input"}}
+<template>
+  {{pageTitle "Markdown input"}}
+  {{breadcrumb "Markdown input" route="components.form.markdown-input"}}
 
-    <Subheading @title="Markdown input" />
+  <Subheading @title="Markdown input" />
 
-    <p>Value: {{@controller.value}}</p>
+  <p>Value: {{@controller.value}}</p>
 
-    <Snippet @name="form-markdown-input.gts">
-      {{! BEGIN-SNIPPET form-markdown-input }}
-      <FormMarkdownInput
-        @value={{@controller.value}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @requiredLabel="Required"
-        @help="This is an example of help."
-        @invalidLabel="This is an example of invalid feedback."
-        @writeLabel="Write"
-        @previewLabel="Preview"
-        @headingLabel="Heading"
-        @boldLabel="Bold"
-        @italicLabel="Italic"
-        @codeLabel="Code"
-        @linkLabel="Link"
-        @numberedListLabel="Numbered list"
-        @unorderedListLabel="Unordered list"
-        @onChange={{fn (mut @controller.value)}}
-        placeholder="Add your comment here…"
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
-  </template> satisfies TOC<ComponentsFormMarkdownInputSignature>;
+  <Snippet @name="form-markdown-input.gts">
+    {{! BEGIN-SNIPPET form-markdown-input }}
+    <FormMarkdownInput
+      @value={{@controller.value}}
+      @label="Label"
+      @identifier="identifier"
+      @isRequired={{true}}
+      @requiredLabel="Required"
+      @help="This is an example of help."
+      @invalidLabel="This is an example of invalid feedback."
+      @writeLabel="Write"
+      @previewLabel="Preview"
+      @headingLabel="Heading"
+      @boldLabel="Bold"
+      @italicLabel="Italic"
+      @codeLabel="Code"
+      @linkLabel="Link"
+      @numberedListLabel="Numbered list"
+      @unorderedListLabel="Unordered list"
+      @onChange={{fn (mut @controller.value)}}
+      {{! TODO: ellipsis }}
+      placeholder="Add your comment here..."
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
+</template> satisfies TOC<ComponentsFormMarkdownInputSignature>;
