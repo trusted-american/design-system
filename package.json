@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/design-system",
-  "version": "0.0.276",
+  "version": "0.0.277",
   "description": "Components for building robust user interfaces.",
   "keywords": [
     "ember-addon"
