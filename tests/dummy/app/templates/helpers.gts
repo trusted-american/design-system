@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../components/snippet';
 import { fn } from '@ember/helper';
 import {
@@ -17,74 +17,74 @@ import { pageTitle } from 'ember-page-title';
 
 import type HelpersController from '../controllers/helpers';
 
-export default RouteTemplate<{
+interface HelpersSignature {
   Args: {
     controller: HelpersController;
   };
-}>(
-  <template>
-    {{pageTitle "Helpers"}}
-    {{breadcrumb "Helpers" route="helpers"}}
+}
 
-    <MainBody>
-      <Heading @title="Helpers" />
+<template>
+  {{pageTitle "Helpers"}}
+  {{breadcrumb "Helpers" route="helpers"}}
 
-      <Subheading @title="File size" />
+  <MainBody>
+    <Heading @title="Helpers" />
 
-      <Snippet @name="file-size.gts">
-        {{! BEGIN-SNIPPET file-size }}
-        {{fileSize 1234}}
-        {{! END-SNIPPET }}
-      </Snippet>
+    <Subheading @title="File size" />
 
-      <Subheading @title="From now" />
+    <Snippet @name="file-size.gts">
+      {{! BEGIN-SNIPPET file-size }}
+      {{fileSize 1234}}
+      {{! END-SNIPPET }}
+    </Snippet>
 
-      <Snippet @name="from-now.gts">
-        {{! BEGIN-SNIPPET from-now }}
-        {{fromNow @controller.date}}
-        {{! END-SNIPPET }}
-      </Snippet>
+    <Subheading @title="From now" />
 
-      <Subheading @title="HTML safe" />
+    <Snippet @name="from-now.gts">
+      {{! BEGIN-SNIPPET from-now }}
+      {{fromNow @controller.date}}
+      {{! END-SNIPPET }}
+    </Snippet>
 
-      <Snippet @name="html-safe.gts">
-        {{! BEGIN-SNIPPET html-safe }}
-        {{htmlSafe "<em>Test</em>"}}
-        {{! END-SNIPPET }}
-      </Snippet>
+    <Subheading @title="HTML safe" />
 
-      <Subheading @title="Theme" />
+    <Snippet @name="html-safe.gts">
+      {{! BEGIN-SNIPPET html-safe }}
+      {{htmlSafe "<em>Test</em>"}}
+      {{! END-SNIPPET }}
+    </Snippet>
 
-      <Snippet @name="theme.gts">
-        {{! BEGIN-SNIPPET theme }}
-        {{theme @controller.theme}}
+    <Subheading @title="Theme" />
 
-        <FormCheck
-          @value={{@controller.isDarkTheme}}
-          @label="Dark theme"
-          @identifier="isDarkTheme"
-          @requiredLabel="Required"
-          @isSwitch={{true}}
-          @onChange={{fn (mut @controller.isDarkTheme)}}
-        />
-        {{! END-SNIPPET }}
-      </Snippet>
+    <Snippet @name="theme.gts">
+      {{! BEGIN-SNIPPET theme }}
+      {{theme @controller.theme}}
 
-      <Subheading @title="Timestamp" />
+      <FormCheck
+        @value={{@controller.isDarkTheme}}
+        @label="Dark theme"
+        @identifier="isDarkTheme"
+        @requiredLabel="Required"
+        @isSwitch={{true}}
+        @onChange={{fn (mut @controller.isDarkTheme)}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
 
-      <Snippet @name="timestamp.gts">
-        {{! BEGIN-SNIPPET timestamp }}
-        <ul>
-          <li>{{timestamp @controller.date}}</li>
-          <li>{{timestamp @controller.date utc=true}}</li>
-          <li>{{timestamp @controller.date format="date"}}</li>
-          <li>{{timestamp @controller.date format="time"}}</li>
-          <li>{{timestamp @controller.date format="numberDate"}}</li>
-          <li>{{timestamp @controller.date format="year"}}</li>
-          <li>{{timestamp @controller.date format="full"}}</li>
-        </ul>
-        {{! END-SNIPPET }}
-      </Snippet>
-    </MainBody>
-  </template>,
-);
+    <Subheading @title="Timestamp" />
+
+    <Snippet @name="timestamp.gts">
+      {{! BEGIN-SNIPPET timestamp }}
+      <ul>
+        <li>{{timestamp @controller.date}}</li>
+        <li>{{timestamp @controller.date utc=true}}</li>
+        <li>{{timestamp @controller.date format="date"}}</li>
+        <li>{{timestamp @controller.date format="time"}}</li>
+        <li>{{timestamp @controller.date format="numberDate"}}</li>
+        <li>{{timestamp @controller.date format="year"}}</li>
+        <li>{{timestamp @controller.date format="full"}}</li>
+      </ul>
+      {{! END-SNIPPET }}
+    </Snippet>
+  </MainBody>
+</template> satisfies TOC<HelpersSignature>;

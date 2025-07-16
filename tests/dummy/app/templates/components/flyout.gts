@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../components/snippet';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
@@ -8,34 +8,34 @@ import { pageTitle } from 'ember-page-title';
 
 import type ComponentsFlyoutController from '../../controllers/components/flyout';
 
-export default RouteTemplate<{
+interface ComponentsFlyoutSignature {
   Args: {
     controller: ComponentsFlyoutController;
   };
-}>(
-  <template>
-    {{pageTitle "Flyout"}}
-    {{breadcrumb "Flyout" route="components.flyout"}}
+}
 
-    <Heading @title="Flyout" />
+<template>
+  {{pageTitle "Flyout"}}
+  {{breadcrumb "Flyout" route="components.flyout"}}
 
-    <Snippet @name="flyout.gts">
-      {{! BEGIN-SNIPPET flyout }}
-      <Button
-        @label="Open flyout"
-        {{on "click" (fn (mut @controller.showFlyout) true)}}
-      />
+  <Heading @title="Flyout" />
 
-      {{#if @controller.showFlyout}}
-        <Flyout
-          @title="Title"
-          @closeButtonLabel="Close"
-          @onClose={{@controller.close}}
-        >
-          Body
-        </Flyout>
-      {{/if}}
-      {{! END-SNIPPET }}
-    </Snippet>
-  </template>,
-);
+  <Snippet @name="flyout.gts">
+    {{! BEGIN-SNIPPET flyout }}
+    <Button
+      @label="Open flyout"
+      {{on "click" (fn (mut @controller.showFlyout) true)}}
+    />
+
+    {{#if @controller.showFlyout}}
+      <Flyout
+        @title="Title"
+        @closeButtonLabel="Close"
+        @onClose={{@controller.close}}
+      >
+        Body
+      </Flyout>
+    {{/if}}
+    {{! END-SNIPPET }}
+  </Snippet>
+</template> satisfies TOC<ComponentsFlyoutSignature>;

@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
 import { FormCheck, Subheading } from '@trusted-american/design-system';
@@ -7,32 +7,32 @@ import { pageTitle } from 'ember-page-title';
 
 import type ComponentsFormCheckController from '../../../controllers/components/form/check';
 
-export default RouteTemplate<{
+interface ComponentsFormCheckSignature {
   Args: {
     controller: ComponentsFormCheckController;
   };
-}>(
-  <template>
-    {{pageTitle "Check"}}
-    {{breadcrumb "Check" route="components.form.check"}}
+}
 
-    <Subheading @title="Check" />
+<template>
+  {{pageTitle "Check"}}
+  {{breadcrumb "Check" route="components.form.check"}}
 
-    <p>Value: {{if @controller.value "True" " False"}}</p>
+  <Subheading @title="Check" />
 
-    <Snippet @name="form-check.gts">
-      {{! BEGIN-SNIPPET form-check }}
-      <FormCheck
-        @value={{@controller.value}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @requiredLabel="Required"
-        @help="This is an example of help."
-        @invalidLabel="This is an example of invalid feedback."
-        @onChange={{fn (mut @controller.value)}}
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
-  </template>,
-);
+  <p>Value: {{if @controller.value "True" " False"}}</p>
+
+  <Snippet @name="form-check.gts">
+    {{! BEGIN-SNIPPET form-check }}
+    <FormCheck
+      @value={{@controller.value}}
+      @label="Label"
+      @identifier="identifier"
+      @isRequired={{true}}
+      @requiredLabel="Required"
+      @help="This is an example of help."
+      @invalidLabel="This is an example of invalid feedback."
+      @onChange={{fn (mut @controller.value)}}
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
+</template> satisfies TOC<ComponentsFormCheckSignature>;

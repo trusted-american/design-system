@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../../components/snippet';
 import { array, fn, hash } from '@ember/helper';
 import { FormRadioButton, Subheading } from '@trusted-american/design-system';
@@ -7,36 +7,36 @@ import { pageTitle } from 'ember-page-title';
 
 import type ComponentsFormRadioButtonController from '../../../controllers/components/form/radio-button';
 
-export default RouteTemplate<{
+interface ComponentsFormRadioButtonSignature {
   Args: {
     controller: ComponentsFormRadioButtonController;
   };
-}>(
-  <template>
-    {{pageTitle "Radio button"}}
-    {{breadcrumb "Radio button" route="components.form.radio-button"}}
+}
 
-    <Subheading @title="Radio button" />
+<template>
+  {{pageTitle "Radio button"}}
+  {{breadcrumb "Radio button" route="components.form.radio-button"}}
 
-    <p>Value: {{@controller.value}}</p>
+  <Subheading @title="Radio button" />
 
-    <Snippet @name="form-radio-button.gts">
-      {{! BEGIN-SNIPPET form-radio-button }}
-      <FormRadioButton
-        @options={{array
-          (hash value=true label="Yes")
-          (hash value=false label="No")
-        }}
-        @selected={{@controller.value}}
-        @label="Label"
-        @identifier="identifier"
-        @isRequired={{true}}
-        @requiredLabel="Required"
-        @help="This is an example of help."
-        @invalidLabel="This is an example of invalid feedback."
-        @onChange={{fn (mut @controller.value)}}
-      />
-      {{! END-SNIPPET }}
-    </Snippet>
-  </template>,
-);
+  <p>Value: {{@controller.value}}</p>
+
+  <Snippet @name="form-radio-button.gts">
+    {{! BEGIN-SNIPPET form-radio-button }}
+    <FormRadioButton
+      @options={{array
+        (hash value=true label="Yes")
+        (hash value=false label="No")
+      }}
+      @selected={{@controller.value}}
+      @label="Label"
+      @identifier="identifier"
+      @isRequired={{true}}
+      @requiredLabel="Required"
+      @help="This is an example of help."
+      @invalidLabel="This is an example of invalid feedback."
+      @onChange={{fn (mut @controller.value)}}
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
+</template> satisfies TOC<ComponentsFormRadioButtonSignature>;
