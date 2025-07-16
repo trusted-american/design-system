@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import {
@@ -13,11 +13,12 @@ import { pageTitle } from 'ember-page-title';
 
 import type ListController from '../controllers/list';
 
-export default RouteTemplate<{
+interface ListSignature {
   Args: {
     controller: ListController;
   };
-}>(
+}
+
   <template>
     {{pageTitle "List"}}
     {{breadcrumb "List" route="list"}}
@@ -69,5 +70,4 @@ export default RouteTemplate<{
         <table.body />
       </Table>
     </MainBody>
-  </template>,
-);
+  </template> satisfies TOC<ListSignature>;

@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../../components/snippet';
 import { FormFileDropzone, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
@@ -6,11 +6,12 @@ import { pageTitle } from 'ember-page-title';
 
 import type ComponentsFormFileDropzoneController from '../../../controllers/components/form/file-dropzone';
 
-export default RouteTemplate<{
+interface ComponentsFormFileDropzoneSignature {
   Args: {
     controller: ComponentsFormFileDropzoneController;
   };
-}>(
+}
+
   <template>
     {{pageTitle "File dropzone"}}
     {{breadcrumb "File dropzone" route="components.form.file-dropzone"}}
@@ -36,5 +37,4 @@ export default RouteTemplate<{
       />
       {{! END-SNIPPET }}
     </Snippet>
-  </template>,
-);
+  </template> satisfies TOC<ComponentsFormFileDropzoneSignature>;

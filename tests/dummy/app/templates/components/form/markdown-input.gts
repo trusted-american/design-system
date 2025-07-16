@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
 import { FormMarkdownInput, Subheading } from '@trusted-american/design-system';
@@ -7,11 +7,12 @@ import { pageTitle } from 'ember-page-title';
 
 import type ComponentsFormMarkdownInputController from '../../../controllers/components/form/markdown-input';
 
-export default RouteTemplate<{
+interface ComponentsFormMarkdownInputSignature {
   Args: {
     controller: ComponentsFormMarkdownInputController;
   };
-}>(
+}
+
   <template>
     {{pageTitle "Markdown input"}}
     {{breadcrumb "Markdown input" route="components.form.markdown-input"}}
@@ -44,5 +45,4 @@ export default RouteTemplate<{
       />
       {{! END-SNIPPET }}
     </Snippet>
-  </template>,
-);
+  </template> satisfies TOC<ComponentsFormMarkdownInputSignature>;

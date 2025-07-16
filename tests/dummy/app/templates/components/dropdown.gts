@@ -1,4 +1,4 @@
-import RouteTemplate from 'ember-route-template';
+import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../components/snippet';
 import { on } from '@ember/modifier';
 import {
@@ -19,11 +19,12 @@ import {
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default RouteTemplate<{
+interface ComponentsDropdownSignature {
   Args: {
     controller: ComponentsDropdownController;
   };
-}>(
+}
+
   <template>
     {{pageTitle "Dropdown"}}
     {{breadcrumb "Dropdown" route="components.dropdown"}}
@@ -72,5 +73,4 @@ export default RouteTemplate<{
       </Dropdown>
       {{! END-SNIPPET }}
     </Snippet>
-  </template>,
-);
+  </template> satisfies TOC<ComponentsDropdownSignature>;
