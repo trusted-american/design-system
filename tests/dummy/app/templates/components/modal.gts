@@ -2,7 +2,12 @@ import type { TOC } from '@ember/component/template-only';
 import Snippet from '../../components/snippet';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { Button, Heading, Modal } from '@trusted-american/design-system';
+import {
+  Button,
+  FormPowerSelect,
+  Heading,
+  Modal,
+} from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
@@ -34,8 +39,46 @@ interface ComponentsModalSignature {
         @onClose={{@controller.close}}
         as |onClose|
       >
-        <p>Body</p>
-        <Button @label="Close" {{on "click" onClose}} />
+        <p>
+          Lorem Ipsum Generator 5 Paragraphs Copy Lorem ipsum dolor sit amet
+          consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+          pellentesque sem placerat. In id cursus mi pretium tellus duis
+          convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
+          fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
+          malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
+          aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos
+          himenaeos.
+        </p>
+
+        <p><Button @label="Close" {{on "click" onClose}} /></p>
+
+        <FormPowerSelect
+          @options={{@controller.options}}
+          @selected={{@controller.selected}}
+          @searchField="name"
+          @label="Label"
+          @identifier="identifier"
+          @requiredLabel="Required"
+          {{! TODO: ellipsis }}
+          @chooseLabel="Choose..."
+          @searchLabel="Search..."
+          @onChange={{fn (mut @controller.selected)}}
+          class="mb-3"
+          as |user|
+        >
+          {{user.name}}
+        </FormPowerSelect>
+
+        <p>
+          Lorem Ipsum Generator 5 Paragraphs Copy Lorem ipsum dolor sit amet
+          consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+          pellentesque sem placerat. In id cursus mi pretium tellus duis
+          convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
+          fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
+          malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
+          aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos
+          himenaeos.
+        </p>
       </Modal>
     {{/if}}
     {{! END-SNIPPET }}

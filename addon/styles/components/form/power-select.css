@@ -51,6 +51,7 @@
 .ember-power-select-dropdown {
   background-color: var(--bs-body-bg);
   border: var(--bs-border-width) solid var(--bs-border-color) !important;
+  z-index: 1055;
 }
 
 .ember-power-select-search {

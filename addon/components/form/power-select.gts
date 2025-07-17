@@ -63,7 +63,6 @@ export default class FormPowerSelect<T> extends Component<
         @selected={{@selected}}
         @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
-        @renderInPlace={{true}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
         @searchPlaceholder={{@searchLabel}}
@@ -87,7 +86,6 @@ export default class FormPowerSelect<T> extends Component<
         @selected={{@selected}}
         @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
-        @renderInPlace={{true}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
         @searchPlaceholder={{@searchLabel}}

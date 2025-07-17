@@ -31,6 +31,7 @@ import {
   faScrewdriverWrench,
   faTableList,
 } from '@fortawesome/free-solid-svg-icons';
+import BasicDropdownWormhole from 'ember-basic-dropdown/components/basic-dropdown-wormhole';
 
 interface ApplicationSignature {
   Args: {
@@ -190,4 +191,6 @@ interface ApplicationSignature {
       </main.footer>
     </Main>
   </Frame>
+
+  <BasicDropdownWormhole />
 </template> satisfies TOC<ApplicationSignature>;

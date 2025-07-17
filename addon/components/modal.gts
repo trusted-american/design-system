@@ -31,7 +31,7 @@ export default class Modal extends Component<ModalSignature> {
     this.modal = new BootstrapModal(element, {
       backdrop: this.args.isStatic ? 'static' : true,
       keyboard: this.args.isKeyboard ?? true,
-      focus: this.args.isFocus ?? true,
+      focus: this.args.isFocus ?? false,
     });
 
     element.addEventListener('shown.bs.modal', () => {
