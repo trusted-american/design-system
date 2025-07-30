@@ -20,6 +20,13 @@ export default class Flyout extends Component<FlyoutSignature> {
   offcanvas?: Offcanvas;
 
   setup = modifier((element) => {
+    // TODO: fixes issue where offcanvas traps focus preventing selecting of power select search
+    // @ts-expect-error private member
+    Offcanvas.prototype._initializeFocusTrap = () => {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      return { activate: () => {}, deactivate: () => {} };
+    };
+
     this.offcanvas = new Offcanvas(element);
     this.offcanvas.show();
 
@@ -41,7 +48,7 @@ export default class Flyout extends Component<FlyoutSignature> {
     <div
       class="offcanvas offcanvas-end"
       tabindex="-1"
-      data-test-Flyout
+      data-test-flyout
       {{this.setup}}
       ...attributes
     >
