@@ -1,7 +1,7 @@
 import Icon from './icon';
 import CloseButton from './close-button';
 import { on } from '@ember/modifier';
-import { and } from 'ember-truth-helpers';
+import { and, eq } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -31,21 +31,39 @@ export interface AlertSignature {
 
 const Alert: TOC<AlertSignature> = <template>
   <div
-    class="alert alert-{{if @color @color 'secondary'}}
-      {{if @onClose 'alert-dismissible'}}
-      d-flex gap-3"
+    class="flex items-center p-4 mb-4 text-sm border rounded-lg
+      {{if
+        (eq 'primary' @color)
+        'text-blue-800 bg-blue-50 border-blue-300'
+        (if
+          (eq 'success' @color)
+          'text-green-800 bg-green-50 border-green-300'
+          (if
+            (eq 'danger' @color)
+            'text-red-800 bg-red-50 border-red-300'
+            (if
+              (eq 'warning' @color)
+              'text-yellow-800 bg-yellow-50 border-yellow-300'
+              (if
+                (eq 'info' @color)
+                'text-sky-800 bg-sky-50 border-sky-300'
+                'text-gray-800 bg-gray-50 border-gray-300'
+              )
+            )
+          )
+        )
+      }}
+      {{if @onClose 'alert-dismissible'}}"
     role="alert"
     data-test-alert
     ...attributes
   >
     {{#if @icon}}
-      <div>
-        <Icon @icon={{@icon}} />
-      </div>
+      <Icon @icon={{@icon}} class="shrink-0 inline w-4 h-4 me-3" />
     {{/if}}
     <div>
       {{#if (has-block "title")}}
-        <h6 class="alert-heading">{{yield to="title"}}</h6>
+        <h6>{{yield to="title"}}</h6>
       {{/if}}
       {{yield}}
     </div>
