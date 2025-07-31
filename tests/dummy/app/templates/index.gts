@@ -23,7 +23,7 @@ import { pageTitle } from 'ember-page-title';
     <div class="columns-3 g-4 py-5">
       <div class="col flex items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#toggles2"
@@ -39,7 +39,7 @@ import { pageTitle } from 'ember-page-title';
       </div>
       <div class="col flex items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#cpu-fill"
@@ -55,7 +55,7 @@ import { pageTitle } from 'ember-page-title';
       </div>
       <div class="col flex items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#tools"

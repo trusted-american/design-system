@@ -253,7 +253,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       value="{{@value}}"
       type="text"
       required={{@isRequired}}
-      class="d-none"
+      class="hidden"
       aria-label={{@label}}
     />
 

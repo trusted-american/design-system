@@ -13,28 +13,13 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
   <Snippet @name="stat-card.gts">
     {{! BEGIN-SNIPPET stat-card }}
     <div class="columns-5">
-      <div class="col">
-        <StatCard @label="Key 1" @value="0" />
-      </div>
-      <div class="col">
-        <StatCard @label="Key 2" @value="12" />
-      </div>
-      <div class="col">
-        <StatCard @label="Key 3" @value="123" />
-      </div>
-      <div class="col">
-        <StatCard
-          @label="Key 4"
-          @value="1,234"
-          @icon={{faUser}}
-          @route="index"
-        />
-      </div>
-      <div class="col">
-        <StatCard @label="Key 5" @icon={{faUser}} @route="index">
-          Block
-        </StatCard>
-      </div>
+      <StatCard @label="Key 1" @value="0" />
+      <StatCard @label="Key 2" @value="12" />
+      <StatCard @label="Key 3" @value="123" />
+      <StatCard @label="Key 4" @value="1,234" @icon={{faUser}} @route="index" />
+      <StatCard @label="Key 5" @icon={{faUser}} @route="index">
+        Block
+      </StatCard>
     </div>
     {{! END-SNIPPET }}
   </Snippet>

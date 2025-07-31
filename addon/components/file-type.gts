@@ -23,7 +23,7 @@ export interface FileTypeSignature {
 }
 
 const FileType: TOC<FileTypeSignature> = <template>
-  <div class="d-inline" data-test-file-type ...attributes>
+  <div class="inline" data-test-file-type ...attributes>
     {{#if (eq "image" (fileType @name))}}
       <Icon
         @icon={{faFileImage}}

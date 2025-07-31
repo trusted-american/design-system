@@ -21,7 +21,7 @@ const Internal: TOC<{
   {{/if}}
   {{#if @label}}{{@label}}{{/if}}
   {{yield}}
-  <div class="d-inline float-end">
+  <div class="inline float-end">
     {{#if @count}}
       <Badge @label="{{@count}}" @isPill={{true}} class="ms-2" />
     {{/if}}

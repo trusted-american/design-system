@@ -58,6 +58,7 @@ const Link: TOC<LinkSignature> = <template>
       @route={{@route}}
       @model={{@model}}
       @query={{@query}}
+      class="text-blue-500 underline"
       data-test-link
       ...attributes
     ><Internal
@@ -70,6 +71,7 @@ const Link: TOC<LinkSignature> = <template>
     <LinkTo
       @route={{@route}}
       @query={{@query}}
+      class="text-blue-500 underline"
       data-test-link
       ...attributes
     ><Internal
@@ -82,6 +84,7 @@ const Link: TOC<LinkSignature> = <template>
     <LinkTo
       @route={{@route}}
       @model={{@model}}
+      class="text-blue-500 underline"
       data-test-link
       ...attributes
     ><Internal
@@ -91,21 +94,36 @@ const Link: TOC<LinkSignature> = <template>
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
   {{else if @route}}
-    <LinkTo @route={{@route}} data-test-link ...attributes><Internal
+    <LinkTo
+      @route={{@route}}
+      class="text-blue-500 underline"
+      data-test-link
+      ...attributes
+    ><Internal
         @label={{@label}}
         @icon={{@icon}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
   {{else if @model}}
-    <LinkTo @model={{@model}} data-test-link ...attributes><Internal
+    <LinkTo
+      @model={{@model}}
+      class="text-blue-500 underline"
+      data-test-link
+      ...attributes
+    ><Internal
         @label={{@label}}
         @icon={{@icon}}
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></LinkTo>
   {{else if @query}}
-    <LinkTo @query={{@query}} data-test-link ...attributes><Internal
+    <LinkTo
+      @query={{@query}}
+      class="text-blue-500 underline"
+      data-test-link
+      ...attributes
+    ><Internal
         @label={{@label}}
         @icon={{@icon}}
         @isIconTrailing={{@isIconTrailing}}
@@ -116,6 +134,7 @@ const Link: TOC<LinkSignature> = <template>
       href={{@href}}
       target={{unless @isLocalHref "_blank"}}
       rel={{unless @isLocalHref "noopener noreferrer"}}
+      class="text-blue-500 underline"
       data-test-link
       ...attributes
     ><Internal

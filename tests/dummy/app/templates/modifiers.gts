@@ -31,11 +31,13 @@ interface ModifiersSignature {
 
     <Subheading @title="Collapse" />
 
-    <p><Link
+    <p class="mb-4">
+      <Link
         @route="components.collapse"
         @icon={{faArrowRight}}
         @isIconTrailing={{true}}
-      >See collapse component</Link></p>
+      >See collapse component</Link>
+    </p>
 
     <Subheading @title="Dropdown" />
 
