@@ -36,7 +36,7 @@ const Aside: TOC<AsideSignature> = <template>
           @route={{@route}}
           class="flex items-center text-reset text-decoration-none flex-grow"
         >
-          <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-2" />
+          <img src={{@logo}} alt={{@title}} class="tds-aside-logo h-8 me-2" />
           <h5 class="text-xl">{{@title}}</h5>
         </LinkTo>
         <Button

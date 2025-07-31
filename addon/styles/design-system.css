@@ -19,8 +19,6 @@ h1,
 
 /* components */
 
-/* form/file-dropzone */
-
 /* form/html-input */
 
 .form-html-input .tiptap {
@@ -71,10 +69,6 @@ aside .nav-link:hover {
   background-color: var(--bs-secondary-bg);
 }
 
-aside .tds-aside-logo {
-  height: 2rem;
-}
-
 [data-bs-theme="dark"] aside .tds-aside-logo {
   filter: invert(1);
 }
@@ -97,16 +91,6 @@ aside .tds-aside-logo {
   --fc-button-hover-border-color: var(--bs-gray-500);
   --fc-button-active-bg-color: var(--bs-gray-500);
   --fc-button-active-border-color: var(--bs-gray-500);
-}
-
-/* copy */
-
-.tds-copy {
-  padding: 0;
-  background: none;
-  color: var(--bs-body-color);
-  border: none;
-  text-align: inherit;
 }
 
 /* dropdown */
