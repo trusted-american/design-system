@@ -14,6 +14,7 @@ module.exports = function (defaults) {
 
     postcssOptions: {
       compile: {
+        cacheInclude: [/.*\.(css|scss|hbs|gts)$/, /.tailwind\.config\.js$/],
         plugins: [tailwind, autoprefixer],
       },
     },
