@@ -20,8 +20,6 @@ module.exports = function (defaults) {
     },
   });
 
-  // app.import('node_modules/bootstrap/dist/css/bootstrap.css');
-
   /*
     This build file specifies the options for the dummy test app of this
     addon, located in `/tests/dummy`
