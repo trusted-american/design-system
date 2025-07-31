@@ -3,7 +3,7 @@ import Icon from './icon';
 import Link, { type LinkArgs } from './link';
 import Spinner from './spinner';
 import { concat } from '@ember/helper';
-import { and, not, or } from 'ember-truth-helpers';
+import { and, eq, not, or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -71,7 +71,28 @@ const Button: TOC<ButtonSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="btn
+      class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
+        {{if
+          (eq 'primary' @color)
+          'bg-blue-700 hover:bg-blue-800 focus:ring-blue-300'
+          (if
+            (eq 'success' @color)
+            'bg-green-700 hover:bg-green-800 focus:ring-green-300'
+            (if
+              (eq 'danger' @color)
+              'bg-red-700 hover:bg-red-800 focus:ring-red-300'
+              (if
+                (eq 'warning' @color)
+                'text-yellow-800 bg-yellow-50 border-yellow-300'
+                (if
+                  (eq 'info' @color)
+                  'text-sky-800 bg-sky-50 border-sky-300'
+                  'text-gray-800 bg-gray-50 border-gray-300'
+                )
+              )
+            )
+          )
+        }}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
         {{if @isFullWidth 'w-100'}}
@@ -93,7 +114,28 @@ const Button: TOC<ButtonSignature> = <template>
     </Link>
   {{else if @isLabel}}
     <label
-      class="btn
+      class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
+        {{if
+          (eq 'primary' @color)
+          'bg-blue-700 hover:bg-blue-800 focus:ring-blue-300'
+          (if
+            (eq 'success' @color)
+            'bg-green-700 hover:bg-green-800 focus:ring-green-300'
+            (if
+              (eq 'danger' @color)
+              'bg-red-700 hover:bg-red-800 focus:ring-red-300'
+              (if
+                (eq 'warning' @color)
+                'text-yellow-800 bg-yellow-50 border-yellow-300'
+                (if
+                  (eq 'info' @color)
+                  'text-sky-800 bg-sky-50 border-sky-300'
+                  'text-gray-800 bg-gray-50 border-gray-300'
+                )
+              )
+            )
+          )
+        }}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
         {{if @isFullWidth 'w-100'}}
@@ -116,7 +158,27 @@ const Button: TOC<ButtonSignature> = <template>
   {{else}}
     <button
       type={{if @type @type "button"}}
-      class="btn
+      class="{{if
+          (eq 'primary' @color)
+          'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
+          (if
+            (eq 'success' @color)
+            'focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800'
+            (if
+              (eq 'danger' @color)
+              'focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'
+              (if
+                (eq 'warning' @color)
+                'focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900'
+                (if
+                  (eq 'info' @color)
+                  ''
+                  'py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100'
+                )
+              )
+            )
+          )
+        }}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
         {{if @isFullWidth 'w-100'}}

@@ -31,7 +31,7 @@ const PropertyList: TOC<PropertyListSignature> = <template>
         {{@title}}
       </p>
     {{/if}}
-    <dl class="row {{if @isHorizontal 'gx-5'}} mb-0">
+    <dl class="flex flex-wrap {{if @isHorizontal 'gx-5'}} mb-0">
       {{yield
         (hash
           item=(component

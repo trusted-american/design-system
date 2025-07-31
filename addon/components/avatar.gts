@@ -31,7 +31,7 @@ const Avatar: TOC<AvatarSignature> = <template>
   <img
     src={{or @url (generateIdenticon @id)}}
     alt={{@alt}}
-    class="rounded-circle"
+    class="rounded-full"
     style={{htmlSafe
       (concat
         "object-fit: cover; width: "

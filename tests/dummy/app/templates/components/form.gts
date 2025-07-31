@@ -11,7 +11,7 @@ import { pageTitle } from 'ember-page-title';
     @subtitle="Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms."
   />
 
-  <div class="row g-4">
+  <div class="flex flex-wrap g-4">
     <div class="col-12 col-md-3">
       <Nav @isPills={{true}} @isVertical={{true}} as |nav|>
         <nav.item @route="components.form.check" @label="Check" />

@@ -8,7 +8,7 @@ export interface CardFooterSignature {
 }
 
 const CardFooter: TOC<CardFooterSignature> = <template>
-  <div class="card-footer" ...attributes>
+  <div class="px-4 py-2 bg-gray-100 border-top" ...attributes>
     {{yield}}
   </div>
 </template>;

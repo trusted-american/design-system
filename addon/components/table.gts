@@ -197,7 +197,7 @@ export default class Table<T> extends Component<TableSignature<T>> {
           @onPrevious
         )
       }}
-        <div class="d-flex justify-content-end mt-3 mb-0">
+        <div class="flex justify-content-end mt-3 mb-0">
           <Pagination
             @canNext={{@canNext}}
             @canPrevious={{@canPrevious}}

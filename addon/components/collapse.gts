@@ -12,7 +12,7 @@ export interface CollapseSignature {
 
 const Collapse: TOC<CollapseSignature> = <template>
   <div
-    class="collapse {{if @isHorizontal 'collapse-horizontal'}}"
+    {{!-- class="collapse {{if @isHorizontal 'collapse-horizontal'}}" --}}
     data-test-collapse
     ...attributes
   >

@@ -20,10 +20,10 @@ import { pageTitle } from 'ember-page-title';
       </div>
     </div>
 
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="col d-flex align-items-start">
+    <div class="flex flex-wrap g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col flex align-items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light d-inline-flex items-center justify-content-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#toggles2"
@@ -37,9 +37,9 @@ import { pageTitle } from 'ember-page-title';
           <Button @label="Explore" @color="primary" @route="components" />
         </div>
       </div>
-      <div class="col d-flex align-items-start">
+      <div class="col flex align-items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light d-inline-flex items-center justify-content-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#cpu-fill"
@@ -53,9 +53,9 @@ import { pageTitle } from 'ember-page-title';
           <Button @label="Explore" @color="primary" @route="components" />
         </div>
       </div>
-      <div class="col d-flex align-items-start">
+      <div class="col flex align-items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light d-inline-flex items-center justify-content-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#tools"

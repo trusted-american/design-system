@@ -8,7 +8,7 @@ export interface CardBodySignature {
 }
 
 const CardBody: TOC<CardBodySignature> = <template>
-  <div class="card-body" ...attributes>
+  <div class="p-4" ...attributes>
     {{yield}}
   </div>
 </template>;

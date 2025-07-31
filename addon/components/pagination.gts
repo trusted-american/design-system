@@ -135,10 +135,7 @@ export default class Pagination extends Component<PaginationSignature> {
   }
 
   <template>
-    <div
-      class="d-flex justify-content-between align-items-center gap-2"
-      ...attributes
-    >
+    <div class="flex justify-between items-center gap-2" ...attributes>
       {{#if @onChange}}
         <span>
           {{@viewingLabel}}

@@ -294,7 +294,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
         <ListGroup @isFlush={{true}} as |listGroup|>
 
           <listGroup.item class="bg-body-tertiary px-2">
-            <ButtonSet class="justify-content-between" as |buttonSet|>
+            <ButtonSet class="justify-between" as |buttonSet|>
               <buttonSet.button
                 @label={{@clearLabel}}
                 data-test-clear
@@ -350,7 +350,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                     data-test-mode
                   />
 
-                  <div class="d-flex align-items-center gap-2">
+                  <div class="flex items-center gap-2">
                     {{#if (eq "inTheLast" predicate.mode)}}
                       <FormNumberInput
                         @value={{predicate.offsetCount}}

@@ -9,7 +9,7 @@ export interface MainTopHeaderSignature {
 
 const MainTopHeader: TOC<MainTopHeaderSignature> = <template>
   <header
-    class="container-fluid position-relative border-bottom py-3"
+    class="container px-4 position-relative border-bottom py-3"
     data-test-main-top-header
     ...attributes
   >

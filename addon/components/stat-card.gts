@@ -26,9 +26,9 @@ const StatCard: TOC<StatCardSignature> = <template>
     as |card|
   >
     <card.body>
-      <div class="d-flex gap-2">
-        <div class="flex-grow-1">
-          <p class="card-title fw-semibold text-uppercase text-secondary">
+      <div class="flex gap-2">
+        <div class="flex-grow">
+          <p class="card-title font-semibold text-uppercase text-gray-500">
             {{@label}}
           </p>
           <h1 class="mb-0">

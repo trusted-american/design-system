@@ -27,7 +27,7 @@ const Internal: TOC<{
     {{/if}}
   </div>
   {{#if @shortcut}}
-    <span class="text-secondary ms-auto">{{@shortcut}}</span>
+    <span class="text-gray-500 ms-auto">{{@shortcut}}</span>
   {{/if}}
 </template>;
 
@@ -55,7 +55,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="dropdown-item d-flex align-items-center gap-2
+      class="dropdown-item flex items-center gap-2
         {{if @color (concat 'text-' @color)}}"
       ...attributes
     >
@@ -69,7 +69,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
   {{else}}
     <button
       type="button"
-      class="dropdown-item d-flex align-items-center gap-2
+      class="dropdown-item flex items-center gap-2
         {{if @color (concat 'text-' @color)}}"
       ...attributes
     >

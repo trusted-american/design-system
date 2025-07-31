@@ -54,13 +54,13 @@ export default class Toast extends Component<ToastSignature> {
     >
       {{#if (has-block "title")}}
         <div class="toast-header">
-          <span class="fw-semibold">
+          <span class="font-semibold">
             {{yield to="title"}}
           </span>
         </div>
       {{/if}}
-      <div class="d-flex align-items-center">
-        <div class="toast-body flex-grow-1">
+      <div class="flex items-center">
+        <div class="toast-body flex-grow">
           {{yield to="body"}}
           {{#if (has-block "buttons")}}
             <div class="mt-2 pt-2 border-top">

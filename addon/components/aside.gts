@@ -28,13 +28,13 @@ export interface AsideSignature {
 const Aside: TOC<AsideSignature> = <template>
   {{#unless @isCollapsed}}
     <aside
-      class="d-flex flex-column flex-shrink-0 overflow-y-auto border-end gap-3 py-3 ps-3"
+      class="flex flex-col flex-shrink-0 overflow-y-auto border-end gap-3 py-3 ps-3"
       data-test-aside
     >
-      <div class="d-flex gap-3 pe-3">
+      <div class="flex gap-3 pe-3">
         <LinkTo
           @route={{@route}}
-          class="d-flex align-items-center text-reset text-decoration-none flex-grow-1"
+          class="flex items-center text-reset text-decoration-none flex-grow"
         >
           <img src={{@logo}} alt={{@title}} class="tds-aside-logo me-2" />
           <h5 class="tds-aside-title mb-0">{{@title}}</h5>
@@ -55,7 +55,7 @@ const Aside: TOC<AsideSignature> = <template>
         </div>
       {{/if}}
 
-      <div class="flex-grow-1 overflow-y-auto pe-3">
+      <div class="flex-grow overflow-y-auto pe-3">
         <Nav @isPills={{true}} @isVertical={{true}} aria-label="Main nav">
           {{yield (hash item=AsideItem)}}
         </Nav>

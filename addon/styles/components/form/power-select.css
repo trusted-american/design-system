@@ -94,7 +94,7 @@
   background-color: var(--bs-primary);
 }
 
-.ember-power-select-option[aria-selected="true"] .text-secondary {
+.ember-power-select-option[aria-selected="true"] .text-gray-500 {
   color: var(--bs-white) !important;
 }
 

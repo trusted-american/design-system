@@ -8,7 +8,7 @@ export interface AsideTitleSignature {
 }
 
 const AsideTitle: TOC<AsideTitleSignature> = <template>
-  <div class="text-secondary fw-semibold small mt-3 ps-2 pb-2" ...attributes>
+  <div class="text-gray-500 font-semibold small mt-3 ps-2 pb-2" ...attributes>
     {{@label}}
   </div>
 </template>;

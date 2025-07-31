@@ -18,11 +18,11 @@ export interface NavSignature {
 const Nav: TOC<NavSignature> = <template>
   {{#if @isStatic}}
     <nav
-      class="nav flex-nowrap
+      class="flex flex-nowrap
         {{unless @isPills 'nav-tabs'}}
         {{if @isPills 'nav-pills'}}
         {{if @isFill 'nav-fill'}}
-        {{if @isVertical 'flex-column'}}"
+        {{if @isVertical 'flex-col'}}"
       data-test-nav
       ...attributes
     >
@@ -32,11 +32,11 @@ const Nav: TOC<NavSignature> = <template>
     <div class="overflow-x-auto" ...attributes>
       {{! template-lint-disable no-duplicate-landmark-elements }}
       <nav
-        class="nav flex-nowrap
+        class="flex flex-nowrap
           {{unless @isPills 'nav-tabs'}}
           {{if @isPills 'nav-pills'}}
           {{if @isFill 'nav-fill'}}
-          {{if @isVertical 'flex-column'}}"
+          {{if @isVertical 'flex-col'}}"
         data-test-nav
       >
         {{yield (hash item=NavItem)}}

@@ -9,7 +9,7 @@ export interface MainHeaderSignature {
 
 const MainHeader: TOC<MainHeaderSignature> = <template>
   <header
-    class="container-fluid bg-body-tertiary pt-4"
+    class="container px-4 bg-body-tertiary pt-4"
     data-test-main-header
     ...attributes
   >

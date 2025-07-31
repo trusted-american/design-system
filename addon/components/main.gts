@@ -19,7 +19,7 @@ export interface MainSignature {
 
 const Main: TOC<MainSignature> = <template>
   <main
-    class="d-flex flex-column flex-grow-1 bg-body overflow-y-auto"
+    class="flex flex-col flex-grow bg-body overflow-y-auto"
     data-test-main
     ...attributes
   >
