@@ -45,7 +45,7 @@ export default class FormRadioCard<T> extends Component<
       {{#each @options as |option index|}}
         <div class="col">
 
-          <label class="w-100">
+          <label class="w-full">
             <Card class="text-center" as |card|>
               {{#if option.imgUrl}}
                 <img

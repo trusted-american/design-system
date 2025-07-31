@@ -95,7 +95,7 @@ const Button: TOC<ButtonSignature> = <template>
         }}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
+        {{if @isFullWidth 'w-full'}}
         text-nowrap"
       role="button"
       data-test-button
@@ -138,7 +138,7 @@ const Button: TOC<ButtonSignature> = <template>
         }}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
+        {{if @isFullWidth 'w-full'}}
         text-nowrap"
       data-test-button
       ...attributes
@@ -181,7 +181,7 @@ const Button: TOC<ButtonSignature> = <template>
         }}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
+        {{if @isFullWidth 'w-full'}}
         text-nowrap"
       disabled={{if @isLoading true}}
       aria-label={{if @isIconOnly @label}}

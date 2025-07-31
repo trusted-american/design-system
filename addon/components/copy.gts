@@ -39,7 +39,7 @@ const Copy: TOC<CopySignature> = <template>
     @delegateClickEvent={{@delegateClickEvent}} --}}
     class="tds-copy
       {{if @isButton 'btn btn-secondary'}}
-      {{if @isFullWidth 'w-100'}}"
+      {{if @isFullWidth 'w-full'}}"
     data-test-copy
     {{on "click" (fn copy @value @onSuccess @onError)}}
     ...attributes

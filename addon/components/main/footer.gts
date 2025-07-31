@@ -9,7 +9,7 @@ export interface MainFooterSignature {
 
 const MainFooter: TOC<MainFooterSignature> = <template>
   <footer
-    class="container text-center text-gray-500 border-top p-4"
+    class="container text-center text-gray-500 border-t p-6"
     data-test-main-footer
     ...attributes
   >

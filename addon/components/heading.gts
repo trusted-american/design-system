@@ -14,7 +14,7 @@ export interface HeadingSignature {
 }
 
 const Heading: TOC<HeadingSignature> = <template>
-  <div class="mb-4" data-test-heading ...attributes>
+  <div class="mb-6" data-test-heading ...attributes>
     {{#if @type}}
       <div class="flex justify-between items-end text-gray-500 mb-2">
         <span class="uppercase">

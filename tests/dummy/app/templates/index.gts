@@ -7,7 +7,7 @@ import { pageTitle } from 'ember-page-title';
   {{breadcrumb "Home" route="index"}}
 
   <MainBody>
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="p-5 mb-6 bg-body-tertiary rounded-3">
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">Design System</h1>
         <p class="col-md-8 fs-4">Components for building robust user interfaces.</p>
@@ -21,9 +21,9 @@ import { pageTitle } from 'ember-page-title';
     </div>
 
     <div class="flex flex-wrap g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="col flex align-items-start">
+      <div class="col flex items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex items-center justify-content-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light d-inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#toggles2"
@@ -37,9 +37,9 @@ import { pageTitle } from 'ember-page-title';
           <Button @label="Explore" @color="primary" @route="components" />
         </div>
       </div>
-      <div class="col flex align-items-start">
+      <div class="col flex items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex items-center justify-content-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light d-inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#cpu-fill"
@@ -53,9 +53,9 @@ import { pageTitle } from 'ember-page-title';
           <Button @label="Explore" @color="primary" @route="components" />
         </div>
       </div>
-      <div class="col flex align-items-start">
+      <div class="col flex items-start">
         <div
-          class="icon-square text-bg-light d-inline-flex items-center justify-content-center fs-4 flex-shrink-0 me-3"
+          class="icon-square text-bg-light d-inline-flex items-center justify-center fs-4 flex-shrink-0 me-3"
         >
           <svg class="bi" width="1em" height="1em"><use
               xlink:href="#tools"

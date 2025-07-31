@@ -20,7 +20,7 @@ export interface StatCardSignature {
 
 const StatCard: TOC<StatCardSignature> = <template>
   <Card
-    class="bg-body-tertiary mb-4"
+    class="bg-body-tertiary mb-6"
     data-test-stat-card
     ...attributes
     as |card|
