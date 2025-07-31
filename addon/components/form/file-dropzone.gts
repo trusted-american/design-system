@@ -31,17 +31,17 @@ export default class FormFileDropzone extends Component<FormFileDropzoneSignatur
     {{#let (fileQueue name=this.id onFileAdded=this.create) as |queue|}}
       <FileDropzone
         @queue={{queue}}
-        class="form-file-dropzone"
+        class="text-center text-gray-500 bg-gray-100 rounded-lg border border-dashed p-6"
         ...attributes
         as |dropzone|
       >
         {{#if dropzone.active}}
-          <h5 class="text-success"><Icon @icon={{faCloudArrowUp}} /></h5>
-          <h5 class="text-success">{{@activeTitleLabel}}</h5>
+          <h5 class="text-green-500"><Icon @icon={{faCloudArrowUp}} /></h5>
+          <h5 class="text-green-500">{{@activeTitleLabel}}</h5>
         {{else}}
           <h5><Icon @icon={{faCloudArrowUp}} /></h5>
           <h5>{{@titleLabel}}</h5>
-          <label class="text-reset">
+          <label class="cursor-pointer">
             {{@subtitleLabel}}
             <input
               type="file"

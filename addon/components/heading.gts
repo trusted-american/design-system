@@ -28,7 +28,7 @@ const Heading: TOC<HeadingSignature> = <template>
       </div>
     {{/if}}
 
-    <div class="flex justify-between items-start gap-3">
+    <div class="flex justify-between items-start gap-4">
       <div>
         <h1 class="text-4xl font-bold">
           {{@title}}

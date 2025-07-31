@@ -155,7 +155,7 @@ interface ApplicationSignature {
     </Aside>
     <Main as |main|>
       <main.topHeader>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-4">
           {{#if @controller.isCollapsed}}
             <Button
               @label="Expand menu"

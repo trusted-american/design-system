@@ -27,7 +27,7 @@ export interface PropertyListSignature {
 const PropertyList: TOC<PropertyListSignature> = <template>
   <div data-test-property-list ...attributes>
     {{#if @title}}
-      <p class="text-uppercase">
+      <p class="uppercase">
         {{@title}}
       </p>
     {{/if}}

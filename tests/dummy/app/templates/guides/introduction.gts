@@ -9,22 +9,22 @@ import { CodeBlock } from 'ember-shiki';
 
   <Heading @title="Introduction" />
 
-  <p>First install the addon:</p>
+  <p class="mb-4">First install the addon:</p>
 
-  <p>
+  <p class="mb-4">
     <CodeBlock @code="ember install @trusted-american/design-system" />
   </p>
 
-  <p>Then include Bootstrap's CSS in <code>ember-cli-build.js</code>:</p>
+  <p class="mb-4">Then include Bootstrap's CSS in
+    <code>ember-cli-build.js</code>:</p>
 
-  <p>
-    <CodeBlock
-      @language="js"
-      @code="app.import('node_modules/bootstrap/dist/css/bootstrap.css');"
-    />
-  </p>
+  <CodeBlock
+    @language="js"
+    @code="app.import('node_modules/bootstrap/dist/css/bootstrap.css');"
+    class="mb-4"
+  />
 
-  <p>Finally, add the base components to
+  <p class="mb-4">Finally, add the base components to
     <code>app/templates/application.gts</code>:</p>
 
   <CodeBlock

@@ -12,7 +12,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
   <Snippet @name="stat-card.gts">
     {{! BEGIN-SNIPPET stat-card }}
-    <div class="row">
+    <div class="columns-5">
       <div class="col">
         <StatCard @label="Key 1" @value="0" />
       </div>

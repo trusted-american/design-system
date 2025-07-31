@@ -58,7 +58,7 @@
   padding: 0.5rem;
   line-height: 1.5;
   background-color: var(--bs-tertiary-bg);
-  border-bottom: var(--bs-border-width) solid var(--bs-border-color);
+  border-b: var(--bs-border-width) solid var(--bs-border-color);
 }
 
 .ember-power-select-search-input {

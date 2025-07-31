@@ -33,7 +33,7 @@ const hasNext = <T,>(currentValue: T, array: T[]) => {
 
 const BreadcrumbTrail = <template>
   <nav aria-label="Breadcrumb" data-test-breadcrumb-trail>
-    <ol class="breadcrumb">
+    <ol class="flex">
       {{#each (breadcrumbs) as |breadcrumb|}}
         {{#if (hasNext breadcrumb (breadcrumbs))}}
           <li class="breadcrumb-item" data-test-breadcrumb-trail-item>

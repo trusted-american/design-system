@@ -27,7 +27,7 @@ interface ComponentsListFilterSignature {
 
   <Button
     @label="Update"
-    class="mb-3"
+    class="mb-4"
     {{on "click" (fn (mut @controller.status) "inactive")}}
   />
 

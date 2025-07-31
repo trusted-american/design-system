@@ -28,10 +28,10 @@ export interface AsideSignature {
 const Aside: TOC<AsideSignature> = <template>
   {{#unless @isCollapsed}}
     <aside
-      class="flex flex-col flex-shrink-0 overflow-y-auto border-r gap-3 py-4 ps-4"
+      class="flex flex-col flex-shrink-0 overflow-y-auto border-r gap-4 py-4 ps-4"
       data-test-aside
     >
-      <div class="flex gap-3 pe-3">
+      <div class="flex gap-4 pe-3">
         <LinkTo
           @route={{@route}}
           class="flex items-center text-reset text-decoration-none flex-grow"

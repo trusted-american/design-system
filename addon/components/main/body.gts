@@ -12,7 +12,7 @@ export interface MainBodySignature {
 
 const MainBody: TOC<MainBodySignature> = <template>
   <article
-    class="container px-6 flex-grow py-4{{if
+    class="px-6 flex-grow py-6{{if
         @isCentered
         ' flex justify-center items-center'
       }}"

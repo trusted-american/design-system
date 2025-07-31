@@ -8,7 +8,7 @@ export interface CardHeaderSignature {
 }
 
 const CardHeader: TOC<CardHeaderSignature> = <template>
-  <div class="px-4 py-2 bg-gray-100 border-bottom" ...attributes>
+  <div class="px-4 py-2 bg-gray-100 border-b" ...attributes>
     {{yield}}
   </div>
 </template>;

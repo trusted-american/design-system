@@ -63,7 +63,7 @@ interface ComponentsModalSignature {
           @chooseLabel="Choose..."
           @searchLabel="Search..."
           @onChange={{fn (mut @controller.selected)}}
-          class="mb-3"
+          class="mb-4"
           as |user|
         >
           {{user.name}}
