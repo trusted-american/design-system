@@ -34,7 +34,7 @@ const Aside: TOC<AsideSignature> = <template>
       <div class="flex gap-4 pe-3">
         <LinkTo
           @route={{@route}}
-          class="flex items-center text-reset text-decoration-none flex-grow"
+          class="flex items-center text-reset flex-grow"
         >
           <img src={{@logo}} alt={{@title}} class="tds-aside-logo h-8 me-2" />
           <h5 class="text-xl">{{@title}}</h5>

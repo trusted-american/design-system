@@ -55,7 +55,7 @@ const NavItem: TOC<NavItemSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="px-4 py-2 text-nowrap {{if @isDisabled 'disabled'}}"
+      class="no-underline px-4 py-2 text-nowrap {{if @isDisabled 'disabled'}}"
       data-test-nav-item
       ...attributes
     >

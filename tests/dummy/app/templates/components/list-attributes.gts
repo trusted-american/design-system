@@ -20,7 +20,7 @@ interface ComponentsListAttributesSignature {
 
   <Heading @title="List attributes" />
 
-  <p>
+  <p class="mb-4">
     Value:
     {{#each @controller.selected as |item|}}
       {{item}}

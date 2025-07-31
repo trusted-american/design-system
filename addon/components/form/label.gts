@@ -15,7 +15,7 @@ export interface FormLabelSignature {
 const FormLabel: TOC<FormLabelSignature> = <template>
   <label
     for={{@identifier}}
-    class={{if @isCheck "form-check-label" "form-label"}}
+    class={{if @isCheck "form-check-label" "inline-block mb-2"}}
     data-test-form-label
     ...attributes
   >
