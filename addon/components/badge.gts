@@ -17,7 +17,7 @@ export interface BadgeSignature {
 
 const Badge: TOC<BadgeSignature> = <template>
   <span
-    class="text-xs font-medium me-2 px-2.5 py-0.5
+    class="text-xs font-medium px-2.5 py-0.5
       {{if
         (eq 'primary' @color)
         'bg-blue-100 text-blue-800'

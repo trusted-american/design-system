@@ -22,13 +22,17 @@ const ListGroupItem: TOC<ListGroupItemSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="cursor-pointer px-4 py-2"
+      class="block cursor-pointer px-4 py-2 hover:bg-gray-100"
       ...attributes
     >
       {{yield}}
     </Link>
   {{else if @isAction}}
-    <a href="#" class="cursor-pointer px-4 py-2" ...attributes>
+    <a
+      href="#"
+      class="block cursor-pointer px-4 py-2 hover:bg-gray-100"
+      ...attributes
+    >
       {{yield}}
     </a>
   {{else}}

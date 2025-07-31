@@ -1,7 +1,6 @@
 import Link, { type LinkArgs } from '../link';
 import Icon from '../icon';
-import { concat } from '@ember/helper';
-import { or } from 'ember-truth-helpers';
+import { eq, or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -23,7 +22,7 @@ const Internal: TOC<{
     {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
     {{#if @subtitle}}
       <br />
-      <span class="small">{{@subtitle}}</span>
+      <span class="text-sm">{{@subtitle}}</span>
     {{/if}}
   </div>
   {{#if @shortcut}}
@@ -55,8 +54,24 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="dropdown-item flex items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+      class="w-full px-4 py-1 flex items-center gap-2 hover:bg-gray-100
+        {{if
+          (eq 'primary' @color)
+          'text-blue-500'
+          (if
+            (eq 'success' @color)
+            'text-green-500'
+            (if
+              (eq 'danger' @color)
+              'text-red-500'
+              (if
+                (eq 'warning' @color)
+                'text-yellow-500'
+                (if (eq 'info' @color) 'text-sky-500' '')
+              )
+            )
+          )
+        }}"
       ...attributes
     >
       <Internal
@@ -69,8 +84,24 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
   {{else}}
     <button
       type="button"
-      class="dropdown-item flex items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+      class="w-full px-4 py-1 flex items-center gap-2 hover:bg-gray-100
+        {{if
+          (eq 'primary' @color)
+          'text-blue-500'
+          (if
+            (eq 'success' @color)
+            'text-green-500'
+            (if
+              (eq 'danger' @color)
+              'text-red-500'
+              (if
+                (eq 'warning' @color)
+                'text-yellow-500'
+                (if (eq 'info' @color) 'text-sky-500' '')
+              )
+            )
+          )
+        }}"
       ...attributes
     >
       <Internal

@@ -293,7 +293,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       <form novalidate {{on "submit" this.done}}>
         <ListGroup @isFlush={{true}} as |listGroup|>
 
-          <listGroup.item class="bg-body-tertiary px-2">
+          <listGroup.item class="bg-gray-100 px-2">
             <ButtonSet class="justify-between" as |buttonSet|>
               <buttonSet.button
                 @label={{@clearLabel}}
@@ -310,7 +310,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
           </listGroup.item>
 
           {{#each this.predicates as |predicate index|}}
-            <label class="list-group-item px-2" data-test-predicate-toggle>
+            <label class="block border-b px-2 py-2" data-test-predicate-toggle>
               <FormCheckInput
                 @value={{predicate.isEnabled}}
                 @label={{predicate._predicate.label}}
@@ -326,7 +326,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
             {{#if predicate.isEnabled}}
               <listGroup.item
-                class="bg-body-tertiary px-2"
+                class="bg-gray-100 px-2"
                 data-test-predicate-value
               >
                 {{#if (eq "date" predicate._predicate.type)}}

@@ -7,10 +7,10 @@ import { pageTitle } from 'ember-page-title';
   {{breadcrumb "Home" route="index"}}
 
   <MainBody>
-    <div class="p-5 mb-6 bg-gray-100 rounded-lg">
+    <div class="p-12 mb-6 bg-gray-100 rounded-lg">
       <div class="py-5">
         <h1 class="text-4xl mb-4">Design System</h1>
-        <p class="mb-4">Components for building robust user interfaces.</p>
+        <p class="text-xl mb-4">Components for building robust user interfaces.</p>
         <Button
           @label="Get started"
           @color="primary"

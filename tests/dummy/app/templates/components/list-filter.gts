@@ -31,7 +31,7 @@ interface ComponentsListFilterSignature {
     {{on "click" (fn (mut @controller.status) "inactive")}}
   />
 
-  <ul>
+  <ul class="mb-4">
     <li>Status: {{@controller.status}}</li>
     <li>Type:
       {{#each @controller.type as |t|}}

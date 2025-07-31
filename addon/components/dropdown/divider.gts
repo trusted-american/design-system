@@ -5,7 +5,7 @@ export interface DropdownDividerSignature {
 }
 
 const DropdownDivider: TOC<DropdownDividerSignature> = <template>
-  <hr class="dropdown-divider" data-test-dropdown-divider ...attributes />
+  <hr class="my-2" data-test-dropdown-divider ...attributes />
 </template>;
 
 export default DropdownDivider;

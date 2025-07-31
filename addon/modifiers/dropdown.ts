@@ -4,6 +4,7 @@ interface DropdownSignature {
   Element: Element;
   Args: {
     Named: {
+      autoClose?: 'outside';
       onShow?: () => void;
       onHide?: () => void;
     };
