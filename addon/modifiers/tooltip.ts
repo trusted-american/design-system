@@ -5,6 +5,15 @@ interface TooltipSignature {
   Args: {
     Named: {
       placement?: 'auto' | 'top' | 'bottom' | 'left' | 'right';
+      trigger?:
+        | 'click'
+        | 'hover'
+        | 'focus'
+        | 'manual'
+        | 'click hover'
+        | 'click focus'
+        | 'hover focus'
+        | 'click hover focus';
       onShow?: () => void;
       onHide?: () => void;
     };

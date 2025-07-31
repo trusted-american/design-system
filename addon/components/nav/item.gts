@@ -48,7 +48,6 @@ export interface NavItemSignature {
 }
 
 const NavItem: TOC<NavItemSignature> = <template>
-  {{! px-4 py-2 }}
   {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
@@ -56,7 +55,7 @@ const NavItem: TOC<NavItemSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="text-nowrap {{if @isDisabled 'disabled'}}"
+      class="px-4 py-2 text-nowrap {{if @isDisabled 'disabled'}}"
       data-test-nav-item
       ...attributes
     >
@@ -72,7 +71,7 @@ const NavItem: TOC<NavItemSignature> = <template>
   {{else}}
     <a
       href="#"
-      class="text-nowrap {{if @isDisabled 'disabled'}}"
+      class="px-4 py-2 text-nowrap {{if @isDisabled 'disabled'}}"
       data-test-nav-item
       ...attributes
     >

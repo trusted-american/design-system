@@ -44,7 +44,7 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
       </PropertyListItemValue>
     </div>
   {{else}}
-    <PropertyListItemKey @label={{@label}} @help={{@help}} class="col-5" />
+    <PropertyListItemKey @label={{@label}} @help={{@help}} class="col-span-5" />
     <PropertyListItemValue
       @value={{@value}}
       @label={{@label}}
@@ -52,7 +52,7 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
       @copyLabel={{@copyLabel}}
       @copiedLabel={{@copiedLabel}}
       @isStatic={{@isStatic}}
-      class="col-7 overflow-hidden"
+      class="col-span-7 overflow-hidden"
       ...attributes
     >
       <:default>

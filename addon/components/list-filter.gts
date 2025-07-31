@@ -289,11 +289,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       {{dropdown autoClose="outside"}}
     />
 
-    <Dropdown class="p-0" data-test-list-filter-dropdown>
+    <Dropdown class="!p-0" data-test-list-filter-dropdown>
       <form novalidate {{on "submit" this.done}}>
         <ListGroup @isFlush={{true}} as |listGroup|>
 
-          <listGroup.item class="bg-gray-100 px-2">
+          <listGroup.item class="bg-gray-100 !px-2">
             <ButtonSet class="justify-between" as |buttonSet|>
               <buttonSet.button
                 @label={{@clearLabel}}
