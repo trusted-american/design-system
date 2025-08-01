@@ -4,7 +4,6 @@ import { fn } from '@ember/helper';
 import { FormInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFormInputController from '../../../controllers/components/form/input';
 
 interface ComponentsFormInputSignature {

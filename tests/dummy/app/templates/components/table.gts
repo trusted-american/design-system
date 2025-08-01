@@ -4,7 +4,6 @@ import { fn } from '@ember/helper';
 import { Heading, Subheading, Table } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsTableController from '../../controllers/components/table';
 
 interface ComponentsTableSignature {

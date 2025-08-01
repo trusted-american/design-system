@@ -4,7 +4,6 @@ import { fn } from '@ember/helper';
 import { FormCheck, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFormCheckController from '../../../controllers/components/form/check';
 
 interface ComponentsFormCheckSignature {

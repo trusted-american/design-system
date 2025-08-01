@@ -4,7 +4,6 @@ import { array, fn, hash } from '@ember/helper';
 import { FormRadio, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFormRadioController from '../../../controllers/components/form/radio';
 
 interface ComponentsFormRadioSignature {

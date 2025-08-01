@@ -4,7 +4,6 @@ import { on } from '@ember/modifier';
 import { ButtonSet, Heading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsButtonSetController from '../../controllers/components/button-set';
 
 interface ComponentsButtonSetSignature {

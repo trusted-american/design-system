@@ -1,7 +1,6 @@
 import { Card } from '@trusted-american/design-system';
 import { CodeBlock } from 'ember-shiki';
 import getCodeSnippet from 'ember-code-snippet/helpers/get-code-snippet';
-
 import type { TOC } from '@ember/component/template-only';
 
 export interface SnippetSignature {

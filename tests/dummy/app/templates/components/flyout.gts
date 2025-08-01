@@ -5,7 +5,6 @@ import { on } from '@ember/modifier';
 import { Button, Flyout, Heading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFlyoutController from '../../controllers/components/flyout';
 
 interface ComponentsFlyoutSignature {

@@ -4,7 +4,6 @@ import { array, fn, hash } from '@ember/helper';
 import { FormPowerSelect, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFormPowerSelectController from '../../../controllers/components/form/power-select';
 
 interface ComponentsFormPowerSelectSignature {

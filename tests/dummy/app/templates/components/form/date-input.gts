@@ -8,7 +8,6 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFormDateInputController from '../../../controllers/components/form/date-input';
 
 interface ComponentsFormDateInputSignature {

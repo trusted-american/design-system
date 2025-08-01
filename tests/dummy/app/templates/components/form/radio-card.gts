@@ -4,7 +4,6 @@ import { array, fn, hash } from '@ember/helper';
 import { FormRadioCard, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFormRadioCardController from '../../../controllers/components/form/radio-card';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 

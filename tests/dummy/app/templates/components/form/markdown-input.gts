@@ -4,7 +4,6 @@ import { fn } from '@ember/helper';
 import { FormMarkdownInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
 import type ComponentsFormMarkdownInputController from '../../../controllers/components/form/markdown-input';
 
 interface ComponentsFormMarkdownInputSignature {
