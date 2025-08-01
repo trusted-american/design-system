@@ -1,19 +1,6 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import Button from '../button';
-import Card from '../card';
-import Icon from '../icon';
-import Nav from '../nav';
-import FormLabel from './label';
-import FormTextarea from './textarea';
-import FormHelp from './help';
-import tooltip from '../../modifiers/tooltip';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
-import { eq } from 'ember-truth-helpers';
-import type { FormInputArgs } from './input';
-import '@github/markdown-toolbar-element';
+import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import {
   faBold,
   faCode,
@@ -23,7 +10,20 @@ import {
   faListOl,
   faListUl,
 } from '@fortawesome/free-solid-svg-icons';
-import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
+import '@github/markdown-toolbar-element';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
+import { eq } from 'ember-truth-helpers';
+import tooltip from '../../modifiers/tooltip';
+import Button from '../button';
+import Card from '../card';
+import Icon from '../icon';
+import Nav from '../nav';
+import FormHelp from './help';
+import type { FormInputArgs } from './input';
+import FormLabel from './label';
+import FormTextarea from './textarea';
 
 interface Args extends FormInputArgs {
   value: string | null;

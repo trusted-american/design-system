@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
-import { modifier } from 'ember-modifier';
 import { Offcanvas } from 'bootstrap';
+import { modifier } from 'ember-modifier';
 import CloseButton from './close-button';
 
 export interface FlyoutSignature {

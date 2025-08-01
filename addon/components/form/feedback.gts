@@ -1,9 +1,9 @@
+import type { TOC } from '@ember/component/template-only';
 import {
   faCheck,
   faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 import Icon from '../icon';
-import type { TOC } from '@ember/component/template-only';
 
 export interface FormFeedbackSignature {
   Args: {

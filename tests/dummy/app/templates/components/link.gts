@@ -1,11 +1,11 @@
-import Snippet from '../../components/snippet';
-import { Heading, Link, Subheading } from '@trusted-american/design-system';
-import { breadcrumb } from 'ember-breadcrumb-trail';
-import { pageTitle } from 'ember-page-title';
 import {
   faHouse,
   faUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
+import { Heading, Link, Subheading } from '@trusted-american/design-system';
+import { breadcrumb } from 'ember-breadcrumb-trail';
+import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 
 <template>
   {{pageTitle "Link"}}

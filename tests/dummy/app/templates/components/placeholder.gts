@@ -1,10 +1,10 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../components/snippet';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 import { Heading, Placeholder } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 import type ComponentsPlaceholderController from '../../controllers/components/placeholder';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 interface ComponentsPlaceholderSignature {
   Args: {

@@ -1,5 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import {
   Button,
   Dropdown,
@@ -14,7 +15,6 @@ import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';
 import type ModifiersController from '../controllers/modifiers';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 interface ModifiersSignature {
   Args: {

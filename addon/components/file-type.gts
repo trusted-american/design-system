@@ -1,6 +1,5 @@
-import Icon from './icon';
-import fileType from '../utils/file-type';
-import { eq } from 'ember-truth-helpers';
+import type { TOC } from '@ember/component/template-only';
+import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import {
   faFile,
   faFileAudio,
@@ -11,8 +10,9 @@ import {
   faFileWord,
   faFileZipper,
 } from '@fortawesome/free-solid-svg-icons';
-import type { TOC } from '@ember/component/template-only';
-import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
+import { eq } from 'ember-truth-helpers';
+import fileType from '../utils/file-type';
+import Icon from './icon';
 
 export interface FileTypeSignature {
   Args: {

@@ -1,5 +1,11 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../components/snippet';
+import {
+  faCheck,
+  faCircleExclamation,
+  faCircleInfo,
+  faInfoCircle,
+  faTriangleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   Alert,
   AlertLink,
@@ -8,14 +14,8 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 import type ComponentsAlertController from '../../controllers/components/alert';
-import {
-  faCheck,
-  faCircleExclamation,
-  faCircleInfo,
-  faInfoCircle,
-  faTriangleExclamation,
-} from '@fortawesome/free-solid-svg-icons';
 
 interface ComponentsAlertSignature {
   Args: {

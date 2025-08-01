@@ -1,5 +1,5 @@
-import collapse from '../../modifiers/collapse';
 import type { TOC } from '@ember/component/template-only';
+import collapse from '../../modifiers/collapse';
 import type AccordionItem from './item';
 
 export interface AccordionButtonSignature {

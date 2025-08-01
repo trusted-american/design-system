@@ -3,7 +3,6 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, rerender } from '@ember/test-helpers';
 import { FileType } from '@trusted-american/design-system';
 import { tracked } from 'tracked-built-ins';
-
 import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 module('Integration | Component | file-type', function (hooks) {

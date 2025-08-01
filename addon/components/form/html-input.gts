@@ -1,21 +1,6 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import Button from '../button';
-import Card from '../card';
-import Nav from '../nav';
-import FormLabel from './label';
-import FormTextarea from './textarea';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import tooltip from '../../modifiers/tooltip';
-import { on } from '@ember/modifier';
-import { eq } from 'ember-truth-helpers';
-import { modifier } from 'ember-modifier';
-import { Editor } from '@tiptap/core';
-import StarterKit from '@tiptap/starter-kit';
-import type { FormInputArgs } from './input';
 import type { TOC } from '@ember/component/template-only';
+import { on } from '@ember/modifier';
+import { action } from '@ember/object';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faBold,
@@ -28,6 +13,21 @@ import {
   faQuoteLeft,
   faStrikethrough,
 } from '@fortawesome/free-solid-svg-icons';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { Editor } from '@tiptap/core';
+import StarterKit from '@tiptap/starter-kit';
+import { modifier } from 'ember-modifier';
+import { eq } from 'ember-truth-helpers';
+import tooltip from '../../modifiers/tooltip';
+import Button from '../button';
+import Card from '../card';
+import Nav from '../nav';
+import FormFeedback from './feedback';
+import FormHelp from './help';
+import type { FormInputArgs } from './input';
+import FormLabel from './label';
+import FormTextarea from './textarea';
 
 const EditorButton: TOC<{
   Args: {

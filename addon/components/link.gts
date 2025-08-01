@@ -1,8 +1,8 @@
+import type { TOC } from '@ember/component/template-only';
 import { LinkTo } from '@ember/routing';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and } from 'ember-truth-helpers';
 import Icon from './icon';
-import type { TOC } from '@ember/component/template-only';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {

@@ -1,7 +1,7 @@
 import { get } from '@ember/helper';
-import { isEqual, isEmpty, isPresent } from '@ember/utils';
-import { breadcrumbs } from 'ember-breadcrumb-trail';
 import { LinkTo } from '@ember/routing';
+import { isEmpty, isEqual, isPresent } from '@ember/utils';
+import { breadcrumbs } from 'ember-breadcrumb-trail';
 
 // TODO: simplify code from ember-composable-helpers
 const hasNext = <T,>(currentValue: T, array: T[]) => {

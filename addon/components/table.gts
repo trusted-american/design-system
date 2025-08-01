@@ -1,9 +1,9 @@
-import Component from '@glimmer/component';
-import Pagination from './pagination';
-import YetiTable from 'ember-yeti-table/components/yeti-table';
 import { fn } from '@ember/helper';
-import { and, eq, notEq, or } from 'ember-truth-helpers';
+import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
+import { and, eq, notEq, or } from 'ember-truth-helpers';
+import YetiTable from 'ember-yeti-table/components/yeti-table';
+import Pagination from './pagination';
 
 const decrement = (value: number) => value - 1;
 

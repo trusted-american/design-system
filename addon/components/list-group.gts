@@ -1,6 +1,6 @@
-import ListGroupItem from './list-group/item';
-import { concat, hash } from '@ember/helper';
 import type { TOC } from '@ember/component/template-only';
+import { concat, hash } from '@ember/helper';
+import ListGroupItem from './list-group/item';
 
 export interface ListGroupSignature {
   Args: {

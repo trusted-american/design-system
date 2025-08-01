@@ -1,4 +1,4 @@
-import Snippet from '../../components/snippet';
+import { faBox, faHouse, faUsers } from '@fortawesome/free-solid-svg-icons';
 import {
   Aside,
   AsideGroup,
@@ -9,7 +9,7 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-import { faBox, faHouse, faUsers } from '@fortawesome/free-solid-svg-icons';
+import Snippet from '../../components/snippet';
 
 const change = () => {
   //

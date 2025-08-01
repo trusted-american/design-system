@@ -1,6 +1,12 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../components/snippet';
 import { on } from '@ember/modifier';
+import {
+  faCopy,
+  faPen,
+  faPlus,
+  faQuoteLeft,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   Button,
   Dropdown,
@@ -10,14 +16,8 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 import type ComponentsDropdownController from '../../controllers/components/dropdown';
-import {
-  faCopy,
-  faPen,
-  faPlus,
-  faQuoteLeft,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
 
 interface ComponentsDropdownSignature {
   Args: {

@@ -5,7 +5,6 @@ import { selectChoose } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
 import { ListFilter } from '@trusted-american/design-system';
 import { tracked } from 'tracked-built-ins';
-
 import type {
   DateRangeQueryParam,
   Predicate,

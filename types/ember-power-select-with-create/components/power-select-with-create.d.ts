@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-
 import type { Group } from 'ember-power-select/utils/group-utils';
 
 export default class PowerSelectWithCreate<T> extends Component<{

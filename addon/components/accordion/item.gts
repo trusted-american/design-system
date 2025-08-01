@@ -1,10 +1,10 @@
-import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
-import AccordionButton from './button';
-import AccordionBody from './body';
 import { concat, hash } from '@ember/helper';
-import type Accordion from '../accordion';
+import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
+import type Accordion from '../accordion';
+import AccordionBody from './body';
+import AccordionButton from './button';
 
 export interface AccordionItemSignature {
   Args: {
