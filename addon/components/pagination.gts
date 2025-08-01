@@ -1,9 +1,9 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import PaginationItem from './pagination/item';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 import { and, eq, gt, lt } from 'ember-truth-helpers';
+import PaginationItem from './pagination/item';
 
 const Ellipsis = <template>
   <li class="page-item">

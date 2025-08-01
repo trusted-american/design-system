@@ -1,4 +1,3 @@
-import Snippet from '../../components/snippet';
 import {
   Button,
   Collapse,
@@ -7,6 +6,7 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 
 <template>
   {{pageTitle "Collapse"}}

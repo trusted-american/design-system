@@ -1,5 +1,4 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
 import {
   FormDateInput,
@@ -8,6 +7,7 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../../components/snippet';
 import type ComponentsFormDateInputController from '../../../controllers/components/form/date-input';
 
 interface ComponentsFormDateInputSignature {

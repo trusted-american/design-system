@@ -1,9 +1,9 @@
-import Link, { type LinkArgs } from '../link';
-import Icon from '../icon';
-import { concat } from '@ember/helper';
-import { or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
+import { concat } from '@ember/helper';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { or } from 'ember-truth-helpers';
+import Icon from '../icon';
+import Link, { type LinkArgs } from '../link';
 
 const Internal: TOC<{
   Args: {

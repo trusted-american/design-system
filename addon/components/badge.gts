@@ -1,7 +1,7 @@
-import Icon from './icon';
-import Spinner from './spinner';
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import Icon from './icon';
+import Spinner from './spinner';
 
 export interface BadgeSignature {
   Args: {

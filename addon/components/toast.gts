@@ -1,9 +1,9 @@
+import { concat } from '@ember/helper';
+import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { Toast as BootstrapToast } from 'bootstrap';
 import { modifier } from 'ember-modifier';
-import { concat } from '@ember/helper';
 import CloseButton from './close-button';
-import { on } from '@ember/modifier';
 
 export interface ToastSignature {
   Args: {

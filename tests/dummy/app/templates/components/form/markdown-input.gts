@@ -1,9 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
 import { FormMarkdownInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../../components/snippet';
 import type ComponentsFormMarkdownInputController from '../../../controllers/components/form/markdown-input';
 
 interface ComponentsFormMarkdownInputSignature {

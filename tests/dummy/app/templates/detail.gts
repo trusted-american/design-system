@@ -1,4 +1,9 @@
 import {
+  faAngleDown,
+  faBoxArchive,
+  faCircleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
+import {
   Alert,
   Button,
   Card,
@@ -9,11 +14,6 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-import {
-  faAngleDown,
-  faBoxArchive,
-  faCircleExclamation,
-} from '@fortawesome/free-solid-svg-icons';
 
 <template>
   {{pageTitle "Detail"}}

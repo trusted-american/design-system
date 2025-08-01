@@ -1,4 +1,3 @@
-import Snippet from '../../components/snippet';
 import {
   Button,
   Dropdown,
@@ -13,6 +12,7 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 
 <template>
   {{pageTitle "Main"}}

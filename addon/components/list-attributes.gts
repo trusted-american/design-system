@@ -1,13 +1,13 @@
-import Component from '@glimmer/component';
+import { fn } from '@ember/helper';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
+import { faCheck, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+import Component from '@glimmer/component';
+import { not, notEq } from 'ember-truth-helpers';
+import dropdown from '../modifiers/dropdown';
 import Button from './button';
 import Dropdown from './dropdown';
-import dropdown from '../modifiers/dropdown';
-import { not, notEq } from 'ember-truth-helpers';
-import { on } from '@ember/modifier';
-import { fn } from '@ember/helper';
 import type { Option } from './form/select';
-import { faCheck, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 
 const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 

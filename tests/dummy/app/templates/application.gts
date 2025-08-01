@@ -2,6 +2,19 @@ import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import {
+  faAnglesRight,
+  faBook,
+  faBox,
+  faBoxesStacked,
+  faCode,
+  faCropSimple,
+  faFont,
+  faHouse,
+  faList,
+  faScrewdriverWrench,
+  faTableList,
+} from '@fortawesome/free-solid-svg-icons';
+import {
   Aside,
   AsideGroup,
   AsideTitle,
@@ -15,23 +28,10 @@ import {
   theme,
   tooltip,
 } from '@trusted-american/design-system';
+import BasicDropdownWormhole from 'ember-basic-dropdown/components/basic-dropdown-wormhole';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import type ApplicationController from '../controllers/application';
-import {
-  faAnglesRight,
-  faBook,
-  faBox,
-  faBoxesStacked,
-  faCode,
-  faCropSimple,
-  faFont,
-  faHouse,
-  faList,
-  faScrewdriverWrench,
-  faTableList,
-} from '@fortawesome/free-solid-svg-icons';
-import BasicDropdownWormhole from 'ember-basic-dropdown/components/basic-dropdown-wormhole';
 
 interface ApplicationSignature {
   Args: {

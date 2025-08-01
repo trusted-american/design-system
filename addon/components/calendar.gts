@@ -1,12 +1,12 @@
-import { modifier } from 'ember-modifier';
+import type { TOC } from '@ember/component/template-only';
 import {
   type EventClickArg,
   Calendar as FullCalendar,
 } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-import type { TOC } from '@ember/component/template-only';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import { modifier } from 'ember-modifier';
 
 export interface Event {
   id?: string;

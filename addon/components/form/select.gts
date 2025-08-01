@@ -1,12 +1,12 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import FormLabel from './label';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 import { eq, not, or } from 'ember-truth-helpers';
+import FormFeedback from './feedback';
+import FormHelp from './help';
 import type { FormInputArgs } from './input';
+import FormLabel from './label';
 
 const isOption = <T,>(option: T | Option<T> | Group<T>): option is Option<T> =>
   option && typeof option === 'object' && 'label' in option;

@@ -1,5 +1,4 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../components/snippet';
 import { fn } from '@ember/helper';
 import {
   Heading,
@@ -8,6 +7,7 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 import type ComponentsPaginationController from '../../controllers/components/pagination';
 
 interface ComponentsPaginationSignature {

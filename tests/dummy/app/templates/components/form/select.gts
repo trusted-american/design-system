@@ -1,9 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../../components/snippet';
 import { array, fn, hash } from '@ember/helper';
 import { FormSelect, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../../components/snippet';
 import type ComponentsFormSelectController from '../../../controllers/components/form/select';
 
 interface ComponentsFormSelectSignature {

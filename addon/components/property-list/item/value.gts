@@ -1,10 +1,10 @@
+import { concat } from '@ember/helper';
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import Copy from '../../copy';
-import tooltip from '../../../modifiers/tooltip';
-import { concat } from '@ember/helper';
 import { eq, or } from 'ember-truth-helpers';
+import tooltip from '../../../modifiers/tooltip';
+import Copy from '../../copy';
 
 export interface PropertyListItemValueSignature {
   Args: {

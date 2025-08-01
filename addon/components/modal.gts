@@ -1,9 +1,9 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { modifier } from 'ember-modifier';
-import { Modal as BootstrapModal } from 'bootstrap';
-import CloseButton from './close-button';
 import { concat } from '@ember/helper';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
+import { Modal as BootstrapModal } from 'bootstrap';
+import { modifier } from 'ember-modifier';
+import CloseButton from './close-button';
 
 export interface ModalSignature {
   Args: {

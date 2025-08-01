@@ -1,11 +1,11 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../../components/snippet';
 import { array, fn, hash } from '@ember/helper';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FormRadioCard, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../../components/snippet';
 import type ComponentsFormRadioCardController from '../../../controllers/components/form/radio-card';
-import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 interface ComponentsFormRadioCardSignature {
   Args: {

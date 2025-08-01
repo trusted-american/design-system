@@ -1,5 +1,5 @@
-import Badge from '../badge';
 import type { TOC } from '@ember/component/template-only';
+import Badge from '../badge';
 
 export interface FormLabelSignature {
   Args: {

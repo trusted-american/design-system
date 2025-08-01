@@ -1,10 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../components/snippet';
-import { array } from '@ember/helper';
-import { fn, hash } from '@ember/helper';
+import { array, fn, hash } from '@ember/helper';
 import { Heading, ListAttributes } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
 import type ComponentsListAttributesController from '../../controllers/components/list-attributes';
 
 interface ComponentsListAttributesSignature {
