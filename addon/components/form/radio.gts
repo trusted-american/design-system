@@ -42,6 +42,7 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
       {{#each @options as |option index|}}
         <div class="form-check {{if @isInline 'form-check-inline'}}">
           <FormRadioInput
+            class="form-radio text-blue-400 focus:ring-blue-400"
             @checked={{eq @selected option.value}}
             @name={{@identifier}}
             @identifier="{{@identifier}}{{index}}"
