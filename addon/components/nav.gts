@@ -19,7 +19,7 @@ export interface NavSignature {
 const Nav: TOC<NavSignature> = <template>
   {{!-- TODO: {{if @isFill 'nav-fill'}} --}}
   <div
-    class="text-sm font-medium text-gray-500
+    class="font-medium text-gray-500
       {{unless @isPills 'text-center border-b border-gray-200'}}
       {{unless @isStatic 'overflow-x-auto'}}"
     data-test-nav
