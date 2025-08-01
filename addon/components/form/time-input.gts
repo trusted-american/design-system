@@ -41,7 +41,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
 
   <template>
     <FormInput
-      class="border border-gray-300 focus:border-blue-400 focus:outline-none"
+      class="border border-gray-300 focus:border-2 focus:border-blue-300 focus:outline-none"
       @type="time"
       @value={{format @value}}
       @label={{@label}}

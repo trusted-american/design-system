@@ -36,7 +36,7 @@ const FormTextarea: TOC<FormTextareaSignature> = <template>
   <textarea
     id={{@identifier}}
     value={{@value}}
-    class="block w-full px-3 py-1.5 border border-gray-300 rounded focus:border-blue-400 focus:outline-none {{if @size (concat 'form-control-' @size)}}"
+    class="block w-full px-3 py-1.5 border border-gray-300 rounded focus:border-2 focus:border-blue-300 focus:outline-none {{if @size (concat 'form-control-' @size)}}"
     required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
     data-test-form-textarea
