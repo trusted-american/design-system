@@ -56,15 +56,15 @@ export default class FormRadioCard<T> extends Component<
               {{/if}}
               <card.body>
                 {{#if option.icon}}
-                  <h5 class="card-title">
+                  <h5 class="text-lg font-semibold mb-2">
                     <Icon @icon={{option.icon}} />
                   </h5>
                 {{/if}}
                 <h5
-                  class="card-title {{unless option.help 'mb-0'}}"
+                  class="text-lg font-semibold {{unless option.help 'mb-0'}}"
                 >{{option.label}}</h5>
                 {{#if option.help}}
-                  <p class="card-text">{{option.help}}</p>
+                  <p class="text-sm text-gray-500">{{option.help}}</p>
                 {{/if}}
               </card.body>
               <card.footer>
