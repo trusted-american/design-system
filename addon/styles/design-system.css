@@ -1,18 +1,3 @@
-h6,
-.h6,
-h5,
-.h5,
-h4,
-.h4,
-h3,
-.h3,
-h2,
-.h2,
-h1,
-.h1 {
-  font-weight: 700 !important;
-}
-
 /* components */
 
 /* form/html-input */
@@ -40,40 +25,8 @@ h1,
 
 /* aside */
 
-aside .nav-link.active {
-  background-color: var(--bs-secondary-bg) !important;
-  font-weight: 600;
-}
-
-aside .nav-link,
-aside .nav-link:hover,
-aside .nav-link:focus {
-  color: var(--bs-body-color);
-  transition: none;
-}
-
-aside .nav-link svg {
-  color: var(--bs-secondary);
-}
-
-aside .nav-pills .nav-link.active,
-.nav-link.active svg {
-  color: var(--bs-nav-link-color);
-}
-
-aside .nav-link:hover {
-  background-color: var(--bs-secondary-bg);
-}
-
 [data-bs-theme="dark"] aside .tds-aside-logo {
   filter: invert(1);
-}
-
-/* badge */
-
-.badge .spinner-border-sm {
-  --bs-spinner-width: 1em;
-  --bs-spinner-height: 1em;
 }
 
 /* calendar */
@@ -92,7 +45,6 @@ aside .nav-link:hover {
 /* frame */
 
 .tds-frame {
-  display: grid;
   grid-template: "section section" min-content "aside main" 1fr / min-content 1fr;
   height: 100vh;
 }
@@ -103,7 +55,6 @@ aside .nav-link:hover {
 
 .tds-frame > aside {
   grid-area: aside;
-  width: 18rem;
 }
 
 .tds-frame > main {

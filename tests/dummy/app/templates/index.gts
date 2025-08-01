@@ -9,7 +9,7 @@ import { pageTitle } from 'ember-page-title';
   <MainBody>
     <div class="p-12 mb-6 bg-gray-100 rounded-lg">
       <div class="py-5">
-        <h1 class="text-4xl mb-4">Design System</h1>
+        <h1 class="text-4xl font-bold mb-4">Design System</h1>
         <p class="text-xl mb-4">Components for building robust user interfaces.</p>
         <Button
           @label="Get started"
@@ -30,7 +30,7 @@ import { pageTitle } from 'ember-page-title';
             ></use></svg>
         </div>
         <div>
-          <h3 class="text-3xl mb-3">Flexible</h3>
+          <h3 class="text-3xl font-bold mb-3">Flexible</h3>
           <p class="mb-4">Paragraph of text beneath the heading to explain the
             heading. We'll add onto it with another sentence and probably just
             keep going until we run out of words.</p>
@@ -46,7 +46,7 @@ import { pageTitle } from 'ember-page-title';
             ></use></svg>
         </div>
         <div>
-          <h3 class="text-3xl mb-3">Lightweight</h3>
+          <h3 class="text-3xl font-bold mb-3">Lightweight</h3>
           <p class="mb-4">Paragraph of text beneath the heading to explain the
             heading. We'll add onto it with another sentence and probably just
             keep going until we run out of words.</p>
@@ -62,7 +62,7 @@ import { pageTitle } from 'ember-page-title';
             ></use></svg>
         </div>
         <div>
-          <h3 class="text-3xl mb-3">Effortless</h3>
+          <h3 class="text-3xl font-bold mb-3">Effortless</h3>
           <p class="mb-4">Paragraph of text beneath the heading to explain the
             heading. We'll add onto it with another sentence and probably just
             keep going until we run out of words.</p>

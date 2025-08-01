@@ -18,16 +18,17 @@ export interface NavSignature {
 
 const Nav: TOC<NavSignature> = <template>
   {{!-- TODO: {{if @isFill 'nav-fill'}} --}}
-  <div
-    class="font-medium text-gray-500
-      {{unless @isPills 'text-center border-b border-gray-200'}}
-      {{unless @isStatic 'overflow-x-auto'}}"
-    data-test-nav
-    ...attributes
-  >
-    <ul class="flex flex-wrap -mb-px {{if @isVertical 'flex-col'}}">
-      {{yield (hash item=(component NavItem isPills=@isPills))}}
-    </ul>
+  <div class={{unless @isStatic "overflow-x-auto"}} ...attributes>
+    <div
+      class="font-medium text-gray-500
+        {{unless @isPills 'text-center border-b border-gray-200'}}
+        "
+      data-test-nav
+    >
+      <ul class="flex flex-wrap -mb-px {{if @isVertical 'flex-col'}}">
+        {{yield (hash item=(component NavItem isPills=@isPills))}}
+      </ul>
+    </div>
   </div>
 </template>;
 

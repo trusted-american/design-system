@@ -16,7 +16,7 @@ const Subheading: TOC<SubheadingSignature> = <template>
     data-test-subheading
     ...attributes
   >
-    <h2 class="text-3xl">
+    <h2 class="text-3xl font-bold">
       {{@title}}
     </h2>
     {{yield}}

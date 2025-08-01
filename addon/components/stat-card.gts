@@ -26,7 +26,7 @@ const StatCard: TOC<StatCardSignature> = <template>
           <p class="font-semibold uppercase text-gray-500 mb-4">
             {{@label}}
           </p>
-          <h1 class="text-4xl">
+          <h1 class="text-4xl font-bold">
             {{#if @value}}
               {{@value}}
             {{else if (has-block)}}

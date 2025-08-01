@@ -28,7 +28,7 @@ export interface AsideSignature {
 const Aside: TOC<AsideSignature> = <template>
   {{#unless @isCollapsed}}
     <aside
-      class="flex flex-col flex-shrink-0 overflow-y-auto border-r gap-4 py-4 ps-4"
+      class="flex flex-col flex-shrink-0 overflow-y-auto border-r gap-4 py-4 ps-4 w-72"
       data-test-aside
     >
       <div class="flex gap-4 pe-3">
@@ -37,7 +37,7 @@ const Aside: TOC<AsideSignature> = <template>
           class="flex items-center text-reset flex-grow"
         >
           <img src={{@logo}} alt={{@title}} class="tds-aside-logo h-8 me-2" />
-          <h5 class="text-xl">{{@title}}</h5>
+          <h5 class="text-xl font-bold">{{@title}}</h5>
         </LinkTo>
         <Button
           @label={{@collapseLabel}}

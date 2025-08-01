@@ -63,7 +63,7 @@ const Alert: TOC<AlertSignature> = <template>
     {{/if}}
     <div>
       {{#if (has-block "title")}}
-        <h6>{{yield to="title"}}</h6>
+        <h6 class="font-bold">{{yield to="title"}}</h6>
       {{/if}}
       {{yield}}
     </div>

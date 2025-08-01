@@ -42,11 +42,15 @@ const BreadcrumbTrail = <template>
               <LinkTo
                 @route="{{get breadcrumb.data 'route'}}"
                 @model={{get breadcrumb.data "model"}}
+                class="text-blue-500 underline"
               >
                 {{breadcrumb.title}}
               </LinkTo>
             {{else}}
-              <LinkTo @route="{{get breadcrumb.data 'route'}}">
+              <LinkTo
+                @route="{{get breadcrumb.data 'route'}}"
+                class="text-blue-500 underline"
+              >
                 {{breadcrumb.title}}
               </LinkTo>
             {{/if}}

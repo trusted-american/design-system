@@ -25,7 +25,7 @@ const Placeholder: TOC<PlaceholderSignature> = <template>
       <h1 class="text-4xl mb-4">
         <Icon @icon={{@icon}} />
       </h1>
-      <h4 class="text-2xl" data-test-title>
+      <h4 class="text-2xl font-bold" data-test-title>
         {{@title}}
       </h4>
       {{#if @subtitle}}

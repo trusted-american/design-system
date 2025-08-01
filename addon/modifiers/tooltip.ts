@@ -27,7 +27,7 @@ const tooltip = modifier<TooltipSignature>(
     const { onShow, onHide } = named;
 
     const container = document.createElement('div');
-    container.style.position = 'relative';
+    container.style.position = 'absolute';
     container.style.display = 'inline-block';
 
     const _tooltip = document.createElement('div');
