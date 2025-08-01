@@ -31,6 +31,7 @@ const AsideItem: TOC<AsideItemSignature> = <template>
     @count={{@count}}
     @trailingIcon={{@trailingIcon}}
     @isDisabled={{@isDisabled}}
+    @isPills={{true}}
     class="!px-2 !py-1"
     ...attributes
   >

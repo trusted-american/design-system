@@ -17,43 +17,18 @@ export interface NavSignature {
 }
 
 const Nav: TOC<NavSignature> = <template>
-  {{#if @isStatic}}
-    <nav
-      class="flex flex-nowrap
-        {{unless @isPills 'nav-tabs'}}
-        {{if @isPills 'nav-pills'}}
-        {{if @isFill 'nav-fill'}}
-        {{if @isVertical 'flex-col'}}"
-      data-test-nav
-      ...attributes
-    >
+  {{!-- TODO: {{if @isFill 'nav-fill'}} --}}
+  <div
+    class="text-sm font-medium text-center text-gray-500
+      {{unless @isPills 'border-b border-gray-200'}}
+      {{unless @isStatic 'overflow-x-auto'}}"
+    data-test-nav
+    ...attributes
+  >
+    <ul class="flex flex-wrap -mb-px {{if @isVertical 'flex-col'}}">
       {{yield (hash item=(component NavItem isPills=@isPills))}}
-    </nav>
-  {{else}}
-    <div
-      class="text-sm font-medium text-center text-gray-500 border-b border-gray-200"
-      data-test-nav
-      ...attributes
-    >
-      <ul class="flex flex-wrap -mb-px {{if @isVertical 'flex-col'}}">
-        {{yield (hash item=NavItem)}}
-      </ul>
-    </div>
-
-    {{!-- <div class="overflow-x-auto" ...attributes>
-      {{! template-lint-disable no-duplicate-landmark-elements }}
-      <nav
-        class="flex flex-nowrap
-          {{unless @isPills 'nav-tabs'}}
-          {{if @isPills 'nav-pills'}}
-          {{if @isFill 'nav-fill'}}
-          {{if @isVertical 'flex-col'}}"
-        data-test-nav
-      >
-        {{yield (hash item=NavItem)}}
-      </nav>
-    </div> --}}
-  {{/if}}
+    </ul>
+  </div>
 </template>;
 
 export default Nav;

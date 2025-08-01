@@ -121,6 +121,7 @@ export default ts.config(
       '.template-lintrc.js',
       'ember-cli-build.js',
       'index.js',
+      'tailwind.config.js',
       'tests/dummy/config/**/*.js',
     ],
     plugins: {
