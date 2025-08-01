@@ -1,9 +1,9 @@
-import NavItem from '../nav/item';
-import Icon from '../icon';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import Icon from '../icon';
 import type { LinkArgs } from '../link';
+import NavItem from '../nav/item';
 
 interface Args extends LinkArgs {
   label: string;

@@ -1,5 +1,5 @@
-import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import Component from '@glimmer/component';
 import isValidDate from '../../utils/is-valid-date';
 import FormInput, { type FormInputArgs } from './input';
 

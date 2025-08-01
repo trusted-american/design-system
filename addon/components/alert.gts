@@ -1,9 +1,9 @@
-import Icon from './icon';
-import CloseButton from './close-button';
-import { on } from '@ember/modifier';
-import { and } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
+import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { and } from 'ember-truth-helpers';
+import CloseButton from './close-button';
+import Icon from './icon';
 
 interface Args {
   color?: string;

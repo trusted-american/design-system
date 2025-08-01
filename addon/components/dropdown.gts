@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
-import DropdownItem from './dropdown/item';
 import DropdownDivider from './dropdown/divider';
+import DropdownItem from './dropdown/item';
 
 export interface DropdownSignature {
   Blocks: {

@@ -1,6 +1,6 @@
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import FormInput, { type FormInputArgs } from './input';
-import { action } from '@ember/object';
 
 interface Args extends FormInputArgs {
   value: string | null | undefined;

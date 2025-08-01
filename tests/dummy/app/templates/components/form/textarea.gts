@@ -1,10 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
 import { FormTextarea, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
+import Snippet from '../../../components/snippet';
 import type ComponentsFormTextareaController from '../../../controllers/components/form/textarea';
 
 interface ComponentsFormTextareaSignature {

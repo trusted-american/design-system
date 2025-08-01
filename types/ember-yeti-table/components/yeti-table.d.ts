@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-
 import type {
   Actions,
   PaginationData,

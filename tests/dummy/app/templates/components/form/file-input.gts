@@ -1,10 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../../components/snippet';
 import { fn } from '@ember/helper';
 import { FormFileInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-
+import Snippet from '../../../components/snippet';
 import type ComponentsFormFileInputController from '../../../controllers/components/form/file-input';
 
 interface ComponentsFormFileInputSignature {

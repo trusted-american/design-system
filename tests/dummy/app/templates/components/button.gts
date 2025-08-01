@@ -1,16 +1,16 @@
 import type { TOC } from '@ember/component/template-only';
-import Snippet from '../../components/snippet';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { Button, Heading, Subheading } from '@trusted-american/design-system';
-import { breadcrumb } from 'ember-breadcrumb-trail';
-import { pageTitle } from 'ember-page-title';
-import type ComponentsButtonController from '../../controllers/components/button';
 import {
   faArrowRight,
   faPlus,
   faUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
+import { Button, Heading, Subheading } from '@trusted-american/design-system';
+import { breadcrumb } from 'ember-breadcrumb-trail';
+import { pageTitle } from 'ember-page-title';
+import Snippet from '../../components/snippet';
+import type ComponentsButtonController from '../../controllers/components/button';
 
 interface ComponentsButtonSignature {
   Args: {
