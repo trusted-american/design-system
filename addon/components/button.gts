@@ -158,30 +158,30 @@ const Button: TOC<ButtonSignature> = <template>
   {{else}}
     <button
       type={{if @type @type "button"}}
-      class="px-5 py-2.5
+      class="font-medium rounded-lg px-5 py-1.5 focus:outline-none focus:ring-4
         {{if
           (eq 'primary' @color)
-          'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm'
+          'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300'
           (if
             (eq 'success' @color)
-            'focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm'
+            'text-white bg-green-700 hover:bg-green-800 focus:ring-green-300'
             (if
               (eq 'danger' @color)
-              'focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm'
+              'text-white bg-red-700 hover:bg-red-800 focus:ring-red-300'
               (if
                 (eq 'warning' @color)
-                'focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm'
+                'text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-yellow-300'
                 (if
                   (eq 'info' @color)
                   ''
-                  'text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100'
+                  'text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-gray-100'
                 )
               )
             )
           )
         }}
         {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
+        btn-{{if @isOutline 'outline-' ''}}
         {{if @isFullWidth 'w-full'}}
         text-nowrap"
       disabled={{if @isLoading true}}
