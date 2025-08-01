@@ -40,7 +40,7 @@ export default class FormRadioCard<T> extends Component<
       />
     {{/unless}}
 
-    <div class="flex flex-wrap g-3" ...attributes>
+    <div class="flex flex-row gap-2" ...attributes>
 
       {{#each @options as |option index|}}
         <div class="col">
