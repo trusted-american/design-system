@@ -10,10 +10,10 @@ export interface SpinnerSignature {
 }
 
 const Spinner: TOC<SpinnerSignature> = <template>
-  <div role="status" data-test-spinner ...attributes>
+  <div class="inline" role="status" data-test-spinner ...attributes>
     <svg
       aria-hidden="true"
-      class="text-gray-200 animate-spin
+      class="inline text-gray-200 animate-spin
         {{if @isLarge 'w-8 h-8' 'w-4 h-4'}}
         {{if
           (eq 'secondary' @color)
