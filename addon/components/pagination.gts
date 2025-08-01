@@ -21,14 +21,14 @@ interface Args {
   resultsLabel: string;
 }
 
-interface Args1 extends Args {
+interface OffsetArgs extends Args {
   page: number;
   pageSize: number;
   totalItems: number;
   onChange: (page: number) => void;
 }
 
-interface Args2 extends Args {
+interface CursorArgs extends Args {
   page?: never;
   canNext: boolean;
   canPrevious: boolean;
@@ -38,7 +38,7 @@ interface Args2 extends Args {
 }
 
 export interface PaginationSignature {
-  Args: Args1 | Args2;
+  Args: OffsetArgs | CursorArgs;
   Element: HTMLDivElement;
 }
 
