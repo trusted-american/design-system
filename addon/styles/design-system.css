@@ -46,7 +46,6 @@
 
 .tds-frame {
   grid-template: "section section" min-content "aside main" 1fr / min-content 1fr;
-  height: 100vh;
 }
 
 .tds-frame > section {

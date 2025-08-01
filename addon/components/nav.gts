@@ -18,7 +18,8 @@ export interface NavSignature {
 
 const Nav: TOC<NavSignature> = <template>
   {{!-- TODO: {{if @isFill 'nav-fill'}} --}}
-  <div class={{unless @isStatic "overflow-x-auto"}} ...attributes>
+  {{!unless @isStatic "overflow-x-auto"}}
+  <div ...attributes>
     <div
       class="font-medium text-gray-500
         {{unless @isPills 'text-center border-b border-gray-200'}}

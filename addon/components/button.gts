@@ -158,7 +158,7 @@ const Button: TOC<ButtonSignature> = <template>
   {{else}}
     <button
       type={{if @type @type "button"}}
-      class="font-medium rounded-lg px-5 py-1.5 focus:outline-none focus:ring-4
+      class="font-medium rounded-lg px-3 py-1.5 focus:outline-none focus:ring-4
         {{if
           (eq 'primary' @color)
           'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300'

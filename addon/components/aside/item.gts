@@ -32,7 +32,7 @@ const AsideItem: TOC<AsideItemSignature> = <template>
     @trailingIcon={{@trailingIcon}}
     @isDisabled={{@isDisabled}}
     @isPills={{true}}
-    class="!px-2 !py-1 ember-active:bg-gray-200 ember-active:text-blue-500"
+    class="!px-2 !py-1 ember-active:bg-gray-200 ember-active:!text-blue-500"
     ...attributes
   >
     {{#unless @icon}}
