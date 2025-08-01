@@ -6,8 +6,11 @@ import { on } from '@ember/modifier';
 import { and, eq, gt, lt } from 'ember-truth-helpers';
 
 const Ellipsis = <template>
-  <li class="page-item">
-    <div class="page-link" disabled>
+  <li>
+    <div
+      class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300"
+      disabled
+    >
       …
     </div>
   </li>
