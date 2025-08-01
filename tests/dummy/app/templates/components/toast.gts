@@ -49,7 +49,7 @@ interface ComponentsToastSignature {
     {{! BEGIN-SNIPPET toast3 }}
     <Toast
       @closeButtonLabel="Close"
-      @color="primary"
+      @color="info"
       @onClose={{@controller.close}}
     >
       <:title>Title</:title>
