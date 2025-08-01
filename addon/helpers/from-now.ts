@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
-import updateLocale from 'dayjs/plugin/updateLocale';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import updateLocale from 'dayjs/plugin/updateLocale';
 
-dayjs.extend(updateLocale);
 dayjs.extend(relativeTime);
+dayjs.extend(updateLocale);
 
 /**
  * Returns time relative to now.

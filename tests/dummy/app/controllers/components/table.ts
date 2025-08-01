@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import type { User } from '../../routes/components/table';
 
 export default class ComponentsTableController extends Controller {
