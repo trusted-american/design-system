@@ -10,16 +10,14 @@ export interface SpinnerSignature {
 }
 
 const Spinner: TOC<SpinnerSignature> = <template>
-  {{!-- {{unless @isLarge 'spinner-border-sm'}}
-  {{if @color (concat 'text-' @color) 'text-primary'}} --}}
-
   <div role="status" data-test-spinner ...attributes>
     <svg
       aria-hidden="true"
-      class="w-8 h-8 text-gray-200 animate-spin
+      class="text-gray-200 animate-spin
+        {{if @isLarge 'w-8 h-8' 'w-4 h-4'}}
         {{if
-          (eq 'primary' @color)
-          'fill-blue-600'
+          (eq 'secondary' @color)
+          'fill-gray-600'
           (if
             (eq 'success' @color)
             'fill-green-600'
@@ -29,7 +27,7 @@ const Spinner: TOC<SpinnerSignature> = <template>
               (if
                 (eq 'warning' @color)
                 'fill-yellow-600'
-                (if (eq 'info' @color) 'fill-sky-600' 'fill-gray-600')
+                (if (eq 'info' @color) 'fill-sky-600' 'fill-blue-600')
               )
             )
           )

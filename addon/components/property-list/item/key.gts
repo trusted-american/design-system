@@ -12,7 +12,7 @@ export interface PropertyListItemKeySignature {
 }
 
 const PropertyListItemKey: TOC<PropertyListItemKeySignature> = <template>
-  <dt class="text-gray-500" ...attributes>
+  <dt class="text-gray-500 mb-2" ...attributes>
     {{@label}}
     {{#if @help}}
       <a href="#" class="text-gray-500 ms-1">

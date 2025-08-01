@@ -16,7 +16,7 @@ const Internal: TOC<{
   };
 }> = <template>
   {{#if @icon}}
-    <Icon @icon={{@icon}} @isFixedWidth={{true}} />
+    <Icon @icon={{@icon}} @isFixedWidth={{true}} class="text-gray-500" />
   {{/if}}
   <div>
     {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}

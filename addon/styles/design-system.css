@@ -89,12 +89,6 @@ aside .nav-link:hover {
   --fc-button-active-border-color: var(--bs-gray-500);
 }
 
-/* dropdown */
-
-.dropdown-menu .dropdown-item svg {
-  color: var(--bs-secondary);
-}
-
 /* frame */
 
 .tds-frame {
@@ -123,10 +117,6 @@ aside .nav-link:hover {
 }
 
 /* property-list */
-
-dl dt {
-  margin-bottom: 0.5rem;
-}
 
 dl dt:last-of-type,
 dl dd:last-child {

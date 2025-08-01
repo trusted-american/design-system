@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.card .shiki {
+.border > .shiki-code-block .shiki {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }

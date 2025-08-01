@@ -61,8 +61,8 @@ const NavItem: TOC<NavItemSignature> = <template>
         class="text-inherit no-underline
           {{if
             @isPills
-            'inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 ember-active:text-white ember-active:bg-blue-600'
-            'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 ember-active:text-blue-600 ember-active:border-blue-600'
+            'block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 ember-active:text-white ember-active:bg-blue-600'
+            'block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 ember-active:text-blue-600 ember-active:border-blue-600'
           }}"
         data-test-nav-item
         ...attributes
@@ -81,8 +81,8 @@ const NavItem: TOC<NavItemSignature> = <template>
         href="#"
         class={{if
           @isPills
-          "inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 ember-active:text-white ember-active:bg-blue-600"
-          "inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 ember-active:text-blue-600 ember-active:border-blue-600"
+          "block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 ember-active:text-white ember-active:bg-blue-600"
+          "block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 ember-active:text-blue-600 ember-active:border-blue-600"
         }}
         data-test-nav-item
         ...attributes
