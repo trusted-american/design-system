@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     './addon/**/*.{gjs,gts,hbs,html,js,ts}',
@@ -6,5 +8,9 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('ember-active', '&.active');
+    }),
+  ],
 };

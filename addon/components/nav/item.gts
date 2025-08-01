@@ -37,6 +37,7 @@ interface Args extends LinkArgs {
   count?: number;
   trailingIcon?: IconDefinition;
   isDisabled?: boolean;
+  isPills?: boolean;
 }
 
 export interface NavItemSignature {
@@ -47,44 +48,44 @@ export interface NavItemSignature {
   Element: HTMLAnchorElement;
 }
 
+const className =
+  'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 ember-active:text-blue-600 ember-active:border-blue-600';
+
 const NavItem: TOC<NavItemSignature> = <template>
-  {{#if (or @route @model @query @href)}}
-    <Link
-      @route={{@route}}
-      @model={{@model}}
-      @query={{@query}}
-      @href={{@href}}
-      @isLocalHref={{@isLocalHref}}
-      class="no-underline px-4 py-2 text-nowrap {{if @isDisabled 'disabled'}}"
-      data-test-nav-item
-      ...attributes
-    >
-      <Internal
-        @label={{@label}}
-        @icon={{@icon}}
-        @count={{@count}}
-        @trailingIcon={{@trailingIcon}}
+  <li class="me-2">
+    {{#if (or @route @model @query @href)}}
+      <Link
+        @route={{@route}}
+        @model={{@model}}
+        @query={{@query}}
+        @href={{@href}}
+        @isLocalHref={{@isLocalHref}}
+        class="text-inherit no-underline {{className}}"
+        data-test-nav-item
+        ...attributes
       >
-        {{yield}}
-      </Internal>
-    </Link>
-  {{else}}
-    <a
-      href="#"
-      class="px-4 py-2 text-nowrap {{if @isDisabled 'disabled'}}"
-      data-test-nav-item
-      ...attributes
-    >
-      <Internal
-        @label={{@label}}
-        @icon={{@icon}}
-        @count={{@count}}
-        @trailingIcon={{@trailingIcon}}
-      >
-        {{yield}}
-      </Internal>
-    </a>
-  {{/if}}
+        <Internal
+          @label={{@label}}
+          @icon={{@icon}}
+          @count={{@count}}
+          @trailingIcon={{@trailingIcon}}
+        >
+          {{yield}}
+        </Internal>
+      </Link>
+    {{else}}
+      <a href="#" class={{className}} data-test-nav-item ...attributes>
+        <Internal
+          @label={{@label}}
+          @icon={{@icon}}
+          @count={{@count}}
+          @trailingIcon={{@trailingIcon}}
+        >
+          {{yield}}
+        </Internal>
+      </a>
+    {{/if}}
+  </li>
 </template>;
 
 export default NavItem;
