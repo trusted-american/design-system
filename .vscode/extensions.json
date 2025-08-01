@@ -3,6 +3,7 @@
     "james1x0.vscode-ember-navigator",
     "esbenp.prettier-vscode",
     "embertooling.vscode-ember",
-    "typed-ember.glint-vscode"
+    "typed-ember.glint-vscode",
+    "lifeart.vscode-glimmer-syntax"
   ]
 }
