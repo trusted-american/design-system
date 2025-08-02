@@ -92,7 +92,7 @@ export default class FormSelect<T extends Value> extends Component<
 
     <select
       id={{@identifier}}
-      class="block w-full px-3 py-1.5 border border-gray-300 rounded focus:border-2 focus:border-blue-300 focus:outline-none {{if @size (concat 'form-select-' @size)}}"
+      class="block w-full px-3 py-2 border border-gray-300 rounded-lg text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300 transition-all duration-300 ease-in-out {{if @size (concat 'form-select-' @size)}}"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}
       data-test-form-select
