@@ -39,7 +39,7 @@ const Internal: TOC<{
     type={{if @type @type "text"}}
     id={{@identifier}}
     value={{@value}}
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+    class="block w-full px-3 py-2 border border-gray-300 rounded-lg text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300 transition-all duration-300 ease-in-out
       {{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
         @size
         (concat ' form-control-' @size)
