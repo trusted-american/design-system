@@ -20,7 +20,7 @@ export interface AsideSignature {
   Blocks: {
     header: [];
     default: [{ item: typeof AsideItem }];
-    footerNav: [];
+    footerNav: [{ item: typeof AsideItem }];
     footer: [];
   };
 }
@@ -64,7 +64,7 @@ const Aside: TOC<AsideSignature> = <template>
       {{#if (has-block "footerNav")}}
         <div class="pe-3">
           <Nav @isPills={{true}} @isVertical={{true}} aria-label="Footer nav">
-            {{yield to="footerNav"}}
+            {{yield (hash item=AsideItem) to="footerNav"}}
           </Nav>
         </div>
       {{/if}}
