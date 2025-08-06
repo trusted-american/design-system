@@ -155,6 +155,12 @@ aside .tds-aside-logo {
   visibility: hidden !important;
 }
 
+/* nav */
+
+.nav-pills .nav-link.active > svg {
+  color: var(--bs-nav-pills-link-active-color);
+}
+
 /* property-list */
 
 dl dt {
