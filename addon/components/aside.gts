@@ -4,7 +4,9 @@ import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 import tooltip from '../modifiers/tooltip';
+import AsideGroup from './aside/group';
 import AsideItem from './aside/item';
+import AsideTitle from './aside/title';
 import Button from './button';
 import Nav from './nav';
 
@@ -19,7 +21,13 @@ export interface AsideSignature {
   };
   Blocks: {
     header: [];
-    default: [{ item: typeof AsideItem }];
+    default: [
+      {
+        item: typeof AsideItem;
+        group: typeof AsideGroup;
+        title: typeof AsideTitle;
+      },
+    ];
     footerNav: [{ item: typeof AsideItem }];
     footer: [];
   };
@@ -57,7 +65,7 @@ const Aside: TOC<AsideSignature> = <template>
 
       <div class="flex-grow-1 overflow-y-auto pe-3">
         <Nav @isPills={{true}} @isVertical={{true}} aria-label="Main nav">
-          {{yield (hash item=AsideItem)}}
+          {{yield (hash item=AsideItem group=AsideGroup title=AsideTitle)}}
         </Nav>
       </div>
 

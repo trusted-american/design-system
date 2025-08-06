@@ -16,8 +16,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {
   Aside,
-  AsideGroup,
-  AsideTitle,
   BreadcrumbTrail,
   Button,
   FormCheck,
@@ -57,8 +55,8 @@ interface ApplicationSignature {
       <:default as |aside|>
         <aside.item @route="index" @label="Home" @icon={{faHouse}} />
 
-        <AsideTitle @label="Assets" />
-        <AsideGroup
+        <aside.title @label="Assets" />
+        <aside.group
           @route="components.index"
           @label="Components"
           @icon={{faBoxesStacked}}
@@ -114,7 +112,7 @@ interface ApplicationSignature {
           <aside.item @route="components.subheading" @label="Subheading" />
           <aside.item @route="components.table" @label="Table" />
           <aside.item @route="components.toast" @label="Toast" />
-        </AsideGroup>
+        </aside.group>
 
         <aside.item @route="helpers" @icon={{faFont}} @label="Helpers" />
         <aside.item @route="modifiers" @icon={{faCode}} @label="Modifiers" />
@@ -124,14 +122,14 @@ interface ApplicationSignature {
           @label="Utils"
         />
 
-        <AsideTitle @label="Guides" />
+        <aside.title @label="Guides" />
         <aside.item
           @route="guides.introduction"
           @label="Introduction"
           @icon={{faBook}}
         />
 
-        <AsideTitle @label="Examples" />
+        <aside.title @label="Examples" />
         <aside.item @route="list" @label="List" @icon={{faList}} />
         <aside.item @route="detail" @label="Detail" @icon={{faBox}} />
         <aside.item @route="form" @label="Form" @icon={{faTableList}} />
