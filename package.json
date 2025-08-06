@@ -61,6 +61,8 @@
     "@tiptap/core": "^2.26.1",
     "@tiptap/pm": "^2.26.1",
     "@tiptap/starter-kit": "^2.26.1",
+    "@types/bootstrap": "^5.2.10",
+    "bootstrap": "^5.3.7",
     "change-case": "^5.4.4",
     "dayjs": "^1.11.13",
     "ember-auto-import": "^2.10.0",
