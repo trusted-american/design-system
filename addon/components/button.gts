@@ -53,6 +53,7 @@ interface Args extends LinkArgs {
   count?: number;
   isLabel?: boolean;
   shortcut?: string;
+  isDisabled?: boolean;
 }
 
 export interface ButtonSignature {
@@ -75,7 +76,8 @@ const Button: TOC<ButtonSignature> = <template>
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
         {{if @isFullWidth 'w-100'}}
-        text-nowrap"
+        text-nowrap
+        {{if (or @isDisabled @isLoading) 'disabled'}}"
       role="button"
       data-test-button
       ...attributes

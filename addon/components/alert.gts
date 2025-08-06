@@ -10,18 +10,18 @@ interface Args {
   icon?: IconDefinition;
 }
 
-interface Args1 extends Args {
+interface DefaultArgs extends Args {
   closeButtonLabel?: never;
   onClose?: never;
 }
 
-interface Args2 extends Args {
+interface CloseableArgs extends Args {
   closeButtonLabel: string;
   onClose: () => void;
 }
 
 export interface AlertSignature {
-  Args: Args1 | Args2;
+  Args: DefaultArgs | CloseableArgs;
   Blocks: {
     title: [];
     default: [];
