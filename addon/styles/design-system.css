@@ -77,7 +77,7 @@ aside .nav-link svg {
 
 aside .nav-pills .nav-link.active,
 .nav-link.active svg {
-  color: var(--bs-nav-link-color);
+  color: var(--bs-nav-link-color) !important;
 }
 
 aside .nav-link:hover {
