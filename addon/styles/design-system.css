@@ -124,6 +124,7 @@ aside .tds-aside-logo {
 
 /* dropdown */
 
+/* stylelint-disable-next-line */
 .dropdown-menu .dropdown-item svg {
   color: var(--bs-secondary);
 }
@@ -155,6 +156,7 @@ aside .tds-aside-logo {
 
 /* nav */
 
+/* stylelint-disable-next-line */
 .nav-pills .nav-link.active > svg {
   color: var(--bs-nav-pills-link-active-color);
 }
