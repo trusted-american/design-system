@@ -40,12 +40,13 @@ const Internal: TOC<{
 </template>;
 
 const colorVariants = {
-  primary: 'bg-blue-700 hover:bg-blue-800 focus:ring-blue-300',
-  secondary: 'text-gray-800 bg-gray-50 border-gray-300',
-  success: 'bg-green-700 hover:bg-green-800 focus:ring-green-300',
-  danger: 'bg-red-700 hover:bg-red-800 focus:ring-red-300',
-  warning: 'text-yellow-800 bg-yellow-50 border-yellow-300',
-  info: 'text-sky-800 bg-sky-50 border-sky-300',
+  primary: 'text-white focus:ring-blue-300 bg-blue-700 hover:bg-blue-800',
+  secondary:
+    'focus:ring-gray-100 bg-white text-gray-900 focus:z-10 border border-gray-200 hover:bg-gray-100 hover:text-blue-700',
+  success: 'text-white bg-green-700 hover:bg-green-800 focus:ring-green-300',
+  danger: 'text-white bg-red-700 hover:bg-red-800 focus:ring-red-300',
+  warning: 'text-white text-yellow-800 bg-yellow-50 border-yellow-300',
+  info: 'text-white text-sky-800 bg-sky-50 border-sky-300',
   light: '',
   dark: '',
 };
@@ -83,7 +84,7 @@ const Button: TOC<ButtonSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="no-underline text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
+      class="!no-underline font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4
         {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}
@@ -107,7 +108,7 @@ const Button: TOC<ButtonSignature> = <template>
     </Link>
   {{else if @isLabel}}
     <label
-      class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
+      class="font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4
         {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}
@@ -131,7 +132,7 @@ const Button: TOC<ButtonSignature> = <template>
   {{else}}
     <button
       type={{if @type @type "button"}}
-      class="font-medium rounded-lg px-3 py-1.5 focus:outline-none focus:ring-4
+      class="font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4
         {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}
