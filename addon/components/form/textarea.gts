@@ -1,5 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
-import { concat, fn } from '@ember/helper';
+import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import FormFeedback from './feedback';
 import FormHelp from './help';
@@ -36,7 +36,12 @@ const FormTextarea: TOC<FormTextareaSignature> = <template>
   <textarea
     id={{@identifier}}
     value={{@value}}
-    class="form-control {{if @size (concat 'form-control-' @size)}}"
+    class="block w-full border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ease-in-out
+      {{if
+        (eq @size 'sm')
+        'px-2 py-1 text-sm'
+        (if (eq @size 'lg') 'px-4 py-3 text-lg' 'px-3 py-2 text-base')
+      }}"
     required={{@isRequired}}
     aria-label={{if @isInputOnly @label}}
     data-test-form-textarea

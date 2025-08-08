@@ -1,4 +1,3 @@
-import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
@@ -32,34 +31,54 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
   }
 
   <template>
-    {{#unless @isInputOnly}}
-      <FormLabel
-        @label={{@label}}
-        @identifier={{@identifier}}
-        @isRequired={{@isRequired}}
-        @requiredLabel={{@requiredLabel}}
-      />
-    {{/unless}}
+    <div class="space-y-2">
+      {{#unless @isInputOnly}}
+        <div class="flex items-center space-x-2">
+          <FormLabel
+            @label={{@label}}
+            @identifier={{@identifier}}
+            @isRequired={{@isRequired}}
+            @requiredLabel={{@requiredLabel}}
+          />
+        </div>
+      {{/unless}}
 
-    <input
-      type="file"
-      id={{@identifier}}
-      class="form-control {{if @size (concat 'form-control-' @size)}}"
-      required={{@isRequired}}
-      aria-label={{if @isInputOnly @label}}
-      data-test-form-file-input
-      {{on "change" this.change}}
-      ...attributes
-    />
+      <div class="flex items-center space-x-3">
+        <input
+          type="file"
+          id={{@identifier}}
+          class="block w-full text-gray-500 border border-gray-300 rounded-lg cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:bg-gray-100 file:text-gray-700 file:cursor-pointer hover:file:bg-gray-200"
+          required={{@isRequired}}
+          aria-label={{if @isInputOnly @label}}
+          data-test-form-file-input
+          {{on "change" this.change}}
+          ...attributes
+        />
+      </div>
 
-    <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
+      {{#if @invalidLabel}}
+        <div class="text-sm text-red-600">
+          <FormFeedback
+            @validLabel={{@validLabel}}
+            @invalidLabel={{@invalidLabel}}
+          />
+        </div>
+      {{/if}}
 
-    {{#each @errors as |error|}}
-      <FormFeedback @validLabel={{undefined}} @invalidLabel={{error.message}} />
-    {{/each}}
+      {{#each @errors as |error|}}
+        <div class="text-sm text-red-600">
+          <FormFeedback
+            @validLabel={{undefined}}
+            @invalidLabel={{error.message}}
+          />
+        </div>
+      {{/each}}
 
-    {{#if @help}}
-      <FormHelp @label={{@help}} />
-    {{/if}}
+      {{#if @help}}
+        <div class="text-sm text-gray-600">
+          <FormHelp @label={{@help}} />
+        </div>
+      {{/if}}
+    </div>
   </template>
 }

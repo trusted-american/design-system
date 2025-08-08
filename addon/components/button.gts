@@ -86,7 +86,7 @@ const Button: TOC<ButtonSignature> = <template>
       class="no-underline text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
         {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
+        btn-{{if @isOutline 'outline-' ''}}
         {{if @isFullWidth 'w-full'}}
         text-nowrap
         {{if (or @isDisabled @isLoading) 'disabled'}}"
@@ -110,7 +110,7 @@ const Button: TOC<ButtonSignature> = <template>
       class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
         {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
+        btn-{{if @isOutline 'outline-' ''}}
         {{if @isFullWidth 'w-full'}}
         text-nowrap"
       data-test-button
