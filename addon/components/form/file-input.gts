@@ -1,11 +1,11 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import FormLabel from './label';
-import FormFeedback from './feedback';
-import FormHelp from './help';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
+import FormFeedback from './feedback';
+import FormHelp from './help';
 import type { FormInputArgs } from './input';
+import FormLabel from './label';
 
 interface Args extends FormInputArgs {
   onChange: (file: File) => void;

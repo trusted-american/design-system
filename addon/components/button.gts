@@ -1,11 +1,11 @@
+import type { TOC } from '@ember/component/template-only';
+import { concat } from '@ember/helper';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { and, not, or } from 'ember-truth-helpers';
 import Badge from './badge';
 import Icon from './icon';
 import Link, { type LinkArgs } from './link';
 import Spinner from './spinner';
-import { concat } from '@ember/helper';
-import { and, not, or } from 'ember-truth-helpers';
-import type { TOC } from '@ember/component/template-only';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const Internal: TOC<{
   Args: {
@@ -53,6 +53,7 @@ interface Args extends LinkArgs {
   count?: number;
   isLabel?: boolean;
   shortcut?: string;
+  isDisabled?: boolean;
 }
 
 export interface ButtonSignature {
@@ -75,7 +76,8 @@ const Button: TOC<ButtonSignature> = <template>
         {{if @size (concat 'btn-' @size)}}
         btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
         {{if @isFullWidth 'w-100'}}
-        text-nowrap"
+        text-nowrap
+        {{if (or @isDisabled @isLoading) 'disabled'}}"
       role="button"
       data-test-button
       ...attributes

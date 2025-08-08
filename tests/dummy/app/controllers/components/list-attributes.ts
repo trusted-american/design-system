@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-
 import type { ListAttributesKey } from '@trusted-american/design-system/components/list-attributes';
 
 interface T {

@@ -1,6 +1,6 @@
+import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
-import type { TOC } from '@ember/component/template-only';
 import type {
   IconDefinition,
   SizeProp,

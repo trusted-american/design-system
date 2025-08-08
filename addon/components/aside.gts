@@ -1,12 +1,14 @@
+import type { TOC } from '@ember/component/template-only';
+import { fn, hash } from '@ember/helper';
+import { on } from '@ember/modifier';
+import { LinkTo } from '@ember/routing';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
+import tooltip from '../modifiers/tooltip';
+import AsideGroup from './aside/group';
 import AsideItem from './aside/item';
+import AsideTitle from './aside/title';
 import Button from './button';
 import Nav from './nav';
-import tooltip from '../modifiers/tooltip';
-import { on } from '@ember/modifier';
-import { fn, hash } from '@ember/helper';
-import { LinkTo } from '@ember/routing';
-import type { TOC } from '@ember/component/template-only';
-import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 export interface AsideSignature {
   Args: {
@@ -19,8 +21,14 @@ export interface AsideSignature {
   };
   Blocks: {
     header: [];
-    default: [{ item: typeof AsideItem }];
-    footerNav: [];
+    default: [
+      {
+        item: typeof AsideItem;
+        group: typeof AsideGroup;
+        title: typeof AsideTitle;
+      },
+    ];
+    footerNav: [{ item: typeof AsideItem }];
     footer: [];
   };
 }
@@ -57,14 +65,14 @@ const Aside: TOC<AsideSignature> = <template>
 
       <div class="flex-grow-1 overflow-y-auto pe-3">
         <Nav @isPills={{true}} @isVertical={{true}} aria-label="Main nav">
-          {{yield (hash item=AsideItem)}}
+          {{yield (hash item=AsideItem group=AsideGroup title=AsideTitle)}}
         </Nav>
       </div>
 
       {{#if (has-block "footerNav")}}
         <div class="pe-3">
           <Nav @isPills={{true}} @isVertical={{true}} aria-label="Footer nav">
-            {{yield to="footerNav"}}
+            {{yield (hash item=AsideItem) to="footerNav"}}
           </Nav>
         </div>
       {{/if}}

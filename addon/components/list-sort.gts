@@ -1,16 +1,16 @@
-import Component from '@glimmer/component';
-import Button from './button';
-import Dropdown from './dropdown';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import dropdown from '../modifiers/dropdown';
-import { notEq } from 'ember-truth-helpers';
-import type { Option } from './form/select';
 import {
   faArrowDownWideShort,
   faArrowUpWideShort,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+import Component from '@glimmer/component';
+import { notEq } from 'ember-truth-helpers';
+import dropdown from '../modifiers/dropdown';
+import Button from './button';
+import Dropdown from './dropdown';
+import type { Option } from './form/select';
 import type { ListAttributesKey } from './list-attributes';
 
 export interface ListSortSignature<T> {

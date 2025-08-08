@@ -76,8 +76,8 @@ aside .nav-link svg {
 }
 
 aside .nav-pills .nav-link.active,
-.nav-link.active svg {
-  color: var(--bs-nav-link-color);
+aside .nav-pills .nav-link.active svg {
+  color: var(--bs-nav-link-color) !important;
 }
 
 aside .nav-link:hover {
@@ -124,6 +124,7 @@ aside .tds-aside-logo {
 
 /* dropdown */
 
+/* stylelint-disable-next-line */
 .dropdown-menu .dropdown-item svg {
   color: var(--bs-secondary);
 }
@@ -131,9 +132,7 @@ aside .tds-aside-logo {
 /* frame */
 
 .tds-frame {
-  display: grid;
   grid-template: "section section" min-content "aside main" 1fr / min-content 1fr;
-  height: 100vh;
 }
 
 .tds-frame > section {
@@ -153,6 +152,13 @@ aside .tds-aside-logo {
 
 .invisible-icon .fa-fw {
   visibility: hidden !important;
+}
+
+/* nav */
+
+/* stylelint-disable-next-line */
+.nav-pills .nav-link.active > svg {
+  color: var(--bs-nav-pills-link-active-color);
 }
 
 /* property-list */

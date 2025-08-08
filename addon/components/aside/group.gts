@@ -1,11 +1,11 @@
-import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import AsideItem from './item';
-import Collapse from '../collapse';
-import Nav from '../nav';
-import collapse from '../../modifiers/collapse';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import Component from '@glimmer/component';
+import collapse from '../../modifiers/collapse';
+import Collapse from '../collapse';
+import Nav from '../nav';
+import AsideItem from './item';
 
 export interface AsideGroupSignature {
   Args: {

@@ -1,27 +1,27 @@
-import Icon from './icon';
-import CloseButton from './close-button';
-import { on } from '@ember/modifier';
-import { and } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
+import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { and } from 'ember-truth-helpers';
+import CloseButton from './close-button';
+import Icon from './icon';
 
 interface Args {
   color?: string;
   icon?: IconDefinition;
 }
 
-interface Args1 extends Args {
+interface DefaultArgs extends Args {
   closeButtonLabel?: never;
   onClose?: never;
 }
 
-interface Args2 extends Args {
+interface CloseableArgs extends Args {
   closeButtonLabel: string;
   onClose: () => void;
 }
 
 export interface AlertSignature {
-  Args: Args1 | Args2;
+  Args: DefaultArgs | CloseableArgs;
   Blocks: {
     title: [];
     default: [];
