@@ -52,16 +52,16 @@ const colorVariants = {
 
 const outlineColorVariants = {
   primary:
-    'text-sky-700 bg-white border border-sky-700 hover:bg-sky-50 focus:ring-sky-300',
+    'text-blue-700 bg-white border border-blue-700 hover:bg-blue-50 focus:ring-blue-500',
   secondary:
-    'text-gray-700 bg-white border border-gray-700 hover:bg-gray-50 focus:ring-gray-200',
+    'text-gray-700 bg-white border border-gray-700 hover:bg-gray-50 focus:ring-gray-500',
   success:
-    'text-green-700 bg-white border border-green-700 hover:bg-green-50 focus:ring-green-300',
+    'text-green-700 bg-white border border-green-700 hover:bg-green-50 focus:ring-green-500',
   danger:
-    'text-red-700 bg-white border border-red-700 hover:bg-red-50 focus:ring-red-300',
+    'text-red-700 bg-white border border-red-700 hover:bg-red-50 focus:ring-red-500',
   warning:
-    'text-yellow-700 bg-white border border-yellow-300 hover:bg-yellow-50 focus:ring-yellow-300',
-  info: 'text-sky-700 bg-white border border-sky-700 hover:bg-sky-50 focus:ring-sky-300',
+    'text-yellow-700 bg-white border border-yellow-300 hover:bg-yellow-50 focus:ring-yellow-500',
+  info: 'text-sky-700 bg-white border border-sky-700 hover:bg-sky-50 focus:ring-sky-500',
   light: '',
   dark: '',
 };
