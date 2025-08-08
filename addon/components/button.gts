@@ -40,12 +40,12 @@ const Internal: TOC<{
 </template>;
 
 const colorVariants = {
-  primary: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300',
-  secondary: 'text-gray-800 bg-gray-50 border-gray-300',
-  success: 'text-white bg-green-700 hover:bg-green-800 focus:ring-green-300',
-  danger: 'text-white bg-red-700 hover:bg-red-800 focus:ring-red-300',
-  warning: 'text-yellow-800 bg-yellow-50 border-yellow-300',
-  info: 'text-sky-800 bg-sky-50 border-sky-300',
+  primary: 'text-white bg-blue-800 hover:bg-blue-900 focus:ring-blue-600',
+  secondary: 'text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-500',
+  success: 'text-white bg-green-800 hover:bg-green-900 focus:ring-green-700',
+  danger: 'text-white bg-red-800 hover:bg-red-900 focus:ring-red-700',
+  warning: 'text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-600',
+  info: 'text-white bg-sky-700 hover:bg-sky-800 focus:ring-sky-600',
   light: '',
   dark: '',
 };
