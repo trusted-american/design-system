@@ -11,8 +11,8 @@ import { pageTitle } from 'ember-page-title';
     @subtitle="Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms."
   />
 
-  <div class="row g-4">
-    <div class="col-12 col-md-3">
+  <div class="grid grid-cols-12 gap-4">
+    <div class="col-span-3">
       <Nav @isPills={{true}} @isVertical={{true}} as |nav|>
         <nav.item @route="components.form.check" @label="Check" />
         <nav.item @route="components.form.date-input" @label="Date input" />
@@ -42,7 +42,7 @@ import { pageTitle } from 'ember-page-title';
         <nav.item @route="components.form.time-input" @label="Time input" />
       </Nav>
     </div>
-    <div class="col-12 col-md-9">
+    <div class="col-span-9">
       {{outlet}}
     </div>
   </div>

@@ -13,8 +13,8 @@ export interface SnippetSignature {
 }
 
 const Snippet: TOC<SnippetSignature> = <template>
-  <Card class="mb-4" as |card|>
-    <card.body class="border-bottom">
+  <Card class="mb-6" as |card|>
+    <card.body class="border-b">
       {{yield}}
     </card.body>
     {{#let (getCodeSnippet @name) as |snippet|}}

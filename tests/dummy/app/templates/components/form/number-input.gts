@@ -18,7 +18,7 @@ interface ComponentsFormNumberInputSignature {
 
   <Subheading @title="Number input" />
 
-  <p>Value: {{@controller.value}}</p>
+  <p class="mb-4">Value: {{@controller.value}}</p>
 
   <Snippet @name="form-number-input.gts">
     {{! BEGIN-SNIPPET form-number-input }}
@@ -33,7 +33,7 @@ interface ComponentsFormNumberInputSignature {
       @onChange={{fn (mut @controller.value)}}
       placeholder="Placeholder"
     />
-    <hr />
+    <hr class="my-4" />
     <FormNumberInput
       @value={{@controller.value}}
       @type="range"

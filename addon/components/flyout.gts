@@ -52,7 +52,7 @@ export default class Flyout extends Component<FlyoutSignature> {
       {{this.setup}}
       ...attributes
     >
-      <div class="offcanvas-header border-bottom">
+      <div class="offcanvas-header border-b">
         <h6 class="offcanvas-title">{{@title}}</h6>
         <CloseButton
           @label={{@closeButtonLabel}}

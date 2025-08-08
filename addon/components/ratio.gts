@@ -1,5 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
-import { concat } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
 
 export interface RatioSignature {
   Args: {
@@ -13,7 +13,19 @@ export interface RatioSignature {
 
 const Ratio: TOC<RatioSignature> = <template>
   <div
-    class="ratio {{if @ratio (concat 'ratio-' @ratio)}}"
+    class={{if
+      (eq "1x1" @ratio)
+      "aspect-square"
+      (if
+        (eq "4x3" @ratio)
+        "aspect-4/3"
+        (if
+          (eq "16x9" @ratio)
+          "aspect-video"
+          (if (eq "21x9" @ratio) "aspect-21/9")
+        )
+      )
+    }}
     data-test-ratio
     ...attributes
   >

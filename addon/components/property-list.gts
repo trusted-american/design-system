@@ -27,11 +27,11 @@ export interface PropertyListSignature {
 const PropertyList: TOC<PropertyListSignature> = <template>
   <div data-test-property-list ...attributes>
     {{#if @title}}
-      <p class="text-uppercase">
+      <p class="uppercase">
         {{@title}}
       </p>
     {{/if}}
-    <dl class="row {{if @isHorizontal 'gx-5'}} mb-0">
+    <dl class="grid grid-cols-12 {{if @isHorizontal 'gx-5'}} mb-0">
       {{yield
         (hash
           item=(component

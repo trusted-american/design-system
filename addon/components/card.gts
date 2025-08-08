@@ -18,7 +18,7 @@ export interface CardSignature {
 }
 
 const Card: TOC<CardSignature> = <template>
-  <div class="card" data-test-card ...attributes>
+  <div class="border rounded-lg" data-test-card ...attributes>
     {{yield (hash header=CardHeader body=CardBody footer=CardFooter)}}
   </div>
 </template>;

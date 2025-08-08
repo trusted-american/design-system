@@ -1,17 +1,23 @@
 import { modifier } from 'ember-modifier';
-import { Tooltip } from 'bootstrap';
-
-interface Options extends Partial<Tooltip.Options> {
-  onShow?: () => void;
-  onShown?: () => void;
-  onHide?: () => void;
-  onHidden?: () => void;
-}
 
 interface TooltipSignature {
   Element: Element;
   Args: {
-    Named: Options;
+    Named: {
+      placement?: 'auto' | 'top' | 'bottom' | 'left' | 'right';
+      trigger?:
+        | 'click'
+        | 'hover'
+        | 'focus'
+        | 'manual'
+        | 'click hover'
+        | 'click focus'
+        | 'hover focus'
+        | 'click hover focus';
+      html?: boolean;
+      onShow?: () => void;
+      onHide?: () => void;
+    };
     Positional: [string];
   };
 }
@@ -19,47 +25,62 @@ interface TooltipSignature {
 const tooltip = modifier<TooltipSignature>(
   function tooltip(element, positional, named) {
     const [title] = positional;
-    const { onShow, onShown, onHide, onHidden, ...options } = named;
+    const { onShow, onHide } = named;
 
-    const tooltip = new Tooltip(element, {
-      ...options,
-      title,
+    const container = document.createElement('div');
+    container.style.position = 'absolute';
+    container.style.display = 'inline-block';
+
+    const _tooltip = document.createElement('div');
+    _tooltip.textContent = title;
+    _tooltip.style.position = 'absolute';
+    _tooltip.style.bottom = '125%';
+    _tooltip.style.left = '50%';
+    _tooltip.style.transform = 'translateX(-50%)';
+    _tooltip.style.backgroundColor = 'black';
+    _tooltip.style.color = 'white';
+    _tooltip.style.padding = '5px 10px';
+    _tooltip.style.borderRadius = '5px';
+    _tooltip.style.whiteSpace = 'nowrap';
+    _tooltip.style.visibility = 'hidden';
+    _tooltip.style.opacity = '0';
+    _tooltip.style.transition = 'opacity 0.3s';
+
+    element.addEventListener('mouseenter', () => {
+      _tooltip.style.visibility = 'visible';
+      _tooltip.style.opacity = '1';
     });
 
-    // fixes tooltip closing when arg updates
-    if (element.matches(':hover')) {
-      tooltip.show();
-    }
+    element.addEventListener('mouseleave', () => {
+      _tooltip.style.visibility = 'hidden';
+      _tooltip.style.opacity = '0';
+    });
+
+    container.appendChild(_tooltip);
+    element.insertAdjacentElement('afterend', container);
 
     if (onShow) {
-      element.addEventListener('show.bs.tooltip', onShow);
-    }
-    if (onShown) {
-      element.addEventListener('shown.bs.tooltip', onShown);
+      element.addEventListener('mouseenter', onShow);
     }
     if (onHide) {
-      element.addEventListener('hide.bs.tooltip', onHide);
+      element.addEventListener('mouseleave', onHide);
     }
-    if (onHidden) {
-      element.addEventListener('hidden.bs.tooltip', onHidden);
+
+    // modifier cleanup function called on click, so restore tooltip visibility manually if hovering
+    if (element.matches(':hover')) {
+      const event = new MouseEvent('mouseenter');
+      element.dispatchEvent(event);
     }
 
     return () => {
+      container.remove();
+
       if (onShow) {
-        element.removeEventListener('show.bs.tooltip', onShow);
-      }
-      if (onShown) {
-        element.removeEventListener('shown.bs.tooltip', onShown);
+        element.removeEventListener('mouseenter', onShow);
       }
       if (onHide) {
-        element.removeEventListener('hide.bs.tooltip', onHide);
+        element.removeEventListener('mouseleave', onHide);
       }
-      if (onHidden) {
-        element.removeEventListener('hidden.bs.tooltip', onHidden);
-      }
-
-      // TODO: https://github.com/twbs/bootstrap/issues/37474
-      tooltip.dispose();
     };
   },
 );

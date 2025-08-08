@@ -28,7 +28,7 @@ interface FormSignature {
     <Heading @title="Form" />
 
     <form novalidate {{on "submit" @controller.submit}}>
-      <div class="mb-3">
+      <div class="mb-4">
         <FormInput
           @value={{@controller.value}}
           @label="Label"
@@ -42,7 +42,7 @@ interface FormSignature {
           placeholder="Placeholder"
         />
       </div>
-      <div class="mb-3">
+      <div class="mb-4">
         <FormTextarea
           @value={{@controller.value}}
           @label="Label"
@@ -56,7 +56,7 @@ interface FormSignature {
           placeholder="Placeholder"
         />
       </div>
-      <div class="mb-3">
+      <div class="mb-4">
         <FormCheck
           @value={{@controller.check}}
           @label="Label"
@@ -69,7 +69,7 @@ interface FormSignature {
           @onChange={{fn (mut @controller.check)}}
         />
       </div>
-      <div class="mb-3">
+      <div class="mb-4">
         <FormPowerSelect
           @options={{array "A" "B" "C"}}
           @selected={{@controller.value}}
@@ -89,7 +89,7 @@ interface FormSignature {
           {{value}}
         </FormPowerSelect>
       </div>
-      <div class="mb-3">
+      <div class="mb-4">
         <FormInput
           @value={{@controller.value}}
           @label="Label"

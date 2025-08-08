@@ -42,7 +42,7 @@ import Snippet from '../../components/snippet';
         <Badge @label="New" />
       </nav.item>
     </Nav>
-    <hr />
+    <hr class="my-4" />
     <Nav @isPills={{true}} @isFill={{true}} as |nav|>
       <nav.item @route="components" @label="First" />
       <nav.item @route="index" @label="Second" @icon={{faHouse}} />

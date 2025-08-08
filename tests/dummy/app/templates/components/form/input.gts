@@ -18,7 +18,7 @@ interface ComponentsFormInputSignature {
 
   <Subheading @title="Input" />
 
-  <p>Value: {{@controller.value}}</p>
+  <p class="mb-4">Value: {{@controller.value}}</p>
 
   <Snippet @name="form-input.gts">
     {{! BEGIN-SNIPPET form-input }}

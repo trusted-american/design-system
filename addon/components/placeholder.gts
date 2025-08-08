@@ -20,20 +20,16 @@ export interface PlaceholderSignature {
 }
 
 const Placeholder: TOC<PlaceholderSignature> = <template>
-  <div
-    class="d-flex justify-content-center"
-    data-test-placeholder
-    ...attributes
-  >
+  <div class="flex justify-center" data-test-placeholder ...attributes>
     <div class="text-center" style={{htmlSafe "max-width: 25rem;"}}>
-      <h1 class="mb-3">
+      <h1 class="text-4xl mb-4">
         <Icon @icon={{@icon}} />
       </h1>
-      <h4 class="mb-0" data-test-title>
+      <h4 class="text-2xl font-bold" data-test-title>
         {{@title}}
       </h4>
       {{#if @subtitle}}
-        <p class="text-secondary mt-2 mb-0" data-test-subtitle>
+        <p class="text-gray-500 mt-2 mb-0" data-test-subtitle>
           {{@subtitle}}
         </p>
       {{/if}}

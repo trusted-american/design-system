@@ -18,7 +18,7 @@ interface ComponentsFormSelectSignature {
 
   <Subheading @title="Select" />
 
-  <p>Value: {{@controller.value}}</p>
+  <p class="mb-4">Value: {{@controller.value}}</p>
 
   <Snippet @name="form-select.gts">
     {{! BEGIN-SNIPPET form-select }}

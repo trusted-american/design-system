@@ -151,13 +151,13 @@ export interface TableSignature<T> {
 
 export default class Table<T> extends Component<TableSignature<T>> {
   <template>
-    <div class="table-responsive" ...attributes>
+    <div class="relative overflow-x-auto" ...attributes>
       <YetiTable
         @data={{@data}}
         @sortable={{@isSortable}}
         @pagination={{eq "local" @pagination}}
         @pageSize={{10}}
-        class="table table-hover"
+        class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
         data-test-table
         as |table|
       >
@@ -197,7 +197,7 @@ export default class Table<T> extends Component<TableSignature<T>> {
           @onPrevious
         )
       }}
-        <div class="d-flex justify-content-end mt-3 mb-0">
+        <div class="flex justify-content-end mt-3 mb-0">
           <Pagination
             @canNext={{@canNext}}
             @canPrevious={{@canPrevious}}

@@ -15,13 +15,21 @@ export interface FormFeedbackSignature {
 
 const FormFeedback: TOC<FormFeedbackSignature> = <template>
   {{#if @invalidLabel}}
-    <div class="invalid-feedback" data-test-form-feedback ...attributes>
+    <div
+      class="text-sm text-red-500 mt-1"
+      data-test-form-feedback
+      ...attributes
+    >
       <Icon @icon={{faTriangleExclamation}} class="me-1" />
       {{@invalidLabel}}
     </div>
   {{/if}}
   {{#if @validLabel}}
-    <div class="valid-feedback">
+    <div
+      class="text-sm text-green-500 mt-1"
+      data-test-form-feedback
+      ...attributes
+    >
       <Icon @icon={{faCheck}} class="me-1" />
       {{@validLabel}}
     </div>

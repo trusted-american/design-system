@@ -38,7 +38,7 @@ interface ComponentsModalSignature {
         @onClose={{@controller.close}}
         as |onClose|
       >
-        <p>
+        <p class="mb-4">
           Lorem Ipsum Generator 5 Paragraphs Copy Lorem ipsum dolor sit amet
           consectetur adipiscing elit. Quisque faucibus ex sapien vitae
           pellentesque sem placerat. In id cursus mi pretium tellus duis
@@ -49,7 +49,7 @@ interface ComponentsModalSignature {
           himenaeos.
         </p>
 
-        <p><Button @label="Close" {{on "click" onClose}} /></p>
+        <p class="mb-4"><Button @label="Close" {{on "click" onClose}} /></p>
 
         <FormPowerSelect
           @options={{@controller.options}}
@@ -62,7 +62,7 @@ interface ComponentsModalSignature {
           @chooseLabel="Choose..."
           @searchLabel="Search..."
           @onChange={{fn (mut @controller.selected)}}
-          class="mb-3"
+          class="mb-4"
           as |user|
         >
           {{user.name}}

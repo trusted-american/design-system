@@ -22,7 +22,7 @@ interface ComponentsFormDateInputSignature {
 
   <Subheading @title="Date input" />
 
-  <p>Value: {{timestamp @controller.value}}</p>
+  <p class="mb-4">Value: {{timestamp @controller.value}}</p>
 
   <Snippet @name="form-date-input.gts">
     {{! BEGIN-SNIPPET form-date-input }}

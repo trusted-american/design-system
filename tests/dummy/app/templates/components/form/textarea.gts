@@ -18,7 +18,7 @@ interface ComponentsFormTextareaSignature {
 
   <Subheading @title="Textarea" />
 
-  <p>Value: {{@controller.value}}</p>
+  <p class="mb-4">Value: {{@controller.value}}</p>
 
   <Snippet @name="form-textarea.gts">
     {{! BEGIN-SNIPPET form-textarea }}

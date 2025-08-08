@@ -12,14 +12,15 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="badge.gts">
     {{! BEGIN-SNIPPET badge }}
-    <Badge @label="Default badge" />
-    <Badge @label="Success badge" @color="success" />
+    <Badge @label="Default badge" class="me-2" />
+    <Badge @label="Success badge" @color="success" class="me-2" />
     <Badge
       @label="Success badge with icon"
       @color="success"
       @icon={{faCheck}}
+      class="me-2"
     />
-    <Badge @label="Loading badge" @isLoading={{true}} />
+    <Badge @label="Loading badge" @isLoading={{true}} class="me-2" />
     {{! END-SNIPPET }}
   </Snippet>
 </template>

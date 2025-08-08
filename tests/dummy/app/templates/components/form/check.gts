@@ -18,7 +18,7 @@ interface ComponentsFormCheckSignature {
 
   <Subheading @title="Check" />
 
-  <p>Value: {{if @controller.value "True" " False"}}</p>
+  <p class="mb-4">Value: {{if @controller.value "True" " False"}}</p>
 
   <Snippet @name="form-check.gts">
     {{! BEGIN-SNIPPET form-check }}

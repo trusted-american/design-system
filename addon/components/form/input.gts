@@ -39,7 +39,8 @@ const Internal: TOC<{
     type={{if @type @type "text"}}
     id={{@identifier}}
     value={{@value}}
-    class="{{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
+    class="border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-1.5
+      {{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
         @size
         (concat ' form-control-' @size)
       }}{{if (eq 'color' @type) ' form-control-color'}}{{if

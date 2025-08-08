@@ -39,7 +39,7 @@ export default class PropertyListItemValue extends Component<PropertyListItemVal
   }
 
   <template>
-    <dd class="d-flex justify-content-between" ...attributes>
+    <dd class="flex justify-between" ...attributes>
       {{#if (or @value (eq false @value) (eq 0 @value))}}
         {{#if @isStatic}}
           {{yield}}

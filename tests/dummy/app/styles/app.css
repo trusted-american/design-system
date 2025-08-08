@@ -4,21 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.breadcrumb {
-  --bs-breadcrumb-margin-bottom: 0;
-}
-
-.container-fluid {
-  --bs-gutter-x: 3rem;
-}
-
-.card .shiki {
+.border > .shiki-code-block .shiki {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
 :root {
-  --ember-shiki-border-radius: var(--bs-border-radius) !important;
+  --ember-shiki-border-radius: 0.5rem !important;
 }
 
 .text-disabled {

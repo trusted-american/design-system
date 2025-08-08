@@ -58,7 +58,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
     {{/unless}}
 
     <Card as |card|>
-      <card.header class="d-flex justify-content-between align-items-center">
+      <card.header class="flex justify-between items-center">
         <Nav @isStatic={{true}} class="card-header-tabs" as |nav|>
           <nav.item
             @label={{@writeLabel}}
@@ -151,7 +151,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
       </card.header>
       <card.body class="p-2">
         {{#if this.isPreview}}
-          <div class="markdown-input-preview border">
+          <div class="border border-transparent px-3 py-1.5">
             {{#if @value}}
               <MarkdownToHtml @markdown={{@value}} />
             {{else}}
@@ -171,7 +171,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
             rows="4"
             ...attributes
           />
-          <p class="small text-secondary mt-2 mb-0">
+          <p class="text-sm text-gray-500 mt-2 mb-0">
             <Icon @icon={{faMarkdown}} />
             Markdown is supported
           </p>

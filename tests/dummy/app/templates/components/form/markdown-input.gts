@@ -18,7 +18,7 @@ interface ComponentsFormMarkdownInputSignature {
 
   <Subheading @title="Markdown input" />
 
-  <p>Value: {{@controller.value}}</p>
+  <p class="mb-4">Value: {{@controller.value}}</p>
 
   <Snippet @name="form-markdown-input.gts">
     {{! BEGIN-SNIPPET form-markdown-input }}

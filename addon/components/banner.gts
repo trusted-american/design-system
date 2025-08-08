@@ -1,4 +1,17 @@
 import type { TOC } from '@ember/component/template-only';
+import { get } from '@ember/helper';
+import { or } from 'ember-truth-helpers';
+
+const colorVariants = {
+  primary: 'bg-blue-500',
+  secondary: 'bg-gray-500',
+  success: 'bg-success-500',
+  danger: 'bg-danger-500',
+  warning: 'bg-warning-500',
+  info: 'bg-sky-500',
+  light: '',
+  dark: '',
+};
 
 export interface BannerSignature {
   Args: {
@@ -12,7 +25,8 @@ export interface BannerSignature {
 
 const Banner: TOC<BannerSignature> = <template>
   <section
-    class="text-bg-{{if @color @color 'primary'}} text-center fw-semibold p-2"
+    class="text-white text-center font-semibold p-2
+      {{get colorVariants (or @color 'secondary')}}"
     data-test-banner
     ...attributes
   >

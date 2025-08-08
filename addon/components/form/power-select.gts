@@ -52,7 +52,7 @@ export default class FormPowerSelect<T> extends Component<
       value="{{@selected}}"
       type="text"
       required={{@isRequired}}
-      class="d-none"
+      class="hidden"
       aria-label={{@label}}
     />
 
