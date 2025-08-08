@@ -43,7 +43,7 @@ export interface AlertSignature {
 
 const Alert: TOC<AlertSignature> = <template>
   <div
-    class="flex items-center p-4 mb-4 text-sm border rounded-lg
+    class="flex items-center p-4 mb-4 border rounded-lg
       {{get colorVariants (or @color 'secondary')}}
       {{if @onClose 'alert-dismissible'}}"
     role="alert"
