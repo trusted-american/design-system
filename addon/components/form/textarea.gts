@@ -1,6 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { eq } from 'ember-truth-helpers';
 import FormFeedback from './feedback';
 import FormHelp from './help';
 import type { FormInputArgs } from './input';

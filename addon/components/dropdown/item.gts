@@ -2,7 +2,6 @@ import Link, { type LinkArgs } from '../link';
 import Icon from '../icon';
 import { or } from 'ember-truth-helpers';
 import type { TOC } from '@ember/component/template-only';
-import { concat } from '@ember/helper';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { get } from '@ember/helper';
 
