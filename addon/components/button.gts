@@ -100,7 +100,7 @@ const Button: TOC<ButtonSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="no-underline focus:ring-4 font-medium rounded-lg text-sm focus:outline-none
+      class="no-underline focus:ring-4 font-medium rounded-lg focus:outline-none
         {{if
           @isOutline
           (get outlineColorVariants (or @color 'secondary'))
@@ -132,7 +132,7 @@ const Button: TOC<ButtonSignature> = <template>
     </Link>
   {{else if @isLabel}}
     <label
-      class="focus:ring-4 font-medium rounded-lg text-sm focus:outline-none
+      class="focus:ring-4 font-medium rounded-lg focus:outline-none
         {{if
           @isOutline
           (get outlineColorVariants (or @color 'secondary'))
