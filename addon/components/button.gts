@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
-import { concat, get } from '@ember/helper';
+import { get } from '@ember/helper';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { and, not, or } from 'ember-truth-helpers';
+import { and, not, or, eq } from 'ember-truth-helpers';
 import Badge from './badge';
 import Icon from './icon';
 import Link, { type LinkArgs } from './link';
@@ -16,6 +16,7 @@ const Internal: TOC<{
     isLoading?: boolean;
     count?: number;
     shortcut?: string;
+    size?: 'sm' | 'lg';
   };
   Element: SVGElement;
 }> = <template>
@@ -40,12 +41,28 @@ const Internal: TOC<{
 </template>;
 
 const colorVariants = {
-  primary: 'bg-blue-700 hover:bg-blue-800 focus:ring-blue-300',
-  secondary: 'text-gray-800 bg-gray-50 border-gray-300',
-  success: 'bg-green-700 hover:bg-green-800 focus:ring-green-300',
-  danger: 'bg-red-700 hover:bg-red-800 focus:ring-red-300',
-  warning: 'text-yellow-800 bg-yellow-50 border-yellow-300',
-  info: 'text-sky-800 bg-sky-50 border-sky-300',
+  primary: 'text-white bg-blue-800 hover:bg-blue-900 focus:ring-blue-600',
+  secondary: 'text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-500',
+  success: 'text-white bg-green-800 hover:bg-green-900 focus:ring-green-700',
+  danger: 'text-white bg-red-800 hover:bg-red-900 focus:ring-red-700',
+  warning: 'text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-600',
+  info: 'text-white bg-sky-700 hover:bg-sky-800 focus:ring-sky-600',
+  light: '',
+  dark: '',
+};
+
+const outlineColorVariants = {
+  primary:
+    'text-blue-700 bg-white border border-blue-700 hover:bg-blue-50 focus:ring-blue-500',
+  secondary:
+    'text-gray-700 bg-white border border-gray-700 hover:bg-gray-50 focus:ring-gray-500',
+  success:
+    'text-green-700 bg-white border border-green-700 hover:bg-green-50 focus:ring-green-600',
+  danger:
+    'text-red-700 bg-white border border-red-700 hover:bg-red-50 focus:ring-red-500',
+  warning:
+    'text-yellow-700 bg-white border border-yellow-700 hover:bg-yellow-50 focus:ring-yellow-500',
+  info: 'text-sky-700 bg-white border border-sky-700 hover:bg-sky-50 focus:ring-sky-500',
   light: '',
   dark: '',
 };
@@ -83,10 +100,17 @@ const Button: TOC<ButtonSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="no-underline text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
-        {{get colorVariants (or @color 'secondary')}}
-        {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}
+      class="no-underline focus:ring-4 font-medium rounded-lg focus:outline-none
+        {{if
+          @isOutline
+          (get outlineColorVariants (or @color 'secondary'))
+          (get colorVariants (or @color 'secondary'))
+        }}
+        {{if
+          (eq @size 'sm')
+          'px-2 py-1 text-sm'
+          (if (eq @size 'lg') 'px-4 py-2 text-lg' 'px-3 py-1.5')
+        }}
         {{if @isFullWidth 'w-full'}}
         text-nowrap
         {{if (or @isDisabled @isLoading) 'disabled'}}"
@@ -102,15 +126,23 @@ const Button: TOC<ButtonSignature> = <template>
         @isLoading={{@isLoading}}
         @count={{@count}}
         @shortcut={{@shortcut}}
+        @size={{@size}}
         role="presentation"
       />
     </Link>
   {{else if @isLabel}}
     <label
-      class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
-        {{get colorVariants (or @color 'secondary')}}
-        {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}
+      class="focus:ring-4 font-medium rounded-lg focus:outline-none
+        {{if
+          @isOutline
+          (get outlineColorVariants (or @color 'secondary'))
+          (get colorVariants (or @color 'secondary'))
+        }}
+        {{if
+          (eq @size 'sm')
+          'px-2 py-1 text-sm'
+          (if (eq @size 'lg') 'px-4 py-2 text-lg' 'px-3 py-1.5')
+        }}
         {{if @isFullWidth 'w-full'}}
         text-nowrap"
       data-test-button
@@ -124,6 +156,7 @@ const Button: TOC<ButtonSignature> = <template>
         @isLoading={{@isLoading}}
         @count={{@count}}
         @shortcut={{@shortcut}}
+        @size={{@size}}
         role="presentation"
       />
       {{yield}}
@@ -131,10 +164,17 @@ const Button: TOC<ButtonSignature> = <template>
   {{else}}
     <button
       type={{if @type @type "button"}}
-      class="font-medium rounded-lg px-3 py-1.5 focus:outline-none focus:ring-4
-        {{get colorVariants (or @color 'secondary')}}
-        {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}
+      class="font-medium rounded-lg focus:outline-none focus:ring-4
+        {{if
+          @isOutline
+          (get outlineColorVariants (or @color 'secondary'))
+          (get colorVariants (or @color 'secondary'))
+        }}
+        {{if
+          (eq @size 'sm')
+          'px-2 py-1 text-sm'
+          (if (eq @size 'lg') 'px-4 py-2 text-lg' 'px-3 py-1.5')
+        }}
         {{if @isFullWidth 'w-full'}}
         text-nowrap"
       disabled={{if @isLoading true}}
@@ -150,6 +190,7 @@ const Button: TOC<ButtonSignature> = <template>
         @isLoading={{@isLoading}}
         @count={{@count}}
         @shortcut={{@shortcut}}
+        @size={{@size}}
         role="presentation"
       />
     </button>
