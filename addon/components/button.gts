@@ -16,6 +16,7 @@ const Internal: TOC<{
     isLoading?: boolean;
     count?: number;
     shortcut?: string;
+    size?: 'sm' | 'lg';
   };
   Element: SVGElement;
 }> = <template>
@@ -99,7 +100,7 @@ const Button: TOC<ButtonSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="no-underline focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
+      class="no-underline focus:ring-4 font-medium rounded-lg text-sm focus:outline-none
         {{if
           @isOutline
           (get outlineColorVariants (or @color 'secondary'))
@@ -125,12 +126,13 @@ const Button: TOC<ButtonSignature> = <template>
         @isLoading={{@isLoading}}
         @count={{@count}}
         @shortcut={{@shortcut}}
+        @size={{@size}}
         role="presentation"
       />
     </Link>
   {{else if @isLabel}}
     <label
-      class="focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none
+      class="focus:ring-4 font-medium rounded-lg text-sm focus:outline-none
         {{if
           @isOutline
           (get outlineColorVariants (or @color 'secondary'))
@@ -154,6 +156,7 @@ const Button: TOC<ButtonSignature> = <template>
         @isLoading={{@isLoading}}
         @count={{@count}}
         @shortcut={{@shortcut}}
+        @size={{@size}}
         role="presentation"
       />
       {{yield}}
@@ -161,7 +164,7 @@ const Button: TOC<ButtonSignature> = <template>
   {{else}}
     <button
       type={{if @type @type "button"}}
-      class="font-medium rounded-lg px-3 py-1.5 focus:outline-none focus:ring-4
+      class="font-medium rounded-lg focus:outline-none focus:ring-4
         {{if
           @isOutline
           (get outlineColorVariants (or @color 'secondary'))
@@ -187,6 +190,7 @@ const Button: TOC<ButtonSignature> = <template>
         @isLoading={{@isLoading}}
         @count={{@count}}
         @shortcut={{@shortcut}}
+        @size={{@size}}
         role="presentation"
       />
     </button>
