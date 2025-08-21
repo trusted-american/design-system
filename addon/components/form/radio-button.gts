@@ -2,7 +2,6 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
-import ButtonGroup from '../button-group';
 import FormHelp from './help';
 import type { FormInputArgs } from './input';
 import FormLabel from './label';
@@ -37,25 +36,27 @@ export default class FormRadioButton<T> extends Component<
     {{/unless}}
 
     <div>
-      <ButtonGroup @size={{@size}} ...attributes as |buttonGroup|>
+      <div class="flex flex-wrap" ...attributes>
         {{#each @options as |option index|}}
-          <input
-            type="radio"
-            class="btn-check"
-            name={{@identifier}}
-            id="{{@identifier}}{{index}}"
-            autocomplete="off"
-            checked={{eq @selected option.value}}
-            {{on "change" (fn @onChange option.value)}}
-          />
-          <buttonGroup.button
-            @label={{option.label}}
-            @color={{option.color}}
-            @isLabel={{true}}
-            for="{{@identifier}}{{index}}"
-          />
+          <label class="inline-flex items-center cursor-pointer">
+            <input
+              type="radio"
+              class="sr-only peer"
+              name={{@identifier}}
+              id="{{@identifier}}{{index}}"
+              autocomplete="off"
+              checked={{eq @selected option.value}}
+              {{on "change" (fn @onChange option.value)}}
+            />
+            <span
+              class="px-4 py-2 border-2 border-gray-300 bg-white text-gray-700 peer-checked:bg-blue-600 peer-checked:border-blue-600 peer-checked:text-white hover:bg-gray-50 peer-checked:hover:bg-blue-700 font-medium text-sm cursor-pointer
+                {{if (eq index 0) 'rounded-l-lg' 'rounded-r-lg'}}"
+            >
+              {{option.label}}
+            </span>
+          </label>
         {{/each}}
-      </ButtonGroup>
+      </div>
     </div>
 
     {{#if @help}}

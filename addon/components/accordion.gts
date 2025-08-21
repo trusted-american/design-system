@@ -19,8 +19,10 @@ export default class Accordion extends Component<AccordionSignature> {
   id = guidFor(this);
 
   <template>
+    {{! TODO: if @isFlush 'accordion-flush'}}
     <div
-      class="accordion {{if @isFlush 'accordion-flush'}}"
+      id="accordion-collapse"
+      data-accordion="collapse"
       id={{this.id}}
       data-test-accordion
       ...attributes

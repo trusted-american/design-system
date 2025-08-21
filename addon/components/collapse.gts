@@ -1,9 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 
 export interface CollapseSignature {
-  Args: {
-    isHorizontal?: boolean;
-  };
   Blocks: {
     default: [];
   };
@@ -11,11 +8,7 @@ export interface CollapseSignature {
 }
 
 const Collapse: TOC<CollapseSignature> = <template>
-  <div
-    class="collapse {{if @isHorizontal 'collapse-horizontal'}}"
-    data-test-collapse
-    ...attributes
-  >
+  <div class="hidden" data-test-collapse ...attributes>
     {{yield}}
   </div>
 </template>;

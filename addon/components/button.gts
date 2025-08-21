@@ -1,5 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
-import { concat } from '@ember/helper';
+import { concat, get } from '@ember/helper';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and, not, or } from 'ember-truth-helpers';
 import Badge from './badge';
@@ -39,6 +39,18 @@ const Internal: TOC<{
   {{/if}}
 </template>;
 
+const colorVariants = {
+  primary: 'text-white focus:ring-blue-300 bg-blue-700 hover:bg-blue-800',
+  secondary:
+    'focus:ring-gray-100 bg-white text-gray-900 focus:z-10 border border-gray-200 hover:bg-gray-100 hover:text-blue-700',
+  success: 'text-white bg-green-700 hover:bg-green-800 focus:ring-green-300',
+  danger: 'text-white bg-red-700 hover:bg-red-800 focus:ring-red-300',
+  warning: 'text-white text-yellow-800 bg-yellow-50 border-yellow-300',
+  info: 'text-white text-sky-800 bg-sky-50 border-sky-300',
+  light: '',
+  dark: '',
+};
+
 interface Args extends LinkArgs {
   type?: string;
   label: string;
@@ -72,10 +84,11 @@ const Button: TOC<ButtonSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="btn
+      class="!no-underline font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4
+        {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
+        btn-{{if @isOutline 'outline-' ''}}
+        {{if @isFullWidth 'w-full'}}
         text-nowrap
         {{if (or @isDisabled @isLoading) 'disabled'}}"
       role="button"
@@ -95,10 +108,11 @@ const Button: TOC<ButtonSignature> = <template>
     </Link>
   {{else if @isLabel}}
     <label
-      class="btn
+      class="font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4
+        {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
+        btn-{{if @isOutline 'outline-' ''}}
+        {{if @isFullWidth 'w-full'}}
         text-nowrap"
       data-test-button
       ...attributes
@@ -118,10 +132,11 @@ const Button: TOC<ButtonSignature> = <template>
   {{else}}
     <button
       type={{if @type @type "button"}}
-      class="btn
+      class="font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4
+        {{get colorVariants (or @color 'secondary')}}
         {{if @size (concat 'btn-' @size)}}
-        btn-{{if @isOutline 'outline-' ''}}{{if @color @color 'secondary'}}
-        {{if @isFullWidth 'w-100'}}
+        btn-{{if @isOutline 'outline-' ''}}
+        {{if @isFullWidth 'w-full'}}
         text-nowrap"
       disabled={{if @isLoading true}}
       aria-label={{if @isIconOnly @label}}

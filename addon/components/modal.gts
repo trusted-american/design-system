@@ -1,9 +1,6 @@
-import { concat } from '@ember/helper';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
-import { Modal as BootstrapModal } from 'bootstrap';
-import { modifier } from 'ember-modifier';
 import CloseButton from './close-button';
+import { on } from '@ember/modifier';
 
 export interface ModalSignature {
   Args: {
@@ -25,93 +22,28 @@ export interface ModalSignature {
 }
 
 export default class Modal extends Component<ModalSignature> {
-  modal?: BootstrapModal;
-
-  setup = modifier((element) => {
-    this.modal = new BootstrapModal(element, {
-      backdrop: this.args.isStatic ? 'static' : true,
-      keyboard: this.args.isKeyboard ?? true,
-      focus: this.args.isFocus ?? false,
-    });
-
-    element.addEventListener('shown.bs.modal', () => {
-      if (this.isDestroyed) {
-        this.modal?.hide();
-      }
-
-      const autofocus = element.querySelector<HTMLInputElement>('[autofocus]');
-      if (autofocus) {
-        autofocus.focus();
-      }
-    });
-
-    // https://github.com/twbs/bootstrap/issues/41005
-    element.addEventListener('hide.bs.modal', () => {
-      if (document.activeElement instanceof HTMLElement) {
-        document.activeElement.blur();
-      }
-    });
-
-    element.addEventListener('hidden.bs.modal', () => {
-      this.args.onClose();
-    });
-
-    this.modal.show();
-  });
-
-  @action
-  close(): void {
-    if (!this.modal) {
-      throw new Error();
-    }
-
-    this.modal.hide();
-  }
-
-  willDestroy(): void {
-    super.willDestroy();
-
-    if (!this.modal) {
-      throw new Error();
-    }
-
-    this.modal.hide();
-  }
-
   <template>
     <div
-      class="modal fade"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       tabindex="-1"
       data-test-modal
-      {{this.setup}}
       ...attributes
     >
-      <div
-        class="modal-dialog modal-dialog-scrollable
-          {{if @size (concat 'modal-' @size)}}
-          {{if @isFullscreen 'modal-fullscreen'}}"
-      >
-        <div class="modal-content">
-          {{#if @title}}
-            <div class="modal-header">
-              <h6 class="modal-title">{{@title}}</h6>
-              {{#unless @hideClose}}
-                <CloseButton
-                  @label={{@closeButtonLabel}}
-                  data-bs-dismiss="modal"
-                />
-              {{/unless}}
-            </div>
-          {{/if}}
-          <div class="modal-body">
-            {{yield this.close}}
-          </div>
-          {{#if (has-block "footer")}}
-            <div class="modal-footer">
-              {{yield this.close to="footer"}}
-            </div>
-          {{/if}}
+      <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+        <div class="flex justify-between items-center border-b pb-3">
+          <h3 class="text-lg font-semibold text-gray-800">{{@title}}</h3>
+          {{#unless @hideClose}}
+            <CloseButton @label={{@closeButtonLabel}} {{on "click" @onClose}} />
+          {{/unless}}
         </div>
+        <div class="mt-4 text-gray-600">
+          {{yield @onClose}}
+        </div>
+        {{#if (has-block "footer")}}
+          <div class="mt-6 flex justify-end space-x-2">
+            {{yield @onClose to="footer"}}
+          </div>
+        {{/if}}
       </div>
     </div>
   </template>

@@ -19,19 +19,14 @@ export interface StatCardSignature {
 }
 
 const StatCard: TOC<StatCardSignature> = <template>
-  <Card
-    class="bg-body-tertiary mb-4"
-    data-test-stat-card
-    ...attributes
-    as |card|
-  >
+  <Card class="bg-gray-100 mb-6" data-test-stat-card ...attributes as |card|>
     <card.body>
-      <div class="d-flex gap-2">
-        <div class="flex-grow-1">
-          <p class="card-title fw-semibold text-uppercase text-secondary">
+      <div class="flex gap-2">
+        <div class="flex-grow">
+          <p class="font-semibold uppercase text-gray-500 mb-4">
             {{@label}}
           </p>
-          <h1 class="mb-0">
+          <h1 class="text-4xl font-bold">
             {{#if @value}}
               {{@value}}
             {{else if (has-block)}}

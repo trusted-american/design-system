@@ -17,7 +17,7 @@ interface ComponentsFormFileDropzoneSignature {
 
   <Subheading @title="File dropzone" />
 
-  <p>
+  <p class="mb-4">
     Value:
     <ul>
       {{#each @controller.value as |file|}}

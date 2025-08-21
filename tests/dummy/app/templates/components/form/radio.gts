@@ -18,7 +18,7 @@ interface ComponentsFormRadioSignature {
 
   <Subheading @title="Radio" />
 
-  <p>Value: {{@controller.value}}</p>
+  <p class="mb-4">Value: {{@controller.value}}</p>
 
   <Snippet @name="form-radio.gts">
     {{! BEGIN-SNIPPET form-radio }}

@@ -1,4 +1,3 @@
-import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
@@ -44,7 +43,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
     <input
       type="file"
       id={{@identifier}}
-      class="form-control {{if @size (concat 'form-control-' @size)}}"
+      class="block w-full text-gray-500 border border-gray-300 rounded-lg cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:bg-gray-100 file:text-gray-700 file:cursor-pointer hover:file:bg-gray-200"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}
       data-test-form-file-input

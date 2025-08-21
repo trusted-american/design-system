@@ -18,7 +18,7 @@ interface ComponentsFormPhoneInputSignature {
 
   <Subheading @title="Phone input" />
 
-  <p>Value: {{@controller.value}}</p>
+  <p class="mb-4">Value: {{@controller.value}}</p>
 
   <Snippet @name="form-phone-input.gts">
     {{! BEGIN-SNIPPET form-phone-input }}

@@ -18,7 +18,7 @@ interface ComponentsFormFileInputSignature {
 
   <Subheading @title="File input" />
 
-  <p>Value: {{@controller.value.name}}</p>
+  <p class="mb-4">Value: {{@controller.value.name}}</p>
 
   <Snippet @name="form-file-input.gts">
     {{! BEGIN-SNIPPET form-file-input }}

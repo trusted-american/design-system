@@ -11,7 +11,11 @@ export interface DropdownSignature {
 }
 
 const Dropdown: TOC<DropdownSignature> = <template>
-  <div class="dropdown-menu dropdown-menu-end" data-test-dropdown ...attributes>
+  <div
+    class="absolute z-10 hidden bg-white rounded-lg border border-gray-200 py-2"
+    data-test-dropdown
+    ...attributes
+  >
     {{yield (hash item=DropdownItem divider=DropdownDivider)}}
   </div>
 </template>;

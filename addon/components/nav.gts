@@ -1,5 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
+import type { WithBoundArgs } from '@glint/template';
 import NavItem from './nav/item';
 
 export interface NavSignature {
@@ -10,39 +11,26 @@ export interface NavSignature {
     isStatic?: boolean;
   };
   Blocks: {
-    default: [{ item: typeof NavItem }];
+    default: [{ item: WithBoundArgs<typeof NavItem, 'isPills'> }];
   };
   Element: HTMLElement;
 }
 
 const Nav: TOC<NavSignature> = <template>
-  {{#if @isStatic}}
-    <nav
-      class="nav flex-nowrap
-        {{unless @isPills 'nav-tabs'}}
-        {{if @isPills 'nav-pills'}}
-        {{if @isFill 'nav-fill'}}
-        {{if @isVertical 'flex-column'}}"
+  {{!-- TODO: {{if @isFill 'nav-fill'}} --}}
+  {{!unless @isStatic "overflow-x-auto"}}
+  <div ...attributes>
+    <div
+      class="font-medium text-gray-500
+        {{unless @isPills 'text-center border-b border-gray-200'}}
+        "
       data-test-nav
-      ...attributes
     >
-      {{yield (hash item=NavItem)}}
-    </nav>
-  {{else}}
-    <div class="overflow-x-auto" ...attributes>
-      {{! template-lint-disable no-duplicate-landmark-elements }}
-      <nav
-        class="nav flex-nowrap
-          {{unless @isPills 'nav-tabs'}}
-          {{if @isPills 'nav-pills'}}
-          {{if @isFill 'nav-fill'}}
-          {{if @isVertical 'flex-column'}}"
-        data-test-nav
-      >
-        {{yield (hash item=NavItem)}}
-      </nav>
+      <ul class="flex flex-wrap -mb-px {{if @isVertical 'flex-col'}}">
+        {{yield (hash item=(component NavItem isPills=@isPills))}}
+      </ul>
     </div>
-  {{/if}}
+  </div>
 </template>;
 
 export default Nav;

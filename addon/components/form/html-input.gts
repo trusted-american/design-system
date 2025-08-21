@@ -158,7 +158,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     {{/unless}}
 
     <Card as |card|>
-      <card.header class="d-flex justify-content-between align-items-center">
+      <card.header class="flex justify-between items-center">
         <Nav @isStatic={{true}} class="card-header-tabs" as |nav|>
           <nav.item
             @label={{@editorLabel}}
@@ -239,7 +239,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
           />
         {{else}}
           <div
-            class="form-html-input"
+            class="form-html-input h-64 rounded overflow-auto resize-y px-3 py-1.5"
             data-test-value-editor
             {{this.setup}}
             ...attributes
@@ -253,7 +253,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       value="{{@value}}"
       type="text"
       required={{@isRequired}}
-      class="d-none"
+      class="hidden"
       aria-label={{@label}}
     />
 

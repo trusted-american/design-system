@@ -12,11 +12,11 @@ export interface SubheadingSignature {
 
 const Subheading: TOC<SubheadingSignature> = <template>
   <div
-    class="d-flex justify-content-between align-items-start gap-2 mb-4"
+    class="flex justify-between items-start gap-2 mb-6"
     data-test-subheading
     ...attributes
   >
-    <h2 class="mb-0">
+    <h2 class="text-3xl font-bold">
       {{@title}}
     </h2>
     {{yield}}

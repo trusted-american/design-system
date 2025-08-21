@@ -37,9 +37,7 @@ const Copy: TOC<CopySignature> = <template>
     {{!-- TODO: args unused after ember-cli-clipboard removal
     @container={{@container}}
     @delegateClickEvent={{@delegateClickEvent}} --}}
-    class="tds-copy
-      {{if @isButton 'btn btn-secondary'}}
-      {{if @isFullWidth 'w-100'}}"
+    class="{{if @isButton 'btn btn-secondary'}} {{if @isFullWidth 'w-full'}}"
     data-test-copy
     {{on "click" (fn copy @value @onSuccess @onError)}}
     ...attributes

@@ -6,8 +6,11 @@ import { and, eq, gt, lt } from 'ember-truth-helpers';
 import PaginationItem from './pagination/item';
 
 const Ellipsis = <template>
-  <li class="page-item">
-    <div class="page-link" disabled>
+  <li>
+    <div
+      class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300"
+      disabled
+    >
       …
     </div>
   </li>
@@ -136,10 +139,7 @@ export default class Pagination extends Component<PaginationSignature> {
   }
 
   <template>
-    <div
-      class="d-flex justify-content-between align-items-center gap-2"
-      ...attributes
-    >
+    <div class="flex justify-between items-center gap-2" ...attributes>
       {{#if @onChange}}
         <span>
           {{@viewingLabel}}
@@ -150,10 +150,10 @@ export default class Pagination extends Component<PaginationSignature> {
         </span>
       {{/if}}
       <nav data-test-pagination>
-        <ul class="pagination mb-0">
-          <li class="page-item {{unless this.canPrevious 'disabled'}}">
+        <ul class="inline-flex -space-x-px text-sm">
+          <li class={{unless this.canPrevious "disabled"}}>
             <a
-              class="page-link"
+              class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700"
               href="#"
               data-test-previous
               {{on "click" this.previous}}
@@ -241,9 +241,9 @@ export default class Pagination extends Component<PaginationSignature> {
               {{/if}}
             {{/each}}
           {{/if}}
-          <li class="page-item {{unless this.canNext 'disabled'}}">
+          <li class={{unless this.canNext "disabled"}}>
             <a
-              class="page-link"
+              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700"
               href="#"
               data-test-next
               {{on "click" this.next}}

@@ -24,7 +24,7 @@ interface ComponentsPaginationSignature {
 
   <Subheading @title="Offset" />
 
-  <p>Page: {{@controller.page}}</p>
+  <p class="mb-4">Page: {{@controller.page}}</p>
 
   <Snippet @name="pagination.gts">
     {{! BEGIN-SNIPPET pagination }}

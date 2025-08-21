@@ -1,6 +1,9 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import FormFeedback from './feedback';
+import FormHelp from './help';
 import FormInput, { type FormInputArgs } from './input';
+import FormLabel from './label';
 
 interface Args extends FormInputArgs {
   value: string | null | undefined;
@@ -37,26 +40,45 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
   }
 
   <template>
-    <FormInput
-      @type="tel"
-      @value={{this.value}}
-      @label={{@label}}
-      @identifier={{@identifier}}
-      @isRequired={{@isRequired}}
-      @help={{@help}}
-      @invalidLabel={{@invalidLabel}}
-      @requiredLabel={{@requiredLabel}}
-      @size={{@size}}
-      @isInputOnly={{@isInputOnly}}
-      @errors={{@errors}}
-      @onChange={{this.change}}
-      maxlength="14"
-      pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
-      autocomplete="tel-national"
-      data-test-form-phone-input
-      ...attributes
-    >
-      +1
-    </FormInput>
+    {{#unless @isInputOnly}}
+      <FormLabel
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+      />
+    {{/unless}}
+
+    <div class="flex">
+      <span
+        class="px-3 py-1.5 bg-gray-100 border border-gray-300 rounded-l-lg text-gray-700"
+      >+1</span>
+      <FormInput
+        class="rounded-none rounded-r-lg border-l-0"
+        @type="tel"
+        @value={{this.value}}
+        @label={{@label}}
+        @identifier={{@identifier}}
+        @isRequired={{@isRequired}}
+        @requiredLabel={{@requiredLabel}}
+        @isInputOnly={{true}}
+        @onChange={{this.change}}
+        maxlength="14"
+        pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+        autocomplete="tel-national"
+        data-test-form-phone-input
+        ...attributes
+      />
+    </div>
+
+    <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
+
+    {{#each @errors as |error|}}
+      <FormFeedback @validLabel={{undefined}} @invalidLabel={{error.message}} />
+    {{/each}}
+
+    {{#if @help}}
+      <FormHelp @label={{@help}} />
+    {{/if}}
   </template>
 }

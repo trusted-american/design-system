@@ -14,25 +14,23 @@ export interface HeadingSignature {
 }
 
 const Heading: TOC<HeadingSignature> = <template>
-  <div class="mb-4" data-test-heading ...attributes>
+  <div class="mb-6" data-test-heading ...attributes>
     {{#if @type}}
-      <div
-        class="d-flex justify-content-between align-items-end text-secondary mb-2"
-      >
-        <span class="text-uppercase">
+      <div class="flex justify-between items-end text-gray-500 mb-2">
+        <span class="uppercase">
           {{@type}}
         </span>
         {{#if @identifier}}
-          <span class="font-monospace">
+          <span class="font-mono">
             {{@identifier}}
           </span>
         {{/if}}
       </div>
     {{/if}}
 
-    <div class="d-flex justify-content-between align-items-start gap-3">
+    <div class="flex justify-between items-start gap-4">
       <div>
-        <h1 class="mb-0">
+        <h1 class="text-4xl font-bold">
           {{@title}}
         </h1>
       </div>
@@ -40,7 +38,7 @@ const Heading: TOC<HeadingSignature> = <template>
     </div>
 
     {{#if @subtitle}}
-      <p class="lead mt-1 mb-0">
+      <p class="mt-1">
         {{@subtitle}}
       </p>
     {{/if}}

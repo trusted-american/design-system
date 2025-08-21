@@ -1,6 +1,8 @@
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+const postcssImport = require('postcss-import');
+const tailwind = require('@tailwindcss/postcss');
 
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
@@ -9,9 +11,14 @@ module.exports = function (defaults) {
     // Add options here
 
     snippetSearchPaths: ['tests/dummy/app'],
-  });
 
-  app.import('node_modules/bootstrap/dist/css/bootstrap.css');
+    postcssOptions: {
+      compile: {
+        cacheInclude: [/.*\.(css|gts)$/],
+        plugins: [postcssImport, tailwind],
+      },
+    },
+  });
 
   /*
     This build file specifies the options for the dummy test app of this

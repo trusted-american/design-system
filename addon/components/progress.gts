@@ -10,7 +10,11 @@ export interface ProgressSignature {
 }
 
 const Progress: TOC<ProgressSignature> = <template>
-  <div class="progress" data-test-progress ...attributes>
+  <div
+    class="flex overflow-hidden bg-gray-200 rounded-lg h-4"
+    data-test-progress
+    ...attributes
+  >
     {{yield (hash bar=ProgressBar)}}
   </div>
 </template>;

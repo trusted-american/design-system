@@ -21,7 +21,7 @@ const Internal: TOC<{
   {{/if}}
   {{#if @label}}{{@label}}{{/if}}
   {{yield}}
-  <div class="d-inline float-end">
+  <div class="inline float-end">
     {{#if @count}}
       <Badge @label="{{@count}}" @isPill={{true}} class="ms-2" />
     {{/if}}
@@ -37,6 +37,7 @@ interface Args extends LinkArgs {
   count?: number;
   trailingIcon?: IconDefinition;
   isDisabled?: boolean;
+  isPills?: boolean;
 }
 
 export interface NavItemSignature {
@@ -48,43 +49,55 @@ export interface NavItemSignature {
 }
 
 const NavItem: TOC<NavItemSignature> = <template>
-  {{#if (or @route @model @query @href)}}
-    <Link
-      @route={{@route}}
-      @model={{@model}}
-      @query={{@query}}
-      @href={{@href}}
-      @isLocalHref={{@isLocalHref}}
-      class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
-      data-test-nav-item
-      ...attributes
-    >
-      <Internal
-        @label={{@label}}
-        @icon={{@icon}}
-        @count={{@count}}
-        @trailingIcon={{@trailingIcon}}
+  {{!-- TODO: {{if @isDisabled 'disabled'}} --}}
+  <li class="me-2">
+    {{#if (or @route @model @query @href)}}
+      <Link
+        @route={{@route}}
+        @model={{@model}}
+        @query={{@query}}
+        @href={{@href}}
+        @isLocalHref={{@isLocalHref}}
+        class="text-inherit !no-underline
+          {{if
+            @isPills
+            'block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 ember-active:text-white ember-active:bg-blue-600'
+            'block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 ember-active:text-blue-600 ember-active:border-blue-600'
+          }}"
+        data-test-nav-item
+        ...attributes
       >
-        {{yield}}
-      </Internal>
-    </Link>
-  {{else}}
-    <a
-      href="#"
-      class="nav-link text-nowrap {{if @isDisabled 'disabled'}}"
-      data-test-nav-item
-      ...attributes
-    >
-      <Internal
-        @label={{@label}}
-        @icon={{@icon}}
-        @count={{@count}}
-        @trailingIcon={{@trailingIcon}}
+        <Internal
+          @label={{@label}}
+          @icon={{@icon}}
+          @count={{@count}}
+          @trailingIcon={{@trailingIcon}}
+        >
+          {{yield}}
+        </Internal>
+      </Link>
+    {{else}}
+      <a
+        href="#"
+        class={{if
+          @isPills
+          "block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 ember-active:text-white ember-active:bg-blue-600"
+          "block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 ember-active:text-blue-600 ember-active:border-blue-600"
+        }}
+        data-test-nav-item
+        ...attributes
       >
-        {{yield}}
-      </Internal>
-    </a>
-  {{/if}}
+        <Internal
+          @label={{@label}}
+          @icon={{@icon}}
+          @count={{@count}}
+          @trailingIcon={{@trailingIcon}}
+        >
+          {{yield}}
+        </Internal>
+      </a>
+    {{/if}}
+  </li>
 </template>;
 
 export default NavItem;

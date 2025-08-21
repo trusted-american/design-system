@@ -8,7 +8,7 @@ export interface FormHelpSignature {
 }
 
 const FormHelp: TOC<FormHelpSignature> = <template>
-  <div class="form-text" data-test-form-help ...attributes>
+  <div class="text-sm text-gray-500 mt-1" data-test-form-help ...attributes>
     {{@label}}
   </div>
 </template>;

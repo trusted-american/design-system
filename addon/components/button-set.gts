@@ -10,7 +10,7 @@ export interface ButtonSetSignature {
 }
 
 const ButtonSet: TOC<ButtonSetSignature> = <template>
-  <div class="d-flex gap-2" data-test-button-set ...attributes>
+  <div class="flex gap-2" data-test-button-set ...attributes>
     {{yield (hash button=Button)}}
   </div>
 </template>;

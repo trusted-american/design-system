@@ -5,7 +5,6 @@ import { guidFor } from '@ember/object/internals';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import { cached, tracked } from '@glimmer/tracking';
-import { Dropdown as BootstrapDropdown } from 'bootstrap';
 import dayjs from 'dayjs';
 import { modifier } from 'ember-modifier';
 import { eq, not } from 'ember-truth-helpers';
@@ -32,8 +31,7 @@ const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 const hideDropdown = (id: string) => {
   const dropdownEl = document.getElementById(id);
   if (dropdownEl) {
-    const dropdown = BootstrapDropdown.getInstance(dropdownEl);
-    dropdown?.hide();
+    // TODO:
   }
 };
 
@@ -288,12 +286,12 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
       {{dropdown autoClose="outside"}}
     />
 
-    <Dropdown class="p-0" data-test-list-filter-dropdown>
+    <Dropdown class="!p-0" data-test-list-filter-dropdown>
       <form novalidate {{on "submit" this.done}}>
         <ListGroup @isFlush={{true}} as |listGroup|>
 
-          <listGroup.item class="bg-body-tertiary px-2">
-            <ButtonSet class="justify-content-between" as |buttonSet|>
+          <listGroup.item class="bg-gray-100 !px-2">
+            <ButtonSet class="justify-between" as |buttonSet|>
               <buttonSet.button
                 @label={{@clearLabel}}
                 data-test-clear
@@ -309,7 +307,10 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
           </listGroup.item>
 
           {{#each this.predicates as |predicate index|}}
-            <label class="list-group-item px-2" data-test-predicate-toggle>
+            <label
+              class="block border-b border-gray-200 px-2 py-2"
+              data-test-predicate-toggle
+            >
               <FormCheckInput
                 @value={{predicate.isEnabled}}
                 @label={{predicate._predicate.label}}
@@ -325,7 +326,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
             {{#if predicate.isEnabled}}
               <listGroup.item
-                class="bg-body-tertiary px-2"
+                class="bg-gray-100 !px-2"
                 data-test-predicate-value
               >
                 {{#if (eq "date" predicate._predicate.type)}}
@@ -349,7 +350,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                     data-test-mode
                   />
 
-                  <div class="d-flex align-items-center gap-2">
+                  <div class="flex items-center gap-2">
                     {{#if (eq "inTheLast" predicate.mode)}}
                       <FormNumberInput
                         @value={{predicate.offsetCount}}

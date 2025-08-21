@@ -14,7 +14,7 @@ export interface ButtonGroupSignature {
 
 const ButtonGroup: TOC<ButtonGroupSignature> = <template>
   <div
-    class="btn-group {{if @size (concat 'btn-group-' @size)}}"
+    class="button-group flex {{if @size (concat 'btn-group-' @size)}}"
     role="group"
     data-test-button-group
     ...attributes

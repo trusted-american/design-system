@@ -1,9 +1,9 @@
-import type { TOC } from '@ember/component/template-only';
-import { concat } from '@ember/helper';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { or } from 'ember-truth-helpers';
-import Icon from '../icon';
 import Link, { type LinkArgs } from '../link';
+import Icon from '../icon';
+import { or } from 'ember-truth-helpers';
+import type { TOC } from '@ember/component/template-only';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { get } from '@ember/helper';
 
 const Internal: TOC<{
   Args: {
@@ -17,19 +17,30 @@ const Internal: TOC<{
   };
 }> = <template>
   {{#if @icon}}
-    <Icon @icon={{@icon}} @isFixedWidth={{true}} />
+    <Icon @icon={{@icon}} @isFixedWidth={{true}} class="text-gray-500" />
   {{/if}}
   <div>
     {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
     {{#if @subtitle}}
       <br />
-      <span class="small">{{@subtitle}}</span>
+      <span class="text-sm">{{@subtitle}}</span>
     {{/if}}
   </div>
   {{#if @shortcut}}
-    <span class="text-secondary ms-auto">{{@shortcut}}</span>
+    <span class="text-gray-500 ms-auto">{{@shortcut}}</span>
   {{/if}}
 </template>;
+
+const colorVariants = {
+  primary: 'text-blue-500',
+  secondary: '',
+  success: 'text-green-500',
+  danger: 'text-red-500',
+  warning: 'text-yellow-500',
+  info: 'text-sky-500',
+  light: '',
+  dark: '',
+};
 
 interface Args extends LinkArgs {
   color?: string;
@@ -55,8 +66,8 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       @query={{@query}}
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
-      class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+      class="w-full px-4 py-1 flex items-center gap-2 hover:bg-gray-100
+        {{if @color (get colorVariants @color)}}"
       ...attributes
     >
       <Internal
@@ -69,8 +80,8 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
   {{else}}
     <button
       type="button"
-      class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+      class="w-full px-4 py-1 flex items-center gap-2 hover:bg-gray-100
+        {{if @color (get colorVariants @color)}}"
       ...attributes
     >
       <Internal
