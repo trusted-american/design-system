@@ -39,6 +39,7 @@ interface ComponentsFormPowerSelectSignature {
       @chooseLabel="Choose..."
       @searchLabel="Search..."
       @onChange={{fn (mut @controller.value)}}
+      @onCreate={{@controller.create}}
       as |post|
     >
       {{post.subject}}
