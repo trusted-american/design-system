@@ -12,7 +12,7 @@ export interface DropdownSignature {
 
 const Dropdown: TOC<DropdownSignature> = <template>
   <div
-    class="absolute z-10 hidden bg-white rounded-lg border py-2"
+    class="absolute z-10 hidden bg-white rounded-lg border border-gray-200 py-2"
     data-test-dropdown
     ...attributes
   >

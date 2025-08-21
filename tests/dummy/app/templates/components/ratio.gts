@@ -11,8 +11,11 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="ratio.gts">
     {{! BEGIN-SNIPPET ratio }}
-    <Ratio @ratio="21x9" class="w-50">
-      <div class="flex justify-center items-center text-bg-secondary">21x9</div>
+    <Ratio
+      @ratio="21x9"
+      class="w-1/2 flex justify-center items-center bg-gray-100"
+    >
+      21x9
     </Ratio>
     {{! END-SNIPPET }}
   </Snippet>

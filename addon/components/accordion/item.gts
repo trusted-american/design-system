@@ -26,13 +26,20 @@ export default class AccordionItem extends Component<AccordionItemSignature> {
   id = guidFor(this);
 
   <template>
-    <div class="accordion-item" ...attributes>
-      <h2 class="accordion-header">
-        {{yield
-          (hash button=(component AccordionButton item=this isOpen=@isOpen))
-        }}
-      </h2>
-      <div
+    <h2 id="accordion-collapse-heading-1" ...attributes>
+      {{yield
+        (hash button=(component AccordionButton item=this isOpen=@isOpen))
+      }}
+    </h2>
+    <div
+      id={{this.id}}
+      class="hidden"
+      aria-labelledby="accordion-collapse-heading-1"
+    >
+      {{yield (hash body=AccordionBody)}}
+    </div>
+
+    {{!-- <div
         class="accordion-collapse collapse {{if @isOpen 'show'}}"
         id={{this.id}}
         data-bs-parent={{unless
@@ -41,7 +48,6 @@ export default class AccordionItem extends Component<AccordionItemSignature> {
         }}
       >
         {{yield (hash body=AccordionBody)}}
-      </div>
-    </div>
+      </div> --}}
   </template>
 }

@@ -31,7 +31,7 @@ export default class FormFileDropzone extends Component<FormFileDropzoneSignatur
     {{#let (fileQueue name=this.id onFileAdded=this.create) as |queue|}}
       <FileDropzone
         @queue={{queue}}
-        class="text-center text-gray-500 bg-gray-100 rounded-lg border border-dashed p-6"
+        class="text-center text-gray-500 bg-gray-100 rounded-lg border border-gray-200 border-dashed p-6"
         ...attributes
         as |dropzone|
       >

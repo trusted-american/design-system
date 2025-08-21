@@ -51,10 +51,10 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
 
     <div class="flex">
       <span
-        class="px-3 py-2 bg-gray-100 border border-gray-300 rounded-l-lg text-gray-700"
+        class="px-3 py-1.5 bg-gray-100 border border-gray-300 rounded-l-lg text-gray-700"
       >+1</span>
       <FormInput
-        class="block w-full px-3 py-2 border border-gray-300 rounded-none rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ease-in-out border-l-0 bg-white"
+        class="rounded-none rounded-r-lg border-l-0"
         @type="tel"
         @value={{this.value}}
         @label={{@label}}

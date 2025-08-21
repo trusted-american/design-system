@@ -58,7 +58,7 @@ const NavItem: TOC<NavItemSignature> = <template>
         @query={{@query}}
         @href={{@href}}
         @isLocalHref={{@isLocalHref}}
-        class="text-inherit no-underline
+        class="text-inherit !no-underline
           {{if
             @isPills
             'block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 ember-active:text-white ember-active:bg-blue-600'

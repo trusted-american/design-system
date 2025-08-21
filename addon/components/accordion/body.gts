@@ -8,7 +8,7 @@ export interface AccordionBodySignature {
 }
 
 const AccordionBody: TOC<AccordionBodySignature> = <template>
-  <div class="accordion-body" ...attributes>
+  <div class="p-5 border border-b-0 border-gray-200" ...attributes>
     {{yield}}
   </div>
 </template>;

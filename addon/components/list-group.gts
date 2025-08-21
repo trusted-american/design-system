@@ -18,7 +18,7 @@ export interface ListGroupSignature {
 const ListGroup: TOC<ListGroupSignature> = <template>
   <ul
     class="divide-y rounded-lg
-      {{unless @isFlush 'border'}}
+      {{unless @isFlush 'border border-gray-200'}}
       {{if @isNumbered 'list-group-numbered'}}
       {{if @isHorizontal 'list-group-horizontal'}}
       {{if @color (concat 'list-group-item-' @color)}}"

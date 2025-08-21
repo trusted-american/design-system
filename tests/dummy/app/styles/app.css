@@ -1,8 +1,8 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant ember-active (&.active);
 
 .border > .shiki-code-block .shiki {
   border-top-left-radius: 0;

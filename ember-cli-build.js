@@ -1,8 +1,8 @@
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
-const tailwind = require('tailwindcss');
-const autoprefixer = require('autoprefixer');
+const postcssImport = require('postcss-import');
+const tailwind = require('@tailwindcss/postcss');
 
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
@@ -15,12 +15,10 @@ module.exports = function (defaults) {
     postcssOptions: {
       compile: {
         cacheInclude: [/.*\.(css|scss|hbs|gts)$/, /.tailwind\.config\.js$/],
-        plugins: [tailwind, autoprefixer],
+        plugins: [postcssImport, tailwind],
       },
     },
   });
-
-  // app.import('node_modules/bootstrap/dist/css/bootstrap.css');
 
   /*
     This build file specifies the options for the dummy test app of this

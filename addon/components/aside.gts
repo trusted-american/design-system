@@ -36,7 +36,7 @@ export interface AsideSignature {
 const Aside: TOC<AsideSignature> = <template>
   {{#unless @isCollapsed}}
     <aside
-      class="flex flex-col flex-shrink-0 overflow-y-auto border-r gap-4 py-4 ps-4 w-72"
+      class="flex flex-col flex-shrink-0 overflow-y-auto border-r border-gray-200 gap-4 py-4 ps-4 w-72"
       data-test-aside
     >
       <div class="flex gap-4 pe-4">

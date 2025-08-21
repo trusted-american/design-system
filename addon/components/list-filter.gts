@@ -5,7 +5,6 @@ import { guidFor } from '@ember/object/internals';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import { cached, tracked } from '@glimmer/tracking';
-import { Dropdown as BootstrapDropdown } from 'bootstrap';
 import dayjs from 'dayjs';
 import { modifier } from 'ember-modifier';
 import { eq, not } from 'ember-truth-helpers';
@@ -32,8 +31,7 @@ const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 const hideDropdown = (id: string) => {
   const dropdownEl = document.getElementById(id);
   if (dropdownEl) {
-    const dropdown = BootstrapDropdown.getInstance(dropdownEl);
-    dropdown?.hide();
+    // TODO:
   }
 };
 
@@ -309,7 +307,10 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
           </listGroup.item>
 
           {{#each this.predicates as |predicate index|}}
-            <label class="block border-b px-2 py-2" data-test-predicate-toggle>
+            <label
+              class="block border-b border-gray-200 px-2 py-2"
+              data-test-predicate-toggle
+            >
               <FormCheckInput
                 @value={{predicate.isEnabled}}
                 @label={{predicate._predicate.label}}

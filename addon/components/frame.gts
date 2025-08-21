@@ -8,7 +8,7 @@ export interface FrameSignature {
 }
 
 const Frame: TOC<FrameSignature> = <template>
-  <div class="tds-frame grid h-screen bg-body-tertiary" ...attributes>
+  <div class="tds-frame grid h-screen bg-gray-50" ...attributes>
     {{yield}}
   </div>
 </template>;
