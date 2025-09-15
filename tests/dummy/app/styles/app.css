@@ -8,7 +8,7 @@
   --bs-gutter-x: 3rem;
 }
 
-.card .shiki {
+.snippet .shiki {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
