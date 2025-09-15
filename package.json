@@ -48,15 +48,15 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "@babel/core": "^7.28.0",
-    "@fortawesome/ember-fontawesome": "^3.0.1",
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fullcalendar/core": "^6.1.18",
-    "@fullcalendar/daygrid": "^6.1.18",
-    "@fullcalendar/list": "^6.1.18",
-    "@fullcalendar/timegrid": "^6.1.18",
+    "@babel/core": "^7.28.4",
+    "@fortawesome/ember-fontawesome": "^3.1.0",
+    "@fortawesome/fontawesome-svg-core": "^7.0.1",
+    "@fortawesome/free-brands-svg-icons": "^7.0.1",
+    "@fortawesome/free-solid-svg-icons": "^7.0.1",
+    "@fullcalendar/core": "^6.1.19",
+    "@fullcalendar/daygrid": "^6.1.19",
+    "@fullcalendar/list": "^6.1.19",
+    "@fullcalendar/timegrid": "^6.1.19",
     "@github/markdown-toolbar-element": "^2.2.3",
     "@tiptap/core": "^2.26.1",
     "@tiptap/pm": "^2.26.1",
@@ -83,7 +83,7 @@
     "tracked-built-ins": "^4.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.0",
+    "@babel/eslint-parser": "^7.28.4",
     "@babel/plugin-proposal-decorators": "^7.28.0",
     "@ember/optional-features": "^2.2.0",
     "@ember/test-helpers": "^5.3.0",
@@ -136,7 +136,7 @@
     "stylelint": "^16.24.0",
     "stylelint-config-standard": "^39.0.0",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.0",
+    "typescript-eslint": "^8.44.0",
     "webpack": "^5.101.3"
   },
   "peerDependencies": {
