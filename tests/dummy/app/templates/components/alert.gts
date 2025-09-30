@@ -36,10 +36,10 @@ interface ComponentsAlertSignature {
 
   <Snippet @name="alert.gts">
     {{! BEGIN-SNIPPET alert }}
-    <Alert @color="danger" @icon={{faTriangleExclamation}}>
+    <Alert @color="danger" @icon={{faTriangleExclamation}} as |alert|>
       One of your domains is unverified. Please verify your domain to prevent
       others from claiming it.
-      <AlertLink @route="index">Learn more</AlertLink>
+      <alert.link @route="index" @label="Learn more" />
     </Alert>
     {{! END-SNIPPET }}
   </Snippet>
@@ -51,8 +51,9 @@ interface ComponentsAlertSignature {
       @icon={{faCircleExclamation}}
       @closeButtonLabel="Close"
       @onClose={{@controller.close}}
+      as |alert|
     >
-      <AlertLink @route="index">Prebuilds</AlertLink>
+      <alert.link @route="index" @label="Prebuilds" />
       consume storage space that will incur a billable charge.
     </Alert>
     {{! END-SNIPPET }}
@@ -65,9 +66,10 @@ interface ComponentsAlertSignature {
       @icon={{faCheck}}
       @closeButtonLabel="Close"
       @onClose={{@controller.close}}
+      as |alert|
     >
       Payment information added successfully. Change it any time in
-      <AlertLink @route="index">your profile</AlertLink>.
+      <alert.link @route="index" @label="your profile" />.
     </Alert>
     {{! END-SNIPPET }}
   </Snippet>
@@ -79,9 +81,10 @@ interface ComponentsAlertSignature {
       @icon={{faCircleInfo}}
       @closeButtonLabel="Close"
       @onClose={{@controller.close}}
+      as |alert|
     >
       Ignoring revisions in
-      <AlertLink @route="index">.git-blame-ignore-revs</AlertLink>.
+      <alert.link @route="index" @label=".git-blame-ignore-revs" />.
     </Alert>
     {{! END-SNIPPET }}
   </Snippet>
