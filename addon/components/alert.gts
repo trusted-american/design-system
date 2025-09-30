@@ -1,7 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
+import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and } from 'ember-truth-helpers';
+import AlertLink from './alert/link';
 import CloseButton from './close-button';
 import Icon from './icon';
 
@@ -24,7 +26,7 @@ export interface AlertSignature {
   Args: DefaultArgs | CloseableArgs;
   Blocks: {
     title: [];
-    default: [];
+    default: [{ link: typeof AlertLink }];
   };
   Element: HTMLDivElement;
 }
@@ -47,7 +49,7 @@ const Alert: TOC<AlertSignature> = <template>
       {{#if (has-block "title")}}
         <h6 class="alert-heading">{{yield to="title"}}</h6>
       {{/if}}
-      {{yield}}
+      {{yield (hash link=AlertLink)}}
     </div>
     {{#if (and @closeButtonLabel @onClose)}}
       <CloseButton

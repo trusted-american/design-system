@@ -1,8 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
 import Link, { type LinkSignature } from '../link';
 
-const AlertLink: TOC<LinkSignature> = <template>
-  <Link
+// prettier-ignore
+const AlertLink: TOC<LinkSignature> = <template><Link
     @route={{@route}}
     @model={{@model}}
     @query={{@query}}
@@ -15,7 +15,6 @@ const AlertLink: TOC<LinkSignature> = <template>
     class="alert-link"
     data-test-alert-link
     ...attributes
-  >{{yield}}</Link>
-</template>;
+  >{{yield}}</Link></template>;
 
 export default AlertLink;

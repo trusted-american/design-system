@@ -21,10 +21,19 @@ import Snippet from '../../components/snippet';
     {{! END-SNIPPET }}
   </Snippet>
 
-  <Subheading @title="External" />
-
   <Snippet @name="link1.gts">
     {{! BEGIN-SNIPPET link1 }}
+    Please
+    <Link @route="index">click here</Link>
+    to view the page or
+    <Link @route="index">click here</Link>.
+    {{! END-SNIPPET }}
+  </Snippet>
+
+  <Subheading @title="External" />
+
+  <Snippet @name="link2.gts">
+    {{! BEGIN-SNIPPET link2 }}
     <Link
       @href="https://www.google.com/"
       @icon={{faUpRightFromSquare}}
