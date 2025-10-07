@@ -175,7 +175,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         </Nav>
 
         {{#unless this.isCode}}
-          <div>
+          <div class="overflow-x-auto d-flex gap-1">
             <EditorButton
               @label="Bold"
               @icon={{faBold}}
