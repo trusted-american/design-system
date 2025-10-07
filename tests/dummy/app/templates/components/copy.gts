@@ -14,6 +14,9 @@ import Snippet from '../../components/snippet';
     <Copy @value="Copied content">
       Click to copy
     </Copy>
+    <Copy @value="Copied content" @isButton={{true}}>
+      Click to copy
+    </Copy>
     {{! END-SNIPPET }}
   </Snippet>
 </template>
