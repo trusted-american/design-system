@@ -1,4 +1,3 @@
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -64,8 +63,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
     return '';
   }
 
-  @action
-  change(dateStr: string): void {
+  change = (dateStr: string) => {
     if (this.args.isLocalTimeZone) {
       let value: Date | null = dayjs(dateStr).toDate();
 
@@ -94,7 +92,7 @@ export default class FormDateInput extends Component<FormDateInputSignature> {
     }
 
     this.args.onChange(value);
-  }
+  };
 
   <template>
     {{#if (eq "month" @type)}}

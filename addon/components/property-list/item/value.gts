@@ -1,5 +1,4 @@
 import { concat } from '@ember/helper';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { eq, or } from 'ember-truth-helpers';
@@ -27,8 +26,7 @@ export default class PropertyListItemValue extends Component<PropertyListItemVal
 
   @tracked isCopied = false;
 
-  @action
-  copy() {
+  copy = () => {
     this.isCopied = true;
 
     clearTimeout(this.timeout);
@@ -36,7 +34,7 @@ export default class PropertyListItemValue extends Component<PropertyListItemVal
     this.timeout = setTimeout(() => {
       this.isCopied = false;
     }, 5000);
-  }
+  };
 
   <template>
     <dd class="d-flex justify-content-between" ...attributes>

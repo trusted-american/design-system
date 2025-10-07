@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import type { User } from '../../routes/components/table';
 
@@ -15,13 +14,11 @@ export default class ComponentsTableController extends Controller {
     return this.model.slice(start, end);
   }
 
-  @action
-  next() {
+  next = () => {
     alert('Next');
-  }
+  };
 
-  @action
-  previous() {
+  previous = () => {
     alert('Previous');
-  }
+  };
 }
