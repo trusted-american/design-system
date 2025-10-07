@@ -6,19 +6,6 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import FormLabel from './label';
 
-export interface FormInputArgs {
-  label: string;
-  identifier: string;
-  isRequired?: boolean;
-  requiredLabel: string;
-  help?: string;
-  validLabel?: string;
-  invalidLabel?: string;
-  isInputOnly?: boolean;
-  size?: 'sm' | 'lg';
-  errors?: { message: string }[];
-}
-
 const Internal: TOC<{
   Args: {
     value: string | null | undefined;
@@ -59,6 +46,19 @@ const getEventValue = (fn: (value: string) => void, { target }: Event) => {
   }
   fn(target.value);
 };
+
+export interface FormInputArgs {
+  label: string;
+  identifier: string;
+  isRequired?: boolean;
+  requiredLabel: string;
+  help?: string;
+  validLabel?: string;
+  invalidLabel?: string;
+  isInputOnly?: boolean;
+  size?: 'sm' | 'lg';
+  errors?: { message: string }[];
+}
 
 interface Args extends FormInputArgs {
   value: string | null | undefined;
