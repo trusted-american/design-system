@@ -104,8 +104,7 @@ export default class Pagination extends Component<PaginationSignature> {
     );
   }
 
-  @action
-  next(event: Event) {
+  next = (event: Event) => {
     event.preventDefault();
 
     if ('pageSize' in this.args) {
@@ -113,10 +112,9 @@ export default class Pagination extends Component<PaginationSignature> {
     } else {
       this.args.onNext();
     }
-  }
+  };
 
-  @action
-  previous(event: Event) {
+  previous = (event: Event) => {
     event.preventDefault();
 
     if ('pageSize' in this.args) {
@@ -124,16 +122,15 @@ export default class Pagination extends Component<PaginationSignature> {
     } else {
       this.args.onPrevious();
     }
-  }
+  };
 
-  @action
-  change(index: number, event: Event) {
+  change = (index: number, event: Event) => {
     event.preventDefault();
 
     if ('onChange' in this.args) {
       this.args.onChange?.(index);
     }
-  }
+  };
 
   <template>
     <div

@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import type { Theme } from '@trusted-american/design-system/helpers/theme';
 
@@ -9,10 +8,9 @@ export default class ApplicationController extends Controller {
   @tracked isCollapsed = false;
   @tracked query = '';
 
-  @action
-  expand() {
+  expand = () => {
     this.isCollapsed = false;
-  }
+  };
 
   get isDarkTheme(): boolean {
     return this.theme === 'dark';

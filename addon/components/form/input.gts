@@ -1,7 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { eq, or } from 'ember-truth-helpers';
 import FormFeedback from './feedback';
@@ -71,13 +70,12 @@ export interface FormInputSignature {
 }
 
 export default class FormInput extends Component<FormInputSignature> {
-  @action
-  change({ target }: Event): void {
+  change = ({ target }: Event) => {
     if (!(target instanceof HTMLInputElement)) {
       throw new Error();
     }
     this.args.onChange(target.value);
-  }
+  };
 
   <template>
     {{#unless @isInputOnly}}

@@ -1,6 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faBold,
@@ -90,62 +89,51 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     };
   });
 
-  @action
-  toggleBold() {
+  toggleBold = () => {
     this.editor?.chain().focus().toggleBold().run();
-  }
+  };
 
-  @action
-  toggleItalic() {
+  toggleItalic = () => {
     this.editor?.chain().focus().toggleItalic().run();
-  }
+  };
 
-  @action
-  toggleStrike() {
+  toggleStrike = () => {
     this.editor?.chain().focus().toggleStrike().run();
-  }
+  };
 
-  @action
-  toggleHeading() {
+  toggleHeading = () => {
     this.editor?.chain().focus().toggleHeading({ level: 3 }).run();
-  }
+  };
 
-  @action
-  setParagraph() {
+  setParagraph = () => {
     this.editor?.chain().focus().setParagraph().run();
-  }
+  };
 
-  @action
-  toggleQuote() {
+  toggleQuote = () => {
     this.editor?.chain().focus().toggleBlockquote().run();
-  }
+  };
 
-  @action
   toggleNumberedList() {
     this.editor?.chain().focus().toggleOrderedList().run();
   }
 
-  @action
-  toggleUnorderedList() {
+  toggleUnorderedList = () => {
     this.editor?.commands.toggleBulletList();
-  }
+  };
 
-  @action
-  toggleCode() {
+  toggleCode = () => {
     this.editor?.chain().focus().toggleCode().run();
-  }
+  };
 
-  @action
-  setEditor(event: Event) {
+  setEditor = (event: Event) => {
     event.preventDefault();
     this.isCode = false;
-  }
+  };
 
-  @action
-  setCode(event: Event) {
+  setCode = (event: Event) => {
     event.preventDefault();
     this.isCode = true;
-  }
+  };
 
   <template>
     {{#unless @isInputOnly}}

@@ -1,5 +1,4 @@
 import { concat } from '@ember/helper';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { Modal as BootstrapModal } from 'bootstrap';
 import { modifier } from 'ember-modifier';
@@ -59,14 +58,13 @@ export default class Modal extends Component<ModalSignature> {
     this.modal.show();
   });
 
-  @action
-  close(): void {
+  close = () => {
     if (!this.modal) {
       throw new Error();
     }
 
     this.modal.hide();
-  }
+  };
 
   willDestroy(): void {
     super.willDestroy();

@@ -1,6 +1,5 @@
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { eq, not, or } from 'ember-truth-helpers';
 import FormFeedback from './feedback';
@@ -41,8 +40,7 @@ export interface FormSelectSignature<T> {
 export default class FormSelect<T extends Value> extends Component<
   FormSelectSignature<T>
 > {
-  @action
-  change({ target }: Event): void {
+  change = ({ target }: Event) => {
     if (!(target instanceof HTMLSelectElement)) {
       throw new Error();
     }
@@ -78,7 +76,7 @@ export default class FormSelect<T extends Value> extends Component<
     } else {
       this.args.onChange(selected as T);
     }
-  }
+  };
 
   <template>
     {{#unless @isInputOnly}}

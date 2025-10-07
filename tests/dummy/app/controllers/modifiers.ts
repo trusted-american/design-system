@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class ModifiersController extends Controller {
@@ -7,8 +6,7 @@ export default class ModifiersController extends Controller {
 
   @tracked isClicked = false;
 
-  @action
-  click() {
+  click = () => {
     this.isClicked = true;
 
     clearTimeout(this.timeout);
@@ -16,5 +14,5 @@ export default class ModifiersController extends Controller {
     this.timeout = setTimeout(() => {
       this.isClicked = false;
     }, 5000);
-  }
+  };
 }
