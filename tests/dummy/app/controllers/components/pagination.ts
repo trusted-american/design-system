@@ -1,16 +1,13 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 
 export default class ComponentsPaginationController extends Controller {
   page = 5;
 
-  @action
-  next() {
+  next = () => {
     alert('Action');
-  }
+  };
 
-  @action
-  previous() {
+  previous = () => {
     alert('Action');
-  }
+  };
 }

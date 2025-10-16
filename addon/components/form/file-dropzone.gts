@@ -1,4 +1,3 @@
-import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
@@ -22,10 +21,9 @@ export interface FormFileDropzoneSignature {
 export default class FormFileDropzone extends Component<FormFileDropzoneSignature> {
   id = guidFor(this);
 
-  @action
-  create({ file }: UploadFile): void {
+  create = ({ file }: UploadFile) => {
     this.args.onCreate(file);
-  }
+  };
 
   <template>
     {{#let (fileQueue name=this.id onFileAdded=this.create) as |queue|}}

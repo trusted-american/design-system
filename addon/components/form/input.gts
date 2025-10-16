@@ -1,8 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
-import { concat } from '@ember/helper';
+import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
-import Component from '@glimmer/component';
 import { eq, or } from 'ember-truth-helpers';
 import FormFeedback from './feedback';
 import FormHelp from './help';
@@ -55,6 +53,13 @@ const Internal: TOC<{
   />
 </template>;
 
+const getEventValue = (fn: (value: string) => void, { target }: Event) => {
+  if (!(target instanceof HTMLInputElement)) {
+    throw new Error();
+  }
+  fn(target.value);
+};
+
 interface Args extends FormInputArgs {
   value: string | null | undefined;
   type?: string;
@@ -70,65 +75,29 @@ export interface FormInputSignature {
   Element: HTMLInputElement;
 }
 
-export default class FormInput extends Component<FormInputSignature> {
-  @action
-  change({ target }: Event): void {
-    if (!(target instanceof HTMLInputElement)) {
-      throw new Error();
-    }
-    this.args.onChange(target.value);
-  }
+const FormInput: TOC<FormInputSignature> = <template>
+  {{#unless @isInputOnly}}
+    <FormLabel
+      @label={{@label}}
+      @identifier={{@identifier}}
+      @isRequired={{@isRequired}}
+      @requiredLabel={{@requiredLabel}}
+    />
+  {{/unless}}
 
-  <template>
-    {{#unless @isInputOnly}}
-      <FormLabel
-        @label={{@label}}
-        @identifier={{@identifier}}
-        @isRequired={{@isRequired}}
-        @requiredLabel={{@requiredLabel}}
-      />
-    {{/unless}}
+  {{#if (or (has-block) (has-block "actions"))}}
+    <div
+      class="input-group{{if @size (concat ' input-group-' @size)}}{{if
+          @invalidLabel
+          ' has-validation'
+        }}"
+    >
+      {{#if (has-block)}}
+        <span class="input-group-text">
+          {{yield}}
+        </span>
+      {{/if}}
 
-    {{#if (or (has-block) (has-block "actions"))}}
-      <div
-        class="input-group{{if @size (concat ' input-group-' @size)}}{{if
-            @invalidLabel
-            ' has-validation'
-          }}"
-      >
-        {{#if (has-block)}}
-          <span class="input-group-text">
-            {{yield}}
-          </span>
-        {{/if}}
-
-        <Internal
-          @value={{@value}}
-          @type={{@type}}
-          @label={{@label}}
-          @identifier={{@identifier}}
-          @isRequired={{@isRequired}}
-          @isInputOnly={{@isInputOnly}}
-          @size={{@size}}
-          @errors={{@errors}}
-          @onChange={{this.change}}
-          ...attributes
-        />
-        {{yield to="actions"}}
-
-        <FormFeedback
-          @validLabel={{@validLabel}}
-          @invalidLabel={{@invalidLabel}}
-        />
-
-        {{#each @errors as |error|}}
-          <FormFeedback
-            @validLabel={{undefined}}
-            @invalidLabel={{error.message}}
-          />
-        {{/each}}
-      </div>
-    {{else}}
       <Internal
         @value={{@value}}
         @type={{@type}}
@@ -138,9 +107,10 @@ export default class FormInput extends Component<FormInputSignature> {
         @isInputOnly={{@isInputOnly}}
         @size={{@size}}
         @errors={{@errors}}
-        @onChange={{this.change}}
+        @onChange={{fn getEventValue @onChange}}
         ...attributes
       />
+      {{yield to="actions"}}
 
       <FormFeedback
         @validLabel={{@validLabel}}
@@ -153,10 +123,31 @@ export default class FormInput extends Component<FormInputSignature> {
           @invalidLabel={{error.message}}
         />
       {{/each}}
-    {{/if}}
+    </div>
+  {{else}}
+    <Internal
+      @value={{@value}}
+      @type={{@type}}
+      @label={{@label}}
+      @identifier={{@identifier}}
+      @isRequired={{@isRequired}}
+      @isInputOnly={{@isInputOnly}}
+      @size={{@size}}
+      @errors={{@errors}}
+      @onChange={{fn getEventValue @onChange}}
+      ...attributes
+    />
 
-    {{#if @help}}
-      <FormHelp @label={{@help}} />
-    {{/if}}
-  </template>
-}
+    <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
+
+    {{#each @errors as |error|}}
+      <FormFeedback @validLabel={{undefined}} @invalidLabel={{error.message}} />
+    {{/each}}
+  {{/if}}
+
+  {{#if @help}}
+    <FormHelp @label={{@help}} />
+  {{/if}}
+</template>;
+
+export default FormInput;

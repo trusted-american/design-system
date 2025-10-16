@@ -245,38 +245,34 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     hideDropdown(this.id);
   }
 
-  @action
-  clear(): void {
+  clear = () => {
     for (const predicate of this.predicates) {
       predicate.isEnabled = false;
       this.args.onChange(predicate._predicate.key, predicate.value);
     }
 
     hideDropdown(this.id);
-  }
+  };
 
-  @action
-  setValue(predicate: InternalPredicate<T>, opt: Option<T>): void {
+  setValue = (predicate: InternalPredicate<T>, opt: Option<T>) => {
     predicate._value = opt.value;
-  }
+  };
 
-  @action
-  setEndAt(predicate: InternalPredicate<T>, date: Date | null): void {
+  setEndAt = (predicate: InternalPredicate<T>, date: Date | null) => {
     predicate.endAt = dayjs(date).endOf('day').toDate();
-  }
+  };
 
-  @action
-  toggleMulti(
+  toggleMulti = (
     predicate: InternalPredicate<T>,
     value: T,
     checked: boolean,
-  ): void {
+  ) => {
     if (checked) {
       predicate._value = [...(predicate._value as []), value];
     } else {
       predicate._value = (predicate._value as []).filter((v) => v !== value);
     }
-  }
+  };
 
   <template>
     <Button

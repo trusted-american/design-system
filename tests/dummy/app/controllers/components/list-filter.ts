@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import type { DateRangeQueryParam } from '@trusted-american/design-system/components/list-filter';
 
@@ -38,8 +37,7 @@ export default class ComponentsListFilterController extends Controller {
     return this.createdAt.lte;
   }
 
-  @action
-  change(key: string, value: unknown): void {
+  change = (key: string, value: unknown) => {
     this[key as keyof this] = value as this[keyof this];
-  }
+  };
 }

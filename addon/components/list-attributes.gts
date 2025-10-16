@@ -1,6 +1,5 @@
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 import { faCheck, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import { not, notEq } from 'ember-truth-helpers';
@@ -47,8 +46,7 @@ export default class ListAttributes<T> extends Component<
     return presets.find(({ values }) => compare(values, selected));
   }
 
-  @action
-  toggleAttribute(option: Option<ListAttributesKey<T>>): void {
+  toggleAttribute = (option: Option<ListAttributesKey<T>>) => {
     let selected = [...this.args.selected];
 
     if (selected.includes(option.value)) {
@@ -58,7 +56,7 @@ export default class ListAttributes<T> extends Component<
     }
 
     this.args.onChange(selected);
-  }
+  };
 
   <template>
     <Button

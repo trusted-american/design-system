@@ -1,6 +1,5 @@
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import FormFeedback from './feedback';
 import FormHelp from './help';
@@ -17,10 +16,8 @@ export interface FormFileInputSignature {
 }
 
 export default class FormFileInput extends Component<FormFileInputSignature> {
-  @action
-  change(event: Event): void {
-    const { target } = event as Event & { target: HTMLInputElement };
-    if (!target.files) {
+  change = ({ target }: Event) => {
+    if (!(target instanceof HTMLInputElement) || !target.files) {
       return;
     }
     const [file] = Array.from(target.files);
@@ -29,7 +26,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
     } else {
       target.value = '';
     }
-  }
+  };
 
   <template>
     {{#unless @isInputOnly}}
