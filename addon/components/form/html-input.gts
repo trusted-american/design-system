@@ -105,9 +105,9 @@ export interface FormHtmlInputSignature {
 }
 
 export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
-  @tracked isCode = false;
+  @tracked editor?: Editor;
 
-  editor?: Editor;
+  @tracked isCode = false;
 
   setup = modifier((element) => {
     const editor = new Editor({
