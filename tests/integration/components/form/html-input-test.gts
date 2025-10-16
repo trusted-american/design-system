@@ -47,7 +47,10 @@ module('Integration | Component | form/html-input', function (hooks) {
   });
 
   test('it updates when value arg changes', async function (assert) {
-    const state = tracked({ value: 'First' });
+    class State {
+      @tracked value = 'First';
+    }
+    const state = new State();
 
     await render(
       <template>
