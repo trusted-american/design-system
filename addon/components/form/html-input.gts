@@ -46,6 +46,15 @@ const EditorButton: TOC<{
   />
 </template>;
 
+const handleChange = modifier<{
+  Element: HTMLElement;
+  Args: {
+    Positional: [Editor | undefined, string | null];
+  };
+}>((_, [editor, value]) => {
+  editor?.commands.setContent(value);
+});
+
 interface Args extends FormInputArgs {
   value: string | null;
   editorLabel: string;
@@ -67,7 +76,6 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     const editor = new Editor({
       element,
       extensions: [StarterKit],
-      content: this.args.value,
       onUpdate: ({ editor }) => {
         const value = editor.getHTML();
         this.args.onChange(value);
@@ -223,6 +231,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             class="form-html-input"
             data-test-value-editor
             {{this.setup}}
+            {{handleChange this.editor @value}}
             ...attributes
           ></div>
         {{/if}}

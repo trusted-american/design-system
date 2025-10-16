@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { click, fillIn, render, rerender } from '@ember/test-helpers';
+import { click, fillIn, render, rerender, typeIn } from '@ember/test-helpers';
 import { FormHtmlInput } from '@trusted-american/design-system';
 import { tracked } from '@glimmer/tracking';
 import { fn } from '@ember/helper';
@@ -73,5 +73,34 @@ module('Integration | Component | form/html-input', function (hooks) {
     await rerender();
 
     assert.dom('[data-test-value-editor] div').hasText('Second');
+  });
+
+  test('it works with human typing', async function (assert) {
+    class State {
+      @tracked value = '';
+    }
+    const state = new State();
+
+    await render(
+      <template>
+        <FormHtmlInput
+          @value={{state.value}}
+          @label="Label"
+          @identifier="identifier"
+          @isRequired={{true}}
+          @requiredLabel="Required"
+          @editorLabel="Editor"
+          @codeLabel="Code"
+          @onChange={{fn (mut state.value)}}
+        />
+      </template>,
+    );
+
+    await typeIn('[data-test-value-editor] div', 'Value');
+
+    assert.strictEqual(
+      state.value,
+      '<p></p><p>V</p><p>a</p><p>l</p><p>u</p><p>e</p>',
+    );
   });
 });
