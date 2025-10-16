@@ -52,7 +52,7 @@ const handleChange = modifier<{
     Positional: [Editor | undefined, string | null];
   };
 }>((_, [editor, value]) => {
-  editor?.commands.setContent(value);
+  editor?.commands.setContent(value); // TODO: not working after second render
 });
 
 interface Args extends FormInputArgs {
@@ -166,6 +166,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         {{#unless this.isCode}}
           <div class="overflow-x-auto d-flex gap-1">
             <EditorButton
+              {{! TODO: string }}
               @label="Bold"
               @icon={{faBold}}
               {{on "click" this.toggleBold}}
