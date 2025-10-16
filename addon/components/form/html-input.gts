@@ -53,7 +53,7 @@ const handleChange = modifier<{
     Positional: [Editor | undefined, string | null];
   };
 }>((_, [editor, value]) => {
-  editor?.commands.setContent(value); // TODO: not working after second render
+  editor?.commands.setContent(value);
 });
 
 const toggleBold = (editor?: Editor) => {
