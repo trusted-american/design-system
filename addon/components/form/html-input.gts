@@ -1,4 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
+import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -46,6 +47,51 @@ const EditorButton: TOC<{
   />
 </template>;
 
+const handleChange = modifier<{
+  Element: HTMLElement;
+  Args: {
+    Positional: [Editor | undefined, string | null];
+  };
+}>((_, [editor, value]) => {
+  editor?.commands.setContent(value);
+});
+
+const toggleBold = (editor?: Editor) => {
+  editor?.chain().focus().toggleBold().run();
+};
+
+const toggleItalic = (editor?: Editor) => {
+  editor?.chain().focus().toggleItalic().run();
+};
+
+const toggleStrike = (editor?: Editor) => {
+  editor?.chain().focus().toggleStrike().run();
+};
+
+const toggleHeading = (editor?: Editor) => {
+  editor?.chain().focus().toggleHeading({ level: 3 }).run();
+};
+
+const setParagraph = (editor?: Editor) => {
+  editor?.chain().focus().setParagraph().run();
+};
+
+const toggleQuote = (editor?: Editor) => {
+  editor?.chain().focus().toggleBlockquote().run();
+};
+
+const toggleNumberedList = (editor?: Editor) => {
+  editor?.chain().focus().toggleOrderedList().run();
+};
+
+const toggleUnorderedList = (editor?: Editor) => {
+  editor?.commands.toggleBulletList();
+};
+
+const toggleCode = (editor?: Editor) => {
+  editor?.chain().focus().toggleCode().run();
+};
+
 interface Args extends FormInputArgs {
   value: string | null;
   editorLabel: string;
@@ -59,15 +105,14 @@ export interface FormHtmlInputSignature {
 }
 
 export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
-  @tracked isCode = false;
+  @tracked editor?: Editor;
 
-  editor?: Editor;
+  @tracked isCode = false;
 
   setup = modifier((element) => {
     const editor = new Editor({
       element,
       extensions: [StarterKit],
-      content: this.args.value,
       onUpdate: ({ editor }) => {
         const value = editor.getHTML();
         this.args.onChange(value);
@@ -81,42 +126,6 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
       this.editor = undefined;
     };
   });
-
-  toggleBold = () => {
-    this.editor?.chain().focus().toggleBold().run();
-  };
-
-  toggleItalic = () => {
-    this.editor?.chain().focus().toggleItalic().run();
-  };
-
-  toggleStrike = () => {
-    this.editor?.chain().focus().toggleStrike().run();
-  };
-
-  toggleHeading = () => {
-    this.editor?.chain().focus().toggleHeading({ level: 3 }).run();
-  };
-
-  setParagraph = () => {
-    this.editor?.chain().focus().setParagraph().run();
-  };
-
-  toggleQuote = () => {
-    this.editor?.chain().focus().toggleBlockquote().run();
-  };
-
-  toggleNumberedList() {
-    this.editor?.chain().focus().toggleOrderedList().run();
-  }
-
-  toggleUnorderedList = () => {
-    this.editor?.commands.toggleBulletList();
-  };
-
-  toggleCode = () => {
-    this.editor?.chain().focus().toggleCode().run();
-  };
 
   setEditor = (event: Event) => {
     event.preventDefault();
@@ -158,49 +167,50 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         {{#unless this.isCode}}
           <div class="overflow-x-auto d-flex gap-1">
             <EditorButton
+              {{! TODO: string }}
               @label="Bold"
               @icon={{faBold}}
-              {{on "click" this.toggleBold}}
+              {{on "click" (fn toggleBold this.editor)}}
             />
             <EditorButton
               @label="Italic"
               @icon={{faItalic}}
-              {{on "click" this.toggleItalic}}
+              {{on "click" (fn toggleItalic this.editor)}}
             />
             <EditorButton
               @label="Strike"
               @icon={{faStrikethrough}}
-              {{on "click" this.toggleStrike}}
+              {{on "click" (fn toggleStrike this.editor)}}
             />
             <EditorButton
               @label="Heading"
               @icon={{faHeading}}
-              {{on "click" this.toggleHeading}}
+              {{on "click" (fn toggleHeading this.editor)}}
             />
             <EditorButton
               @label="Paragraph"
               @icon={{faParagraph}}
-              {{on "click" this.setParagraph}}
+              {{on "click" (fn setParagraph this.editor)}}
             />
             <EditorButton
               @label="Quote"
               @icon={{faQuoteLeft}}
-              {{on "click" this.toggleQuote}}
+              {{on "click" (fn toggleQuote this.editor)}}
             />
             <EditorButton
               @label="Numbered list"
               @icon={{faListOl}}
-              {{on "click" this.toggleNumberedList}}
+              {{on "click" (fn toggleNumberedList this.editor)}}
             />
             <EditorButton
               @label="Unordered list"
               @icon={{faListUl}}
-              {{on "click" this.toggleUnorderedList}}
+              {{on "click" (fn toggleUnorderedList this.editor)}}
             />
             <EditorButton
               @label="Code"
               @icon={{faCode}}
-              {{on "click" this.toggleCode}}
+              {{on "click" (fn toggleCode this.editor)}}
             />
           </div>
         {{/unless}}
@@ -223,6 +233,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             class="form-html-input"
             data-test-value-editor
             {{this.setup}}
+            {{handleChange this.editor @value}}
             ...attributes
           ></div>
         {{/if}}
