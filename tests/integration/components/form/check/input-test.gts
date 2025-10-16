@@ -3,13 +3,16 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { FormCheckInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | form/check/input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ value: false });
+    class State {
+      @tracked value = false;
+    }
+    const state = new State();
 
     await render(
       <template>

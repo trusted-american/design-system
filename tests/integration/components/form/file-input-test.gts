@@ -2,14 +2,17 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, triggerEvent } from '@ember/test-helpers';
 import { FormFileInput } from '@trusted-american/design-system';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import { fn } from '@ember/helper';
 
 module('Integration | Component | form/file-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{ file?: File }>({});
+    class State {
+      @tracked file?: File;
+    }
+    const state = new State();
 
     await render(
       <template>

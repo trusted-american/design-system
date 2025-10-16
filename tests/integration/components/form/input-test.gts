@@ -4,13 +4,16 @@ import { click, fillIn, render } from '@ember/test-helpers';
 import { Button, FormInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | form/input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ value: '' });
+    class State {
+      @tracked value = '';
+    }
+    const state = new State();
 
     await render(
       <template>
@@ -36,7 +39,10 @@ module('Integration | Component | form/input', function (hooks) {
   });
 
   test('it defaults to text type', async function (assert) {
-    const state = tracked({ value: '' });
+    class State {
+      @tracked value = '';
+    }
+    const state = new State();
 
     await render(
       <template>
@@ -54,7 +60,10 @@ module('Integration | Component | form/input', function (hooks) {
   });
 
   test('it loads initial value', async function (assert) {
-    const state = tracked({ value: 'Value' });
+    class State {
+      @tracked value = 'Value';
+    }
+    const state = new State();
 
     await render(
       <template>
@@ -72,7 +81,10 @@ module('Integration | Component | form/input', function (hooks) {
   });
 
   test('it updates value', async function (assert) {
-    const state = tracked({ value: '' });
+    class State {
+      @tracked value = '';
+    }
+    const state = new State();
 
     await render(
       <template>
@@ -92,7 +104,10 @@ module('Integration | Component | form/input', function (hooks) {
   });
 
   test('invalidLabel works', async function (assert) {
-    const state = tracked({ value: '' });
+    class State {
+      @tracked value = '';
+    }
+    const state = new State();
 
     const submit = (event: Event) => {
       event.preventDefault();
@@ -134,7 +149,10 @@ module('Integration | Component | form/input', function (hooks) {
   });
 
   test('it adds aria-label attribute', async function (assert) {
-    const state = tracked({ value: '' });
+    class State {
+      @tracked value = '';
+    }
+    const state = new State();
 
     await render(
       <template>

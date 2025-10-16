@@ -3,13 +3,16 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { fillIn, render } from '@ember/test-helpers';
 import { FormNumberInput } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | form/number-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{ value: number | null }>({ value: 0 });
+    class State {
+      @tracked value: number | null = 0;
+    }
+    const state = new State();
 
     await render(
       <template>

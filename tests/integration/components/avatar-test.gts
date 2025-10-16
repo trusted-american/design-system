@@ -2,16 +2,17 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { find, render, rerender } from '@ember/test-helpers';
 import { Avatar } from '@trusted-american/design-system';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | avatar', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{
-      url: string | undefined;
-      size: number | undefined;
-    }>({ url: undefined, size: undefined });
+    class State {
+      @tracked url?: string;
+      @tracked size?: number;
+    }
+    const state = new State();
 
     await render(
       <template>

@@ -3,14 +3,17 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { FormPowerSelect } from '@trusted-american/design-system';
 import { selectChoose, selectSearch } from 'ember-power-select/test-support';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import { array, fn } from '@ember/helper';
 
 module('Integration | Component | form/power-select', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{ selected: string | null }>({ selected: null });
+    class State {
+      @tracked selected: string | null = null;
+    }
+    const state = new State();
 
     await render(
       <template>
@@ -38,7 +41,10 @@ module('Integration | Component | form/power-select', function (hooks) {
   });
 
   test('it supports create', async function (assert) {
-    const state = tracked<{ selected: string | null }>({ selected: null });
+    class State {
+      @tracked selected: string | null = null;
+    }
+    const state = new State();
 
     await render(
       <template>

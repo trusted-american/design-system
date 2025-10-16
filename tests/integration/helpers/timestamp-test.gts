@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, rerender } from '@ember/test-helpers';
 import { timestamp } from '@trusted-american/design-system';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Helper | timestamp', function (hooks) {
   setupRenderingTest(hooks);
@@ -56,7 +56,10 @@ module('Integration | Helper | timestamp', function (hooks) {
   });
 
   test('it renders relative time', async function (assert) {
-    const state = tracked({ date: new Date() });
+    class State {
+      @tracked date = new Date();
+    }
+    const state = new State();
 
     await render(<template>{{timestamp state.date}}</template>);
 

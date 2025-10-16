@@ -3,13 +3,16 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { Aside } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | aside', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ isCollapsed: false });
+    class State {
+      @tracked isCollapsed = false;
+    }
+    const state = new State();
 
     await render(
       <template>

@@ -3,13 +3,16 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, select } from '@ember/test-helpers';
 import { FormSelect } from '@trusted-american/design-system';
 import { array, fn, hash } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | form/select', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ selected: '' });
+    class State {
+      @tracked selected = '';
+    }
+    const state = new State();
 
     await render(
       <template>
@@ -43,7 +46,10 @@ module('Integration | Component | form/select', function (hooks) {
   });
 
   test('it works with heterogeneous options', async function (assert) {
-    const state = tracked({ selected: '' });
+    class State {
+      @tracked selected = '';
+    }
+    const state = new State();
 
     await render(
       <template>

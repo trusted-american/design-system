@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { Table } from '@trusted-american/design-system';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
@@ -332,7 +332,10 @@ module('Integration | Component | table', function (hooks) {
   });
 
   test('it renders offset pagination', async function (assert) {
-    const state = tracked({ page: 0 });
+    class State {
+      @tracked page = 0;
+    }
+    const state = new State();
 
     const getData = () => {
       const users = [
@@ -395,7 +398,10 @@ module('Integration | Component | table', function (hooks) {
       const end = start + pageSize;
       return users.slice(start, end);
     };
-    const _state = tracked({ data: getData() });
+    class _State {
+      @tracked data = getData();
+    }
+    const _state = new _State();
 
     const totalItems = 52;
 

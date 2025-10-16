@@ -3,14 +3,17 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { FormRadioCard } from '@trusted-american/design-system';
 import { array, fn, hash } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | form/radio-card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ selected: false });
+    class State {
+      @tracked selected = false;
+    }
+    const state = new State();
 
     await render(
       <template>
