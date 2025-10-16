@@ -1,4 +1,3 @@
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import isValidDate from '../../utils/is-valid-date';
 import FormInput, { type FormInputArgs } from './input';
@@ -24,8 +23,7 @@ export interface FormTimeInputSignature {
 }
 
 export default class FormTimeInput extends Component<FormTimeInputSignature> {
-  @action
-  change(_value: string): void {
+  change = (_value: string) => {
     const value = this.args.value ?? new Date();
     const [hours, minutes] = _value.split(':').map(Number);
 
@@ -37,7 +35,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
     }
 
     this.args.onChange(value);
-  }
+  };
 
   <template>
     <FormInput

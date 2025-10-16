@@ -96,7 +96,6 @@ export default ts.config(
     ],
     rules: {
       '@typescript-eslint/no-non-null-assertion': 'off',
-      'ember/no-empty-glimmer-component-classes': 'off',
     },
   },
   {

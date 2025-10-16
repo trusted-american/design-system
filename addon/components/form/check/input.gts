@@ -1,5 +1,4 @@
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 export interface FormCheckInputSignature {
@@ -15,13 +14,12 @@ export interface FormCheckInputSignature {
 }
 
 export default class FormCheckInput extends Component<FormCheckInputSignature> {
-  @action
-  change({ target }: Event): void {
+  change = ({ target }: Event) => {
     if (!(target instanceof HTMLInputElement)) {
       throw new Error();
     }
     this.args.onChange(target.checked);
-  }
+  };
 
   <template>
     <input

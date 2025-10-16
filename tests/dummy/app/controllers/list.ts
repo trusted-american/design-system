@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 
 export default class ListController extends Controller {
   search = '';
@@ -10,8 +9,7 @@ export default class ListController extends Controller {
     { email: 'c@example.com', firstName: 'C', lastName: 'C' },
   ];
 
-  @action
-  click() {
+  click = () => {
     alert('Action');
-  }
+  };
 }

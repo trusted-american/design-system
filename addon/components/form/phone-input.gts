@@ -1,4 +1,3 @@
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import FormInput, { type FormInputArgs } from './input';
 
@@ -25,8 +24,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
     );
   }
 
-  @action
-  change(_value: string): void {
+  change = (_value: string) => {
     let value = _value.replace(/\D/g, '');
     if (value) {
       value = '+1' + value;
@@ -34,7 +32,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
     } else {
       this.args.onChange(null);
     }
-  }
+  };
 
   <template>
     <FormInput
