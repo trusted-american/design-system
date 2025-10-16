@@ -66,8 +66,6 @@ module('Integration | Component | form/html-input', function (hooks) {
     state.value = 'Second';
     await rerender();
 
-    // await this.pauseTest();
-
     assert.dom('[data-test-value-editor] div').hasText('Second');
   });
 });
