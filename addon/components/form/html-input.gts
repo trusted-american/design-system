@@ -64,10 +64,6 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
   editor?: Editor;
 
   setup = modifier((element) => {
-    if (this.editor) {
-      return;
-    }
-
     const editor = new Editor({
       element,
       extensions: [StarterKit],
@@ -81,11 +77,8 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     this.editor = editor;
 
     return () => {
-      const element = document.querySelector('.tiptap');
-      if (!element) {
-        editor.destroy();
-        this.editor = undefined;
-      }
+      editor.destroy();
+      this.editor = undefined;
     };
   });
 
@@ -163,7 +156,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         </Nav>
 
         {{#unless this.isCode}}
-          <div>
+          <div class="overflow-x-auto d-flex gap-1">
             <EditorButton
               @label="Bold"
               @icon={{faBold}}
