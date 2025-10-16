@@ -24,6 +24,9 @@ ember install @trusted-american/design-system
 
 [Read the introduction guide.](https://taia-design-system.netlify.app/guides/introduction)
 
+> [!NOTE]
+> To release new changes, run `npx release-it`
+
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
