@@ -4,7 +4,7 @@ import { click, fillIn, render, select } from '@ember/test-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
 import { ListFilter } from '@trusted-american/design-system';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import type {
   DateRangeQueryParam,
   Predicate,
@@ -22,13 +22,14 @@ module('Integration | Component | list-filter', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<Props>({
-      status: undefined,
-      isArchived: undefined,
-      state: [],
-      city: undefined,
-      createdAt: [],
-    });
+    class State implements Props {
+      @tracked status = undefined;
+      @tracked isArchived = undefined;
+      @tracked state = [];
+      @tracked city = undefined;
+      @tracked createdAt = [] as DateRangeQueryParam;
+    }
+    const state = new State();
 
     const predicates: Predicate[] = [
       {
@@ -170,13 +171,14 @@ module('Integration | Component | list-filter', function (hooks) {
   });
 
   test('it works with date predicates', async function (assert) {
-    const state = tracked<Props>({
-      status: undefined,
-      isArchived: undefined,
-      state: [],
-      city: undefined,
-      createdAt: [],
-    });
+    class State implements Props {
+      @tracked status = undefined;
+      @tracked isArchived = undefined;
+      @tracked state = [];
+      @tracked city = undefined;
+      @tracked createdAt = [] as DateRangeQueryParam;
+    }
+    const state = new State();
 
     const predicates: Predicate[] = [
       {
