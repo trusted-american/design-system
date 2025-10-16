@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { ListSort } from '@trusted-american/design-system';
 import { array, hash } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import type { ListAttributesKey } from '@trusted-american/design-system/components/list-attributes';
 
 module('Integration | Component | list-sort', function (hooks) {
@@ -18,10 +18,11 @@ module('Integration | Component | list-sort', function (hooks) {
       };
     }
 
-    const state = tracked<{
-      sortBy: ListAttributesKey<User>;
-      sortAscending: boolean;
-    }>({ sortBy: 'createdAt', sortAscending: false });
+    class State {
+      @tracked sortBy: ListAttributesKey<User> = 'createdAt';
+      @tracked sortAscending = false;
+    }
+    const state = new State();
 
     const onChange = (
       sortBy: ListAttributesKey<User>,

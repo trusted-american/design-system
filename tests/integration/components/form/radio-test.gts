@@ -2,16 +2,17 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import { FormRadio } from '@trusted-american/design-system';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import { array, fn, hash } from '@ember/helper';
 
 module('Integration | Component | form/radio', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{ selected: string | undefined }>({
-      selected: undefined,
-    });
+    class State {
+      @tracked selected?: string;
+    }
+    const state = new State();
 
     await render(
       <template>

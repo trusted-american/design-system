@@ -3,13 +3,16 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 import ListAttributes from '@trusted-american/design-system/components/list-attributes';
 import { array, fn, hash } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | list-attributes', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{ selected: (string | number)[] }>({ selected: [] });
+    class State {
+      @tracked selected: (string | number)[] = [];
+    }
+    const state = new State();
 
     await render(
       <template>

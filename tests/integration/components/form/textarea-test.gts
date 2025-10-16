@@ -3,13 +3,17 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { fillIn, render, rerender } from '@ember/test-helpers';
 import { FormTextarea } from '@trusted-american/design-system';
 import { fn } from '@ember/helper';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | form/textarea', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked({ value: 'Value', isRequired: true });
+    class State {
+      @tracked value = 'Value';
+      @tracked isRequired = true;
+    }
+    const state = new State();
 
     await render(
       <template>

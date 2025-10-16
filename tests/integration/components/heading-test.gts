@@ -2,24 +2,20 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { Heading } from '@trusted-american/design-system';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import { rerender } from '@ember/test-helpers';
 
 module('Integration | Component | heading', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const state = tracked<{
-      title: string;
-      subtitle: string | undefined;
-      type: string | undefined;
-      identifier: string | undefined;
-    }>({
-      title: 'Title',
-      subtitle: undefined,
-      type: undefined,
-      identifier: undefined,
-    });
+    class State {
+      @tracked title = 'Title';
+      @tracked subtitle?: string;
+      @tracked type?: string;
+      @tracked identifier?: string;
+    }
+    const state = new State();
 
     await render(
       <template>

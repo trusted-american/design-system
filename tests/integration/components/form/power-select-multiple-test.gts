@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { FormPowerSelectMultiple } from '@trusted-american/design-system';
 import { selectChoose } from 'ember-power-select/test-support';
-import { tracked } from 'tracked-built-ins';
+import { tracked } from '@glimmer/tracking';
 import { array, fn } from '@ember/helper';
 
 module(
@@ -16,7 +16,10 @@ module(
         assert.ok(true);
       };
 
-      const state = tracked<{ selected: string[] }>({ selected: [] });
+      class State {
+        @tracked selected: string[] = [];
+      }
+      const state = new State();
 
       await render(
         <template>
