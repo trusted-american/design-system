@@ -32,6 +32,15 @@ interface ComponentsFormHtmlInputSignature {
       @invalidLabel="This is an example of invalid feedback."
       @editorLabel="Editor"
       @codeLabel="Code"
+      @boldButtonLabel="Bold"
+      @italicButtonLabel="Italic"
+      @strikeButtonLabel="Strike"
+      @headingButtonLabel="Heading"
+      @paragraphButtonLabel="Paragraph"
+      @quoteButtonLabel="Quote"
+      @numberedListButtonLabel="Numbered list"
+      @unorderedListButtonLabel="Unordered list"
+      @codeButtonLabel="Code"
       @onChange={{fn (mut @controller.value)}}
     />
     {{! END-SNIPPET }}
