@@ -80,9 +80,8 @@ interface FormSignature {
           @help="This is an example of help."
           @validLabel="Looks good!"
           @invalidLabel="This is an example of invalid feedback."
-          {{! TODO: ellipsis }}
-          @chooseLabel="Choose..."
-          @searchLabel="Search..."
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
           @onChange={{fn (mut @controller.value)}}
           as |value|
         >

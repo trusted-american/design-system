@@ -30,8 +30,7 @@ interface ComponentsFormFileDropzoneSignature {
     {{! BEGIN-SNIPPET form-file-dropzone }}
     <FormFileDropzone
       @titleLabel="Drag and Drop Your Files Here"
-      {{! TODO: ellipsis }}
-      @subtitleLabel="Or select a file from your computer..."
+      @subtitleLabel="Or select a file from your computer…"
       @activeTitleLabel="Drop to Upload"
       @onCreate={{@controller.create}}
     />

@@ -33,8 +33,7 @@ interface ListSignature {
           @requiredLabel="Required"
           @isInputOnly={{true}}
           @onChange={{fn (mut @controller.search)}}
-          {{! TODO: ellipsis }}
-          placeholder="Search..."
+          placeholder="Search…"
         />
         <buttonSet.button @label="Filter" {{on "click" @controller.click}} />
         <buttonSet.button @label="Sort" {{on "click" @controller.click}} />

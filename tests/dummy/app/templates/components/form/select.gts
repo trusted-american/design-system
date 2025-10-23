@@ -23,9 +23,8 @@ interface ComponentsFormSelectSignature {
   <Snippet @name="form-select.gts">
     {{! BEGIN-SNIPPET form-select }}
     <FormSelect
-      {{! TODO: ellipsis }}
       @options={{array
-        (hash value=undefined label="Choose...")
+        (hash value=undefined label="Choose…")
         (hash value="active" label="Active")
         (hash value="inactive" label="Inactive")
         (hash

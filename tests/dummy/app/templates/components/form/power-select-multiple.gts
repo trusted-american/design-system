@@ -44,8 +44,7 @@ interface ComponentsFormPowerSelectMultipleSignature {
       @requiredLabel="Required"
       @help="This is an example of help."
       @invalidLabel="This is an example of invalid feedback."
-      {{! TODO: ellipsis }}
-      @chooseLabel="Choose..."
+      @chooseLabel="Choose…"
       @onChange={{fn (mut @controller.value)}}
       @onCreate={{@controller.create}}
       data-test-state-writing-numbers

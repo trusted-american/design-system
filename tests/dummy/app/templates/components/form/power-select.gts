@@ -35,9 +35,8 @@ interface ComponentsFormPowerSelectSignature {
       @help="This is an example of help."
       @invalidLabel="This is an example of invalid feedback."
       @searchField="subject"
-      {{! TODO: ellipsis }}
-      @chooseLabel="Choose..."
-      @searchLabel="Search..."
+      @chooseLabel="Choose…"
+      @searchLabel="Search…"
       @onChange={{fn (mut @controller.value)}}
       @onCreate={{@controller.create}}
       as |post|
