@@ -40,8 +40,7 @@ interface ComponentsFormMarkdownInputSignature {
       @numberedListLabel="Numbered list"
       @unorderedListLabel="Unordered list"
       @onChange={{fn (mut @controller.value)}}
-      {{! TODO: ellipsis }}
-      placeholder="Add your comment here..."
+      placeholder="Add your comment here…"
     />
     {{! END-SNIPPET }}
   </Snippet>

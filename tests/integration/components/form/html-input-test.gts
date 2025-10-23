@@ -24,6 +24,15 @@ module('Integration | Component | form/html-input', function (hooks) {
           @requiredLabel="Required"
           @editorLabel="Editor"
           @codeLabel="Code"
+          @boldButtonLabel="Bold"
+          @italicButtonLabel="Italic"
+          @strikeButtonLabel="Strike"
+          @headingButtonLabel="Heading"
+          @paragraphButtonLabel="Paragraph"
+          @quoteButtonLabel="Quote"
+          @numberedListButtonLabel="Numbered list"
+          @unorderedListButtonLabel="Unordered list"
+          @codeButtonLabel="Code"
           @onChange={{fn (mut state.value)}}
         />
       </template>,
@@ -62,6 +71,15 @@ module('Integration | Component | form/html-input', function (hooks) {
           @requiredLabel="Required"
           @editorLabel="Editor"
           @codeLabel="Code"
+          @boldButtonLabel="Bold"
+          @italicButtonLabel="Italic"
+          @strikeButtonLabel="Strike"
+          @headingButtonLabel="Heading"
+          @paragraphButtonLabel="Paragraph"
+          @quoteButtonLabel="Quote"
+          @numberedListButtonLabel="Numbered list"
+          @unorderedListButtonLabel="Unordered list"
+          @codeButtonLabel="Code"
           @onChange={{fn (mut state.value)}}
         />
       </template>,
@@ -91,6 +109,15 @@ module('Integration | Component | form/html-input', function (hooks) {
           @requiredLabel="Required"
           @editorLabel="Editor"
           @codeLabel="Code"
+          @boldButtonLabel="Bold"
+          @italicButtonLabel="Italic"
+          @strikeButtonLabel="Strike"
+          @headingButtonLabel="Heading"
+          @paragraphButtonLabel="Paragraph"
+          @quoteButtonLabel="Quote"
+          @numberedListButtonLabel="Numbered list"
+          @unorderedListButtonLabel="Unordered list"
+          @codeButtonLabel="Code"
           @onChange={{fn (mut state.value)}}
         />
       </template>,

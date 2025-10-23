@@ -121,9 +121,8 @@ interface ComponentsListFilterSignature {
       @daysLabel="Days"
       @monthsLabel="Months"
       @requiredLabel="Required"
-      {{! TODO: ellipsis }}
-      @chooseLabel="Choose..."
-      @searchLabel="Search..."
+      @chooseLabel="Choose…"
+      @searchLabel="Search…"
       @onChange={{@controller.change}}
     />
     {{! END-SNIPPET }}

@@ -58,9 +58,8 @@ interface ComponentsModalSignature {
           @label="Label"
           @identifier="identifier"
           @requiredLabel="Required"
-          {{! TODO: ellipsis }}
-          @chooseLabel="Choose..."
-          @searchLabel="Search..."
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
           @onChange={{fn (mut @controller.selected)}}
           class="mb-3"
           as |user|

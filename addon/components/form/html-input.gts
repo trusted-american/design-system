@@ -104,6 +104,15 @@ interface Args extends FormInputArgs {
   value: string | null;
   editorLabel: string;
   codeLabel: string;
+  boldButtonLabel: string;
+  italicButtonLabel: string;
+  strikeButtonLabel: string;
+  headingButtonLabel: string;
+  paragraphButtonLabel: string;
+  quoteButtonLabel: string;
+  numberedListButtonLabel: string;
+  unorderedListButtonLabel: string;
+  codeButtonLabel: string;
   onChange: (value: string) => void;
 }
 
@@ -175,48 +184,47 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
         {{#unless this.isCode}}
           <div class="overflow-x-auto d-flex gap-1">
             <EditorButton
-              {{! TODO: string }}
-              @label="Bold"
+              @label={{@boldButtonLabel}}
               @icon={{faBold}}
               {{on "click" (fn toggleBold this.editor)}}
             />
             <EditorButton
-              @label="Italic"
+              @label={{@italicButtonLabel}}
               @icon={{faItalic}}
               {{on "click" (fn toggleItalic this.editor)}}
             />
             <EditorButton
-              @label="Strike"
+              @label={{@strikeButtonLabel}}
               @icon={{faStrikethrough}}
               {{on "click" (fn toggleStrike this.editor)}}
             />
             <EditorButton
-              @label="Heading"
+              @label={{@headingButtonLabel}}
               @icon={{faHeading}}
               {{on "click" (fn toggleHeading this.editor)}}
             />
             <EditorButton
-              @label="Paragraph"
+              @label={{@paragraphButtonLabel}}
               @icon={{faParagraph}}
               {{on "click" (fn setParagraph this.editor)}}
             />
             <EditorButton
-              @label="Quote"
+              @label={{@quoteButtonLabel}}
               @icon={{faQuoteLeft}}
               {{on "click" (fn toggleQuote this.editor)}}
             />
             <EditorButton
-              @label="Numbered list"
+              @label={{@numberedListButtonLabel}}
               @icon={{faListOl}}
               {{on "click" (fn toggleNumberedList this.editor)}}
             />
             <EditorButton
-              @label="Unordered list"
+              @label={{@unorderedListButtonLabel}}
               @icon={{faListUl}}
               {{on "click" (fn toggleUnorderedList this.editor)}}
             />
             <EditorButton
-              @label="Code"
+              @label={{@codeButtonLabel}}
               @icon={{faCode}}
               {{on "click" (fn toggleCode this.editor)}}
             />

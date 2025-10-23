@@ -39,30 +39,26 @@ interface ComponentsDropdownSignature {
         @label="Copy link"
         @subtitle="Due by December 31, 2021"
         @icon={{faCopy}}
-        {{! TODO: https://www.compart.com/en/unicode/U+2318 }}
-        @shortcut="C"
+        @shortcut="⌘C"
         {{on "click" @controller.click}}
       />
       <dropdown.item
         @label="Quote reply"
         @icon={{faQuoteLeft}}
-        {{! TODO: https://www.compart.com/en/unicode/U+2318 }}
-        @shortcut="Q"
+        @shortcut="⌘Q"
         {{on "click" @controller.click}}
       />
       <dropdown.item
         @label="Edit comment"
         @icon={{faPen}}
-        {{! TODO: https://www.compart.com/en/unicode/U+2318 }}
-        @shortcut="E"
+        @shortcut="⌘E"
         {{on "click" @controller.click}}
       />
       <dropdown.divider />
       <dropdown.item
         @label="Delete file"
         @icon={{faTrash}}
-        {{! TODO: https://www.compart.com/en/unicode/U+2318 }}
-        @shortcut="D"
+        @shortcut="⌘D"
         @color="danger"
         {{on "click" @controller.click}}
       />
