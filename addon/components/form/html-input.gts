@@ -113,7 +113,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     const editor = new Editor({
       element,
       extensions: [StarterKit],
-      onUpdate: ({ editor }) => {
+      onBlur: ({ editor }) => {
         const value = editor.getHTML();
         this.args.onChange(value);
       },
