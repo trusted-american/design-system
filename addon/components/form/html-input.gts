@@ -53,7 +53,15 @@ const handleChange = modifier<{
     Positional: [Editor | undefined, string | null];
   };
 }>((_, [editor, value]) => {
-  editor?.commands.setContent(value);
+  if (!editor) {
+    return;
+  }
+
+  const { from, to } = editor.state.selection;
+  editor.commands.setContent(value, false, {
+    preserveWhitespace: 'full',
+  });
+  editor.commands.setTextSelection({ from, to });
 });
 
 const toggleBold = (editor?: Editor) => {
