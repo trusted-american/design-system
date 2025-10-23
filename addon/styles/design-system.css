@@ -172,10 +172,6 @@ dl dd:last-child {
   margin-bottom: 0;
 }
 
-dl dd button {
-  text-transform: inherit;
-}
-
 /* table */
 
 .table {
