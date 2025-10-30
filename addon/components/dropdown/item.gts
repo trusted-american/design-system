@@ -19,13 +19,16 @@ const Internal: TOC<{
   {{#if @icon}}
     <Icon @icon={{@icon}} @isFixedWidth={{true}} />
   {{/if}}
-  <div>
-    {{#if @label}}{{@label}}{{else}}{{yield}}{{/if}}
-    {{#if @subtitle}}
-      <br />
-      <span class="small">{{@subtitle}}</span>
-    {{/if}}
-  </div>
+  {{#if @label}}
+    <div>
+      {{@label}}
+      {{#if @subtitle}}
+        <br />
+        <span class="small">{{@subtitle}}</span>
+      {{/if}}
+    </div>
+  {{/if}}
+  {{yield}}
   {{#if @shortcut}}
     <span class="text-secondary ms-auto">{{@shortcut}}</span>
   {{/if}}
