@@ -1,6 +1,8 @@
-import type { TOC } from '@ember/component/template-only';
 import { array, fn, hash } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
+import type { DateRangeQueryParam } from '@trusted-american/design-system/components/list-filter';
 import {
   Button,
   Heading,
@@ -10,121 +12,161 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsListFilterController from '../../controllers/components/list-filter';
+import type ComponentsListFilterRoute from '../../routes/components/list-filter';
 
 interface ComponentsListFilterSignature {
   Args: {
-    controller: ComponentsListFilterController;
+    model: ModelFrom<ComponentsListFilterRoute>;
   };
 }
 
-<template>
-  {{pageTitle "List filter"}}
-  {{breadcrumb "List filter" route="components.list-filter"}}
+export default class ComponentsListFilter extends Component<ComponentsListFilterSignature> {
+  @tracked status?: 'active' | 'inactive';
+  @tracked type: ('primary' | 'secondary')[] = [];
+  @tracked tag?: string;
+  @tracked createdAt: DateRangeQueryParam = [];
+  @tracked other: 'active' | 'inactive' = 'active';
 
-  <Heading @title="List filter" />
+  get gte(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.gte;
+  }
 
-  <Button
-    @label="Update"
-    class="mb-3"
-    {{on "click" (fn (mut @controller.status) "inactive")}}
-  />
+  get gt(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.gt;
+  }
 
-  <ul>
-    <li>Status: {{@controller.status}}</li>
-    <li>Type:
-      {{#each @controller.type as |t|}}
-        {{t}}
-      {{/each}}
-    </li>
-    <li>Tag: {{@controller.tag}}</li>
-    <li>Created date:
-      {{#if @controller.createdAt}}
-        <ul>
-          <li>
-            gte:
-            {{timestamp @controller.gte}}
-          </li>
-          <li>
-            gt:
-            {{timestamp @controller.gt}}
-          </li>
-          <li>
-            lt:
-            {{timestamp @controller.lt}}
-          </li>
-          <li>
-            lte:
-            {{timestamp @controller.lte}}
-          </li>
-        </ul>
-      {{/if}}
-    </li>
-    <li>Other: {{@controller.other}}</li>
-  </ul>
+  get lt(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.lt;
+  }
 
-  <Snippet @name="list-filter.gts">
-    {{! BEGIN-SNIPPET list-filter }}
-    <ListFilter
-      @predicates={{array
-        (hash
-          label="Status"
-          key="status"
-          value=@controller.status
-          options=(array
-            (hash value="active" label="Active")
-            (hash value="inactive" label="Inactive")
-          )
-        )
-        (hash
-          type="multi"
-          label="Type"
-          key="type"
-          value=@controller.type
-          options=(array
-            (hash value="primary" label="Primary")
-            (hash value="secondary" label="Secondary")
-          )
-        )
-        (hash type="string" label="Tag" key="tag" value=@controller.tag)
-        (hash
-          type="date"
-          label="Created date"
-          key="createdAt"
-          value=@controller.createdAt
-        )
-        (hash
-          label="Other"
-          key="other"
-          value=@controller.other
-          options=(array
-            (hash value="active" label="Active")
-            (hash value="inactive" label="Inactive")
-          )
-        )
-      }}
-      @label="Filter"
-      @clearLabel="Clear"
-      @doneLabel="Done"
-      @modeLabel="Mode"
-      @inTheLastLabel="is in the last"
-      @equalsLabel="is equal to"
-      @betweenLabel="is between"
-      @isAfterLabel="is after"
-      @isAfterOrOnLabel="is on or after"
-      @isBeforeLabel="is before"
-      @isBeforeOrOnLabel="is before or on"
-      @valueLabel="Value"
-      @valueALabel="Value A"
-      @valueBLabel="Value B"
-      @andLabel="and"
-      @daysLabel="Days"
-      @monthsLabel="Months"
-      @requiredLabel="Required"
-      @chooseLabel="Choose…"
-      @searchLabel="Search…"
-      @onChange={{@controller.change}}
+  get lte(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.lte;
+  }
+
+  change = (key: string, value: unknown) => {
+    this[key as keyof this] = value as this[keyof this];
+  };
+
+  <template>
+    {{pageTitle "List filter"}}
+    {{breadcrumb "List filter" route="components.list-filter"}}
+
+    <Heading @title="List filter" />
+
+    <Button
+      @label="Update"
+      class="mb-3"
+      {{on "click" (fn (mut this.status) "inactive")}}
     />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsListFilterSignature>;
+
+    <ul>
+      <li>Status: {{this.status}}</li>
+      <li>Type:
+        {{#each this.type as |t|}}
+          {{t}}
+        {{/each}}
+      </li>
+      <li>Tag: {{this.tag}}</li>
+      <li>Created date:
+        {{#if this.createdAt}}
+          <ul>
+            <li>
+              gte:
+              {{timestamp this.gte}}
+            </li>
+            <li>
+              gt:
+              {{timestamp this.gt}}
+            </li>
+            <li>
+              lt:
+              {{timestamp this.lt}}
+            </li>
+            <li>
+              lte:
+              {{timestamp this.lte}}
+            </li>
+          </ul>
+        {{/if}}
+      </li>
+      <li>Other: {{this.other}}</li>
+    </ul>
+
+    <Snippet @name="list-filter.gts">
+      {{! BEGIN-SNIPPET list-filter }}
+      <ListFilter
+        @predicates={{array
+          (hash
+            label="Status"
+            key="status"
+            value=this.status
+            options=(array
+              (hash value="active" label="Active")
+              (hash value="inactive" label="Inactive")
+            )
+          )
+          (hash
+            type="multi"
+            label="Type"
+            key="type"
+            value=this.type
+            options=(array
+              (hash value="primary" label="Primary")
+              (hash value="secondary" label="Secondary")
+            )
+          )
+          (hash type="string" label="Tag" key="tag" value=this.tag)
+          (hash
+            type="date"
+            label="Created date"
+            key="createdAt"
+            value=this.createdAt
+          )
+          (hash
+            label="Other"
+            key="other"
+            value=this.other
+            options=(array
+              (hash value="active" label="Active")
+              (hash value="inactive" label="Inactive")
+            )
+          )
+        }}
+        @label="Filter"
+        @clearLabel="Clear"
+        @doneLabel="Done"
+        @modeLabel="Mode"
+        @inTheLastLabel="is in the last"
+        @equalsLabel="is equal to"
+        @betweenLabel="is between"
+        @isAfterLabel="is after"
+        @isAfterOrOnLabel="is on or after"
+        @isBeforeLabel="is before"
+        @isBeforeOrOnLabel="is before or on"
+        @valueLabel="Value"
+        @valueALabel="Value A"
+        @valueBLabel="Value B"
+        @andLabel="and"
+        @daysLabel="Days"
+        @monthsLabel="Months"
+        @requiredLabel="Required"
+        @chooseLabel="Choose…"
+        @searchLabel="Search…"
+        @onChange={{this.change}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

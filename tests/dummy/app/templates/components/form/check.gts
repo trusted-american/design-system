@@ -1,37 +1,41 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
 import { FormCheck, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormCheckController from '../../../controllers/components/form/check';
+import type ComponentsFormCheckRoute from '../../../routes/components/form/check';
 
 interface ComponentsFormCheckSignature {
   Args: {
-    controller: ComponentsFormCheckController;
+    model: ModelFrom<ComponentsFormCheckRoute>;
   };
 }
 
-<template>
-  {{pageTitle "Check"}}
-  {{breadcrumb "Check" route="components.form.check"}}
+export default class ComponentsFormCheck extends Component<ComponentsFormCheckSignature> {
+  value = false;
 
-  <Subheading @title="Check" />
+  <template>
+    {{pageTitle "Check"}}
+    {{breadcrumb "Check" route="components.form.check"}}
 
-  <p>Value: {{if @controller.value "True" " False"}}</p>
+    <Subheading @title="Check" />
 
-  <Snippet @name="form-check.gts">
-    {{! BEGIN-SNIPPET form-check }}
-    <FormCheck
-      @value={{@controller.value}}
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @onChange={{fn (mut @controller.value)}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormCheckSignature>;
+    <p>Value: {{if this.value "True" " False"}}</p>
+
+    <Snippet @name="form-check.gts">
+      {{! BEGIN-SNIPPET form-check }}
+      <FormCheck
+        @value={{this.value}}
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

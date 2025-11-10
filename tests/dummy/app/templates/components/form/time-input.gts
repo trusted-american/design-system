@@ -1,5 +1,5 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
 import {
   FormTimeInput,
   Subheading,
@@ -8,34 +8,38 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormTimeInputController from '../../../controllers/components/form/time-input';
+import type ComponentsFormTimeInputRoute from '../../../routes/components/form/time-input';
 
 interface ComponentsFormTimeInputSignature {
   Args: {
-    controller: ComponentsFormTimeInputController;
+    model: ModelFrom<ComponentsFormTimeInputRoute>;
   };
 }
 
-<template>
-  {{pageTitle "Time input"}}
-  {{breadcrumb "Time input" route="components.form.time-input"}}
+export default class ComponentsFormTimeInput extends Component<ComponentsFormTimeInputSignature> {
+  value: Date | null = new Date();
 
-  <Subheading @title="Time input" />
+  <template>
+    {{pageTitle "Time input"}}
+    {{breadcrumb "Time input" route="components.form.time-input"}}
 
-  <p>Value: {{timestamp @controller.value format="time"}}</p>
+    <Subheading @title="Time input" />
 
-  <Snippet @name="form-time-input.gts">
-    {{! BEGIN-SNIPPET form-time-input }}
-    <FormTimeInput
-      @value={{@controller.value}}
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @onChange={{fn (mut @controller.value)}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormTimeInputSignature>;
+    <p>Value: {{timestamp this.value format="time"}}</p>
+
+    <Snippet @name="form-time-input.gts">
+      {{! BEGIN-SNIPPET form-time-input }}
+      <FormTimeInput
+        @value={{this.value}}
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

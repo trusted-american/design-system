@@ -1,6 +1,6 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
+import Component from '@glimmer/component';
 import {
   ButtonSet,
   FormInput,
@@ -10,63 +10,77 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
-import type ListController from '../controllers/list';
+import type ListRoute from '../routes/list';
 
 interface ListSignature {
   Args: {
-    controller: ListController;
+    model: ModelFrom<ListRoute>;
   };
 }
 
-<template>
-  {{pageTitle "List"}}
-  {{breadcrumb "List" route="list"}}
+export default class List extends Component<ListSignature> {
+  search = '';
 
-  <MainBody>
-    <Heading @title="List">
-      <ButtonSet as |buttonSet|>
-        <FormInput
-          @value={{@controller.search}}
-          @type="search"
-          @label="Search"
-          @identifier="search"
-          @requiredLabel="Required"
-          @isInputOnly={{true}}
-          @onChange={{fn (mut @controller.search)}}
-          placeholder="Search…"
-        />
-        <buttonSet.button @label="Filter" {{on "click" @controller.click}} />
-        <buttonSet.button @label="Sort" {{on "click" @controller.click}} />
-        <buttonSet.button @label="Export" {{on "click" @controller.click}} />
-        <buttonSet.button
-          @label="Create"
-          @color="primary"
-          {{on "click" @controller.click}}
-        />
-      </ButtonSet>
-    </Heading>
+  users = [
+    { email: 'a@example.com', firstName: 'A', lastName: 'A' },
+    { email: 'b@example.com', firstName: 'B', lastName: 'B' },
+    { email: 'c@example.com', firstName: 'C', lastName: 'C' },
+  ];
 
-    <Table
-      @data={{@controller.users}}
-      @nextButtonLabel="Next"
-      @previousButtonLabel="Previous"
-      @viewingLabel="Viewing"
-      @ofLabel="of"
-      @resultsLabel="results"
-      as |table|
-    >
-      <table.header as |header|>
-        <header.column @prop="email">
-          Email
-        </header.column>
-        <header.column @prop="firstName">
-          First Name
-        </header.column>
-        <header.column @prop="lastName">
-          Last Name
-        </header.column>
-      </table.header>
-      <table.body />
-    </Table>
-  </MainBody>
-</template> satisfies TOC<ListSignature>;
+  click = () => {
+    alert('Action');
+  };
+
+  <template>
+    {{pageTitle "List"}}
+    {{breadcrumb "List" route="list"}}
+
+    <MainBody>
+      <Heading @title="List">
+        <ButtonSet as |buttonSet|>
+          <FormInput
+            @value={{this.search}}
+            @type="search"
+            @label="Search"
+            @identifier="search"
+            @requiredLabel="Required"
+            @isInputOnly={{true}}
+            @onChange={{fn (mut this.search)}}
+            placeholder="Search…"
+          />
+          <buttonSet.button @label="Filter" {{on "click" this.click}} />
+          <buttonSet.button @label="Sort" {{on "click" this.click}} />
+          <buttonSet.button @label="Export" {{on "click" this.click}} />
+          <buttonSet.button
+            @label="Create"
+            @color="primary"
+            {{on "click" this.click}}
+          />
+        </ButtonSet>
+      </Heading>
+
+      <Table
+        @data={{this.users}}
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
+        as |table|
+      >
+        <table.header as |header|>
+          <header.column @prop="email">
+            Email
+          </header.column>
+          <header.column @prop="firstName">
+            First Name
+          </header.column>
+          <header.column @prop="lastName">
+            Last Name
+          </header.column>
+        </table.header>
+        <table.body />
+      </Table>
+    </MainBody>
+  </template>
+}
