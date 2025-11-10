@@ -1,39 +1,45 @@
-import type { TOC } from '@ember/component/template-only';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { FormFileDropzone, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormFileDropzoneController from '../../../controllers/components/form/file-dropzone';
 
 interface ComponentsFormFileDropzoneSignature {
-  Args: {
-    controller: ComponentsFormFileDropzoneController;
-  };
+  Args: {};
 }
 
-<template>
-  {{pageTitle "File dropzone"}}
-  {{breadcrumb "File dropzone" route="components.form.file-dropzone"}}
+export default class ComponentsFormFileDropzone extends Component<ComponentsFormFileDropzoneSignature> {
+  @tracked value: File[] = [];
 
-  <Subheading @title="File dropzone" />
+  create = (file: File) => {
+    this.value = [...this.value, file];
+  };
 
-  <p>
-    Value:
-    <ul>
-      {{#each @controller.value as |file|}}
-        <li>{{file.name}}</li>
-      {{/each}}
-    </ul>
-  </p>
+  <template>
+    {{pageTitle "File dropzone"}}
+    {{breadcrumb "File dropzone" route="components.form.file-dropzone"}}
 
-  <Snippet @name="form-file-dropzone.gts">
-    {{! BEGIN-SNIPPET form-file-dropzone }}
-    <FormFileDropzone
-      @titleLabel="Drag and Drop Your Files Here"
-      @subtitleLabel="Or select a file from your computer…"
-      @activeTitleLabel="Drop to Upload"
-      @onCreate={{@controller.create}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormFileDropzoneSignature>;
+    <Subheading @title="File dropzone" />
+
+    <p>
+      Value:
+      <ul>
+        {{#each this.value as |file|}}
+          <li>{{file.name}}</li>
+        {{/each}}
+      </ul>
+    </p>
+
+    <Snippet @name="form-file-dropzone.gts">
+      {{! BEGIN-SNIPPET form-file-dropzone }}
+      <FormFileDropzone
+        @titleLabel="Drag and Drop Your Files Here"
+        @subtitleLabel="Or select a file from your computer…"
+        @activeTitleLabel="Drop to Upload"
+        @onCreate={{this.create}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}
