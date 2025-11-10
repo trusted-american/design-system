@@ -1,4 +1,4 @@
-import type { TOC } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { fn } from '@ember/helper';
 import {
   Heading,
@@ -8,55 +8,67 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsPaginationController from '../../controllers/components/pagination';
+import type ComponentsPaginationRoute from '../../routes/components/pagination';
 
 interface ComponentsPaginationSignature {
   Args: {
-    controller: ComponentsPaginationController;
+    model: ModelFrom<ComponentsPaginationRoute>;
   };
 }
 
-<template>
-  {{pageTitle "Pagination"}}
-  {{breadcrumb "Pagination" route="components.pagination"}}
+export default class ComponentsPagination extends Component<ComponentsPaginationSignature> {
+  page = 5;
 
-  <Heading @title="Pagination" />
+  next = () => {
+    alert('Action');
+  };
 
-  <Subheading @title="Offset" />
+  previous = () => {
+    alert('Action');
+  };
 
-  <p>Page: {{@controller.page}}</p>
+  <template>
+    {{pageTitle "Pagination"}}
+    {{breadcrumb "Pagination" route="components.pagination"}}
 
-  <Snippet @name="pagination.gts">
-    {{! BEGIN-SNIPPET pagination }}
-    <Pagination
-      @page={{@controller.page}}
-      @pageSize={{1}}
-      @totalItems={{10}}
-      @nextButtonLabel="Next"
-      @previousButtonLabel="Previous"
-      @viewingLabel="Viewing"
-      @ofLabel="of"
-      @resultsLabel="results"
-      @onChange={{fn (mut @controller.page)}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
+    <Heading @title="Pagination" />
 
-  <Subheading @title="Cursor" />
+    <Subheading @title="Offset" />
 
-  <Snippet @name="pagination1.gts">
-    {{! BEGIN-SNIPPET pagination1 }}
-    <Pagination
-      @canNext={{false}}
-      @canPrevious={{false}}
-      @nextButtonLabel="Next"
-      @previousButtonLabel="Previous"
-      @viewingLabel="Viewing"
-      @ofLabel="of"
-      @resultsLabel="results"
-      @onNext={{@controller.next}}
-      @onPrevious={{@controller.previous}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsPaginationSignature>;
+    <p>Page: {{this.page}}</p>
+
+    <Snippet @name="pagination.gts">
+      {{! BEGIN-SNIPPET pagination }}
+      <Pagination
+        @page={{this.page}}
+        @pageSize={{1}}
+        @totalItems={{10}}
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
+        @onChange={{fn (mut this.page)}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+
+    <Subheading @title="Cursor" />
+
+    <Snippet @name="pagination1.gts">
+      {{! BEGIN-SNIPPET pagination1 }}
+      <Pagination
+        @canNext={{false}}
+        @canPrevious={{false}}
+        @nextButtonLabel="Next"
+        @previousButtonLabel="Previous"
+        @viewingLabel="Viewing"
+        @ofLabel="of"
+        @resultsLabel="results"
+        @onNext={{this.next}}
+        @onPrevious={{this.previous}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

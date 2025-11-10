@@ -1,51 +1,55 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
 import { FormNumberInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormNumberInputController from '../../../controllers/components/form/number-input';
+import type ComponentsFormNumberInputRoute from '../../../routes/components/form/number-input';
 
 interface ComponentsFormNumberInputSignature {
   Args: {
-    controller: ComponentsFormNumberInputController;
+    model: ModelFrom<ComponentsFormNumberInputRoute>;
   };
 }
 
-<template>
-  {{pageTitle "Number input"}}
-  {{breadcrumb "Number input" route="components.form.number-input"}}
+export default class ComponentsFormNumberInput extends Component<ComponentsFormNumberInputSignature> {
+  value: number | null = null;
 
-  <Subheading @title="Number input" />
+  <template>
+    {{pageTitle "Number input"}}
+    {{breadcrumb "Number input" route="components.form.number-input"}}
 
-  <p>Value: {{@controller.value}}</p>
+    <Subheading @title="Number input" />
 
-  <Snippet @name="form-number-input.gts">
-    {{! BEGIN-SNIPPET form-number-input }}
-    <FormNumberInput
-      @value={{@controller.value}}
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @onChange={{fn (mut @controller.value)}}
-      placeholder="Placeholder"
-    />
-    <hr />
-    <FormNumberInput
-      @value={{@controller.value}}
-      @type="range"
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @onChange={{fn (mut @controller.value)}}
-      placeholder="Placeholder"
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormNumberInputSignature>;
+    <p>Value: {{this.value}}</p>
+
+    <Snippet @name="form-number-input.gts">
+      {{! BEGIN-SNIPPET form-number-input }}
+      <FormNumberInput
+        @value={{this.value}}
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+        placeholder="Placeholder"
+      />
+      <hr />
+      <FormNumberInput
+        @value={{this.value}}
+        @type="range"
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+        placeholder="Placeholder"
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

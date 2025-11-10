@@ -1,39 +1,41 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
+import type { Event } from '@trusted-american/design-system/components/calendar';
 import { Calendar, Heading, Modal } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsCalendarController from '../../controllers/components/calendar';
+import type ComponentsCalendarRoute from '../../routes/components/calendar';
 
 interface ComponentsCalendarSignature {
   Args: {
-    controller: ComponentsCalendarController;
+    model: ModelFrom<ComponentsCalendarRoute>;
   };
 }
 
-<template>
-  {{pageTitle "Calendar"}}
-  {{breadcrumb "Calendar" route="components.calendar"}}
+export default class ComponentsCalendar extends Component<ComponentsCalendarSignature> {
+  event?: Event;
 
-  <Heading @title="Calendar" />
+  close = () => {
+    this.event = undefined;
+  };
 
-  <Snippet @name="calendar.gts">
-    {{! BEGIN-SNIPPET calendar }}
-    <Calendar
-      @events={{@controller.model}}
-      @onSelect={{fn (mut @controller.event)}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
+  <template>
+    {{pageTitle "Calendar"}}
+    {{breadcrumb "Calendar" route="components.calendar"}}
 
-  {{#if @controller.event}}
-    <Modal
-      @title="Event"
-      @closeButtonLabel="Close"
-      @onClose={{@controller.close}}
-    >
-      {{@controller.event.title}}
-    </Modal>
-  {{/if}}
-</template> satisfies TOC<ComponentsCalendarSignature>;
+    <Heading @title="Calendar" />
+
+    <Snippet @name="calendar.gts">
+      {{! BEGIN-SNIPPET calendar }}
+      <Calendar @events={{@model}} @onSelect={{fn (mut this.event)}} />
+      {{! END-SNIPPET }}
+    </Snippet>
+
+    {{#if this.event}}
+      <Modal @title="Event" @closeButtonLabel="Close" @onClose={{this.close}}>
+        {{this.event.title}}
+      </Modal>
+    {{/if}}
+  </template>
+}

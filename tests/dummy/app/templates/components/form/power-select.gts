@@ -1,48 +1,65 @@
-import type { TOC } from '@ember/component/template-only';
 import { array, fn, hash } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { FormPowerSelect, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormPowerSelectController from '../../../controllers/components/form/power-select';
+import type ComponentsFormPowerSelectRoute from '../../../routes/components/form/power-select';
+
+export interface Post {
+  subject: string;
+  body: string;
+}
 
 interface ComponentsFormPowerSelectSignature {
   Args: {
-    controller: ComponentsFormPowerSelectController;
+    model: ModelFrom<ComponentsFormPowerSelectRoute>;
   };
 }
 
-<template>
-  {{pageTitle "Power select"}}
-  {{breadcrumb "Power select" route="components.form.power-select"}}
+export default class ComponentsFormPowerSelect extends Component<ComponentsFormPowerSelectSignature> {
+  @tracked value?: Post;
 
-  <Subheading @title="Power select" />
+  create = () => {
+    const subject = prompt('What is the subject?');
+    if (subject) {
+      this.value = { subject, body: '' };
+    }
+  };
 
-  <p>Value: {{@controller.value.subject}}</p>
+  <template>
+    {{pageTitle "Power select"}}
+    {{breadcrumb "Power select" route="components.form.power-select"}}
 
-  <Snippet @name="form-power-select.gts">
-    {{! BEGIN-SNIPPET form-power-select }}
-    <FormPowerSelect
-      @options={{array
-        (hash subject="Post A" body="This is the body.")
-        (hash subject="Post B" body="This is the body.")
-      }}
-      @selected={{@controller.value}}
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @searchField="subject"
-      @chooseLabel="Choose…"
-      @searchLabel="Search…"
-      @onChange={{fn (mut @controller.value)}}
-      @onCreate={{@controller.create}}
-      as |post|
-    >
-      {{post.subject}}
-    </FormPowerSelect>
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormPowerSelectSignature>;
+    <Subheading @title="Power select" />
+
+    <p>Value: {{this.value.subject}}</p>
+
+    <Snippet @name="form-power-select.gts">
+      {{! BEGIN-SNIPPET form-power-select }}
+      <FormPowerSelect
+        @options={{array
+          (hash subject="Post A" body="This is the body.")
+          (hash subject="Post B" body="This is the body.")
+        }}
+        @selected={{this.value}}
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @searchField="subject"
+        @chooseLabel="Choose…"
+        @searchLabel="Search…"
+        @onChange={{fn (mut this.value)}}
+        @onCreate={{this.create}}
+        as |post|
+      >
+        {{post.subject}}
+      </FormPowerSelect>
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}
