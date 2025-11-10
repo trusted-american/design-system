@@ -1,37 +1,56 @@
-import type { TOC } from '@ember/component/template-only';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 import { Heading, MainBody, Subheading } from '@trusted-american/design-system';
+import checkValidity from '@trusted-american/design-system/utils/check-validity';
+import fileType from '@trusted-american/design-system/utils/file-type';
+import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';
-import type UtilsController from '../controllers/utils';
 
 interface UtilsSignature {
-  Args: {
-    controller: UtilsController;
-  };
+  Args: {};
 }
 
-<template>
-  {{pageTitle "Utils"}}
-  {{breadcrumb "Utils" route="utils"}}
+export default class Utils extends Component<UtilsSignature> {
+  // BEGIN-SNIPPET util-check-validity
+  @action
+  @checkValidity
+  submit() {
+    alert('Action');
+  }
+  // END-SNIPPET
 
-  <MainBody>
-    <Heading @title="Utils" />
+  // BEGIN-SNIPPET util-file-type
+  type = fileType('file.xlsx');
+  // END-SNIPPET
 
-    <Subheading @title="Check validity" />
+  // BEGIN-SNIPPET util-is-valid-date
+  isValid = isValidDate(new Date());
+  // END-SNIPPET
 
-    <Snippet @name="util-check-validity.ts" />
+  <template>
+    {{pageTitle "Utils"}}
+    {{breadcrumb "Utils" route="utils"}}
 
-    <Subheading @title="File type" />
+    <MainBody>
+      <Heading @title="Utils" />
 
-    <Snippet @name="util-file-type.ts">
-      {{@controller.type}}
-    </Snippet>
+      <Subheading @title="Check validity" />
 
-    <Subheading @title="Is valid date" />
+      <Snippet @name="util-check-validity.ts" />
 
-    <Snippet @name="util-is-valid-date.ts">
-      {{@controller.isValid}}
-    </Snippet>
-  </MainBody>
-</template> satisfies TOC<UtilsSignature>;
+      <Subheading @title="File type" />
+
+      <Snippet @name="util-file-type.ts">
+        {{this.type}}
+      </Snippet>
+
+      <Subheading @title="Is valid date" />
+
+      <Snippet @name="util-is-valid-date.ts">
+        {{this.isValid}}
+      </Snippet>
+    </MainBody>
+  </template>
+}
