@@ -41,17 +41,17 @@ export default class Utils extends Component<UtilsSignature> {
 
       <Subheading @title="Check validity" />
 
-      <Snippet @name="util-check-validity.ts" />
+      <Snippet @name="util-check-validity.gts" />
 
       <Subheading @title="File type" />
 
-      <Snippet @name="util-file-type.ts">
+      <Snippet @name="util-file-type.gts">
         {{this.type}}
       </Snippet>
 
       <Subheading @title="Is valid date" />
 
-      <Snippet @name="util-is-valid-date.ts">
+      <Snippet @name="util-is-valid-date.gts">
         {{this.isValid}}
       </Snippet>
     </MainBody>
