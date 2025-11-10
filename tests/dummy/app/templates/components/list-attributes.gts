@@ -18,35 +18,34 @@ interface ComponentsListAttributesSignature {
 
 export default class ComponentsListAttributes extends Component<ComponentsListAttributesSignature> {
   selected: ListAttributesKey<T>[] = ['a'];
-}
 
-<template>
-  {{pageTitle "List attributes"}}
-  {{breadcrumb "List attributes" route="components.list-attributes"}}
+  <template>
+    {{pageTitle "List attributes"}}
+    {{breadcrumb "List attributes" route="components.list-attributes"}}
 
-  <Heading @title="List attributes" />
+    <Heading @title="List attributes" />
 
-  <p>
-    Value:
-    {{#each this.selected as |item|}}
-      {{item}}
-    {{/each}}
-  </p>
+    <p>
+      Value:
+      {{#each this.selected as |item|}}
+        {{item}}
+      {{/each}}
+    </p>
 
-  <Snippet @name="list-attributes.gts">
-    {{! BEGIN-SNIPPET list-attributes }}
-    <ListAttributes
-      @presets={{array (hash values=(array "a") label="Default")}}
-      @options={{array
-        (hash value="a" label="A")
-        (hash value="b" label="B")
-        (hash value="c" label="C")
-      }}
-      @selected={{this.selected}}
-      @label="Edit columns"
-      @onChange={{fn (mut this.selected)}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
+    <Snippet @name="list-attributes.gts">
+      {{! BEGIN-SNIPPET list-attributes }}
+      <ListAttributes
+        @presets={{array (hash values=(array "a") label="Default")}}
+        @options={{array
+          (hash value="a" label="A")
+          (hash value="b" label="B")
+          (hash value="c" label="C")
+        }}
+        @selected={{this.selected}}
+        @label="Edit columns"
+        @onChange={{fn (mut this.selected)}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
   </template>
 }

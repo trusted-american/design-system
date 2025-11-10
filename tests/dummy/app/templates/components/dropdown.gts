@@ -26,55 +26,54 @@ export default class ComponentsDropdown extends Component<ComponentsDropdownSign
   click = () => {
     alert('Action');
   };
-}
 
-<template>
-  {{pageTitle "Dropdown"}}
-  {{breadcrumb "Dropdown" route="components.dropdown"}}
+  <template>
+    {{pageTitle "Dropdown"}}
+    {{breadcrumb "Dropdown" route="components.dropdown"}}
 
-  <Heading @title="Dropdown" />
+    <Heading @title="Dropdown" />
 
-  <Snippet @name="dropdown.gts">
-    {{! BEGIN-SNIPPET dropdown }}
-    <Button @label="Open dropdown" {{dropdown}} />
-    <Dropdown as |dropdown|>
-      <dropdown.item
-        @label="Copy link"
-        @subtitle="Due by December 31, 2021"
-        @icon={{faCopy}}
-        @shortcut="⌘C"
-        {{on "click" this.click}}
-      />
-      <dropdown.item
-        @label="Quote reply"
-        @icon={{faQuoteLeft}}
-        @shortcut="⌘Q"
-        {{on "click" this.click}}
-      />
-      <dropdown.item
-        @label="Edit comment"
-        @icon={{faPen}}
-        @shortcut="⌘E"
-        {{on "click" this.click}}
-      />
-      <dropdown.divider />
-      <dropdown.item
-        @label="Delete file"
-        @icon={{faTrash}}
-        @shortcut="⌘D"
-        @color="danger"
-        {{on "click" this.click}}
-      />
-      <dropdown.divider />
-      <dropdown.item @label="Route" @icon={{faPlus}} @route="index" />
-      <DropdownHeader @label="Header" />
-      <dropdown.item
-        @label="Href"
-        @icon={{faPlus}}
-        @href="https://www.google.com/"
-      />
-    </Dropdown>
-    {{! END-SNIPPET }}
-  </Snippet>
+    <Snippet @name="dropdown.gts">
+      {{! BEGIN-SNIPPET dropdown }}
+      <Button @label="Open dropdown" {{dropdown}} />
+      <Dropdown as |dropdown|>
+        <dropdown.item
+          @label="Copy link"
+          @subtitle="Due by December 31, 2021"
+          @icon={{faCopy}}
+          @shortcut="⌘C"
+          {{on "click" this.click}}
+        />
+        <dropdown.item
+          @label="Quote reply"
+          @icon={{faQuoteLeft}}
+          @shortcut="⌘Q"
+          {{on "click" this.click}}
+        />
+        <dropdown.item
+          @label="Edit comment"
+          @icon={{faPen}}
+          @shortcut="⌘E"
+          {{on "click" this.click}}
+        />
+        <dropdown.divider />
+        <dropdown.item
+          @label="Delete file"
+          @icon={{faTrash}}
+          @shortcut="⌘D"
+          @color="danger"
+          {{on "click" this.click}}
+        />
+        <dropdown.divider />
+        <dropdown.item @label="Route" @icon={{faPlus}} @route="index" />
+        <DropdownHeader @label="Header" />
+        <dropdown.item
+          @label="Href"
+          @icon={{faPlus}}
+          @href="https://www.google.com/"
+        />
+      </Dropdown>
+      {{! END-SNIPPET }}
+    </Snippet>
   </template>
 }

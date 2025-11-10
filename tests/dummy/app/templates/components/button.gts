@@ -19,91 +19,82 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
   click = () => {
     alert('Action');
   };
-}
 
-<template>
-  {{pageTitle "Button"}}
-  {{breadcrumb "Button" route="components.button"}}
+  <template>
+    {{pageTitle "Button"}}
+    {{breadcrumb "Button" route="components.button"}}
 
-  <Heading @title="Button" />
+    <Heading @title="Button" />
 
-  <Snippet @name="button.gts">
-    {{! BEGIN-SNIPPET button }}
-    <Button @label="Default button" {{on "click" @controller.click}} />
-    <Button
-      @label="Success button"
-      @color="success"
-      {{on "click" this.click}}
-    />
-    <Button
-      @label="Success button with icon"
-      @color="success"
-      @icon={{faPlus}}
-      {{on "click" this.click}}
-    />
-    <Button
-      @label="Success button with trailing icon"
-      @color="success"
-      @icon={{faPlus}}
-      @isIconTrailing={{true}}
-      {{on "click" this.click}}
-    />
-    <Button
-      @label="Success button with only icon"
-      @icon={{faPlus}}
-      @isIconOnly={{true}}
-      @color="success"
-      {{on "click" this.click}}
-    />
-    <Button
-      @label="Loading button"
-      @isLoading={{true}}
-      {{on "click" this.click}}
-    />
-    <Button
-      @label="Disabled button"
-      disabled
-      {{on "click" this.click}}
-    />
-    <Button
-      @label="Count button"
-      @count={{3}}
-      {{on "click" this.click}}
-    />
-    <Button
-      @label="Default button"
-      @shortcut="n"
-      {{on "click" this.click}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
+    <Snippet @name="button.gts">
+      {{! BEGIN-SNIPPET button }}
+      <Button @label="Default button" {{on "click" this.click}} />
+      <Button
+        @label="Success button"
+        @color="success"
+        {{on "click" this.click}}
+      />
+      <Button
+        @label="Success button with icon"
+        @color="success"
+        @icon={{faPlus}}
+        {{on "click" this.click}}
+      />
+      <Button
+        @label="Success button with trailing icon"
+        @color="success"
+        @icon={{faPlus}}
+        @isIconTrailing={{true}}
+        {{on "click" this.click}}
+      />
+      <Button
+        @label="Success button with only icon"
+        @icon={{faPlus}}
+        @isIconOnly={{true}}
+        @color="success"
+        {{on "click" this.click}}
+      />
+      <Button
+        @label="Loading button"
+        @isLoading={{true}}
+        {{on "click" this.click}}
+      />
+      <Button @label="Disabled button" disabled {{on "click" this.click}} />
+      <Button @label="Count button" @count={{3}} {{on "click" this.click}} />
+      <Button @label="Default button" @shortcut="n" {{on "click" this.click}} />
+      {{! END-SNIPPET }}
+    </Snippet>
 
-  <Subheading @title="Route" />
+    <Subheading @title="Route" />
 
-  <Snippet @name="button1.gts">
-    {{! BEGIN-SNIPPET button1 }}
-    <Button @label="Route button" @route="index" />
-    <Button @label="Route button with query" @route="index" @query={{(hash)}} />
-    {{! END-SNIPPET }}
-  </Snippet>
+    <Snippet @name="button1.gts">
+      {{! BEGIN-SNIPPET button1 }}
+      <Button @label="Route button" @route="index" />
+      <Button
+        @label="Route button with query"
+        @route="index"
+        @query={{(hash)}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
 
-  <Subheading @title="Link" />
+    <Subheading @title="Link" />
 
-  <Snippet @name="button2.gts">
-    {{! BEGIN-SNIPPET button2 }}
-    <Button
-      @label="Link button"
-      @icon={{faUpRightFromSquare}}
-      @href="https://www.google.com/"
-    />
+    <Snippet @name="button2.gts">
+      {{! BEGIN-SNIPPET button2 }}
+      <Button
+        @label="Link button"
+        @icon={{faUpRightFromSquare}}
+        @href="https://www.google.com/"
+      />
 
-    <Button
-      @label="Link button with trailing icon"
-      @icon={{faArrowRight}}
-      @isIconTrailing={{true}}
-      @href="https://www.google.com/"
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
+      <Button
+        @label="Link button with trailing icon"
+        @icon={{faArrowRight}}
+        @isIconTrailing={{true}}
+        @href="https://www.google.com/"
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
   </template>
 }

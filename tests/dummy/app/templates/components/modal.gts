@@ -42,70 +42,69 @@ export default class ComponentsModal extends Component<ComponentsModalSignature>
   close = () => {
     this.showModal = false;
   };
-}
 
-<template>
-  {{pageTitle "Modal"}}
-  {{breadcrumb "Modal" route="components.modal"}}
+  <template>
+    {{pageTitle "Modal"}}
+    {{breadcrumb "Modal" route="components.modal"}}
 
-  <Heading @title="Modal" />
+    <Heading @title="Modal" />
 
-  <Snippet @name="modal.gts">
-    {{! BEGIN-SNIPPET modal }}
-    <Button
-      @label="Open modal"
-      {{on "click" (fn (mut this.showModal) true)}}
-    />
+    <Snippet @name="modal.gts">
+      {{! BEGIN-SNIPPET modal }}
+      <Button
+        @label="Open modal"
+        {{on "click" (fn (mut this.showModal) true)}}
+      />
 
-    {{#if this.showModal}}
-      <Modal
-        @title="Title"
-        @closeButtonLabel="Close"
-        @onClose={{this.close}}
-        as |onClose|
-      >
-        <p>
-          Lorem Ipsum Generator 5 Paragraphs Copy Lorem ipsum dolor sit amet
-          consectetur adipiscing elit. Quisque faucibus ex sapien vitae
-          pellentesque sem placerat. In id cursus mi pretium tellus duis
-          convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
-          fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
-          malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
-          aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos
-          himenaeos.
-        </p>
-
-        <p><Button @label="Close" {{on "click" onClose}} /></p>
-
-        <FormPowerSelect
-          @options={{this.options}}
-          @selected={{this.selected}}
-          @searchField="name"
-          @label="Label"
-          @identifier="identifier"
-          @requiredLabel="Required"
-          @chooseLabel="Choose…"
-          @searchLabel="Search…"
-          @onChange={{fn (mut this.selected)}}
-          class="mb-3"
-          as |user|
+      {{#if this.showModal}}
+        <Modal
+          @title="Title"
+          @closeButtonLabel="Close"
+          @onClose={{this.close}}
+          as |onClose|
         >
-          {{user.name}}
-        </FormPowerSelect>
+          <p>
+            Lorem Ipsum Generator 5 Paragraphs Copy Lorem ipsum dolor sit amet
+            consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+            pellentesque sem placerat. In id cursus mi pretium tellus duis
+            convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar
+            vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
+            nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel
+            class aptent taciti sociosqu. Ad litora torquent per conubia nostra
+            inceptos himenaeos.
+          </p>
 
-        <p>
-          Lorem Ipsum Generator 5 Paragraphs Copy Lorem ipsum dolor sit amet
-          consectetur adipiscing elit. Quisque faucibus ex sapien vitae
-          pellentesque sem placerat. In id cursus mi pretium tellus duis
-          convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
-          fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
-          malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
-          aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos
-          himenaeos.
-        </p>
-      </Modal>
-    {{/if}}
-    {{! END-SNIPPET }}
-  </Snippet>
+          <p><Button @label="Close" {{on "click" onClose}} /></p>
+
+          <FormPowerSelect
+            @options={{this.options}}
+            @selected={{this.selected}}
+            @searchField="name"
+            @label="Label"
+            @identifier="identifier"
+            @requiredLabel="Required"
+            @chooseLabel="Choose…"
+            @searchLabel="Search…"
+            @onChange={{fn (mut this.selected)}}
+            class="mb-3"
+            as |user|
+          >
+            {{user.name}}
+          </FormPowerSelect>
+
+          <p>
+            Lorem Ipsum Generator 5 Paragraphs Copy Lorem ipsum dolor sit amet
+            consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+            pellentesque sem placerat. In id cursus mi pretium tellus duis
+            convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar
+            vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
+            nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel
+            class aptent taciti sociosqu. Ad litora torquent per conubia nostra
+            inceptos himenaeos.
+          </p>
+        </Modal>
+      {{/if}}
+      {{! END-SNIPPET }}
+    </Snippet>
   </template>
 }

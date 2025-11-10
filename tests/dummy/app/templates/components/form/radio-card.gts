@@ -26,10 +26,16 @@ export default class ComponentsFormRadioCard extends Component<ComponentsFormRad
       <FormRadioCard
         @options={{array
           (hash
-            value=true label="Yes" help="This is an example of help." icon=faCheck
+            value=true
+            label="Yes"
+            help="This is an example of help."
+            icon=faCheck
           )
           (hash
-            value=false label="No" help="This is an example of help." icon=faXmark
+            value=false
+            label="No"
+            help="This is an example of help."
+            icon=faXmark
           )
         }}
         @selected={{this.value}}

@@ -27,19 +27,12 @@ export default class ComponentsCalendar extends Component<ComponentsCalendarSign
 
     <Snippet @name="calendar.gts">
       {{! BEGIN-SNIPPET calendar }}
-      <Calendar
-        @events={{@model}}
-        @onSelect={{fn (mut this.event)}}
-      />
+      <Calendar @events={{@model}} @onSelect={{fn (mut this.event)}} />
       {{! END-SNIPPET }}
     </Snippet>
 
     {{#if this.event}}
-      <Modal
-        @title="Event"
-        @closeButtonLabel="Close"
-        @onClose={{this.close}}
-      >
+      <Modal @title="Event" @closeButtonLabel="Close" @onClose={{this.close}}>
         {{this.event.title}}
       </Modal>
     {{/if}}
