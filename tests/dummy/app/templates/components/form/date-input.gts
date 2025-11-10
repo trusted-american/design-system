@@ -8,9 +8,12 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormDateInputRoute from '../../../routes/components/form/date-input';
 
 interface ComponentsFormDateInputSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormDateInputRoute>;
+  };
 }
 
 export default class ComponentsFormDateInputController extends Component<ComponentsFormDateInputSignature> {

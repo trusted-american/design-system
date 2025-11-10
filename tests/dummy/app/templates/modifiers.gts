@@ -15,9 +15,12 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';
+import type ModifiersRoute from '../routes/modifiers';
 
 interface ModifiersSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ModifiersRoute>;
+  };
 }
 
 export default class Modifiers extends Component<ModifiersSignature> {

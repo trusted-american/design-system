@@ -4,9 +4,12 @@ import { FormPhoneInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormPhoneInputRoute from '../../../routes/components/form/phone-input';
 
 interface ComponentsFormPhoneInputSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormPhoneInputRoute>;
+  };
 }
 
 export default class ComponentsFormPhoneInput extends Component<ComponentsFormPhoneInputSignature> {

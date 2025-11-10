@@ -8,9 +8,12 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormTimeInputRoute from '../../../routes/components/form/time-input';
 
 interface ComponentsFormTimeInputSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormTimeInputRoute>;
+  };
 }
 
 export default class ComponentsFormTimeInput extends Component<ComponentsFormTimeInputSignature> {

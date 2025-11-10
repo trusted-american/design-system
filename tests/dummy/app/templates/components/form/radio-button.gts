@@ -4,9 +4,12 @@ import { FormRadioButton, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormRadioButtonRoute from '../../../routes/components/form/radio-button';
 
 interface ComponentsFormRadioButtonSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormRadioButtonRoute>;
+  };
 }
 
 export default class ComponentsFormRadioButton extends Component<ComponentsFormRadioButtonSignature> {

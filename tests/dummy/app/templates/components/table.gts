@@ -6,10 +6,11 @@ import { Heading, Subheading, Table } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsTableRoute from '../../routes/components/table';
 
 interface ComponentsTableSignature {
   Args: {
-    model: User[];
+    model: ModelFrom<ComponentsTableRoute>;
   };
 }
 

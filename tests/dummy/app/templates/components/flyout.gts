@@ -6,9 +6,12 @@ import { Button, Flyout, Heading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsFlyoutRoute from '../../routes/components/flyout';
 
 interface ComponentsFlyoutSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFlyoutRoute>;
+  };
 }
 
 export default class ComponentsFlyout extends Component<ComponentsFlyoutSignature> {

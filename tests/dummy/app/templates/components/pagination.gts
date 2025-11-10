@@ -8,9 +8,12 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsPaginationRoute from '../../routes/components/pagination';
 
 interface ComponentsPaginationSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsPaginationRoute>;
+  };
 }
 
 export default class ComponentsPagination extends Component<ComponentsPaginationSignature> {

@@ -5,6 +5,7 @@ import { FormPowerSelect, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormPowerSelectRoute from '../../../routes/components/form/power-select';
 
 export interface Post {
   subject: string;
@@ -12,7 +13,9 @@ export interface Post {
 }
 
 interface ComponentsFormPowerSelectSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormPowerSelectRoute>;
+  };
 }
 
 export default class ComponentsFormPowerSelect extends Component<ComponentsFormPowerSelectSignature> {

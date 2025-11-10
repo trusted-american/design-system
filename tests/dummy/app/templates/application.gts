@@ -33,7 +33,9 @@ import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 
 interface ApplicationSignature {
-  Args: {};
+  Args: {
+    model: unknown;
+  };
 }
 
 export default class Application extends Component<ApplicationSignature> {

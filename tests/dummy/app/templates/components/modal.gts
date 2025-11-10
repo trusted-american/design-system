@@ -11,9 +11,12 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsModalRoute from '../../routes/components/modal';
 
 interface ComponentsModalSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsModalRoute>;
+  };
 }
 
 export default class ComponentsModal extends Component<ComponentsModalSignature> {

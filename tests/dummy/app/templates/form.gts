@@ -14,9 +14,12 @@ import {
 import checkValidity from '@trusted-american/design-system/utils/check-validity';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import type FormRoute from '../routes/form';
 
 interface FormSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<FormRoute>;
+  };
 }
 
 export default class Form extends Component<FormSignature> {

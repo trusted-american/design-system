@@ -4,9 +4,12 @@ import { FormTextarea, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormTextareaRoute from '../../../routes/components/form/textarea';
 
 interface ComponentsFormTextareaSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormTextareaRoute>;
+  };
 }
 
 export default class ComponentsFormTextarea extends Component<ComponentsFormTextareaSignature> {

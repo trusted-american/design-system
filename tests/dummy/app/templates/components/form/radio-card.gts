@@ -5,9 +5,12 @@ import { FormRadioCard, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormRadioCardRoute from '../../../routes/components/form/radio-card';
 
 interface ComponentsFormRadioCardSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormRadioCardRoute>;
+  };
 }
 
 export default class ComponentsFormRadioCard extends Component<ComponentsFormRadioCardSignature> {

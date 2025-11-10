@@ -10,9 +10,12 @@ import { Button, Heading, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsButtonRoute from '../../routes/components/button';
 
 interface ComponentsButtonSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsButtonRoute>;
+  };
 }
 
 export default class ComponentsButton extends Component<ComponentsButtonSignature> {

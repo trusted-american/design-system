@@ -12,9 +12,12 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsListFilterRoute from '../../routes/components/list-filter';
 
 interface ComponentsListFilterSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsListFilterRoute>;
+  };
 }
 
 export default class ComponentsListFilter extends Component<ComponentsListFilterSignature> {

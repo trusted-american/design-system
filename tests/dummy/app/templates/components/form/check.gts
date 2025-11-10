@@ -4,9 +4,12 @@ import { FormCheck, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormCheckRoute from '../../../routes/components/form/check';
 
 interface ComponentsFormCheckSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormCheckRoute>;
+  };
 }
 
 export default class ComponentsFormCheck extends Component<ComponentsFormCheckSignature> {

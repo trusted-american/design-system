@@ -16,9 +16,12 @@ import type { Theme } from '@trusted-american/design-system/helpers/theme';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';
+import type HelpersRoute from '../routes/helpers';
 
 interface HelpersSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<HelpersRoute>;
+  };
 }
 
 export default class Helpers extends Component<HelpersSignature> {

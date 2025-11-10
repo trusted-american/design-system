@@ -4,9 +4,12 @@ import { ButtonSet, Heading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsButtonSetRoute from '../../routes/components/button-set';
 
 interface ComponentsButtonSetSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsButtonSetRoute>;
+  };
 }
 
 export default class ComponentsButtonSet extends Component<ComponentsButtonSetSignature> {

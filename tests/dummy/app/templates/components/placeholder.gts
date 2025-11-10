@@ -4,9 +4,12 @@ import { Heading, Placeholder } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsPlaceholderRoute from '../../routes/components/placeholder';
 
 interface ComponentsPlaceholderSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsPlaceholderRoute>;
+  };
 }
 
 export default class ComponentsPlaceholder extends Component<ComponentsPlaceholderSignature> {

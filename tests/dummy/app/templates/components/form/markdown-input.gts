@@ -4,9 +4,12 @@ import { FormMarkdownInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormMarkdownInputRoute from '../../../routes/components/form/markdown-input';
 
 interface ComponentsFormMarkdownInputSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormMarkdownInputRoute>;
+  };
 }
 
 export default class ComponentsFormMarkdownInput extends Component<ComponentsFormMarkdownInputSignature> {

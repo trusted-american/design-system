@@ -4,9 +4,12 @@ import { FormFileDropzone, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormFileDropzoneRoute from '../../../routes/components/form/file-dropzone';
 
 interface ComponentsFormFileDropzoneSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormFileDropzoneRoute>;
+  };
 }
 
 export default class ComponentsFormFileDropzone extends Component<ComponentsFormFileDropzoneSignature> {

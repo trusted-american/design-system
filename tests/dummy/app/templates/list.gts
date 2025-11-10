@@ -10,9 +10,12 @@ import {
 } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
+import type ListRoute from '../routes/list';
 
 interface ListSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ListRoute>;
+  };
 }
 
 export default class List extends Component<ListSignature> {

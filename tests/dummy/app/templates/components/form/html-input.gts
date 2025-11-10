@@ -5,9 +5,12 @@ import { FormHtmlInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormHtmlInputRoute from '../../../routes/components/form/html-input';
 
 interface ComponentsFormHtmlInputSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormHtmlInputRoute>;
+  };
 }
 
 export default class ComponentsFormHtmlInput extends Component<ComponentsFormHtmlInputSignature> {

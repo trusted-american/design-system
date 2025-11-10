@@ -5,6 +5,7 @@ import { Heading, ListAttributes } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsListAttributesRoute from '../../routes/components/list-attributes';
 
 interface T {
   a: string;
@@ -13,7 +14,9 @@ interface T {
 }
 
 interface ComponentsListAttributesSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsListAttributesRoute>;
+  };
 }
 
 export default class ComponentsListAttributes extends Component<ComponentsListAttributesSignature> {

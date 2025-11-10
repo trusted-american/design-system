@@ -17,9 +17,12 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
+import type ComponentsDropdownRoute from '../../routes/components/dropdown';
 
 interface ComponentsDropdownSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsDropdownRoute>;
+  };
 }
 
 export default class ComponentsDropdown extends Component<ComponentsDropdownSignature> {

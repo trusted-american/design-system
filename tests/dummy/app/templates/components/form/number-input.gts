@@ -4,9 +4,12 @@ import { FormNumberInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormNumberInputRoute from '../../../routes/components/form/number-input';
 
 interface ComponentsFormNumberInputSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormNumberInputRoute>;
+  };
 }
 
 export default class ComponentsFormNumberInput extends Component<ComponentsFormNumberInputSignature> {

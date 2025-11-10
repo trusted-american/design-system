@@ -7,9 +7,12 @@ import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';
+import type UtilsRoute from '../routes/utils';
 
 interface UtilsSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<UtilsRoute>;
+  };
 }
 
 export default class Utils extends Component<UtilsSignature> {

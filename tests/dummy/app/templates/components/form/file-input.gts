@@ -4,9 +4,12 @@ import { FormFileInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
+import type ComponentsFormFileInputRoute from '../../../routes/components/form/file-input';
 
 interface ComponentsFormFileInputSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormFileInputRoute>;
+  };
 }
 
 export default class ComponentsFormFileInput extends Component<ComponentsFormFileInputSignature> {

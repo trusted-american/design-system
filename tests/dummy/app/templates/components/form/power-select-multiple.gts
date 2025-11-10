@@ -8,9 +8,12 @@ import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
 import type { Post } from './power-select';
+import type ComponentsFormPowerSelectMultipleRoute from '../../../routes/components/form/power-select-multiple';
 
 interface ComponentsFormPowerSelectMultipleSignature {
-  Args: {};
+  Args: {
+    model: ModelFrom<ComponentsFormPowerSelectMultipleRoute>;
+  };
 }
 
 export default class ComponentsFormPowerSelectMultiple extends Component<ComponentsFormPowerSelectMultipleSignature> {
