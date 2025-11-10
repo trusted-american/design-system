@@ -91,11 +91,17 @@ export default class Application extends Component<ApplicationSignature> {
               @label="Breadcrumb trail"
             />
             <aside.item @route="components.button" @label="Button" />
-            <aside.item @route="components.button-group" @label="Button group" />
+            <aside.item
+              @route="components.button-group"
+              @label="Button group"
+            />
             <aside.item @route="components.button-set" @label="Button set" />
             <aside.item @route="components.calendar" @label="Calendar" />
             <aside.item @route="components.card" @label="Card" />
-            <aside.item @route="components.close-button" @label="Close button" />
+            <aside.item
+              @route="components.close-button"
+              @label="Close button"
+            />
             <aside.item @route="components.collapse" @label="Collapse" />
             <aside.item @route="components.copy" @label="Copy button" />
             <aside.item @route="components.dropdown" @label="Dropdown" />
