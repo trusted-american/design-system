@@ -1,38 +1,39 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
 import { FormInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormInputController from '../../../controllers/components/form/input';
 
 interface ComponentsFormInputSignature {
-  Args: {
-    controller: ComponentsFormInputController;
-  };
+  Args: {};
 }
 
-<template>
-  {{pageTitle "Input"}}
-  {{breadcrumb "Input" route="components.form.input"}}
+export default class ComponentsFormInput extends Component<ComponentsFormInputSignature> {
+  value = '';
 
-  <Subheading @title="Input" />
+  <template>
+    {{pageTitle "Input"}}
+    {{breadcrumb "Input" route="components.form.input"}}
 
-  <p>Value: {{@controller.value}}</p>
+    <Subheading @title="Input" />
 
-  <Snippet @name="form-input.gts">
-    {{! BEGIN-SNIPPET form-input }}
-    <FormInput
-      @value={{@controller.value}}
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @onChange={{fn (mut @controller.value)}}
-      placeholder="Placeholder"
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormInputSignature>;
+    <p>Value: {{this.value}}</p>
+
+    <Snippet @name="form-input.gts">
+      {{! BEGIN-SNIPPET form-input }}
+      <FormInput
+        @value={{this.value}}
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+        placeholder="Placeholder"
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

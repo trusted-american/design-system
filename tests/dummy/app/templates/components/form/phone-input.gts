@@ -1,38 +1,39 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
 import { FormPhoneInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormPhoneInputController from '../../../controllers/components/form/phone-input';
 
 interface ComponentsFormPhoneInputSignature {
-  Args: {
-    controller: ComponentsFormPhoneInputController;
-  };
+  Args: {};
 }
 
-<template>
-  {{pageTitle "Phone input"}}
-  {{breadcrumb "Phone input" route="components.form.phone-input"}}
+export default class ComponentsFormPhoneInput extends Component<ComponentsFormPhoneInputSignature> {
+  value?: string | null | undefined;
 
-  <Subheading @title="Phone input" />
+  <template>
+    {{pageTitle "Phone input"}}
+    {{breadcrumb "Phone input" route="components.form.phone-input"}}
 
-  <p>Value: {{@controller.value}}</p>
+    <Subheading @title="Phone input" />
 
-  <Snippet @name="form-phone-input.gts">
-    {{! BEGIN-SNIPPET form-phone-input }}
-    <FormPhoneInput
-      @value={{@controller.value}}
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @onChange={{fn (mut @controller.value)}}
-      placeholder="Placeholder"
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormPhoneInputSignature>;
+    <p>Value: {{this.value}}</p>
+
+    <Snippet @name="form-phone-input.gts">
+      {{! BEGIN-SNIPPET form-phone-input }}
+      <FormPhoneInput
+        @value={{this.value}}
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @onChange={{fn (mut this.value)}}
+        placeholder="Placeholder"
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

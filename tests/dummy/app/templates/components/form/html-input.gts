@@ -1,48 +1,50 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { FormHtmlInput, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../../components/snippet';
-import type ComponentsFormHtmlInputController from '../../../controllers/components/form/html-input';
 
 interface ComponentsFormHtmlInputSignature {
-  Args: {
-    controller: ComponentsFormHtmlInputController;
-  };
+  Args: {};
 }
 
-<template>
-  {{pageTitle "HTML input"}}
-  {{breadcrumb "HTML input" route="components.form.html-input"}}
+export default class ComponentsFormHtmlInput extends Component<ComponentsFormHtmlInputSignature> {
+  @tracked value: string | null = '<p>Hello World!</p>';
 
-  <Subheading @title="HTML input" />
+  <template>
+    {{pageTitle "HTML input"}}
+    {{breadcrumb "HTML input" route="components.form.html-input"}}
 
-  <p>Value: {{@controller.value}}</p>
+    <Subheading @title="HTML input" />
 
-  <Snippet @name="form-html-input.gts">
-    {{! BEGIN-SNIPPET form-html-input }}
-    <FormHtmlInput
-      @value={{@controller.value}}
-      @label="Label"
-      @identifier="identifier"
-      @isRequired={{true}}
-      @requiredLabel="Required"
-      @help="This is an example of help."
-      @invalidLabel="This is an example of invalid feedback."
-      @editorLabel="Editor"
-      @codeLabel="Code"
-      @boldButtonLabel="Bold"
-      @italicButtonLabel="Italic"
-      @strikeButtonLabel="Strike"
-      @headingButtonLabel="Heading"
-      @paragraphButtonLabel="Paragraph"
-      @quoteButtonLabel="Quote"
-      @numberedListButtonLabel="Numbered list"
-      @unorderedListButtonLabel="Unordered list"
-      @codeButtonLabel="Code"
-      @onChange={{fn (mut @controller.value)}}
-    />
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFormHtmlInputSignature>;
+    <p>Value: {{this.value}}</p>
+
+    <Snippet @name="form-html-input.gts">
+      {{! BEGIN-SNIPPET form-html-input }}
+      <FormHtmlInput
+        @value={{this.value}}
+        @label="Label"
+        @identifier="identifier"
+        @isRequired={{true}}
+        @requiredLabel="Required"
+        @help="This is an example of help."
+        @invalidLabel="This is an example of invalid feedback."
+        @editorLabel="Editor"
+        @codeLabel="Code"
+        @boldButtonLabel="Bold"
+        @italicButtonLabel="Italic"
+        @strikeButtonLabel="Strike"
+        @headingButtonLabel="Heading"
+        @paragraphButtonLabel="Paragraph"
+        @quoteButtonLabel="Quote"
+        @numberedListButtonLabel="Numbered list"
+        @unorderedListButtonLabel="Unordered list"
+        @codeButtonLabel="Code"
+        @onChange={{fn (mut this.value)}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}
