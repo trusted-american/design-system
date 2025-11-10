@@ -1,40 +1,46 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 import { Button, Flyout, Heading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsFlyoutController from '../../controllers/components/flyout';
 
 interface ComponentsFlyoutSignature {
-  Args: {
-    controller: ComponentsFlyoutController;
-  };
+  Args: {};
 }
 
-<template>
-  {{pageTitle "Flyout"}}
-  {{breadcrumb "Flyout" route="components.flyout"}}
+export default class ComponentsFlyout extends Component<ComponentsFlyoutSignature> {
+  @tracked showFlyout = false;
 
-  <Heading @title="Flyout" />
+  close = () => {
+    this.showFlyout = false;
+  };
 
-  <Snippet @name="flyout.gts">
-    {{! BEGIN-SNIPPET flyout }}
-    <Button
-      @label="Open flyout"
-      {{on "click" (fn (mut @controller.showFlyout) true)}}
-    />
+  <template>
+    {{pageTitle "Flyout"}}
+    {{breadcrumb "Flyout" route="components.flyout"}}
 
-    {{#if @controller.showFlyout}}
-      <Flyout
-        @title="Title"
-        @closeButtonLabel="Close"
-        @onClose={{@controller.close}}
-      >
-        Body
-      </Flyout>
-    {{/if}}
-    {{! END-SNIPPET }}
-  </Snippet>
-</template> satisfies TOC<ComponentsFlyoutSignature>;
+    <Heading @title="Flyout" />
+
+    <Snippet @name="flyout.gts">
+      {{! BEGIN-SNIPPET flyout }}
+      <Button
+        @label="Open flyout"
+        {{on "click" (fn (mut this.showFlyout) true)}}
+      />
+
+      {{#if this.showFlyout}}
+        <Flyout
+          @title="Title"
+          @closeButtonLabel="Close"
+          @onClose={{this.close}}
+        >
+          Body
+        </Flyout>
+      {{/if}}
+      {{! END-SNIPPET }}
+    </Snippet>
+  </template>
+}

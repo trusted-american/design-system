@@ -1,4 +1,4 @@
-import type { TOC } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import {
   faCheck,
   faCircleExclamation,
@@ -10,11 +10,14 @@ import { Alert, Heading, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsAlertController from '../../controllers/components/alert';
 
 interface ComponentsAlertSignature {
-  Args: {
-    controller: ComponentsAlertController;
+  Args: {};
+}
+
+export default class ComponentsAlert extends Component<ComponentsAlertSignature> {
+  close = () => {
+    alert('Action');
   };
 }
 
@@ -45,7 +48,7 @@ interface ComponentsAlertSignature {
       @color="warning"
       @icon={{faCircleExclamation}}
       @closeButtonLabel="Close"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
       as |alert|
     >
       <alert.link @route="index" @label="Prebuilds" />
@@ -60,7 +63,7 @@ interface ComponentsAlertSignature {
       @color="success"
       @icon={{faCheck}}
       @closeButtonLabel="Close"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
       as |alert|
     >
       Payment information added successfully. Change it any time in
@@ -75,7 +78,7 @@ interface ComponentsAlertSignature {
       @color="info"
       @icon={{faCircleInfo}}
       @closeButtonLabel="Close"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
       as |alert|
     >
       Ignoring revisions in
@@ -125,7 +128,7 @@ interface ComponentsAlertSignature {
       @color="success"
       @icon={{faInfoCircle}}
       @closeButtonLabel="Close"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
     >
       <:title>Title here</:title>
       <:default>
@@ -140,4 +143,5 @@ interface ComponentsAlertSignature {
     </Alert>
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsAlertSignature>;
+  </template>
+}

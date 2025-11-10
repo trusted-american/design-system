@@ -1,15 +1,23 @@
-import type { TOC } from '@ember/component/template-only';
 import { array, fn, hash } from '@ember/helper';
+import Component from '@glimmer/component';
+import type { ListAttributesKey } from '@trusted-american/design-system/components/list-attributes';
 import { Heading, ListAttributes } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsListAttributesController from '../../controllers/components/list-attributes';
+
+interface T {
+  a: string;
+  b: string;
+  c: string;
+}
 
 interface ComponentsListAttributesSignature {
-  Args: {
-    controller: ComponentsListAttributesController;
-  };
+  Args: {};
+}
+
+export default class ComponentsListAttributes extends Component<ComponentsListAttributesSignature> {
+  selected: ListAttributesKey<T>[] = ['a'];
 }
 
 <template>
@@ -20,7 +28,7 @@ interface ComponentsListAttributesSignature {
 
   <p>
     Value:
-    {{#each @controller.selected as |item|}}
+    {{#each this.selected as |item|}}
       {{item}}
     {{/each}}
   </p>
@@ -34,10 +42,11 @@ interface ComponentsListAttributesSignature {
         (hash value="b" label="B")
         (hash value="c" label="C")
       }}
-      @selected={{@controller.selected}}
+      @selected={{this.selected}}
       @label="Edit columns"
-      @onChange={{fn (mut @controller.selected)}}
+      @onChange={{fn (mut this.selected)}}
     />
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsListAttributesSignature>;
+  </template>
+}

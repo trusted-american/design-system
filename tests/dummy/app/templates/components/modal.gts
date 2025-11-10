@@ -1,5 +1,6 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 import {
   Button,
@@ -10,11 +11,36 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsModalController from '../../controllers/components/modal';
 
 interface ComponentsModalSignature {
-  Args: {
-    controller: ComponentsModalController;
+  Args: {};
+}
+
+export default class ComponentsModal extends Component<ComponentsModalSignature> {
+  @tracked showModal = false;
+
+  options = [
+    { name: 'Alice' },
+    { name: 'Bob' },
+    { name: 'Charlie' },
+    { name: 'Diana' },
+    { name: 'Eve' },
+    { name: 'Frank' },
+    { name: 'Grace' },
+    { name: 'Heidi' },
+    { name: 'Ivan' },
+    { name: 'Judy' },
+    { name: 'Kevin' },
+    { name: 'Lauren' },
+    { name: 'Mallory' },
+    { name: 'Niaj' },
+    { name: 'Olivia' },
+    { name: 'Peggy' },
+  ];
+  selected?: { name: string };
+
+  close = () => {
+    this.showModal = false;
   };
 }
 
@@ -28,14 +54,14 @@ interface ComponentsModalSignature {
     {{! BEGIN-SNIPPET modal }}
     <Button
       @label="Open modal"
-      {{on "click" (fn (mut @controller.showModal) true)}}
+      {{on "click" (fn (mut this.showModal) true)}}
     />
 
-    {{#if @controller.showModal}}
+    {{#if this.showModal}}
       <Modal
         @title="Title"
         @closeButtonLabel="Close"
-        @onClose={{@controller.close}}
+        @onClose={{this.close}}
         as |onClose|
       >
         <p>
@@ -52,15 +78,15 @@ interface ComponentsModalSignature {
         <p><Button @label="Close" {{on "click" onClose}} /></p>
 
         <FormPowerSelect
-          @options={{@controller.options}}
-          @selected={{@controller.selected}}
+          @options={{this.options}}
+          @selected={{this.selected}}
           @searchField="name"
           @label="Label"
           @identifier="identifier"
           @requiredLabel="Required"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
-          @onChange={{fn (mut @controller.selected)}}
+          @onChange={{fn (mut this.selected)}}
           class="mb-3"
           as |user|
         >
@@ -81,4 +107,5 @@ interface ComponentsModalSignature {
     {{/if}}
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsModalSignature>;
+  </template>
+}

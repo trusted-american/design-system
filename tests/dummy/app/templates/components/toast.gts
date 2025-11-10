@@ -1,14 +1,17 @@
-import type { TOC } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { Button, Heading, Toast } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsToastController from '../../controllers/components/toast';
 
 interface ComponentsToastSignature {
-  Args: {
-    controller: ComponentsToastController;
+  Args: {};
+}
+
+export default class ComponentsToast extends Component<ComponentsToastSignature> {
+  close = () => {
+    //
   };
 }
 
@@ -37,7 +40,7 @@ interface ComponentsToastSignature {
 
   <Snippet @name="toast2.gts">
     {{! BEGIN-SNIPPET toast2 }}
-    <Toast @closeButtonLabel="Close" @onClose={{@controller.close}}>
+    <Toast @closeButtonLabel="Close" @onClose={{this.close}}>
       <:title>Title</:title>
       <:body>Body</:body>
     </Toast>
@@ -49,7 +52,7 @@ interface ComponentsToastSignature {
     <Toast
       @closeButtonLabel="Close"
       @color="primary"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
     >
       <:title>Title</:title>
       <:body>Body</:body>
@@ -62,7 +65,7 @@ interface ComponentsToastSignature {
     <Toast
       @closeButtonLabel="Close"
       @color="success"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
     >
       <:title>Title</:title>
       <:body>Body</:body>
@@ -75,7 +78,7 @@ interface ComponentsToastSignature {
     <Toast
       @closeButtonLabel="Close"
       @color="warning"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
     >
       <:title>Title</:title>
       <:body>Body</:body>
@@ -88,7 +91,7 @@ interface ComponentsToastSignature {
     <Toast
       @closeButtonLabel="Close"
       @color="danger"
-      @onClose={{@controller.close}}
+      @onClose={{this.close}}
     >
       <:title>Title</:title>
       <:body>Body</:body>
@@ -98,7 +101,7 @@ interface ComponentsToastSignature {
 
   <Snippet @name="toast7.gts">
     {{! BEGIN-SNIPPET toast7 }}
-    <Toast @closeButtonLabel="Close" @onClose={{@controller.close}}>
+    <Toast @closeButtonLabel="Close" @onClose={{this.close}}>
       <:title>Title</:title>
       <:body>Body</:body>
       <:buttons>
@@ -106,16 +109,17 @@ interface ComponentsToastSignature {
           @label="Button"
           @size="sm"
           @color="light"
-          {{on "click" @controller.close}}
+          {{on "click" this.close}}
         />
         <Button
           @label="Link text"
           @size="sm"
           @color="link"
-          {{on "click" @controller.close}}
+          {{on "click" this.close}}
         />
       </:buttons>
     </Toast>
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsToastSignature>;
+  </template>
+}

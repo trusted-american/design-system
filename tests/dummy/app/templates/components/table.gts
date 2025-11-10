@@ -1,14 +1,34 @@
-import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import type { User } from '../../routes/components/table';
 import { Heading, Subheading, Table } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsTableController from '../../controllers/components/table';
 
 interface ComponentsTableSignature {
   Args: {
-    controller: ComponentsTableController;
+    model: User[];
+  };
+}
+
+export default class ComponentsTable extends Component<ComponentsTableSignature> {
+  @tracked page = 0;
+
+  get _page(): User[] {
+    const pageSize = 20;
+    const start = this.page * pageSize;
+    const end = start + pageSize;
+    return this.args.model.slice(start, end);
+  }
+
+  next = () => {
+    alert('Next');
+  };
+
+  previous = () => {
+    alert('Previous');
   };
 }
 
@@ -23,7 +43,7 @@ interface ComponentsTableSignature {
   <Snippet @name="table.gts">
     {{! BEGIN-SNIPPET table }}
     <Table
-      @data={{@controller.model}}
+      @data={{@model}}
       @nextButtonLabel="Next"
       @previousButtonLabel="Previous"
       @viewingLabel="Viewing"
@@ -64,7 +84,7 @@ interface ComponentsTableSignature {
   <Snippet @name="table1.gts">
     {{! BEGIN-SNIPPET table1 }}
     <Table
-      @data={{@controller.model}}
+      @data={{@model}}
       @isSortable={{true}}
       @nextButtonLabel="Next"
       @previousButtonLabel="Previous"
@@ -94,7 +114,7 @@ interface ComponentsTableSignature {
   <Snippet @name="table2.gts">
     {{! BEGIN-SNIPPET table2 }}
     <Table
-      @data={{@controller.model}}
+      @data={{@model}}
       @isSortable={{true}}
       @pagination="local"
       @nextButtonLabel="Next"
@@ -125,7 +145,7 @@ interface ComponentsTableSignature {
   <Snippet @name="table3.gts">
     {{! BEGIN-SNIPPET table3 }}
     <Table
-      @data={{@controller.model}}
+      @data={{@model}}
       @isSortable={{true}}
       @pagination="cursor"
       @nextButtonLabel="Next"
@@ -135,8 +155,8 @@ interface ComponentsTableSignature {
       @resultsLabel="results"
       @canNext={{false}}
       @canPrevious={{false}}
-      @onNext={{@controller.next}}
-      @onPrevious={{@controller.previous}}
+      @onNext={{this.next}}
+      @onPrevious={{this.previous}}
       as |table|
     >
       <table.header as |header|>
@@ -160,7 +180,7 @@ interface ComponentsTableSignature {
   <Snippet @name="table4.gts">
     {{! BEGIN-SNIPPET table4 }}
     <Table
-      @data={{@controller._page}}
+      @data={{this._page}}
       @isSortable={{true}}
       @pagination="offset"
       @nextButtonLabel="Next"
@@ -168,9 +188,9 @@ interface ComponentsTableSignature {
       @viewingLabel="Viewing"
       @ofLabel="of"
       @resultsLabel="results"
-      @page={{@controller.page}}
-      @totalItems={{@controller.model.length}}
-      @onChangePage={{fn (mut @controller.page)}}
+      @page={{this.page}}
+      @totalItems={{@model.length}}
+      @onChangePage={{fn (mut this.page)}}
       as |table|
     >
       <table.header as |header|>
@@ -188,4 +208,5 @@ interface ComponentsTableSignature {
     </Table>
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsTableSignature>;
+  </template>
+}

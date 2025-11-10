@@ -1,4 +1,4 @@
-import type { TOC } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import {
   faCopy,
@@ -17,11 +17,14 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsDropdownController from '../../controllers/components/dropdown';
 
 interface ComponentsDropdownSignature {
-  Args: {
-    controller: ComponentsDropdownController;
+  Args: {};
+}
+
+export default class ComponentsDropdown extends Component<ComponentsDropdownSignature> {
+  click = () => {
+    alert('Action');
   };
 }
 
@@ -40,19 +43,19 @@ interface ComponentsDropdownSignature {
         @subtitle="Due by December 31, 2021"
         @icon={{faCopy}}
         @shortcut="⌘C"
-        {{on "click" @controller.click}}
+        {{on "click" this.click}}
       />
       <dropdown.item
         @label="Quote reply"
         @icon={{faQuoteLeft}}
         @shortcut="⌘Q"
-        {{on "click" @controller.click}}
+        {{on "click" this.click}}
       />
       <dropdown.item
         @label="Edit comment"
         @icon={{faPen}}
         @shortcut="⌘E"
-        {{on "click" @controller.click}}
+        {{on "click" this.click}}
       />
       <dropdown.divider />
       <dropdown.item
@@ -60,7 +63,7 @@ interface ComponentsDropdownSignature {
         @icon={{faTrash}}
         @shortcut="⌘D"
         @color="danger"
-        {{on "click" @controller.click}}
+        {{on "click" this.click}}
       />
       <dropdown.divider />
       <dropdown.item @label="Route" @icon={{faPlus}} @route="index" />
@@ -73,4 +76,5 @@ interface ComponentsDropdownSignature {
     </Dropdown>
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsDropdownSignature>;
+  </template>
+}

@@ -1,4 +1,4 @@
-import type { TOC } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import {
@@ -10,11 +10,14 @@ import { Button, Heading, Subheading } from '@trusted-american/design-system';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsButtonController from '../../controllers/components/button';
 
 interface ComponentsButtonSignature {
-  Args: {
-    controller: ComponentsButtonController;
+  Args: {};
+}
+
+export default class ComponentsButton extends Component<ComponentsButtonSignature> {
+  click = () => {
+    alert('Action');
   };
 }
 
@@ -30,47 +33,47 @@ interface ComponentsButtonSignature {
     <Button
       @label="Success button"
       @color="success"
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     <Button
       @label="Success button with icon"
       @color="success"
       @icon={{faPlus}}
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     <Button
       @label="Success button with trailing icon"
       @color="success"
       @icon={{faPlus}}
       @isIconTrailing={{true}}
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     <Button
       @label="Success button with only icon"
       @icon={{faPlus}}
       @isIconOnly={{true}}
       @color="success"
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     <Button
       @label="Loading button"
       @isLoading={{true}}
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     <Button
       @label="Disabled button"
       disabled
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     <Button
       @label="Count button"
       @count={{3}}
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     <Button
       @label="Default button"
       @shortcut="n"
-      {{on "click" @controller.click}}
+      {{on "click" this.click}}
     />
     {{! END-SNIPPET }}
   </Snippet>
@@ -102,4 +105,5 @@ interface ComponentsButtonSignature {
     />
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsButtonSignature>;
+  </template>
+}

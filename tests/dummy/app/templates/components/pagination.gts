@@ -1,4 +1,4 @@
-import type { TOC } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { fn } from '@ember/helper';
 import {
   Heading,
@@ -8,11 +8,20 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsPaginationController from '../../controllers/components/pagination';
 
 interface ComponentsPaginationSignature {
-  Args: {
-    controller: ComponentsPaginationController;
+  Args: {};
+}
+
+export default class ComponentsPagination extends Component<ComponentsPaginationSignature> {
+  page = 5;
+
+  next = () => {
+    alert('Action');
+  };
+
+  previous = () => {
+    alert('Action');
   };
 }
 
@@ -24,12 +33,12 @@ interface ComponentsPaginationSignature {
 
   <Subheading @title="Offset" />
 
-  <p>Page: {{@controller.page}}</p>
+  <p>Page: {{this.page}}</p>
 
   <Snippet @name="pagination.gts">
     {{! BEGIN-SNIPPET pagination }}
     <Pagination
-      @page={{@controller.page}}
+      @page={{this.page}}
       @pageSize={{1}}
       @totalItems={{10}}
       @nextButtonLabel="Next"
@@ -37,7 +46,7 @@ interface ComponentsPaginationSignature {
       @viewingLabel="Viewing"
       @ofLabel="of"
       @resultsLabel="results"
-      @onChange={{fn (mut @controller.page)}}
+      @onChange={{fn (mut this.page)}}
     />
     {{! END-SNIPPET }}
   </Snippet>
@@ -54,9 +63,10 @@ interface ComponentsPaginationSignature {
       @viewingLabel="Viewing"
       @ofLabel="of"
       @resultsLabel="results"
-      @onNext={{@controller.next}}
-      @onPrevious={{@controller.previous}}
+      @onNext={{this.next}}
+      @onPrevious={{this.previous}}
     />
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsPaginationSignature>;
+  </template>
+}

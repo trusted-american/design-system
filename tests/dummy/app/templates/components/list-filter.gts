@@ -1,6 +1,8 @@
-import type { TOC } from '@ember/component/template-only';
 import { array, fn, hash } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
+import type { DateRangeQueryParam } from '@trusted-american/design-system/components/list-filter';
 import {
   Button,
   Heading,
@@ -10,11 +12,48 @@ import {
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
-import type ComponentsListFilterController from '../../controllers/components/list-filter';
 
 interface ComponentsListFilterSignature {
-  Args: {
-    controller: ComponentsListFilterController;
+  Args: {};
+}
+
+export default class ComponentsListFilter extends Component<ComponentsListFilterSignature> {
+  @tracked status?: 'active' | 'inactive';
+  @tracked type: ('primary' | 'secondary')[] = [];
+  @tracked tag?: string;
+  @tracked createdAt: DateRangeQueryParam = [];
+  @tracked other: 'active' | 'inactive' = 'active';
+
+  get gte(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.gte;
+  }
+
+  get gt(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.gt;
+  }
+
+  get lt(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.lt;
+  }
+
+  get lte(): Date | null {
+    if (Array.isArray(this.createdAt)) {
+      return null;
+    }
+    return this.createdAt.lte;
+  }
+
+  change = (key: string, value: unknown) => {
+    this[key as keyof this] = value as this[keyof this];
   };
 }
 
@@ -27,40 +66,40 @@ interface ComponentsListFilterSignature {
   <Button
     @label="Update"
     class="mb-3"
-    {{on "click" (fn (mut @controller.status) "inactive")}}
+    {{on "click" (fn (mut this.status) "inactive")}}
   />
 
   <ul>
-    <li>Status: {{@controller.status}}</li>
+    <li>Status: {{this.status}}</li>
     <li>Type:
-      {{#each @controller.type as |t|}}
+      {{#each this.type as |t|}}
         {{t}}
       {{/each}}
     </li>
-    <li>Tag: {{@controller.tag}}</li>
+    <li>Tag: {{this.tag}}</li>
     <li>Created date:
-      {{#if @controller.createdAt}}
+      {{#if this.createdAt}}
         <ul>
           <li>
             gte:
-            {{timestamp @controller.gte}}
+            {{timestamp this.gte}}
           </li>
           <li>
             gt:
-            {{timestamp @controller.gt}}
+            {{timestamp this.gt}}
           </li>
           <li>
             lt:
-            {{timestamp @controller.lt}}
+            {{timestamp this.lt}}
           </li>
           <li>
             lte:
-            {{timestamp @controller.lte}}
+            {{timestamp this.lte}}
           </li>
         </ul>
       {{/if}}
     </li>
-    <li>Other: {{@controller.other}}</li>
+    <li>Other: {{this.other}}</li>
   </ul>
 
   <Snippet @name="list-filter.gts">
@@ -70,7 +109,7 @@ interface ComponentsListFilterSignature {
         (hash
           label="Status"
           key="status"
-          value=@controller.status
+          value=this.status
           options=(array
             (hash value="active" label="Active")
             (hash value="inactive" label="Inactive")
@@ -80,23 +119,23 @@ interface ComponentsListFilterSignature {
           type="multi"
           label="Type"
           key="type"
-          value=@controller.type
+          value=this.type
           options=(array
             (hash value="primary" label="Primary")
             (hash value="secondary" label="Secondary")
           )
         )
-        (hash type="string" label="Tag" key="tag" value=@controller.tag)
+        (hash type="string" label="Tag" key="tag" value=this.tag)
         (hash
           type="date"
           label="Created date"
           key="createdAt"
-          value=@controller.createdAt
+          value=this.createdAt
         )
         (hash
           label="Other"
           key="other"
-          value=@controller.other
+          value=this.other
           options=(array
             (hash value="active" label="Active")
             (hash value="inactive" label="Inactive")
@@ -123,8 +162,9 @@ interface ComponentsListFilterSignature {
       @requiredLabel="Required"
       @chooseLabel="Choose…"
       @searchLabel="Search…"
-      @onChange={{@controller.change}}
+      @onChange={{this.change}}
     />
     {{! END-SNIPPET }}
   </Snippet>
-</template> satisfies TOC<ComponentsListFilterSignature>;
+  </template>
+}
