@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+// @ts-ignore
 import PowerSelectWithCreate from 'ember-power-select-with-create/components/power-select-with-create';
 import PowerSelect from 'ember-power-select/components/power-select';
 import type { Group as _Group } from 'ember-power-select/utils/group-utils';

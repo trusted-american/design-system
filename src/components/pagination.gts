@@ -5,8 +5,9 @@ import { and, eq, gt, lt } from 'ember-truth-helpers';
 import PaginationItem from './pagination/item.gts';
 
 const Ellipsis = <template>
+  {{! TODO: disabled attribute? removed during v2 conversion due to rollup error }}
   <li class="page-item">
-    <div class="page-link" disabled>
+    <div class="page-link">
       …
     </div>
   </li>

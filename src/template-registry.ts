@@ -37,7 +37,7 @@ import type Skeleton from './components/skeleton';
 import type Spinner from './components/spinner';
 import type StatCard from './components/stat-card';
 import type Subheading from './components/subheading';
-import type Table from './components/table';
+import type Table from './components/tds-table';
 import type Toast from './components/toast';
 
 import type AccordionBody from './components/accordion/body';

@@ -37,7 +37,7 @@ export { default as Skeleton } from './components/skeleton.gts';
 export { default as Spinner } from './components/spinner.gts';
 export { default as StatCard } from './components/stat-card.gts';
 export { default as Subheading } from './components/subheading.gts';
-export { default as Table } from './components/table.gts';
+export { default as Table } from './components/tds-table.gts';
 export { default as Toast } from './components/toast.gts';
 
 export { default as AccordionBody } from './components/accordion/body.gts';

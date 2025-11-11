@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+// @ts-ignore
 import PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
 import PowerSelectMultiple from 'ember-power-select/components/power-select-multiple';
 import FormFeedback from './feedback.gts';

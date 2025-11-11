@@ -13,6 +13,7 @@ import {
 import '@github/markdown-toolbar-element';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+// @ts-ignore
 import MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
 import { eq } from 'ember-truth-helpers';
 import tooltip from '../../modifiers/tooltip.ts';

@@ -2,6 +2,7 @@ import { fn } from '@ember/helper';
 import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import { and, eq, notEq, or } from 'ember-truth-helpers';
+// @ts-ignore
 import YetiTable from 'ember-yeti-table/components/yeti-table';
 import Pagination from './pagination.gts';
 
