@@ -2,10 +2,10 @@ import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and, not, or } from 'ember-truth-helpers';
-import Badge from './badge';
-import Icon from './icon';
-import Link, { type LinkArgs } from './link';
-import Spinner from './spinner';
+import Badge from './badge.gts';
+import Icon from './icon.gts';
+import Link, { type LinkArgs } from './link.gts';
+import Spinner from './spinner.gts';
 
 const Internal: TOC<{
   Args: {

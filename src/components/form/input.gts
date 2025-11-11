@@ -2,9 +2,9 @@ import type { TOC } from '@ember/component/template-only';
 import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { eq, or } from 'ember-truth-helpers';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import FormLabel from './label';
+import FormFeedback from './feedback.gts';
+import FormHelp from './help.gts';
+import FormLabel from './label.gts';
 
 export interface FormInputArgs {
   label: string;

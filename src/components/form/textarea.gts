@@ -1,10 +1,10 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
+import FormFeedback from './feedback.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
 
 const getEventValue = (fn: (value: string) => void, { target }: Event) => {
   if (!(target instanceof HTMLTextAreaElement)) {

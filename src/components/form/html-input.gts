@@ -19,15 +19,15 @@ import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import { modifier } from 'ember-modifier';
 import { eq } from 'ember-truth-helpers';
-import tooltip from '../../modifiers/tooltip';
-import Button from '../button';
-import Card from '../card';
-import Nav from '../nav';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
-import FormTextarea from './textarea';
+import tooltip from '../../modifiers/tooltip.ts';
+import Button from '../button.gts';
+import Card from '../card.gts';
+import Nav from '../nav.gts';
+import FormFeedback from './feedback.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
+import FormTextarea from './textarea.gts';
 
 const EditorButton: TOC<{
   Args: {

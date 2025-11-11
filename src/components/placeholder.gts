@@ -2,9 +2,9 @@ import type { TOC } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and } from 'ember-truth-helpers';
-import htmlSafe from '../helpers/html-safe';
-import Button from './button';
-import Icon from './icon';
+import htmlSafe from '../helpers/html-safe.ts';
+import Button from './button.gts';
+import Icon from './icon.gts';
 
 export interface PlaceholderSignature {
   Args: {

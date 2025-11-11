@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
-import Button from './button';
+import Button from './button.gts';
 
 export interface ButtonSetSignature {
   Blocks: {

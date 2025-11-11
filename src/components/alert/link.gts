@@ -1,5 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
-import Link, { type LinkSignature } from '../link';
+import Link, { type LinkSignature } from '../link.gts';
 
 // prettier-ignore
 const AlertLink: TOC<LinkSignature> = <template><Link

@@ -11,8 +11,8 @@ import {
   faFileZipper,
 } from '@fortawesome/free-solid-svg-icons';
 import { eq } from 'ember-truth-helpers';
-import fileType from '../utils/file-type';
-import Icon from './icon';
+import fileType from '../utils/file-type.ts';
+import Icon from './icon.gts';
 
 export interface FileTypeSignature {
   Args: {

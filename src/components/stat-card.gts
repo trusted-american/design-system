@@ -1,8 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import Card from './card';
-import Icon from './icon';
-import Link, { type LinkArgs } from './link';
+import Card from './card.gts';
+import Icon from './icon.gts';
+import Link, { type LinkArgs } from './link.gts';
 
 interface Args extends LinkArgs {
   label: string;

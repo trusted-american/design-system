@@ -7,10 +7,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import { notEq } from 'ember-truth-helpers';
-import dropdown from '../modifiers/dropdown';
-import Button from './button';
-import Dropdown from './dropdown';
-import type { Option } from './form/select';
+import dropdown from '../modifiers/dropdown.ts';
+import Button from './button.gts';
+import Dropdown from './dropdown.gts';
+import type { Option } from './form/select.gts';
 import type { ListAttributesKey } from './list-attributes';
 
 export interface ListSortSignature<T> {

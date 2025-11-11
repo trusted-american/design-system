@@ -3,10 +3,10 @@ import { on } from '@ember/modifier';
 import { faCheck, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import { not, notEq } from 'ember-truth-helpers';
-import dropdown from '../modifiers/dropdown';
-import Button from './button';
-import Dropdown from './dropdown';
-import type { Option } from './form/select';
+import dropdown from '../modifiers/dropdown.ts';
+import Button from './button.gts';
+import Dropdown from './dropdown.gts';
+import type { Option } from './form/select.gts';
 
 const includes = <T,>(value: T, arr: T[]) => arr.includes(value);
 

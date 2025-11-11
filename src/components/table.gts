@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import { and, eq, notEq, or } from 'ember-truth-helpers';
 import YetiTable from 'ember-yeti-table/components/yeti-table';
-import Pagination from './pagination';
+import Pagination from './pagination.gts';
 
 const decrement = (value: number) => value - 1;
 

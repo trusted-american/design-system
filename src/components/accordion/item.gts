@@ -2,9 +2,9 @@ import { concat, hash } from '@ember/helper';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
-import type Accordion from '../accordion';
-import AccordionBody from './body';
-import AccordionButton from './button';
+import type Accordion from '../accordion.gts';
+import AccordionBody from './body.gts';
+import AccordionButton from './button.gts';
 
 export interface AccordionItemSignature {
   Args: {

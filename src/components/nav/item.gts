@@ -1,9 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { or } from 'ember-truth-helpers';
-import Badge from '../badge';
-import Icon from '../icon';
-import Link, { type LinkArgs } from '../link';
+import Badge from '../badge.gts';
+import Icon from '../icon.gts';
+import Link, { type LinkArgs } from '../link.gts';
 
 const Internal: TOC<{
   Args: {

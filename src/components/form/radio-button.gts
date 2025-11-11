@@ -2,11 +2,11 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
-import ButtonGroup from '../button-group';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
-import type { Option } from './select';
+import ButtonGroup from '../button-group.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
+import type { Option } from './select.gts';
 
 interface RadioOption<T> extends Option<T> {
   color?: string;

@@ -2,8 +2,8 @@ import Component from '@glimmer/component';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { eq } from 'ember-truth-helpers';
-import isValidDate from '../../utils/is-valid-date';
-import FormInput, { type FormInputArgs } from './input';
+import isValidDate from '../../utils/is-valid-date.ts';
+import FormInput, { type FormInputArgs } from './input.gts';
 
 dayjs.extend(utc);
 

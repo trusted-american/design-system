@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import tooltip from '../../../modifiers/tooltip';
-import Icon from '../../icon';
+import tooltip from '../../../modifiers/tooltip.ts';
+import Icon from '../../icon.gts';
 
 export interface PropertyListItemKeySignature {
   Args: {

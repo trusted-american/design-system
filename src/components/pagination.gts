@@ -2,7 +2,7 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { and, eq, gt, lt } from 'ember-truth-helpers';
-import PaginationItem from './pagination/item';
+import PaginationItem from './pagination/item.gts';
 
 const Ellipsis = <template>
   <li class="page-item">

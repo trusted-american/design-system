@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 import { LinkTo } from '@ember/routing';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and } from 'ember-truth-helpers';
-import Icon from './icon';
+import Icon from './icon.gts';
 
 // prettier-ignore
 const Internal: TOC<{

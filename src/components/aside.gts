@@ -3,12 +3,12 @@ import { fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
-import tooltip from '../modifiers/tooltip';
-import AsideGroup from './aside/group';
-import AsideItem from './aside/item';
-import AsideTitle from './aside/title';
-import Button from './button';
-import Nav from './nav';
+import tooltip from '../modifiers/tooltip.ts';
+import AsideGroup from './aside/group.gts';
+import AsideItem from './aside/item.gts';
+import AsideTitle from './aside/title.gts';
+import Button from './button.gts';
+import Nav from './nav.gts';
 
 export interface AsideSignature {
   Args: {

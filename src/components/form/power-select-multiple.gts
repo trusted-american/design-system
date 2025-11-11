@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 import PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
 import PowerSelectMultiple from 'ember-power-select/components/power-select-multiple';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
+import FormFeedback from './feedback.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
 
 interface Args<T> extends FormInputArgs {
   options: T[];

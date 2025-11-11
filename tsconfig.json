@@ -5,6 +5,16 @@
  */
 {
   "extends": "@ember/app-tsconfig",
+  "glint": {
+    "additionalSpecialForms": {
+      "globals": {
+        "eq": "===",
+        "notEq": "!==",
+        "and": "&&",
+        "or": "||"
+      }
+    }
+  },
   "include": [
     "src/**/*",
     "tests/**/*",

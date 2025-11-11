@@ -2,12 +2,12 @@ import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { and, eq } from 'ember-truth-helpers';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
-import FormRadioInput from './radio/input';
-import type { Option } from './select';
+import FormFeedback from './feedback.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
+import FormRadioInput from './radio/input.gts';
+import type { Option } from './select.gts';
 
 const decrement = (value: number) => value - 1;
 

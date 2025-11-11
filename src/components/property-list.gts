@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import type { WithBoundArgs } from '@glint/template';
-import PropertyListItem from './property-list/item';
+import PropertyListItem from './property-list/item.gts';
 
 export interface PropertyListSignature {
   Args: {

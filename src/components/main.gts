@@ -1,8 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
-import MainBody from './main/body';
-import MainFooter from './main/footer';
-import MainTopHeader from './main/top-header';
+import MainBody from './main/body.gts';
+import MainFooter from './main/footer.gts';
+import MainTopHeader from './main/top-header.gts';
 
 export interface MainSignature {
   Blocks: {

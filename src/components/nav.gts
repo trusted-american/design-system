@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
-import NavItem from './nav/item';
+import NavItem from './nav/item.gts';
 
 export interface NavSignature {
   Args: {

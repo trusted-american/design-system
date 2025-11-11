@@ -15,15 +15,15 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import MarkdownToHtml from 'ember-cli-showdown/components/markdown-to-html';
 import { eq } from 'ember-truth-helpers';
-import tooltip from '../../modifiers/tooltip';
-import Button from '../button';
-import Card from '../card';
-import Icon from '../icon';
-import Nav from '../nav';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
-import FormTextarea from './textarea';
+import tooltip from '../../modifiers/tooltip.ts';
+import Button from '../button.gts';
+import Card from '../card.gts';
+import Icon from '../icon.gts';
+import Nav from '../nav.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
+import FormTextarea from './textarea.gts';
 
 interface Args extends FormInputArgs {
   value: string | null;

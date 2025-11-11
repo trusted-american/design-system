@@ -1,9 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
-import FormCheckInput from './check/input';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
+import FormCheckInput from './check/input.gts';
+import FormFeedback from './feedback.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
 
 interface Args extends FormInputArgs {
   value: boolean | null | undefined;

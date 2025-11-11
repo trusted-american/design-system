@@ -3,7 +3,7 @@ import {
   faCheck,
   faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
-import Icon from '../icon';
+import Icon from '../icon.gts';
 
 export interface FormFeedbackSignature {
   Args: {

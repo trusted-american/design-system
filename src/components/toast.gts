@@ -3,7 +3,7 @@ import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { Toast as BootstrapToast } from 'bootstrap';
 import { modifier } from 'ember-modifier';
-import CloseButton from './close-button';
+import CloseButton from './close-button.gts';
 
 export interface ToastSignature {
   Args: {

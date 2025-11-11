@@ -2,10 +2,10 @@ import { guidFor } from '@ember/object/internals';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
-import collapse from '../../modifiers/collapse';
-import Collapse from '../collapse';
-import Nav from '../nav';
-import AsideItem from './item';
+import collapse from '../../modifiers/collapse.ts';
+import Collapse from '../collapse.gts';
+import Nav from '../nav.gts';
+import AsideItem from './item.gts';
 
 export interface AsideGroupSignature {
   Args: {

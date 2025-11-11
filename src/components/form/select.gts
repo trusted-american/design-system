@@ -2,10 +2,10 @@ import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { eq, not, or } from 'ember-truth-helpers';
-import FormFeedback from './feedback';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
+import FormFeedback from './feedback.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
 
 const isOption = <T,>(option: T | Option<T> | Group<T>): option is Option<T> =>
   option && typeof option === 'object' && 'label' in option;

@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import FormInput, { type FormInputArgs } from './input';
+import FormInput, { type FormInputArgs } from './input.gts';
 
 interface Args extends FormInputArgs {
   value: string | null | undefined;

@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
-import ProgressBar from './progress/bar';
+import ProgressBar from './progress/bar.gts';
 
 export interface ProgressSignature {
   Blocks: {

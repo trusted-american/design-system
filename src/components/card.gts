@@ -1,8 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
-import CardBody from './card/body';
-import CardFooter from './card/footer';
-import CardHeader from './card/header';
+import CardBody from './card/body.gts';
+import CardFooter from './card/footer.gts';
+import CardHeader from './card/header.gts';
 
 export interface CardSignature {
   Blocks: {

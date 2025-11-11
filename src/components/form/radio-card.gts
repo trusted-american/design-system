@@ -3,13 +3,13 @@ import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
-import Card from '../card';
-import Icon from '../icon';
-import FormHelp from './help';
-import type { FormInputArgs } from './input';
-import FormLabel from './label';
-import type { RadioOption } from './radio';
-import FormRadioInput from './radio/input';
+import Card from '../card.gts';
+import Icon from '../icon.gts';
+import FormHelp from './help.gts';
+import type { FormInputArgs } from './input.gts';
+import FormLabel from './label.gts';
+import type { RadioOption } from './radio.gts';
+import FormRadioInput from './radio/input.gts';
 
 interface RadioCardOption<T> extends RadioOption<T> {
   imgUrl?: string;

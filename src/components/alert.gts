@@ -3,9 +3,9 @@ import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and } from 'ember-truth-helpers';
-import AlertLink from './alert/link';
-import CloseButton from './close-button';
-import Icon from './icon';
+import AlertLink from './alert/link.gts';
+import CloseButton from './close-button.gts';
+import Icon from './icon.gts';
 
 interface Args {
   color?: string;
