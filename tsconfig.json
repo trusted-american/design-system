@@ -1,42 +1,23 @@
+/**
+ * This tsconfig is not used for publishing.
+ * It's only for the local editing experience
+ * (and linting)
+ */
 {
-  "extends": "@tsconfig/ember/tsconfig.json",
-  "glint": {
-    "environment": {
-      "ember-template-imports": {
-        "additionalSpecialForms": {
-          "globals": {
-            "eq": "===",
-            "notEq": "!==",
-            "and": "&&",
-            "or": "||"
-          }
-        }
-      }
-    }
-  },
+  "extends": "@ember/app-tsconfig",
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "unpublished-development-types/**/*",
+    "demo-app/**/*"
+  ],
   "compilerOptions": {
-    // The combination of `baseUrl` with `paths` allows Ember's classic package
-    // layout, which is not resolvable with the Node resolution algorithm, to
-    // work with TypeScript.
-    "baseUrl": ".",
-    "paths": {
-      "dummy/tests/*": ["tests/*"],
-      "dummy/*": ["tests/dummy/app/*", "app/*"],
-      "@trusted-american/design-system": ["addon"],
-      "@trusted-american/design-system/*": ["addon/*"],
-      "@trusted-american/design-system/test-support": ["addon-test-support"],
-      "@trusted-american/design-system/test-support/*": [
-        "addon-test-support/*"
-      ],
-      "*": ["types/*"]
-    },
-
-    // TODO: copied from the tsconfig.declarations.json file since glint doesn't support different configs yet
-    "declarationDir": "declarations",
-    "emitDeclarationOnly": true,
-    "noEmit": false,
     "rootDir": ".",
-
-    "types": ["ember-source/types"]
+    "types": [
+      "ember-source/types",
+      "vite/client",
+      "@embroider/core/virtual",
+      "@glint/ember-tsc/types"
+    ]
   }
 }
