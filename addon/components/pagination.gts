@@ -6,6 +6,7 @@ import PaginationItem from './pagination/item';
 
 const Ellipsis = <template>
   <li class="page-item">
+    {{! @glint-expect-error }}
     <div class="page-link" disabled>
       …
     </div>
