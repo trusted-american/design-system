@@ -35,6 +35,6 @@ module('Integration | Component | form/radio-card', function (hooks) {
 
     await click('#identifier0');
 
-    assert.strictEqual(state.selected, true);
+    assert.true(state.selected);
   });
 });
