@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
-import { trustHTML } from '@ember/template';
+import { htmlSafe } from '@ember/template';
 import { or } from 'ember-truth-helpers';
 import Identicon from 'identicon.js';
 
@@ -32,7 +32,7 @@ const Avatar: TOC<AvatarSignature> = <template>
     src={{or @url (generateIdenticon @id)}}
     alt={{@alt}}
     class="rounded-circle"
-    style={{trustHTML
+    style={{htmlSafe
       (concat
         "object-fit: cover; width: "
         (or @size DEFAULT_SIZE)
