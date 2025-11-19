@@ -141,9 +141,11 @@
   "peerDependencies": {
     "ember-source": ">= 4.0.0"
   },
-  "overrides": {
-    "@glimmer/component": "^2.0.0",
-    "ember-cli-babel": "^8.2.0"
+  "pnpm": {
+    "overrides": {
+      "@glimmer/component": "^2.0.0",
+      "ember-cli-babel": "^8.2.0"
+    }
   },
   "engines": {
     "node": ">= 20.11"
