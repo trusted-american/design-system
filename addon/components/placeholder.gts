@@ -1,8 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
+import { htmlSafe } from '@ember/template';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and } from 'ember-truth-helpers';
-import htmlSafe from '../helpers/html-safe';
 import Button from './button';
 import Icon from './icon';
 

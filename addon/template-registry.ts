@@ -96,7 +96,6 @@ import type PropertyListItem from './components/property-list/item';
 
 import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
-import type htmlSafe from './helpers/html-safe';
 import type theme from './helpers/theme';
 import type timestamp from './helpers/timestamp';
 
@@ -203,7 +202,6 @@ export default interface Registry {
 
   'file-size': typeof fileSize;
   'from-now': typeof fromNow;
-  'html-safe': typeof htmlSafe;
   theme: typeof theme;
   timestamp: typeof timestamp;
 

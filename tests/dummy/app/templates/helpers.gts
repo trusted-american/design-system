@@ -8,7 +8,6 @@ import {
   Subheading,
   fileSize,
   fromNow,
-  htmlSafe,
   theme,
   timestamp,
 } from '@trusted-american/design-system';
@@ -56,14 +55,6 @@ export default class Helpers extends Component<HelpersSignature> {
       <Snippet @name="from-now.gts">
         {{! BEGIN-SNIPPET from-now }}
         {{fromNow this.date}}
-        {{! END-SNIPPET }}
-      </Snippet>
-
-      <Subheading @title="HTML safe" />
-
-      <Snippet @name="html-safe.gts">
-        {{! BEGIN-SNIPPET html-safe }}
-        {{htmlSafe "<em>Test</em>"}}
         {{! END-SNIPPET }}
       </Snippet>
 
