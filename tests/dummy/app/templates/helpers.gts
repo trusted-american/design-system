@@ -8,7 +8,6 @@ import {
   Subheading,
   fileSize,
   fromNow,
-  htmlSafe,
   theme,
   timestamp,
 } from '@trusted-american/design-system';
