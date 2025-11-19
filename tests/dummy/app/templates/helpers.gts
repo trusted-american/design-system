@@ -59,14 +59,6 @@ export default class Helpers extends Component<HelpersSignature> {
         {{! END-SNIPPET }}
       </Snippet>
 
-      <Subheading @title="HTML safe" />
-
-      <Snippet @name="html-safe.gts">
-        {{! BEGIN-SNIPPET html-safe }}
-        {{htmlSafe "<em>Test</em>"}}
-        {{! END-SNIPPET }}
-      </Snippet>
-
       <Subheading @title="Theme" />
 
       <Snippet @name="theme.gts">
