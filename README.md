@@ -12,7 +12,7 @@ Components for building robust user interfaces. Built on top of Bootstrap.
 
 - Ember.js v5.8 or above
 - Ember CLI v5.8 or above
-- Node.js v18 or above
+- Node.js v20 or above
 
 ## Installation
 

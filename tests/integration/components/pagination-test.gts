@@ -60,8 +60,6 @@ module('Integration | Component | pagination', function (hooks) {
   });
 
   test('it renders cursor', async function (assert) {
-    assert.expect(3);
-
     const onNext = () => {
       assert.true(true);
     };
