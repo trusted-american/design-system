@@ -52,6 +52,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @searchEnabled={{true}}
         @searchField={{@searchField}}
         @matcher={{@matcher}}
+        {{! @glint-expect-error }}
         @onChange={{@onChange}}
         @onCreate={{@onCreate}}
         id={{@identifier}}
