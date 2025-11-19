@@ -165,6 +165,7 @@ export default class Table<T> extends Component<TableSignature<T>> {
         {{#if (eq "local" @pagination)}}
           <table.tfoot as |foot|>
             <foot.row as |row|>
+              {{! @glint-expect-error }}
               <row.cell colspan={{table.columns.length}}>
                 {{#let (decrement table.paginationData.pageNumber) as |page|}}
                   {{#if (notEq undefined page)}}

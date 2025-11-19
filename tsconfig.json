@@ -1,16 +1,12 @@
 {
   "extends": "@tsconfig/ember/tsconfig.json",
   "glint": {
-    "environment": {
-      "ember-template-imports": {
-        "additionalSpecialForms": {
-          "globals": {
-            "eq": "===",
-            "notEq": "!==",
-            "and": "&&",
-            "or": "||"
-          }
-        }
+    "additionalSpecialForms": {
+      "globals": {
+        "eq": "===",
+        "notEq": "!==",
+        "and": "&&",
+        "or": "||"
       }
     }
   },
@@ -30,13 +26,6 @@
       ],
       "*": ["types/*"]
     },
-
-    // TODO: copied from the tsconfig.declarations.json file since glint doesn't support different configs yet
-    "declarationDir": "declarations",
-    "emitDeclarationOnly": true,
-    "noEmit": false,
-    "rootDir": ".",
-
     "types": ["ember-source/types"]
   }
 }
