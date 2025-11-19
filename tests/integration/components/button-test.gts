@@ -59,7 +59,7 @@ module('Integration | Component | button', function (hooks) {
       <template>
         <Button
           @label="Test"
-          isOutline={{true}}
+          @isOutline={{true}}
           @isFullWidth={{true}}
           @color="warning"
         />
