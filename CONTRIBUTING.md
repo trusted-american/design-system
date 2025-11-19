@@ -3,7 +3,7 @@
 ## Installation
 
 - `git clone <repository-url>`
-- `cd november-19-addon-2`
+- `cd design-system`
 - `pnpm install`
 
 ## Linting
