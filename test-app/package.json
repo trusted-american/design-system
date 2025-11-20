@@ -4,7 +4,6 @@
   "private": true,
   "description": "Components for building robust user interfaces.",
   "keywords": [
-    "ember-addon"
   ],
   "repository": "https://github.com/trusted-american/design-system",
   "license": "MIT",
@@ -53,6 +52,8 @@
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "ember-power-select": "^8.12.0",
+    "ember-power-select-with-create": "^3.1.0",
     "@babel/core": "^7.28.5",
     "@types/bootstrap": "^5.2.10",
     "@trusted-american/design-system": "0.0.292",
@@ -127,8 +128,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config"
   }
 }

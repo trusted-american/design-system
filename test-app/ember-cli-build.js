@@ -8,7 +8,7 @@ module.exports = function (defaults) {
 
     // Add options here
 
-    snippetSearchPaths: ['tests/dummy/app'],
+    // snippetSearchPaths: ['tests/dummy/app'],
   });
 
   app.import('node_modules/bootstrap/dist/css/bootstrap.css');
