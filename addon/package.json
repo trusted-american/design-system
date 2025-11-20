@@ -28,7 +28,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "@babel/core": "^7.28.5",
+    "@embroider/addon-shim": "^1.10.2",
     "@fortawesome/ember-fontawesome": "^3.1.0",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
@@ -45,11 +45,8 @@
     "bootstrap": "^5.3.7",
     "change-case": "^5.4.4",
     "dayjs": "^1.11.19",
-    "ember-auto-import": "^2.11.2",
     "ember-basic-dropdown": "^8.8.0",
     "ember-breadcrumb-trail": "^2.0.0",
-    "ember-cli-babel": "^8.2.0",
-    "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-showdown": "^9.0.2",
     "ember-concurrency": "^5.1.0",
     "ember-file-upload": "^9.5.0",
@@ -70,5 +67,33 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/plugin-proposal-decorators": "^7.28.0",
+    "@babel/plugin-transform-class-properties": "^7.27.1",
+    "@embroider/addon-dev": "^8.1.0",
+    "@rollup/plugin-babel": "^6.1.0",
+    "rollup": "^4.53.3"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*",
+    "./test-support": "./dist/test-support/index.js",
+    "./addon-main.js": "./addon-main.js"
+  },
+  "files": [
+    "addon-main.js",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "prepublishOnly": "rollup --config",
+    "start": "rollup --config --watch"
+  },
+  "ember-addon": {
+    "main": "addon-main.js",
+    "type": "addon",
+    "version": 2
   }
 }
