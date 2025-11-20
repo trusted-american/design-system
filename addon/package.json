@@ -1,0 +1,74 @@
+{
+  "name": "@trusted-american/design-system",
+  "version": "0.0.292",
+  "description": "Components for building robust user interfaces.",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": "https://github.com/trusted-american/design-system",
+  "license": "MIT",
+  "author": "Trusted American Insurance Agency",
+  "typesVersions": {
+    "*": {
+      "test-support": [
+        "declarations/addon-test-support/index.d.ts"
+      ],
+      "test-support/*": [
+        "declarations/addon-test-support/*",
+        "declarations/addon-test-support/*/index.d.ts"
+      ],
+      "*": [
+        "declarations/addon/*",
+        "declarations/addon/*/index.d.ts"
+      ]
+    }
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "dependencies": {
+    "@babel/core": "^7.28.5",
+    "@fortawesome/ember-fontawesome": "^3.1.0",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fullcalendar/core": "^6.1.19",
+    "@fullcalendar/daygrid": "^6.1.19",
+    "@fullcalendar/list": "^6.1.19",
+    "@fullcalendar/timegrid": "^6.1.19",
+    "@github/markdown-toolbar-element": "^2.2.3",
+    "@tiptap/core": "^2.27.1",
+    "@tiptap/pm": "^2.27.1",
+    "@tiptap/starter-kit": "^2.27.1",
+    "@types/bootstrap": "^5.2.10",
+    "bootstrap": "^5.3.7",
+    "change-case": "^5.4.4",
+    "dayjs": "^1.11.19",
+    "ember-auto-import": "^2.11.2",
+    "ember-basic-dropdown": "^8.8.0",
+    "ember-breadcrumb-trail": "^2.0.0",
+    "ember-cli-babel": "^8.2.0",
+    "ember-cli-htmlbars": "^6.3.0",
+    "ember-cli-showdown": "^9.0.2",
+    "ember-concurrency": "^5.1.0",
+    "ember-file-upload": "^9.5.0",
+    "ember-modifier": "^4.2.2",
+    "ember-power-select": "^8.12.0",
+    "ember-power-select-with-create": "^3.1.0",
+    "ember-template-imports": "^4.3.0",
+    "ember-truth-helpers": "^5.0.0",
+    "ember-yeti-table": "^2.0.2",
+    "identicon.js": "^2.3.3",
+    "tracked-built-ins": "^4.0.0"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 4.0.0"
+  },
+  "engines": {
+    "node": ">= 20.11"
+  },
+  "ember": {
+    "edition": "octane"
+  }
+}

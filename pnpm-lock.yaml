@@ -10,7 +10,9 @@ overrides:
 
 importers:
 
-  .:
+  .: {}
+
+  addon:
     dependencies:
       '@babel/core':
         specifier: ^7.28.5
@@ -96,6 +98,9 @@ importers:
       ember-power-select-with-create:
         specifier: ^3.1.0
         version: 3.1.0(@babel/core@7.28.5)(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-basic-dropdown@8.8.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-power-select@8.12.0(@babel/core@7.28.5)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-basic-dropdown@8.8.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@5.1.0(@babel/core@7.28.5)(@glint/template@1.7.3))(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-source:
+        specifier: '>= 4.0.0'
+        version: 6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)
       ember-template-imports:
         specifier: ^4.3.0
         version: 4.3.0
@@ -111,7 +116,12 @@ importers:
       tracked-built-ins:
         specifier: ^4.0.0
         version: 4.0.0(@babel/core@7.28.5)
+
+  test-app:
     devDependencies:
+      '@babel/core':
+        specifier: ^7.28.5
+        version: 7.28.5
       '@babel/eslint-parser':
         specifier: ^7.28.5
         version: 7.28.5(@babel/core@7.28.5)(eslint@9.39.1(jiti@2.4.2))
@@ -133,6 +143,18 @@ importers:
       '@eslint/js':
         specifier: ^9.39.1
         version: 9.39.1
+      '@fortawesome/ember-fontawesome':
+        specifier: ^3.1.0
+        version: 3.1.0(@fortawesome/fontawesome-svg-core@7.1.0)(@glimmer/component@2.0.0)(@glint/template@1.7.3)
+      '@fortawesome/fontawesome-svg-core':
+        specifier: ^7.1.0
+        version: 7.1.0
+      '@fortawesome/free-brands-svg-icons':
+        specifier: ^7.1.0
+        version: 7.1.0
+      '@fortawesome/free-solid-svg-icons':
+        specifier: ^7.1.0
+        version: 7.1.0
       '@glimmer/component':
         specifier: ^2.0.0
         version: 2.0.0
@@ -151,9 +173,15 @@ importers:
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
+      '@trusted-american/design-system':
+        specifier: 0.0.292
+        version: 0.0.292(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(@popperjs/core@2.11.8)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.103.0)
       '@tsconfig/ember':
         specifier: ^3.0.12
         version: 3.0.12
+      '@types/bootstrap':
+        specifier: ^5.2.10
+        version: 5.2.10
       '@types/identicon.js':
         specifier: ^2.3.5
         version: 2.3.5
@@ -163,15 +191,30 @@ importers:
       '@types/rsvp':
         specifier: ^4.0.9
         version: 4.0.9
+      bootstrap:
+        specifier: ^5.3.7
+        version: 5.3.8(@popperjs/core@2.11.8)
       broccoli-asset-rev:
         specifier: ^3.0.0
         version: 3.0.0
       concurrently:
         specifier: ^9.2.1
         version: 9.2.1
+      ember-auto-import:
+        specifier: ^2.11.2
+        version: 2.11.2(@glint/template@1.7.3)(webpack@5.103.0)
+      ember-basic-dropdown:
+        specifier: ^8.8.0
+        version: 8.8.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-breadcrumb-trail:
+        specifier: ^2.0.0
+        version: 2.0.0(@babel/core@7.28.5)
       ember-cli:
         specifier: ~6.8.0
         version: 6.8.0(@types/node@24.10.1)(handlebars@4.7.8)(underscore@1.13.7)
+      ember-cli-babel:
+        specifier: ^8.2.0
+        version: 8.2.0(@babel/core@7.28.5)
       ember-cli-clean-css:
         specifier: ^3.0.0
         version: 3.0.0
@@ -181,6 +224,9 @@ importers:
       ember-cli-deprecation-workflow:
         specifier: ^3.4.0
         version: 3.4.0(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-cli-htmlbars:
+        specifier: ^6.3.0
+        version: 6.3.0
       ember-cli-inject-live-reload:
         specifier: ^2.1.0
         version: 2.1.0
@@ -214,6 +260,9 @@ importers:
       ember-source-channel-url:
         specifier: ^3.0.0
         version: 3.0.0
+      ember-template-imports:
+        specifier: ^4.3.0
+        version: 4.3.0
       ember-template-lint:
         specifier: ^7.9.3
         version: 7.9.3
@@ -265,6 +314,9 @@ importers:
       stylelint-config-standard:
         specifier: ^39.0.1
         version: 39.0.1(stylelint@16.25.0(typescript@5.9.3))
+      tracked-built-ins:
+        specifier: ^4.0.0
+        version: 4.0.0(@babel/core@7.28.5)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -1362,6 +1414,12 @@ packages:
 
   '@tiptap/starter-kit@2.27.1':
     resolution: {integrity: sha512-uQQlP0Nmn9eq19qm8YoOeloEfmcGbPpB1cujq54Q6nPgxaBozR7rE7tXbFTinxRW2+Hr7XyNWhpjB7DMNkdU2Q==}
+
+  '@trusted-american/design-system@0.0.292':
+    resolution: {integrity: sha512-2LQEQ/HhBMeDDy+L1wTl7rRqHTWKXnvJsjaeVs0G6tEQynR6+MQ+zNS9tWAHdybftkObCmwIAmGaS+39Ju1Glw==}
+    engines: {node: '>= 20.11'}
+    peerDependencies:
+      ember-source: '>= 4.0.0'
 
   '@tsconfig/ember@3.0.12':
     resolution: {integrity: sha512-ypFTXqIzQAB5HpYPi4TwDElDcUheWrKsEaYXgjiCAvsH6zxcQ4zUeuJqmfT+FoUlHTPZ3Xyel81OxrcjI+rilw==}
@@ -7797,6 +7855,54 @@ snapshots:
       '@tiptap/extension-text-style': 2.27.1(@tiptap/core@2.27.1(@tiptap/pm@2.27.1))
       '@tiptap/pm': 2.27.1
 
+  '@trusted-american/design-system@0.0.292(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(@popperjs/core@2.11.8)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.103.0)':
+    dependencies:
+      '@babel/core': 7.28.5
+      '@fortawesome/ember-fontawesome': 3.1.0(@fortawesome/fontawesome-svg-core@7.1.0)(@glimmer/component@2.0.0)(@glint/template@1.7.3)
+      '@fortawesome/fontawesome-svg-core': 7.1.0
+      '@fortawesome/free-brands-svg-icons': 7.1.0
+      '@fortawesome/free-solid-svg-icons': 7.1.0
+      '@fullcalendar/core': 6.1.19
+      '@fullcalendar/daygrid': 6.1.19(@fullcalendar/core@6.1.19)
+      '@fullcalendar/list': 6.1.19(@fullcalendar/core@6.1.19)
+      '@fullcalendar/timegrid': 6.1.19(@fullcalendar/core@6.1.19)
+      '@github/markdown-toolbar-element': 2.2.3
+      '@tiptap/core': 2.27.1(@tiptap/pm@2.27.1)
+      '@tiptap/pm': 2.27.1
+      '@tiptap/starter-kit': 2.27.1
+      '@types/bootstrap': 5.2.10
+      bootstrap: 5.3.8(@popperjs/core@2.11.8)
+      change-case: 5.4.4
+      dayjs: 1.11.19
+      ember-auto-import: 2.11.2(@glint/template@1.7.3)(webpack@5.103.0)
+      ember-basic-dropdown: 8.8.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-breadcrumb-trail: 2.0.0(@babel/core@7.28.5)
+      ember-cli-babel: 8.2.0(@babel/core@7.28.5)
+      ember-cli-htmlbars: 6.3.0
+      ember-cli-showdown: 9.0.2(@glint/template@1.7.3)(webpack@5.103.0)
+      ember-concurrency: 5.1.0(@babel/core@7.28.5)(@glint/template@1.7.3)
+      ember-file-upload: 9.5.0(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-modifier@4.2.2(@babel/core@7.28.5))(tracked-built-ins@4.0.0(@babel/core@7.28.5))
+      ember-modifier: 4.2.2(@babel/core@7.28.5)
+      ember-power-select: 8.12.0(@babel/core@7.28.5)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-basic-dropdown@8.8.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@5.1.0(@babel/core@7.28.5)(@glint/template@1.7.3))(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-power-select-with-create: 3.1.0(@babel/core@7.28.5)(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-basic-dropdown@8.8.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-power-select@8.12.0(@babel/core@7.28.5)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-basic-dropdown@8.8.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@5.1.0(@babel/core@7.28.5)(@glint/template@1.7.3))(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-source: 6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)
+      ember-template-imports: 4.3.0
+      ember-truth-helpers: 5.0.0
+      ember-yeti-table: 2.0.2(@babel/core@7.28.5)(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      identicon.js: 2.3.3
+      tracked-built-ins: 4.0.0(@babel/core@7.28.5)
+    transitivePeerDependencies:
+      - '@ember/string'
+      - '@ember/test-helpers'
+      - '@glimmer/component'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - '@popperjs/core'
+      - ember-cli-mirage
+      - miragejs
+      - supports-color
+      - webpack
+
   '@tsconfig/ember@3.0.12': {}
 
   '@types/body-parser@1.19.6':
@@ -7863,7 +7969,7 @@ snapshots:
 
   '@types/glob@9.0.0':
     dependencies:
-      glob: 8.1.0
+      glob: 13.0.0
 
   '@types/http-errors@2.0.5': {}
 

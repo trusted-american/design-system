@@ -1,0 +1,31 @@
+{
+  "extends": "@tsconfig/ember/tsconfig.json",
+  "glint": {
+    "additionalSpecialForms": {
+      "globals": {
+        "eq": "===",
+        "notEq": "!==",
+        "and": "&&",
+        "or": "||"
+      }
+    }
+  },
+  "compilerOptions": {
+    // The combination of `baseUrl` with `paths` allows Ember's classic package
+    // layout, which is not resolvable with the Node resolution algorithm, to
+    // work with TypeScript.
+    "baseUrl": ".",
+    "paths": {
+      "test-app/tests/*": ["tests/*"],
+      "test-app/*": ["tests/test-app/app/*", "app/*"],
+      "@trusted-american/design-system": ["addon"],
+      "@trusted-american/design-system/*": ["addon/*"],
+      "@trusted-american/design-system/test-support": ["addon-test-support"],
+      "@trusted-american/design-system/test-support/*": [
+        "addon-test-support/*"
+      ],
+      "*": ["types/*"]
+    },
+    "types": ["ember-source/types", "@glint/ember-tsc/types"]
+  }
+}
