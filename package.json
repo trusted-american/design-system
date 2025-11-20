@@ -144,8 +144,7 @@
   "pnpm": {
     "overrides": {
       "@ember/test-waiters": "^4.1.1",
-      "@glimmer/component": "^2.0.0",
-      "ember-cli-babel": "^8.2.0"
+      "@glimmer/component": "^2.0.0"
     }
   },
   "engines": {
