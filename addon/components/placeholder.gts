@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
-import { htmlSafe } from '@ember/template';
+import { trustHTML } from '@ember/template';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { and } from 'ember-truth-helpers';
 import Button from './button';
@@ -25,7 +25,7 @@ const Placeholder: TOC<PlaceholderSignature> = <template>
     data-test-placeholder
     ...attributes
   >
-    <div class="text-center" style={{htmlSafe "max-width: 25rem;"}}>
+    <div class="text-center" style={{trustHTML "max-width: 25rem;"}}>
       <h1 class="mb-3">
         <Icon @icon={{@icon}} />
       </h1>
