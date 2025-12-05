@@ -70,7 +70,6 @@ export default class FormPowerSelect<T> extends Component<
         @allowClear={{@isClearable}}
         @verticalPosition={{@verticalPosition}}
         @showCreatePosition="bottom"
-        {{! @glint-expect-error }}
         @onChange={{@onChange}}
         @onCreate={{@onCreate}}
         id={{@identifier}}
