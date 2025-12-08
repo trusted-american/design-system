@@ -5,11 +5,8 @@ import { and, eq, gt, lt } from 'ember-truth-helpers';
 import PaginationItem from './pagination/item';
 
 const Ellipsis = <template>
-  <li class="page-item">
-    {{! @glint-expect-error }}
-    <div class="page-link" disabled>
-      …
-    </div>
+  <li class="page-item disabled">
+    <a class="page-link" href="#">…</a>
   </li>
 </template>;
 
