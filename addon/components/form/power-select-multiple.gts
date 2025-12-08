@@ -9,7 +9,7 @@ import FormLabel from './label';
 interface Args<T> extends FormInputArgs {
   options: T[];
   selected: T[];
-  disabled?: boolean;
+  isDisabled?: boolean;
   placeholder?: string;
   renderInPlace?: boolean;
   searchEnabled?: boolean;
@@ -46,7 +46,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @multiple={{true}}
         @options={{@options}}
         @selected={{@selected}}
-        @disabled={{@disabled}}
+        @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
         @renderInPlace={{true}}
         @searchEnabled={{true}}
@@ -66,7 +66,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @multiple={{true}}
         @options={{@options}}
         @selected={{@selected}}
-        @disabled={{@disabled}}
+        @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
         @renderInPlace={{true}}
         @searchEnabled={{true}}
