@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
-import PowerSelectMultipleWithCreate from 'ember-power-select-with-create/components/power-select-multiple-with-create';
-import PowerSelectMultiple from 'ember-power-select/components/power-select-multiple';
+import PowerSelectWithCreate from 'ember-power-select-with-create/components/power-select-with-create';
+import PowerSelect from 'ember-power-select/components/power-select';
 import FormFeedback from './feedback';
 import FormHelp from './help';
 import type { FormInputArgs } from './input';
@@ -9,7 +9,7 @@ import FormLabel from './label';
 interface Args<T> extends FormInputArgs {
   options: T[];
   selected: T[];
-  disabled?: boolean;
+  isDisabled?: boolean;
   placeholder?: string;
   renderInPlace?: boolean;
   searchEnabled?: boolean;
@@ -42,15 +42,17 @@ export default class FormPowerSelectMultiple<T> extends Component<
     {{/unless}}
 
     {{#if @onCreate}}
-      <PowerSelectMultipleWithCreate
+      <PowerSelectWithCreate
+        @multiple={{true}}
         @options={{@options}}
         @selected={{@selected}}
-        @disabled={{@disabled}}
+        @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
         @renderInPlace={{true}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
         @matcher={{@matcher}}
+        {{! @glint-expect-error }}
         @onChange={{@onChange}}
         @onCreate={{@onCreate}}
         id={{@identifier}}
@@ -58,12 +60,13 @@ export default class FormPowerSelectMultiple<T> extends Component<
         as |option|
       >
         {{yield option}}
-      </PowerSelectMultipleWithCreate>
+      </PowerSelectWithCreate>
     {{else}}
-      <PowerSelectMultiple
+      <PowerSelect
+        @multiple={{true}}
         @options={{@options}}
         @selected={{@selected}}
-        @disabled={{@disabled}}
+        @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
         @renderInPlace={{true}}
         @searchEnabled={{true}}
@@ -75,7 +78,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
         as |option|
       >
         {{yield option}}
-      </PowerSelectMultiple>
+      </PowerSelect>
     {{/if}}
 
     <FormFeedback @validLabel={{@validLabel}} @invalidLabel={{@invalidLabel}} />
