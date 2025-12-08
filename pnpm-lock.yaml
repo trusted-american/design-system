@@ -7345,7 +7345,7 @@ snapshots:
 
   '@embroider/util@1.13.5(@glint/template@1.7.3)(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
-      '@embroider/macros': 1.19.4(@glint/template@1.7.3)
+      '@embroider/macros': 1.19.5(@glint/template@1.7.3)
       broccoli-funnel: 3.0.8
       ember-cli-babel: 7.26.11
       ember-source: 6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)
