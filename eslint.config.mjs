@@ -97,7 +97,7 @@ export default ts.config(
       ember.configs.gts,
     ],
     rules: {
-      '@typescript-eslint/no-non-null-assertion': 'off',
+      'ember/no-empty-glimmer-component-classes': 'off',
     },
   },
   {

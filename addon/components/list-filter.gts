@@ -169,7 +169,7 @@ class InternalPredicate<T> {
     if (this.mode === 'inTheLast') {
       value.gte = dayjs()
         .subtract(
-          this.offsetCount!,
+          this.offsetCount ?? 0,
           this.offsetMode === 'months' ? 'months' : 'days',
         )
         .toDate();
