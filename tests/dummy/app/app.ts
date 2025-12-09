@@ -3,7 +3,7 @@ import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from 'dummy/config/environment';
 import { importSync, isDevelopingApp, macroCondition } from '@embroider/macros';
-import './font-awesome';
+import { setConfig } from 'ember-basic-dropdown/config';
 
 if (macroCondition(isDevelopingApp())) {
   importSync('./deprecation-workflow');
@@ -16,3 +16,7 @@ export default class App extends Application {
 }
 
 loadInitializers(App, config.modulePrefix);
+
+setConfig({
+  rootElement: config.APP['rootElement'] as string,
+});

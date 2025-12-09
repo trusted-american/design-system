@@ -21,7 +21,6 @@ export default class Flyout extends Component<FlyoutSignature> {
 
   setup = modifier((element) => {
     // TODO: fixes issue where offcanvas traps focus preventing selecting of power select search
-    // @ts-expect-error private member
     Offcanvas.prototype._initializeFocusTrap = () => {
       return {
         activate: () => {

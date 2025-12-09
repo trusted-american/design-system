@@ -9,5 +9,10 @@ export default function fileSize(bytes: number): string {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   const scaled = parseFloat((bytes / Math.pow(k, i)).toFixed(decimals));
 
-  return `${scaled.toString()} ${sizes[i]!}`;
+  const size = sizes[i];
+  if (!size) {
+    throw new Error();
+  }
+
+  return `${scaled.toString()} ${size}`;
 }
