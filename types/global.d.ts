@@ -6,3 +6,12 @@ declare global {
    */
   type ModelFrom<R extends Route> = Awaited<ReturnType<R['model']>>;
 }
+
+declare module 'bootstrap' {
+  export interface Offcanvas {
+    _initializeFocusTrap(): {
+      activate: () => void;
+      deactivate: () => void;
+    };
+  }
+}
