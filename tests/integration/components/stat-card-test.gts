@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, currentRouteName, render, waitFor } from '@ember/test-helpers';
 import { StatCard } from '@trusted-american/design-system';
@@ -24,7 +24,7 @@ module('Integration | Component | stat-card', function (hooks) {
     assert.dom('[data-test-icon]').exists();
   });
 
-  skip('path works', async function (assert) {
+  test('route works', async function (assert) {
     await render(
       <template>
         <StatCard @label="Key" @value="Value" @icon={{faUser}} @route="index" />
