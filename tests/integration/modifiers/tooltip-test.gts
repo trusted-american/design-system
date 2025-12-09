@@ -14,6 +14,11 @@ module('Integration | Modifier | tooltip', function (hooks) {
       </template>,
     );
 
-    assert.ok(Tooltip.getInstance(find('div')!));
+    const element = find('div');
+    if (!element) {
+      throw new Error();
+    }
+
+    assert.ok(Tooltip.getInstance(element));
   });
 });
