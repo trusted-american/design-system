@@ -5,17 +5,19 @@ import FormFeedback from './feedback';
 import FormHelp from './help';
 import type { FormInputArgs } from './input';
 import FormLabel from './label';
+import type { Group } from './power-select';
 
 interface Args<T> extends FormInputArgs {
-  options: T[];
+  options: (T | Group<T>)[];
   selected: T[];
-  isDisabled?: boolean;
-  placeholder?: string;
-  renderInPlace?: boolean;
-  searchEnabled?: boolean;
-  searchField?: string;
+  search?: (query: string) => T[];
+  searchField?: keyof T & string;
   matcher?: (value: T, query: string) => number;
+  isClearable?: boolean;
+  isDisabled?: boolean;
+  verticalPosition?: 'auto' | 'above' | 'below';
   chooseLabel: string;
+  searchLabel: string;
   onChange: (selected: T[]) => void;
   onCreate?: (query: string) => void;
 }
@@ -45,17 +47,22 @@ export default class FormPowerSelectMultiple<T> extends Component<
       <PowerSelectWithCreate
         @multiple={{true}}
         @options={{@options}}
+        @search={{@search}}
         @selected={{@selected}}
         @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
-        @renderInPlace={{true}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
+        @searchPlaceholder={{@searchLabel}}
         @matcher={{@matcher}}
+        @allowClear={{@isClearable}}
+        @verticalPosition={{@verticalPosition}}
+        @triggerId={{@identifier}}
+        @showCreatePosition="bottom"
         {{! @glint-expect-error }}
         @onChange={{@onChange}}
         @onCreate={{@onCreate}}
-        id={{@identifier}}
+        data-test-form-power-select-multiple
         ...attributes
         as |option|
       >
@@ -65,15 +72,19 @@ export default class FormPowerSelectMultiple<T> extends Component<
       <PowerSelect
         @multiple={{true}}
         @options={{@options}}
+        @search={{@search}}
         @selected={{@selected}}
         @disabled={{@isDisabled}}
         @placeholder={{@chooseLabel}}
-        @renderInPlace={{true}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
+        @searchPlaceholder={{@searchLabel}}
         @matcher={{@matcher}}
+        @allowClear={{@isClearable}}
+        @verticalPosition={{@verticalPosition}}
+        @triggerId={{@identifier}}
         @onChange={{@onChange}}
-        id={{@identifier}}
+        data-test-form-power-select-multiple
         ...attributes
         as |option|
       >
