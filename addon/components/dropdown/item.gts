@@ -40,6 +40,7 @@ interface Args extends LinkArgs {
   subtitle?: string;
   icon?: IconDefinition;
   shortcut?: string;
+  isDisabled?: boolean;
 }
 
 export interface DropdownItemSignature {
@@ -59,7 +60,8 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
       class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+        {{if @color (concat 'text-' @color)}}
+        {{if @isDisabled 'disabled'}}"
       ...attributes
     >
       <Internal
@@ -73,7 +75,8 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
     <button
       type="button"
       class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+        {{if @color (concat 'text-' @color)}}
+        {{if @isDisabled 'disabled'}}"
       ...attributes
     >
       <Internal
