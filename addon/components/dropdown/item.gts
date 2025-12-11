@@ -7,6 +7,7 @@ import Link, { type LinkArgs } from '../link';
 
 const Internal: TOC<{
   Args: {
+    color?: string;
     label?: string;
     subtitle?: string;
     icon?: IconDefinition;
@@ -17,7 +18,11 @@ const Internal: TOC<{
   };
 }> = <template>
   {{#if @icon}}
-    <Icon @icon={{@icon}} @isFixedWidth={{true}} />
+    <Icon
+      @icon={{@icon}}
+      @color={{if @color @color "secondary"}}
+      @isFixedWidth={{true}}
+    />
   {{/if}}
   {{#if @label}}
     <div>
@@ -65,6 +70,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       ...attributes
     >
       <Internal
+        @color={{@color}}
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
@@ -80,6 +86,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       ...attributes
     >
       <Internal
+        @color={{@color}}
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
