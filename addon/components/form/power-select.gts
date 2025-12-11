@@ -69,11 +69,11 @@ export default class FormPowerSelect<T> extends Component<
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
         @verticalPosition={{@verticalPosition}}
+        @triggerId={{@identifier}}
         @showCreatePosition="bottom"
         {{! @glint-expect-error }}
         @onChange={{@onChange}}
         @onCreate={{@onCreate}}
-        id={{@identifier}}
         data-test-form-power-select
         ...attributes
         as |option|
