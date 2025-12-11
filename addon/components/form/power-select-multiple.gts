@@ -17,7 +17,6 @@ interface Args<T> extends FormInputArgs {
   isDisabled?: boolean;
   verticalPosition?: 'auto' | 'above' | 'below';
   chooseLabel: string;
-  searchLabel: string;
   onChange: (selected: T[]) => void;
   onCreate?: (query: string) => void;
 }
@@ -53,7 +52,6 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @placeholder={{@chooseLabel}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
-        @searchPlaceholder={{@searchLabel}}
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
         @verticalPosition={{@verticalPosition}}
@@ -78,7 +76,6 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @placeholder={{@chooseLabel}}
         @searchEnabled={{true}}
         @searchField={{@searchField}}
-        @searchPlaceholder={{@searchLabel}}
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
         @verticalPosition={{@verticalPosition}}
