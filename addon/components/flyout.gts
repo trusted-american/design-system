@@ -3,6 +3,13 @@ import { Offcanvas } from 'bootstrap';
 import { modifier } from 'ember-modifier';
 import CloseButton from './close-button';
 
+interface _Offcanvas {
+  _initializeFocusTrap(): {
+    activate: () => void;
+    deactivate: () => void;
+  };
+}
+
 export interface FlyoutSignature {
   Args: {
     title: string;
@@ -21,16 +28,17 @@ export default class Flyout extends Component<FlyoutSignature> {
 
   setup = modifier((element) => {
     // TODO: fixes issue where offcanvas traps focus preventing selecting of power select search
-    Offcanvas.prototype._initializeFocusTrap = () => {
-      return {
-        activate: () => {
-          //
-        },
-        deactivate: () => {
-          //
-        },
+    (Offcanvas.prototype as unknown as _Offcanvas)._initializeFocusTrap =
+      () => {
+        return {
+          activate: () => {
+            //
+          },
+          deactivate: () => {
+            //
+          },
+        };
       };
-    };
 
     this.offcanvas = new Offcanvas(element);
     this.offcanvas.show();
