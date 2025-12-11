@@ -7,9 +7,11 @@ import Link, { type LinkArgs } from '../link';
 
 const Internal: TOC<{
   Args: {
+    color?: string;
     label?: string;
     subtitle?: string;
     icon?: IconDefinition;
+    isIconHidden: boolean | undefined;
     shortcut?: string;
   };
   Blocks: {
@@ -17,7 +19,12 @@ const Internal: TOC<{
   };
 }> = <template>
   {{#if @icon}}
-    <Icon @icon={{@icon}} @isFixedWidth={{true}} />
+    <Icon
+      @icon={{@icon}}
+      @color={{if @color @color "secondary"}}
+      @isFixedWidth={{true}}
+      class={{if @isIconHidden "invisible"}}
+    />
   {{/if}}
   {{#if @label}}
     <div>
@@ -39,7 +46,9 @@ interface Args extends LinkArgs {
   label?: string;
   subtitle?: string;
   icon?: IconDefinition;
+  isIconHidden?: boolean;
   shortcut?: string;
+  isDisabled?: boolean;
 }
 
 export interface DropdownItemSignature {
@@ -59,13 +68,17 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       @href={{@href}}
       @isLocalHref={{@isLocalHref}}
       class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+        {{if @color (concat 'text-' @color)}}
+        {{if @isDisabled 'disabled'}}"
+      data-test-dropdown-item
       ...attributes
     >
       <Internal
+        @color={{@color}}
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
+        @isIconHidden={{@isIconHidden}}
         @shortcut={{@shortcut}}
       >{{yield}}</Internal>
     </Link>
@@ -73,13 +86,17 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
     <button
       type="button"
       class="dropdown-item d-flex align-items-center gap-2
-        {{if @color (concat 'text-' @color)}}"
+        {{if @color (concat 'text-' @color)}}
+        {{if @isDisabled 'disabled'}}"
+      data-test-dropdown-item
       ...attributes
     >
       <Internal
+        @color={{@color}}
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
+        @isIconHidden={{@isIconHidden}}
         @shortcut={{@shortcut}}
       >{{yield}}</Internal>
     </button>

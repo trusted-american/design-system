@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { DropdownItem } from '@trusted-american/design-system';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | dropdown/item', function (hooks) {
   setupRenderingTest(hooks);
@@ -20,5 +21,20 @@ module('Integration | Component | dropdown/item', function (hooks) {
     );
 
     assert.dom().hasText('Label');
+  });
+
+  test('it hides icon', async function (assert) {
+    await render(
+      <template>
+        <DropdownItem
+          @icon={{faPlus}}
+          @isIconHidden={{true}}
+        >Label</DropdownItem>
+      </template>,
+    );
+
+    assert
+      .dom('[data-test-dropdown-item] [data-test-icon]')
+      .hasClass('invisible');
   });
 });

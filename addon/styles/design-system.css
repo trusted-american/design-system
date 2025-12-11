@@ -122,13 +122,6 @@ aside .tds-aside-logo {
   text-align: inherit;
 }
 
-/* dropdown */
-
-/* stylelint-disable-next-line */
-.dropdown-menu .dropdown-item svg {
-  color: var(--bs-secondary);
-}
-
 /* frame */
 
 .tds-frame {
@@ -146,19 +139,6 @@ aside .tds-aside-logo {
 
 .tds-frame > main {
   grid-area: main;
-}
-
-/* list-attributes */
-
-.invisible-icon .fa-fw {
-  visibility: hidden !important;
-}
-
-/* nav */
-
-/* stylelint-disable-next-line */
-.nav-pills .nav-link.active > svg {
-  color: var(--bs-nav-pills-link-active-color);
 }
 
 /* property-list */

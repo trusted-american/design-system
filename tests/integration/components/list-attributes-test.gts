@@ -45,19 +45,19 @@ module('Integration | Component | list-attributes', function (hooks) {
 
     await click(preset1);
 
-    assert.dom(preset1).doesNotHaveClass('invisible-icon');
-    assert.dom(preset2).hasClass('invisible-icon');
+    assert.dom(preset1 + ' [data-test-icon]').doesNotHaveClass('invisible');
+    assert.dom(preset2 + ' [data-test-icon]').hasClass('invisible');
     assert.deepEqual(state.selected, ['firstName', 'middleName', 'lastName']);
 
     await click(preset2);
 
-    assert.dom(preset1).hasClass('invisible-icon');
-    assert.dom(preset2).doesNotHaveClass('invisible-icon');
+    assert.dom(preset1 + ' [data-test-icon]').hasClass('invisible');
+    assert.dom(preset2 + ' [data-test-icon]').doesNotHaveClass('invisible');
     assert.deepEqual(state.selected, ['nickname', 'status', 'createdAt']);
 
     await click('[data-test-option]');
 
-    assert.dom(preset1).hasClass('invisible-icon');
-    assert.dom(preset2).hasClass('invisible-icon');
+    assert.dom(preset1 + ' [data-test-icon]').hasClass('invisible');
+    assert.dom(preset2 + ' [data-test-icon]').hasClass('invisible');
   });
 });

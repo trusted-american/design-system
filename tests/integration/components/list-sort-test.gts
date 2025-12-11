@@ -54,14 +54,20 @@ module('Integration | Component | list-sort', function (hooks) {
       .dom()
       .hasText('Sort Created date Name Obj prop High to low Low to high');
     assert
-      .dom('[data-test-list-sort-dropdown] button')
-      .doesNotHaveClass('invisible-icon');
+      .dom(
+        '[data-test-list-sort-dropdown] [data-test-dropdown-item] [data-test-icon]',
+      )
+      .doesNotHaveClass('invisible');
     assert
-      .dom('[data-test-list-sort-dropdown] button + button')
-      .hasClass('invisible-icon');
+      .dom(
+        '[data-test-list-sort-dropdown] [data-test-dropdown-item]:nth-child(2) [data-test-icon]',
+      )
+      .hasClass('invisible');
 
     await click('[data-test-list-sort]');
-    await click('[data-test-list-sort-dropdown] button + button');
+    await click(
+      '[data-test-list-sort-dropdown] [data-test-dropdown-item]:nth-child(2)',
+    );
 
     assert.strictEqual(state.sortBy, 'name');
   });

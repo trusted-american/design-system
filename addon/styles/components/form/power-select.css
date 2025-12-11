@@ -116,10 +116,10 @@
   min-width: 0;
 }
 
-.was-validated :valid ~ .ember-basic-dropdown .ember-power-select-trigger {
+.was-validated :valid ~ .ember-power-select-trigger {
   border-color: var(--bs-form-valid-border-color);
 }
 
-.was-validated :invalid ~ .ember-basic-dropdown .ember-power-select-trigger {
+.was-validated :invalid ~ .ember-power-select-trigger {
   border-color: var(--bs-form-invalid-border-color);
 }

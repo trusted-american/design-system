@@ -6,7 +6,7 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
-import { notEq } from 'ember-truth-helpers';
+import { not, notEq } from 'ember-truth-helpers';
 import dropdown from '../modifiers/dropdown';
 import Button from './button';
 import Dropdown from './dropdown';
@@ -38,7 +38,7 @@ export default class ListSort<T> extends Component<ListSortSignature<T>> {
         <dropdown.item
           @label={{opt.label}}
           @icon={{faCheck}}
-          class={{if (notEq opt.value @sortBy) "invisible-icon"}}
+          @isIconHidden={{notEq opt.value @sortBy}}
           data-test-sort-by
           {{on "click" (fn @onChange opt.value @sortAscending)}}
         />
@@ -47,14 +47,14 @@ export default class ListSort<T> extends Component<ListSortSignature<T>> {
       <dropdown.item
         @label={{@highToLowLabel}}
         @icon={{faCheck}}
-        class={{if (notEq false @sortAscending) "invisible-icon"}}
+        @isIconHidden={{@sortAscending}}
         data-test-sort-ascending-false
         {{on "click" (fn @onChange @sortBy false)}}
       />
       <dropdown.item
         @label={{@lowToHighLabel}}
         @icon={{faCheck}}
-        class={{if (notEq true @sortAscending) "invisible-icon"}}
+        @isIconHidden={{not @sortAscending}}
         data-test-sort-ascending-true
         {{on "click" (fn @onChange @sortBy true)}}
       />

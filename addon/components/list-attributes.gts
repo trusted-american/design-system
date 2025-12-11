@@ -70,10 +70,7 @@ export default class ListAttributes<T> extends Component<
         <dropdown.item
           @label={{preset.label}}
           @icon={{faCheck}}
-          class={{if
-            (notEq preset.label this.activePreset.label)
-            "invisible-icon"
-          }}
+          @isIconHidden={{notEq preset.label this.activePreset.label}}
           data-test-preset
           {{on "click" (fn @onChange preset.values)}}
         />
@@ -83,10 +80,7 @@ export default class ListAttributes<T> extends Component<
         <dropdown.item
           @label={{attribute.label}}
           @icon={{faCheck}}
-          class={{if
-            (not (includes attribute.value @selected))
-            "invisible-icon"
-          }}
+          @isIconHidden={{not (includes attribute.value @selected)}}
           data-test-option
           {{on "click" (fn this.toggleAttribute attribute)}}
         />
