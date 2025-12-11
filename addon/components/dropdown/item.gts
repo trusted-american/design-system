@@ -70,6 +70,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       class="dropdown-item d-flex align-items-center gap-2
         {{if @color (concat 'text-' @color)}}
         {{if @isDisabled 'disabled'}}"
+      data-test-dropdown-item
       ...attributes
     >
       <Internal
@@ -87,6 +88,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       class="dropdown-item d-flex align-items-center gap-2
         {{if @color (concat 'text-' @color)}}
         {{if @isDisabled 'disabled'}}"
+      data-test-dropdown-item
       ...attributes
     >
       <Internal
