@@ -11,6 +11,7 @@ const Internal: TOC<{
     label?: string;
     subtitle?: string;
     icon?: IconDefinition;
+    isIconHidden: boolean | undefined;
     shortcut?: string;
   };
   Blocks: {
@@ -22,6 +23,7 @@ const Internal: TOC<{
       @icon={{@icon}}
       @color={{if @color @color "secondary"}}
       @isFixedWidth={{true}}
+      class={{if @isIconHidden "invisible"}}
     />
   {{/if}}
   {{#if @label}}
@@ -44,6 +46,7 @@ interface Args extends LinkArgs {
   label?: string;
   subtitle?: string;
   icon?: IconDefinition;
+  isIconHidden?: boolean;
   shortcut?: string;
   isDisabled?: boolean;
 }
@@ -74,6 +77,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
+        @isIconHidden={{@isIconHidden}}
         @shortcut={{@shortcut}}
       >{{yield}}</Internal>
     </Link>
@@ -90,6 +94,7 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
+        @isIconHidden={{@isIconHidden}}
         @shortcut={{@shortcut}}
       >{{yield}}</Internal>
     </button>

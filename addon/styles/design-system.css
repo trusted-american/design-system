@@ -141,12 +141,6 @@ aside .tds-aside-logo {
   grid-area: main;
 }
 
-/* list-attributes */
-
-.invisible-icon .fa-fw {
-  visibility: hidden !important;
-}
-
 /* property-list */
 
 dl dt {
