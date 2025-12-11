@@ -20,5 +20,9 @@ setupDeprecationWorkflow({
      */
     /* example: */
     /* { handler: 'silence', matchId: 'template-action' }, */
+    {
+      handler: 'silence',
+      matchId: 'deprecate-import--set-classic-decorator-from-ember',
+    },
   ],
 });
