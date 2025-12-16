@@ -8,11 +8,19 @@ module('Integration | Component | placeholder', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.true(true);
+    const onClick = () => {
+      //
+    };
 
     await render(
       <template>
-        <Placeholder @icon={{faXmark}} @title="Title" @subtitle="Subtitle" />
+        <Placeholder
+          @icon={{faXmark}}
+          @title="Title"
+          @subtitle="Subtitle"
+          @buttonLabel="Button"
+          @onClick={{onClick}}
+        />
       </template>,
     );
 

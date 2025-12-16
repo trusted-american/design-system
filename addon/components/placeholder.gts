@@ -6,16 +6,35 @@ import { and } from 'ember-truth-helpers';
 import Button from './button';
 import Icon from './icon';
 
+interface Args {
+  icon: IconDefinition;
+  title: string;
+  subtitle?: string;
+}
+
+interface DefaultArgs extends Args {
+  buttonLabel?: never;
+  secondaryButtonLabel?: never;
+  onClick?: never;
+  onSecondaryClick?: never;
+}
+
+interface SingleButtonArgs extends Args {
+  buttonLabel: string;
+  secondaryButtonLabel?: never;
+  onClick: () => void;
+  onSecondaryClick?: never;
+}
+
+interface DoubleButtonArgs extends Args {
+  buttonLabel: string;
+  secondaryButtonLabel: string;
+  onClick: () => void;
+  onSecondaryClick: () => void;
+}
+
 export interface PlaceholderSignature {
-  Args: {
-    icon: IconDefinition;
-    title: string;
-    subtitle?: string;
-    buttonLabel?: string;
-    secondaryButtonLabel?: string;
-    onClick?: () => void;
-    onSecondaryClick?: () => void;
-  };
+  Args: DefaultArgs | SingleButtonArgs | DoubleButtonArgs;
   Element: HTMLElement;
 }
 
