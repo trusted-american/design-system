@@ -27,5 +27,6 @@ module('Integration | Component | placeholder', function (hooks) {
     assert.dom('[data-test-icon]').hasClass('fa-xmark');
     assert.dom('[data-test-title]').hasText('Title');
     assert.dom('[data-test-subtitle]').hasText('Subtitle');
+    assert.dom('[data-test-button]').exists();
   });
 });
