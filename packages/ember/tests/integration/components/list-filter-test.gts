@@ -3,12 +3,12 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, fillIn, render, select } from '@ember/test-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
-import { ListFilter } from '@trusted-american/design-system';
+import { ListFilter } from '@trusted-american/ember';
 import { tracked } from '@glimmer/tracking';
 import type {
   DateRangeQueryParam,
   Predicate,
-} from '@trusted-american/design-system/components/list-filter';
+} from '@trusted-american/ember/components/list-filter';
 
 interface Props {
   status?: string;

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { Table } from '@trusted-american/design-system';
+import { Table } from '@trusted-american/ember';
 import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | table', function (hooks) {

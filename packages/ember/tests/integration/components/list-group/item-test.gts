@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { ListGroupItem } from '@trusted-american/design-system';
+import { ListGroupItem } from '@trusted-american/ember';
 
 module('Integration | Component | list-group/item', function (hooks) {
   setupRenderingTest(hooks);

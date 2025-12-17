@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/time-input';
+export { default } from '@trusted-american/ember/components/form/time-input';

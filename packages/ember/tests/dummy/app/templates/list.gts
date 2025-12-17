@@ -7,7 +7,7 @@ import {
   Heading,
   MainBody,
   Table,
-} from '@trusted-american/design-system';
+} from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import type ListRoute from '../routes/list';

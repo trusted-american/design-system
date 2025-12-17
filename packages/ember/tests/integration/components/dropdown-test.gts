@@ -6,7 +6,7 @@ import {
   Dropdown,
   DropdownHeader,
   dropdown,
-} from '@trusted-american/design-system';
+} from '@trusted-american/ember';
 import {
   faCopy,
   faPen,

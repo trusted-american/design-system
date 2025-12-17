@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/aside';
+export { default } from '@trusted-american/ember/components/aside';

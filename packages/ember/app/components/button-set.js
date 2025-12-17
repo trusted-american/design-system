@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/button-set';
+export { default } from '@trusted-american/ember/components/button-set';

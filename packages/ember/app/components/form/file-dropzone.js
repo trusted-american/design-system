@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/file-dropzone';
+export { default } from '@trusted-american/ember/components/form/file-dropzone';

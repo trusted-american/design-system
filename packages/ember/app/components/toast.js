@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/toast';
+export { default } from '@trusted-american/ember/components/toast';

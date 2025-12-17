@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/modifiers/collapse';
+export { default } from '@trusted-american/ember/modifiers/collapse';

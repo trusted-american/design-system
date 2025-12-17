@@ -2,7 +2,7 @@ import { fn } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-import { Button, Flyout, Heading } from '@trusted-american/design-system';
+import { Button, Flyout, Heading } from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';

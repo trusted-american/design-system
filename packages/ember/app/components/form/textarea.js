@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/textarea';
+export { default } from '@trusted-american/ember/components/form/textarea';

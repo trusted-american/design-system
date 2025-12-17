@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/power-select';
+export { default } from '@trusted-american/ember/components/form/power-select';

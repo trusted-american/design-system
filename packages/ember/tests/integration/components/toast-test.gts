@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render, waitFor } from '@ember/test-helpers';
-import { Toast } from '@trusted-american/design-system';
+import { Toast } from '@trusted-american/ember';
 
 module('Integration | Component | toast', function (hooks) {
   setupRenderingTest(hooks);

@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/utils/file-type';
+export { default } from '@trusted-american/ember/utils/file-type';

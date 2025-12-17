@@ -17,7 +17,7 @@ Components for building robust user interfaces. Built on top of Bootstrap.
 ## Installation
 
 ```
-ember install @trusted-american/design-system
+ember install @trusted-american/ember
 ```
 
 ## Usage

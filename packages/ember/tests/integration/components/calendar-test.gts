@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { Calendar } from '@trusted-american/design-system';
+import { Calendar } from '@trusted-american/ember';
 
 module('Integration | Component | calendar', function (hooks) {
   setupRenderingTest(hooks);

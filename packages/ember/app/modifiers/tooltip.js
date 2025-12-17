@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/modifiers/tooltip';
+export { default } from '@trusted-american/ember/modifiers/tooltip';

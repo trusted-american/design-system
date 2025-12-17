@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import ListAttributes from '@trusted-american/design-system/components/list-attributes';
+import ListAttributes from '@trusted-american/ember/components/list-attributes';
 import { array, fn, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 

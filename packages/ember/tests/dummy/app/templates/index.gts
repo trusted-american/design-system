@@ -1,5 +1,5 @@
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { Button, Icon, MainBody } from '@trusted-american/design-system';
+import { Button, Icon, MainBody } from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 

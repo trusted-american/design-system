@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/helpers/theme';
+export { default } from '@trusted-american/ember/helpers/theme';

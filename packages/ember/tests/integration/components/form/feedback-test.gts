@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { FormFeedback } from '@trusted-american/design-system';
+import { FormFeedback } from '@trusted-american/ember';
 
 module('Integration | Component | form/feedback', function (hooks) {
   setupRenderingTest(hooks);

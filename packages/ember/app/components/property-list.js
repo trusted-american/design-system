@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/property-list';
+export { default } from '@trusted-american/ember/components/property-list';

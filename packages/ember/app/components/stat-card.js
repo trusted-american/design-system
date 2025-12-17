@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/stat-card';
+export { default } from '@trusted-american/ember/components/stat-card';

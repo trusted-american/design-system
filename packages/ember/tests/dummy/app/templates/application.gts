@@ -26,8 +26,8 @@ import {
   Main,
   theme,
   tooltip,
-} from '@trusted-american/design-system';
-import type { Theme } from '@trusted-american/design-system/helpers/theme';
+} from '@trusted-american/ember';
+import type { Theme } from '@trusted-american/ember/helpers/theme';
 import BasicDropdownWormhole from 'ember-basic-dropdown/components/basic-dropdown-wormhole';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';

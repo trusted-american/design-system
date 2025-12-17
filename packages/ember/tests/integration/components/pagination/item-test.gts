@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import PaginationItem from '@trusted-american/design-system/components/pagination/item';
+import PaginationItem from '@trusted-american/ember/components/pagination/item';
 
 module('Integration | Component | pagination/item', function (hooks) {
   setupRenderingTest(hooks);

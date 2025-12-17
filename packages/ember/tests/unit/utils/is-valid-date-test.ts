@@ -1,4 +1,4 @@
-import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
+import isValidDate from '@trusted-american/ember/utils/is-valid-date';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | is-valid-date', function () {

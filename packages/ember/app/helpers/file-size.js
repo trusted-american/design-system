@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/helpers/file-size';
+export { default } from '@trusted-american/ember/helpers/file-size';

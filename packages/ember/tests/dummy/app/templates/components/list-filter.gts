@@ -2,13 +2,13 @@ import { array, fn, hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-import type { DateRangeQueryParam } from '@trusted-american/design-system/components/list-filter';
+import type { DateRangeQueryParam } from '@trusted-american/ember/components/list-filter';
 import {
   Button,
   Heading,
   ListFilter,
   timestamp,
-} from '@trusted-american/design-system';
+} from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';

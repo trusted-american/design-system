@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { find, render, rerender } from '@ember/test-helpers';
-import { Avatar } from '@trusted-american/design-system';
+import { Avatar } from '@trusted-american/ember';
 import { tracked } from '@glimmer/tracking';
 
 module('Integration | Component | avatar', function (hooks) {

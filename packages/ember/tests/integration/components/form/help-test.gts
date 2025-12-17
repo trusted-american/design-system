@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { FormHelp } from '@trusted-american/design-system';
+import { FormHelp } from '@trusted-american/ember';
 
 module('Integration | Component | form/help', function (hooks) {
   setupRenderingTest(hooks);

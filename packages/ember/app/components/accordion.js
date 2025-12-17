@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/accordion';
+export { default } from '@trusted-american/ember/components/accordion';

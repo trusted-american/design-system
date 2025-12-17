@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/alert';
+export { default } from '@trusted-american/ember/components/alert';

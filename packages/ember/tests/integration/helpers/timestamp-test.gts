@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, rerender } from '@ember/test-helpers';
-import { timestamp } from '@trusted-american/design-system';
+import { timestamp } from '@trusted-american/ember';
 import { tracked } from '@glimmer/tracking';
 
 module('Integration | Helper | timestamp', function (hooks) {

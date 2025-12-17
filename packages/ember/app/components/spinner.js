@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/spinner';
+export { default } from '@trusted-american/ember/components/spinner';

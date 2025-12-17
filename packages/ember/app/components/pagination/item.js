@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/pagination/item';
+export { default } from '@trusted-american/ember/components/pagination/item';

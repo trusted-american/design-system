@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/radio-button';
+export { default } from '@trusted-american/ember/components/form/radio-button';

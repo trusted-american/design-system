@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/avatar';
+export { default } from '@trusted-american/ember/components/avatar';

@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/radio-card';
+export { default } from '@trusted-american/ember/components/form/radio-card';

@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/helpers/timestamp';
+export { default } from '@trusted-american/ember/helpers/timestamp';

@@ -10,8 +10,8 @@ import {
   fromNow,
   theme,
   timestamp,
-} from '@trusted-american/design-system';
-import type { Theme } from '@trusted-american/design-system/helpers/theme';
+} from '@trusted-american/ember';
+import type { Theme } from '@trusted-american/ember/helpers/theme';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';

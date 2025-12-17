@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import { dropdown } from '@trusted-american/design-system';
+import { dropdown } from '@trusted-american/ember';
 
 module('Integration | Modifier | dropdown', function (hooks) {
   setupRenderingTest(hooks);

@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/utils/check-validity';
+export { default } from '@trusted-american/ember/utils/check-validity';

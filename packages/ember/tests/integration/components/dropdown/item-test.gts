@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { DropdownItem } from '@trusted-american/design-system';
+import { DropdownItem } from '@trusted-american/ember';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | dropdown/item', function (hooks) {

@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/badge';
+export { default } from '@trusted-american/ember/components/badge';

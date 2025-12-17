@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/modifiers/dropdown';
+export { default } from '@trusted-american/ember/modifiers/dropdown';

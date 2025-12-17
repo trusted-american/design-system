@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Placeholder } from '@trusted-american/design-system';
+import { Placeholder } from '@trusted-american/ember';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | placeholder', function (hooks) {

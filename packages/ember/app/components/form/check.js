@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/check';
+export { default } from '@trusted-american/ember/components/form/check';

@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/breadcrumb-trail';
+export { default } from '@trusted-american/ember/components/breadcrumb-trail';

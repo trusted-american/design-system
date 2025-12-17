@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { Modal } from '@trusted-american/design-system';
+import { Modal } from '@trusted-american/ember';
 
 module('Integration | Component | modal', function (hooks) {
   setupRenderingTest(hooks);

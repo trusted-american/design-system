@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { find, render } from '@ember/test-helpers';
-import { tooltip } from '@trusted-american/design-system';
+import { tooltip } from '@trusted-american/ember';
 import { Tooltip } from 'bootstrap';
 
 module('Integration | Modifier | tooltip', function (hooks) {

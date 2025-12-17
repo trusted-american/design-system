@@ -1,4 +1,4 @@
-import checkValidity from '@trusted-american/design-system/utils/check-validity';
+import checkValidity from '@trusted-american/ember/utils/check-validity';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | check-validity', function () {

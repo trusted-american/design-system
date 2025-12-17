@@ -1,4 +1,4 @@
-import { Heading } from '@trusted-american/design-system';
+import { Heading } from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import { CodeBlock } from 'ember-shiki';
@@ -12,7 +12,7 @@ import { CodeBlock } from 'ember-shiki';
   <p>First install the addon:</p>
 
   <p>
-    <CodeBlock @code="ember install @trusted-american/design-system" />
+    <CodeBlock @code="ember install @trusted-american/ember" />
   </p>
 
   <p>Then include Bootstrap's CSS in <code>ember-cli-build.js</code>:</p>

@@ -1,10 +1,10 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { ListSort } from '@trusted-american/design-system';
+import { ListSort } from '@trusted-american/ember';
 import { array, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
-import type { ListAttributesKey } from '@trusted-american/design-system/components/list-attributes';
+import type { ListAttributesKey } from '@trusted-american/ember/components/list-attributes';
 
 module('Integration | Component | list-sort', function (hooks) {
   setupRenderingTest(hooks);

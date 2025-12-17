@@ -10,8 +10,8 @@ import {
   FormTextarea,
   Heading,
   MainBody,
-} from '@trusted-american/design-system';
-import checkValidity from '@trusted-american/design-system/utils/check-validity';
+} from '@trusted-american/ember';
+import checkValidity from '@trusted-american/ember/utils/check-validity';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import type FormRoute from '../routes/form';

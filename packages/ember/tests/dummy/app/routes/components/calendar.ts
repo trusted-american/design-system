@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import type { Event } from '@trusted-american/design-system/components/calendar';
+import type { Event } from '@trusted-american/ember/components/calendar';
 
 export default class ComponentsCalendarRoute extends Route {
   model(): Event[] {

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { fromNow } from '@trusted-american/design-system';
+import { fromNow } from '@trusted-american/ember';
 
 module('Integration | Helper | from-now', function (hooks) {
   setupRenderingTest(hooks);

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import { collapse } from '@trusted-american/design-system';
+import { collapse } from '@trusted-american/ember';
 
 module('Integration | Modifier | collapse', function (hooks) {
   setupRenderingTest(hooks);

@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/card/body';
+export { default } from '@trusted-american/ember/components/card/body';

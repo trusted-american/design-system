@@ -1,9 +1,9 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
-import { Heading, MainBody, Subheading } from '@trusted-american/design-system';
-import checkValidity from '@trusted-american/design-system/utils/check-validity';
-import fileType from '@trusted-american/design-system/utils/file-type';
-import isValidDate from '@trusted-american/design-system/utils/is-valid-date';
+import { Heading, MainBody, Subheading } from '@trusted-american/ember';
+import checkValidity from '@trusted-american/ember/utils/check-validity';
+import fileType from '@trusted-american/ember/utils/file-type';
+import isValidDate from '@trusted-american/ember/utils/is-valid-date';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../components/snippet';

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Flyout } from '@trusted-american/design-system';
+import { Flyout } from '@trusted-american/ember';
 
 module('Integration | Component | flyout', function (hooks) {
   setupRenderingTest(hooks);

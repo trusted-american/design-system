@@ -6,7 +6,7 @@ import type {
   YetiTableFooter,
   YetiTableHeader,
   YetiTableTfoot,
-} from '@trusted-american/design-system/components/table';
+} from '@trusted-american/ember/components/table';
 import type { ComponentLike } from '@glint/template';
 
 export default class YetiTable<T> extends Component<{

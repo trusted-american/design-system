@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/flyout';
+export { default } from '@trusted-american/ember/components/flyout';

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { FormRadioCard } from '@trusted-american/design-system';
+import { FormRadioCard } from '@trusted-american/ember';
 import { array, fn, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Badge, Nav } from '@trusted-american/design-system';
+import { Badge, Nav } from '@trusted-american/ember';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | nav', function (hooks) {

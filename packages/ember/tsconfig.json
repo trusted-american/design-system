@@ -18,12 +18,10 @@
     "paths": {
       "dummy/tests/*": ["tests/*"],
       "dummy/*": ["tests/dummy/app/*", "app/*"],
-      "@trusted-american/design-system": ["addon"],
-      "@trusted-american/design-system/*": ["addon/*"],
-      "@trusted-american/design-system/test-support": ["addon-test-support"],
-      "@trusted-american/design-system/test-support/*": [
-        "addon-test-support/*"
-      ],
+      "@trusted-american/ember": ["addon"],
+      "@trusted-american/ember/*": ["addon/*"],
+      "@trusted-american/ember/test-support": ["addon-test-support"],
+      "@trusted-american/ember/test-support/*": ["addon-test-support/*"],
       "*": ["types/*"]
     },
     "types": ["ember-source/types", "@glint/ember-tsc/types"]

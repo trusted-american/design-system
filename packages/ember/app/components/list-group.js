@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/list-group';
+export { default } from '@trusted-american/ember/components/list-group';

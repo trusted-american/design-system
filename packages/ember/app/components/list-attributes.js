@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/list-attributes';
+export { default } from '@trusted-american/ember/components/list-attributes';

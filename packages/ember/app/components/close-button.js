@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/close-button';
+export { default } from '@trusted-american/ember/components/close-button';

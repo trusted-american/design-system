@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, fillIn, render } from '@ember/test-helpers';
-import { Button, FormInput } from '@trusted-american/design-system';
+import { Button, FormInput } from '@trusted-american/ember';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';

@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { Button, FormPowerSelect } from '@trusted-american/design-system';
+import { Button, FormPowerSelect } from '@trusted-american/ember';
 import { selectChoose, selectSearch } from 'ember-power-select/test-support';
 import { tracked } from '@glimmer/tracking';
 import { array, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
-import checkValidity from '@trusted-american/design-system/utils/check-validity';
+import checkValidity from '@trusted-american/ember/utils/check-validity';
 import { action } from '@ember/object';
 
 module('Integration | Component | form/power-select', function (hooks) {

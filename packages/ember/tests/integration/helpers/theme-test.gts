@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { theme } from '@trusted-american/design-system';
+import { theme } from '@trusted-american/ember';
 
 module('Integration | Helper | theme', function (hooks) {
   setupRenderingTest(hooks);

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { FormPowerSelectMultiple } from '@trusted-american/design-system';
+import { FormPowerSelectMultiple } from '@trusted-american/ember';
 import { selectChoose } from 'ember-power-select/test-support';
 import { tracked } from '@glimmer/tracking';
 import { array, fn } from '@ember/helper';

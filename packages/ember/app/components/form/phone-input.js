@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/form/phone-input';
+export { default } from '@trusted-american/ember/components/form/phone-input';

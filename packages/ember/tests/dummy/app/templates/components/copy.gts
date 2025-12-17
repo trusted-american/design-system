@@ -1,4 +1,4 @@
-import { Copy, Heading } from '@trusted-american/design-system';
+import { Copy, Heading } from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';

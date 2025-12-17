@@ -1,1 +1,1 @@
-export { default } from '@trusted-american/design-system/components/progress/bar';
+export { default } from '@trusted-american/ember/components/progress/bar';

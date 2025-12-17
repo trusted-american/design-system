@@ -2,7 +2,7 @@ import { fn } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import type { User } from '../../routes/components/table';
-import { Heading, Subheading, Table } from '@trusted-american/design-system';
+import { Heading, Subheading, Table } from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
