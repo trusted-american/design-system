@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Components for building robust user interfaces.",
   "keywords": [
     "react"
@@ -8,6 +8,12 @@
   "repository": "https://github.com/trusted-american/design-system",
   "license": "MIT",
   "author": "Trusted American Insurance Agency",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "",
