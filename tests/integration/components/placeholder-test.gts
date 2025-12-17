@@ -8,16 +8,25 @@ module('Integration | Component | placeholder', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.true(true);
+    const onClick = () => {
+      //
+    };
 
     await render(
       <template>
-        <Placeholder @icon={{faXmark}} @title="Title" @subtitle="Subtitle" />
+        <Placeholder
+          @icon={{faXmark}}
+          @title="Title"
+          @subtitle="Subtitle"
+          @buttonLabel="Button"
+          @onClick={{onClick}}
+        />
       </template>,
     );
 
     assert.dom('[data-test-icon]').hasClass('fa-xmark');
     assert.dom('[data-test-title]').hasText('Title');
     assert.dom('[data-test-subtitle]').hasText('Subtitle');
+    assert.dom('[data-test-button]').exists();
   });
 });
