@@ -1,4 +1,10 @@
 {
   "name": "@trusted-american/design-system",
-  "private": true
+  "private": true,
+  "pnpm": {
+    "overrides": {
+      "@ember/test-waiters": "^4.1.1",
+      "@glimmer/component": "^2.0.0"
+    }
+  }
 }
