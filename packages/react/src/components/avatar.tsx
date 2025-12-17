@@ -3,7 +3,7 @@ interface AvatarProps {
 }
 
 const Avatar = ({ id }: AvatarProps) => {
-  return <div style={{ backgroundColor: 'red', padding: '2rem' }}>{id}</div>;
+  return <div className="bg-green-700 text-white p-4 rounded-md">{id}</div>;
 };
 
 export default Avatar;
