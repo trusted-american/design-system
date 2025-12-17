@@ -3,12 +3,12 @@ import type { ReactNode } from 'react';
 export type AlertType = 'success' | 'error' | 'warning' | 'info';
 
 interface AlertProps {
-  children: ReactNode;
   type: AlertType;
   className?: string;
+  children: ReactNode;
 }
 
-const Alert = ({ children, type = 'info', className = '' }: AlertProps) => {
+const Alert = ({ type = 'info', className, children }: AlertProps) => {
   const typeClasses = {
     success: 'bg-green-100 text-green-700 border-green-400',
     error: 'bg-red-100 text-red-700 border-red-400',
