@@ -6,8 +6,8 @@ Components for building robust user interfaces.
 
 ## Packages
 
-- [@trusted-american/ember](packages/ember/README.md)
-- [@trusted-american/react](packages/react/README.md)
+- [@trusted-american/ember](packages/ember)
+- [@trusted-american/react](packages/react)
 
 ## Contributing
 
