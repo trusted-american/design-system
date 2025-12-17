@@ -1,0 +1,11 @@
+{
+  "name": "@trusted-american/react",
+  "version": "0.0.1",
+  "description": "Components for building robust user interfaces.",
+  "keywords": [
+    "react"
+  ],
+  "repository": "https://github.com/trusted-american/design-system",
+  "license": "MIT",
+  "author": "Trusted American Insurance Agency"
+}
