@@ -30,7 +30,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint
-        run: pnpm --filter @trusted-american/ember lint
+        run: pnpm lint
       - name: Run Tests
         run: pnpm --filter @trusted-american/ember test:ember
 
