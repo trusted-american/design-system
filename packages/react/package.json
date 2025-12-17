@@ -7,5 +7,19 @@
   ],
   "repository": "https://github.com/trusted-american/design-system",
   "license": "MIT",
-  "author": "Trusted American Insurance Agency"
+  "author": "Trusted American Insurance Agency",
+  "scripts": {
+    "build": "tsc",
+    "lint": "",
+    "test": ""
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
+  }
 }
