@@ -274,6 +274,8 @@ importers:
         specifier: ^5.103.0
         version: 5.104.0
 
+  packages/react: {}
+
 packages:
 
   '@babel/code-frame@7.27.1':

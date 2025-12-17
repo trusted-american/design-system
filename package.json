@@ -1,6 +1,14 @@
 {
   "name": "@trusted-american/design-system",
   "private": true,
+  "description": "Components for building robust user interfaces.",
+  "repository": "https://github.com/trusted-american/design-system",
+  "license": "MIT",
+  "author": "Trusted American Insurance Agency",
+  "scripts": {
+    "lint": "pnpm --filter \"*\" lint",
+    "test": "pnpm --filter \"*\" test"
+  },
   "pnpm": {
     "overrides": {
       "@ember/test-waiters": "^4.1.1",
