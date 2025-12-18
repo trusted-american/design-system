@@ -19,7 +19,7 @@
     "test": ""
   },
   "dependencies": {
-    "@trusted-american/core": "^0.0.1",
+    "@trusted-american/core": "workspace:*",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },

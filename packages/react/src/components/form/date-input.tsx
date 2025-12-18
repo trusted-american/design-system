@@ -1,8 +1,7 @@
+import { dateInputClassName } from '@trusted-american/core';
 import type { ChangeEvent } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
-
-const dateInputClassName = 'bg-gray-100 px-3 py-2 w-full rounded-lg mt-2';
 
 interface FormDateInputProps {
   value: string | Date | null;

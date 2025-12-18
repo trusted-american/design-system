@@ -1,5 +1,4 @@
-const buttonClassName =
-  'whitespace-nowrap text-white bg-blue-400 cursor-pointer font-medium rounded-lg px-4 py-2 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 disabled:bg-blue-300 disabled:cursor-not-allowed';
+import { buttonClassName } from '@trusted-american/core';
 
 interface ButtonProps {
   type?: 'submit';

@@ -1,8 +1,7 @@
+import { formSelectClassName } from '@trusted-american/core';
 import type { ChangeEvent, ReactNode } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
-
-const formSelectClassName = 'bg-gray-100 px-3 py-2 w-full rounded-lg';
 
 interface FormSelectProps {
   options: string[];

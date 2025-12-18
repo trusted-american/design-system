@@ -1,8 +1,6 @@
+import { formCheckClassName } from '@trusted-american/core';
 import type { ChangeEvent } from 'react';
 import FormLabel from './label';
-
-const formCheckClassName =
-  'rounded border-gray-300 text-orange-600 focus:ring-orange-500';
 
 interface FormCheckProps {
   value?: boolean | undefined;

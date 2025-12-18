@@ -1,4 +1,4 @@
-const formHelpClassName = 'text-sm text-gray-500';
+import { formHelpClassName } from '@trusted-american/core';
 
 interface FormHelpProps {
   text: string | undefined;

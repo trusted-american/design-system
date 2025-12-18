@@ -1,6 +1,5 @@
+import { cardClassName } from '@trusted-american/core';
 import type { ReactNode } from 'react';
-
-const cardClassName = 'bg-gray-100 rounded-xl overflow-hidden';
 
 interface CardProps {
   hoverable?: boolean;

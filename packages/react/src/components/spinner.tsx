@@ -1,5 +1,4 @@
-const spinnerClassName =
-  'w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-400';
+import { spinnerClassName } from '@trusted-american/core';
 
 interface SpinnerProps {
   loadingLabel: string;

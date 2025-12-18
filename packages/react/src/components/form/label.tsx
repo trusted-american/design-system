@@ -1,4 +1,4 @@
-const formLabelClassName = 'font-semibold text-gray-700';
+import { formLabelClassName } from '@trusted-american/core';
 
 interface FormLabelProps {
   text: string | undefined;
