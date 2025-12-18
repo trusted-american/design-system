@@ -1,8 +1,13 @@
-import { buttonClassName } from '@trusted-american/core';
+import {
+  buttonClassName,
+  buttonVariants,
+  type Color,
+} from '@trusted-american/core';
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps<T> {
   type?: ButtonHTMLAttributes<T>['type'];
+  color?: Color;
   isDisabled?: boolean;
   text: string;
   className?: string;
@@ -11,6 +16,7 @@ interface ButtonProps<T> {
 
 const Button = <T,>({
   type = 'button',
+  color = 'secondary',
   isDisabled,
   text,
   className,
@@ -20,7 +26,7 @@ const Button = <T,>({
     <button
       type={type}
       disabled={isDisabled}
-      className={`${buttonClassName} ${className}`}
+      className={`${buttonClassName} ${buttonVariants[color]} ${className}`}
       onClick={onClick}
     >
       {text}

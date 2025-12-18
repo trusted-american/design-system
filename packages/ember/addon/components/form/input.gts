@@ -1,6 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
+import type { Size } from '@trusted-american/core';
 import { eq, or } from 'ember-truth-helpers';
 import FormFeedback from './feedback';
 import FormHelp from './help';
@@ -15,7 +16,7 @@ export interface FormInputArgs {
   validLabel?: string;
   invalidLabel?: string;
   isInputOnly?: boolean;
-  size?: 'sm' | 'lg';
+  size?: Size;
   errors?: { message: string }[];
 }
 
@@ -27,7 +28,7 @@ const Internal: TOC<{
     identifier: string;
     isRequired: boolean | undefined;
     isInputOnly: boolean | undefined;
-    size: 'sm' | 'lg' | undefined;
+    size: Size | undefined;
     errors: { message: string }[] | undefined;
     onChange: (event: Event) => void;
   };
