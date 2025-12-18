@@ -47,7 +47,7 @@ const EditorButton: TOC<{
   />
 </template>;
 
-const handleChange = modifier<{
+const setEditorContent = modifier<{
   Element: HTMLElement;
   Args: {
     Positional: [Editor | undefined, string | null];
@@ -250,7 +250,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
             class="form-html-input"
             data-test-value-editor
             {{this.setup}}
-            {{handleChange this.editor @value}}
+            {{setEditorContent this.editor @value}}
             ...attributes
           ></div>
         {{/if}}
