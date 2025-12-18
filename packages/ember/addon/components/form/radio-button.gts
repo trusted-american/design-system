@@ -1,6 +1,7 @@
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
+import type { Color } from '@trusted-american/core';
 import { eq } from 'ember-truth-helpers';
 import ButtonGroup from '../button-group';
 import FormHelp from './help';
@@ -9,7 +10,7 @@ import FormLabel from './label';
 import type { Option } from './select';
 
 interface RadioOption<T> extends Option<T> {
-  color?: string;
+  color?: Color;
 }
 
 interface Args<T> extends FormInputArgs {

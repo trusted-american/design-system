@@ -1,3 +1,13 @@
+export type Color =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info';
+
+//
+
 export const alertClassName = 'p-4 mb-4 rounded-md border';
 
 export const alertVariants = {

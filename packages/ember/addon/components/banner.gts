@@ -1,8 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
+import type { Color } from '@trusted-american/core';
 
 export interface BannerSignature {
   Args: {
-    color?: string;
+    color?: Color;
   };
   Blocks: {
     default: [];

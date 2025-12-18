@@ -1,9 +1,10 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
+import type { Color } from '@trusted-american/core';
 
 export interface SpinnerSignature {
   Args: {
-    color?: string;
+    color?: Color;
     isLarge?: boolean;
   };
   Element: HTMLDivElement;

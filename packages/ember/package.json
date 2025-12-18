@@ -61,6 +61,7 @@
     "@tiptap/core": "^3.13.0",
     "@tiptap/pm": "^3.13.0",
     "@tiptap/starter-kit": "^3.13.0",
+    "@trusted-american/core": "workspace:^",
     "@types/bootstrap": "^5.2.10",
     "bootstrap": "^5.3.7",
     "dayjs": "^1.11.19",

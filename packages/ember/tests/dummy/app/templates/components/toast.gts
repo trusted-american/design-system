@@ -91,18 +91,8 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
         <:title>Title</:title>
         <:body>Body</:body>
         <:buttons>
-          <Button
-            @label="Button"
-            @size="sm"
-            @color="light"
-            {{on "click" this.close}}
-          />
-          <Button
-            @label="Link text"
-            @size="sm"
-            @color="link"
-            {{on "click" this.close}}
-          />
+          <Button @label="Button" @size="sm" {{on "click" this.close}} />
+          <Button @label="Link text" @size="sm" {{on "click" this.close}} />
         </:buttons>
       </Toast>
       {{! END-SNIPPET }}
