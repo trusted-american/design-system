@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Trusted American Insurance Agency",
   "scripts": {
+    "build": "pnpm --filter \"*\" build",
     "lint": "pnpm --filter \"*\" lint",
     "start": "pnpm --filter @trusted-american/ember start",
     "test": "pnpm --filter \"*\" test"
