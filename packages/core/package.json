@@ -21,7 +21,10 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "prettier . --cache --check",
+    "lint": "pnpm lint:format && pnpm lint:types",
+    "lint:format": "prettier . --cache --check",
+    "lint:types": "tsc --noEmit",
+    "prepack": "pnpm build",
     "test": ""
   },
   "devDependencies": {

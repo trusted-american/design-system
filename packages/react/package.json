@@ -15,7 +15,9 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "",
+    "lint": "pnpm lint:types",
+    "lint:types": "tsc --noEmit",
+    "prepack": "pnpm build",
     "test": ""
   },
   "dependencies": {
