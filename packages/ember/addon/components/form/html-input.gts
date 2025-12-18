@@ -60,6 +60,7 @@ const handleChange = modifier<{
   const { from, to } = editor.state.selection;
   editor.commands.setContent(value, {
     parseOptions: { preserveWhitespace: 'full' },
+    emitUpdate: false,
   });
   editor.commands.setTextSelection({ from, to });
 });
