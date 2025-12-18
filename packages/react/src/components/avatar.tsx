@@ -1,9 +1,11 @@
+import { avatarClassName } from '@trusted-american/core';
+
 interface AvatarProps {
   id: string;
 }
 
 const Avatar = ({ id }: AvatarProps) => {
-  return <div style={{ backgroundColor: 'red', padding: '2rem' }}>{id}</div>;
+  return <div className={avatarClassName}>{id}</div>;
 };
 
 export default Avatar;

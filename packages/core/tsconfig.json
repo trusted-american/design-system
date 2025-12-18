@@ -4,7 +4,6 @@
     "module": "esnext",
     "declaration": true,
     "outDir": "dist",
-    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",

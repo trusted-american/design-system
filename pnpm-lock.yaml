@@ -12,6 +12,15 @@ importers:
 
   .: {}
 
+  packages/core:
+    devDependencies:
+      prettier:
+        specifier: ^3.7.4
+        version: 3.7.4
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   packages/ember:
     dependencies:
       '@babel/core':
@@ -276,6 +285,9 @@ importers:
 
   packages/react:
     dependencies:
+      '@trusted-american/core':
+        specifier: workspace:*
+        version: link:../core
       react:
         specifier: ^19.2.3
         version: 19.2.3
