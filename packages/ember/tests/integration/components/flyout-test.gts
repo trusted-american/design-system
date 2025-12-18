@@ -1,0 +1,24 @@
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'dummy/tests/helpers';
+import { render } from '@ember/test-helpers';
+import { Flyout } from '@trusted-american/ember';
+
+module('Integration | Component | flyout', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it renders', async function (assert) {
+    const onClose = () => {
+      assert.ok(true);
+    };
+
+    await render(
+      <template>
+        <Flyout @title="Title" @closeButtonLabel="Close" @onClose={{onClose}}>
+          Body
+        </Flyout>
+      </template>,
+    );
+
+    assert.dom().hasText('Title Body');
+  });
+});
