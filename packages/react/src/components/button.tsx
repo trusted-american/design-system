@@ -1,19 +1,26 @@
 import { buttonClassName } from '@trusted-american/core';
+import { ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps {
-  type?: 'submit';
-  disabled?: boolean;
+interface ButtonProps<T> {
+  type?: ButtonHTMLAttributes<T>['type'];
+  isDisabled?: boolean;
   text: string;
   className?: string;
   onClick?: () => void;
 }
 
-const Button = ({ type, disabled, text, className, onClick }: ButtonProps) => {
+const Button = <T,>({
+  type = 'button',
+  isDisabled,
+  text,
+  className,
+  onClick,
+}: ButtonProps<T>) => {
   return (
     <button
-      type={type ?? 'button'}
-      disabled={disabled}
-      className={`${buttonClassName} ${className} `}
+      type={type}
+      disabled={isDisabled}
+      className={`${buttonClassName} ${className}`}
       onClick={onClick}
     >
       {text}

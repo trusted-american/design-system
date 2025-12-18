@@ -1,15 +1,15 @@
-import { cardClassName } from '@trusted-american/core';
+import { cardClassName, cardHoverable } from '@trusted-american/core';
 import type { ReactNode } from 'react';
 
 interface CardProps {
-  hoverable?: boolean;
+  isHoverable?: boolean;
   className?: string;
   children: ReactNode;
   onClick?: () => void;
 }
 
 const Card = ({
-  hoverable = true,
+  isHoverable = true,
   className,
   children,
   onClick,
@@ -17,7 +17,7 @@ const Card = ({
   return (
     <div
       className={`${cardClassName} ${
-        hoverable ? 'outline-blue-400 hover:outline-2' : ''
+        isHoverable ?? cardHoverable
       } ${className}`}
       onClick={onClick}
     >
