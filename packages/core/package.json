@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "",
+    "lint": "prettier . --cache --check",
     "test": ""
   },
   "devDependencies": {
