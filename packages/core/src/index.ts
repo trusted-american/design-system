@@ -20,6 +20,10 @@ export type Color =
   | 'success'
   | 'danger'
   | 'warning'
-  | 'info';
+  | 'info'
+  // TODO: remove
+  | 'light'
+  | 'dark'
+  | 'white';
 
 export type Size = 'sm' | 'lg';
