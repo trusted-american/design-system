@@ -283,8 +283,8 @@ importers:
   packages/react:
     dependencies:
       '@trusted-american/core':
-        specifier: workspace:*
-        version: link:../core
+        specifier: ^0.0.1
+        version: 0.0.1
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -1405,6 +1405,9 @@ packages:
 
   '@tiptap/starter-kit@2.27.1':
     resolution: {integrity: sha512-uQQlP0Nmn9eq19qm8YoOeloEfmcGbPpB1cujq54Q6nPgxaBozR7rE7tXbFTinxRW2+Hr7XyNWhpjB7DMNkdU2Q==}
+
+  '@trusted-american/core@0.0.1':
+    resolution: {integrity: sha512-kVDvlbWv+bi4N0fM+iC+nB0LLF0pq1dOaMBQZuzo1SEe6UHdeLGgkAuc/lxrC7Ujkmi9uYdgoavzT9G1RWWhtw==}
 
   '@tsconfig/ember@3.0.12':
     resolution: {integrity: sha512-ypFTXqIzQAB5HpYPi4TwDElDcUheWrKsEaYXgjiCAvsH6zxcQ4zUeuJqmfT+FoUlHTPZ3Xyel81OxrcjI+rilw==}
@@ -7928,6 +7931,8 @@ snapshots:
       '@tiptap/extension-text': 2.27.1(@tiptap/core@2.27.1(@tiptap/pm@2.27.1))
       '@tiptap/extension-text-style': 2.27.1(@tiptap/core@2.27.1(@tiptap/pm@2.27.1))
       '@tiptap/pm': 2.27.1
+
+  '@trusted-american/core@0.0.1': {}
 
   '@tsconfig/ember@3.0.12': {}
 

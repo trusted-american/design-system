@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/react",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Components for building robust user interfaces.",
   "keywords": [
     "react"
@@ -19,7 +19,7 @@
     "test": ""
   },
   "dependencies": {
-    "@trusted-american/core": "workspace:*",
+    "@trusted-american/core": "^0.0.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },
