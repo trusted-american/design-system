@@ -58,8 +58,8 @@ const handleChange = modifier<{
   }
 
   const { from, to } = editor.state.selection;
-  editor.commands.setContent(value, false, {
-    preserveWhitespace: 'full',
+  editor.commands.setContent(value, {
+    parseOptions: { preserveWhitespace: 'full' },
   });
   editor.commands.setTextSelection({ from, to });
 });
