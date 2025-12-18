@@ -8,4 +8,8 @@ export const spinnerVariants = {
   danger: 'fill-red-400',
   warning: 'fill-yellow-400',
   info: 'fill-sky-400',
+  // TODO: remove
+  light: '',
+  dark: '',
+  white: '',
 };

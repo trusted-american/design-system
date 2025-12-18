@@ -7,4 +7,8 @@ export const badgeVariants = {
   danger: 'bg-red-100 text-red-800',
   warning: 'bg-yellow-100 text-yellow-800',
   info: 'bg-sky-100 text-sky-800',
+  // TODO: remove
+  light: '',
+  dark: '',
+  white: '',
 };
