@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/react",
-  "version": "0.0.9",
+  "version": "0.0.13",
   "description": "Components for building robust user interfaces.",
   "keywords": [
     "react"
@@ -15,7 +15,9 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "",
+    "lint": "pnpm lint:types",
+    "lint:types": "tsc --noEmit",
+    "prepack": "pnpm build",
     "test": ""
   },
   "dependencies": {

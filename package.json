@@ -7,7 +7,7 @@
   "author": "Trusted American Insurance Agency",
   "scripts": {
     "build": "pnpm --filter \"*\" build",
-    "lint": "pnpm --filter \"*\" lint",
+    "lint": "pnpm --filter @trusted-american/core build && pnpm --filter \"*\" lint",
     "start": "pnpm --filter @trusted-american/ember start",
     "test": "pnpm --filter \"*\" test"
   },

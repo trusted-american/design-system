@@ -70,7 +70,6 @@ const Placeholder: TOC<PlaceholderSignature> = <template>
       {{#if (and @secondaryButtonLabel @onSecondaryClick)}}
         <Button
           @label={{@secondaryButtonLabel}}
-          @color="link"
           class="mt-3"
           {{on "click" @onSecondaryClick}}
         />

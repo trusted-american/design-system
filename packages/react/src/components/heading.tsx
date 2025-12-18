@@ -1,7 +1,11 @@
-interface HeadingProps {}
+import { headingBase } from '@trusted-american/core';
 
-const Heading = ({}: HeadingProps) => {
-  return <div></div>;
+interface HeadingProps {
+  label: string;
+}
+
+const Heading = ({ label }: HeadingProps) => {
+  return <h1 className={headingBase}>{label}</h1>;
 };
 
 export default Heading;

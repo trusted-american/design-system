@@ -1,11 +1,12 @@
 import { concat } from '@ember/helper';
 import { type SafeString, htmlSafe } from '@ember/template';
 import Component from '@glimmer/component';
+import type { Color } from '@trusted-american/core';
 
 export interface ProgressBarSignature {
   Args: {
     value: number;
-    color?: string;
+    color?: Color;
     isLabeled?: boolean;
     isStriped?: boolean;
     isAnimated?: boolean;

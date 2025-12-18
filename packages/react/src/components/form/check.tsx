@@ -1,4 +1,4 @@
-import { formCheckClassName } from '@trusted-american/core';
+import { formCheckBase } from '@trusted-american/core';
 import type { ChangeEvent } from 'react';
 import FormLabel from './label';
 
@@ -29,7 +29,7 @@ const FormCheck = ({
         name={id}
         checked={value}
         onChange={onChange}
-        className={`${formCheckClassName} ${className}`}
+        className={`${formCheckBase} ${className}`}
         required={isRequired}
       />
       <FormLabel

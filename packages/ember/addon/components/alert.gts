@@ -2,13 +2,14 @@ import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Color } from '@trusted-american/core';
 import { and } from 'ember-truth-helpers';
 import AlertLink from './alert/link';
 import CloseButton from './close-button';
 import Icon from './icon';
 
 interface Args {
-  color?: string;
+  color?: Color;
   icon?: IconDefinition;
 }
 

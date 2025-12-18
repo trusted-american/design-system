@@ -1,4 +1,4 @@
-import { formLabelClassName } from '@trusted-american/core';
+import { formLabelBase } from '@trusted-american/core';
 
 interface FormLabelProps {
   text: string | undefined;
@@ -9,7 +9,7 @@ interface FormLabelProps {
 
 const FormLabel = ({ text, id, isRequired, className }: FormLabelProps) => {
   return (
-    <label className={`${formLabelClassName} ${className ?? ''}`} htmlFor={id}>
+    <label className={`${formLabelBase} ${className ?? ''}`} htmlFor={id}>
       {text}
       {isRequired && <span className="text-red-500"> *</span>}
     </label>

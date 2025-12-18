@@ -1,13 +1,14 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Color } from '@trusted-american/core';
 import { or } from 'ember-truth-helpers';
 import Icon from '../icon';
 import Link, { type LinkArgs } from '../link';
 
 const Internal: TOC<{
   Args: {
-    color?: string;
+    color?: Color;
     label?: string;
     subtitle?: string;
     icon?: IconDefinition;
@@ -42,7 +43,7 @@ const Internal: TOC<{
 </template>;
 
 interface Args extends LinkArgs {
-  color?: string;
+  color?: Color;
   label?: string;
   subtitle?: string;
   icon?: IconDefinition;

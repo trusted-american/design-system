@@ -1,8 +1,24 @@
+import type { TOC } from '@ember/component/template-only';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { and, eq, gt, lt } from 'ember-truth-helpers';
-import PaginationItem from './pagination/item';
+
+const increment = (value: number) => value + 1;
+
+const Item: TOC<{
+  Args: {
+    page?: number;
+    index: number;
+    onClick: (event: Event) => void;
+  };
+}> = <template>
+  <li class="page-item {{if (eq @page @index) 'active'}}">
+    <a class="page-link" href="#" {{on "click" @onClick}}>
+      {{increment @index}}
+    </a>
+  </li>
+</template>;
 
 const Ellipsis = <template>
   <li class="page-item disabled">
@@ -155,7 +171,7 @@ export default class Pagination extends Component<PaginationSignature> {
           </li>
           {{#if (lt this.length 6)}}
             {{#each this.pages as |_ index|}}
-              <PaginationItem
+              <Item
                 @page={{@page}}
                 @index={{index}}
                 @onClick={{fn this.change index}}
@@ -164,19 +180,19 @@ export default class Pagination extends Component<PaginationSignature> {
           {{else}}
             {{#each this.pages as |_ index|}}
               {{#if (eq index 0)}}
-                <PaginationItem
+                <Item
                   @page={{@page}}
                   @index={{index}}
                   @onClick={{fn this.change index}}
                 />
                 {{#if (eq @page index)}}
-                  <PaginationItem
+                  <Item
                     @page={{@page}}
                     @index={{1}}
                     @onClick={{fn this.change 1}}
                   />
                   <Ellipsis />
-                  <PaginationItem
+                  <Item
                     @page={{@page}}
                     @index={{this.twoAway}}
                     @onClick={{fn this.change this.twoAway}}
@@ -191,26 +207,26 @@ export default class Pagination extends Component<PaginationSignature> {
                 {{#if (gt index 1)}}
                   <Ellipsis />
                 {{/if}}
-                <PaginationItem
+                <Item
                   @page={{@page}}
                   @index={{index}}
                   @onClick={{fn this.change index}}
                 />
               {{else if (eq index @page)}}
                 {{#if (eq index this.length)}}
-                  <PaginationItem
+                  <Item
                     @page={{@page}}
                     @index={{1}}
                     @onClick={{fn this.change 1}}
                   />
                   <Ellipsis />
-                  <PaginationItem
+                  <Item
                     @page={{@page}}
                     @index={{this.twoAway}}
                     @onClick={{fn this.change this.twoAway}}
                   />
                 {{/if}}
-                <PaginationItem
+                <Item
                   @page={{@page}}
                   @index={{index}}
                   @onClick={{fn this.change index}}
@@ -218,7 +234,7 @@ export default class Pagination extends Component<PaginationSignature> {
               {{else if
                 (and (eq index this.afterCurrentIndex) (lt index this.length))
               }}
-                <PaginationItem
+                <Item
                   @page={{@page}}
                   @index={{index}}
                   @onClick={{fn this.change index}}
@@ -227,7 +243,7 @@ export default class Pagination extends Component<PaginationSignature> {
                   <Ellipsis />
                 {{/if}}
               {{else if (eq index this.length)}}
-                <PaginationItem
+                <Item
                   @page={{@page}}
                   @index={{index}}
                   @onClick={{fn this.change index}}

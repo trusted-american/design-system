@@ -1,15 +1,23 @@
-import { formInputClassName } from '@trusted-american/core';
-import { forwardRef, type ChangeEvent } from 'react';
+import {
+  formInputBase,
+  formInputErrorBorder,
+  formInputErrorMessage,
+} from '@trusted-american/core';
+import {
+  forwardRef,
+  type ChangeEvent,
+  type HTMLInputTypeAttribute,
+} from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
 
 interface FormInputProps {
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   value?: string | number | undefined;
   id: string;
   label: string;
   isRequired?: boolean;
-  disabled?: boolean;
+  isDisabled?: boolean;
   placeholder?: string;
   help?: string;
   error?: string;
@@ -22,12 +30,12 @@ interface FormInputProps {
 const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
   (
     {
-      type,
+      type = 'text',
       value,
       id,
       label,
       isRequired,
-      disabled,
+      isDisabled,
       placeholder,
       help,
       error,
@@ -39,27 +47,27 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
     ref
   ) => {
     return (
-      <div className="w-full">
+      <div>
         <FormLabel text={label} id={id} isRequired={isRequired} />
         <div className="w-full flex items-center gap-2">
           <input
-            type={type ?? 'text'}
+            type={type}
             id={id}
             name={id}
             value={value}
             placeholder={placeholder}
             onChange={onChange}
-            className={`${formInputClassName} ${
-              error ? 'border-2 border-red-500' : ''
+            className={`${formInputBase} ${
+              error ? formInputErrorBorder : ''
             } ${className}`}
             required={isRequired}
-            disabled={disabled}
+            disabled={isDisabled}
             pattern={pattern}
             ref={ref}
             readOnly={readOnly}
           />
         </div>
-        {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+        {error && <p className={formInputErrorMessage}>{error}</p>}
         <FormHelp text={help} />
       </div>
     );

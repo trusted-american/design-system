@@ -1,3 +1,46 @@
+import type AccordionBody from './components/accordion/body';
+import type AccordionButton from './components/accordion/button';
+import type AccordionItem from './components/accordion/item';
+import type AlertLink from './components/alert/link';
+import type AsideGroup from './components/aside/group';
+import type AsideItem from './components/aside/item';
+import type AsideTitle from './components/aside/title';
+import type CardBody from './components/card/body';
+import type CardFooter from './components/card/footer';
+import type CardHeader from './components/card/header';
+import type DropdownDivider from './components/dropdown/divider';
+import type DropdownHeader from './components/dropdown/header';
+import type DropdownItem from './components/dropdown/item';
+import type FormCheck from './components/form/check';
+import type FormCheckInput from './components/form/check/input';
+import type FormDateInput from './components/form/date-input';
+import type FormFeedback from './components/form/feedback';
+import type FormFileDropzone from './components/form/file-dropzone';
+import type FormFileInput from './components/form/file-input';
+import type FormHelp from './components/form/help';
+import type FormHtmlInput from './components/form/html-input';
+import type FormInput from './components/form/input';
+import type FormLabel from './components/form/label';
+import type FormMarkdownInput from './components/form/markdown-input';
+import type FormNumberInput from './components/form/number-input';
+import type FormPhoneInput from './components/form/phone-input';
+import type FormPowerSelect from './components/form/power-select';
+import type FormPowerSelectMultiple from './components/form/power-select-multiple';
+import type FormRadioButton from './components/form/radio-button';
+import type FormRadioCard from './components/form/radio-card';
+import type FormRadio from './components/form/radio';
+import type FormRadioInput from './components/form/radio/input';
+import type FormSelect from './components/form/select';
+import type FormTextarea from './components/form/textarea';
+import type FormTimeInput from './components/form/time-input';
+import type ListGroupItem from './components/list-group/item';
+import type MainBody from './components/main/body';
+import type MainFooter from './components/main/footer';
+import type MainHeader from './components/main/header';
+import type MainTopHeader from './components/main/top-header';
+import type NavItem from './components/nav/item';
+import type ProgressBar from './components/progress/bar';
+import type PropertyListItem from './components/property-list/item';
 import type Accordion from './components/accordion';
 import type Alert from './components/alert';
 import type Aside from './components/aside';
@@ -40,60 +83,6 @@ import type Subheading from './components/subheading';
 import type Table from './components/table';
 import type Toast from './components/toast';
 
-import type AccordionBody from './components/accordion/body';
-import type AccordionButton from './components/accordion/button';
-import type AccordionItem from './components/accordion/item';
-
-import type AlertLink from './components/alert/link';
-
-import type AsideGroup from './components/aside/group';
-import type AsideItem from './components/aside/item';
-import type AsideTitle from './components/aside/title';
-
-import type CardBody from './components/card/body';
-import type CardFooter from './components/card/footer';
-import type CardHeader from './components/card/header';
-
-import type DropdownDivider from './components/dropdown/divider';
-import type DropdownHeader from './components/dropdown/header';
-import type DropdownItem from './components/dropdown/item';
-
-import type FormCheck from './components/form/check';
-import type FormCheckInput from './components/form/check/input';
-import type FormDateInput from './components/form/date-input';
-import type FormFeedback from './components/form/feedback';
-import type FormFileDropzone from './components/form/file-dropzone';
-import type FormFileInput from './components/form/file-input';
-import type FormHelp from './components/form/help';
-import type FormHtmlInput from './components/form/html-input';
-import type FormInput from './components/form/input';
-import type FormLabel from './components/form/label';
-import type FormMarkdownInput from './components/form/markdown-input';
-import type FormNumberInput from './components/form/number-input';
-import type FormPhoneInput from './components/form/phone-input';
-import type FormPowerSelect from './components/form/power-select';
-import type FormPowerSelectMultiple from './components/form/power-select-multiple';
-import type FormRadioButton from './components/form/radio-button';
-import type FormRadioCard from './components/form/radio-card';
-import type FormRadio from './components/form/radio';
-import type FormRadioInput from './components/form/radio/input';
-import type FormSelect from './components/form/select';
-import type FormTextarea from './components/form/textarea';
-import type FormTimeInput from './components/form/time-input';
-
-import type ListGroupItem from './components/list-group/item';
-
-import type MainBody from './components/main/body';
-import type MainFooter from './components/main/footer';
-import type MainHeader from './components/main/header';
-import type MainTopHeader from './components/main/top-header';
-
-import type NavItem from './components/nav/item';
-
-import type ProgressBar from './components/progress/bar';
-
-import type PropertyListItem from './components/property-list/item';
-
 import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
 import type theme from './helpers/theme';
@@ -104,6 +93,49 @@ import type dropdown from './modifiers/dropdown';
 import type tooltip from './modifiers/tooltip';
 
 export default interface Registry {
+  'Accordion::Body': typeof AccordionBody;
+  'Accordion::Button': typeof AccordionButton;
+  'Accordion::Item': typeof AccordionItem;
+  'Alert::Link': typeof AlertLink;
+  'Aside::Group': typeof AsideGroup;
+  'Aside::Item': typeof AsideItem;
+  'Aside::Title': typeof AsideTitle;
+  'Card::Body': typeof CardBody;
+  'Card::Footer': typeof CardFooter;
+  'Card::Header': typeof CardHeader;
+  'Dropdown::Divider': typeof DropdownDivider;
+  'Dropdown::Header': typeof DropdownHeader;
+  'Dropdown::Item': typeof DropdownItem;
+  'Form::Check': typeof FormCheck;
+  'Form::Check::Input': typeof FormCheckInput;
+  'Form::DateInput': typeof FormDateInput;
+  'Form::Feedback': typeof FormFeedback;
+  'Form::FileDropzone': typeof FormFileDropzone;
+  'Form::FileInput': typeof FormFileInput;
+  'Form::Help': typeof FormHelp;
+  'Form::HtmlInput': typeof FormHtmlInput;
+  'Form::Input': typeof FormInput;
+  'Form::Label': typeof FormLabel;
+  'Form::MarkdownInput': typeof FormMarkdownInput;
+  'Form::NumberInput': typeof FormNumberInput;
+  'Form::PhoneInput': typeof FormPhoneInput;
+  'Form::PowerSelect': typeof FormPowerSelect;
+  'Form::PowerSelectMultiple': typeof FormPowerSelectMultiple;
+  'Form::RadioButton': typeof FormRadioButton;
+  'Form::RadioCard': typeof FormRadioCard;
+  'Form::Radio': typeof FormRadio;
+  'Form::Radio::Input': typeof FormRadioInput;
+  'Form::Select': typeof FormSelect;
+  'Form::Textarea': typeof FormTextarea;
+  'Form::TimeInput': typeof FormTimeInput;
+  'ListGroup::Item': typeof ListGroupItem;
+  'Main::Body': typeof MainBody;
+  'Main::Footer': typeof MainFooter;
+  'Main::Header': typeof MainHeader;
+  'Main::TopHeader': typeof MainTopHeader;
+  'Nav::Item': typeof NavItem;
+  'Progress::Bar': typeof ProgressBar;
+  'PropertyList::Item': typeof PropertyListItem;
   Accordion: typeof Accordion;
   Alert: typeof Alert;
   Aside: typeof Aside;
@@ -145,60 +177,6 @@ export default interface Registry {
   Subheading: typeof Subheading;
   Table: typeof Table;
   Toast: typeof Toast;
-
-  'Accordion::Body': typeof AccordionBody;
-  'Accordion::Button': typeof AccordionButton;
-  'Accordion::Item': typeof AccordionItem;
-
-  'Alert::Link': typeof AlertLink;
-
-  'Aside::Group': typeof AsideGroup;
-  'Aside::Item': typeof AsideItem;
-  'Aside::Title': typeof AsideTitle;
-
-  'Card::Body': typeof CardBody;
-  'Card::Footer': typeof CardFooter;
-  'Card::Header': typeof CardHeader;
-
-  'Dropdown::Divider': typeof DropdownDivider;
-  'Dropdown::Header': typeof DropdownHeader;
-  'Dropdown::Item': typeof DropdownItem;
-
-  'Form::Check': typeof FormCheck;
-  'Form::Check::Input': typeof FormCheckInput;
-  'Form::DateInput': typeof FormDateInput;
-  'Form::Feedback': typeof FormFeedback;
-  'Form::FileDropzone': typeof FormFileDropzone;
-  'Form::FileInput': typeof FormFileInput;
-  'Form::Help': typeof FormHelp;
-  'Form::HtmlInput': typeof FormHtmlInput;
-  'Form::Input': typeof FormInput;
-  'Form::Label': typeof FormLabel;
-  'Form::MarkdownInput': typeof FormMarkdownInput;
-  'Form::NumberInput': typeof FormNumberInput;
-  'Form::PhoneInput': typeof FormPhoneInput;
-  'Form::PowerSelect': typeof FormPowerSelect;
-  'Form::PowerSelectMultiple': typeof FormPowerSelectMultiple;
-  'Form::RadioButton': typeof FormRadioButton;
-  'Form::RadioCard': typeof FormRadioCard;
-  'Form::Radio': typeof FormRadio;
-  'Form::Radio::Input': typeof FormRadioInput;
-  'Form::Select': typeof FormSelect;
-  'Form::Textarea': typeof FormTextarea;
-  'Form::TimeInput': typeof FormTimeInput;
-
-  'ListGroup::Item': typeof ListGroupItem;
-
-  'Main::Body': typeof MainBody;
-  'Main::Footer': typeof MainFooter;
-  'Main::Header': typeof MainHeader;
-  'Main::TopHeader': typeof MainTopHeader;
-
-  'Nav::Item': typeof NavItem;
-
-  'Progress::Bar': typeof ProgressBar;
-
-  'PropertyList::Item': typeof PropertyListItem;
 
   'file-size': typeof fileSize;
   'from-now': typeof fromNow;

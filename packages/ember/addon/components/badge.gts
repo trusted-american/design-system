@@ -1,12 +1,13 @@
 import type { TOC } from '@ember/component/template-only';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Color } from '@trusted-american/core';
 import Icon from './icon';
 import Spinner from './spinner';
 
 export interface BadgeSignature {
   Args: {
     label?: string;
-    color?: string;
+    color?: Color;
     icon?: IconDefinition;
     isPill?: boolean;
     isLoading?: boolean;

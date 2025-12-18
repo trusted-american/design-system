@@ -43,7 +43,7 @@ const StatCard: TOC<StatCardSignature> = <template>
         </div>
         {{#if @icon}}
           <div>
-            <Icon @icon={{@icon}} @color="body" @size="3x" />
+            <Icon @icon={{@icon}} @size="3x" />
           </div>
         {{/if}}
       </div>

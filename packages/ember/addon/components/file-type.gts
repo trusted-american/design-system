@@ -74,12 +74,7 @@ const FileType: TOC<FileTypeSignature> = <template>
         @isFixedWidth={{true}}
       />
     {{else}}
-      <Icon
-        @icon={{faFile}}
-        @color="body"
-        @size={{@size}}
-        @isFixedWidth={{true}}
-      />
+      <Icon @icon={{faFile}} @size={{@size}} @isFixedWidth={{true}} />
     {{/if}}
   </div>
 </template>;

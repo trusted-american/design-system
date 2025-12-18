@@ -5,11 +5,12 @@ import type {
   IconDefinition,
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core';
+import type { Color } from '@trusted-american/core';
 
 export interface IconSignature {
   Args: {
     icon: IconDefinition;
-    color?: string;
+    color?: Color;
     isFixedWidth?: boolean;
     size?: SizeProp;
     transform?: string;

@@ -1,5 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat, hash } from '@ember/helper';
+import type { Color } from '@trusted-american/core';
 import ListGroupItem from './list-group/item';
 
 export interface ListGroupSignature {
@@ -7,7 +8,7 @@ export interface ListGroupSignature {
     isFlush?: boolean;
     isNumbered?: boolean;
     isHorizontal?: boolean;
-    color?: string;
+    color?: Color;
   };
   Blocks: {
     default: [{ item: typeof ListGroupItem }];

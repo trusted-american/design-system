@@ -1,10 +1,11 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat, hash } from '@ember/helper';
+import type { Size } from '@trusted-american/core';
 import Button from './button';
 
 export interface ButtonGroupSignature {
   Args: {
-    size?: 'sm' | 'lg';
+    size?: Size;
   };
   Blocks: {
     default: [{ button: typeof Button }];

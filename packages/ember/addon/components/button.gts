@@ -1,6 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Color, Size } from '@trusted-american/core';
 import { and, not, or } from 'ember-truth-helpers';
 import Badge from './badge';
 import Icon from './icon';
@@ -45,10 +46,10 @@ interface Args extends LinkArgs {
   icon?: IconDefinition;
   isIconTrailing?: boolean;
   isIconOnly?: boolean;
-  size?: 'sm' | 'lg';
+  size?: Size;
   isOutline?: boolean;
   isFullWidth?: boolean;
-  color?: string;
+  color?: Color;
   isLoading?: boolean;
   count?: number;
   isLabel?: boolean;
