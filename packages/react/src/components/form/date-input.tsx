@@ -1,4 +1,4 @@
-import { dateInputBase } from '@trusted-american/core';
+import { formDateInputBase } from '@trusted-american/core';
 import type { ChangeEvent } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
@@ -57,7 +57,9 @@ const FormDateInput = ({
         value={formatDateForInput(value)}
         placeholder={placeholder}
         onChange={onChange}
-        className={`${dateInputBase} ${error ? 'border-2 border-red-500' : ''}`}
+        className={`${formDateInputBase} ${
+          error ? 'border-2 border-red-500' : ''
+        }`}
         required={isRequired}
         disabled={disabled}
       />

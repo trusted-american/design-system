@@ -1,9 +1,3 @@
-export { default as Alert } from './components/alert';
-export { default as Avatar } from './components/avatar';
-export { default as Button } from './components/button';
-export { default as Card } from './components/card';
-export { default as Spinner } from './components/spinner';
-
 export { default as FormCheck } from './components/form/check';
 export { default as FormDateInput } from './components/form/date-input';
 export { default as FormHelp } from './components/form/help';
@@ -12,3 +6,15 @@ export { default as FormLabel } from './components/form/label';
 export { default as FormPhoneInput } from './components/form/phone-input';
 export { default as FormSelect } from './components/form/select';
 export { default as FormTextarea } from './components/form/textarea';
+export { default as Accordion } from './components/accordion';
+export { default as Alert } from './components/alert';
+export { default as Avatar } from './components/avatar';
+export { default as Badge } from './components/badge';
+export { default as Banner } from './components/banner';
+export { default as Button } from './components/button';
+export { default as Card } from './components/card';
+export { default as Spinner } from './components/spinner';
+export { default as StatCard } from './components/stat-card';
+export { default as Subheading } from './components/subheading';
+export { default as Table } from './components/table';
+export { default as Toast } from './components/toast';
