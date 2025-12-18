@@ -1,4 +1,4 @@
-import { formSelectClassName } from '@trusted-american/core';
+import { formSelectBase } from '@trusted-american/core';
 import type { ChangeEvent, ReactNode } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
@@ -37,7 +37,7 @@ const FormSelect = ({
         value={value}
         disabled={disabled}
         onChange={onChange}
-        className={`${formSelectClassName} ${className}`}
+        className={`${formSelectBase} ${className}`}
         required={isRequired}
       >
         {children}

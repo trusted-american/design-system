@@ -1,4 +1,4 @@
-import { cardClassName, cardHoverable } from '@trusted-american/core';
+import { cardBase, cardHoverable } from '@trusted-american/core';
 import type { ReactNode } from 'react';
 
 interface CardProps {
@@ -16,9 +16,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <div
-      className={`${cardClassName} ${
-        isHoverable ?? cardHoverable
-      } ${className}`}
+      className={`${cardBase} ${isHoverable ?? cardHoverable} ${className}`}
       onClick={onClick}
     >
       {children}

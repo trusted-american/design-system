@@ -1,4 +1,4 @@
-import { formTextareaClassName } from '@trusted-american/core';
+import { formTextareaBase } from '@trusted-american/core';
 import type { ChangeEvent } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
@@ -39,7 +39,7 @@ const FormTextarea = ({
         disabled={disabled}
         onChange={onChange}
         rows={4}
-        className={`${formTextareaClassName} ${
+        className={`${formTextareaBase} ${
           error ? 'border-2 border-red-500' : ''
         } ${className}`}
         required={isRequired}

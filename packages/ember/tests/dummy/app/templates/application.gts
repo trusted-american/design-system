@@ -182,7 +182,6 @@ export default class Application extends Component<ApplicationSignature> {
               <Button
                 @label="Expand menu"
                 @icon={{faAnglesRight}}
-                @color="none"
                 @isIconOnly={{true}}
                 {{tooltip "Expand menu" trigger="hover"}}
                 {{on "click" this.expand}}

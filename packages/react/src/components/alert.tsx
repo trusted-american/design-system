@@ -1,8 +1,4 @@
-import {
-  alertClassName,
-  type Color,
-  alertVariants,
-} from '@trusted-american/core';
+import { alertBase, type Color, alertVariants } from '@trusted-american/core';
 import type { ReactNode } from 'react';
 
 interface AlertProps {
@@ -13,7 +9,7 @@ interface AlertProps {
 
 const Alert = ({ color, className, children }: AlertProps) => {
   return (
-    <div className={`${alertClassName} ${alertVariants[color]} ${className}`}>
+    <div className={`${alertBase} ${alertVariants[color]} ${className}`}>
       {children}
     </div>
   );

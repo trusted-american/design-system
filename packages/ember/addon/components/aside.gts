@@ -50,7 +50,6 @@ const Aside: TOC<AsideSignature> = <template>
         <Button
           @label={{@collapseLabel}}
           @icon={{faAnglesLeft}}
-          @color="none"
           @isIconOnly={{true}}
           {{tooltip @collapseLabel trigger="hover"}}
           {{on "click" (fn @onChange true)}}

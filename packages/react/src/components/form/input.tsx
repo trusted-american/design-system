@@ -1,10 +1,14 @@
-import { formInputClassName } from '@trusted-american/core';
-import { forwardRef, type ChangeEvent } from 'react';
+import { formInputBase } from '@trusted-american/core';
+import {
+  forwardRef,
+  type ChangeEvent,
+  type HTMLInputTypeAttribute,
+} from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
 
 interface FormInputProps {
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   value?: string | number | undefined;
   id: string;
   label: string;
@@ -22,7 +26,7 @@ interface FormInputProps {
 const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
   (
     {
-      type,
+      type = 'text',
       value,
       id,
       label,
@@ -43,13 +47,13 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
         <FormLabel text={label} id={id} isRequired={isRequired} />
         <div className="w-full flex items-center gap-2">
           <input
-            type={type ?? 'text'}
+            type={type}
             id={id}
             name={id}
             value={value}
             placeholder={placeholder}
             onChange={onChange}
-            className={`${formInputClassName} ${
+            className={`${formInputBase} ${
               error ? 'border-2 border-red-500' : ''
             } ${className}`}
             required={isRequired}
