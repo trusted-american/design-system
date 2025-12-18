@@ -6,6 +6,7 @@ Components for building robust user interfaces.
 
 ## Packages
 
+- [@trusted-american/core](packages/core)
 - [@trusted-american/ember](packages/ember)
 - [@trusted-american/react](packages/react)
 

@@ -1,4 +1,4 @@
-const avatarClassName = 'bg-green-700 text-white p-4 rounded-md';
+import { avatarClassName } from '@trusted-american/core';
 
 interface AvatarProps {
   id: string;
