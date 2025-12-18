@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
+    "target": "es2023",
+    "module": "esnext",
     "declaration": true,
     "outDir": "dist",
     "jsx": "react-jsx",
