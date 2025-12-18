@@ -1,4 +1,8 @@
-import { formInputBase } from '@trusted-american/core';
+import {
+  formInputBase,
+  formInputErrorBorder,
+  formInputErrorMessage,
+} from '@trusted-american/core';
 import {
   forwardRef,
   type ChangeEvent,
@@ -13,7 +17,7 @@ interface FormInputProps {
   id: string;
   label: string;
   isRequired?: boolean;
-  disabled?: boolean;
+  isDisabled?: boolean;
   placeholder?: string;
   help?: string;
   error?: string;
@@ -31,7 +35,7 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
       id,
       label,
       isRequired,
-      disabled,
+      isDisabled,
       placeholder,
       help,
       error,
@@ -43,7 +47,7 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
     ref
   ) => {
     return (
-      <div className="w-full">
+      <div>
         <FormLabel text={label} id={id} isRequired={isRequired} />
         <div className="w-full flex items-center gap-2">
           <input
@@ -54,16 +58,16 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
             placeholder={placeholder}
             onChange={onChange}
             className={`${formInputBase} ${
-              error ? 'border-2 border-red-500' : ''
+              error ? formInputErrorBorder : ''
             } ${className}`}
             required={isRequired}
-            disabled={disabled}
+            disabled={isDisabled}
             pattern={pattern}
             ref={ref}
             readOnly={readOnly}
           />
         </div>
-        {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+        {error && <p className={formInputErrorMessage}>{error}</p>}
         <FormHelp text={help} />
       </div>
     );

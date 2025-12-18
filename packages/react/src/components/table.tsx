@@ -1,7 +1,16 @@
-interface TableProps {}
+import { tableBase, tableWrapper } from '@trusted-american/core';
+import type { ReactNode } from 'react';
 
-const Table = ({}: TableProps) => {
-  return <div></div>;
+interface TableProps {
+  children: ReactNode;
+}
+
+const Table = ({ children }: TableProps) => {
+  return (
+    <div className={tableWrapper}>
+      <table className={tableBase}>{children}</table>
+    </div>
+  );
 };
 
 export default Table;

@@ -1,14 +1,12 @@
-import { formDateInputBase } from '@trusted-american/core';
 import type { ChangeEvent } from 'react';
-import FormHelp from './help';
-import FormLabel from './label';
+import FormInput from './input';
 
 interface FormDateInputProps {
   value: string | Date | null;
   id: string;
   label: string;
   isRequired?: boolean;
-  disabled?: boolean;
+  isDisabled?: boolean;
   placeholder?: string;
   help?: string;
   error?: string;
@@ -20,7 +18,7 @@ const FormDateInput = ({
   id,
   label,
   isRequired = false,
-  disabled = false,
+  isDisabled = false,
   placeholder,
   help,
   error,
@@ -48,24 +46,18 @@ const FormDateInput = ({
   };
 
   return (
-    <div className="w-full">
-      <FormLabel text={label} id={id} isRequired={isRequired} />
-      <input
-        type="datetime-local"
-        id={id}
-        name={id}
-        value={formatDateForInput(value)}
-        placeholder={placeholder}
-        onChange={onChange}
-        className={`${formDateInputBase} ${
-          error ? 'border-2 border-red-500' : ''
-        }`}
-        required={isRequired}
-        disabled={disabled}
-      />
-      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
-      <FormHelp text={help} />
-    </div>
+    <FormInput
+      type="datetime-local"
+      value={formatDateForInput(value)}
+      id={id}
+      label={label}
+      isRequired={isRequired}
+      placeholder={placeholder}
+      error={error}
+      isDisabled={isDisabled}
+      help={help}
+      onChange={onChange}
+    />
   );
 };
 

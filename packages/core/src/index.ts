@@ -1,5 +1,4 @@
 export * from './components/form/check';
-export * from './components/form/date-input';
 export * from './components/form/help';
 export * from './components/form/input';
 export * from './components/form/label';
@@ -13,6 +12,7 @@ export * from './components/button';
 export * from './components/card';
 export * from './components/heading';
 export * from './components/spinner';
+export * from './components/table';
 
 export type Color =
   | 'primary'

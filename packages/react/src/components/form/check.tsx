@@ -8,7 +8,7 @@ interface FormCheckProps {
   label: string;
   isRequired?: boolean;
   className?: string;
-  labelBase?: string;
+  labelClassName?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -18,7 +18,7 @@ const FormCheck = ({
   label,
   isRequired,
   className,
-  labelBase,
+  labelClassName,
   onChange,
 }: FormCheckProps) => {
   return (
@@ -32,7 +32,11 @@ const FormCheck = ({
         className={`${formCheckBase} ${className}`}
         required={isRequired}
       />
-      <FormLabel text={label} id={id} className={`ml-2 ${labelBase ?? ''} `} />
+      <FormLabel
+        text={label}
+        id={id}
+        className={`ml-2 ${labelClassName ?? ''} `}
+      />
     </div>
   );
 };
