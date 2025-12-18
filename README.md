@@ -10,6 +10,24 @@ Components for building robust user interfaces.
 - 🌐 Full i18n support
 - ♿ Full a11y support
 
+## Installation
+
+### React
+
+```
+pnpm add @trusted-american/core @trusted-american/react
+```
+
+### Ember
+
+```
+pnpm add @trusted-american/core @trusted-american/ember
+```
+
+## Usage
+
+[Read the introduction guide.](https://taia-design-system.netlify.app/guides/introduction)
+
 ## Packages
 
 - [@trusted-american/core](packages/core)
