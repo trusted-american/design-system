@@ -5,79 +5,26 @@ import FormLabel from './label';
 const formSelectClassName = 'bg-gray-100 px-3 py-2 w-full rounded-lg';
 
 interface FormSelectProps {
+  options: string[];
   value: string | undefined;
   id: string;
   label: string;
   isRequired?: boolean;
   disabled?: boolean;
   help?: string;
-  isStateSelect?: boolean;
   className?: string;
   children?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const states = [
-  'Alabama',
-  'Alaska',
-  'Arizona',
-  'Arkansas',
-  'California',
-  'Colorado',
-  'Connecticut',
-  'Delaware',
-  'Florida',
-  'Georgia',
-  'Hawaii',
-  'Idaho',
-  'Illinois',
-  'Indiana',
-  'Iowa',
-  'Kansas',
-  'Kentucky',
-  'Louisiana',
-  'Maine',
-  'Maryland',
-  'Massachusetts',
-  'Michigan',
-  'Minnesota',
-  'Mississippi',
-  'Missouri',
-  'Montana',
-  'Nebraska',
-  'Nevada',
-  'New Hampshire',
-  'New Jersey',
-  'New Mexico',
-  'New York',
-  'North Carolina',
-  'North Dakota',
-  'Ohio',
-  'Oklahoma',
-  'Oregon',
-  'Pennsylvania',
-  'Rhode Island',
-  'South Carolina',
-  'South Dakota',
-  'Tennessee',
-  'Texas',
-  'Utah',
-  'Vermont',
-  'Virginia',
-  'Washington',
-  'West Virginia',
-  'Wisconsin',
-  'Wyoming',
-];
-
 const FormSelect = ({
+  options,
   value,
   id,
   label,
   isRequired,
   disabled,
   help,
-  isStateSelect,
   className,
   children,
   onChange,
@@ -95,12 +42,11 @@ const FormSelect = ({
         required={isRequired}
       >
         {children}
-        {isStateSelect &&
-          states.map((state) => (
-            <option key={state} value={state}>
-              {state}
-            </option>
-          ))}
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
       </select>
       <FormHelp text={help} />
     </div>
