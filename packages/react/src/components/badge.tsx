@@ -1,7 +1,17 @@
-interface BadgeProps {}
+import { type Color, badgeBase, badgeVariants } from '@trusted-american/core';
 
-const Badge = ({}: BadgeProps) => {
-  return <div></div>;
+interface BadgeProps {
+  label?: string;
+  color?: Color;
+  className?: string;
+}
+
+const Badge = ({ label, color = 'secondary', className }: BadgeProps) => {
+  return (
+    <span className={`${badgeBase} ${badgeVariants[color]} ${className}`}>
+      {label}
+    </span>
+  );
 };
 
 export default Badge;
