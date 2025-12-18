@@ -2,6 +2,8 @@ import type { ChangeEvent, ReactNode } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
 
+const formSelectClassName = 'bg-gray-100 px-3 py-2 w-full rounded-lg';
+
 interface FormSelectProps {
   value: string | undefined;
   id: string;
@@ -89,7 +91,7 @@ const FormSelect = ({
         value={value}
         disabled={disabled}
         onChange={onChange}
-        className={`bg-gray-100 px-3 py-2 w-full rounded-lg ${className ?? ''}`}
+        className={`${formSelectClassName} ${className}`}
         required={isRequired}
       >
         {children}

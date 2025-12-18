@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+const alertClassName = 'p-4 mb-4 rounded-md border';
+
 export type AlertType = 'success' | 'error' | 'warning' | 'info';
 
 interface AlertProps {
@@ -17,9 +19,7 @@ const Alert = ({ type = 'info', className, children }: AlertProps) => {
   };
 
   return (
-    <div
-      className={`p-4 mb-4 rounded-md border ${typeClasses[type]} ${className}`}
-    >
+    <div className={`${alertClassName} ${typeClasses[type]} ${className}`}>
       {children}
     </div>
   );

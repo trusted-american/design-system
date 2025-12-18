@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+const cardClassName = 'bg-gray-100 rounded-xl overflow-hidden';
+
 interface CardProps {
   hoverable?: boolean;
   className?: string;
@@ -15,7 +17,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <div
-      className={`bg-gray-100 rounded-xl overflow-hidden ${
+      className={`${cardClassName} ${
         hoverable ? 'outline-blue-400 hover:outline-2' : ''
       } ${className}`}
       onClick={onClick}

@@ -1,3 +1,5 @@
+const formLabelClassName = 'font-semibold text-gray-700';
+
 interface FormLabelProps {
   text: string | undefined;
   id: string;
@@ -7,10 +9,7 @@ interface FormLabelProps {
 
 const FormLabel = ({ text, id, isRequired, className }: FormLabelProps) => {
   return (
-    <label
-      className={`font-semibold text-gray-700 ${className ?? ''}`}
-      htmlFor={id}
-    >
+    <label className={`${formLabelClassName} ${className ?? ''}`} htmlFor={id}>
       {text}
       {isRequired && <span className="text-red-500"> *</span>}
     </label>

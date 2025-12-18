@@ -1,7 +1,9 @@
-import type { ChangeEvent } from 'react';
-import { forwardRef, useState } from 'react';
+import { forwardRef, type ChangeEvent } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
+
+const formInputClassName =
+  'bg-gray-100 px-3 py-2 rounded-lg focus:outline-blue-400 flex-1';
 
 interface FormInputProps {
   type?: string;
@@ -49,9 +51,9 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
             value={value}
             placeholder={placeholder}
             onChange={onChange}
-            className={`bg-gray-100 px-3 py-2 rounded-lg focus:outline-blue-400 flex-1 ${
+            className={`${formInputClassName} ${
               error ? 'border-2 border-red-500' : ''
-            } ${className ?? ''}`}
+            } ${className}`}
             required={isRequired}
             disabled={disabled}
             pattern={pattern}

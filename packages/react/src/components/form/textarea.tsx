@@ -2,6 +2,8 @@ import type { ChangeEvent } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
 
+const formTextareaClassName = 'bg-gray-100 px-3 py-2 w-full rounded-lg mt-2';
+
 interface FormTextareaProps {
   value: string | number | undefined;
   id: string;
@@ -38,9 +40,9 @@ const FormTextarea = ({
         disabled={disabled}
         onChange={onChange}
         rows={4}
-        className={`bg-gray-100 px-3 py-2 w-full rounded-lg mt-2 ${
+        className={`${formTextareaClassName} ${
           error ? 'border-2 border-red-500' : ''
-        } ${className ?? ''}`}
+        } ${className}`}
         required={isRequired}
       />
       <FormHelp text={help} />
