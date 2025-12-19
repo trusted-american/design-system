@@ -42,7 +42,7 @@ export default class FormTimeInput extends Component<FormTimeInputSignature> {
       @type="time"
       @value={{format @value}}
       @label={{@label}}
-      @identifier={{@identifier}}
+      @id={{@id}}
       @isRequired={{@isRequired}}
       @help={{@help}}
       @invalidLabel={{@invalidLabel}}

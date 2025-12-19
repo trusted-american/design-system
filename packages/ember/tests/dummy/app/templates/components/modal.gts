@@ -84,7 +84,7 @@ export default class ComponentsModal extends Component<ComponentsModalSignature>
             @selected={{this.selected}}
             @searchField="name"
             @label="Label"
-            @identifier="identifier"
+            @id="identifier"
             @requiredLabel="Required"
             @chooseLabel="Choose…"
             @searchLabel="Search…"

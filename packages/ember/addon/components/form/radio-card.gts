@@ -34,7 +34,7 @@ export default class FormRadioCard<T> extends Component<
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier="{{@identifier}}0"
+        @for="{{@id}}0"
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
@@ -70,8 +70,8 @@ export default class FormRadioCard<T> extends Component<
               <card.footer>
                 <FormRadioInput
                   @checked={{eq @selected option.value}}
-                  @name={{@identifier}}
-                  @identifier="{{@identifier}}{{index}}"
+                  @name={{@id}}
+                  @id="{{@id}}{{index}}"
                   @isRequired={{@isRequired}}
                   {{on "change" (fn @onChange option.value)}}
                 />

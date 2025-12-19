@@ -159,7 +159,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier={{@identifier}}
+        @for={{@id}}
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
@@ -237,7 +237,7 @@ export default class FormHtmlInput extends Component<FormHtmlInputSignature> {
           <FormTextarea
             @value={{@value}}
             @label={{@label}}
-            @identifier={{@identifier}}
+            @id={{@id}}
             @isRequired={{@isRequired}}
             @requiredLabel={{@requiredLabel}}
             @isInputOnly={{true}}

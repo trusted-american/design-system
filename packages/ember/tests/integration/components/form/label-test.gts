@@ -11,7 +11,7 @@ module('Integration | Component | form/label', function (hooks) {
       <template>
         <FormLabel
           @label="Label"
-          @identifier="identifier"
+          @for="identifier"
           @isRequired={{true}}
           @requiredLabel="Required"
         />

@@ -18,7 +18,7 @@ module('Integration | Component | form/file-input', function (hooks) {
       <template>
         <FormFileInput
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidLabel="Invalid feedback"

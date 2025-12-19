@@ -28,7 +28,7 @@ export default class ComponentsFormNumberInput extends Component<ComponentsFormN
       <FormNumberInput
         @value={{this.value}}
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."
@@ -41,7 +41,7 @@ export default class ComponentsFormNumberInput extends Component<ComponentsFormN
         @value={{this.value}}
         @type="range"
         @label="Label"
-        @identifier="identifier"
+        @id="identifier2"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."

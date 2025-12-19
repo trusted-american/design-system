@@ -24,7 +24,7 @@ module('Integration | Component | form/select', function (hooks) {
           }}
           @selected={{state.selected}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidLabel="Invalid feedback"
@@ -66,7 +66,7 @@ module('Integration | Component | form/select', function (hooks) {
           }}
           @selected={{state.selected}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @requiredLabel="Required"
           @chooseLabel="Choose…"

@@ -28,7 +28,7 @@ export default class ComponentsFormDateInputController extends Component<Compone
       <FormDateInput
         @value={{this.value}}
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."

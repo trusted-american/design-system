@@ -42,7 +42,7 @@ export default class List extends Component<ListSignature> {
             @value={{this.search}}
             @type="search"
             @label="Search"
-            @identifier="search"
+            @id="search"
             @requiredLabel="Required"
             @isInputOnly={{true}}
             @onChange={{fn (mut this.search)}}

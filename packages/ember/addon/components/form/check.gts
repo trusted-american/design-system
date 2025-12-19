@@ -28,7 +28,7 @@ export interface FormCheckSignature {
     <FormCheckInput
       @value={{@value}}
       @label={{@label}}
-      @identifier={{@identifier}}
+      @id={{@id}}
       @isRequired={{@isRequired}}
       @isInputOnly={{@isInputOnly}}
       @onChange={{@onChange}}
@@ -38,7 +38,7 @@ export interface FormCheckSignature {
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier={{@identifier}}
+        @for={{@id}}
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
         @isCheck={{true}}

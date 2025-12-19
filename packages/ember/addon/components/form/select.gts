@@ -82,14 +82,14 @@ export default class FormSelect<T extends Value> extends Component<
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier={{@identifier}}
+        @for={{@id}}
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
     {{/unless}}
 
     <select
-      id={{@identifier}}
+      id={{@id}}
       class="form-select {{if @size (concat 'form-select-' @size)}}"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}

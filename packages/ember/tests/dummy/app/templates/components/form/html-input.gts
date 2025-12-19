@@ -29,7 +29,7 @@ export default class ComponentsFormHtmlInput extends Component<ComponentsFormHtm
       <FormHtmlInput
         @value={{this.value}}
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."

@@ -168,7 +168,7 @@ export default class Application extends Component<ApplicationSignature> {
           <FormCheck
             @value={{this.isDarkTheme}}
             @label="Dark theme"
-            @identifier="isDarkTheme"
+            @id="isDarkTheme"
             @requiredLabel="Required"
             @isSwitch={{true}}
             @onChange={{fn (mut this.isDarkTheme)}}
@@ -191,7 +191,7 @@ export default class Application extends Component<ApplicationSignature> {
               @value={{this.query}}
               @type="search"
               @label="Search"
-              @identifier="search"
+              @id="search"
               @requiredLabel="Required"
               @isInputOnly={{true}}
               @onChange={{fn (mut this.query)}}

@@ -67,7 +67,7 @@ export default class Helpers extends Component<HelpersSignature> {
         <FormCheck
           @value={{this.isDarkTheme}}
           @label="Dark theme"
-          @identifier="isDarkTheme"
+          @id="isDarkTheme"
           @requiredLabel="Required"
           @isSwitch={{true}}
           @onChange={{fn (mut this.isDarkTheme)}}

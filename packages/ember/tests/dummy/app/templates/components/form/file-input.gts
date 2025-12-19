@@ -27,7 +27,7 @@ export default class ComponentsFormFileInput extends Component<ComponentsFormFil
       {{! BEGIN-SNIPPET form-file-input }}
       <FormFileInput
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."
