@@ -4,6 +4,7 @@ export * from './components/form/input';
 export * from './components/form/label';
 export * from './components/form/select';
 export * from './components/form/textarea';
+export * from './components/nav/item';
 export * from './components/alert';
 export * from './components/avatar';
 export * from './components/badge';
@@ -12,6 +13,7 @@ export * from './components/button';
 export * from './components/card';
 export * from './components/heading';
 export * from './components/modal';
+export * from './components/nav';
 export * from './components/spinner';
 export * from './components/table';
 
