@@ -1,34 +1,30 @@
 import {
   modalBackground,
   modalBase,
-  modalChildren,
+  modalBody,
   modalCloseButton,
   modalHeader,
   modalTitle,
 } from '@trusted-american/core';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface ModalProps {
-  children: ReactNode;
   title: string;
+  children: ReactNode;
   onClose: () => void;
 }
 
-const Modal = ({ children, title, onClose }: ModalProps) => {
+const Modal = ({ title, children, onClose }: ModalProps) => {
   return (
-    <div className={modalBase}>
-      <div className={modalBackground}>
+    <div className={modalBackground}>
+      <div className={modalBase}>
         <div className={modalHeader}>
           <h3 className={modalTitle}>{title}</h3>
-          <button
-            id="closeModalBtn"
-            className={modalCloseButton}
-            onClick={onClose}
-          >
+          <button className={modalCloseButton} onClick={onClose}>
             &times;
           </button>
         </div>
-        <div className={modalChildren}>{children}</div>
+        <div className={modalBody}>{children}</div>
       </div>
     </div>
   );
