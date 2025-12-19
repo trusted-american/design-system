@@ -29,7 +29,7 @@ const FormSelect = ({
   onChange,
 }: FormSelectProps) => {
   return (
-    <div className="w-full">
+    <div>
       <FormLabel
         label={label}
         id={id}
