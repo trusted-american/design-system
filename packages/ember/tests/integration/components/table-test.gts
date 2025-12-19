@@ -410,4 +410,36 @@ module('Integration | Component | table', function (hooks) {
 
     assert.dom('[data-test-pagination]').exists();
   });
+
+  test('should show local pagination if first column is hidden', async function (assert) {
+    await render(
+      <template>
+        <Table
+          @data={{_data}}
+          @pagination="local"
+          @nextButtonLabel="Next"
+          @previousButtonLabel="Previous"
+          @viewingLabel="Viewing"
+          @ofLabel="of"
+          @resultsLabel="results"
+          as |table|
+        >
+          <table.header as |header|>
+            <header.column @prop="email" @visible={{false}}>
+              Email
+            </header.column>
+            <header.column @prop="firstName">
+              First Name
+            </header.column>
+            <header.column @prop="lastName">
+              Last Name
+            </header.column>
+          </table.header>
+          <table.body />
+        </Table>
+      </template>,
+    );
+
+    assert.dom('[data-test-pagination]').exists();
+  });
 });

@@ -164,8 +164,8 @@ export default class Table<T> extends Component<TableSignature<T>> {
         {{yield table}}
         {{#if (eq "local" @pagination)}}
           <table.tfoot as |foot|>
-            <foot.row as |row|>
-              <row.cell colspan={{table.columns.length}}>
+            <foot.row>
+              <td colspan={{table.columns.length}}>
                 {{#let (decrement table.paginationData.pageNumber) as |page|}}
                   {{#if (notEq undefined page)}}
                     <Pagination
@@ -181,7 +181,7 @@ export default class Table<T> extends Component<TableSignature<T>> {
                     />
                   {{/if}}
                 {{/let}}
-              </row.cell>
+              </td>
             </foot.row>
           </table.tfoot>
         {{/if}}
