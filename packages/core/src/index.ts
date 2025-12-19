@@ -11,6 +11,7 @@ export * from './components/banner';
 export * from './components/button';
 export * from './components/card';
 export * from './components/heading';
+export * from './components/modal';
 export * from './components/spinner';
 export * from './components/table';
 
