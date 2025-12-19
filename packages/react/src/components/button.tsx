@@ -5,7 +5,7 @@ interface ButtonProps<T> {
   type?: ButtonHTMLAttributes<T>['type'];
   color?: Color;
   isDisabled?: boolean;
-  text: string;
+  label: string;
   className?: string;
   onClick?: () => void;
 }
@@ -14,7 +14,7 @@ const Button = <T,>({
   type = 'button',
   color = 'secondary',
   isDisabled,
-  text,
+  label,
   className,
   onClick,
 }: ButtonProps<T>) => {
@@ -25,7 +25,7 @@ const Button = <T,>({
       className={`${buttonBase} ${buttonVariants[color]} ${className}`}
       onClick={onClick}
     >
-      {text}
+      {label}
     </button>
   );
 };
