@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { CloseButton } from '@trusted-american/ember';
+import CloseButton from '@trusted-american/ember/components/close-button';
 
 module('Integration | Component | close-button', function (hooks) {
   setupRenderingTest(hooks);

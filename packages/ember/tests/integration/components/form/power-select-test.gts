@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { Button, FormPowerSelect } from '@trusted-american/ember';
+import FormPowerSelect from '@trusted-american/ember/components/form/power-select';
+import { Button } from '@trusted-american/ember';
 import { selectChoose, selectSearch } from 'ember-power-select/test-support';
 import { tracked } from '@glimmer/tracking';
 import { array, fn } from '@ember/helper';

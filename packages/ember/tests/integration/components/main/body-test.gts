@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { MainBody } from '@trusted-american/ember';
+import MainBody from '@trusted-american/ember/components/main/body';
 
 module('Integration | Component | main/body', function (hooks) {
   setupRenderingTest(hooks);

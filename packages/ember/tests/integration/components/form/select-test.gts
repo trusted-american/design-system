@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, select } from '@ember/test-helpers';
-import { FormSelect } from '@trusted-american/ember';
+import FormSelect from '@trusted-american/ember/components/form/select';
 import { array, fn, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 

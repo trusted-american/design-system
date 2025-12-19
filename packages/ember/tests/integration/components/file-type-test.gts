@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, rerender } from '@ember/test-helpers';
-import { FileType } from '@trusted-american/ember';
+import FileType from '@trusted-american/ember/components/file-type';
 import { tracked } from '@glimmer/tracking';
 import type { SizeProp } from '@fortawesome/fontawesome-svg-core';
 

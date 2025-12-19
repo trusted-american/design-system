@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { FormFileDropzone } from '@trusted-american/ember';
+import FormFileDropzone from '@trusted-american/ember/components/form/file-dropzone';
 import { selectFiles } from 'ember-file-upload/test-support';
 import { tracked } from '@glimmer/tracking';
 import { fn } from '@ember/helper';
