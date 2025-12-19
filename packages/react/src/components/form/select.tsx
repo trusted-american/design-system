@@ -30,7 +30,12 @@ const FormSelect = ({
 }: FormSelectProps) => {
   return (
     <div className="w-full">
-      <FormLabel text={label} id={id} isRequired={isRequired} />
+      <FormLabel
+        label={label}
+        id={id}
+        isRequired={isRequired}
+        requiredLabel="*"
+      />
       <select
         id={id}
         name={id}
@@ -47,7 +52,7 @@ const FormSelect = ({
           </option>
         ))}
       </select>
-      <FormHelp text={help} />
+      <FormHelp label={help} />
     </div>
   );
 };

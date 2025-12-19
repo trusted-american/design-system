@@ -7,7 +7,8 @@ interface FormPhoneInputProps {
   label: string;
   isRequired?: boolean;
   placeholder?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+  onChange: (value: string) => void;
 }
 
 const FormPhoneInput = ({
@@ -16,6 +17,7 @@ const FormPhoneInput = ({
   label,
   isRequired = false,
   placeholder = '(123) 456-7890',
+  className,
   onChange,
 }: FormPhoneInputProps) => {
   const [displayValue, setDisplayValue] = useState<string>('');
@@ -67,15 +69,15 @@ const FormPhoneInput = ({
     )}`;
   };
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
+  const handleChange = (value: string) => {
+    // const input = event.target.value;
 
     // Format for display
-    const formattedInput = formatPhoneNumber(input);
+    const formattedInput = formatPhoneNumber(value);
     setDisplayValue(formattedInput);
 
     // Extract clean value for data
-    const cleanValue = input.replace(/\D/g, '').slice(0, 10);
+    const cleanValue = value.replace(/\D/g, '').slice(0, 10);
 
     // Validate
     if (cleanValue.length > 0 && cleanValue.length < 10) {
@@ -90,17 +92,7 @@ const FormPhoneInput = ({
       }
     }
 
-    const newEvent = {
-      ...event,
-      target: {
-        // eslint-disable-next-line @typescript-eslint/no-misused-spread
-        ...event.target,
-        name: id,
-        value: cleanValue,
-      },
-    };
-
-    onChange(newEvent as ChangeEvent<HTMLInputElement>);
+    onChange(cleanValue);
   };
 
   return (
@@ -112,8 +104,9 @@ const FormPhoneInput = ({
       isRequired={isRequired}
       placeholder={placeholder}
       error={error}
-      onChange={handleChange}
       ref={inputRef}
+      className={className}
+      onChange={handleChange}
     />
   );
 };

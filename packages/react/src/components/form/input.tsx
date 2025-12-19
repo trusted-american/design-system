@@ -3,19 +3,15 @@ import {
   formInputErrorBorder,
   formInputErrorMessage,
 } from '@trusted-american/core';
-import {
-  forwardRef,
-  type ChangeEvent,
-  type HTMLInputTypeAttribute,
-} from 'react';
+import { forwardRef, type HTMLInputTypeAttribute } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
 
 interface FormInputProps {
   type?: HTMLInputTypeAttribute;
   value?: string | number | undefined;
-  id: string;
   label: string;
+  id: string;
   isRequired?: boolean;
   isDisabled?: boolean;
   placeholder?: string;
@@ -24,7 +20,7 @@ interface FormInputProps {
   pattern?: string;
   readOnly?: boolean;
   className?: string;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
 }
 
 const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
@@ -48,7 +44,12 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
   ) => {
     return (
       <div>
-        <FormLabel text={label} id={id} isRequired={isRequired} />
+        <FormLabel
+          label={label}
+          id={id}
+          isRequired={isRequired}
+          requiredLabel="*"
+        />
         <div className="w-full flex items-center gap-2">
           <input
             type={type}
@@ -56,19 +57,21 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
             name={id}
             value={value}
             placeholder={placeholder}
-            onChange={onChange}
-            className={`${formInputBase} ${
-              error ? formInputErrorBorder : ''
-            } ${className}`}
             required={isRequired}
             disabled={isDisabled}
             pattern={pattern}
             ref={ref}
             readOnly={readOnly}
+            className={`${formInputBase} ${
+              error ? formInputErrorBorder : ''
+            } ${className}`}
+            onChange={({ target }) => {
+              onChange(target.value);
+            }}
           />
         </div>
         {error && <p className={formInputErrorMessage}>{error}</p>}
-        <FormHelp text={help} />
+        <FormHelp label={help} />
       </div>
     );
   }

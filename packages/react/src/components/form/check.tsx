@@ -1,15 +1,13 @@
 import { formCheckBase } from '@trusted-american/core';
-import type { ChangeEvent } from 'react';
 import FormLabel from './label';
 
 interface FormCheckProps {
-  value?: boolean | undefined;
-  id: string;
+  value: boolean | undefined;
   label: string;
+  id: string;
   isRequired?: boolean;
   className?: string;
-  labelClassName?: string;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: boolean) => void;
 }
 
 const FormCheck = ({
@@ -18,7 +16,6 @@ const FormCheck = ({
   label,
   isRequired,
   className,
-  labelClassName,
   onChange,
 }: FormCheckProps) => {
   return (
@@ -28,15 +25,13 @@ const FormCheck = ({
         id={id}
         name={id}
         checked={value}
-        onChange={onChange}
-        className={`${formCheckBase} ${className}`}
         required={isRequired}
+        className={`${formCheckBase} ${className}`}
+        onChange={({ target }) => {
+          onChange(target.checked);
+        }}
       />
-      <FormLabel
-        text={label}
-        id={id}
-        className={`ml-2 ${labelClassName ?? ''} `}
-      />
+      <FormLabel label={label} id={id} requiredLabel="*" className="ml-2" />
     </div>
   );
 };

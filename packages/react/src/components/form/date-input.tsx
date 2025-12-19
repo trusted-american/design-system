@@ -1,4 +1,3 @@
-import type { ChangeEvent } from 'react';
 import FormInput from './input';
 
 interface FormDateInputProps {
@@ -10,7 +9,7 @@ interface FormDateInputProps {
   placeholder?: string;
   help?: string;
   error?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
 }
 
 const FormDateInput = ({
