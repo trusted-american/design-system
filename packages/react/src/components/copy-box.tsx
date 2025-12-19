@@ -1,19 +1,23 @@
-import { copyBoxBase } from '@trusted-american/core';
+import {
+  copyBoxBase,
+  copyBoxButton,
+  copyBoxInput,
+} from '@trusted-american/core';
 import { useState } from 'react';
 
 interface CopyBoxProps {
-  text: string;
+  value: string;
   className?: string;
 }
 
-const CopyBox = ({ text, className }: CopyBoxProps) => {
-  const [copied, setCopied] = useState(false);
+const CopyBox = ({ value, className }: CopyBoxProps) => {
+  const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      await navigator.clipboard.writeText(value);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 1500);
     } catch {
       alert('Copy failed');
     }
@@ -22,23 +26,23 @@ const CopyBox = ({ text, className }: CopyBoxProps) => {
   return (
     <div className={`$${copyBoxBase} ${className}`}>
       <input
-        className={'truncate rounded bg-gray-100 px-3 py-2'}
+        className={copyBoxInput}
         type="text"
         readOnly
-        title={text}
-        value={text}
+        title={value}
+        value={value}
       />
       <button
         onClick={handleCopy}
-        className={`flex h-9 w-9 items-center justify-center rounded-md border transition
+        className={`${copyBoxButton}
           ${
-            copied
+            isCopied
               ? 'border-blue-600 bg-blue-600 text-white'
               : 'border-gray-300 hover:bg-gray-100'
           }
         `}
       >
-        {copied ? '✓' : '📋'}
+        {isCopied ? '✓' : '📋'}
       </button>
     </div>
   );

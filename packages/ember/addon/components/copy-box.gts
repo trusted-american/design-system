@@ -4,6 +4,11 @@ export interface CopyBoxSignature {
   Args: {
     value: string;
   };
+  Element: HTMLDivElement;
 }
 
-<template>{{! TODO: }}</template> satisfies TOC<CopyBoxSignature>;
+<template>
+  <div data-test-copy-box ...attributes>
+    {{! TODO: }}
+  </div>
+</template> satisfies TOC<CopyBoxSignature>;
