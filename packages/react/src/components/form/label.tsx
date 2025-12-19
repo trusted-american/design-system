@@ -1,17 +1,25 @@
 import { formLabelBase } from '@trusted-american/core';
+import Badge from '../badge';
 
 interface FormLabelProps {
-  text: string | undefined;
+  label: string | undefined;
   id: string;
   isRequired?: boolean;
+  requiredLabel: string;
   className?: string;
 }
 
-const FormLabel = ({ text, id, isRequired, className }: FormLabelProps) => {
+const FormLabel = ({
+  label,
+  id,
+  isRequired,
+  requiredLabel,
+  className,
+}: FormLabelProps) => {
   return (
-    <label className={`${formLabelBase} ${className ?? ''}`} htmlFor={id}>
-      {text}
-      {isRequired && <span className="text-red-500"> *</span>}
+    <label htmlFor={id} className={`${formLabelBase} ${className}`}>
+      {label}
+      {isRequired && <Badge label={requiredLabel} className="ms-1" />}
     </label>
   );
 };

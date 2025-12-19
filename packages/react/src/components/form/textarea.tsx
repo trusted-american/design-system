@@ -1,5 +1,4 @@
 import { formTextareaBase } from '@trusted-american/core';
-import type { ChangeEvent } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
 
@@ -13,7 +12,7 @@ interface FormTextareaProps {
   help?: string;
   error?: string;
   className?: string;
-  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (value: string) => void;
 }
 
 const FormTextarea = ({
@@ -29,22 +28,29 @@ const FormTextarea = ({
   onChange,
 }: FormTextareaProps) => {
   return (
-    <div className="w-full">
-      <FormLabel text={label} id={id} isRequired={isRequired} />
+    <div>
+      <FormLabel
+        label={label}
+        id={id}
+        isRequired={isRequired}
+        requiredLabel="*"
+      />
       <textarea
         id={id}
         name={id}
         value={value}
         placeholder={placeholder}
         disabled={disabled}
-        onChange={onChange}
         rows={4}
         className={`${formTextareaBase} ${
           error ? 'border-2 border-red-500' : ''
         } ${className}`}
         required={isRequired}
+        onChange={({ target }) => {
+          onChange(target.value);
+        }}
       />
-      <FormHelp text={help} />
+      <FormHelp label={help} />
     </div>
   );
 };

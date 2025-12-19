@@ -1,11 +1,12 @@
 import { formHelpBase } from '@trusted-american/core';
 
 interface FormHelpProps {
-  text: string | undefined;
+  label: string | undefined;
+  className?: string;
 }
 
-const FormHelp = ({ text }: FormHelpProps) => {
-  return <span className={formHelpBase}>{text}</span>;
+const FormHelp = ({ label, className }: FormHelpProps) => {
+  return <span className={`${formHelpBase} ${className}`}>{label}</span>;
 };
 
 export default FormHelp;
