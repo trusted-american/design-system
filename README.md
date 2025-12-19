@@ -40,7 +40,7 @@ pnpm add @trusted-american/core @trusted-american/ember
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
 > [!TIP]
-> To release new changes, increment versions of the packages to be released and run `pnpm publish --recursive`.
+> To release, increment versions of the packages to be released and run `pnpm publish --recursive`.
 
 ## License
 
