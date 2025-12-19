@@ -7,10 +7,8 @@ export interface FrameSignature {
   Element: HTMLDivElement;
 }
 
-const Frame: TOC<FrameSignature> = <template>
+<template>
   <div class="tds-frame d-grid vh-100 bg-body-tertiary" ...attributes>
     {{yield}}
   </div>
-</template>;
-
-export default Frame;
+</template> satisfies TOC<FrameSignature>;

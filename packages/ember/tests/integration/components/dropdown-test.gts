@@ -1,12 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import {
-  Button,
-  Dropdown,
-  DropdownHeader,
-  dropdown,
-} from '@trusted-american/ember';
+import Dropdown from '@trusted-american/ember/components/dropdown';
+import { Button, DropdownHeader, dropdown } from '@trusted-american/ember';
 import {
   faCopy,
   faPen,

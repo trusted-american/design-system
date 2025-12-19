@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Copy } from '@trusted-american/ember';
+import Copy from '@trusted-american/ember/components/copy';
 
 module('Integration | Component | copy', function (hooks) {
   setupRenderingTest(hooks);

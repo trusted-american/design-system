@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { CardFooter } from '@trusted-american/ember';
+import CardFooter from '@trusted-american/ember/components/card/footer';
 
 module('Integration | Component | card/footer', function (hooks) {
   setupRenderingTest(hooks);

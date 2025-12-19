@@ -13,7 +13,7 @@ export interface FormFeedbackSignature {
   Element: HTMLDivElement;
 }
 
-const FormFeedback: TOC<FormFeedbackSignature> = <template>
+<template>
   {{#if @invalidLabel}}
     <div class="invalid-feedback" data-test-form-feedback ...attributes>
       <Icon @icon={{faTriangleExclamation}} class="me-1" />
@@ -26,6 +26,4 @@ const FormFeedback: TOC<FormFeedbackSignature> = <template>
       {{@validLabel}}
     </div>
   {{/if}}
-</template>;
-
-export default FormFeedback;
+</template> satisfies TOC<FormFeedbackSignature>;

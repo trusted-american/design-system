@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { BreadcrumbTrail } from '@trusted-american/ember';
+import BreadcrumbTrail from '@trusted-american/ember/components/breadcrumb-trail';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 
 module('Integration | Component | breadcrumb-trail', function (hooks) {

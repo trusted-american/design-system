@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render, triggerEvent } from '@ember/test-helpers';
-import { FormFileInput } from '@trusted-american/ember';
+import FormFileInput from '@trusted-american/ember/components/form/file-input';
 import { tracked } from '@glimmer/tracking';
 import { fn } from '@ember/helper';
 

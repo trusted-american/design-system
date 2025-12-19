@@ -14,7 +14,7 @@ export interface ListGroupItemSignature {
   Element: HTMLAnchorElement | HTMLLIElement;
 }
 
-const ListGroupItem: TOC<ListGroupItemSignature> = <template>
+<template>
   {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
@@ -36,6 +36,4 @@ const ListGroupItem: TOC<ListGroupItemSignature> = <template>
       {{yield}}
     </li>
   {{/if}}
-</template>;
-
-export default ListGroupItem;
+</template> satisfies TOC<ListGroupItemSignature>;

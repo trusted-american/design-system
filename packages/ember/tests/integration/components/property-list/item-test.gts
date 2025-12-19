@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { PropertyListItem } from '@trusted-american/ember';
+import PropertyListItem from '@trusted-american/ember/components/property-list/item';
 
 module('Integration | Component | property-list/item', function (hooks) {
   setupRenderingTest(hooks);

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { NavItem } from '@trusted-american/ember';
+import NavItem from '@trusted-american/ember/components/nav/item';
 
 module('Integration | Component | nav/item', function (hooks) {
   setupRenderingTest(hooks);

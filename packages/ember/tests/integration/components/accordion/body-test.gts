@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { AccordionBody } from '@trusted-american/ember';
+import AccordionBody from '@trusted-american/ember/components/accordion/body';
 
 module('Integration | Component | accordion/body', function (hooks) {
   setupRenderingTest(hooks);

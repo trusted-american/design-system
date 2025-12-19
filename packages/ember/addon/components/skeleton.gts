@@ -4,10 +4,8 @@ export interface SkeletonSignature {
   Element: HTMLElement;
 }
 
-const Skeleton: TOC<SkeletonSignature> = <template>
+<template>
   <span class="placeholder-glow">
     <span class="placeholder" data-test-skeleton ...attributes></span>
   </span>
-</template>;
-
-export default Skeleton;
+</template> satisfies TOC<SkeletonSignature>;

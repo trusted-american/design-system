@@ -13,7 +13,7 @@ export interface ButtonGroupSignature {
   Element: HTMLDivElement;
 }
 
-const ButtonGroup: TOC<ButtonGroupSignature> = <template>
+<template>
   <div
     class="btn-group {{if @size (concat 'btn-group-' @size)}}"
     role="group"
@@ -22,6 +22,4 @@ const ButtonGroup: TOC<ButtonGroupSignature> = <template>
   >
     {{yield (hash button=Button)}}
   </div>
-</template>;
-
-export default ButtonGroup;
+</template> satisfies TOC<ButtonGroupSignature>;

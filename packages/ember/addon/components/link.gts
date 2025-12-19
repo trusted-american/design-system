@@ -50,7 +50,7 @@ export interface LinkSignature {
   Element: HTMLAnchorElement;
 }
 
-const Link: TOC<LinkSignature> = <template>
+<template>
   {{#if (and @route @model @query)}}<LinkTo
       @route={{@route}}
       @model={{@model}}
@@ -124,6 +124,4 @@ const Link: TOC<LinkSignature> = <template>
         @isIconTrailing={{@isIconTrailing}}
         @isIconOnly={{@isIconOnly}}
       >{{yield}}</Internal></a>{{/if}}
-</template>;
-
-export default Link;
+</template> satisfies TOC<LinkSignature>;

@@ -9,10 +9,8 @@ export interface ProgressSignature {
   Element: HTMLElement;
 }
 
-const Progress: TOC<ProgressSignature> = <template>
+<template>
   <div class="progress" data-test-progress ...attributes>
     {{yield (hash bar=ProgressBar)}}
   </div>
-</template>;
-
-export default Progress;
+</template> satisfies TOC<ProgressSignature>;

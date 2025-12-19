@@ -47,7 +47,7 @@ export interface NavItemSignature {
   Element: HTMLAnchorElement;
 }
 
-const NavItem: TOC<NavItemSignature> = <template>
+<template>
   {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
@@ -85,6 +85,4 @@ const NavItem: TOC<NavItemSignature> = <template>
       </Internal>
     </a>
   {{/if}}
-</template>;
-
-export default NavItem;
+</template> satisfies TOC<NavItemSignature>;

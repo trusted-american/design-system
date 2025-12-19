@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Badge } from '@trusted-american/ember';
+import Badge from '@trusted-american/ember/components/badge';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | badge', function (hooks) {

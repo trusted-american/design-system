@@ -1,13 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Skeleton from '@trusted-american/ember/components/skeleton';
+import CopyBox from '@trusted-american/ember/components/copy-box';
 
-module('Integration | Component | skeleton', function (hooks) {
+module('Integration | Component | copy-box', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Skeleton /></template>);
+    await render(<template><CopyBox @value="" /></template>);
 
     assert.dom().hasText('');
   });

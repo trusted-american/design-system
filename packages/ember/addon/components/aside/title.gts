@@ -7,10 +7,8 @@ export interface AsideTitleSignature {
   Element: HTMLDivElement;
 }
 
-const AsideTitle: TOC<AsideTitleSignature> = <template>
+<template>
   <div class="text-secondary fw-semibold small mt-3 ps-2 pb-2" ...attributes>
     {{@label}}
   </div>
-</template>;
-
-export default AsideTitle;
+</template> satisfies TOC<AsideTitleSignature>;

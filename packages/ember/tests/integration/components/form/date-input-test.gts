@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { fillIn, render } from '@ember/test-helpers';
-import { FormDateInput } from '@trusted-american/ember';
+import FormDateInput from '@trusted-american/ember/components/form/date-input';
 import { fn } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 

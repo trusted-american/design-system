@@ -15,7 +15,7 @@ export interface BadgeSignature {
   Element: HTMLElement;
 }
 
-const Badge: TOC<BadgeSignature> = <template>
+<template>
   <span
     class="badge text-bg-{{if @color @color 'secondary'}}
       {{if @isPill 'rounded-pill'}}"
@@ -30,6 +30,4 @@ const Badge: TOC<BadgeSignature> = <template>
     {{/if}}
     {{@label}}
   </span>
-</template>;
-
-export default Badge;
+</template> satisfies TOC<BadgeSignature>;

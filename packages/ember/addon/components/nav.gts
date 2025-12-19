@@ -15,7 +15,7 @@ export interface NavSignature {
   Element: HTMLElement;
 }
 
-const Nav: TOC<NavSignature> = <template>
+<template>
   {{#if @isStatic}}
     <nav
       class="nav flex-nowrap
@@ -43,6 +43,4 @@ const Nav: TOC<NavSignature> = <template>
       </nav>
     </div>
   {{/if}}
-</template>;
-
-export default Nav;
+</template> satisfies TOC<NavSignature>;

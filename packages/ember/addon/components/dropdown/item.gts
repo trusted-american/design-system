@@ -60,7 +60,7 @@ export interface DropdownItemSignature {
   Element: HTMLElement;
 }
 
-const DropdownItem: TOC<DropdownItemSignature> = <template>
+<template>
   {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
@@ -102,6 +102,4 @@ const DropdownItem: TOC<DropdownItemSignature> = <template>
       >{{yield}}</Internal>
     </button>
   {{/if}}
-</template>;
-
-export default DropdownItem;
+</template> satisfies TOC<DropdownItemSignature>;

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { FormRadioButton } from '@trusted-american/ember';
+import FormRadioButton from '@trusted-american/ember/components/form/radio-button';
 import { tracked } from '@glimmer/tracking';
 import { array, fn, hash } from '@ember/helper';
 

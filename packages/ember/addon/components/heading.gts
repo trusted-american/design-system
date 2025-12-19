@@ -13,7 +13,7 @@ export interface HeadingSignature {
   Element: HTMLDivElement;
 }
 
-const Heading: TOC<HeadingSignature> = <template>
+<template>
   <div class="mb-4" data-test-heading ...attributes>
     {{#if @type}}
       <div
@@ -45,6 +45,4 @@ const Heading: TOC<HeadingSignature> = <template>
       </p>
     {{/if}}
   </div>
-</template>;
-
-export default Heading;
+</template> satisfies TOC<HeadingSignature>;

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Icon } from '@trusted-american/ember';
+import Icon from '@trusted-american/ember/components/icon';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | icon', function (hooks) {

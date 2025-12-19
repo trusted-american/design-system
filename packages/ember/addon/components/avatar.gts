@@ -27,7 +27,7 @@ export interface AvatarSignature {
   Element: HTMLImageElement;
 }
 
-const Avatar: TOC<AvatarSignature> = <template>
+<template>
   <img
     src={{or @url (generateIdenticon @id)}}
     alt={{@alt}}
@@ -44,6 +44,4 @@ const Avatar: TOC<AvatarSignature> = <template>
     data-test-avatar
     ...attributes
   />
-</template>;
-
-export default Avatar;
+</template> satisfies TOC<AvatarSignature>;

@@ -7,8 +7,6 @@ export interface DropdownHeaderSignature {
   Element: HTMLHeadingElement;
 }
 
-const DropdownHeader: TOC<DropdownHeaderSignature> = <template>
+<template>
   <h6 class="dropdown-header" ...attributes>{{@label}}</h6>
-</template>;
-
-export default DropdownHeader;
+</template> satisfies TOC<DropdownHeaderSignature>;
