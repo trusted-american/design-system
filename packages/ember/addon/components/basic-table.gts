@@ -11,7 +11,7 @@ export interface BasicTableSignature {
   Element: HTMLTableElement;
 }
 
-const BasicTable: TOC<BasicTableSignature> = <template>
+<template>
   <table
     class="table {{if @isSmall 'table-sm'}} {{if @isBordered 'table-bordered'}}"
     data-test-basic-table
@@ -19,6 +19,4 @@ const BasicTable: TOC<BasicTableSignature> = <template>
   >
     {{yield}}
   </table>
-</template>;
-
-export default BasicTable;
+</template> satisfies TOC<BasicTableSignature>;

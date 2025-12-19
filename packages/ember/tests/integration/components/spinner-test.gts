@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Spinner } from '@trusted-american/ember';
+import Spinner from '@trusted-american/ember/components/spinner';
 
 module('Integration | Component | spinner', function (hooks) {
   setupRenderingTest(hooks);

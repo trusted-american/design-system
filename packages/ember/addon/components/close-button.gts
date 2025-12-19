@@ -7,7 +7,7 @@ export interface CloseButtonSignature {
   Element: HTMLButtonElement;
 }
 
-const CloseButton: TOC<CloseButtonSignature> = <template>
+<template>
   <button
     type="button"
     class="btn-close"
@@ -15,6 +15,4 @@ const CloseButton: TOC<CloseButtonSignature> = <template>
     data-test-close-button
     ...attributes
   ></button>
-</template>;
-
-export default CloseButton;
+</template> satisfies TOC<CloseButtonSignature>;

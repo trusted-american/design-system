@@ -7,7 +7,7 @@ export interface MainTopHeaderSignature {
   Element: HTMLElement;
 }
 
-const MainTopHeader: TOC<MainTopHeaderSignature> = <template>
+<template>
   <header
     class="container-fluid position-relative border-bottom py-3"
     data-test-main-top-header
@@ -15,6 +15,4 @@ const MainTopHeader: TOC<MainTopHeaderSignature> = <template>
   >
     {{yield}}
   </header>
-</template>;
-
-export default MainTopHeader;
+</template> satisfies TOC<MainTopHeaderSignature>;

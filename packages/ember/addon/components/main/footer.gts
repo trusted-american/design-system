@@ -7,7 +7,7 @@ export interface MainFooterSignature {
   Element: HTMLElement;
 }
 
-const MainFooter: TOC<MainFooterSignature> = <template>
+<template>
   <footer
     class="container-fluid text-center text-secondary border-top p-4"
     data-test-main-footer
@@ -15,6 +15,4 @@ const MainFooter: TOC<MainFooterSignature> = <template>
   >
     {{yield}}
   </footer>
-</template>;
-
-export default MainFooter;
+</template> satisfies TOC<MainFooterSignature>;

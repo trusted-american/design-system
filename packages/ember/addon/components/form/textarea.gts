@@ -23,7 +23,7 @@ export interface FormTextareaSignature {
   Element: HTMLTextAreaElement;
 }
 
-const FormTextarea: TOC<FormTextareaSignature> = <template>
+<template>
   {{#unless @isInputOnly}}
     <FormLabel
       @label={{@label}}
@@ -53,6 +53,4 @@ const FormTextarea: TOC<FormTextareaSignature> = <template>
   {{#if @help}}
     <FormHelp @label={{@help}} />
   {{/if}}
-</template>;
-
-export default FormTextarea;
+</template> satisfies TOC<FormTextareaSignature>;

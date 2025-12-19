@@ -56,8 +56,6 @@ export interface CalendarSignature {
   Element: HTMLDivElement;
 }
 
-const Calendar: TOC<CalendarSignature> = <template>
+<template>
   <div data-test-calendar {{setup @events @onSelect}} ...attributes></div>
-</template>;
-
-export default Calendar;
+</template> satisfies TOC<CalendarSignature>;

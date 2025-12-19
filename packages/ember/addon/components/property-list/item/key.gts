@@ -11,7 +11,7 @@ export interface PropertyListItemKeySignature {
   Element: HTMLElement;
 }
 
-const PropertyListItemKey: TOC<PropertyListItemKeySignature> = <template>
+<template>
   <dt class="text-secondary" ...attributes>
     {{@label}}
     {{#if @help}}
@@ -20,6 +20,4 @@ const PropertyListItemKey: TOC<PropertyListItemKeySignature> = <template>
       </a>
     {{/if}}
   </dt>
-</template>;
-
-export default PropertyListItemKey;
+</template> satisfies TOC<PropertyListItemKeySignature>;

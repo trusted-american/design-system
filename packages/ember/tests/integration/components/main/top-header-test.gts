@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { MainTopHeader } from '@trusted-american/ember';
+import MainTopHeader from '@trusted-american/ember/components/main/top-header';
 
 module('Integration | Component | main/top-header', function (hooks) {
   setupRenderingTest(hooks);

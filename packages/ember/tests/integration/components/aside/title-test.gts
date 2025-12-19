@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { AsideTitle } from '@trusted-american/ember';
+import AsideTitle from '@trusted-american/ember/components/aside/title';
 
 module('Integration | Component | aside/title', function (hooks) {
   setupRenderingTest(hooks);

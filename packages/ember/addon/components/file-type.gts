@@ -22,7 +22,7 @@ export interface FileTypeSignature {
   Element: HTMLDivElement;
 }
 
-const FileType: TOC<FileTypeSignature> = <template>
+<template>
   <div class="d-inline" data-test-file-type ...attributes>
     {{#if (eq "image" (fileType @name))}}
       <Icon
@@ -77,6 +77,4 @@ const FileType: TOC<FileTypeSignature> = <template>
       <Icon @icon={{faFile}} @size={{@size}} @isFixedWidth={{true}} />
     {{/if}}
   </div>
-</template>;
-
-export default FileType;
+</template> satisfies TOC<FileTypeSignature>;

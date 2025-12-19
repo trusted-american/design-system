@@ -7,10 +7,8 @@ export interface CardBodySignature {
   Element: HTMLDivElement;
 }
 
-const CardBody: TOC<CardBodySignature> = <template>
+<template>
   <div class="card-body" ...attributes>
     {{yield}}
   </div>
-</template>;
-
-export default CardBody;
+</template> satisfies TOC<CardBodySignature>;

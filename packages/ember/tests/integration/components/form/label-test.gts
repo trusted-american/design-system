@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { FormLabel } from '@trusted-american/ember';
+import FormLabel from '@trusted-american/ember/components/form/label';
 
 module('Integration | Component | form/label', function (hooks) {
   setupRenderingTest(hooks);

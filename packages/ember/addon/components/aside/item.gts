@@ -21,7 +21,7 @@ export interface AsideItemSignature {
   Element: HTMLAnchorElement;
 }
 
-const AsideItem: TOC<AsideItemSignature> = <template>
+<template>
   <NavItem
     @route={{@route}}
     @model={{@model}}
@@ -40,6 +40,4 @@ const AsideItem: TOC<AsideItemSignature> = <template>
     <span>{{@label}}</span>
     {{yield}}
   </NavItem>
-</template>;
-
-export default AsideItem;
+</template> satisfies TOC<AsideItemSignature>;

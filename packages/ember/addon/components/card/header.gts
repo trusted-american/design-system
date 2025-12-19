@@ -7,10 +7,8 @@ export interface CardHeaderSignature {
   Element: HTMLDivElement;
 }
 
-const CardHeader: TOC<CardHeaderSignature> = <template>
+<template>
   <div class="card-header" ...attributes>
     {{yield}}
   </div>
-</template>;
-
-export default CardHeader;
+</template> satisfies TOC<CardHeaderSignature>;

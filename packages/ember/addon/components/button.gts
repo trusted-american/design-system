@@ -65,7 +65,7 @@ export interface ButtonSignature {
   Element: HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement;
 }
 
-const Button: TOC<ButtonSignature> = <template>
+<template>
   {{#if (or @route @model @query @href)}}
     <Link
       @route={{@route}}
@@ -141,6 +141,4 @@ const Button: TOC<ButtonSignature> = <template>
       />
     </button>
   {{/if}}
-</template>;
-
-export default Button;
+</template> satisfies TOC<ButtonSignature>;

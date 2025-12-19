@@ -20,7 +20,7 @@ export interface PropertyListItemSignature {
   Element: HTMLElement;
 }
 
-const PropertyListItem: TOC<PropertyListItemSignature> = <template>
+<template>
   {{#if @isHorizontal}}
     <div class="col-auto border-end">
       <PropertyListItemKey @label={{@label}} @help={{@help}} />
@@ -65,6 +65,4 @@ const PropertyListItem: TOC<PropertyListItemSignature> = <template>
       <:trailing>{{yield to="trailing"}}</:trailing>
     </PropertyListItemValue>
   {{/if}}
-</template>;
-
-export default PropertyListItem;
+</template> satisfies TOC<PropertyListItemSignature>;

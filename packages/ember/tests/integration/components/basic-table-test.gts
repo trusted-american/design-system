@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { BasicTable } from '@trusted-american/ember';
+import BasicTable from '@trusted-american/ember/components/basic-table';
 
 module('Integration | Component | basic-table', function (hooks) {
   setupRenderingTest(hooks);

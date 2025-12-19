@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { AlertLink } from '@trusted-american/ember';
+import AlertLink from '@trusted-american/ember/components/alert/link';
 
 module('Integration | Component | alert/link', function (hooks) {
   setupRenderingTest(hooks);

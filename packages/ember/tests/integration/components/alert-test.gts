@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Alert } from '@trusted-american/ember';
+import Alert from '@trusted-american/ember/components/alert';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | alert', function (hooks) {

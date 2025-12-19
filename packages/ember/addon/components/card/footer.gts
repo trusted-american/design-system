@@ -7,10 +7,8 @@ export interface CardFooterSignature {
   Element: HTMLDivElement;
 }
 
-const CardFooter: TOC<CardFooterSignature> = <template>
+<template>
   <div class="card-footer" ...attributes>
     {{yield}}
   </div>
-</template>;
-
-export default CardFooter;
+</template> satisfies TOC<CardFooterSignature>;

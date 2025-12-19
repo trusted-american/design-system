@@ -11,7 +11,7 @@ export interface RatioSignature {
   Element: HTMLDivElement;
 }
 
-const Ratio: TOC<RatioSignature> = <template>
+<template>
   <div
     class="ratio {{if @ratio (concat 'ratio-' @ratio)}}"
     data-test-ratio
@@ -19,6 +19,4 @@ const Ratio: TOC<RatioSignature> = <template>
   >
     {{yield}}
   </div>
-</template>;
-
-export default Ratio;
+</template> satisfies TOC<RatioSignature>;

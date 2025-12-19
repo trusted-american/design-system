@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { find, render } from '@ember/test-helpers';
-import { Progress } from '@trusted-american/ember';
+import Progress from '@trusted-american/ember/components/progress';
 
 module('Integration | Component | progress', function (hooks) {
   setupRenderingTest(hooks);

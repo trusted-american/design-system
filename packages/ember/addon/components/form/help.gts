@@ -7,10 +7,8 @@ export interface FormHelpSignature {
   Element: HTMLDivElement;
 }
 
-const FormHelp: TOC<FormHelpSignature> = <template>
+<template>
   <div class="form-text" data-test-form-help ...attributes>
     {{@label}}
   </div>
-</template>;
-
-export default FormHelp;
+</template> satisfies TOC<FormHelpSignature>;

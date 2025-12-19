@@ -31,7 +31,7 @@ export interface CopySignature {
   Element: HTMLButtonElement;
 }
 
-const Copy: TOC<CopySignature> = <template>
+<template>
   <button
     type="button"
     {{!-- TODO: args unused after ember-cli-clipboard removal
@@ -45,6 +45,4 @@ const Copy: TOC<CopySignature> = <template>
   >
     {{yield}}
   </button>
-</template>;
-
-export default Copy;
+</template> satisfies TOC<CopySignature>;

@@ -32,7 +32,7 @@ export interface AlertSignature {
   Element: HTMLDivElement;
 }
 
-const Alert: TOC<AlertSignature> = <template>
+<template>
   <div
     class="alert alert-{{if @color @color 'secondary'}}
       {{if @onClose 'alert-dismissible'}}
@@ -60,6 +60,4 @@ const Alert: TOC<AlertSignature> = <template>
       />
     {{/if}}
   </div>
-</template>;
-
-export default Alert;
+</template> satisfies TOC<AlertSignature>;

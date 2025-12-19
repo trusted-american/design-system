@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { Subheading } from '@trusted-american/ember';
+import Subheading from '@trusted-american/ember/components/subheading';
 
 module('Integration | Component | subheading', function (hooks) {
   setupRenderingTest(hooks);

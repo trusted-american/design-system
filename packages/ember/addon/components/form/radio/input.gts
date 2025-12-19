@@ -10,7 +10,7 @@ export interface FormRadioInputSignature {
   Element: HTMLInputElement;
 }
 
-const FormRadioInput: TOC<FormRadioInputSignature> = <template>
+<template>
   <input
     type="radio"
     class="form-check-input"
@@ -20,6 +20,4 @@ const FormRadioInput: TOC<FormRadioInputSignature> = <template>
     required={{@isRequired}}
     ...attributes
   />
-</template>;
-
-export default FormRadioInput;
+</template> satisfies TOC<FormRadioInputSignature>;

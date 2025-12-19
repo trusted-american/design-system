@@ -10,7 +10,7 @@ export interface SubheadingSignature {
   Element: HTMLElement;
 }
 
-const Subheading: TOC<SubheadingSignature> = <template>
+<template>
   <div
     class="d-flex justify-content-between align-items-start gap-2 mb-4"
     data-test-subheading
@@ -21,6 +21,4 @@ const Subheading: TOC<SubheadingSignature> = <template>
     </h2>
     {{yield}}
   </div>
-</template>;
-
-export default Subheading;
+</template> satisfies TOC<SubheadingSignature>;

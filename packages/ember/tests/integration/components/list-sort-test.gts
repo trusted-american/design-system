@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import { ListSort } from '@trusted-american/ember';
+import ListSort from '@trusted-american/ember/components/list-sort';
 import { array, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 import type { ListAttributesKey } from '@trusted-american/ember/components/list-attributes';

@@ -17,7 +17,7 @@ export interface FormCheckSignature {
   Element: HTMLInputElement;
 }
 
-const FormCheck: TOC<FormCheckSignature> = <template>
+<template>
   <div
     class="form-check
       {{if @isInline 'form-check-inline'}}
@@ -51,6 +51,4 @@ const FormCheck: TOC<FormCheckSignature> = <template>
       <FormHelp @label={{@help}} />
     {{/if}}
   </div>
-</template>;
-
-export default FormCheck;
+</template> satisfies TOC<FormCheckSignature>;

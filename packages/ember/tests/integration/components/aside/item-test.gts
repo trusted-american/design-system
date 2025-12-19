@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { AsideItem } from '@trusted-american/ember';
+import AsideItem from '@trusted-american/ember/components/aside/item';
 import { faBoxesStacked } from '@fortawesome/free-solid-svg-icons';
 
 module('Integration | Component | aside/item', function (hooks) {
