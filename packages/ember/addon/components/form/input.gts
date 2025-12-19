@@ -9,7 +9,7 @@ import FormLabel from './label';
 
 export interface FormInputArgs {
   label: string;
-  identifier: string;
+  id: string;
   isRequired?: boolean;
   requiredLabel: string;
   help?: string;
@@ -25,7 +25,7 @@ const Internal: TOC<{
     value: string | null | undefined;
     type: string | undefined;
     label: string;
-    identifier: string;
+    id: string;
     isRequired: boolean | undefined;
     isInputOnly: boolean | undefined;
     size: Size | undefined;
@@ -36,7 +36,7 @@ const Internal: TOC<{
 }> = <template>
   <input
     type={{if @type @type "text"}}
-    id={{@identifier}}
+    id={{@id}}
     value={{@value}}
     class="{{if (eq 'range' @type) 'form-range' 'form-control'}}{{if
         @size
@@ -80,7 +80,7 @@ export interface FormInputSignature {
   {{#unless @isInputOnly}}
     <FormLabel
       @label={{@label}}
-      @identifier={{@identifier}}
+      @for={{@id}}
       @isRequired={{@isRequired}}
       @requiredLabel={{@requiredLabel}}
     />
@@ -103,7 +103,7 @@ export interface FormInputSignature {
         @value={{@value}}
         @type={{@type}}
         @label={{@label}}
-        @identifier={{@identifier}}
+        @id={{@id}}
         @isRequired={{@isRequired}}
         @isInputOnly={{@isInputOnly}}
         @size={{@size}}
@@ -130,7 +130,7 @@ export interface FormInputSignature {
       @value={{@value}}
       @type={{@type}}
       @label={{@label}}
-      @identifier={{@identifier}}
+      @id={{@id}}
       @isRequired={{@isRequired}}
       @isInputOnly={{@isInputOnly}}
       @size={{@size}}

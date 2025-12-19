@@ -19,7 +19,7 @@ module('Integration | Component | form/check/input', function (hooks) {
         <FormCheckInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @onChange={{fn (mut state.value)}}
         />

@@ -4,7 +4,7 @@ export interface FormRadioInputSignature {
   Args: {
     checked: boolean;
     name: string;
-    identifier: string;
+    id: string;
     isRequired?: boolean;
   };
   Element: HTMLInputElement;
@@ -15,7 +15,7 @@ export interface FormRadioInputSignature {
     type="radio"
     class="form-check-input"
     name={{@name}}
-    id={{@identifier}}
+    id={{@id}}
     checked={{@checked}}
     required={{@isRequired}}
     ...attributes

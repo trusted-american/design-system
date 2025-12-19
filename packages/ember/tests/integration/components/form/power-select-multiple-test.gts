@@ -27,7 +27,7 @@ module(
             @options={{array "a" "b" "c"}}
             @selected={{state.selected}}
             @label="Label"
-            @identifier="identifier"
+            @id="identifier"
             @requiredLabel="Required"
             @chooseLabel="Choose…"
             @onChange={{fn (mut state.selected)}}

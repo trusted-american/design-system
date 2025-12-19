@@ -24,7 +24,7 @@ module('Integration | Component | form/radio-card', function (hooks) {
           }}
           @selected={{state.selected}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.selected)}}
         />

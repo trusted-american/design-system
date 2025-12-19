@@ -27,14 +27,14 @@ export interface FormTextareaSignature {
   {{#unless @isInputOnly}}
     <FormLabel
       @label={{@label}}
-      @identifier={{@identifier}}
+      @for={{@id}}
       @isRequired={{@isRequired}}
       @requiredLabel={{@requiredLabel}}
     />
   {{/unless}}
 
   <textarea
-    id={{@identifier}}
+    id={{@id}}
     value={{@value}}
     class="form-control {{if @size (concat 'form-control-' @size)}}"
     required={{@isRequired}}

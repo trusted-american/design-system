@@ -51,7 +51,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier={{@identifier}}
+        @for={{@id}}
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
@@ -75,7 +75,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
         </Nav>
 
         {{#unless this.isPreview}}
-          <markdown-toolbar for={{@identifier}}>
+          <markdown-toolbar for={{@id}}>
             <md-header>
               <Button
                 @label={{@headingLabel}}
@@ -162,7 +162,7 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
           <FormTextarea
             @value={{@value}}
             @label={{@label}}
-            @identifier={{@identifier}}
+            @id={{@id}}
             @isRequired={{@isRequired}}
             @invalidLabel={{@invalidLabel}}
             @requiredLabel={{@requiredLabel}}

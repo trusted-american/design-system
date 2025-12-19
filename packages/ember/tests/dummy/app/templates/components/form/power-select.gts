@@ -45,7 +45,7 @@ export default class ComponentsFormPowerSelect extends Component<ComponentsFormP
         }}
         @selected={{this.value}}
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."

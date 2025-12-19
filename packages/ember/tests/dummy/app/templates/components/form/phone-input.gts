@@ -28,7 +28,7 @@ export default class ComponentsFormPhoneInput extends Component<ComponentsFormPh
       <FormPhoneInput
         @value={{this.value}}
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."

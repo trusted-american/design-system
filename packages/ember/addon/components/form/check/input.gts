@@ -5,7 +5,7 @@ export interface FormCheckInputSignature {
   Args: {
     value: boolean | null | undefined;
     label: string;
-    identifier: string;
+    id: string;
     isRequired?: boolean;
     isInputOnly?: boolean;
     onChange: (value: boolean) => void;
@@ -24,7 +24,7 @@ export default class FormCheckInput extends Component<FormCheckInputSignature> {
   <template>
     <input
       type="checkbox"
-      id={{@identifier}}
+      id={{@id}}
       checked={{@value}}
       class="form-check-input"
       required={{@isRequired}}

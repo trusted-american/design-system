@@ -12,7 +12,7 @@ module('Integration | Component | form/radio/input', function (hooks) {
         <FormRadioInput
           @checked={{true}}
           @name="name"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
         />
       </template>,

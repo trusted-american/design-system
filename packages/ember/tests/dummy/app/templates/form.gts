@@ -44,7 +44,7 @@ export default class Form extends Component<FormSignature> {
           <FormInput
             @value={{this.value}}
             @label="Label"
-            @identifier="input"
+            @id="input"
             @isRequired={{true}}
             @requiredLabel="Required"
             @help="This is an example of help."
@@ -58,7 +58,7 @@ export default class Form extends Component<FormSignature> {
           <FormTextarea
             @value={{this.value}}
             @label="Label"
-            @identifier="textarea"
+            @id="textarea"
             @isRequired={{true}}
             @requiredLabel="Required"
             @help="This is an example of help."
@@ -72,7 +72,7 @@ export default class Form extends Component<FormSignature> {
           <FormCheck
             @value={{this.check}}
             @label="Label"
-            @identifier="check"
+            @id="check"
             @isRequired={{true}}
             @requiredLabel="Required"
             @help="This is an example of help."
@@ -86,7 +86,7 @@ export default class Form extends Component<FormSignature> {
             @options={{array "A" "B" "C"}}
             @selected={{this.value}}
             @label="Label"
-            @identifier="powerSelect"
+            @id="powerSelect"
             @isRequired={{true}}
             @requiredLabel="Required"
             @help="This is an example of help."
@@ -104,7 +104,7 @@ export default class Form extends Component<FormSignature> {
           <FormInput
             @value={{this.value}}
             @label="Label"
-            @identifier="input"
+            @id="input2"
             @isRequired={{true}}
             @requiredLabel="Required"
             @help="This is an example of help."

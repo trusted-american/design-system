@@ -22,7 +22,7 @@ module('Integration | Component | form/input', function (hooks) {
           @value={{state.value}}
           @type="text"
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidLabel="Invalid feedback"
@@ -50,7 +50,7 @@ module('Integration | Component | form/input', function (hooks) {
         <FormInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -71,7 +71,7 @@ module('Integration | Component | form/input', function (hooks) {
         <FormInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -92,7 +92,7 @@ module('Integration | Component | form/input', function (hooks) {
         <FormInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />
@@ -132,7 +132,7 @@ module('Integration | Component | form/input', function (hooks) {
           <FormInput
             @value={{state.value}}
             @label="Label"
-            @identifier="identifier"
+            @id="identifier"
             @isRequired={{true}}
             @invalidLabel="Wrong"
             @requiredLabel="Required"
@@ -160,7 +160,7 @@ module('Integration | Component | form/input', function (hooks) {
         <FormInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @isInputOnly={{true}}
           @onChange={{fn (mut state.value)}}

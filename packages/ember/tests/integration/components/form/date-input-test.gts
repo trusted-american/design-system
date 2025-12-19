@@ -21,7 +21,7 @@ module('Integration | Component | form/date-input', function (hooks) {
           @min={{undefined}}
           @max={{undefined}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidLabel="Invalid feedback"
@@ -53,7 +53,7 @@ module('Integration | Component | form/date-input', function (hooks) {
           @value={{state.value}}
           @type="month"
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @onChange={{fn (mut state.value)}}
         />

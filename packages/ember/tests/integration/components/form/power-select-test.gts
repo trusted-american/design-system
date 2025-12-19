@@ -25,7 +25,7 @@ module('Integration | Component | form/power-select', function (hooks) {
           @options={{array "a" "b" "c"}}
           @selected={{state.selected}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
@@ -56,7 +56,7 @@ module('Integration | Component | form/power-select', function (hooks) {
           @options={{array "a" "b" "c"}}
           @selected={{state.selected}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @chooseLabel="Choose…"
           @searchLabel="Search…"
@@ -94,7 +94,7 @@ module('Integration | Component | form/power-select', function (hooks) {
             @options={{array "a" "b" "c"}}
             @selected={{state.selected}}
             @label="Label"
-            @identifier="identifier"
+            @id="identifier"
             @isRequired={{true}}
             @requiredLabel="Required"
             @validLabel="Looks good!"

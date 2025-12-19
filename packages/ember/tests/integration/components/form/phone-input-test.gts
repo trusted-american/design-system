@@ -19,7 +19,7 @@ module('Integration | Component | form/phone-input', function (hooks) {
         <FormPhoneInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidLabel="Invalid feedback"

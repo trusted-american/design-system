@@ -27,7 +27,7 @@ export interface FormNumberInputSignature {
     @type={{if @type @type "number"}}
     @value={{format @value}}
     @label={{@label}}
-    @identifier={{@identifier}}
+    @id={{@id}}
     @isRequired={{@isRequired}}
     @help={{@help}}
     @invalidLabel={{@invalidLabel}}

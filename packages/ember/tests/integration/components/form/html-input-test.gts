@@ -19,7 +19,7 @@ module('Integration | Component | form/html-input', function (hooks) {
         <FormHtmlInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @requiredLabel="Required"
           @editorLabel="Editor"
@@ -66,7 +66,7 @@ module('Integration | Component | form/html-input', function (hooks) {
         <FormHtmlInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @requiredLabel="Required"
           @editorLabel="Editor"
@@ -104,7 +104,7 @@ module('Integration | Component | form/html-input', function (hooks) {
         <FormHtmlInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @requiredLabel="Required"
           @editorLabel="Editor"
