@@ -1,6 +1,8 @@
 import {
   copyBoxBase,
   copyBoxButton,
+  copyBoxButtonBorder,
+  copyBoxButtonBorderActive,
   copyBoxInput,
 } from '@trusted-american/core';
 import { useState } from 'react';
@@ -24,7 +26,7 @@ const CopyBox = ({ value, className }: CopyBoxProps) => {
   };
 
   return (
-    <div className={`$${copyBoxBase} ${className}`}>
+    <div className={`${copyBoxBase} ${className}`}>
       <input
         className={copyBoxInput}
         type="text"
@@ -35,11 +37,7 @@ const CopyBox = ({ value, className }: CopyBoxProps) => {
       <button
         onClick={handleCopy}
         className={`${copyBoxButton}
-          ${
-            isCopied
-              ? 'border-blue-600 bg-blue-600 text-white'
-              : 'border-gray-300 hover:bg-gray-100'
-          }
+          ${isCopied ? copyBoxButtonBorderActive : copyBoxButtonBorder}
         `}
       >
         {isCopied ? '✓' : '📋'}
