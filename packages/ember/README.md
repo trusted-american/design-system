@@ -16,10 +16,7 @@ ember install @trusted-american/ember
 
 ## Usage
 
-[Read the introduction guide.](https://taia-design-system.netlify.app/guides/introduction)
-
-> [!NOTE]
-> To release new changes, run `npx release-it` and choose `yes` for each question.
+[Longer description of how to use the addon in apps.]
 
 ## Contributing
 

@@ -28,6 +28,9 @@ pnpm add @trusted-american/core @trusted-american/ember
 
 [Read the introduction guide.](https://taia-design-system.netlify.app/guides/introduction)
 
+> [!NOTE]
+> To release new changes, increment versions of the packages to be released and run `pnpm publish --recursive`.
+
 ## Packages
 
 - [@trusted-american/core](packages/core)
