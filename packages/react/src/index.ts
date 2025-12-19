@@ -23,6 +23,7 @@ export { default as Card } from './components/card';
 export { default as CloseButton } from './components/close-button';
 export { default as Collapse } from './components/collapse';
 export { default as Copy } from './components/copy';
+export { default as CopyBox } from './components/copy-box';
 export { default as Dropdown } from './components/dropdown';
 export { default as FileType } from './components/file-type';
 export { default as Flyout } from './components/flyout';
