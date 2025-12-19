@@ -1,6 +1,6 @@
 {
   "name": "@trusted-american/ember",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Components for building robust user interfaces.",
   "keywords": [
     "ember-addon"
