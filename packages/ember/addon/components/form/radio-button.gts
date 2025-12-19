@@ -31,7 +31,7 @@ export default class FormRadioButton<T> extends Component<
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier="{{@identifier}}0"
+        @for="{{@id}}0"
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
@@ -43,8 +43,8 @@ export default class FormRadioButton<T> extends Component<
           <input
             type="radio"
             class="btn-check"
-            name={{@identifier}}
-            id="{{@identifier}}{{index}}"
+            name={{@id}}
+            id="{{@id}}{{index}}"
             autocomplete="off"
             checked={{eq @selected option.value}}
             {{on "change" (fn @onChange option.value)}}
@@ -53,7 +53,7 @@ export default class FormRadioButton<T> extends Component<
             @label={{option.label}}
             @color={{option.color}}
             @isLabel={{true}}
-            for="{{@identifier}}{{index}}"
+            for="{{@id}}{{index}}"
           />
         {{/each}}
       </ButtonGroup>

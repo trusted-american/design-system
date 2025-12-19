@@ -19,7 +19,7 @@ module('Integration | Component | form/number-input', function (hooks) {
         <FormNumberInput
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{true}}
           @help="Help"
           @invalidLabel="Invalid feedback"

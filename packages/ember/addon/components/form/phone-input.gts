@@ -43,7 +43,7 @@ export default class FormPhoneInput extends Component<FormPhoneInputSignature> {
       @type="tel"
       @value={{this.value}}
       @label={{@label}}
-      @identifier={{@identifier}}
+      @id={{@id}}
       @isRequired={{@isRequired}}
       @help={{@help}}
       @invalidLabel={{@invalidLabel}}

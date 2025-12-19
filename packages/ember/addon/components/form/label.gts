@@ -4,7 +4,7 @@ import Badge from '../badge';
 export interface FormLabelSignature {
   Args: {
     label: string;
-    identifier: string;
+    for: string;
     isRequired?: boolean;
     requiredLabel: string;
     isCheck?: boolean;
@@ -14,7 +14,7 @@ export interface FormLabelSignature {
 
 <template>
   <label
-    for={{@identifier}}
+    for={{@for}}
     class={{if @isCheck "form-check-label" "form-label"}}
     data-test-form-label
     ...attributes

@@ -23,7 +23,7 @@ module('Integration | Component | form/radio', function (hooks) {
           }}
           @selected={{state.selected}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{undefined}}
           @requiredLabel="Required"
           @isInline={{undefined}}

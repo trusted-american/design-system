@@ -32,7 +32,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier={{@identifier}}
+        @for={{@id}}
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
@@ -40,7 +40,7 @@ export default class FormFileInput extends Component<FormFileInputSignature> {
 
     <input
       type="file"
-      id={{@identifier}}
+      id={{@id}}
       class="form-control {{if @size (concat 'form-control-' @size)}}"
       required={{@isRequired}}
       aria-label={{if @isInputOnly @label}}

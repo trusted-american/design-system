@@ -309,7 +309,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
               <FormCheckInput
                 @value={{predicate.isEnabled}}
                 @label={{predicate._predicate.label}}
-                @identifier="toggle{{index}}"
+                @id="toggle{{index}}"
                 @onChange={{fn
                   (mut predicate.isEnabled)
                   (not predicate.isEnabled)
@@ -337,7 +337,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                     }}
                     @selected={{predicate.mode}}
                     @label={{@modeLabel}}
-                    @identifier="mode{{index}}"
+                    @id="mode{{index}}"
                     @requiredLabel={{@requiredLabel}}
                     @isInputOnly={{true}}
                     @onChange={{fn (mut predicate.mode)}}
@@ -350,7 +350,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       <FormNumberInput
                         @value={{predicate.offsetCount}}
                         @label={{@valueALabel}}
-                        @identifier="valueA{{index}}"
+                        @id="valueA{{index}}"
                         @isRequired={{true}}
                         @requiredLabel={{@requiredLabel}}
                         @isInputOnly={{true}}
@@ -364,7 +364,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                         }}
                         @selected={{predicate.offsetMode}}
                         @label={{@valueBLabel}}
-                        @identifier="valueB{{index}}"
+                        @id="valueB{{index}}"
                         @requiredLabel={{@requiredLabel}}
                         @isInputOnly={{true}}
                         @onChange={{fn (mut predicate.offsetMode)}}
@@ -373,7 +373,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       <FormDateInput
                         @value={{predicate.startAt}}
                         @label={{@valueALabel}}
-                        @identifier="valueA{{index}}"
+                        @id="valueA{{index}}"
                         @isRequired={{true}}
                         @requiredLabel={{@requiredLabel}}
                         @isInputOnly={{true}}
@@ -385,7 +385,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                         <FormDateInput
                           @value={{predicate.endAt}}
                           @label={{@valueBLabel}}
-                          @identifier="valueB{{index}}"
+                          @id="valueB{{index}}"
                           @isRequired={{true}}
                           @requiredLabel={{@requiredLabel}}
                           @isInputOnly={{true}}
@@ -402,7 +402,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                     <FormCheck
                       @value={{includes opt.value predicate._predicate.value}}
                       @label={{opt.label}}
-                      @identifier="value{{index}}{{opt.value}}"
+                      @id="value{{index}}{{opt.value}}"
                       @requiredLabel={{@requiredLabel}}
                       @onChange={{fn this.toggleMulti predicate opt.value}}
                     />
@@ -413,7 +413,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                   <FormInput
                     @value={{predicate._predicate.value}}
                     @label={{@valueLabel}}
-                    @identifier="value{{index}}"
+                    @id="value{{index}}"
                     @isRequired={{true}}
                     @requiredLabel={{@requiredLabel}}
                     @isInputOnly={{true}}
@@ -431,7 +431,7 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       @selected={{findBy "value" predicate._value o}}
                       @searchField="label"
                       @label={{@valueLabel}}
-                      @identifier="value{{index}}"
+                      @id="value{{index}}"
                       {{!-- @isRequired={{true}} --}}
                       @requiredLabel={{@requiredLabel}}
                       @isInputOnly={{true}}

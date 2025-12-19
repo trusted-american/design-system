@@ -41,7 +41,7 @@ export default class FormPowerSelect<T> extends Component<
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier={{@identifier}}
+        @for={{@id}}
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
@@ -69,7 +69,7 @@ export default class FormPowerSelect<T> extends Component<
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
         @verticalPosition={{@verticalPosition}}
-        @triggerId={{@identifier}}
+        @triggerId={{@id}}
         @showCreatePosition="bottom"
         {{! @glint-expect-error }}
         @onChange={{@onChange}}
@@ -93,7 +93,7 @@ export default class FormPowerSelect<T> extends Component<
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
         @verticalPosition={{@verticalPosition}}
-        @triggerId={{@identifier}}
+        @triggerId={{@id}}
         @onChange={{@onChange}}
         data-test-form-power-select
         ...attributes

@@ -23,7 +23,7 @@ module('Integration | Component | form/radio-button', function (hooks) {
           }}
           @selected={{state.selected}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @requiredLabel="Required"
           @size="sm"
           @onChange={{fn (mut state.selected)}}

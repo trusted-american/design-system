@@ -32,7 +32,7 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
     {{#unless @isInputOnly}}
       <FormLabel
         @label={{@label}}
-        @identifier="{{@identifier}}0"
+        @for="{{@id}}0"
         @isRequired={{@isRequired}}
         @requiredLabel={{@requiredLabel}}
       />
@@ -43,8 +43,8 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
         <div class="form-check {{if @isInline 'form-check-inline'}}">
           <FormRadioInput
             @checked={{eq @selected option.value}}
-            @name={{@identifier}}
-            @identifier="{{@identifier}}{{index}}"
+            @name={{@id}}
+            @id="{{@id}}{{index}}"
             @isRequired={{@isRequired}}
             {{on "change" (fn @onChange option.value)}}
             ...attributes
@@ -52,7 +52,7 @@ export default class FormRadio<T> extends Component<FormRadioSignature<T>> {
 
           <FormLabel
             @label={{option.label}}
-            @identifier="{{@identifier}}{{index}}"
+            @for="{{@id}}{{index}}"
             @requiredLabel={{@requiredLabel}}
             @isCheck={{true}}
           />

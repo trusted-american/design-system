@@ -19,7 +19,7 @@ module('Integration | Component | form/check', function (hooks) {
         <FormCheck
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isInline={{false}}
           @isSwitch={{false}}
           @help="Help"

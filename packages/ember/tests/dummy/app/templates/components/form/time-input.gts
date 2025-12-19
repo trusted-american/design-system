@@ -28,7 +28,7 @@ export default class ComponentsFormTimeInput extends Component<ComponentsFormTim
       <FormTimeInput
         @value={{this.value}}
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."

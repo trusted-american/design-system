@@ -20,7 +20,7 @@ module('Integration | Component | form/textarea', function (hooks) {
         <FormTextarea
           @value={{state.value}}
           @label="Label"
-          @identifier="identifier"
+          @id="identifier"
           @isRequired={{state.isRequired}}
           @help="Help"
           @invalidLabel="Invalid feedback"

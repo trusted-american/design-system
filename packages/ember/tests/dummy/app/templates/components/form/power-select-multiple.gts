@@ -44,7 +44,7 @@ export default class ComponentsFormPowerSelectMultiple extends Component<Compone
         @options={{(array)}}
         @selected={{this.value}}
         @label="Label"
-        @identifier="identifier"
+        @id="identifier"
         @isRequired={{true}}
         @requiredLabel="Required"
         @help="This is an example of help."
