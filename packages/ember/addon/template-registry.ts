@@ -57,6 +57,7 @@ import type Card from './components/card';
 import type CloseButton from './components/close-button';
 import type Collapse from './components/collapse';
 import type Copy from './components/copy';
+import type CopyBox from './components/copy-box';
 import type Dropdown from './components/dropdown';
 import type FileType from './components/file-type';
 import type Flyout from './components/flyout';
@@ -152,6 +153,7 @@ export default interface Registry {
   CloseButton: typeof CloseButton;
   Collapse: typeof Collapse;
   Copy: typeof Copy;
+  CopyBox: typeof CopyBox;
   Dropdown: typeof Dropdown;
   FileType: typeof FileType;
   Flyout: typeof Flyout;
