@@ -17,7 +17,7 @@ export interface MainSignature {
   Element: HTMLElement;
 }
 
-const Main: TOC<MainSignature> = <template>
+<template>
   <main
     class="d-flex flex-column flex-grow-1 bg-body overflow-y-auto"
     data-test-main
@@ -25,6 +25,4 @@ const Main: TOC<MainSignature> = <template>
   >
     {{yield (hash topHeader=MainTopHeader body=MainBody footer=MainFooter)}}
   </main>
-</template>;
-
-export default Main;
+</template> satisfies TOC<MainSignature>;

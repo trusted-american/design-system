@@ -24,7 +24,7 @@ export interface PropertyListSignature {
   Element: HTMLDivElement;
 }
 
-const PropertyList: TOC<PropertyListSignature> = <template>
+<template>
   <div data-test-property-list ...attributes>
     {{#if @title}}
       <p class="text-uppercase">
@@ -45,6 +45,4 @@ const PropertyList: TOC<PropertyListSignature> = <template>
       }}
     </dl>
   </div>
-</template>;
-
-export default PropertyList;
+</template> satisfies TOC<PropertyListSignature>;

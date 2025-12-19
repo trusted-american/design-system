@@ -10,7 +10,7 @@ export interface CollapseSignature {
   Element: HTMLDivElement;
 }
 
-const Collapse: TOC<CollapseSignature> = <template>
+<template>
   <div
     class="collapse {{if @isHorizontal 'collapse-horizontal'}}"
     data-test-collapse
@@ -18,6 +18,4 @@ const Collapse: TOC<CollapseSignature> = <template>
   >
     {{yield}}
   </div>
-</template>;
-
-export default Collapse;
+</template> satisfies TOC<CollapseSignature>;

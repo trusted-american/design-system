@@ -18,7 +18,7 @@ export interface IconSignature {
   Element: SVGElement;
 }
 
-const Icon: TOC<IconSignature> = <template>
+<template>
   <FaIcon
     @icon={{@icon}}
     @fixedWidth={{@isFixedWidth}}
@@ -28,6 +28,4 @@ const Icon: TOC<IconSignature> = <template>
     data-test-icon
     ...attributes
   />
-</template>;
-
-export default Icon;
+</template> satisfies TOC<IconSignature>;

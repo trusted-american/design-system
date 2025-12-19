@@ -11,7 +11,7 @@ export interface BannerSignature {
   Element: HTMLElement;
 }
 
-const Banner: TOC<BannerSignature> = <template>
+<template>
   <section
     class="text-bg-{{if @color @color 'primary'}} text-center fw-semibold p-2"
     data-test-banner
@@ -19,6 +19,4 @@ const Banner: TOC<BannerSignature> = <template>
   >
     {{yield}}
   </section>
-</template>;
-
-export default Banner;
+</template> satisfies TOC<BannerSignature>;

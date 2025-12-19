@@ -10,10 +10,8 @@ export interface DropdownSignature {
   Element: HTMLDivElement;
 }
 
-const Dropdown: TOC<DropdownSignature> = <template>
+<template>
   <div class="dropdown-menu dropdown-menu-end" data-test-dropdown ...attributes>
     {{yield (hash item=DropdownItem divider=DropdownDivider)}}
   </div>
-</template>;
-
-export default Dropdown;
+</template> satisfies TOC<DropdownSignature>;

@@ -33,7 +33,7 @@ export interface AsideSignature {
   };
 }
 
-const Aside: TOC<AsideSignature> = <template>
+<template>
   {{#unless @isCollapsed}}
     <aside
       class="d-flex flex-column flex-shrink-0 overflow-y-auto border-end gap-3 py-3 ps-3"
@@ -83,6 +83,4 @@ const Aside: TOC<AsideSignature> = <template>
       {{/if}}
     </aside>
   {{/unless}}
-</template>;
-
-export default Aside;
+</template> satisfies TOC<AsideSignature>;

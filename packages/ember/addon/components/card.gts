@@ -17,10 +17,8 @@ export interface CardSignature {
   Element: HTMLDivElement;
 }
 
-const Card: TOC<CardSignature> = <template>
+<template>
   <div class="card" data-test-card ...attributes>
     {{yield (hash header=CardHeader body=CardBody footer=CardFooter)}}
   </div>
-</template>;
-
-export default Card;
+</template> satisfies TOC<CardSignature>;

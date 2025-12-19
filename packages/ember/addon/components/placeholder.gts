@@ -38,7 +38,7 @@ export interface PlaceholderSignature {
   Element: HTMLElement;
 }
 
-const Placeholder: TOC<PlaceholderSignature> = <template>
+<template>
   <div
     class="d-flex justify-content-center"
     data-test-placeholder
@@ -76,6 +76,4 @@ const Placeholder: TOC<PlaceholderSignature> = <template>
       {{/if}}
     </div>
   </div>
-</template>;
-
-export default Placeholder;
+</template> satisfies TOC<PlaceholderSignature>;

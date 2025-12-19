@@ -10,7 +10,7 @@ export interface MainBodySignature {
   Element: HTMLElement;
 }
 
-const MainBody: TOC<MainBodySignature> = <template>
+<template>
   <article
     class="container-fluid flex-grow-1 py-4{{if
         @isCentered
@@ -21,6 +21,4 @@ const MainBody: TOC<MainBodySignature> = <template>
   >
     {{yield}}
   </article>
-</template>;
-
-export default MainBody;
+</template> satisfies TOC<MainBodySignature>;

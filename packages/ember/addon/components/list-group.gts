@@ -16,7 +16,7 @@ export interface ListGroupSignature {
   Element: HTMLUListElement;
 }
 
-const ListGroup: TOC<ListGroupSignature> = <template>
+<template>
   <ul
     class="list-group
       {{if @isFlush 'list-group-flush'}}
@@ -28,6 +28,4 @@ const ListGroup: TOC<ListGroupSignature> = <template>
   >
     {{yield (hash item=ListGroupItem)}}
   </ul>
-</template>;
-
-export default ListGroup;
+</template> satisfies TOC<ListGroupSignature>;

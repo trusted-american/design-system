@@ -7,7 +7,7 @@ export interface MainHeaderSignature {
   Element: HTMLElement;
 }
 
-const MainHeader: TOC<MainHeaderSignature> = <template>
+<template>
   <header
     class="container-fluid bg-body-tertiary pt-4"
     data-test-main-header
@@ -15,6 +15,4 @@ const MainHeader: TOC<MainHeaderSignature> = <template>
   >
     {{yield}}
   </header>
-</template>;
-
-export default MainHeader;
+</template> satisfies TOC<MainHeaderSignature>;

@@ -76,7 +76,7 @@ export interface FormInputSignature {
   Element: HTMLInputElement;
 }
 
-const FormInput: TOC<FormInputSignature> = <template>
+<template>
   {{#unless @isInputOnly}}
     <FormLabel
       @label={{@label}}
@@ -149,6 +149,4 @@ const FormInput: TOC<FormInputSignature> = <template>
   {{#if @help}}
     <FormHelp @label={{@help}} />
   {{/if}}
-</template>;
-
-export default FormInput;
+</template> satisfies TOC<FormInputSignature>;

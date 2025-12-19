@@ -22,7 +22,7 @@ export interface FormNumberInputSignature {
   Element: HTMLInputElement;
 }
 
-const FormNumberInput: TOC<FormNumberInputSignature> = <template>
+<template>
   <FormInput
     @type={{if @type @type "number"}}
     @value={{format @value}}
@@ -39,6 +39,4 @@ const FormNumberInput: TOC<FormNumberInputSignature> = <template>
     data-test-form-number-input
     ...attributes
   />
-</template>;
-
-export default FormNumberInput;
+</template> satisfies TOC<FormNumberInputSignature>;

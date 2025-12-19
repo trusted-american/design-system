@@ -12,7 +12,7 @@ export interface FormLabelSignature {
   Element: HTMLLabelElement;
 }
 
-const FormLabel: TOC<FormLabelSignature> = <template>
+<template>
   <label
     for={{@identifier}}
     class={{if @isCheck "form-check-label" "form-label"}}
@@ -24,6 +24,4 @@ const FormLabel: TOC<FormLabelSignature> = <template>
       <Badge @label={{@requiredLabel}} @color="light" class="ms-1" />
     {{/if}}
   </label>
-</template>;
-
-export default FormLabel;
+</template> satisfies TOC<FormLabelSignature>;

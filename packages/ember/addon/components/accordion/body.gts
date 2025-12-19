@@ -7,10 +7,8 @@ export interface AccordionBodySignature {
   Element: HTMLDivElement;
 }
 
-const AccordionBody: TOC<AccordionBodySignature> = <template>
+<template>
   <div class="accordion-body" ...attributes>
     {{yield}}
   </div>
-</template>;
-
-export default AccordionBody;
+</template> satisfies TOC<AccordionBodySignature>;

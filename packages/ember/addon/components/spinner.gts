@@ -10,7 +10,7 @@ export interface SpinnerSignature {
   Element: HTMLDivElement;
 }
 
-const Spinner: TOC<SpinnerSignature> = <template>
+<template>
   <div
     class="spinner-border
       {{unless @isLarge 'spinner-border-sm'}}
@@ -22,6 +22,4 @@ const Spinner: TOC<SpinnerSignature> = <template>
     {{! TODO: string }}
     <span class="visually-hidden">Loading…</span>
   </div>
-</template>;
-
-export default Spinner;
+</template> satisfies TOC<SpinnerSignature>;

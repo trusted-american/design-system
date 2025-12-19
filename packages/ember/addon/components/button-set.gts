@@ -9,10 +9,8 @@ export interface ButtonSetSignature {
   Element: HTMLDivElement;
 }
 
-const ButtonSet: TOC<ButtonSetSignature> = <template>
+<template>
   <div class="d-flex gap-2" data-test-button-set ...attributes>
     {{yield (hash button=Button)}}
   </div>
-</template>;
-
-export default ButtonSet;
+</template> satisfies TOC<ButtonSetSignature>;

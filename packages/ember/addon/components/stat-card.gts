@@ -18,7 +18,7 @@ export interface StatCardSignature {
   Element: HTMLDivElement;
 }
 
-const StatCard: TOC<StatCardSignature> = <template>
+<template>
   <Card
     class="bg-body-tertiary mb-4"
     data-test-stat-card
@@ -60,6 +60,4 @@ const StatCard: TOC<StatCardSignature> = <template>
       {{/if}}
     </card.body>
   </Card>
-</template>;
-
-export default StatCard;
+</template> satisfies TOC<StatCardSignature>;

@@ -13,7 +13,7 @@ export interface AccordionButtonSignature {
   Element: HTMLButtonElement;
 }
 
-const AccordionButton: TOC<AccordionButtonSignature> = <template>
+<template>
   <button
     type="button"
     class="accordion-button {{unless @isOpen 'collapsed'}}"
@@ -22,6 +22,4 @@ const AccordionButton: TOC<AccordionButtonSignature> = <template>
   >
     {{yield}}
   </button>
-</template>;
-
-export default AccordionButton;
+</template> satisfies TOC<AccordionButtonSignature>;
