@@ -1,7 +1,12 @@
-interface NavProps {}
+import { navBase } from '@trusted-american/core';
+import type { ReactNode } from 'react';
 
-const Nav = ({}: NavProps) => {
-  return <div></div>;
+interface NavProps {
+  children: ReactNode;
+}
+
+const Nav = ({ children }: NavProps) => {
+  return <div className={navBase}>{children}</div>;
 };
 
 export default Nav;
