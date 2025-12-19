@@ -7,14 +7,63 @@ import { tracked } from '@glimmer/tracking';
 module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
 
+  const _data = [
+    { firstName: 'A', lastName: 'a', email: 'a@example.com' },
+    { firstName: 'B', lastName: 'b', email: 'b@example.com' },
+    { firstName: 'C', lastName: 'c', email: 'c@example.com' },
+    { firstName: 'D', lastName: 'd', email: 'd@example.com' },
+    { firstName: 'E', lastName: 'e', email: 'e@example.com' },
+    { firstName: 'F', lastName: 'f', email: 'f@example.com' },
+    { firstName: 'G', lastName: 'g', email: 'g@example.com' },
+    { firstName: 'H', lastName: 'h', email: 'h@example.com' },
+    { firstName: 'I', lastName: 'i', email: 'i@example.com' },
+    { firstName: 'J', lastName: 'j', email: 'j@example.com' },
+    { firstName: 'K', lastName: 'k', email: 'k@example.com' },
+    { firstName: 'L', lastName: 'l', email: 'l@example.com' },
+    { firstName: 'M', lastName: 'm', email: 'm@example.com' },
+    { firstName: 'N', lastName: 'n', email: 'n@example.com' },
+    { firstName: 'O', lastName: 'o', email: 'o@example.com' },
+    { firstName: 'P', lastName: 'p', email: 'p@example.com' },
+    { firstName: 'Q', lastName: 'q', email: 'q@example.com' },
+    { firstName: 'R', lastName: 'r', email: 'r@example.com' },
+    { firstName: 'S', lastName: 's', email: 's@example.com' },
+    { firstName: 'T', lastName: 't', email: 't@example.com' },
+    { firstName: 'U', lastName: 'u', email: 'u@example.com' },
+    { firstName: 'V', lastName: 'v', email: 'v@example.com' },
+    { firstName: 'W', lastName: 'w', email: 'w@example.com' },
+    { firstName: 'X', lastName: 'x', email: 'x@example.com' },
+    { firstName: 'Y', lastName: 'y', email: 'y@example.com' },
+    { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
+    { firstName: 'AA', lastName: 'aa', email: 'aa@example.com' },
+    { firstName: 'BB', lastName: 'bb', email: 'bb@example.com' },
+    { firstName: 'CC', lastName: 'cc', email: 'cc@example.com' },
+    { firstName: 'DD', lastName: 'dd', email: 'dd@example.com' },
+    { firstName: 'EE', lastName: 'ee', email: 'ee@example.com' },
+    { firstName: 'FF', lastName: 'ff', email: 'ff@example.com' },
+    { firstName: 'GG', lastName: 'gg', email: 'gg@example.com' },
+    { firstName: 'HH', lastName: 'hh', email: 'hh@example.com' },
+    { firstName: 'II', lastName: 'ii', email: 'ii@example.com' },
+    { firstName: 'JJ', lastName: 'jj', email: 'jj@example.com' },
+    { firstName: 'KK', lastName: 'kk', email: 'kk@example.com' },
+    { firstName: 'LL', lastName: 'll', email: 'll@example.com' },
+    { firstName: 'MM', lastName: 'mm', email: 'mm@example.com' },
+    { firstName: 'NN', lastName: 'nn', email: 'nn@example.com' },
+    { firstName: 'OO', lastName: 'oo', email: 'oo@example.com' },
+    { firstName: 'PP', lastName: 'pp', email: 'pp@example.com' },
+    { firstName: 'QQ', lastName: 'qq', email: 'qq@example.com' },
+    { firstName: 'RR', lastName: 'rr', email: 'rr@example.com' },
+    { firstName: 'SS', lastName: 'ss', email: 'ss@example.com' },
+    { firstName: 'TT', lastName: 'tt', email: 'tt@example.com' },
+    { firstName: 'UU', lastName: 'uu', email: 'uu@example.com' },
+    { firstName: 'VV', lastName: 'vv', email: 'vv@example.com' },
+    { firstName: 'WW', lastName: 'ww', email: 'ww@example.com' },
+    { firstName: 'XX', lastName: 'xx', email: 'xx@example.com' },
+    { firstName: 'YY', lastName: 'yy', email: 'yy@example.com' },
+    { firstName: 'ZZ', lastName: 'zz', email: 'zz@example.com' },
+  ];
+
   test('it renders', async function (assert) {
-    const data = [
-      { firstName: 'A', lastName: 'a', email: 'a@example.com' },
-      { firstName: 'B', lastName: 'b', email: 'b@example.com' },
-      { firstName: 'C', lastName: 'c', email: 'c@example.com' },
-      { firstName: 'D', lastName: 'd', email: 'd@example.com' },
-      { firstName: 'E', lastName: 'e', email: 'e@example.com' },
-    ];
+    const data = _data.slice(0, 5);
 
     await render(
       <template>
@@ -81,13 +130,7 @@ module('Integration | Component | table', function (hooks) {
   });
 
   test('it renders sortable', async function (assert) {
-    const data = [
-      { firstName: 'A', lastName: 'a', email: 'a@example.com' },
-      { firstName: 'B', lastName: 'b', email: 'b@example.com' },
-      { firstName: 'C', lastName: 'c', email: 'c@example.com' },
-      { firstName: 'D', lastName: 'd', email: 'd@example.com' },
-      { firstName: 'E', lastName: 'e', email: 'e@example.com' },
-    ];
+    const data = _data.slice(0, 5);
 
     await render(
       <template>
@@ -158,34 +201,7 @@ module('Integration | Component | table', function (hooks) {
   });
 
   test('it renders local pagination', async function (assert) {
-    const data = [
-      { firstName: 'A', lastName: 'a', email: 'a@example.com' },
-      { firstName: 'B', lastName: 'b', email: 'b@example.com' },
-      { firstName: 'C', lastName: 'c', email: 'c@example.com' },
-      { firstName: 'D', lastName: 'd', email: 'd@example.com' },
-      { firstName: 'E', lastName: 'e', email: 'e@example.com' },
-      { firstName: 'F', lastName: 'f', email: 'f@example.com' },
-      { firstName: 'G', lastName: 'g', email: 'g@example.com' },
-      { firstName: 'H', lastName: 'h', email: 'h@example.com' },
-      { firstName: 'I', lastName: 'i', email: 'i@example.com' },
-      { firstName: 'J', lastName: 'j', email: 'j@example.com' },
-      { firstName: 'K', lastName: 'k', email: 'k@example.com' },
-      { firstName: 'L', lastName: 'l', email: 'l@example.com' },
-      { firstName: 'M', lastName: 'm', email: 'm@example.com' },
-      { firstName: 'N', lastName: 'n', email: 'n@example.com' },
-      { firstName: 'O', lastName: 'o', email: 'o@example.com' },
-      { firstName: 'P', lastName: 'p', email: 'p@example.com' },
-      { firstName: 'Q', lastName: 'q', email: 'q@example.com' },
-      { firstName: 'R', lastName: 'r', email: 'r@example.com' },
-      { firstName: 'S', lastName: 's', email: 's@example.com' },
-      { firstName: 'T', lastName: 't', email: 't@example.com' },
-      { firstName: 'U', lastName: 'u', email: 'u@example.com' },
-      { firstName: 'V', lastName: 'v', email: 'v@example.com' },
-      { firstName: 'W', lastName: 'w', email: 'w@example.com' },
-      { firstName: 'X', lastName: 'x', email: 'x@example.com' },
-      { firstName: 'Y', lastName: 'y', email: 'y@example.com' },
-      { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
-    ];
+    const data = _data.slice(0, 26);
 
     await render(
       <template>
@@ -245,34 +261,7 @@ module('Integration | Component | table', function (hooks) {
   });
 
   test('it renders cursor pagination', async function (assert) {
-    const data = [
-      { firstName: 'A', lastName: 'a', email: 'a@example.com' },
-      { firstName: 'B', lastName: 'b', email: 'b@example.com' },
-      { firstName: 'C', lastName: 'c', email: 'c@example.com' },
-      { firstName: 'D', lastName: 'd', email: 'd@example.com' },
-      { firstName: 'E', lastName: 'e', email: 'e@example.com' },
-      { firstName: 'F', lastName: 'f', email: 'f@example.com' },
-      { firstName: 'G', lastName: 'g', email: 'g@example.com' },
-      { firstName: 'H', lastName: 'h', email: 'h@example.com' },
-      { firstName: 'I', lastName: 'i', email: 'i@example.com' },
-      { firstName: 'J', lastName: 'j', email: 'j@example.com' },
-      { firstName: 'K', lastName: 'k', email: 'k@example.com' },
-      { firstName: 'L', lastName: 'l', email: 'l@example.com' },
-      { firstName: 'M', lastName: 'm', email: 'm@example.com' },
-      { firstName: 'N', lastName: 'n', email: 'n@example.com' },
-      { firstName: 'O', lastName: 'o', email: 'o@example.com' },
-      { firstName: 'P', lastName: 'p', email: 'p@example.com' },
-      { firstName: 'Q', lastName: 'q', email: 'q@example.com' },
-      { firstName: 'R', lastName: 'r', email: 'r@example.com' },
-      { firstName: 'S', lastName: 's', email: 's@example.com' },
-      { firstName: 'T', lastName: 't', email: 't@example.com' },
-      { firstName: 'U', lastName: 'u', email: 'u@example.com' },
-      { firstName: 'V', lastName: 'v', email: 'v@example.com' },
-      { firstName: 'W', lastName: 'w', email: 'w@example.com' },
-      { firstName: 'X', lastName: 'x', email: 'x@example.com' },
-      { firstName: 'Y', lastName: 'y', email: 'y@example.com' },
-      { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
-    ];
+    const data = _data.slice(0, 26);
 
     const onNext = () => {
       assert.ok(true);
@@ -338,65 +327,11 @@ module('Integration | Component | table', function (hooks) {
     const state = new State();
 
     const getData = () => {
-      const users = [
-        { firstName: 'A', lastName: 'a', email: 'a@example.com' },
-        { firstName: 'B', lastName: 'b', email: 'b@example.com' },
-        { firstName: 'C', lastName: 'c', email: 'c@example.com' },
-        { firstName: 'D', lastName: 'd', email: 'd@example.com' },
-        { firstName: 'E', lastName: 'e', email: 'e@example.com' },
-        { firstName: 'F', lastName: 'f', email: 'f@example.com' },
-        { firstName: 'G', lastName: 'g', email: 'g@example.com' },
-        { firstName: 'H', lastName: 'h', email: 'h@example.com' },
-        { firstName: 'I', lastName: 'i', email: 'i@example.com' },
-        { firstName: 'J', lastName: 'j', email: 'j@example.com' },
-        { firstName: 'K', lastName: 'k', email: 'k@example.com' },
-        { firstName: 'L', lastName: 'l', email: 'l@example.com' },
-        { firstName: 'M', lastName: 'm', email: 'm@example.com' },
-        { firstName: 'N', lastName: 'n', email: 'n@example.com' },
-        { firstName: 'O', lastName: 'o', email: 'o@example.com' },
-        { firstName: 'P', lastName: 'p', email: 'p@example.com' },
-        { firstName: 'Q', lastName: 'q', email: 'q@example.com' },
-        { firstName: 'R', lastName: 'r', email: 'r@example.com' },
-        { firstName: 'S', lastName: 's', email: 's@example.com' },
-        { firstName: 'T', lastName: 't', email: 't@example.com' },
-        { firstName: 'U', lastName: 'u', email: 'u@example.com' },
-        { firstName: 'V', lastName: 'v', email: 'v@example.com' },
-        { firstName: 'W', lastName: 'w', email: 'w@example.com' },
-        { firstName: 'X', lastName: 'x', email: 'x@example.com' },
-        { firstName: 'Y', lastName: 'y', email: 'y@example.com' },
-        { firstName: 'Z', lastName: 'z', email: 'z@example.com' },
-        { firstName: 'AA', lastName: 'aa', email: 'aa@example.com' },
-        { firstName: 'BB', lastName: 'bb', email: 'bb@example.com' },
-        { firstName: 'CC', lastName: 'cc', email: 'cc@example.com' },
-        { firstName: 'DD', lastName: 'dd', email: 'dd@example.com' },
-        { firstName: 'EE', lastName: 'ee', email: 'ee@example.com' },
-        { firstName: 'FF', lastName: 'ff', email: 'ff@example.com' },
-        { firstName: 'GG', lastName: 'gg', email: 'gg@example.com' },
-        { firstName: 'HH', lastName: 'hh', email: 'hh@example.com' },
-        { firstName: 'II', lastName: 'ii', email: 'ii@example.com' },
-        { firstName: 'JJ', lastName: 'jj', email: 'jj@example.com' },
-        { firstName: 'KK', lastName: 'kk', email: 'kk@example.com' },
-        { firstName: 'LL', lastName: 'll', email: 'll@example.com' },
-        { firstName: 'MM', lastName: 'mm', email: 'mm@example.com' },
-        { firstName: 'NN', lastName: 'nn', email: 'nn@example.com' },
-        { firstName: 'OO', lastName: 'oo', email: 'oo@example.com' },
-        { firstName: 'PP', lastName: 'pp', email: 'pp@example.com' },
-        { firstName: 'QQ', lastName: 'qq', email: 'qq@example.com' },
-        { firstName: 'RR', lastName: 'rr', email: 'rr@example.com' },
-        { firstName: 'SS', lastName: 'ss', email: 'ss@example.com' },
-        { firstName: 'TT', lastName: 'tt', email: 'tt@example.com' },
-        { firstName: 'UU', lastName: 'uu', email: 'uu@example.com' },
-        { firstName: 'VV', lastName: 'vv', email: 'vv@example.com' },
-        { firstName: 'WW', lastName: 'ww', email: 'ww@example.com' },
-        { firstName: 'XX', lastName: 'xx', email: 'xx@example.com' },
-        { firstName: 'YY', lastName: 'yy', email: 'yy@example.com' },
-        { firstName: 'ZZ', lastName: 'zz', email: 'zz@example.com' },
-      ];
       const pageSize = 20;
       const page = state.page;
       const start = page * pageSize;
       const end = start + pageSize;
-      return users.slice(start, end);
+      return _data.slice(start, end);
     };
     class _State {
       @tracked data = getData();
