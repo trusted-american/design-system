@@ -12,7 +12,6 @@ import Snippet from '../../components/snippet';
 
   <Subheading @title="Examples" />
 
-  {{! TODO: index }}
   <Snippet @name="badge.gts">
     {{! BEGIN-SNIPPET badge }}
     <Badge @label="Primary" @color="primary" />
