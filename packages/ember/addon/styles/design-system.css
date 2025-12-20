@@ -190,6 +190,12 @@ aside .tds-aside-logo {
   text-align: inherit;
 }
 
+/* dropdown */
+
+.dropdown-toggle::after {
+  content: none !important;
+}
+
 /* frame */
 
 .tds-frame {
