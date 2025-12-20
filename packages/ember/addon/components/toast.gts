@@ -1,13 +1,14 @@
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
+import type { Color } from '@trusted-american/core';
 import { Toast as BootstrapToast } from 'bootstrap';
 import { modifier } from 'ember-modifier';
 import CloseButton from './close-button';
 
 export interface ToastSignature {
   Args: {
-    color?: string;
+    color?: Color;
     closeButtonLabel: string;
     onClose?: () => void;
   };

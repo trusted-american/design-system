@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-import { Button, Heading, Toast } from '@trusted-american/ember';
+import { Button, Heading, Subheading, Toast } from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
@@ -22,6 +22,35 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
     {{breadcrumb "Toast" route="components.toast"}}
 
     <Heading @title="Toast" />
+
+    <Subheading @title="Examples" />
+
+    {{! TODO: index }}
+    <Snippet @name="toast8.gts">
+      {{! BEGIN-SNIPPET toast8 }}
+      <Toast @color="primary" @closeButtonLabel="Close">
+        <:body>Primary</:body>
+      </Toast>
+      <Toast @closeButtonLabel="Close">
+        <:body>Secondary</:body>
+      </Toast>
+      <Toast @color="success" @closeButtonLabel="Close">
+        <:body>Success</:body>
+      </Toast>
+      <Toast @color="danger" @closeButtonLabel="Close">
+        <:body>Danger</:body>
+      </Toast>
+      <Toast @color="warning" @closeButtonLabel="Close">
+        <:body>Warning</:body>
+      </Toast>
+      <Toast @color="info" @closeButtonLabel="Close">
+        <:body>Info</:body>
+      </Toast>
+      <Toast @color="upsell" @closeButtonLabel="Close">
+        <:body>Upsell</:body>
+      </Toast>
+      {{! END-SNIPPET }}
+    </Snippet>
 
     <Snippet @name="toast.gts">
       {{! BEGIN-SNIPPET toast }}
