@@ -1,12 +1,12 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
+:root {
+  --ember-shiki-border-radius: var(--bs-border-radius) !important;
+}
+
 .snippet .shiki {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-
-:root {
-  --ember-shiki-border-radius: var(--bs-border-radius) !important;
 }
 
 .text-disabled {
