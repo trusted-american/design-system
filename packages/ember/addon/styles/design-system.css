@@ -202,6 +202,7 @@ aside .tds-aside-logo {
 
 dl dt {
   margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 dl dt:last-of-type,
