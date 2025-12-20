@@ -94,6 +94,12 @@ h1,
   box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
+/* form/label */
+
+.form-label {
+  font-weight: 600;
+}
+
 /* form/markdown-input */
 
 .markdown-input-preview {
