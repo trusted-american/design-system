@@ -143,6 +143,12 @@ aside .tds-aside-logo {
   --bs-spinner-height: 1em;
 }
 
+/* button */
+
+.btn {
+  font-weight: 600;
+}
+
 /* breadcrumb-trail */
 
 .breadcrumb {
