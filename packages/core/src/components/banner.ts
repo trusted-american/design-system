@@ -7,6 +7,7 @@ export const bannerVariants = {
   danger: 'bg-red-500',
   warning: 'bg-yellow-500',
   info: 'bg-sky-500',
+  upsell: 'bg-purple-500',
   // TODO: remove
   light: '',
   dark: '',
