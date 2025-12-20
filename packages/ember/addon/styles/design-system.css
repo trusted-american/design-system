@@ -138,6 +138,11 @@ aside .tds-aside-logo {
 
 /* badge */
 
+.badge {
+  font-weight: 600;
+  border-radius: 0.35rem;
+}
+
 .badge .spinner-border-sm {
   --bs-spinner-width: 1em;
   --bs-spinner-height: 1em;
