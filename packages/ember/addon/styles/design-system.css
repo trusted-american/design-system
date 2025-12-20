@@ -220,6 +220,10 @@ dl dd:last-child {
   white-space: nowrap;
 }
 
+.table td {
+  vertical-align: middle;
+}
+
 .yeti-table thead tr th.yeti-table-sorted-asc::after {
   content: "↑";
 }
