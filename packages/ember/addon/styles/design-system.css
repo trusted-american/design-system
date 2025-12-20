@@ -36,7 +36,7 @@
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #146c43; /* TODO: */
   --bs-btn-active-border-color: #13653f; /* TODO: */
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-active-shadow: inset 0 3px 5px rgb(0 0 0 / 12.5%);
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: var(--bs-upsell);
   --bs-btn-disabled-border-color: var(--bs-upsell);
@@ -145,6 +145,7 @@ aside .tds-aside-logo {
 
 /* calendar */
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 :root {
   --fc-border-color: var(--bs-border-color);
   --fc-button-text-color: var(--bs-body-color);
