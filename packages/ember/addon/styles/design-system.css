@@ -217,6 +217,11 @@ aside .tds-aside-logo {
   font-weight: 600;
 }
 
+kbd {
+  font-size: 0.75rem;
+  background-color: rgb(0 0 0 / 30%);
+}
+
 /* breadcrumb-trail */
 
 .breadcrumb {
