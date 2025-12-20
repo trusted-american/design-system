@@ -29,6 +29,21 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
 
     <Heading @title="Button" />
 
+    <Subheading @title="Examples" />
+
+    {{! TODO: index }}
+    <Snippet @name="button3.gts">
+      {{! BEGIN-SNIPPET button3 }}
+      <Button @label="Primary" @color="primary" />
+      <Button @label="Secondary" />
+      <Button @label="Success" @color="success" />
+      <Button @label="Danger" @color="danger" />
+      <Button @label="Warning" @color="warning" />
+      <Button @label="Info" @color="info" />
+      <Button @label="Upsell" @color="upsell" />
+      {{! END-SNIPPET }}
+    </Snippet>
+
     <Snippet @name="button.gts">
       {{! BEGIN-SNIPPET button }}
       <Button @label="Default button" {{on "click" this.click}} />

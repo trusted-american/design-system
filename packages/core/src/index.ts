@@ -25,6 +25,7 @@ export type Color =
   | 'danger'
   | 'warning'
   | 'info'
+  | 'upsell'
   // TODO: remove
   | 'light'
   | 'dark'

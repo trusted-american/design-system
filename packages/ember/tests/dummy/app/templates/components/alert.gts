@@ -3,6 +3,7 @@ import {
   faCheck,
   faCircleExclamation,
   faCircleInfo,
+  faGift,
   faInfoCircle,
   faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
@@ -85,6 +86,23 @@ export default class ComponentsAlert extends Component<ComponentsAlertSignature>
       >
         Ignoring revisions in
         <alert.link @route="index" @label=".git-blame-ignore-revs" />.
+      </Alert>
+      {{! END-SNIPPET }}
+    </Snippet>
+
+    {{! TODO: index }}
+    <Snippet @name="alert9.gts">
+      {{! BEGIN-SNIPPET alert9 }}
+      <Alert
+        @color="upsell"
+        @icon={{faGift}}
+        @closeButtonLabel="Close"
+        @onClose={{this.close}}
+        as |alert|
+      >
+        Users are
+        <alert.link @route="index" @label="now required" />
+        to enable two-factor authentication as an additional security measure.
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>
