@@ -283,6 +283,21 @@ kbd {
   --bs-gutter-x: 3rem;
 }
 
+/* modal */
+
+.modal.fade .modal-dialog {
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+  opacity: 1;
+}
+
 /* property-list */
 
 dl dt {
