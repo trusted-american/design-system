@@ -1,13 +1,5 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
-.breadcrumb {
-  --bs-breadcrumb-margin-bottom: 0;
-}
-
-.container-fluid {
-  --bs-gutter-x: 3rem;
-}
-
 .snippet .shiki {
   border-top-left-radius: 0;
   border-top-right-radius: 0;

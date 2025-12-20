@@ -143,6 +143,12 @@ aside .tds-aside-logo {
   --bs-spinner-height: 1em;
 }
 
+/* breadcrumb-trail */
+
+.breadcrumb {
+  --bs-breadcrumb-margin-bottom: 0;
+}
+
 /* calendar */
 
 /* stylelint-disable-next-line no-duplicate-selectors */
@@ -184,6 +190,12 @@ aside .tds-aside-logo {
 
 .tds-frame > main {
   grid-area: main;
+}
+
+/* main */
+
+.container-fluid {
+  --bs-gutter-x: 3rem;
 }
 
 /* property-list */
