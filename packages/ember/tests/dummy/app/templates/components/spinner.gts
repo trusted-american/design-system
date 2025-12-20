@@ -13,7 +13,7 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="spinner.gts">
     {{! BEGIN-SNIPPET spinner }}
-    <Spinner @color="secondary" @isLarge={{true}} />
+    <Spinner @color="primary" @isLarge={{true}} />
     {{! END-SNIPPET }}
   </Snippet>
 
@@ -21,8 +21,8 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="spinner1.gts">
     {{! BEGIN-SNIPPET spinner1 }}
+    <Spinner @color="primary" />
     <Spinner />
-    <Spinner @color="secondary" />
     <Spinner @color="success" />
     <Spinner @color="danger" />
     <Spinner @color="warning" />

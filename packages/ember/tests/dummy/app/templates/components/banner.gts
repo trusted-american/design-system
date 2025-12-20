@@ -13,7 +13,7 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="banner.gts">
     {{! BEGIN-SNIPPET banner }}
-    <Banner>This is a banner.</Banner>
+    <Banner @color="primary">This is a banner.</Banner>
     {{! END-SNIPPET }}
   </Snippet>
 
@@ -21,8 +21,8 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="banner1.gts">
     {{! BEGIN-SNIPPET banner1 }}
-    <Banner>Primary</Banner>
-    <Banner @color="secondary">Secondary</Banner>
+    <Banner @color="primary">Primary</Banner>
+    <Banner>Secondary</Banner>
     <Banner @color="success">Success</Banner>
     <Banner @color="danger">Danger</Banner>
     <Banner @color="warning">Warning</Banner>

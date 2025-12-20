@@ -7,10 +7,10 @@ import Icon from './icon';
 // prettier-ignore
 const Internal: TOC<{
   Args: {
-    label?: string;
-    icon?: IconDefinition;
-    isIconTrailing?: boolean;
-    isIconOnly?: boolean;
+    label: string | undefined;
+    icon: IconDefinition | undefined;
+    isIconTrailing: boolean | undefined;
+    isIconOnly: boolean | undefined;
   };
   Blocks: {
     default: [];

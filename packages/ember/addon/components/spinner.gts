@@ -14,7 +14,7 @@ export interface SpinnerSignature {
   <div
     class="spinner-border
       {{unless @isLarge 'spinner-border-sm'}}
-      {{if @color (concat 'text-' @color) 'text-primary'}}"
+      {{if @color (concat 'text-' @color) 'text-secondary'}}"
     role="status"
     data-test-spinner
     ...attributes
