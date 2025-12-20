@@ -221,6 +221,18 @@ dl dd:last-child {
   margin-bottom: 0;
 }
 
+/* skeleton */
+
+.placeholder {
+  opacity: 0.03;
+}
+
+@keyframes placeholder-glow {
+  50% {
+    opacity: 0.1;
+  }
+}
+
 /* table */
 
 .table {
