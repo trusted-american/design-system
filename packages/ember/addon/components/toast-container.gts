@@ -8,7 +8,11 @@ export interface ToastContainerSignature {
 }
 
 <template>
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div
+    class="toast-container position-fixed bottom-0 end-0 p-3"
+    data-test-toast-container
+    ...attributes
+  >
     {{yield}}
   </div>
 </template> satisfies TOC<ToastContainerSignature>;
