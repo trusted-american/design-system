@@ -33,7 +33,32 @@ export default class ComponentsAlert extends Component<ComponentsAlertSignature>
       @subtitle="Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
     />
 
-    <Subheading @title="Examples" />
+    <Subheading @title="Example" />
+
+    {{! TODO: }}
+    <Snippet @name="alert10.gts">
+      {{! BEGIN-SNIPPET alert10 }}
+      <Alert
+        @color="primary"
+        @icon={{faInfoCircle}}
+        @closeButtonLabel="Close"
+        @onClose={{this.close}}
+      >
+        <:title>Title here</:title>
+        <:default>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </:default>
+      </Alert>
+      {{! END-SNIPPET }}
+    </Snippet>
+
+    <Subheading @title="Colors" />
 
     <Snippet @name="alert.gts">
       {{! BEGIN-SNIPPET alert }}
@@ -149,28 +174,6 @@ export default class ComponentsAlert extends Component<ComponentsAlertSignature>
       <Alert @color="success" @icon={{faInfoCircle}}>
         <:title>Title here</:title>
         <:default>Body here</:default>
-      </Alert>
-      {{! END-SNIPPET }}
-    </Snippet>
-
-    <Snippet @name="alert10.gts">
-      {{! BEGIN-SNIPPET alert10 }}
-      <Alert
-        @color="success"
-        @icon={{faInfoCircle}}
-        @closeButtonLabel="Close"
-        @onClose={{this.close}}
-      >
-        <:title>Title here</:title>
-        <:default>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </:default>
       </Alert>
       {{! END-SNIPPET }}
     </Snippet>

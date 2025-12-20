@@ -29,9 +29,22 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
 
     <Heading @title="Button" />
 
-    <Subheading @title="Examples" />
+    <Subheading @title="Example" />
 
     {{! TODO: index }}
+    <Snippet @name="button4.gts">
+      {{! BEGIN-SNIPPET button4 }}
+      <Button
+        @label="Click me"
+        @color="primary"
+        @icon={{faPlus}}
+        {{on "click" this.click}}
+      />
+      {{! END-SNIPPET }}
+    </Snippet>
+
+    <Subheading @title="Colors" />
+
     <Snippet @name="button3.gts">
       {{! BEGIN-SNIPPET button3 }}
       <Button @label="Primary" @color="primary" />
@@ -44,20 +57,10 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
       {{! END-SNIPPET }}
     </Snippet>
 
+    <Subheading @title="Examples" />
+
     <Snippet @name="button.gts">
       {{! BEGIN-SNIPPET button }}
-      <Button @label="Default button" {{on "click" this.click}} />
-      <Button
-        @label="Success button"
-        @color="success"
-        {{on "click" this.click}}
-      />
-      <Button
-        @label="Success button with icon"
-        @color="success"
-        @icon={{faPlus}}
-        {{on "click" this.click}}
-      />
       <Button
         @label="Success button with trailing icon"
         @color="success"

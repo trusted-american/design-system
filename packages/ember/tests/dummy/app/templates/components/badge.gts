@@ -10,10 +10,22 @@ import Snippet from '../../components/snippet';
 
   <Heading @title="Badge" />
 
-  <Subheading @title="Examples" />
+  <Subheading @title="Example" />
 
   <Snippet @name="badge.gts">
     {{! BEGIN-SNIPPET badge }}
+    <Badge
+      @label="Success badge with icon"
+      @color="success"
+      @icon={{faCheck}}
+    />
+    {{! END-SNIPPET }}
+  </Snippet>
+
+  <Subheading @title="Colors" />
+
+  <Snippet @name="badge1.gts">
+    {{! BEGIN-SNIPPET badge1 }}
     <Badge @label="Primary" @color="primary" />
     <Badge @label="Secondary" />
     <Badge @label="Success" @color="success" />
@@ -24,15 +36,10 @@ import Snippet from '../../components/snippet';
     {{! END-SNIPPET }}
   </Snippet>
 
-  <Snippet @name="badge1.gts">
-    {{! BEGIN-SNIPPET badge1 }}
-    <Badge @label="Default badge" />
-    <Badge @label="Success badge" @color="success" />
-    <Badge
-      @label="Success badge with icon"
-      @color="success"
-      @icon={{faCheck}}
-    />
+  <Subheading @title="Loading" />
+
+  <Snippet @name="badge2.gts">
+    {{! BEGIN-SNIPPET badge2 }}
     <Badge @label="Loading badge" @isLoading={{true}} />
     {{! END-SNIPPET }}
   </Snippet>

@@ -9,10 +9,18 @@ import Snippet from '../../components/snippet';
 
   <Heading @title="Spinner" />
 
-  <Subheading @title="Examples" />
+  <Subheading @title="Example" />
 
   <Snippet @name="spinner.gts">
     {{! BEGIN-SNIPPET spinner }}
+    <Spinner @color="secondary" @isLarge={{true}} />
+    {{! END-SNIPPET }}
+  </Snippet>
+
+  <Subheading @title="Colors" />
+
+  <Snippet @name="spinner1.gts">
+    {{! BEGIN-SNIPPET spinner1 }}
     <Spinner />
     <Spinner @color="secondary" />
     <Spinner @color="success" />
@@ -23,10 +31,11 @@ import Snippet from '../../components/snippet';
     {{! END-SNIPPET }}
   </Snippet>
 
-  <Snippet @name="spinner1.gts">
-    {{! BEGIN-SNIPPET spinner1 }}
+  <Subheading @title="Sizes" />
+
+  <Snippet @name="spinner2.gts">
+    {{! BEGIN-SNIPPET spinner2 }}
     <Spinner />
-    <Spinner @color="secondary" />
     <Spinner @isLarge={{true}} />
     {{! END-SNIPPET }}
   </Snippet>
