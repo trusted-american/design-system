@@ -4,7 +4,7 @@ import type { Color } from '@trusted-american/core';
 
 export interface SpinnerSignature {
   Args: {
-    color?: Color;
+    color?: Color | 'white';
     isLarge?: boolean;
   };
   Element: HTMLDivElement;

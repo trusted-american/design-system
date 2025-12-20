@@ -25,10 +25,6 @@ export type Color =
   | 'danger'
   | 'warning'
   | 'info'
-  | 'upsell'
-  // TODO: remove
-  | 'light'
-  | 'dark'
-  | 'white';
+  | 'upsell';
 
 export type Size = 'sm' | 'lg';
