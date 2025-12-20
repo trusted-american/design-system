@@ -80,7 +80,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast3.gts">
       {{! BEGIN-SNIPPET toast3 }}
-      <Toast @closeButtonLabel="Close" @color="primary" @onClose={{this.close}}>
+      <Toast @color="primary" @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -89,7 +89,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast4.gts">
       {{! BEGIN-SNIPPET toast4 }}
-      <Toast @closeButtonLabel="Close" @color="success" @onClose={{this.close}}>
+      <Toast @color="success" @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -98,7 +98,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast5.gts">
       {{! BEGIN-SNIPPET toast5 }}
-      <Toast @closeButtonLabel="Close" @color="warning" @onClose={{this.close}}>
+      <Toast @color="warning" @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -107,7 +107,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast6.gts">
       {{! BEGIN-SNIPPET toast6 }}
-      <Toast @closeButtonLabel="Close" @color="danger" @onClose={{this.close}}>
+      <Toast @color="danger" @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
