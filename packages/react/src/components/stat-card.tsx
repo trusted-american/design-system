@@ -1,4 +1,8 @@
-import { statCardBase, statCardLabel } from '@trusted-american/core';
+import {
+  statCardBase,
+  statCardLabel,
+  statCardValue,
+} from '@trusted-american/core';
 
 interface StatCardProps {
   label: string;
