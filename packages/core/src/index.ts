@@ -16,6 +16,7 @@ export * from './components/heading';
 export * from './components/modal';
 export * from './components/nav';
 export * from './components/spinner';
+export * from './components/stat-card';
 export * from './components/table';
 
 export type Color =
