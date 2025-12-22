@@ -16,7 +16,9 @@ const Card = ({
 }: CardProps) => {
   return (
     <div
-      className={`${cardBase} ${isHoverable ?? cardHoverable} ${className}`}
+      className={`${cardBase} ${isHoverable ? cardHoverable : ''} ${
+        className ?? ''
+      }`}
       onClick={onClick}
     >
       {children}
