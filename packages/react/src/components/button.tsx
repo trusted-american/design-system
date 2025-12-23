@@ -15,7 +15,7 @@ const Button = <T,>({
   color = 'secondary',
   isDisabled,
   label,
-  className,
+  className = '',
   onClick,
 }: ButtonProps<T>) => {
   return (

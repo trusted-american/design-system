@@ -7,7 +7,7 @@ interface AlertProps {
   children: ReactNode;
 }
 
-const Alert = ({ color, className, children }: AlertProps) => {
+const Alert = ({ color, className = '', children }: AlertProps) => {
   return (
     <div className={`${alertBase} ${alertVariants[color]} ${className}`}>
       {children}
