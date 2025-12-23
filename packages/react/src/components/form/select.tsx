@@ -1,11 +1,11 @@
 import { formSelectBase } from '@trusted-american/core';
-import type { ChangeEvent, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import FormHelp from './help';
 import FormLabel from './label';
 
-interface FormSelectProps {
-  options: string[];
-  value: string | undefined;
+interface FormSelectProps<T extends string> {
+  options: T[];
+  value: T | undefined;
   id: string;
   label: string;
   isRequired?: boolean;
@@ -13,10 +13,10 @@ interface FormSelectProps {
   help?: string;
   className?: string;
   children?: ReactNode;
-  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (value: T) => void;
 }
 
-const FormSelect = ({
+const FormSelect = <T extends string>({
   options,
   value,
   id,
@@ -27,7 +27,7 @@ const FormSelect = ({
   className,
   children,
   onChange,
-}: FormSelectProps) => {
+}: FormSelectProps<T>) => {
   return (
     <div>
       <FormLabel
@@ -41,9 +41,11 @@ const FormSelect = ({
         name={id}
         value={value}
         disabled={disabled}
-        onChange={onChange}
-        className={`${formSelectBase} ${className}`}
         required={isRequired}
+        className={`${formSelectBase} ${className}`}
+        onChange={({ target }) => {
+          onChange(target.value as T);
+        }}
       >
         {children}
         {options.map((option) => (
