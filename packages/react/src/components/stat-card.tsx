@@ -10,9 +10,9 @@ interface StatCardProps {
   className?: string;
 }
 
-const StatCard = ({ label, value, className }: StatCardProps) => {
+const StatCard = ({ label, value, className = '' }: StatCardProps) => {
   return (
-    <div className={`${statCardBase} ${className ?? ''}`}>
+    <div className={`${statCardBase} ${className}`}>
       <span className={statCardLabel}>{label}</span>
       <span className={statCardValue}>{value}</span>
     </div>

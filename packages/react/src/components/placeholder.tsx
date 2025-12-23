@@ -9,7 +9,7 @@ const Placeholder = ({ title, subtitle }: PlaceholderProps) => {
   return (
     <div className={placeholderBase}>
       <span>{title}</span>
-      <span>{subtitle ? subtitle : ''}</span>
+      {subtitle ? <span>{subtitle}</span> : ''}
     </div>
   );
 };
