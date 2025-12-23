@@ -7,6 +7,7 @@ export { default as FormPhoneInput } from './components/form/phone-input';
 export { default as FormSelect } from './components/form/select';
 export { default as FormTextarea } from './components/form/textarea';
 export { default as NavItem } from './components/nav/item';
+export { default as ProgressBar } from './components/progress/bar';
 export { default as Accordion } from './components/accordion';
 export { default as Alert } from './components/alert';
 export { default as Aside } from './components/aside';

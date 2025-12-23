@@ -1,14 +1,14 @@
+import type { ReactNode } from 'react';
+
 interface ProgressProps {
-  value: number;
+  className?: string;
+  children: ReactNode;
 }
 
-const Progress = ({ value }: ProgressProps) => {
+const Progress = ({ className = '', children }: ProgressProps) => {
   return (
-    <div className="w-full bg-neutral-quaternary rounded-full h-2">
-      <div
-        className="bg-brand h-2 rounded-full"
-        style={{ width: `${(value * 100).toString()}%` }}
-      ></div>
+    <div className={`w-full bg-gray-200 rounded-full h-2 ${className}`}>
+      {children}
     </div>
   );
 };
