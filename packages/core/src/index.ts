@@ -13,6 +13,7 @@ export * from './components/button';
 export * from './components/card';
 export * from './components/copy-box';
 export * from './components/heading';
+export * from './components/icon';
 export * from './components/modal';
 export * from './components/nav';
 export * from './components/placeholder';
