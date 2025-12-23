@@ -15,6 +15,7 @@ export * from './components/copy-box';
 export * from './components/heading';
 export * from './components/modal';
 export * from './components/nav';
+export * from './components/placeholder';
 export * from './components/spinner';
 export * from './components/stat-card';
 export * from './components/table';
