@@ -8,7 +8,6 @@ import Link, { type LinkArgs } from '../link';
 
 const Internal: TOC<{
   Args: {
-    color: Color | undefined;
     label: string | undefined;
     subtitle: string | undefined;
     icon: IconDefinition | undefined;
@@ -22,7 +21,6 @@ const Internal: TOC<{
   {{#if @icon}}
     <Icon
       @icon={{@icon}}
-      @color={{if @color @color "secondary"}}
       @isFixedWidth={{true}}
       class={{if @isIconHidden "invisible"}}
     />
@@ -38,7 +36,7 @@ const Internal: TOC<{
   {{/if}}
   {{yield}}
   {{#if @shortcut}}
-    <span class="text-secondary ms-auto">{{@shortcut}}</span>
+    <span class="ms-auto">{{@shortcut}}</span>
   {{/if}}
 </template>;
 
@@ -75,7 +73,6 @@ export interface DropdownItemSignature {
       ...attributes
     >
       <Internal
-        @color={{@color}}
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
@@ -93,7 +90,6 @@ export interface DropdownItemSignature {
       ...attributes
     >
       <Internal
-        @color={{@color}}
         @label={{@label}}
         @subtitle={{@subtitle}}
         @icon={{@icon}}
