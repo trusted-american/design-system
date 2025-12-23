@@ -1,30 +1,34 @@
 import { buttonBase, buttonVariants, type Color } from '@trusted-american/core';
 import { ButtonHTMLAttributes } from 'react';
+import Spinner from './spinner';
 
 interface ButtonProps<T> {
   type?: ButtonHTMLAttributes<T>['type'];
-  color?: Color;
-  isDisabled?: boolean;
   label: string;
+  color?: Color;
+  isLoading?: boolean;
+  isDisabled?: boolean;
   className?: string;
   onClick?: () => void;
 }
 
 const Button = <T,>({
   type = 'button',
-  color = 'secondary',
-  isDisabled,
   label,
+  color = 'secondary',
+  isLoading,
+  isDisabled,
   className = '',
   onClick,
 }: ButtonProps<T>) => {
   return (
     <button
       type={type}
-      disabled={isDisabled}
+      disabled={isLoading || isDisabled}
       className={`${buttonBase} ${buttonVariants[color]} ${className}`}
       onClick={onClick}
     >
+      {isLoading ? <Spinner loadingLabel="Loading…" /> : ''}
       {label}
     </button>
   );
