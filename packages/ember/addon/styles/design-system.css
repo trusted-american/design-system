@@ -1,8 +1,23 @@
 :root {
+  --bs-border-radius: 0.5rem;
+  --bs-disabled: #adb5bd;
   --bs-upsell: var(--bs-purple);
   --bs-upsell-text-emphasis: #2c1a4d;
   --bs-upsell-bg-subtle: #e2d9f3;
   --bs-upsell-border-subtle: #c5b3e6;
+}
+
+.text-disabled {
+  color: var(--bs-disabled);
+}
+
+.bg-disabled {
+  background-color: var(--bs-disabled);
+}
+
+.text-bg-disabled {
+  color: black !important;
+  background-color: var(--bs-disabled) !important;
 }
 
 .text-upsell {
@@ -40,6 +55,10 @@
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: var(--bs-upsell);
   --bs-btn-disabled-border-color: var(--bs-upsell);
+}
+
+a {
+  text-decoration: none;
 }
 
 h6,
@@ -94,11 +113,74 @@ h1,
   box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
+/* form/input */
+
+/* TODO */
+
+.form-control:focus,
+.form-control:hover:enabled,
+.form-select:focus,
+.form-select:hover:enabled {
+  border-color: var(--bs-primary);
+}
+
+input,
+select,
+textarea {
+  transition: none !important;
+}
+
+/* form/label */
+
+.form-label {
+  font-weight: 600;
+}
+
 /* form/markdown-input */
 
 .markdown-input-preview {
   padding: 0.375rem 0.75rem;
   border-color: transparent !important;
+}
+
+/* accordion */
+
+.accordion .accordion-item {
+  border-radius: var(--bs-border-radius);
+}
+
+.accordion .accordion-item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.accordion .accordion-item:not(:first-of-type) {
+  border-top: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.accordion .accordion-item:hover {
+  border-color: var(--bs-primary);
+  box-shadow: 0 4px 14px 0 rgb(13 36 209 / 10%);
+}
+
+.accordion .accordion-item .accordion-button,
+.accordion .accordion-item .accordion-body {
+  padding: 1rem;
+}
+
+.accordion .accordion-item .accordion-header .accordion-button {
+  font-weight: var(--bs-font-weight-bold);
+  background: transparent;
+  box-shadow: none;
+  color: var(--bs-body-color);
+}
+
+.accordion .accordion-item .accordion-header .accordion-button .icon,
+.accordion .accordion-item .accordion-header .accordion-button:hover {
+  color: var(--bs-primary);
+}
+
+.accordion .accordion-item .accordion-header .accordion-button:focus {
+  box-shadow: none;
 }
 
 /* aside */
@@ -138,9 +220,31 @@ aside .tds-aside-logo {
 
 /* badge */
 
+.badge {
+  font-weight: 600;
+  border-radius: 0.35rem;
+}
+
 .badge .spinner-border-sm {
   --bs-spinner-width: 1em;
   --bs-spinner-height: 1em;
+}
+
+/* button */
+
+.btn {
+  font-weight: 600;
+}
+
+kbd {
+  font-size: 0.75rem;
+  background-color: rgb(0 0 0 / 30%);
+}
+
+/* breadcrumb-trail */
+
+.breadcrumb {
+  --bs-breadcrumb-margin-bottom: 0;
 }
 
 /* calendar */
@@ -167,6 +271,17 @@ aside .tds-aside-logo {
   text-align: inherit;
 }
 
+/* dropdown */
+
+.dropdown-toggle::after {
+  content: none !important;
+}
+
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item.active {
+  color: var(--bs-dropdown-link-active-color) !important;
+}
+
 /* frame */
 
 .tds-frame {
@@ -186,15 +301,49 @@ aside .tds-aside-logo {
   grid-area: main;
 }
 
+/* main */
+
+.container-fluid {
+  --bs-gutter-x: 3rem;
+}
+
+/* modal */
+
+.modal.fade .modal-dialog {
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+  opacity: 1;
+}
+
 /* property-list */
 
 dl dt {
   margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 dl dt:last-of-type,
 dl dd:last-child {
   margin-bottom: 0;
+}
+
+/* skeleton */
+
+.placeholder {
+  opacity: 0.03;
+}
+
+@keyframes placeholder-glow {
+  50% {
+    opacity: 0.1;
+  }
 }
 
 /* table */
@@ -204,7 +353,12 @@ dl dd:last-child {
 }
 
 .table thead th {
+  font-weight: 600;
   white-space: nowrap;
+}
+
+.table td {
+  vertical-align: middle;
 }
 
 .yeti-table thead tr th.yeti-table-sorted-asc::after {
