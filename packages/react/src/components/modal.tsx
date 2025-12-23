@@ -7,6 +7,7 @@ import {
   modalTitle,
 } from '@trusted-american/core';
 import type { ReactNode } from 'react';
+import CloseButton from './close-button';
 
 interface ModalProps {
   title: string;
@@ -21,7 +22,7 @@ const Modal = ({ title, children, onClose }: ModalProps) => {
         <div className={modalHeader}>
           <h3 className={modalTitle}>{title}</h3>
           <button className={modalCloseButton} onClick={onClose}>
-            &times;
+            <CloseButton />
           </button>
         </div>
         <div className={modalBody}>{children}</div>
