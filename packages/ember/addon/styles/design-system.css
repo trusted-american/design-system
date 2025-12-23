@@ -1,8 +1,6 @@
 :root {
   --bs-border-radius: 0.5rem;
-
   --bs-disabled: #adb5bd;
-
   --bs-upsell: var(--bs-purple);
   --bs-upsell-text-emphasis: #2c1a4d;
   --bs-upsell-bg-subtle: #e2d9f3;
