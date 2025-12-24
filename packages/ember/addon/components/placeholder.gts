@@ -2,39 +2,20 @@ import type { TOC } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
 import { htmlSafe } from '@ember/template';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type {
+  DefaultProps as DefaultArgs,
+  DoubleButtonProps as DoubleButtonArgs,
+  SingleButtonProps as SingleButtonArgs,
+} from '@trusted-american/core';
 import { and } from 'ember-truth-helpers';
 import Button from './button';
 import Icon from './icon';
 
-interface Args {
-  icon: IconDefinition;
-  title: string;
-  subtitle?: string;
-}
-
-interface DefaultArgs extends Args {
-  buttonLabel?: never;
-  secondaryButtonLabel?: never;
-  onClick?: never;
-  onSecondaryClick?: never;
-}
-
-interface SingleButtonArgs extends Args {
-  buttonLabel: string;
-  secondaryButtonLabel?: never;
-  onClick: () => void;
-  onSecondaryClick?: never;
-}
-
-interface DoubleButtonArgs extends Args {
-  buttonLabel: string;
-  secondaryButtonLabel: string;
-  onClick: () => void;
-  onSecondaryClick: () => void;
-}
-
 export interface PlaceholderSignature {
-  Args: DefaultArgs | SingleButtonArgs | DoubleButtonArgs;
+  Args:
+    | DefaultArgs<IconDefinition>
+    | SingleButtonArgs<IconDefinition>
+    | DoubleButtonArgs<IconDefinition>;
   Element: HTMLElement;
 }
 
@@ -56,7 +37,7 @@ export interface PlaceholderSignature {
           {{@subtitle}}
         </p>
       {{/if}}
-      {{#if (and @buttonLabel @onClick)}}
+      {{#if @buttonLabel}}
         <Button
           @label={{@buttonLabel}}
           @color="success"
@@ -67,7 +48,7 @@ export interface PlaceholderSignature {
       {{#if (and @onClick @onSecondaryClick)}}
         <br />
       {{/if}}
-      {{#if (and @secondaryButtonLabel @onSecondaryClick)}}
+      {{#if @secondaryButtonLabel}}
         <Button
           @label={{@secondaryButtonLabel}}
           class="mt-3"
