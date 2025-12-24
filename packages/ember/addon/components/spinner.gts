@@ -6,6 +6,7 @@ export interface SpinnerSignature {
   Args: {
     color?: Color | 'white';
     isLarge?: boolean;
+    loadingLabel: string;
   };
   Element: HTMLDivElement;
 }
@@ -19,7 +20,6 @@ export interface SpinnerSignature {
     data-test-spinner
     ...attributes
   >
-    {{! TODO: string }}
-    <span class="visually-hidden">Loading…</span>
+    <span class="visually-hidden">{{@loadingLabel}}</span>
   </div>
 </template> satisfies TOC<SpinnerSignature>;

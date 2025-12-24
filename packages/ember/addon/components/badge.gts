@@ -23,7 +23,7 @@ export interface BadgeSignature {
     ...attributes
   >
     {{#if @isLoading}}
-      <Spinner @color="white" />
+      <Spinner @color="white" @loadingLabel="Loading…" />
     {{/if}}
     {{#if @icon}}
       <Icon @icon={{@icon}} class={{if @label "me-1"}} />

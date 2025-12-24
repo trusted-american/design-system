@@ -13,7 +13,7 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="spinner.gts">
     {{! BEGIN-SNIPPET spinner }}
-    <Spinner @color="primary" @isLarge={{true}} />
+    <Spinner @color="primary" @isLarge={{true}} @loadingLabel="Loading…" />
     {{! END-SNIPPET }}
   </Snippet>
 
@@ -21,13 +21,13 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="spinner1.gts">
     {{! BEGIN-SNIPPET spinner1 }}
-    <Spinner @color="primary" />
-    <Spinner />
-    <Spinner @color="success" />
-    <Spinner @color="danger" />
-    <Spinner @color="warning" />
-    <Spinner @color="info" />
-    <Spinner @color="upsell" />
+    <Spinner @color="primary" @loadingLabel="Loading…" />
+    <Spinner @loadingLabel="Loading…" />
+    <Spinner @color="success" @loadingLabel="Loading…" />
+    <Spinner @color="danger" @loadingLabel="Loading…" />
+    <Spinner @color="warning" @loadingLabel="Loading…" />
+    <Spinner @color="info" @loadingLabel="Loading…" />
+    <Spinner @color="upsell" @loadingLabel="Loading…" />
     {{! END-SNIPPET }}
   </Snippet>
 
@@ -35,8 +35,8 @@ import Snippet from '../../components/snippet';
 
   <Snippet @name="spinner2.gts">
     {{! BEGIN-SNIPPET spinner2 }}
-    <Spinner />
-    <Spinner @isLarge={{true}} />
+    <Spinner @loadingLabel="Loading…" />
+    <Spinner @isLarge={{true}} @loadingLabel="Loading…" />
     {{! END-SNIPPET }}
   </Snippet>
 </template>
