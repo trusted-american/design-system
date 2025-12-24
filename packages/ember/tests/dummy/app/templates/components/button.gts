@@ -31,9 +31,8 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
 
     <Subheading @title="Example" />
 
-    {{! TODO: index }}
-    <Snippet @name="button4.gts">
-      {{! BEGIN-SNIPPET button4 }}
+    <Snippet @name="button.gts">
+      {{! BEGIN-SNIPPET button }}
       <Button
         @label="Click me"
         @color="primary"
@@ -45,8 +44,8 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
 
     <Subheading @title="Colors" />
 
-    <Snippet @name="button3.gts">
-      {{! BEGIN-SNIPPET button3 }}
+    <Snippet @name="button1.gts">
+      {{! BEGIN-SNIPPET button1 }}
       <Button @label="Primary" @color="primary" />
       <Button @label="Secondary" />
       <Button @label="Success" @color="success" />
@@ -59,8 +58,8 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
 
     <Subheading @title="Examples" />
 
-    <Snippet @name="button.gts">
-      {{! BEGIN-SNIPPET button }}
+    <Snippet @name="button2.gts">
+      {{! BEGIN-SNIPPET button2 }}
       <Button
         @label="Success button with trailing icon"
         @color="success"
@@ -88,8 +87,8 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
 
     <Subheading @title="Route" />
 
-    <Snippet @name="button1.gts">
-      {{! BEGIN-SNIPPET button1 }}
+    <Snippet @name="button3.gts">
+      {{! BEGIN-SNIPPET button3 }}
       <Button @label="Route button" @route="index" />
       <Button
         @label="Route button with query"
@@ -101,8 +100,8 @@ export default class ComponentsButton extends Component<ComponentsButtonSignatur
 
     <Subheading @title="Link" />
 
-    <Snippet @name="button2.gts">
-      {{! BEGIN-SNIPPET button2 }}
+    <Snippet @name="button4.gts">
+      {{! BEGIN-SNIPPET button4 }}
       <Button
         @label="Link button"
         @icon={{faUpRightFromSquare}}

@@ -9,8 +9,4 @@ export const spinnerVariants = {
   warning: 'fill-yellow-400',
   info: 'fill-sky-400',
   upsell: 'fill-purple-400',
-  // TODO: remove
-  light: '',
-  dark: '',
-  white: '',
 };

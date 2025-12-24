@@ -8,8 +8,4 @@ export const alertVariants = {
   warning: 'bg-yellow-100 text-yellow-700 border-yellow-400',
   info: 'bg-blue-100 text-blue-700 border-blue-400',
   upsell: 'bg-purple-100 text-purple-700 border-purple-400',
-  // TODO: remove
-  light: '',
-  dark: '',
-  white: '',
 };
