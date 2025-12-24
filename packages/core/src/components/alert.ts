@@ -1,4 +1,4 @@
-export const alertBase = 'p-4 mb-4 rounded-md border';
+export const alertBase = 'p-4 rounded-md border';
 
 export const alertVariants = {
   primary: 'bg-blue-100 text-blue-700 border-blue-400',
