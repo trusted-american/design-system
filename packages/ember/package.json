@@ -79,7 +79,6 @@
     "ember-template-imports": "^4.3.0",
     "ember-truth-helpers": "^5.0.0",
     "ember-yeti-table": "^2.0.2",
-    "identicon.js": "^2.3.3",
     "tracked-built-ins": "^4.0.0"
   },
   "devDependencies": {
@@ -97,7 +96,6 @@
     "@glint/tsserver-plugin": "^2.0.4",
     "@popperjs/core": "^2.11.8",
     "@tsconfig/ember": "^3.0.12",
-    "@types/identicon.js": "^2.3.5",
     "@types/qunit": "^2.19.13",
     "@types/rsvp": "^4.0.9",
     "broccoli-asset-rev": "^3.0.0",
