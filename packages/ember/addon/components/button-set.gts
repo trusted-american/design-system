@@ -10,7 +10,7 @@ export interface ButtonSetSignature {
 }
 
 <template>
-  <div class="btn-toolbar gap-2" data-test-button-set ...attributes>
+  <div class="d-flex gap-2" data-test-button-set ...attributes>
     {{yield (hash button=Button)}}
   </div>
 </template> satisfies TOC<ButtonSetSignature>;
