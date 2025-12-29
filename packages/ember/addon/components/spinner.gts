@@ -4,8 +4,9 @@ import type { Color } from '@trusted-american/core';
 
 export interface SpinnerSignature {
   Args: {
-    color?: Color;
+    color?: Color | 'white';
     isLarge?: boolean;
+    loadingLabel: string;
   };
   Element: HTMLDivElement;
 }
@@ -14,12 +15,11 @@ export interface SpinnerSignature {
   <div
     class="spinner-border
       {{unless @isLarge 'spinner-border-sm'}}
-      {{if @color (concat 'text-' @color) 'text-primary'}}"
+      {{if @color (concat 'text-' @color) 'text-secondary'}}"
     role="status"
     data-test-spinner
     ...attributes
   >
-    {{! TODO: string }}
-    <span class="visually-hidden">Loading…</span>
+    <span class="visually-hidden">{{@loadingLabel}}</span>
   </div>
 </template> satisfies TOC<SpinnerSignature>;

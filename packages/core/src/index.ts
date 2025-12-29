@@ -13,9 +13,12 @@ export * from './components/button.js';
 export * from './components/card.js';
 export * from './components/copy-box.js';
 export * from './components/heading.js';
+export * from './components/icon.js';
 export * from './components/modal.js';
 export * from './components/nav.js';
+export * from './components/placeholder.js';
 export * from './components/spinner.js';
+export * from './components/stat-card.js';
 export * from './components/table.js';
 
 export type Color =
@@ -25,10 +28,6 @@ export type Color =
   | 'danger'
   | 'warning'
   | 'info'
-  | 'upsell'
-  // TODO: remove
-  | 'light'
-  | 'dark'
-  | 'white';
+  | 'upsell';
 
 export type Size = 'sm' | 'lg';

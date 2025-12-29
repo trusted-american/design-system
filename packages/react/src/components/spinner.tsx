@@ -1,20 +1,29 @@
 import {
   spinnerBase,
+  spinnerLarge,
+  spinnerSmall,
   spinnerVariants,
   type Color,
 } from '@trusted-american/core';
 
 interface SpinnerProps {
   color?: Color;
+  isLarge?: boolean;
   loadingLabel: string;
 }
 
-const Spinner = ({ color = 'primary', loadingLabel }: SpinnerProps) => {
+const Spinner = ({
+  color = 'primary',
+  isLarge,
+  loadingLabel,
+}: SpinnerProps) => {
   return (
     <div role="status">
       <svg
         aria-hidden="true"
-        className={`${spinnerBase} ${spinnerVariants[color]}`}
+        className={`${spinnerBase} ${spinnerVariants[color]} ${
+          isLarge ? spinnerLarge : spinnerSmall
+        }`}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

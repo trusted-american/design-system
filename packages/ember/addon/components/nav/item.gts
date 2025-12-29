@@ -7,10 +7,10 @@ import Link, { type LinkArgs } from '../link';
 
 const Internal: TOC<{
   Args: {
-    label?: string;
-    icon?: IconDefinition;
-    count?: number;
-    trailingIcon?: IconDefinition;
+    label: string | undefined;
+    icon: IconDefinition | undefined;
+    count: number | undefined;
+    trailingIcon: IconDefinition | undefined;
   };
   Blocks: {
     default: [];

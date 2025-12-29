@@ -48,14 +48,14 @@ export interface FileTypeSignature {
     {{else if (eq "csv" (fileType @name))}}
       <Icon
         @icon={{faFileCsv}}
-        @color="success"
+        @color="info"
         @size={{@size}}
         @isFixedWidth={{true}}
       />
     {{else if (eq "zip" (fileType @name))}}
       <Icon
         @icon={{faFileZipper}}
-        @color="primary"
+        @color="secondary"
         @size={{@size}}
         @isFixedWidth={{true}}
       />

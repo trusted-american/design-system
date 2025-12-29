@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ChangeEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import FormInput from './input';
 
 interface FormPhoneInputProps {

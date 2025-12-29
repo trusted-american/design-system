@@ -1,5 +1,5 @@
 export const spinnerBase =
-  'w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-400';
+  'text-gray-200 animate-spin dark:text-gray-600 fill-blue-400';
 
 export const spinnerVariants = {
   primary: 'fill-blue-400',
@@ -9,8 +9,8 @@ export const spinnerVariants = {
   warning: 'fill-yellow-400',
   info: 'fill-sky-400',
   upsell: 'fill-purple-400',
-  // TODO: remove
-  light: '',
-  dark: '',
-  white: '',
 };
+
+export const spinnerSmall = 'size-4';
+
+export const spinnerLarge = 'size-8';

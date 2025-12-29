@@ -1,11 +1,18 @@
 import { headingBase } from '@trusted-american/core';
 
 interface HeadingProps {
-  label: string;
+  title: string;
+  subtitle?: string;
+  className?: string;
 }
 
-const Heading = ({ label }: HeadingProps) => {
-  return <h1 className={headingBase}>{label}</h1>;
+const Heading = ({ title, subtitle, className = '' }: HeadingProps) => {
+  return (
+    <div className={className}>
+      <h1 className={headingBase}>{title}</h1>
+      {subtitle ? <p className="mt-1">{subtitle}</p> : ''}
+    </div>
+  );
 };
 
 export default Heading;

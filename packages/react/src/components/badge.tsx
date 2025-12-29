@@ -6,7 +6,7 @@ interface BadgeProps {
   className?: string;
 }
 
-const Badge = ({ label, color = 'secondary', className }: BadgeProps) => {
+const Badge = ({ label, color = 'secondary', className = '' }: BadgeProps) => {
   return (
     <span className={`${badgeBase} ${badgeVariants[color]} ${className}`}>
       {label}

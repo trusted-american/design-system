@@ -1,7 +1,7 @@
 interface CloseButtonProps {}
 
 const CloseButton = ({}: CloseButtonProps) => {
-  return <div></div>;
+  return <div>&times;</div>;
 };
 
 export default CloseButton;

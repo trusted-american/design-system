@@ -8,8 +8,4 @@ export const bannerVariants = {
   warning: 'bg-yellow-500',
   info: 'bg-sky-500',
   upsell: 'bg-purple-500',
-  // TODO: remove
-  light: '',
-  dark: '',
-  white: '',
 };

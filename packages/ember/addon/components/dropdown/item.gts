@@ -8,11 +8,11 @@ import Link, { type LinkArgs } from '../link';
 
 const Internal: TOC<{
   Args: {
-    label?: string;
-    subtitle?: string;
-    icon?: IconDefinition;
+    label: string | undefined;
+    subtitle: string | undefined;
+    icon: IconDefinition | undefined;
     isIconHidden: boolean | undefined;
-    shortcut?: string;
+    shortcut: string | undefined;
   };
   Blocks: {
     default: [];

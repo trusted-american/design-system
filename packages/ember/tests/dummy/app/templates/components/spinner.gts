@@ -9,25 +9,34 @@ import Snippet from '../../components/snippet';
 
   <Heading @title="Spinner" />
 
-  <Subheading @title="Examples" />
+  <Subheading @title="Example" />
 
   <Snippet @name="spinner.gts">
     {{! BEGIN-SNIPPET spinner }}
-    <Spinner />
-    <Spinner @color="secondary" />
-    <Spinner @color="success" />
-    <Spinner @color="danger" />
-    <Spinner @color="warning" />
-    <Spinner @color="info" />
-    <Spinner @color="upsell" />
+    <Spinner @color="primary" @isLarge={{true}} @loadingLabel="Loading…" />
     {{! END-SNIPPET }}
   </Snippet>
 
+  <Subheading @title="Colors" />
+
   <Snippet @name="spinner1.gts">
     {{! BEGIN-SNIPPET spinner1 }}
-    <Spinner />
-    <Spinner @color="secondary" />
-    <Spinner @isLarge={{true}} />
+    <Spinner @color="primary" @loadingLabel="Loading…" />
+    <Spinner @loadingLabel="Loading…" />
+    <Spinner @color="success" @loadingLabel="Loading…" />
+    <Spinner @color="danger" @loadingLabel="Loading…" />
+    <Spinner @color="warning" @loadingLabel="Loading…" />
+    <Spinner @color="info" @loadingLabel="Loading…" />
+    <Spinner @color="upsell" @loadingLabel="Loading…" />
+    {{! END-SNIPPET }}
+  </Snippet>
+
+  <Subheading @title="Sizes" />
+
+  <Snippet @name="spinner2.gts">
+    {{! BEGIN-SNIPPET spinner2 }}
+    <Spinner @loadingLabel="Loading…" />
+    <Spinner @isLarge={{true}} @loadingLabel="Loading…" />
     {{! END-SNIPPET }}
   </Snippet>
 </template>

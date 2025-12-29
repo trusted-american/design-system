@@ -1,7 +1,12 @@
-interface PropertyListProps {}
+import type { ReactNode } from 'react';
 
-const PropertyList = ({}: PropertyListProps) => {
-  return <div></div>;
+interface PropertyListProps {
+  className?: string;
+  children: ReactNode;
+}
+
+const PropertyList = ({ className = '', children }: PropertyListProps) => {
+  return <dl className={className}>{children}</dl>;
 };
 
 export default PropertyList;
