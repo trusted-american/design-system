@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "pnpm lint:types",
+    "lint": "pnpm lint:format && pnpm lint:types",
+    "lint:format": "prettier . --cache --check",
     "lint:types": "tsc --noEmit",
     "prepack": "pnpm build",
     "test": ""
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "prettier": "^3.7.4",
     "typescript": "^5.9.3"
   }
 }

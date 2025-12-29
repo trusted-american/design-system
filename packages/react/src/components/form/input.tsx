@@ -40,7 +40,7 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
       className,
       onChange,
     },
-    ref
+    ref,
   ) => {
     return (
       <div>
@@ -74,7 +74,7 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
         <FormHelp label={help} />
       </div>
     );
-  }
+  },
 );
 
 export default FormInput;

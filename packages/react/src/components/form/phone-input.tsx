@@ -48,7 +48,7 @@ const FormPhoneInput = ({
       } else {
         // Empty or no digits
         inputRef.current.setCustomValidity(
-          isRequired ? VALIDATION_MESSAGE : ''
+          isRequired ? VALIDATION_MESSAGE : '',
         );
       }
     }
@@ -65,7 +65,7 @@ const FormPhoneInput = ({
       return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3)}`;
     return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(
       6,
-      10
+      10,
     )}`;
   };
 
