@@ -14,3 +14,5 @@ export const spinnerVariants = {
 export const spinnerSmall = 'size-4';
 
 export const spinnerLarge = 'size-8';
+
+export const spinnerLoading = 'sr-only';

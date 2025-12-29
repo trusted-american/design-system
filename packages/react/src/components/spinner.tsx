@@ -1,6 +1,7 @@
 import {
   spinnerBase,
   spinnerLarge,
+  spinnerLoading,
   spinnerSmall,
   spinnerVariants,
   type Color,
@@ -37,7 +38,7 @@ const Spinner = ({
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">{loadingLabel}</span>
+      <span className={spinnerLoading}>{loadingLabel}</span>
     </div>
   );
 };
