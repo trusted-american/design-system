@@ -301,9 +301,6 @@ importers:
       '@trusted-american/core':
         specifier: workspace:*
         version: link:../core
-      identicon.js:
-        specifier: ^2.3.3
-        version: 2.3.3
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -311,9 +308,6 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(react@19.2.3)
     devDependencies:
-      '@types/identicon.js':
-        specifier: ^2.3.5
-        version: 2.3.5
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.7
