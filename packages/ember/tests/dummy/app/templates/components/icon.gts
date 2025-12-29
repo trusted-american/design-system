@@ -10,10 +10,18 @@ import Snippet from '../../components/snippet';
 
   <Heading @title="Icon" />
 
-  <Subheading @title="Examples" />
+  <Subheading @title="Example" />
 
   <Snippet @name="icon.gts">
     {{! BEGIN-SNIPPET icon }}
+    <Icon @icon={{faFlag}} @color="primary" @size="xl" @isFixedWidth={{true}} />
+    {{! END-SNIPPET }}
+  </Snippet>
+
+  <Subheading @title="Colors" />
+
+  <Snippet @name="icon1.gts">
+    {{! BEGIN-SNIPPET icon1 }}
     <Icon @icon={{faFlag}} @color="primary" />
     <Icon @icon={{faFlag}} @color="secondary" />
     <Icon @icon={{faFlag}} @color="success" />
@@ -24,14 +32,17 @@ import Snippet from '../../components/snippet';
     {{! END-SNIPPET }}
   </Snippet>
 
-  <Snippet @name="icon1.gts">
-    {{! BEGIN-SNIPPET icon1 }}
-    <Icon @icon={{faFlag}} />
-    <Icon @icon={{faFlag}} @color="danger" />
+  <Subheading @title="Sizes" />
+
+  <Snippet @name="icon2.gts">
+    {{! BEGIN-SNIPPET icon2 }}
+    <Icon @icon={{faFlag}} @size="2xs" />
+    <Icon @icon={{faFlag}} @size="xs" />
     <Icon @icon={{faFlag}} @size="sm" />
     <Icon @icon={{faFlag}} />
     <Icon @icon={{faFlag}} @size="lg" />
     <Icon @icon={{faFlag}} @size="xl" />
+    <Icon @icon={{faFlag}} @size="2xl" />
     {{! END-SNIPPET }}
   </Snippet>
 </template>

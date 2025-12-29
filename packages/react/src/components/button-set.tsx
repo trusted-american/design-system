@@ -1,7 +1,12 @@
-interface ButtonSetProps {}
+import type { ReactNode } from 'react';
 
-const ButtonSet = ({}: ButtonSetProps) => {
-  return <div></div>;
+interface ButtonSetProps {
+  className?: string;
+  children: ReactNode;
+}
+
+const ButtonSet = ({ className = '', children }: ButtonSetProps) => {
+  return <div className={`flex gap-2 ${className}`}>{children}</div>;
 };
 
 export default ButtonSet;

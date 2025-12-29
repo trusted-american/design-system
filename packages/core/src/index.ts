@@ -13,9 +13,12 @@ export * from './components/button';
 export * from './components/card';
 export * from './components/copy-box';
 export * from './components/heading';
+export * from './components/icon';
 export * from './components/modal';
 export * from './components/nav';
+export * from './components/placeholder';
 export * from './components/spinner';
+export * from './components/stat-card';
 export * from './components/table';
 
 export type Color =
@@ -25,10 +28,6 @@ export type Color =
   | 'danger'
   | 'warning'
   | 'info'
-  | 'upsell'
-  // TODO: remove
-  | 'light'
-  | 'dark'
-  | 'white';
+  | 'upsell';
 
 export type Size = 'sm' | 'lg';

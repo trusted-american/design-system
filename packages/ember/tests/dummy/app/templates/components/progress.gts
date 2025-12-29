@@ -9,10 +9,22 @@ import Snippet from '../../components/snippet';
 
   <Heading @title="Progress" />
 
-  <Subheading @title="Examples" />
+  <Subheading @title="Example" />
 
   <Snippet @name="progress.gts">
     {{! BEGIN-SNIPPET progress }}
+    <Progress as |progress|>
+      <progress.bar @value={{0.3}} @color="danger" />
+      <progress.bar @value={{0.3}} @color="warning" />
+      <progress.bar @value={{0.3}} @color="success" />
+    </Progress>
+    {{! END-SNIPPET }}
+  </Snippet>
+
+  <Subheading @title="Colors" />
+
+  <Snippet @name="progress1.gts">
+    {{! BEGIN-SNIPPET progress1 }}
     <Progress as |progress|>
       <progress.bar @value={{0.5}} />
     </Progress>
@@ -33,16 +45,6 @@ import Snippet from '../../components/snippet';
     </Progress>
     <Progress as |progress|>
       <progress.bar @value={{0.5}} @color="upsell" />
-    </Progress>
-    {{! END-SNIPPET }}
-  </Snippet>
-
-  <Snippet @name="progress1.gts">
-    {{! BEGIN-SNIPPET progress1 }}
-    <Progress as |progress|>
-      <progress.bar @value={{0.3}} @color="danger" />
-      <progress.bar @value={{0.3}} @color="warning" />
-      <progress.bar @value={{0.3}} @color="success" />
     </Progress>
     {{! END-SNIPPET }}
   </Snippet>

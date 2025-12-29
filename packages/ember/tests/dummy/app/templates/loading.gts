@@ -7,6 +7,6 @@ import { pageTitle } from 'ember-page-title';
   {{breadcrumb "…"}}
 
   <MainBody class="d-flex align-items-center justify-content-center">
-    <Spinner @isLarge={{true}} />
+    <Spinner @isLarge={{true}} @loadingLabel="Loading…" />
   </MainBody>
 </template>

@@ -10,13 +10,13 @@ interface CardProps {
 
 const Card = ({
   isHoverable = true,
-  className,
+  className = '',
   children,
   onClick,
 }: CardProps) => {
   return (
     <div
-      className={`${cardBase} ${isHoverable ?? cardHoverable} ${className}`}
+      className={`${cardBase} ${isHoverable ? cardHoverable : ''} ${className}`}
       onClick={onClick}
     >
       {children}

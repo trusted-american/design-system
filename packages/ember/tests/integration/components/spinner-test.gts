@@ -7,7 +7,7 @@ module('Integration | Component | spinner', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Spinner /></template>);
+    await render(<template><Spinner @loadingLabel="Loading…" /></template>);
 
     assert.dom('[data-test-spinner]').exists();
   });

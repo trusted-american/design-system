@@ -40,7 +40,6 @@ const EditorButton: TOC<{
     @label={{@label}}
     @icon={{@icon}}
     @size="sm"
-    @color="light"
     @isIconOnly={{true}}
     {{tooltip @label placement="bottom"}}
     ...attributes

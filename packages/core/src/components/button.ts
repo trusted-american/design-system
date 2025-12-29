@@ -10,8 +10,4 @@ export const buttonVariants = {
   warning: 'text-white text-yellow-800 bg-yellow-50 border-yellow-300',
   info: 'text-white text-sky-800 bg-sky-50 border-sky-300',
   upsell: 'text-white text-purple-800 bg-purple-50 border-purple-300',
-  // TODO: remove
-  light: '',
-  dark: '',
-  white: '',
 };

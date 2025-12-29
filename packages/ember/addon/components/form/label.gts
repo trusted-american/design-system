@@ -21,7 +21,7 @@ export interface FormLabelSignature {
   >
     {{@label}}
     {{#if @isRequired}}
-      <Badge @label={{@requiredLabel}} @color="light" class="ms-1" />
+      <Badge @label={{@requiredLabel}} class="ms-1" />
     {{/if}}
   </label>
 </template> satisfies TOC<FormLabelSignature>;

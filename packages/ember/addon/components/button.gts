@@ -11,17 +11,17 @@ import Spinner from './spinner';
 const Internal: TOC<{
   Args: {
     label: string;
-    icon?: IconDefinition;
-    isIconTrailing?: boolean;
-    isIconOnly?: boolean;
-    isLoading?: boolean;
-    count?: number;
-    shortcut?: string;
+    icon: IconDefinition | undefined;
+    isIconTrailing: boolean | undefined;
+    isIconOnly: boolean | undefined;
+    isLoading: boolean | undefined;
+    count: number | undefined;
+    shortcut: string | undefined;
   };
   Element: SVGElement;
 }> = <template>
   {{#if @isLoading}}
-    <Spinner @color="white" />
+    <Spinner @color="white" @loadingLabel="Loading…" />
   {{/if}}
   {{if (and (not @isIconOnly) @isIconTrailing) @label}}
   {{#if @icon}}

@@ -7,7 +7,11 @@ interface BannerProps {
   children: ReactNode;
 }
 
-const Banner = ({ color = 'primary', className, children }: BannerProps) => {
+const Banner = ({
+  color = 'primary',
+  className,
+  children = '',
+}: BannerProps) => {
   return (
     <section className={`${bannerBase} ${bannerVariants[color]} ${className}`}>
       {children}

@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-import { Button, Heading, Toast } from '@trusted-american/ember';
+import { Button, Heading, Subheading, Toast } from '@trusted-american/ember';
 import { breadcrumb } from 'ember-breadcrumb-trail';
 import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
@@ -23,10 +23,30 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Heading @title="Toast" />
 
+    <Subheading @title="Examples" />
+
     <Snippet @name="toast.gts">
       {{! BEGIN-SNIPPET toast }}
+      <Toast @color="primary" @closeButtonLabel="Close">
+        <:body>Primary</:body>
+      </Toast>
       <Toast @closeButtonLabel="Close">
-        <:body>Body</:body>
+        <:body>Secondary</:body>
+      </Toast>
+      <Toast @color="success" @closeButtonLabel="Close">
+        <:body>Success</:body>
+      </Toast>
+      <Toast @color="danger" @closeButtonLabel="Close">
+        <:body>Danger</:body>
+      </Toast>
+      <Toast @color="warning" @closeButtonLabel="Close">
+        <:body>Warning</:body>
+      </Toast>
+      <Toast @color="info" @closeButtonLabel="Close">
+        <:body>Info</:body>
+      </Toast>
+      <Toast @color="upsell" @closeButtonLabel="Close">
+        <:body>Upsell</:body>
       </Toast>
       {{! END-SNIPPET }}
     </Snippet>
@@ -34,7 +54,6 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
     <Snippet @name="toast1.gts">
       {{! BEGIN-SNIPPET toast1 }}
       <Toast @closeButtonLabel="Close">
-        <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
       {{! END-SNIPPET }}
@@ -42,7 +61,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast2.gts">
       {{! BEGIN-SNIPPET toast2 }}
-      <Toast @closeButtonLabel="Close" @onClose={{this.close}}>
+      <Toast @closeButtonLabel="Close">
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -51,7 +70,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast3.gts">
       {{! BEGIN-SNIPPET toast3 }}
-      <Toast @closeButtonLabel="Close" @color="primary" @onClose={{this.close}}>
+      <Toast @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -60,7 +79,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast4.gts">
       {{! BEGIN-SNIPPET toast4 }}
-      <Toast @closeButtonLabel="Close" @color="success" @onClose={{this.close}}>
+      <Toast @color="primary" @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -69,7 +88,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast5.gts">
       {{! BEGIN-SNIPPET toast5 }}
-      <Toast @closeButtonLabel="Close" @color="warning" @onClose={{this.close}}>
+      <Toast @color="success" @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -78,7 +97,7 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast6.gts">
       {{! BEGIN-SNIPPET toast6 }}
-      <Toast @closeButtonLabel="Close" @color="danger" @onClose={{this.close}}>
+      <Toast @color="warning" @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>
       </Toast>
@@ -87,6 +106,15 @@ export default class ComponentsToast extends Component<ComponentsToastSignature>
 
     <Snippet @name="toast7.gts">
       {{! BEGIN-SNIPPET toast7 }}
+      <Toast @color="danger" @closeButtonLabel="Close" @onClose={{this.close}}>
+        <:title>Title</:title>
+        <:body>Body</:body>
+      </Toast>
+      {{! END-SNIPPET }}
+    </Snippet>
+
+    <Snippet @name="toast8.gts">
+      {{! BEGIN-SNIPPET toast8 }}
       <Toast @closeButtonLabel="Close" @onClose={{this.close}}>
         <:title>Title</:title>
         <:body>Body</:body>

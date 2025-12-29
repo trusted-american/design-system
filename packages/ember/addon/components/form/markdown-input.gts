@@ -81,7 +81,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
                 @label={{@headingLabel}}
                 @icon={{faHeading}}
                 @size="sm"
-                @color="light"
                 @isIconOnly={{true}}
                 {{tooltip @headingLabel placement="bottom"}}
               />
@@ -91,7 +90,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
                 @label={{@boldLabel}}
                 @icon={{faBold}}
                 @size="sm"
-                @color="light"
                 @isIconOnly={{true}}
                 {{tooltip @boldLabel placement="bottom"}}
               />
@@ -101,7 +99,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
                 @label={{@italicLabel}}
                 @icon={{faItalic}}
                 @size="sm"
-                @color="light"
                 @isIconOnly={{true}}
                 {{tooltip @italicLabel placement="bottom"}}
               />
@@ -111,7 +108,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
                 @label={{@codeLabel}}
                 @icon={{faCode}}
                 @size="sm"
-                @color="light"
                 @isIconOnly={{true}}
                 {{tooltip @codeLabel placement="bottom"}}
               />
@@ -121,7 +117,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
                 @label={{@linkLabel}}
                 @icon={{faLink}}
                 @size="sm"
-                @color="light"
                 @isIconOnly={{true}}
                 {{tooltip @linkLabel placement="bottom"}}
               />
@@ -131,7 +126,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
                 @label={{@numberedListLabel}}
                 @icon={{faListOl}}
                 @size="sm"
-                @color="light"
                 @isIconOnly={{true}}
                 {{tooltip @numberedListLabel placement="bottom"}}
               />
@@ -141,7 +135,6 @@ export default class FormMarkdownInput extends Component<FormMarkdownInputSignat
                 @label={{@unorderedListLabel}}
                 @icon={{faListUl}}
                 @size="sm"
-                @color="light"
                 @isIconOnly={{true}}
                 {{tooltip @unorderedListLabel placement="bottom"}}
               />

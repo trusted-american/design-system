@@ -13,7 +13,7 @@ export interface BannerSignature {
 
 <template>
   <section
-    class="text-bg-{{if @color @color 'primary'}} text-center fw-semibold p-2"
+    class="text-bg-{{if @color @color 'secondary'}} text-center fw-semibold p-2"
     data-test-banner
     ...attributes
   >
