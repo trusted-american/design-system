@@ -136,6 +136,10 @@ export default class Application extends Component<ApplicationSignature> {
             <aside.item @route="components.subheading" @label="Subheading" />
             <aside.item @route="components.table" @label="Table" />
             <aside.item @route="components.toast" @label="Toast" />
+            <aside.item
+              @route="components.toast-container"
+              @label="Toast container"
+            />
           </aside.group>
 
           <aside.item @route="helpers" @icon={{faFont}} @label="Helpers" />

@@ -83,6 +83,7 @@ import type StatCard from './components/stat-card';
 import type Subheading from './components/subheading';
 import type Table from './components/table';
 import type Toast from './components/toast';
+import type ToastContainer from './components/toast-container';
 
 import type fileSize from './helpers/file-size';
 import type fromNow from './helpers/from-now';
@@ -179,6 +180,7 @@ export default interface Registry {
   Subheading: typeof Subheading;
   Table: typeof Table;
   Toast: typeof Toast;
+  ToastContainer: typeof ToastContainer;
 
   'file-size': typeof fileSize;
   'from-now': typeof fromNow;
