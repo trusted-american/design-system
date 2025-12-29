@@ -8,6 +8,7 @@
   "repository": "https://github.com/trusted-american/design-system",
   "license": "MIT",
   "author": "Trusted American Insurance Agency",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
