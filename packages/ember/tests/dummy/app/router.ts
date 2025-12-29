@@ -68,6 +68,7 @@ Router.map(function () {
     this.route('subheading');
     this.route('table');
     this.route('toast');
+    this.route('toast-container');
   });
   this.route('helpers');
   this.route('modifiers');

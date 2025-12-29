@@ -83,6 +83,7 @@ export { default as StatCard } from './components/stat-card';
 export { default as Subheading } from './components/subheading';
 export { default as Table } from './components/table';
 export { default as Toast } from './components/toast';
+export { default as ToastContainer } from './components/toast-container';
 
 export { default as fileSize } from './helpers/file-size';
 export { default as fromNow } from './helpers/from-now';
