@@ -9,8 +9,8 @@ interface BannerProps {
 
 const Banner = ({
   color = 'primary',
-  className,
-  children = '',
+  className = '',
+  children,
 }: BannerProps) => {
   return (
     <section className={`${bannerBase} ${bannerVariants[color]} ${className}`}>

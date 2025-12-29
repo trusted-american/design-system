@@ -15,7 +15,7 @@ const FormCheck = ({
   id,
   label,
   isRequired,
-  className,
+  className = '',
   onChange,
 }: FormCheckProps) => {
   return (

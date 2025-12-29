@@ -37,7 +37,7 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
       error,
       pattern,
       readOnly,
-      className,
+      className = '',
       onChange,
     },
     ref,

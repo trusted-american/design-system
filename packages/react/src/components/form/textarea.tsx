@@ -24,7 +24,7 @@ const FormTextarea = ({
   disabled,
   help,
   error,
-  className,
+  className = '',
   onChange,
 }: FormTextareaProps) => {
   return (

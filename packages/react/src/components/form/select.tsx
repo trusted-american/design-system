@@ -24,7 +24,7 @@ const FormSelect = <T extends string>({
   isRequired,
   disabled,
   help,
-  className,
+  className = '',
   children,
   onChange,
 }: FormSelectProps<T>) => {
