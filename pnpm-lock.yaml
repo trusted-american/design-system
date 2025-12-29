@@ -13,14 +13,7 @@ importers:
   .: {}
 
   packages/core:
-    dependencies:
-      identicon.js:
-        specifier: ^2.3.3
-        version: 2.3.3
     devDependencies:
-      '@types/identicon.js':
-        specifier: ^2.3.5
-        version: 2.3.5
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
@@ -123,6 +116,9 @@ importers:
       ember-yeti-table:
         specifier: ^2.0.2
         version: 2.0.2(@babel/core@7.28.5)(@glint/template@1.7.3)(ember-source@6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      identicon.js:
+        specifier: ^2.3.3
+        version: 2.3.3
       tracked-built-ins:
         specifier: ^4.0.0
         version: 4.0.0(@babel/core@7.28.5)
@@ -169,6 +165,9 @@ importers:
       '@tsconfig/ember':
         specifier: ^3.0.12
         version: 3.0.12
+      '@types/identicon.js':
+        specifier: ^2.3.5
+        version: 2.3.5
       '@types/qunit':
         specifier: ^2.19.13
         version: 2.19.13
@@ -301,6 +300,9 @@ importers:
       '@trusted-american/core':
         specifier: workspace:*
         version: link:../core
+      identicon.js:
+        specifier: ^2.3.3
+        version: 2.3.3
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -308,6 +310,9 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(react@19.2.3)
     devDependencies:
+      '@types/identicon.js':
+        specifier: ^2.3.5
+        version: 2.3.5
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.7

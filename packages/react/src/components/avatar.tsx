@@ -1,8 +1,19 @@
-import {
-  avatarBase,
-  DEFAULT_SIZE,
-  generateIdenticon,
-} from '@trusted-american/core';
+import { avatarBase } from '@trusted-american/core';
+import Identicon from 'identicon.js';
+
+const DEFAULT_SIZE = 4; // rem
+
+// TODO: duplicated
+const generateIdenticon = (str: string): string => {
+  // encode utf8 as hex
+  const hash = str
+    .split('')
+    .map((char) => char.charCodeAt(0).toString(16))
+    .join('');
+
+  const data = new Identicon(hash).toString();
+  return `data:image/png;base64,${data}`;
+};
 
 interface AvatarProps {
   id: string;

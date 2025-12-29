@@ -27,11 +27,7 @@
     "prepack": "pnpm build",
     "test": ""
   },
-  "dependencies": {
-    "identicon.js": "^2.3.3"
-  },
   "devDependencies": {
-    "@types/identicon.js": "^2.3.5",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3"
   }

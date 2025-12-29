@@ -1,8 +1,21 @@
 import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import { htmlSafe } from '@ember/template';
-import { DEFAULT_SIZE, generateIdenticon } from '@trusted-american/core';
 import { or } from 'ember-truth-helpers';
+import Identicon from 'identicon.js';
+
+const DEFAULT_SIZE = 4; // rem
+
+const generateIdenticon = (str: string): string => {
+  // encode utf8 as hex
+  const hash = str
+    .split('')
+    .map((char) => char.charCodeAt(0).toString(16))
+    .join('');
+
+  const data = new Identicon(hash).toString();
+  return `data:image/png;base64,${data}`;
+};
 
 export interface AvatarSignature {
   Args: {
