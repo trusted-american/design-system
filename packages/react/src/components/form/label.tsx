@@ -14,7 +14,7 @@ const FormLabel = ({
   id,
   isRequired,
   requiredLabel,
-  className,
+  className = '',
 }: FormLabelProps) => {
   return (
     <label htmlFor={id} className={`${formLabelBase} ${className}`}>
