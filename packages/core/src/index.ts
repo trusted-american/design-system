@@ -1,3 +1,4 @@
+export * from './components/aside/title';
 export * from './components/form/check';
 export * from './components/form/help';
 export * from './components/form/input';
