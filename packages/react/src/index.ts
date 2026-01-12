@@ -1,3 +1,4 @@
+export { default as AsideTitle } from './components/aside/title';
 export { default as FormCheck } from './components/form/check';
 export { default as FormDateInput } from './components/form/date-input';
 export { default as FormHelp } from './components/form/help';
