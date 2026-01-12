@@ -9,6 +9,7 @@
     "build": "pnpm --filter \"*\" build",
     "lint": "pnpm --filter @trusted-american/core build && pnpm --filter \"*\" lint",
     "start": "pnpm --filter @trusted-american/ember start",
+    "start:react": "pnpm --filter @trusted-american/react dev",
     "test": "pnpm --filter \"*\" test"
   },
   "pnpm": {
