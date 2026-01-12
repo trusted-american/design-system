@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "dev": "vite",
     "lint": "pnpm lint:format && pnpm lint:types",
     "lint:format": "prettier . --cache --check",
     "lint:types": "tsc --noEmit",
@@ -29,7 +30,8 @@
     "@trusted-american/core": "workspace:*",
     "identicon.js": "^2.3.3",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "react-router": "^7.12.0"
   },
   "devDependencies": {
     "@types/identicon.js": "^2.3.5",
