@@ -67,32 +67,9 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// Default story
+// Color variants
 export const Default: Story = {
   args: {
-    label: 'Button',
-    color: 'secondary',
-  },
-};
-
-// Color variants
-export const Primary: Story = {
-  args: {
     label: 'Primary Button',
-    color: 'primary',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    label: 'Secondary Button',
-    color: 'secondary',
-  },
-};
-
-export const Success: Story = {
-  args: {
-    label: 'Success Button',
-    color: 'success',
   },
 };
