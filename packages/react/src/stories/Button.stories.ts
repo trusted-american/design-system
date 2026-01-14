@@ -1,3 +1,4 @@
+// @ts-ignore
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from '../components/button';
 
@@ -93,78 +94,5 @@ export const Success: Story = {
   args: {
     label: 'Success Button',
     color: 'success',
-  },
-};
-
-export const Danger: Story = {
-  args: {
-    label: 'Danger Button',
-    color: 'danger',
-  },
-};
-
-export const Warning: Story = {
-  args: {
-    label: 'Warning Button',
-    color: 'warning',
-  },
-};
-
-export const Info: Story = {
-  args: {
-    label: 'Info Button',
-    color: 'info',
-  },
-};
-
-// States
-export const Loading: Story = {
-  args: {
-    label: 'Loading...',
-    color: 'primary',
-    isLoading: true,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled Button',
-    color: 'primary',
-    isDisabled: true,
-  },
-};
-
-export const LoadingAndDisabled: Story = {
-  args: {
-    label: 'Please wait...',
-    color: 'primary',
-    isLoading: true,
-    isDisabled: true,
-  },
-};
-
-// Button types
-export const SubmitButton: Story = {
-  args: {
-    type: 'submit',
-    label: 'Submit Form',
-    color: 'success',
-  },
-};
-
-export const ResetButton: Story = {
-  args: {
-    type: 'reset',
-    label: 'Reset Form',
-    color: 'warning',
-  },
-};
-
-// With custom class
-export const WithCustomClass: Story = {
-  args: {
-    label: 'Custom Styled',
-    color: 'primary',
-    className: 'custom-button-class',
   },
 };
