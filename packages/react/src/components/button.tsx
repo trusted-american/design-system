@@ -15,7 +15,7 @@ interface ButtonProps<T> {
 const Button = <T,>({
   type = 'button',
   label,
-  color = 'secondary',
+  color = 'primary',
   isLoading,
   isDisabled,
   className = '',
@@ -28,8 +28,7 @@ const Button = <T,>({
       className={`${buttonBase} ${buttonVariants[color]} ${className}`}
       onClick={onClick}
     >
-      {isLoading ? <Spinner loadingLabel="Loading…" /> : ''}
-      {label}
+      {isLoading ? <Spinner loadingLabel="Loading…" /> : label}
     </button>
   );
 };
