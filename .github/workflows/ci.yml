@@ -113,4 +113,4 @@ jobs:
         run: pnpm --filter @trusted-american/react build
 
       - name: Run React Tests
-        run: pnpm --filter @trusted-american/react test
+        run: pnpm --filter @trusted-american/react test:ci
