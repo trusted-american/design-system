@@ -113,7 +113,7 @@ jobs:
         run: pnpm --filter @trusted-american/react build
 
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: Run React Tests
         run: pnpm --filter @trusted-american/react test
