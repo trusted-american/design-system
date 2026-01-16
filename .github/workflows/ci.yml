@@ -100,11 +100,14 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: pnpm
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build React
+        run: pnpm --filter @trusted-american/react build
 
       - name: Run React Tests
         run: pnpm --filter @trusted-american/react test
