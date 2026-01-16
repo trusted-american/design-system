@@ -85,3 +85,26 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Run Tests
         run: cd packages/ember && ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+  react-tests:
+    name: "React Tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run React Tests
+        run: pnpm --filter @trusted-american/react test
