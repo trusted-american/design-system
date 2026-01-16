@@ -17,6 +17,15 @@ export default defineConfig({
   test: {
     projects: [
       {
+        test: {
+          name: 'component-tests',
+          globals: true,
+          environment: 'jsdom',
+          setupFiles: ['./src/tests/setup.ts'],
+          include: ['src/**/*.test.tsx'],
+        },
+      },
+      {
         extends: true,
         plugins: [
           // The plugin will run tests for the stories defined in your Storybook config
@@ -26,7 +35,7 @@ export default defineConfig({
         test: {
           name: 'storybook',
           browser: {
-            enabled: true,
+            enabled: !process.env.CI,
             headless: true,
             provider: playwright({}),
             instances: [{ browser: 'chromium' }],
