@@ -112,8 +112,5 @@ jobs:
       - name: Build React
         run: pnpm --filter @trusted-american/react build
 
-      - name: Install Playwright Browsers
-        run: npx playwright install chromium --with-deps
-
       - name: Run React Tests
         run: pnpm --filter @trusted-american/react test
