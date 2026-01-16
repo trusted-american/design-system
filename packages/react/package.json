@@ -21,8 +21,9 @@
     "lint:format": "prettier . --cache --check",
     "lint:types": "tsc --noEmit",
     "prepack": "pnpm build",
-    "test": "vitest run",
+    "test": "vitest run --project=unit-tests",
     "test:ui": "vitest --ui",
+    "test:all": "vitest run",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
