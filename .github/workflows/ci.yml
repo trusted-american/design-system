@@ -106,6 +106,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build Core
+        run: pnpm --filter @trusted-american/core build
+
       - name: Build React
         run: pnpm --filter @trusted-american/react build
 
