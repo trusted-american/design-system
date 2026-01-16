@@ -49,7 +49,7 @@ export const Default: Story = {
   },
   args: {
     color: 'primary',
-    title: 'his is a default toast title!! his is a default toast title!!',
-    body: 'This is a default toast message!! This is a default toast message!!',
+    title: 'This is a default toast title',
+    body: 'This is a default toast message',
   },
 };
