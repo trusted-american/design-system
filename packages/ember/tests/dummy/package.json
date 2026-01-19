@@ -1,8 +1,0 @@
-{
-  "name": "dummy",
-  "private": true,
-  "devDependencies": {
-    "ember-source-channel-url": "^2.0.0",
-    "@embroider/test-setup": "^2.0.0"
-  }
-}
