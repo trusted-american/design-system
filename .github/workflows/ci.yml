@@ -35,7 +35,7 @@ jobs:
         run: pnpm --filter @trusted-american/ember test:ember
 
   floating:
-    name: "Floating Dependencies"
+    name: "Floating Dependencies Test"
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
