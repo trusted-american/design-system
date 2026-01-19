@@ -80,7 +80,7 @@
     "ember-truth-helpers": "^5.0.0",
     "ember-yeti-table": "^2.0.2",
     "identicon.js": "^2.3.3",
-    "tracked-built-ins": "^3.3.0"
+    "tracked-built-ins": "^4.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.5",
