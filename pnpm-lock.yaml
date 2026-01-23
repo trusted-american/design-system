@@ -97,7 +97,7 @@ importers:
         version: 5.1.0(@babel/core@7.28.5)(@glint/template@1.7.3)
       ember-file-upload:
         specifier: ^9.5.0
-        version: 9.5.0(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-modifier@4.2.2(@babel/core@7.28.5))(tracked-built-ins@4.0.0(@babel/core@7.28.5))
+        version: 9.5.0(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-modifier@4.2.2(@babel/core@7.28.5))(tracked-built-ins@4.1.0(@babel/core@7.28.5))
       ember-modifier:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.28.5)
@@ -121,7 +121,7 @@ importers:
         version: 2.3.3
       tracked-built-ins:
         specifier: ^4.0.0
-        version: 4.0.0(@babel/core@7.28.5)
+        version: 4.1.0(@babel/core@7.28.5)
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.28.5
@@ -6823,8 +6823,8 @@ packages:
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  tracked-built-ins@4.0.0:
-    resolution: {integrity: sha512-0Jl43A1SDZd+yYCJvXfgDSn4Wk/zcawkyFTBPqOETU5UJRngnVEnQ8oOjawqPRg6qja3sKjIQ8z6X9xJzcUTUA==}
+  tracked-built-ins@4.1.0:
+    resolution: {integrity: sha512-v1+jca3sD3LgbAFVsontSONTv7HsZll3yeUB00L6KPwLilFRrY77gvgptDe35fTalk9ea7mmrM2wABD56pTvuw==}
 
   tracked-toolbox@2.0.0:
     resolution: {integrity: sha512-adZtX+RGN6F+pWs/5JqVuDxLhuia4uhqmQp+UlUaxpykWjDFETtAdQR+LdDJiFPXFAXnS6FBqn/tnSLJQCm3Yw==}
@@ -11534,7 +11534,7 @@ snapshots:
       - eslint
       - typescript
 
-  ember-file-upload@9.5.0(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-modifier@4.2.2(@babel/core@7.28.5))(tracked-built-ins@4.0.0(@babel/core@7.28.5)):
+  ember-file-upload@9.5.0(@ember/test-helpers@5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3))(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-modifier@4.2.2(@babel/core@7.28.5))(tracked-built-ins@4.1.0(@babel/core@7.28.5)):
     dependencies:
       '@ember/test-helpers': 5.4.1(@babel/core@7.28.5)(@glint/template@1.7.3)
       '@ember/test-waiters': 4.1.1(@glint/template@1.7.3)
@@ -11542,7 +11542,7 @@ snapshots:
       '@embroider/macros': 1.19.5(@glint/template@1.7.3)
       '@glimmer/component': 2.0.0
       ember-modifier: 4.2.2(@babel/core@7.28.5)
-      tracked-built-ins: 4.0.0(@babel/core@7.28.5)
+      tracked-built-ins: 4.1.0(@babel/core@7.28.5)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
@@ -15255,7 +15255,7 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  tracked-built-ins@4.0.0(@babel/core@7.28.5):
+  tracked-built-ins@4.1.0(@babel/core@7.28.5):
     dependencies:
       '@embroider/addon-shim': 1.10.2
       decorator-transforms: 2.3.0(@babel/core@7.28.5)
