@@ -115,7 +115,7 @@
     "ember-qunit": "^9.0.4",
     "ember-resolver": "^13.1.1",
     "ember-shiki": "^0.3.0",
-    "ember-source": "~6.10.0",
+    "ember-source": "~6.9.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^7.9.3",
     "ember-test-selectors": "^7.1.0",
