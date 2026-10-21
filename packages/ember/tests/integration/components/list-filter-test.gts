@@ -170,6 +170,78 @@ module('Integration | Component | list-filter', function (hooks) {
     assert.deepEqual(state.createdAt, []);
   });
 
+  test('it works with searchable multi predicates', async function (assert) {
+    class State {
+      @tracked state: string[] = ['az'];
+    }
+    const state = new State();
+
+    const predicates: Predicate[] = [
+      {
+        type: 'multi',
+        isSearchable: true,
+        label: 'State',
+        key: 'state',
+        value: state.state,
+        options: [
+          { value: 'az', label: 'AZ' },
+          { value: 'ca', label: 'CA' },
+          { value: 'nv', label: 'NV' },
+        ],
+      },
+    ];
+
+    const onChange = (key: string, value: unknown) => {
+      state[key as keyof State] = value as never;
+    };
+
+    await render(
+      <template>
+        <ListFilter
+          @predicates={{predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @requiredLabel="Required"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @onChange={{onChange}}
+        />
+      </template>,
+    );
+
+    // a preset value shows as a chip in the picker, not as a checkbox
+    assert.dom('[data-test-form-check]').doesNotExist();
+    assert.dom('.ember-power-select-multiple-option').exists({ count: 1 });
+
+    await selectChoose(
+      '[data-test-predicate-value] [data-test-form-power-select-multiple]',
+      '.ember-power-select-option',
+      1,
+    );
+    await click('[data-test-done]');
+
+    assert.deepEqual(state.state, ['az', 'ca']);
+
+    await click('[data-test-clear]');
+
+    assert.deepEqual(state.state, []);
+  });
+
   test('it works with date predicates', async function (assert) {
     class State implements Props {
       @tracked status = undefined;

@@ -20,6 +20,7 @@ import FormDateInput from './form/date-input';
 import FormInput from './form/input';
 import FormNumberInput from './form/number-input';
 import FormPowerSelect from './form/power-select';
+import FormPowerSelectMultiple from './form/power-select-multiple';
 import type { Option } from './form/select';
 import FormSelect from './form/select';
 import ListGroup from './list-group';
@@ -67,6 +68,11 @@ interface SingleSelectPredicate<T> extends SelectPredicate<T> {
 interface MultiSelectPredicate<T> extends SelectPredicate<T> {
   type: 'multi';
   value: T[];
+  /**
+   * Render a searchable picker instead of a checkbox list. Use it when the
+   * options are too many to scan.
+   */
+  isSearchable?: boolean;
 }
 
 interface StringPredicate extends BasePredicate {
@@ -192,6 +198,26 @@ class InternalPredicate<T> {
 
     return value;
   }
+
+  get isSearchable(): boolean {
+    return (
+      this._predicate.type === 'multi' && this._predicate.isSearchable === true
+    );
+  }
+
+  /**
+   * The chosen options of a searchable multi predicate: the picker works in
+   * options while `_value` holds their values.
+   */
+  get selectedOptions(): Option<T>[] {
+    if (this._predicate.type !== 'multi') {
+      return [];
+    }
+    const values = this._value as T[];
+    return this._predicate.options.filter(({ value }) =>
+      values.includes(value),
+    );
+  }
 }
 
 export interface ListFilterSignature<T> {
@@ -272,6 +298,10 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     } else {
       predicate._value = (predicate._value as []).filter((v) => v !== value);
     }
+  };
+
+  setMulti = (predicate: InternalPredicate<T>, options: Option<T>[]) => {
+    predicate._value = options.map(({ value }) => value);
   };
 
   <template>
@@ -398,15 +428,32 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
                 {{else if (eq "multi" predicate._predicate.type)}}
 
-                  {{#each predicate._predicate.options as |opt|}}
-                    <FormCheck
-                      @value={{includes opt.value predicate._predicate.value}}
-                      @label={{opt.label}}
-                      @id="value{{index}}{{opt.value}}"
+                  {{#if predicate.isSearchable}}
+                    <FormPowerSelectMultiple
+                      @options={{predicate._predicate.options}}
+                      @selected={{predicate.selectedOptions}}
+                      @searchField="label"
+                      @label={{@valueLabel}}
+                      @id="value{{index}}"
                       @requiredLabel={{@requiredLabel}}
-                      @onChange={{fn this.toggleMulti predicate opt.value}}
-                    />
-                  {{/each}}
+                      @isInputOnly={{true}}
+                      @chooseLabel={{@chooseLabel}}
+                      @onChange={{fn this.setMulti predicate}}
+                      as |option|
+                    >
+                      {{option.label}}
+                    </FormPowerSelectMultiple>
+                  {{else}}
+                    {{#each predicate._predicate.options as |opt|}}
+                      <FormCheck
+                        @value={{includes opt.value predicate._predicate.value}}
+                        @label={{opt.label}}
+                        @id="value{{index}}{{opt.value}}"
+                        @requiredLabel={{@requiredLabel}}
+                        @onChange={{fn this.toggleMulti predicate opt.value}}
+                      />
+                    {{/each}}
+                  {{/if}}
 
                 {{else if (eq "string" predicate._predicate.type)}}
 
