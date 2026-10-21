@@ -23,6 +23,7 @@ interface ComponentsListFilterSignature {
 export default class ComponentsListFilter extends Component<ComponentsListFilterSignature> {
   @tracked status?: 'active' | 'inactive';
   @tracked type: ('primary' | 'secondary')[] = [];
+  @tracked state: string[] = [];
   @tracked tag?: string;
   @tracked createdAt: DateRangeQueryParam = [];
   @tracked other: 'active' | 'inactive' = 'active';
@@ -78,6 +79,11 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
           {{t}}
         {{/each}}
       </li>
+      <li>State:
+        {{#each this.state as |s|}}
+          {{s}}
+        {{/each}}
+      </li>
       <li>Tag: {{this.tag}}</li>
       <li>Created date:
         {{#if this.createdAt}}
@@ -125,6 +131,18 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
             options=(array
               (hash value="primary" label="Primary")
               (hash value="secondary" label="Secondary")
+            )
+          )
+          (hash
+            type="multi"
+            isSearchable=true
+            label="State"
+            key="state"
+            value=this.state
+            options=(array
+              (hash value="az" label="Arizona")
+              (hash value="ca" label="California")
+              (hash value="nv" label="Nevada")
             )
           )
           (hash type="string" label="Tag" key="tag" value=this.tag)
