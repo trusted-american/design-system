@@ -75,6 +75,24 @@ interface MultiSelectPredicate<T> extends SelectPredicate<T> {
   isSearchable?: boolean;
 }
 
+/**
+ * Picks one value from options looked up as the reader types, for when there
+ * are too many to hand over up front (every user, say).
+ */
+interface SearchPredicate<T> extends BasePredicate {
+  type: 'search';
+  value: T | undefined;
+  /**
+   * What the current value reads as. `value` is usually only an id, and the
+   * options it came from are long gone by the time the filter renders again.
+   */
+  valueLabel?: string;
+  /**
+   * Called on every keystroke: cancel or debounce stale lookups here.
+   */
+  search: (query: string) => Option<T>[] | Promise<Option<T>[]>;
+}
+
 interface StringPredicate extends BasePredicate {
   type: 'string';
   value: string | undefined;
@@ -88,6 +106,7 @@ interface DatePredicate extends BasePredicate {
 export type Predicate<T = unknown> =
   | SingleSelectPredicate<T>
   | MultiSelectPredicate<T>
+  | SearchPredicate<T>
   | StringPredicate
   | DatePredicate;
 
@@ -113,6 +132,9 @@ class InternalPredicate<T> {
   @tracked startAt: Date | null = null;
   @tracked endAt: Date | null = null;
 
+  /** The chosen option of a search predicate; `_value` holds its value. */
+  @tracked selectedOption?: Option<T>;
+
   constructor(predicate: Predicate<T>) {
     this._predicate = predicate;
 
@@ -122,6 +144,13 @@ class InternalPredicate<T> {
 
     if ((val || val === false) && (!Array.isArray(val) || val.length !== 0)) {
       this.isEnabled = true;
+    }
+
+    if (predicate.type === 'search' && predicate.value !== undefined) {
+      this.selectedOption = {
+        value: predicate.value,
+        label: predicate.valueLabel ?? String(predicate.value),
+      };
     }
 
     if (predicate.type !== 'date') {
@@ -203,6 +232,12 @@ class InternalPredicate<T> {
     return (
       this._predicate.type === 'multi' && this._predicate.isSearchable === true
     );
+  }
+
+  get search(): SearchPredicate<T>['search'] | undefined {
+    return this._predicate.type === 'search'
+      ? this._predicate.search
+      : undefined;
   }
 
   /**
@@ -302,6 +337,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
   setMulti = (predicate: InternalPredicate<T>, options: Option<T>[]) => {
     predicate._value = options.map(({ value }) => value);
+  };
+
+  setSearch = (predicate: InternalPredicate<T>, opt: Option<T>) => {
+    predicate.selectedOption = opt;
+    predicate._value = opt.value;
   };
 
   <template>
@@ -454,6 +494,23 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       />
                     {{/each}}
                   {{/if}}
+
+                {{else if (eq "search" predicate._predicate.type)}}
+
+                  <FormPowerSelect
+                    @search={{predicate.search}}
+                    @selected={{predicate.selectedOption}}
+                    @label={{@valueLabel}}
+                    @id="value{{index}}"
+                    @requiredLabel={{@requiredLabel}}
+                    @isInputOnly={{true}}
+                    @chooseLabel={{@chooseLabel}}
+                    @searchLabel={{@searchLabel}}
+                    @onChange={{fn this.setSearch predicate}}
+                    as |option|
+                  >
+                    {{option.label}}
+                  </FormPowerSelect>
 
                 {{else if (eq "string" predicate._predicate.type)}}
 

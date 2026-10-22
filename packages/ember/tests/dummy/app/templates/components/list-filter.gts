@@ -14,6 +14,12 @@ import { pageTitle } from 'ember-page-title';
 import Snippet from '../../components/snippet';
 import type ComponentsListFilterRoute from '../../routes/components/list-filter';
 
+const OWNERS = [
+  { value: 'u1', label: 'Ada Lovelace' },
+  { value: 'u2', label: 'Grace Hopper' },
+  { value: 'u3', label: 'Katherine Johnson' },
+];
+
 interface ComponentsListFilterSignature {
   Args: {
     model: ModelFrom<ComponentsListFilterRoute>;
@@ -24,9 +30,22 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
   @tracked status?: 'active' | 'inactive';
   @tracked type: ('primary' | 'secondary')[] = [];
   @tracked state: string[] = [];
+  @tracked owner?: string;
   @tracked tag?: string;
   @tracked createdAt: DateRangeQueryParam = [];
   @tracked other: 'active' | 'inactive' = 'active';
+
+  /** Stands in for a server lookup, like a search index. */
+  searchOwners = async (query: string) => {
+    await new Promise((resolve) => setTimeout(resolve, 200));
+    return OWNERS.filter(({ label }) =>
+      label.toLowerCase().includes(query.toLowerCase()),
+    );
+  };
+
+  get ownerLabel(): string | undefined {
+    return OWNERS.find(({ value }) => value === this.owner)?.label;
+  }
 
   get gte(): Date | null {
     if (Array.isArray(this.createdAt)) {
@@ -84,6 +103,7 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
           {{s}}
         {{/each}}
       </li>
+      <li>Owner: {{this.owner}}</li>
       <li>Tag: {{this.tag}}</li>
       <li>Created date:
         {{#if this.createdAt}}
@@ -144,6 +164,14 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
               (hash value="ca" label="California")
               (hash value="nv" label="Nevada")
             )
+          )
+          (hash
+            type="search"
+            label="Owner"
+            key="owner"
+            value=this.owner
+            valueLabel=this.ownerLabel
+            search=this.searchOwners
           )
           (hash type="string" label="Tag" key="tag" value=this.tag)
           (hash
