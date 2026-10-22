@@ -14,7 +14,7 @@ export interface Group<T> extends _Group {
 interface Args<T> extends FormInputArgs {
   options?: (T | Group<T>)[];
   selected: T | null | undefined;
-  search?: (query: string) => T[];
+  search?: (query: string) => T[] | Promise<T[]>;
   searchField?: keyof T & string;
   matcher?: (value: T, query: string) => number;
   isClearable?: boolean;

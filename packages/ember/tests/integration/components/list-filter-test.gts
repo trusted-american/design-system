@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, fillIn, render, select } from '@ember/test-helpers';
 import ListFilter from '@trusted-american/ember/components/list-filter';
-import { selectChoose } from 'ember-power-select/test-support';
+import { selectChoose, selectSearch } from 'ember-power-select/test-support';
 import dayjs from 'dayjs';
 import { tracked } from '@glimmer/tracking';
 import type {
@@ -240,6 +240,84 @@ module('Integration | Component | list-filter', function (hooks) {
     await click('[data-test-clear]');
 
     assert.deepEqual(state.state, []);
+  });
+
+  test('it works with search predicates', async function (assert) {
+    class State {
+      @tracked owner?: string = 'u1';
+    }
+    const state = new State();
+
+    const owners = [
+      { value: 'u1', label: 'Ada Lovelace' },
+      { value: 'u2', label: 'Grace Hopper' },
+    ];
+
+    const predicates: Predicate[] = [
+      {
+        type: 'search',
+        label: 'Owner',
+        key: 'owner',
+        value: state.owner,
+        valueLabel: 'Ada Lovelace',
+        search: (query: string) =>
+          Promise.resolve(owners.filter(({ label }) => label.includes(query))),
+      },
+    ];
+
+    const onChange = (key: string, value: unknown) => {
+      state[key as keyof State] = value as never;
+    };
+
+    await render(
+      <template>
+        <ListFilter
+          @predicates={{predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @requiredLabel="Required"
+          @chooseLabel="Choose�"
+          @searchLabel="Search�"
+          @onChange={{onChange}}
+        />
+      </template>,
+    );
+
+    // the preset reads as its label, not its id
+    assert
+      .dom('[data-test-predicate-value] .ember-power-select-selected-item')
+      .hasText('Ada Lovelace');
+
+    await selectSearch(
+      '[data-test-predicate-value] [data-test-form-power-select]',
+      'Grace',
+    );
+    await selectChoose(
+      '[data-test-predicate-value] [data-test-form-power-select]',
+      'Grace Hopper',
+    );
+    await click('[data-test-done]');
+
+    assert.strictEqual(state.owner, 'u2');
+
+    await click('[data-test-clear]');
+
+    assert.strictEqual(state.owner, undefined);
   });
 
   test('it works with date predicates', async function (assert) {
