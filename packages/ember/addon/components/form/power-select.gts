@@ -59,6 +59,7 @@ export default class FormPowerSelect<T> extends Component<
     {{#if @onCreate}}
       <PowerSelectWithCreate
         @options={{@options}}
+        {{! @glint-expect-error: typed as sync, but it resolves a promise like PowerSelect }}
         @search={{@search}}
         @selected={{@selected}}
         @disabled={{@isDisabled}}
