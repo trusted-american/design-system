@@ -1,3 +1,4 @@
+import type { TOC } from '@ember/component/template-only';
 import { array, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action, get } from '@ember/object';
@@ -11,6 +12,7 @@ import { modifier } from 'ember-modifier';
 import { eq, not } from 'ember-truth-helpers';
 import dropdown from '../modifiers/dropdown';
 import checkValidity from '../utils/check-validity';
+import Avatar from './avatar';
 import Button from './button';
 import ButtonSet from './button-set';
 import Dropdown from './dropdown';
@@ -51,18 +53,68 @@ export type DateRangeQueryParam =
     }
   | [];
 
+export interface FilterAvatar {
+  /** Seeds the generated identicon when there is no `url`. */
+  id: string;
+  url?: string | null;
+}
+
+/**
+ * An option as the filter shows it. The extras are optional, so a plain
+ * `{ value, label }` option still works everywhere.
+ */
+export interface FilterOption<T> extends Option<T> {
+  /** A second, muted line, to tell apart options that share a label. */
+  description?: string;
+  avatar?: FilterAvatar;
+}
+
+interface ListFilterOptionSignature {
+  Args: {
+    option: FilterOption<unknown>;
+  };
+}
+
+const ListFilterOption: TOC<ListFilterOptionSignature> = <template>
+  <span
+    class="d-inline-flex align-items-center gap-2 mw-100"
+    data-test-list-filter-option
+  >
+    {{#if @option.avatar}}
+      <Avatar
+        @id={{@option.avatar.id}}
+        @url={{@option.avatar.url}}
+        @alt={{@option.label}}
+        @size={{1.5}}
+        class="flex-shrink-0"
+      />
+    {{/if}}
+    <span class="d-flex flex-column text-truncate">
+      <span class="text-truncate">{{@option.label}}</span>
+      {{#if @option.description}}
+        <small
+          class="text-body-secondary text-truncate"
+          data-test-list-filter-option-description
+        >{{@option.description}}</small>
+      {{/if}}
+    </span>
+  </span>
+</template>;
+
 interface BasePredicate {
   label: string;
   key: string;
 }
 
 interface SelectPredicate<T> extends BasePredicate {
-  options: Option<T>[];
+  options: FilterOption<T>[];
 }
 
 interface SingleSelectPredicate<T> extends SelectPredicate<T> {
   type?: 'single';
   value: T | undefined;
+  /** Offer an "x" that empties the picker, which turns the filter off. */
+  isClearable?: boolean;
 }
 
 interface MultiSelectPredicate<T> extends SelectPredicate<T> {
@@ -81,16 +133,42 @@ interface MultiSelectPredicate<T> extends SelectPredicate<T> {
  */
 interface SearchPredicate<T> extends BasePredicate {
   type: 'search';
+  isMultiple?: false;
   value: T | undefined;
   /**
    * What the current value reads as. `value` is usually only an id, and the
    * options it came from are long gone by the time the filter renders again.
    */
   valueLabel?: string;
+  /** The current value's second line, as its option had it. */
+  valueDescription?: string;
+  /** The current value's avatar, as its option had it. */
+  valueAvatar?: FilterAvatar;
+  /** Offer an "x" that empties the picker, which turns the filter off. */
+  isClearable?: boolean;
   /**
    * Called on every keystroke: cancel or debounce stale lookups here.
    */
-  search: (query: string) => Option<T>[] | Promise<Option<T>[]>;
+  search: (query: string) => FilterOption<T>[] | Promise<FilterOption<T>[]>;
+}
+
+/**
+ * Picks several values from options looked up as the reader types, shown as
+ * chips.
+ */
+interface MultiSearchPredicate<T> extends BasePredicate {
+  type: 'search';
+  isMultiple: true;
+  value: T[];
+  /**
+   * How the current values read. A value missing here shows as itself, so
+   * pass one option per value.
+   */
+  valueOptions?: FilterOption<T>[];
+  /**
+   * Called on every keystroke: cancel or debounce stale lookups here.
+   */
+  search: (query: string) => FilterOption<T>[] | Promise<FilterOption<T>[]>;
 }
 
 interface StringPredicate extends BasePredicate {
@@ -107,6 +185,7 @@ export type Predicate<T = unknown> =
   | SingleSelectPredicate<T>
   | MultiSelectPredicate<T>
   | SearchPredicate<T>
+  | MultiSearchPredicate<T>
   | StringPredicate
   | DatePredicate;
 
@@ -133,7 +212,13 @@ class InternalPredicate<T> {
   @tracked endAt: Date | null = null;
 
   /** The chosen option of a search predicate; `_value` holds its value. */
-  @tracked selectedOption?: Option<T>;
+  @tracked selectedOption?: FilterOption<T>;
+
+  /**
+   * The chosen options of a multiple search predicate; `_value` holds their
+   * values.
+   */
+  @tracked pickedOptions: FilterOption<T>[] = [];
 
   constructor(predicate: Predicate<T>) {
     this._predicate = predicate;
@@ -146,11 +231,24 @@ class InternalPredicate<T> {
       this.isEnabled = true;
     }
 
-    if (predicate.type === 'search' && predicate.value !== undefined) {
-      this.selectedOption = {
-        value: predicate.value,
-        label: predicate.valueLabel ?? String(predicate.value),
-      };
+    if (predicate.type === 'search') {
+      if (predicate.isMultiple) {
+        const { value: values, valueOptions = [] } = predicate;
+        this.pickedOptions = values.map(
+          (value) =>
+            valueOptions.find((option) => option.value === value) ?? {
+              value,
+              label: String(value),
+            },
+        );
+      } else if (predicate.value !== undefined) {
+        this.selectedOption = {
+          value: predicate.value,
+          label: predicate.valueLabel ?? String(predicate.value),
+          description: predicate.valueDescription,
+          avatar: predicate.valueAvatar,
+        };
+      }
     }
 
     if (predicate.type !== 'date') {
@@ -184,7 +282,11 @@ class InternalPredicate<T> {
 
   get value() {
     if (!this.isEnabled) {
-      if (this._predicate.type === 'date' || this._predicate.type === 'multi') {
+      if (
+        this._predicate.type === 'date' ||
+        this._predicate.type === 'multi' ||
+        this.isMultipleSearch
+      ) {
         return [];
       }
       return undefined;
@@ -234,6 +336,22 @@ class InternalPredicate<T> {
     );
   }
 
+  get isMultipleSearch(): boolean {
+    return (
+      this._predicate.type === 'search' && this._predicate.isMultiple === true
+    );
+  }
+
+  get isClearable(): boolean {
+    const predicate = this._predicate;
+    return (
+      (predicate.type === undefined ||
+        predicate.type === 'single' ||
+        (predicate.type === 'search' && !predicate.isMultiple)) &&
+      predicate.isClearable === true
+    );
+  }
+
   get search(): SearchPredicate<T>['search'] | undefined {
     return this._predicate.type === 'search'
       ? this._predicate.search
@@ -244,7 +362,7 @@ class InternalPredicate<T> {
    * The chosen options of a searchable multi predicate: the picker works in
    * options while `_value` holds their values.
    */
-  get selectedOptions(): Option<T>[] {
+  get selectedOptions(): FilterOption<T>[] {
     if (this._predicate.type !== 'multi') {
       return [];
     }
@@ -278,6 +396,12 @@ export interface ListFilterSignature<T> {
     requiredLabel: string;
     chooseLabel: string;
     searchLabel: string;
+    /** Shown while a search predicate's lookup is pending. */
+    loadingLabel?: string;
+    /** Shown when a picker's search matches nothing. */
+    noResultsLabel?: string;
+    /** Shown in a search predicate's picker before the reader types. */
+    typeToSearchLabel?: string;
     onChange: (key: string, value: unknown) => void;
   };
 }
@@ -315,8 +439,9 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     hideDropdown(this.id);
   };
 
-  setValue = (predicate: InternalPredicate<T>, opt: Option<T>) => {
-    predicate._value = opt.value;
+  /** `opt` is null when the picker's "x" empties it. */
+  setValue = (predicate: InternalPredicate<T>, opt: FilterOption<T> | null) => {
+    predicate._value = opt?.value;
   };
 
   setEndAt = (predicate: InternalPredicate<T>, date: Date | null) => {
@@ -335,13 +460,25 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
     }
   };
 
-  setMulti = (predicate: InternalPredicate<T>, options: Option<T>[]) => {
+  setMulti = (predicate: InternalPredicate<T>, options: FilterOption<T>[]) => {
     predicate._value = options.map(({ value }) => value);
   };
 
-  setSearch = (predicate: InternalPredicate<T>, opt: Option<T>) => {
-    predicate.selectedOption = opt;
-    predicate._value = opt.value;
+  /** `opt` is null when the picker's "x" empties it. */
+  setSearch = (
+    predicate: InternalPredicate<T>,
+    opt: FilterOption<T> | null,
+  ) => {
+    predicate.selectedOption = opt ?? undefined;
+    predicate._value = opt?.value;
+  };
+
+  setMultiSearch = (
+    predicate: InternalPredicate<T>,
+    options: FilterOption<T>[],
+  ) => {
+    predicate.pickedOptions = options;
+    predicate._value = options.map(({ value }) => value);
   };
 
   <template>
@@ -478,10 +615,11 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       @requiredLabel={{@requiredLabel}}
                       @isInputOnly={{true}}
                       @chooseLabel={{@chooseLabel}}
+                      @noResultsLabel={{@noResultsLabel}}
                       @onChange={{fn this.setMulti predicate}}
                       as |option|
                     >
-                      {{option.label}}
+                      <ListFilterOption @option={{option}} />
                     </FormPowerSelectMultiple>
                   {{else}}
                     {{#each predicate._predicate.options as |opt|}}
@@ -497,20 +635,43 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
 
                 {{else if (eq "search" predicate._predicate.type)}}
 
-                  <FormPowerSelect
-                    @search={{predicate.search}}
-                    @selected={{predicate.selectedOption}}
-                    @label={{@valueLabel}}
-                    @id="value{{index}}"
-                    @requiredLabel={{@requiredLabel}}
-                    @isInputOnly={{true}}
-                    @chooseLabel={{@chooseLabel}}
-                    @searchLabel={{@searchLabel}}
-                    @onChange={{fn this.setSearch predicate}}
-                    as |option|
-                  >
-                    {{option.label}}
-                  </FormPowerSelect>
+                  {{#if predicate.isMultipleSearch}}
+                    <FormPowerSelectMultiple
+                      @search={{predicate.search}}
+                      @selected={{predicate.pickedOptions}}
+                      @label={{@valueLabel}}
+                      @id="value{{index}}"
+                      @requiredLabel={{@requiredLabel}}
+                      @isInputOnly={{true}}
+                      @chooseLabel={{@chooseLabel}}
+                      @loadingLabel={{@loadingLabel}}
+                      @noResultsLabel={{@noResultsLabel}}
+                      @typeToSearchLabel={{@typeToSearchLabel}}
+                      @onChange={{fn this.setMultiSearch predicate}}
+                      as |option|
+                    >
+                      <ListFilterOption @option={{option}} />
+                    </FormPowerSelectMultiple>
+                  {{else}}
+                    <FormPowerSelect
+                      @search={{predicate.search}}
+                      @selected={{predicate.selectedOption}}
+                      @label={{@valueLabel}}
+                      @id="value{{index}}"
+                      @requiredLabel={{@requiredLabel}}
+                      @isInputOnly={{true}}
+                      @isClearable={{predicate.isClearable}}
+                      @chooseLabel={{@chooseLabel}}
+                      @searchLabel={{@searchLabel}}
+                      @loadingLabel={{@loadingLabel}}
+                      @noResultsLabel={{@noResultsLabel}}
+                      @typeToSearchLabel={{@typeToSearchLabel}}
+                      @onChange={{fn this.setSearch predicate}}
+                      as |option|
+                    >
+                      <ListFilterOption @option={{option}} />
+                    </FormPowerSelect>
+                  {{/if}}
 
                 {{else if (eq "string" predicate._predicate.type)}}
 
@@ -539,12 +700,14 @@ export default class ListFilter<T> extends Component<ListFilterSignature<T>> {
                       {{!-- @isRequired={{true}} --}}
                       @requiredLabel={{@requiredLabel}}
                       @isInputOnly={{true}}
+                      @isClearable={{predicate.isClearable}}
                       @chooseLabel={{@chooseLabel}}
                       @searchLabel={{@searchLabel}}
+                      @noResultsLabel={{@noResultsLabel}}
                       @onChange={{fn this.setValue predicate}}
                       as |option|
                     >
-                      {{option.label}}
+                      <ListFilterOption @option={{option}} />
                     </FormPowerSelect>
                   {{/let}}
 
