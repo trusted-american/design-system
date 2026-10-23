@@ -19,19 +19,19 @@ const OWNERS = [
     value: 'u1',
     label: 'Ada Lovelace',
     description: 'ada@example.com',
-    avatar: { id: 'u1' },
+    avatar: { id: 'user-ada' },
   },
   {
     value: 'u2',
     label: 'Grace Hopper',
     description: 'grace@example.com',
-    avatar: { id: 'u2' },
+    avatar: { id: 'user-grace' },
   },
   {
     value: 'u3',
     label: 'Katherine Johnson',
     description: 'katherine@example.com',
-    avatar: { id: 'u3' },
+    avatar: { id: 'user-katherine' },
   },
 ];
 

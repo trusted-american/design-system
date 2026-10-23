@@ -407,13 +407,13 @@ module('Integration | Component | list-filter', function (hooks) {
         value: 'u1',
         label: 'Ada Lovelace',
         description: 'ada@example.com',
-        avatar: { id: 'u1' },
+        avatar: { id: 'user-ada' },
       },
       {
         value: 'u2',
         label: 'Grace Hopper',
         description: 'grace@example.com',
-        avatar: { id: 'u2', url: '/grace.png' },
+        avatar: { id: 'user-grace', url: '/grace.png' },
       },
     ];
 
@@ -425,7 +425,7 @@ module('Integration | Component | list-filter', function (hooks) {
         value: state.owner,
         valueLabel: 'Ada Lovelace',
         valueDescription: 'ada@example.com',
-        valueAvatar: { id: 'u1' },
+        valueAvatar: { id: 'user-ada' },
         search: (query: string) =>
           Promise.resolve(owners.filter(({ label }) => label.includes(query))),
       },
