@@ -15,9 +15,24 @@ import Snippet from '../../components/snippet';
 import type ComponentsListFilterRoute from '../../routes/components/list-filter';
 
 const OWNERS = [
-  { value: 'u1', label: 'Ada Lovelace' },
-  { value: 'u2', label: 'Grace Hopper' },
-  { value: 'u3', label: 'Katherine Johnson' },
+  {
+    value: 'u1',
+    label: 'Ada Lovelace',
+    description: 'ada@example.com',
+    avatar: { id: 'user-ada' },
+  },
+  {
+    value: 'u2',
+    label: 'Grace Hopper',
+    description: 'grace@example.com',
+    avatar: { id: 'user-grace' },
+  },
+  {
+    value: 'u3',
+    label: 'Katherine Johnson',
+    description: 'katherine@example.com',
+    avatar: { id: 'user-katherine' },
+  },
 ];
 
 interface ComponentsListFilterSignature {
@@ -31,6 +46,7 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
   @tracked type: ('primary' | 'secondary')[] = [];
   @tracked state: string[] = [];
   @tracked owner?: string;
+  @tracked reviewers: string[] = [];
   @tracked tag?: string;
   @tracked createdAt: DateRangeQueryParam = [];
   @tracked other: 'active' | 'inactive' = 'active';
@@ -43,8 +59,12 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
     );
   };
 
-  get ownerLabel(): string | undefined {
-    return OWNERS.find(({ value }) => value === this.owner)?.label;
+  get ownerOption() {
+    return OWNERS.find(({ value }) => value === this.owner);
+  }
+
+  get reviewerOptions() {
+    return OWNERS.filter(({ value }) => this.reviewers.includes(value));
   }
 
   get gte(): Date | null {
@@ -104,6 +124,11 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
         {{/each}}
       </li>
       <li>Owner: {{this.owner}}</li>
+      <li>Reviewers:
+        {{#each this.reviewers as |r|}}
+          {{r}}
+        {{/each}}
+      </li>
       <li>Tag: {{this.tag}}</li>
       <li>Created date:
         {{#if this.createdAt}}
@@ -170,7 +195,19 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
             label="Owner"
             key="owner"
             value=this.owner
-            valueLabel=this.ownerLabel
+            valueLabel=this.ownerOption.label
+            valueDescription=this.ownerOption.description
+            valueAvatar=this.ownerOption.avatar
+            isClearable=true
+            search=this.searchOwners
+          )
+          (hash
+            type="search"
+            isMultiple=true
+            label="Reviewers"
+            key="reviewers"
+            value=this.reviewers
+            valueOptions=this.reviewerOptions
             search=this.searchOwners
           )
           (hash type="string" label="Tag" key="tag" value=this.tag)
@@ -210,6 +247,9 @@ export default class ComponentsListFilter extends Component<ComponentsListFilter
         @requiredLabel="Required"
         @chooseLabel="Choose…"
         @searchLabel="Search…"
+        @loadingLabel="Loading…"
+        @noResultsLabel="No results"
+        @typeToSearchLabel="Type to search"
         @onChange={{this.change}}
       />
       {{! END-SNIPPET }}

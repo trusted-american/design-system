@@ -8,15 +8,21 @@ import FormLabel from './label';
 import type { Group } from './power-select';
 
 interface Args<T> extends FormInputArgs {
-  options: (T | Group<T>)[];
+  options?: (T | Group<T>)[];
   selected: T[];
-  search?: (query: string) => T[];
+  search?: (query: string) => T[] | Promise<T[]>;
   searchField?: keyof T & string;
   matcher?: (value: T, query: string) => number;
   isClearable?: boolean;
   isDisabled?: boolean;
   verticalPosition?: 'auto' | 'above' | 'below';
   chooseLabel: string;
+  /** Shown while an async `search` is pending. */
+  loadingLabel?: string;
+  /** Shown when a search or the options match nothing. */
+  noResultsLabel?: string;
+  /** Shown before the reader types, when `search` is given and `options` are not. */
+  typeToSearchLabel?: string;
   onChange: (selected: T[]) => void;
   onCreate?: (query: string) => void;
 }
@@ -46,6 +52,7 @@ export default class FormPowerSelectMultiple<T> extends Component<
       <PowerSelectWithCreate
         @multiple={{true}}
         @options={{@options}}
+        {{! @glint-expect-error: typed as sync, but it resolves a promise like PowerSelect }}
         @search={{@search}}
         @selected={{@selected}}
         @disabled={{@isDisabled}}
@@ -54,6 +61,9 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @searchField={{@searchField}}
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
+        @loadingMessage={{@loadingLabel}}
+        @noMatchesMessage={{@noResultsLabel}}
+        @searchMessage={{@typeToSearchLabel}}
         @verticalPosition={{@verticalPosition}}
         @triggerId={{@id}}
         @showCreatePosition="bottom"
@@ -78,6 +88,9 @@ export default class FormPowerSelectMultiple<T> extends Component<
         @searchField={{@searchField}}
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
+        @loadingMessage={{@loadingLabel}}
+        @noMatchesMessage={{@noResultsLabel}}
+        @searchMessage={{@typeToSearchLabel}}
         @verticalPosition={{@verticalPosition}}
         @triggerId={{@id}}
         @onChange={{@onChange}}

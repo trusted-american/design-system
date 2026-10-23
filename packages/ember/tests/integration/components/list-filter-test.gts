@@ -2,7 +2,13 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { click, fillIn, render, select } from '@ember/test-helpers';
 import ListFilter from '@trusted-american/ember/components/list-filter';
-import { selectChoose, selectSearch } from 'ember-power-select/test-support';
+import {
+  clearSelected,
+  removeMultipleOption,
+  selectChoose,
+  selectSearch,
+} from 'ember-power-select/test-support';
+import { clickTrigger } from 'ember-power-select/test-support/helpers';
 import dayjs from 'dayjs';
 import { tracked } from '@glimmer/tracking';
 import type {
@@ -318,6 +324,324 @@ module('Integration | Component | list-filter', function (hooks) {
     await click('[data-test-clear]');
 
     assert.strictEqual(state.owner, undefined);
+  });
+
+  test('it clears a clearable predicate from its picker', async function (assert) {
+    class State {
+      @tracked status?: string = 'one';
+      @tracked owner?: string = 'u1';
+    }
+    const state = new State();
+
+    const predicates: Predicate[] = [
+      {
+        label: 'Status',
+        key: 'status',
+        value: state.status,
+        isClearable: true,
+        options: [
+          { value: 'one', label: 'One' },
+          { value: 'two', label: 'Two' },
+        ],
+      },
+      {
+        type: 'search',
+        label: 'Owner',
+        key: 'owner',
+        value: state.owner,
+        valueLabel: 'Ada Lovelace',
+        isClearable: true,
+        search: () => Promise.resolve([]),
+      },
+    ];
+
+    const onChange = (key: string, value: unknown) => {
+      state[key as keyof State] = value as never;
+    };
+
+    await render(
+      <template>
+        <ListFilter
+          @predicates={{predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @requiredLabel="Required"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @onChange={{onChange}}
+        />
+      </template>,
+    );
+
+    await clearSelected('[data-test-predicate-value]:nth-of-type(2)');
+    await clearSelected('[data-test-predicate-value]:nth-of-type(3)');
+    await click('[data-test-done]');
+
+    assert.strictEqual(state.status, undefined);
+    assert.strictEqual(state.owner, undefined);
+  });
+
+  test('it shows option avatars and descriptions', async function (assert) {
+    class State {
+      @tracked owner?: string = 'u1';
+    }
+    const state = new State();
+
+    const owners = [
+      {
+        value: 'u1',
+        label: 'Ada Lovelace',
+        description: 'ada@example.com',
+        avatar: { id: 'user-ada' },
+      },
+      {
+        value: 'u2',
+        label: 'Grace Hopper',
+        description: 'grace@example.com',
+        avatar: { id: 'user-grace', url: '/grace.png' },
+      },
+    ];
+
+    const predicates: Predicate[] = [
+      {
+        type: 'search',
+        label: 'Owner',
+        key: 'owner',
+        value: state.owner,
+        valueLabel: 'Ada Lovelace',
+        valueDescription: 'ada@example.com',
+        valueAvatar: { id: 'user-ada' },
+        search: (query: string) =>
+          Promise.resolve(owners.filter(({ label }) => label.includes(query))),
+      },
+    ];
+
+    const onChange = (key: string, value: unknown) => {
+      state[key as keyof State] = value as never;
+    };
+
+    await render(
+      <template>
+        <ListFilter
+          @predicates={{predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @requiredLabel="Required"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @onChange={{onChange}}
+        />
+      </template>,
+    );
+
+    // the preset keeps the avatar and second line its option had
+    assert
+      .dom('.ember-power-select-selected-item [data-test-avatar]')
+      .hasAttribute('alt', 'Ada Lovelace');
+    assert
+      .dom(
+        '.ember-power-select-selected-item [data-test-list-filter-option-description]',
+      )
+      .hasText('ada@example.com');
+
+    await selectSearch(
+      '[data-test-predicate-value] [data-test-form-power-select]',
+      'Grace',
+    );
+
+    assert
+      .dom('.ember-power-select-option [data-test-avatar]')
+      .hasAttribute('src', '/grace.png');
+    assert
+      .dom(
+        '.ember-power-select-option [data-test-list-filter-option-description]',
+      )
+      .hasText('grace@example.com');
+
+    await selectChoose(
+      '[data-test-predicate-value] [data-test-form-power-select]',
+      'Grace Hopper',
+    );
+    await click('[data-test-done]');
+
+    assert.strictEqual(state.owner, 'u2');
+  });
+
+  test('it works with multiple search predicates', async function (assert) {
+    class State {
+      @tracked owners: string[] = ['u1', 'u9'];
+    }
+    const state = new State();
+
+    const owners = [
+      { value: 'u1', label: 'Ada Lovelace' },
+      { value: 'u2', label: 'Grace Hopper' },
+    ];
+
+    const predicates: Predicate[] = [
+      {
+        type: 'search',
+        isMultiple: true,
+        label: 'Owners',
+        key: 'owners',
+        value: state.owners,
+        // u9 has no option, so it reads as its id
+        valueOptions: [{ value: 'u1', label: 'Ada Lovelace' }],
+        search: (query: string) =>
+          Promise.resolve(owners.filter(({ label }) => label.includes(query))),
+      },
+    ];
+
+    const onChange = (key: string, value: unknown) => {
+      state[key as keyof State] = value as never;
+    };
+
+    await render(
+      <template>
+        <ListFilter
+          @predicates={{predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @requiredLabel="Required"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @onChange={{onChange}}
+        />
+      </template>,
+    );
+
+    assert.dom('.ember-power-select-multiple-option').exists({ count: 2 });
+    assert
+      .dom('.ember-power-select-multiple-option:nth-of-type(1)')
+      .includesText('Ada Lovelace');
+    assert
+      .dom('.ember-power-select-multiple-option:nth-of-type(2)')
+      .includesText('u9');
+
+    await removeMultipleOption('[data-test-predicate-value]', 'u9');
+    await selectSearch(
+      '[data-test-predicate-value] [data-test-form-power-select-multiple]',
+      'Grace',
+    );
+    await selectChoose(
+      '[data-test-predicate-value] [data-test-form-power-select-multiple]',
+      'Grace Hopper',
+    );
+    await click('[data-test-done]');
+
+    assert.deepEqual(state.owners, ['u1', 'u2']);
+
+    await click('[data-test-clear]');
+
+    assert.deepEqual(state.owners, []);
+  });
+
+  test('it shows the search messages it is given', async function (assert) {
+    const predicates: Predicate[] = [
+      {
+        type: 'search',
+        label: 'Owner',
+        key: 'owner',
+        value: undefined,
+        search: () => Promise.resolve([]),
+      },
+    ];
+
+    // only the messages are under test, never the value
+    const onChange = () => undefined;
+
+    await render(
+      <template>
+        <ListFilter
+          @predicates={{predicates}}
+          @label="Filter"
+          @clearLabel="Clear"
+          @doneLabel="Done"
+          @modeLabel="Mode"
+          @inTheLastLabel="is in the last"
+          @equalsLabel="is equal to"
+          @betweenLabel="is between"
+          @isAfterLabel="is after"
+          @isAfterOrOnLabel="is on or after"
+          @isBeforeLabel="is before"
+          @isBeforeOrOnLabel="is before or on"
+          @valueLabel="Value"
+          @valueALabel="Value A"
+          @valueBLabel="Value B"
+          @andLabel="and"
+          @daysLabel="Days"
+          @monthsLabel="Months"
+          @requiredLabel="Required"
+          @chooseLabel="Choose…"
+          @searchLabel="Search…"
+          @loadingLabel="Cargando…"
+          @noResultsLabel="Sin resultados"
+          @typeToSearchLabel="Escribe para buscar"
+          @onChange={{onChange}}
+        />
+      </template>,
+    );
+
+    await click('[data-test-predicate-toggle]');
+    await clickTrigger('[data-test-predicate-value]');
+
+    assert
+      .dom('.ember-power-select-option--search-message')
+      .hasText('Escribe para buscar');
+
+    await selectSearch(
+      '[data-test-predicate-value] [data-test-form-power-select]',
+      'nobody',
+    );
+
+    assert
+      .dom('.ember-power-select-option--no-matches-message')
+      .hasText('Sin resultados');
   });
 
   test('it works with date predicates', async function (assert) {

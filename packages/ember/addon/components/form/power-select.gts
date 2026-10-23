@@ -21,6 +21,12 @@ interface Args<T> extends FormInputArgs {
   isDisabled?: boolean;
   verticalPosition?: 'auto' | 'above' | 'below';
   chooseLabel: string;
+  /** Shown while an async `search` is pending. */
+  loadingLabel?: string;
+  /** Shown when a search or the options match nothing. */
+  noResultsLabel?: string;
+  /** Shown before the reader types, when `search` is given and `options` are not. */
+  typeToSearchLabel?: string;
   searchLabel: string;
   onChange: (selected: T) => void;
   onCreate?: (query: string) => void;
@@ -69,6 +75,9 @@ export default class FormPowerSelect<T> extends Component<
         @searchPlaceholder={{@searchLabel}}
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
+        @loadingMessage={{@loadingLabel}}
+        @noMatchesMessage={{@noResultsLabel}}
+        @searchMessage={{@typeToSearchLabel}}
         @verticalPosition={{@verticalPosition}}
         @triggerId={{@id}}
         @showCreatePosition="bottom"
@@ -93,6 +102,9 @@ export default class FormPowerSelect<T> extends Component<
         @searchPlaceholder={{@searchLabel}}
         @matcher={{@matcher}}
         @allowClear={{@isClearable}}
+        @loadingMessage={{@loadingLabel}}
+        @noMatchesMessage={{@noResultsLabel}}
+        @searchMessage={{@typeToSearchLabel}}
         @verticalPosition={{@verticalPosition}}
         @triggerId={{@id}}
         @onChange={{@onChange}}
